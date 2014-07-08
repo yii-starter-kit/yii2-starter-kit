@@ -1,0 +1,56 @@
+{
+    "author": "Eugine Terentev <eugine@terentev.net>",
+	"name": "eugine-terentev/yii2-starter-kit",
+	"description": "Yii 2 Starter Kit Application Template",
+	"keywords": ["yii2", "framework", "start", "application template"],
+	"type": "project",
+	"license": "BSD-3-Clause",
+	"support": {
+		"issues": "https://github.com/yiisoft/yii2/issues?state=open",
+		"forum": "http://www.yiiframework.com/forum/",
+		"wiki": "http://www.yiiframework.com/wiki/",
+		"irc": "irc://irc.freenode.net/yii",
+		"source": "https://github.com/yiisoft/yii2"
+	},
+	"minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4.0",
+        "ext-intl": "*",
+        "ext-mcrypt": "*",
+		"yiisoft/yii2": "*",
+		"yiisoft/yii2-bootstrap": "*",
+		"yiisoft/yii2-swiftmailer": "*",
+		"asofter/yii2-imperavi-redactor": "*",
+		"mihaildev/yii2-elfinder": "*",
+		"yiisoft/yii2-jui": "*"
+	},
+	"require-dev": {
+		"yiisoft/yii2-codeception": "*",
+		"yiisoft/yii2-debug": "*",
+		"yiisoft/yii2-gii": "*"
+	},
+	"suggest": {
+		"codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
+		"codeception/specify": "BDD style code blocks for PHPUnit and Codeception",
+		"codeception/verify": "BDD Assertions for PHPUnit and Codeception"
+	},
+	"scripts": {
+		"post-create-project-cmd": [
+			"yii\\composer\\Installer::setPermission",
+            "bower installs"
+		]
+	},
+	"config": {
+		"process-timeout": 1800
+	},
+	"extra": {
+		"writable": [
+			"app/runtime",
+			"web/assets",
+            "web/uploads"
+		],
+		"executable": [
+			"environments/local/yii"
+		]
+	}
+}

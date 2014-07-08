@@ -1,0 +1,31 @@
+# Application
+/app/runtime
+/web/assets
+/web/uploads
+
+# bower vendor dir
+/web/vendor
+
+# composer vendor dir
+/vendor
+
+# IDE
+.idea
+nbproject
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml

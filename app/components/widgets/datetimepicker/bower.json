@@ -1,0 +1,12 @@
+{
+  "name": "bootstrap-datetimepicker",
+  "version": "0.0.0",
+  "authors": [
+    "Eugine Terentev <eugine@terentev.net>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "~3.0.0"
+  }
+}

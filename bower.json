@@ -1,0 +1,23 @@
+{
+  "name": "yii2-starter-kit",
+  "version": "0.0.0",
+  "authors": [
+    "Eugine Terentev <eugine@terentev.net>"
+  ],
+  "description": "yii2 starter kit",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "~4.1.0",
+    "respond": "~1.4.2",
+    "html5shiv": "~3.7.2",
+    "ionicons": "~1.5.2"
+  }
+}

@@ -13,13 +13,12 @@ INSTALLATION
 
 ### Install from an Archive File
 
-Extract the archive file downloaded from [yiiframework.com](http://www.yiiframework.com/download/) to
-a directory named `basic` that is directly under the Web root.
+Extract the github archive file to a directory named `yii2-starter-kit` that is directly under the Web root.
 
 You can then access the application through the following URL:
 
 ~~~
-http://localhost/basic/web/
+http://localhost/yii2-starter-kit/web/
 ~~~
 
 
@@ -34,7 +33,7 @@ You can then install this application template using the following command:
 php composer.phar create-project --prefer-dist --stability=dev eugine-terentev/yii2-starter-kit
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `basic` is the directory
+Now you should be able to access the application through the following URL, assuming `yii2-starter-kit` is the directory
 directly under the Web root.
 
 ~~~

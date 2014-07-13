@@ -16,18 +16,28 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
+    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
+        \app\models\ArticleCategory::find()->where(['status'=>\app\models\ArticleCategory::STATUS_ACTIVE])->all(),
+        'id',
+        'title'
+    ), ['prompt'=>'']) ?>
+
     <?= $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
         [
             'plugins' => ['fullscreen'],
             'options'=>[
                 'minHeight'=>400,
-                'maxHeight'=>400
+                'maxHeight'=>400,
+                'toolbarFixed'=>true,
+                'convertDivs'=>false,
+                'removeEmptyTags'=>false,
+                'imageUpload'=>Yii::$app->urlManager->createUrl(['/manager/file-manager/upload-imperavi'])
             ]
         ]
     ) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->checkbox() ?>
 
     <?= $form->field($model, 'published_at')->widget(\app\components\widgets\datetimepicker\Widget::className()) ?>
 

@@ -22,7 +22,8 @@
 		"yiisoft/yii2-swiftmailer": "*",
 		"asofter/yii2-imperavi-redactor": "*",
 		"mihaildev/yii2-elfinder": "*",
-		"yiisoft/yii2-jui": "*"
+		"yiisoft/yii2-jui": "*",
+        "yiisoft/yii2-imagine": "*"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",
@@ -32,12 +33,13 @@
 	"suggest": {
 		"codeception/codeception": "Codeception, 1.8.*@dev is currently works well with Yii.",
 		"codeception/specify": "BDD style code blocks for PHPUnit and Codeception",
-		"codeception/verify": "BDD Assertions for PHPUnit and Codeception"
+		"codeception/verify": "BDD Assertions for PHPUnit and Codeception",
+        "ext-gmagick": "Gmagick PHP Extension"
 	},
 	"scripts": {
 		"post-create-project-cmd": [
 			"yii\\composer\\Installer::setPermission",
-            "bower installs"
+            "bower install"
 		]
 	},
 	"config": {

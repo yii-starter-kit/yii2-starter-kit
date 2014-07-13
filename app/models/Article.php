@@ -6,6 +6,7 @@ use app\components\behaviors\MysqlTimestampBehavior;
 use app\models\query\ArticleQuery;
 use Yii;
 use yii\db\Expression;
+use yii\helpers\Inflector;
 
 /**
  * This is the model class for table "article".
@@ -15,17 +16,19 @@ use yii\db\Expression;
  * @property string $title
  * @property string $body
  * @property integer $user_id
+ * @property integer $category_id
  * @property integer $status
  * @property integer $published_at
  * @property integer $created_at
  * @property integer $updated_at
  *
  * @property User $user
+ * @property ArticleCategory $category
  */
 class Article extends \yii\db\ActiveRecord
 {
-    const STATUS_PUBLISHED = 0;
-    const STATUS_DRAFT = 1;
+    const STATUS_PUBLISHED = 1;
+    const STATUS_DRAFT = 0;
 
     /**
      * @inheritdoc
@@ -56,9 +59,14 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'title', 'body'], 'required'],
+            [['title', 'body'], 'required'],
+            [['alias'], 'default', 'value'=>function($model, $attribute){
+                return Inflector::slug($model->$attribute);
+            }],
+            [['alias'], 'unique'],
             [['body'], 'string'],
             [['published_at'], 'default', 'value'=>new Expression('NOW()')],
+            [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
             [['user_id'], 'default', 'value'=>Yii::$app->user->id],
             [['user_id', 'status'], 'integer'],
             [['alias'], 'string', 'max' => 1024],
@@ -77,6 +85,7 @@ class Article extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Title'),
             'body' => Yii::t('app', 'Body'),
             'user_id' => Yii::t('app', 'User ID'),
+            'category_id' => Yii::t('app', 'Category'),
             'status' => Yii::t('app', 'Status'),
             'published_at' => Yii::t('app', 'Published At'),
             'created_at' => Yii::t('app', 'Created At'),
@@ -90,5 +99,13 @@ class Article extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
     }
 }

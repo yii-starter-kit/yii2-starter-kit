@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0ca55b4d79734b37d4bfda4a200722d",
+    "hash": "44afe561182feef4abcd2befc36c13bd",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asofter/yii2-imperavi-redactor.git",
-                "reference": "2be7910fefbec4cae3792f6547f394e27bd01bdf"
+                "reference": "e979c07713ab4023a29bc688a0b40eea7558e651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/2be7910fefbec4cae3792f6547f394e27bd01bdf",
-                "reference": "2be7910fefbec4cae3792f6547f394e27bd01bdf",
+                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/e979c07713ab4023a29bc688a0b40eea7558e651",
+                "reference": "e979c07713ab4023a29bc688a0b40eea7558e651",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "imperavi redactor",
                 "yii"
             ],
-            "time": "2014-03-24 13:09:51"
+            "time": "2014-07-07 20:11:55"
         },
         {
             "name": "cebe/markdown",
@@ -164,6 +164,58 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "imagine/imagine",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2013-07-10 17:25:36"
+        },
+        {
             "name": "mihaildev/yii2-elfinder",
             "version": "dev-master",
             "source": {
@@ -267,12 +319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a34e52de4d5c95b4c1db448c298ce1ee9d8414c4"
+                "reference": "2c540b7e330eb2e8ecedfd7d62fb603f96ee39db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a34e52de4d5c95b4c1db448c298ce1ee9d8414c4",
-                "reference": "a34e52de4d5c95b4c1db448c298ce1ee9d8414c4",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/2c540b7e330eb2e8ecedfd7d62fb603f96ee39db",
+                "reference": "2c540b7e330eb2e8ecedfd7d62fb603f96ee39db",
                 "shasum": ""
             },
             "replace": {
@@ -310,7 +362,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-06 07:36:52"
+            "time": "2014-07-13 07:08:25"
         },
         {
             "name": "yiisoft/jquery",
@@ -367,12 +419,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "b978ac1ff96745063e0ab08a48ce429dbc51477e"
+                "reference": "65b914f41b42400bae2bef999c184cd8cc3565e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/b978ac1ff96745063e0ab08a48ce429dbc51477e",
-                "reference": "b978ac1ff96745063e0ab08a48ce429dbc51477e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/65b914f41b42400bae2bef999c184cd8cc3565e7",
+                "reference": "65b914f41b42400bae2bef999c184cd8cc3565e7",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +492,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-07-05 16:07:46"
+            "time": "2014-07-12 17:14:48"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -530,6 +582,51 @@
                 "yii2"
             ],
             "time": "2014-07-03 12:33:09"
+        },
+        {
+            "name": "yiisoft/yii2-imagine",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-imagine.git",
+                "reference": "c75cc0ef1a1f6b75e879f9d7a8bf6c2794c699ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/c75cc0ef1a1f6b75e879f9d7a8bf6c2794c699ec",
+                "reference": "c75cc0ef1a1f6b75e879f9d7a8bf6c2794c699ec",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "v0.5.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii\\imagine\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "amigo.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com",
+                    "role": "Founder and development"
+                }
+            ],
+            "description": "The Imagine integration for the Yii framework",
+            "keywords": [
+                "helper",
+                "image",
+                "imagine",
+                "yii2"
+            ],
+            "time": "2014-06-23 21:03:09"
         },
         {
             "name": "yiisoft/yii2-jui",
@@ -746,12 +843,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "a92ac554441f95de213cada838b51506c3853117"
+                "reference": "b42d638192bb9b4b7d7e73e747dfcda9db4d9985"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/a92ac554441f95de213cada838b51506c3853117",
-                "reference": "a92ac554441f95de213cada838b51506c3853117",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/b42d638192bb9b4b7d7e73e747dfcda9db4d9985",
+                "reference": "b42d638192bb9b4b7d7e73e747dfcda9db4d9985",
                 "shasum": ""
             },
             "require": {
@@ -783,7 +880,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-06-27 16:38:03"
+            "time": "2014-07-09 23:54:30"
         }
     ],
     "aliases": [

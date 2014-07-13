@@ -31,6 +31,7 @@ class User extends ActiveRecord implements IdentityInterface
     const ROLE_USER = 1;
     const ROLE_MANAGER = 2;
     const ROLE_ADMINISTRATOR = 10;
+
     /**
      * @inheritdoc
      */
@@ -55,11 +56,12 @@ class User extends ActiveRecord implements IdentityInterface
      public function rules()
      {
          return [
+             [['username', 'email'], 'unique'],
              ['status', 'default', 'value' => self::STATUS_ACTIVE],
              ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 
              ['role', 'default', 'value' => self::ROLE_USER],
-             ['role', 'in', 'range' => [self::ROLE_USER]],
+             ['role', 'in', 'range' => [self::ROLE_USER, self::ROLE_MANAGER, self::ROLE_ADMINISTRATOR]],
          ];
      }
 

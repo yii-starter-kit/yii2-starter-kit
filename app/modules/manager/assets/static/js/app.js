@@ -124,16 +124,6 @@ $(function() {
     //Fix the fixed layout sidebar scroll bug
     fix_sidebar();
 
-    /*
-     * We are gonna initialize all checkbox and radio inputs to 
-     * iCheck plugin in.
-     * You can find the documentation at http://fronteed.com/iCheck/
-     */
-    $("input[type='checkbox'], input[type='radio']").iCheck({
-        checkboxClass: 'icheckbox_minimal',
-        radioClass: 'iradio_minimal'
-    });
-
 });
 function fix_sidebar() {
     //Make sure the body tag has the .fixed class
@@ -147,15 +137,7 @@ function fix_sidebar() {
         color: "rgba(0,0,0,0.2)"
     });
 }
-function change_layout() {
-    $("body").toggleClass("fixed");
-    fix_sidebar();
-}
-function change_skin(cls) {
-    $("body").removeClass("skin-blue skin-black");
-    $("body").addClass(cls);
-}
-/*END DEMO*/
+
 $(window).load(function() {
     /*! pace 0.4.17 */
     (function() {

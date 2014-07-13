@@ -4,6 +4,10 @@ $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
 
+    <?= \app\components\widgets\carousel\Widget::widget([
+        'alias'=>'carousel'
+    ]) ?>
+
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 

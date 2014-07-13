@@ -54,6 +54,18 @@ return [
             ],
         ],
 
+        'storage'=>[
+            'class'=>'app\components\storage\Component',
+            'targets'=>[
+                'fs'=>[
+                    'class'=>'app\components\storage\target\FsTarget',
+                    'basePath'=>'@webroot/uploads',
+                    'baseUrl'=>'@web/uploads',
+                ]
+            ],
+
+        ],
+
         'urlManager'=>[
             'class'=>'yii\web\UrlManager',
             'enablePrettyUrl'=>true,

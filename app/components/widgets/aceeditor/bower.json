@@ -1,0 +1,13 @@
+{
+  "name": "yii2-aceeditor",
+  "version": "0.0.0",
+  "homepage": "https://github.com/eugine-terentev/yii2-starter-kit",
+  "authors": [
+    "Eugine Terentev <eugine@terentev.net>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "ace-builds": "~1.1.5"
+  }
+}

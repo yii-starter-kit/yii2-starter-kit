@@ -8,10 +8,13 @@
 
 namespace app\components\behaviors;
 
-
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 
+/**
+ * Class MysqlTimestampBehavior
+ * @package app\components\behaviors
+ */
 class MysqlTimestampBehavior extends TimestampBehavior{
 
     /**

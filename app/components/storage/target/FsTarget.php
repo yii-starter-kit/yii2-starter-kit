@@ -77,6 +77,7 @@ class FsTarget extends Target{
         $basename = $this->getDirIndex().'/'.$name;
         if(rename($file->path, $this->basePath.'/'.$basename)){
             $file->is_stored = true;
+            $file->path = $this->basePath.'/'.$basename;
             $file->url = $this->baseUrl.'/'.$basename;
         } else {
             $file->error = true;

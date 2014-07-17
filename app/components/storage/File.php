@@ -14,18 +14,52 @@ use yii\base\Object;
 use yii\validators\UrlValidator;
 use yii\web\UploadedFile;
 
+/**
+ * Class File
+ * @package app\components\storage
+ */
 class File extends Object{
 
+    /**
+     * @var bool is file stored flag
+     */
     public $is_stored = false;
 
+    /**
+     * @var filename
+     */
     public $name;
+
+    /**
+     * @var file extension
+     */
     public $extension;
 
+    /**
+     * @var file path
+     */
     private $_path;
+
+    /**
+     * @var file web accessible address
+     */
     private $_url;
+
+    /**
+     * @var filesize
+     */
     private $_size;
+
+    /**
+     * @var error container
+     */
     private $_error;
 
+    /**
+     * @param $file
+     * @return object
+     * @throws \yii\base\InvalidConfigException
+     */
     public static function load($file){
 
         // UploadedFile
@@ -57,6 +91,9 @@ class File extends Object{
         ]);
     }
 
+    /**
+     * Init component
+     */
     public function init(){
         $this->_size = filesize($this->getPath());
         if(!$this->name){
@@ -64,32 +101,45 @@ class File extends Object{
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function getUrl(){
         return $this->_url;
     }
 
+    /**
+     * @return mixed
+     */
     public function getPath(){
         return $this->_path;
     }
 
+    /**
+     * @return mixed
+     */
     public function getSize(){
         return $this->_size;
     }
 
+    /**
+     * @return mixed
+     */
     public function getError(){
         return $this->_error;
     }
 
+    /**
+     * @param $path
+     */
     public function setPath($path){
-        if($this->_path) throw new InvalidCallException(
-            get_class($this) . '::path already set'
-        );
         $this->_path = $path;
     }
+
+    /**
+     * @param $url
+     */
     public function setUrl($url){
-        if($this->_url) throw new InvalidCallException(
-            get_class($this) . '::url already set'
-        );
         $this->_url = $url;
     }
 } 

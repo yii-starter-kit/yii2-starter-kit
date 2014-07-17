@@ -14,6 +14,6 @@ class Widget extends \yii\base\Widget{
     public $alias;
     public function run(){
         $block =  WidgetText::findOne(['alias'=>$this->alias]);
-        echo $block ? $block->text : '';
+        echo $block ? $block->body : '';
     }
 } 

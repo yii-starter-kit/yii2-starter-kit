@@ -1,6 +1,6 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = Yii::t('manager', 'File Manager')
+$this->title = Yii::t('backend', 'File Manager')
 ?>
 
 <div class="row">

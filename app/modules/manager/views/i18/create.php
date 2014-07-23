@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\manager\models\I18Message */
 
-$this->title = Yii::t('app', 'Create {modelClass}', [
+$this->title = Yii::t('common', 'Create {modelClass}', [
     'modelClass' => 'I18 Message',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'I18 Messages'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'I18 Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="i18-message-create">

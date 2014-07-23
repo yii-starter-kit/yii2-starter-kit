@@ -58,11 +58,11 @@ class Page extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'alias' => Yii::t('app', 'Alias'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
-            'status' => Yii::t('app', 'Status'),
+            'id' => Yii::t('common', 'ID'),
+            'alias' => Yii::t('common', 'Alias'),
+            'title' => Yii::t('common', 'Title'),
+            'body' => Yii::t('common', 'Body'),
+            'status' => Yii::t('common', 'Status'),
         ];
     }
 }

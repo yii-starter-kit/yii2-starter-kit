@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\manager\models\search\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Articles');
+$this->title = Yii::t('common', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
+        <?= Html::a(Yii::t('common', 'Create {modelClass}', [
     'modelClass' => 'Article',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>

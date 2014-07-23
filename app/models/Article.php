@@ -80,16 +80,16 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'alias' => Yii::t('app', 'Alias'),
-            'title' => Yii::t('app', 'Title'),
-            'body' => Yii::t('app', 'Body'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'category_id' => Yii::t('app', 'Category'),
-            'status' => Yii::t('app', 'Status'),
-            'published_at' => Yii::t('app', 'Published At'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id' => Yii::t('common', 'ID'),
+            'alias' => Yii::t('common', 'Alias'),
+            'title' => Yii::t('common', 'Title'),
+            'body' => Yii::t('common', 'Body'),
+            'user_id' => Yii::t('common', 'User ID'),
+            'category_id' => Yii::t('common', 'Category'),
+            'status' => Yii::t('common', 'Status'),
+            'published_at' => Yii::t('common', 'Published At'),
+            'created_at' => Yii::t('common', 'Created At'),
+            'updated_at' => Yii::t('common', 'Updated At'),
         ];
     }
 

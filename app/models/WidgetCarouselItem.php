@@ -59,13 +59,13 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'carousel_id' => Yii::t('app', 'Carousel ID'),
-            'path' => Yii::t('app', 'Path'),
-            'url' => Yii::t('app', 'Url'),
-            'caption' => Yii::t('app', 'Caption'),
-            'status' => Yii::t('app', 'Status'),
-            'order' => Yii::t('app', 'Order'),
+            'id' => Yii::t('common', 'ID'),
+            'carousel_id' => Yii::t('common', 'Carousel ID'),
+            'path' => Yii::t('common', 'Path'),
+            'url' => Yii::t('common', 'Url'),
+            'caption' => Yii::t('common', 'Caption'),
+            'status' => Yii::t('common', 'Status'),
+            'order' => Yii::t('common', 'Order'),
         ];
     }
 

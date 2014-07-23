@@ -3,7 +3,7 @@
  * @var $this yii\web\View
  * @var $model app\models\Article
  */
-$this->title = Yii::t('app', 'Articles')
+$this->title = Yii::t('common', 'Articles')
 ?>
 <div class="row">
     <div class="col-xs-12">

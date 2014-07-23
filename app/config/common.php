@@ -4,7 +4,8 @@ return [
     'basePath' => dirname(__DIR__),
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
     'extensions' => require(dirname(__DIR__) . '/../vendor/yiisoft/extensions.php'),
-    'language'=>'en',
+    'sourceLanguage'=>'en-US',
+    'language'=>'en-US',
     'components' => [
 
         'assetsManager'=>[
@@ -45,7 +46,19 @@ return [
 
         'i18n' => [
             'translations' => [
-                '*' => [
+                'common' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceMessageTable'=>'{{%i18_source_message}}',
+                    'messageTable'=>'{{%i18_message}}',
+                    'cachingDuration'=>60
+                ],
+                'backend' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceMessageTable'=>'{{%i18_source_message}}',
+                    'messageTable'=>'{{%i18_message}}',
+                    'cachingDuration'=>60
+                ],
+                'frontend' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18_source_message}}',
                     'messageTable'=>'{{%i18_message}}',
@@ -54,6 +67,9 @@ return [
             ],
         ],
 
+        'request'=>[
+            'cookieValidationKey'=>md5('yii2-starter-kit')
+        ],
         'storage'=>[
             'class'=>'app\components\storage\Component',
             'targets'=>[

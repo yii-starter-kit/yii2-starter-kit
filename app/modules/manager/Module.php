@@ -14,7 +14,7 @@ class Module extends \yii\base\Module
         if(!\Yii::$app->user->can('manager')){
             throw new ForbiddenHttpException;
         }
-        \Yii::$app->view->title = \Yii::t('dashboard', 'Dashboard');
+        \Yii::$app->view->title = \Yii::t('backend', 'Dashboard');
         parent::init();
 
         // custom initialization code goes here

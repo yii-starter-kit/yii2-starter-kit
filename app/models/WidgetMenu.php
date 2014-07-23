@@ -48,11 +48,11 @@ class WidgetMenu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'alias' => Yii::t('app', 'Alias'),
-            'title' => Yii::t('app', 'Title'),
-            'config' => Yii::t('app', 'Config'),
-            'status' => Yii::t('app', 'Status'),
+            'id' => Yii::t('common', 'ID'),
+            'alias' => Yii::t('common', 'Alias'),
+            'title' => Yii::t('common', 'Title'),
+            'config' => Yii::t('common', 'Config'),
+            'status' => Yii::t('common', 'Status'),
         ];
     }
 

@@ -41,9 +41,9 @@ class I18SourceMessage extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'category' => Yii::t('app', 'Category'),
-            'message' => Yii::t('app', 'Message'),
+            'id' => Yii::t('common', 'ID'),
+            'category' => Yii::t('common', 'Category'),
+            'message' => Yii::t('common', 'Message'),
         ];
     }
 

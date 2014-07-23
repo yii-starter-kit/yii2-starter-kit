@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\modules\manager\models\search\I18MessageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'I18 Messages');
+$this->title = Yii::t('common', 'I18 Messages');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="i18-message-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
+        <?= Html::a(Yii::t('common', 'Create {modelClass}', [
     'modelClass' => 'I18 Message',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>

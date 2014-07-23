@@ -42,9 +42,9 @@ class WidgetCarousel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'alias' => Yii::t('app', 'Alias'),
-            'status' => Yii::t('app', 'Active'),
+            'id' => Yii::t('common', 'ID'),
+            'alias' => Yii::t('common', 'Alias'),
+            'status' => Yii::t('common', 'Active'),
         ];
     }
 

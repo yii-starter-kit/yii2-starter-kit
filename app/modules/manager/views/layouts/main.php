@@ -40,7 +40,7 @@ use yii\widgets\Breadcrumbs;
 <nav class="navbar navbar-static-top" role="navigation">
 <!-- Sidebar toggle button-->
 <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
-    <span class="sr-only"><?= Yii::t('dashboard', 'Toggle navigation') ?></span>
+    <span class="sr-only"><?= Yii::t('backend', 'Toggle navigation') ?></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
@@ -132,7 +132,7 @@ use yii\widgets\Breadcrumbs;
         </span>
     </a>
     <ul class="dropdown-menu">
-        <li class="header"><?= Yii::t('manager', 'You have {num} log items', ['num'=>\app\modules\manager\models\SystemLog::find()->count()]) ?></li>
+        <li class="header"><?= Yii::t('backend', 'You have {num} log items', ['num'=>\app\modules\manager\models\SystemLog::find()->count()]) ?></li>
         <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
@@ -165,7 +165,7 @@ use yii\widgets\Breadcrumbs;
             </ul>
         </li>
         <li class="footer">
-            <?= Html::a(Yii::t('manager', 'View all'), ['/manager/log']) ?>
+            <?= Html::a(Yii::t('backend', 'View all'), ['/manager/log']) ?>
         </li>
     </ul>
 </li>
@@ -183,7 +183,7 @@ use yii\widgets\Breadcrumbs;
             <p>
                 Jane Doe - Web Developer
                 <small>
-                    <?= Yii::t('dashboard', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                    <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                 </small>
             </p>
         </li>
@@ -205,7 +205,7 @@ use yii\widgets\Breadcrumbs;
                 <a href="#" class="btn btn-default btn-flat">Profile</a>
             </div>
             <div class="pull-right">
-                <?= Html::a(Yii::t('app', 'Logout'), ['/user/logout'], ['class'=>'btn btn-default btn-flat']) ?>
+                <?= Html::a(Yii::t('common', 'Logout'), ['/user/logout'], ['class'=>'btn btn-default btn-flat']) ?>
             </div>
         </li>
     </ul>
@@ -227,7 +227,7 @@ use yii\widgets\Breadcrumbs;
                 </div>
             <?php endif; ?>
             <div class="pull-left info">
-                <p><?= Yii::t('dashboard', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
+                <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
                 <a href="#">
                     <i class="fa fa-circle text-success"></i>
                     <?= Yii::$app->formatter->asTime(time()) ?>
@@ -251,29 +251,29 @@ use yii\widgets\Breadcrumbs;
             'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{badge}</a>',
             'submenuTemplate'=>"\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
             'items'=>[
-                ['label'=>Yii::t('dashboard', 'Dashboard'), 'url'=>['/manager']],
+                ['label'=>Yii::t('backend', 'Dashboard'), 'url'=>['/manager']],
                 [
-                    'label'=>Yii::t('dashboard', 'Content'),
+                    'label'=>Yii::t('backend', 'Content'),
                     'url'=>'#',
                     'options'=>['class'=>'treeview'],
                     'items'=>[
-                        ['label'=>Yii::t('dashboard', 'Static pages'), 'url'=>['/manager/page']],
-                        ['label'=>Yii::t('dashboard', 'Articles'), 'url'=>['/manager/article']],
-                        ['label'=>Yii::t('dashboard', 'Article Categories'), 'url'=>['/manager/article-category']],
-                        ['label'=>Yii::t('dashboard', 'Text Widgets'), 'url'=>['/manager/widget-text']],
-                        ['label'=>Yii::t('dashboard', 'Menu Widgets'), 'url'=>['/manager/widget-menu']],
-                        ['label'=>Yii::t('dashboard', 'Carousel Widgets'), 'url'=>['/manager/widget-carousel']],
+                        ['label'=>Yii::t('backend', 'Static pages'), 'url'=>['/manager/page']],
+                        ['label'=>Yii::t('backend', 'Articles'), 'url'=>['/manager/article']],
+                        ['label'=>Yii::t('backend', 'Article Categories'), 'url'=>['/manager/article-category']],
+                        ['label'=>Yii::t('backend', 'Text Widgets'), 'url'=>['/manager/widget-text']],
+                        ['label'=>Yii::t('backend', 'Menu Widgets'), 'url'=>['/manager/widget-menu']],
+                        ['label'=>Yii::t('backend', 'Carousel Widgets'), 'url'=>['/manager/widget-carousel']],
                     ]
                 ],
-                ['label'=>Yii::t('dashboard', 'Users'), 'url'=>['/manager/user']],
+                ['label'=>Yii::t('backend', 'Users'), 'url'=>['/manager/user']],
                 [
-                    'label'=>Yii::t('dashboard', 'System'),
+                    'label'=>Yii::t('backend', 'System'),
                     'url'=>'#',
                     'options'=>['class'=>'treeview'],
                     'items'=>[
-                        ['label'=>Yii::t('dashboard', 'File Manager'), 'url'=>['/manager/file-manager']],
+                        ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/manager/file-manager']],
                         [
-                            'label'=>Yii::t('dashboard', 'Logs'),
+                            'label'=>Yii::t('backend', 'Logs'),
                             'url'=>['/manager/log'],
                             'badge'=>\app\modules\manager\models\SystemLog::find()->count(),
                             'badgeBgClass'=>'bg-red'

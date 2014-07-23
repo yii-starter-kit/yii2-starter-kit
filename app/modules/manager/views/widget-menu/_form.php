@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
     <?= $form->field($model, 'config', ['enableClientValidation'=>false])->widget(
-        \app\components\widgets\aceeditor\Widget::className(),
+        trntv\aceeditor\Widget::className(),
         [
             'mode' => 'json',
 

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "44afe561182feef4abcd2befc36c13bd",
+    "hash": "1a27607ae96b99e3433002cf22743201",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asofter/yii2-imperavi-redactor.git",
-                "reference": "e979c07713ab4023a29bc688a0b40eea7558e651"
+                "reference": "65bd830926f2d397db0edf28f614da0ef2f27212"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/e979c07713ab4023a29bc688a0b40eea7558e651",
-                "reference": "e979c07713ab4023a29bc688a0b40eea7558e651",
+                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/65bd830926f2d397db0edf28f614da0ef2f27212",
+                "reference": "65bd830926f2d397db0edf28f614da0ef2f27212",
                 "shasum": ""
             },
             "require": {
@@ -36,19 +36,17 @@
             ],
             "authors": [
                 {
-                    "name": "Alexander Makarov",
-                    "email": "sam@rmcreative.ru",
-                    "homepage": "http://rmcreative.ru/",
-                    "role": "Core framework development"
+                    "name": "Alexander Yaremchuk",
+                    "email": "alwex10@gmail.com"
                 },
                 {
                     "name": "Veaceslav Medvedev",
-                    "email": "slavcopost@gmail.com",
-                    "role": "Founder and project lead"
+                    "email": "slavcopost@gmail.com"
                 },
                 {
-                    "name": "Alexander Yaremchuk",
-                    "email": "alwex10@gmail.com"
+                    "name": "Alexander Makarov",
+                    "email": "sam@rmcreative.ru",
+                    "homepage": "http://rmcreative.ru/"
                 }
             ],
             "description": "Imperavi Redactor WYSIWYG widget (OEM-licensed for Yii 2)",
@@ -57,7 +55,7 @@
                 "imperavi redactor",
                 "yii"
             ],
-            "time": "2014-07-07 20:11:55"
+            "time": "2014-07-23 06:33:01"
         },
         {
             "name": "cebe/markdown",
@@ -265,12 +263,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "1471619d856da006a4de443355d6339325b3f46e"
+                "reference": "e27c50e6f768aecbc46666994ccc9b2f77fd8ade"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/1471619d856da006a4de443355d6339325b3f46e",
-                "reference": "1471619d856da006a4de443355d6339325b3f46e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e27c50e6f768aecbc46666994ccc9b2f77fd8ade",
+                "reference": "e27c50e6f768aecbc46666994ccc9b2f77fd8ade",
                 "shasum": ""
             },
             "require": {
@@ -296,13 +294,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "name": "Chris Corbyn"
                 },
                 {
-                    "name": "Chris Corbyn"
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Swiftmailer, free feature-rich PHP mailer",
@@ -311,7 +307,48 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-07-03 13:54:59"
+            "time": "2014-07-22 15:44:41"
+        },
+        {
+            "name": "trntv/yii2-aceeditor",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/yii2-aceeditor.git",
+                "reference": "cc8fbe82aae71dc62f9279048a765de67ebc594d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/yii2-aceeditor/zipball/cc8fbe82aae71dc62f9279048a765de67ebc594d",
+                "reference": "cc8fbe82aae71dc62f9279048a765de67ebc594d",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "trntv\\aceeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugine Terentev",
+                    "email": "eugine@terentev.net"
+                }
+            ],
+            "description": "Yii2 ajax.org Ace Editor widget",
+            "keywords": [
+                "aceeditor",
+                "code editor",
+                "yii"
+            ],
+            "time": "2014-07-23 12:43:36"
         },
         {
             "name": "twbs/bootstrap",
@@ -319,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "2c540b7e330eb2e8ecedfd7d62fb603f96ee39db"
+                "reference": "36483af92c2d0be97aa86f16ffcf5f67abf2ed11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/2c540b7e330eb2e8ecedfd7d62fb603f96ee39db",
-                "reference": "2c540b7e330eb2e8ecedfd7d62fb603f96ee39db",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/36483af92c2d0be97aa86f16ffcf5f67abf2ed11",
+                "reference": "36483af92c2d0be97aa86f16ffcf5f67abf2ed11",
                 "shasum": ""
             },
             "replace": {
@@ -362,7 +399,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-13 07:08:25"
+            "time": "2014-07-22 05:48:38"
         },
         {
             "name": "yiisoft/jquery",
@@ -419,12 +456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "65b914f41b42400bae2bef999c184cd8cc3565e7"
+                "reference": "989f09d962b204cbc2bdd9ae3a7ba45a5d778df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/65b914f41b42400bae2bef999c184cd8cc3565e7",
-                "reference": "65b914f41b42400bae2bef999c184cd8cc3565e7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/989f09d962b204cbc2bdd9ae3a7ba45a5d778df7",
+                "reference": "989f09d962b204cbc2bdd9ae3a7ba45a5d778df7",
                 "shasum": ""
             },
             "require": {
@@ -492,7 +529,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-07-12 17:14:48"
+            "time": "2014-07-23 12:19:28"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -500,12 +537,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "5517eeac747ad628a79ed8b16f05ec1966ef1c12"
+                "reference": "b74f3b0d65f2650aac72a63c72db04e18e86a883"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/5517eeac747ad628a79ed8b16f05ec1966ef1c12",
-                "reference": "5517eeac747ad628a79ed8b16f05ec1966ef1c12",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b74f3b0d65f2650aac72a63c72db04e18e86a883",
+                "reference": "b74f3b0d65f2650aac72a63c72db04e18e86a883",
                 "shasum": ""
             },
             "require": {
@@ -525,9 +562,7 @@
             "authors": [
                 {
                     "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/",
-                    "role": "Founder and project lead"
+                    "email": "qiang.xue@gmail.com"
                 }
             ],
             "description": "The Twitter Bootstrap extension for the Yii framework",
@@ -535,7 +570,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-06-30 11:04:22"
+            "time": "2014-07-22 04:10:23"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -543,12 +578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "47dbc7c4a323086ba96dc4a9c3ff85c9f08d2615"
+                "reference": "e5614b13ee4c30c1e322aaf95855140580bc109a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/47dbc7c4a323086ba96dc4a9c3ff85c9f08d2615",
-                "reference": "47dbc7c4a323086ba96dc4a9c3ff85c9f08d2615",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/e5614b13ee4c30c1e322aaf95855140580bc109a",
+                "reference": "e5614b13ee4c30c1e322aaf95855140580bc109a",
                 "shasum": ""
             },
             "require": {
@@ -570,9 +605,7 @@
             "authors": [
                 {
                     "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/",
-                    "role": "Founder and project lead"
+                    "email": "qiang.xue@gmail.com"
                 }
             ],
             "description": "The composer plugin for Yii extension installer",
@@ -581,7 +614,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2014-07-03 12:33:09"
+            "time": "2014-07-19 19:39:03"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -843,12 +876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "b42d638192bb9b4b7d7e73e747dfcda9db4d9985"
+                "reference": "9cc98b70478336d734e74231dabd12a7e36d888d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/b42d638192bb9b4b7d7e73e747dfcda9db4d9985",
-                "reference": "b42d638192bb9b4b7d7e73e747dfcda9db4d9985",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/9cc98b70478336d734e74231dabd12a7e36d888d",
+                "reference": "9cc98b70478336d734e74231dabd12a7e36d888d",
                 "shasum": ""
             },
             "require": {
@@ -869,9 +902,7 @@
             "authors": [
                 {
                     "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/",
-                    "role": "Founder and project lead"
+                    "email": "qiang.xue@gmail.com"
                 }
             ],
             "description": "The Gii extension for the Yii framework",
@@ -880,7 +911,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-07-09 23:54:30"
+            "time": "2014-07-23 12:19:28"
         }
     ],
     "aliases": [

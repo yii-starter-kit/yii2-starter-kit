@@ -70,6 +70,7 @@ return [
         'request'=>[
             'cookieValidationKey'=>md5('yii2-starter-kit')
         ],
+
         'storage'=>[
             'class'=>'app\components\storage\Component',
             'targets'=>[

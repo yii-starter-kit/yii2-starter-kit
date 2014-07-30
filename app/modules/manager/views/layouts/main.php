@@ -161,11 +161,13 @@ use yii\widgets\Breadcrumbs;
     <ul class="dropdown-menu">
         <!-- User image -->
         <li class="user-header bg-light-blue">
-            <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+            <?php if(Yii::$app->user->identity->picture): ?>
+            <img src="<?php Yii::$app->user->identity->picture ?>" class="img-circle" alt="User Image" />
+            <?php endif; ?>
             <p>
-                Jane Doe - Web Developer
+                <?php Yii::$app->user->identity->username ?>
                 <small>
-                    <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                    <?= Yii::t('backend', 'Member since {0, date, short}', strtotime(Yii::$app->user->identity->created_at)) ?>
                 </small>
             </p>
         </li>

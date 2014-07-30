@@ -1,5 +1,5 @@
 <?php
-
+require('_aliases.php');
 return [
     'name'=>'Yii2 Starter Kit',
     'basePath' => dirname(__DIR__),
@@ -88,7 +88,7 @@ return [
             'class'=>'yii\web\UrlManager',
             'enablePrettyUrl'=>true,
             'showScriptName'=>false,
-            'rules'=>require('url_rules.php')
+            'rules'=> require('_urlRules.php')
         ],
     ],
     'params' => [

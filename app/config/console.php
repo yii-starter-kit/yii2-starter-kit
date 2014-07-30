@@ -1,11 +1,9 @@
 <?php
 
-Yii::setAlias('@tests', dirname(__DIR__) . '/tests');
-
-$common = require(__DIR__ . '/common.php');
+$base = require(__DIR__ . '/_base.php');
 
 return \yii\helpers\ArrayHelper::merge(
-    $common,
+    $base,
     [
         'id' => 'basic-console',
         'basePath' => dirname(__DIR__),

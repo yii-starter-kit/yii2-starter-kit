@@ -1,5 +1,5 @@
 <?php
-
+$base = require('_base.php');
 $config = [
     'id' => 'basic-web',
     'basePath' => dirname(__DIR__),
@@ -54,7 +54,6 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = 'yii\gii\Module';
 }
 
-$common = require('common.php');
-$config = yii\helpers\ArrayHelper::merge($common, $config);
+$config = yii\helpers\ArrayHelper::merge($base, $config);
 
 return $config;

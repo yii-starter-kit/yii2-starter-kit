@@ -6,7 +6,7 @@
  * Time: 10:30 AM
  */
 
-namespace app\components\widgets\text_block;
+namespace app\components\widgets\text;
 
 use app\models\WidgetText;
 

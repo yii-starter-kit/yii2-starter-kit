@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="text-block-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -30,10 +29,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'alias',
             'title',
-            'body:ntext',
             'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{update}{delete}'
+            ],
         ],
     ]); ?>
 

@@ -2,7 +2,6 @@
 
 $config = [
     'id' => 'basic-web',
-    'name'=>'Yii2 Starter Kit',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'modules'=>[

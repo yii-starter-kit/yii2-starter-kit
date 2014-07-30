@@ -763,6 +763,11 @@ body > .header .logo .icon {
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion.danger {
   background: #f56954;
 }
+.navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon.error,
+.navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa.error,
+.navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion.error {
+  background: #f56954;
+}
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon.warning,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa.warning,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion.warning {

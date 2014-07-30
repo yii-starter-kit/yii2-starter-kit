@@ -136,32 +136,14 @@ use yii\widgets\Breadcrumbs;
         <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-people info"></i> 5 new members joined today
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-warning danger"></i> Very long description here that may not fit into the page and may cause design problems
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-users warning"></i> 5 new members joined
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-cart success"></i> 25 sales made
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ion ion-ios7-person danger"></i> You changed your username
-                    </a>
-                </li>
+                <?php foreach(\app\modules\manager\models\SystemLog::find()->orderBy(['log_time'=>SORT_DESC])->limit(5)->all() as $logEntry): ?>
+                    <li>
+                        <a href="<?= Yii::$app->urlManager->createUrl(['/manager/log/view', 'id'=>$logEntry->id]) ?>">
+                            <i class="fa fa-warning <?= \yii\log\Logger::getLevelName($logEntry->level) ?>"></i>
+                            <?= $logEntry->category ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </li>
         <li class="footer">

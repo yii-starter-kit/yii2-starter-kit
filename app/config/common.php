@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'name'=>'Yii2 Starter Kit',
     'basePath' => dirname(__DIR__),
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
     'extensions' => require(dirname(__DIR__) . '/../vendor/yiisoft/extensions.php'),

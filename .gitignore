@@ -1,10 +1,6 @@
 # Application
-/app/runtime
-/web/assets
-/web/uploads
-
-# bower vendor dir
-/web/vendor
+/environments/*
+!/environments/local
 
 # composer vendor dir
 /vendor
@@ -29,6 +25,3 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
-
-#nginx.conf
-nginx.conf

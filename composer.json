@@ -48,9 +48,12 @@
 	},
 	"extra": {
 		"writable": [
-			"app/runtime",
-			"web/assets",
-            "web/uploads"
+			"frontend/runtime",
+			"backend/runtime",
+			"console/runtime",
+			"frontend/web/assets",
+			"backend/web/assets",
+            "storage"
 		],
 		"executable": [
 			"environments/local/yii"

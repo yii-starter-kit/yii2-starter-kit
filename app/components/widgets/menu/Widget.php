@@ -16,12 +16,14 @@ use yii\helpers\Url;
 
 class Widget extends \yii\widgets\Menu{
 
-    public $linkTemplate = "<a href=\"{url}\">\n{icon}\n{label}\n{badge}</a>";
+    public $linkTemplate = "<a href=\"{url}\">\n{icon}\n{label}\n{right-icon}\n{badge}</a>";
     public $labelTemplate = '{icon}\n{label}\n{badge}';
 
     public $badgeTag = 'small';
     public $badgeClass = 'badge pull-right';
     public $badgeBgClass = 'bg-green';
+
+    public $parentRightIcon = '<i class="fa fa-angle-left pull-right"></i>';
 
     /**
      * @inheritdoc
@@ -35,6 +37,9 @@ class Widget extends \yii\widgets\Menu{
             $item['badgeOptions']['class'] = $this->badgeClass.' '.$bg;
         }
 
+        if(isset($item['items']) && !isset($item['right-icon'])){
+            $item['right-icon'] = $this->parentRightIcon;
+        }
 
         if (isset($item['url'])) {
             $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
@@ -44,6 +49,7 @@ class Widget extends \yii\widgets\Menu{
                     ? Html::tag('small', $item['badge'], $item['badgeOptions'])
                     : '',
                 '{icon}'=>isset($item['icon']) ? $item['icon'] : '',
+                '{right-icon}'=>isset($item['right-icon']) ? $item['right-icon'] : '',
                 '{url}' => Url::to($item['url']),
                 '{label}' => $item['label'],
             ]);
@@ -55,6 +61,7 @@ class Widget extends \yii\widgets\Menu{
                     ? Html::tag('small', $item['badge'], $item['badgeOptions'])
                     : '',
                 '{icon}'=>isset($item['icon']) ? $item['icon'] : '',
+                '{right-icon}'=>isset($item['right-icon']) ? $item['right-icon'] : '',
                 '{label}' => $item['label'],
             ]);
         }

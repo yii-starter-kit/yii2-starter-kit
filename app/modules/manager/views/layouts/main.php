@@ -169,7 +169,6 @@ use yii\widgets\Breadcrumbs;
                 <small>
                     <?= Yii::t('backend', 'Member since {0, date, short}', strtotime(Yii::$app->user->identity->created_at)) ?>
                 </small>
-            </p>
         </li>
         <!-- Menu Body -->
         <li class="user-body">
@@ -231,36 +230,46 @@ use yii\widgets\Breadcrumbs;
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <?= \app\components\widgets\menu\Widget::widget([
             'options'=>['class'=>'sidebar-menu'],
-            'labelTemplate' => '{icon}<span>{label}</span>{badge}',
-            'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{badge}</a>',
+            'labelTemplate' => '<a href="#">{icon}<span>{label}</span>{right-icon}{badge}</a>',
+            'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
             'submenuTemplate'=>"\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
+            'activateParents'=>true,
             'items'=>[
-                ['label'=>Yii::t('backend', 'Dashboard'), 'url'=>['/manager']],
+                [
+                    'label'=>Yii::t('backend', 'Dashboard'),
+                    'icon'=>'<i class="fa fa-bar-chart-o"></i>',
+                    'url'=>['/manager/default/index']
+                ],
                 [
                     'label'=>Yii::t('backend', 'Content'),
-                    'url'=>'#',
+                    'icon'=>'<i class="fa fa-edit"></i>',
                     'options'=>['class'=>'treeview'],
                     'items'=>[
-                        ['label'=>Yii::t('backend', 'Static pages'), 'url'=>['/manager/page']],
-                        ['label'=>Yii::t('backend', 'Articles'), 'url'=>['/manager/article']],
-                        ['label'=>Yii::t('backend', 'Article Categories'), 'url'=>['/manager/article-category']],
-                        ['label'=>Yii::t('backend', 'Text Widgets'), 'url'=>['/manager/widget-text']],
-                        ['label'=>Yii::t('backend', 'Menu Widgets'), 'url'=>['/manager/widget-menu']],
-                        ['label'=>Yii::t('backend', 'Carousel Widgets'), 'url'=>['/manager/widget-carousel']],
+                        ['label'=>Yii::t('backend', 'Static pages'), 'url'=>['/manager/page/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                        ['label'=>Yii::t('backend', 'Articles'), 'url'=>['/manager/article/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                        ['label'=>Yii::t('backend', 'Article Categories'), 'url'=>['/manager/article-category/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                        ['label'=>Yii::t('backend', 'Text Widgets'), 'url'=>['/manager/widget-text/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                        ['label'=>Yii::t('backend', 'Menu Widgets'), 'url'=>['/manager/widget-menu/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                        ['label'=>Yii::t('backend', 'Carousel Widgets'), 'url'=>['/manager/widget-carousel/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                     ]
                 ],
-                ['label'=>Yii::t('backend', 'Users'), 'url'=>['/manager/user']],
+                [
+                    'label'=>Yii::t('backend', 'Users'),
+                    'icon'=>'<i class="fa fa-users"></i>',
+                    'url'=>['/manager/user/index']
+                ],
                 [
                     'label'=>Yii::t('backend', 'System'),
-                    'url'=>'#',
+                    'icon'=>'<i class="fa fa-cogs"></i>',
                     'options'=>['class'=>'treeview'],
                     'items'=>[
-                        ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/manager/file-manager']],
+                        ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/manager/file-manager/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                         [
                             'label'=>Yii::t('backend', 'Logs'),
-                            'url'=>['/manager/log'],
+                            'url'=>['/manager/log/index'],
+                            'icon'=>'<i class="fa fa-angle-double-right"></i>',
                             'badge'=>\app\modules\manager\models\SystemLog::find()->count(),
-                            'badgeBgClass'=>'bg-red'
+                            'badgeBgClass'=>'bg-red',
                         ],
                     ]
                 ]

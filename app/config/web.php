@@ -39,6 +39,9 @@ $config = [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
         ],
+        'request'=>[
+            'cookieValidationKey'=>md5('yii2-starter-kit')
+        ],
     ],
     'params' => [
         'adminEmail' => 'webmaster@example.com',

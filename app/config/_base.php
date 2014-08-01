@@ -47,29 +47,31 @@ return [
 
         'i18n' => [
             'translations' => [
-                'common' => [
+                'system\common' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18_source_message}}',
                     'messageTable'=>'{{%i18_message}}',
                     'cachingDuration'=>60
                 ],
-                'backend' => [
+                'system\backend' => [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18_source_message}}',
                     'messageTable'=>'{{%i18_message}}',
                     'cachingDuration'=>60
                 ],
-                'frontend' => [
+                'system\frontend' => [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceMessageTable'=>'{{%i18_source_message}}',
+                    'messageTable'=>'{{%i18_message}}',
+                    'cachingDuration'=>60
+                ],
+                '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18_source_message}}',
                     'messageTable'=>'{{%i18_message}}',
                     'cachingDuration'=>60
                 ],
             ],
-        ],
-
-        'request'=>[
-            'cookieValidationKey'=>md5('yii2-starter-kit')
         ],
 
         'storage'=>[

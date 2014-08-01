@@ -1,10 +1,12 @@
 <?php
 namespace app\models;
 
+use app\components\behaviors\MysqlTimestampBehavior;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
 
 /**
@@ -46,7 +48,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            MysqlTimestampBehavior::className(),
         ];
     }
 
@@ -181,5 +183,32 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     * Returns user roles list
+     * @param bool $role
+     * @return array|mixed
+     */
+    public static function getRoles($role = false){
+        $roles = [
+            self::ROLE_USER=>Yii::t('common', 'User'),
+            self::ROLE_MANAGER=>Yii::t('common', 'Manager'),
+            self::ROLE_ADMINISTRATOR=>Yii::t('common', 'Administrator'),
+        ];
+        return $role ? ArrayHelper::getValue($roles, $role) : $roles;
+    }
+
+    /**
+     * Returns user statuses list
+     * @param bool $status
+     * @return array|mixed
+     */
+    public static function getStatuses($status = false){
+        $statuses = [
+            self::STATUS_ACTIVE=>Yii::t('common', 'Active'),
+            self::STATUS_DELETED=>Yii::t('common', 'Deleted')
+        ];
+        return $status ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 }

@@ -1,9 +1,9 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = Yii::t('common', 'Articles')
+$this->title = Yii::t('frontend', 'Articles')
 ?>
 <div id="article-index">
-    <h1><?= Yii::t('common', 'Articles') ?></h1>
+    <h1><?= Yii::t('frontend', 'Articles') ?></h1>
     <?= \yii\widgets\ListView::widget([
         'dataProvider'=>$dataProvider,
         'pager'=>[

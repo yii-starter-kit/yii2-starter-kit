@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-ucommon\pp\components\validators\JsonValidator;
+use common\components\validators\JsonValidator;
 use Yii;
 
 /**

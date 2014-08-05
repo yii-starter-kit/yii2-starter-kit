@@ -1,13 +1,13 @@
 <?php
 
-namespace backend\modules\manager\controllers;
+namespace backend\controllers;
 
 class FileManagerController extends \yii\web\Controller
 {
     public function actions(){
         return [
             'upload-imperavi'=>[
-                'class'=>'app\components\storage\action\UploadAction',
+                'class'=>'common\components\storage\action\UploadAction',
                 'responseUrlParam'=>'filelink'
             ]
         ];

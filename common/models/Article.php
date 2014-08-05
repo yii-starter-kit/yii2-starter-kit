@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use common\components\behaviors\MysqlTimestampBehavior;
+use common\components\behaviors\DatetimeBehavior;
 use common\models\query\ArticleQuery;
 use Yii;
 use yii\db\Expression;
@@ -49,7 +49,7 @@ class Article extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            MysqlTimestampBehavior::className(),
+            DatetimeBehavior::className(),
         ];
     }
 

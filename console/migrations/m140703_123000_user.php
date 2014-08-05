@@ -23,8 +23,8 @@ class m140703_123000_user extends Migration
             'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
 
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'created_at' => Schema::TYPE_DATETIME . ' NOT NULL',
-            'updated_at' => Schema::TYPE_DATETIME . ' NOT NULL',
+            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
 
         $this->insert('{{%user}}', [
@@ -32,8 +32,8 @@ class m140703_123000_user extends Migration
             'email'=>'webmaster@example.com',
             'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('webmaster'),
             'auth_key'=>Yii::$app->getSecurity()->generateRandomKey(),
-            'role'=>\app\models\User::ROLE_ADMINISTRATOR,
-            'status'=>\app\models\User::STATUS_ACTIVE,
+            'role'=>\common\models\User::ROLE_ADMINISTRATOR,
+            'status'=>\common\models\User::STATUS_ACTIVE,
             'created_at'=>new \yii\db\Expression('NOW()'),
             'updated_at'=>new \yii\db\Expression('NOW()')
         ]);

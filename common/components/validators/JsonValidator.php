@@ -16,7 +16,7 @@ class JsonValidator extends Validator{
     public function init(){
         parent::init();
         if(!$this->message){
-            $this->message = \Yii::t('common\error', '{attribute} must be a valid JSON');
+            $this->message = \Yii::t('common', '{attribute} must be a valid JSON');
         }
     }
     /**

@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\WidgetCarouselItem;
-use backend\\models\search\WidgetCarouselItemSearch;
+use common\models\WidgetCarouselItem;
+use backend\models\search\WidgetCarouselItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -43,7 +43,8 @@ class WidgetCarouselItemController extends Controller
         $model->carousel_id =  $carousel_id;
         if ($model->load(Yii::$app->request->post())) {
             if($model->save()){
-                return $this->redirect(['/manager/widget-carousel/update', 'id' => $model->carousel_id]);
+                Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
+                return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
             }
         } else {
             return $this->render('create', [
@@ -63,7 +64,8 @@ class WidgetCarouselItemController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['/manager/widget-carousel/update', 'id' => $model->carousel_id]);
+            Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
+            return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -81,7 +83,7 @@ class WidgetCarouselItemController extends Controller
     {
         $model = $this->findModel($id);
         if($model->delete()){
-            return $this->redirect(['/manager/widget-carousel/update', 'id'=>$model->carousel_id]);
+            return $this->redirect(['/widget-carousel/update', 'id'=>$model->carousel_id]);
         };
     }
 

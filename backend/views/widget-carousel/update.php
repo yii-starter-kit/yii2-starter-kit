@@ -4,7 +4,7 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\WidgetCarousel */
+/* @var $model common\models\WidgetCarousel */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
     'modelClass' => 'Widget Carousel',
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
     <p>
         <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
             'modelClass' => 'Widget Carousel Item',
-        ]), ['/manager/widget-carousel-item/create', 'carousel_id'=>$model->id], ['class' => 'btn btn-success']) ?>
+        ]), ['/widget-carousel-item/create', 'carousel_id'=>$model->id], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -31,18 +31,22 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
             'order',
             [
                 'attribute'=>'path',
-                'format'=>'raw',
+                'format'=>'html',
                 'value'=>function($model){
                     return $model->path ? Html::img($model->path, ['style'=>'max-width: 100px']) : null;
                 }
             ],
             'url:url',
-            'caption',
+            [
+                'format'=>'html',
+                'attribute'=>'caption',
+                'options'=>['style'=>'width: 20%']
+            ],
             'status',
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'controller'=>'/manager/widget-carousel-item',
+                'controller'=>'/widget-carousel-item',
                 'template'=>'{update} {delete}'
             ],
         ],

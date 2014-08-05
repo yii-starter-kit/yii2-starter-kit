@@ -4,12 +4,12 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Article */
+/* @var $model common\models\Article */
 
-$this->title = Yii::t('common', 'Create {modelClass}', [
+$this->title = Yii::t('backend', 'Create {modelClass}', [
     'modelClass' => 'Article',
 ]);
-$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Articles'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Articles'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-create">

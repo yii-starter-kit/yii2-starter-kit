@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\WidgetMenu;
-use backend\\models\search\WidgetMenuSearch;
+use common\models\WidgetMenu;
+use backend\models\search\WidgetMenuSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

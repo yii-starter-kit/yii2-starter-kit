@@ -18,8 +18,8 @@ class SystemLogSearch extends SystemLog
     public function rules()
     {
         return [
-            [['id', 'level', 'log_time', 'message'], 'integer'],
-            [['category', 'prefix'], 'safe'],
+            [['id', 'log_time', 'message'], 'integer'],
+            [['category', 'prefix', 'level'], 'safe'],
         ];
     }
 

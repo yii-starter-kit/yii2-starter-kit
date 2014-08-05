@@ -1,7 +1,7 @@
 <?php
 $base = require('_base.php');
 $config = [
-    'id' => 'basic-web',
+    'id' => 'frontend',
     'bootstrap' => ['log'],
     'modules'=>[
         'manager' => [
@@ -27,7 +27,6 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'identityClass' => 'frontend\models\User',
             'loginUrl'=>['user/login'],
             'enableAutoLogin' => true,
         ],

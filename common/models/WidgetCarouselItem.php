@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\fileStorage\File;
 use Yii;
 use yii\imagine\Image;
 use yii\web\UploadedFile;
@@ -73,7 +74,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
         parent::afterValidate();
         $file = UploadedFile::getInstance($this, 'file');
         if ($file && !$file->hasError && !$this->hasErrors()) {
-            $this->path = Yii::$app->storage->load($file)->save('fs')->url;
+            $this->path = Yii::$app->fileStorage->save(File::load($file))->url;
         }
     }
 

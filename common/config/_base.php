@@ -8,11 +8,6 @@ return [
     'language'=>'en-US',
     'components' => [
 
-        'assetsManager'=>[
-            'class'=>'yii\web\AssetManager',
-            'linkAssets'=>true,
-        ],
-
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
             'itemTable' => 'rbac_auth_item',
@@ -46,43 +41,30 @@ return [
 
         'i18n' => [
             'translations' => [
-                'system\common' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-                'system\backend' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-                'system\frontend' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
                 '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
+                    'sourceMessageTable'=>'{{%i18n_source_message}}',
+                    'messageTable'=>'{{%i18n_message}}',
                     'cachingDuration'=>60
                 ],
             ],
         ],
 
-        'storage'=>[
-            'class'=>'app\components\storage\Component',
-            'targets'=>[
-                'fs'=>[
-                    'class'=>'app\components\storage\target\FsTarget',
+        'fileStorage'=>[
+            'class'=>'common\components\fileStorage\FileStorage',
+            'defaultRepository'=>'filesystem',
+            'repositories'=>[
+                [
+                    'class'=>'common\components\fileStorage\repository\FilesystemRepository',
                     'basePath'=>'@storage/uploads',
                     'baseUrl'=>'@storageUrl/uploads',
                 ]
             ],
 
+        ],
+
+        'keyStorage'=>[
+            'class'=>'common\components\keyStorage\KeyStorage'
         ],
 
         'urlManager'=>[

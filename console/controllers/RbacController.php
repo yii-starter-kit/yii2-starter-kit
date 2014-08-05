@@ -1,5 +1,5 @@
 <?php
-namespace app\console\controllers;
+namespace console\controllers;
 
 use common\rbac\UpdateRepositoryRule;
 use Yii;
@@ -11,7 +11,7 @@ class RbacController extends Controller{
         $auth = Yii::$app->authManager;
         $auth->removeAll();
 
-        $userRule = new \app\rbac\UserGroupRule;
+        $userRule = new \common\rbac\UserGroupRule;
         $auth->add($userRule);
 
         $user = $auth->createRole('user');

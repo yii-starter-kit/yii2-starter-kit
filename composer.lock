@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "37b6a863f6daebe1b6f39fbee8a856f4",
+    "hash": "4ad17dfeb24d6999e1773978ad1f3a34",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -356,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "d38fd028d620d7861e067b87526a773cd4b7dc1b"
+                "reference": "6424acf69ae40a916db04b5c3235f1780f11b4be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/d38fd028d620d7861e067b87526a773cd4b7dc1b",
-                "reference": "d38fd028d620d7861e067b87526a773cd4b7dc1b",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6424acf69ae40a916db04b5c3235f1780f11b4be",
+                "reference": "6424acf69ae40a916db04b5c3235f1780f11b4be",
                 "shasum": ""
             },
             "replace": {
@@ -399,7 +399,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-07-31 03:07:27"
+            "time": "2014-08-03 04:16:32"
         },
         {
             "name": "yiisoft/jquery",
@@ -456,12 +456,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "64a69cbb925135fc1f233b5e89b3b0e4f662f11b"
+                "reference": "5476902acf5bc6b6483951eda729a864b53dd5e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/64a69cbb925135fc1f233b5e89b3b0e4f662f11b",
-                "reference": "64a69cbb925135fc1f233b5e89b3b0e4f662f11b",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5476902acf5bc6b6483951eda729a864b53dd5e9",
+                "reference": "5476902acf5bc6b6483951eda729a864b53dd5e9",
                 "shasum": ""
             },
             "require": {
@@ -529,7 +529,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-07-31 13:29:12"
+            "time": "2014-08-03 12:30:30"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -869,12 +869,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "2828b6116a0ba702f1e2002de2ea7aad749d6bcc"
+                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/2828b6116a0ba702f1e2002de2ea7aad749d6bcc",
-                "reference": "2828b6116a0ba702f1e2002de2ea7aad749d6bcc",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/8d8c2a11bef76c62e015f052c935a612e915c292",
+                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292",
                 "shasum": ""
             },
             "require": {
@@ -904,7 +904,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-01 08:48:35"
         }
     ],
     "aliases": [

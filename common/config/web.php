@@ -1,9 +1,12 @@
 <?php
 $base = require('_base.php');
 $config = [
-    'id' => 'basic-web',
     'bootstrap' => ['log'],
     'components' => [
+        'assetManager'=>[
+            'class'=>'yii\web\AssetManager',
+            'linkAssets'=>true,
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -31,10 +34,14 @@ $config = [
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 'yii\debug\Module';
+    $config['modules']['debug'] = [
+        'class'=>'yii\debug\Module',
+    ];
 
     $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
+    $config['modules']['gii'] = [
+        'class'=>'yii\gii\Module'
+    ];
 }
 
 $config = yii\helpers\ArrayHelper::merge($base, $config);

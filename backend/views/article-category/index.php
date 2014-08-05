@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-category-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -30,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'alias',
             'title',
-            'is_menu_visible',
             'status',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -5,10 +5,10 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\ArticleCategory;
+use common\models\ArticleCategory;
 
 /**
- * ArticleCategorySearch represents the model behind the search form about `app\models\ArticleCategory`.
+ * ArticleCategorySearch represents the model behind the search form about `common\models\ArticleCategory`.
  */
 class ArticleCategorySearch extends ArticleCategory
 {

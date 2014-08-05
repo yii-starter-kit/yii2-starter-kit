@@ -3,6 +3,7 @@ namespace common\rbac;
 
 use common\models\User;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\rbac\Rule;
 
 /**
@@ -14,8 +15,9 @@ class UserGroupRule extends Rule
 
     public function execute($user, $item, $params)
     {
-        if (!Yii::$app->user->isGuest) {
-            $role = Yii::$app->user->identity->role;
+        $user = ArrayHelper::getValue($params, 'user', User::findOne($user));
+        if ($user) {
+            $role = $user->role;
             if ($item->name === 'administrator') {
                 return $role == User::ROLE_ADMINISTRATOR;
             } elseif ($item->name === 'manager') {

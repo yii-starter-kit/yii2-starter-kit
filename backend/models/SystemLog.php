@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use backend\models\query\SystemLogQuery;
 use Yii;
 
 /**
@@ -16,6 +17,7 @@ use Yii;
  */
 class SystemLog extends \yii\db\ActiveRecord
 {
+    const CATEGORY_NOTIFICATION = 'notification';
     /**
      * @inheritdoc
      */

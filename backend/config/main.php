@@ -1,9 +1,9 @@
 <?php
-$base = require('_base.php');
 $config = [
-    'id' => 'basic-web',
+    'id' => 'backend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'controllerNamespace' => 'backend\controllers',
     'controllerMap'=>[
         'file-manager-elfinder' => [
             'class' => 'mihaildev\elfinder\Controller',
@@ -19,41 +19,49 @@ $config = [
         ]
     ],
     'components' => [
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
+
         'user' => [
-            'identityClass' => 'app\models\User',
-            'loginUrl'=>['user/login'],
+            'identityClass' => 'common\models\User',
+            'loginUrl'=>'sign-in/login',
             'enableAutoLogin' => true,
         ],
+
+        'urlManager'=>[
+            'rules'=> require('_urlRules.php')
+        ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
-        ],
-        'request'=>[
-            'cookieValidationKey'=>md5('yii2-starter-kit')
-        ],
     ],
-    'as bootstrapAccess'=>[
-        'class'=>'\common\components\behaviors\BootstrapAccessBehavior'
-    ],
-    'params' => [
-        'adminEmail' => 'webmaster@example.com',
-    ],
+    'as globalAccess'=>[
+        'class'=>'\common\components\behaviors\GlobalAccessBehavior',
+        'rules'=>[
+            [
+                'controllers'=>['sign-in'],
+                'allow' => true,
+                'roles' => ['?'],
+                'actions'=>['login']
+            ],
+            [
+                'controllers'=>['site'],
+                'allow' => true,
+                'roles' => ['?'],
+                'actions'=>['error']
+            ],
+            [
+                'controllers'=>['debug/default'],
+                'allow' => true,
+                'roles' => ['?'],
+            ],
+            [
+                'allow' => true,
+                'roles' => ['manager'],
+            ],
+
+        ]
+    ]
 ];
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = 'yii\debug\Module';
-
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
-}
 
 $config = yii\helpers\ArrayHelper::merge($base, $config);
 

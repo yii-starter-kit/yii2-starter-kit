@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\\models\search\TextBlockSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('common', 'Text Blocks');
+$this->title = Yii::t('backend', 'Text Blocks');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="text-block-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('common', 'Create {modelClass}', [
+        <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
     'modelClass' => 'Text Block',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>

@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use backend\models\LoginForm;
 use Yii;
 use frontend\models\ContactForm;
 use yii\web\Controller;
@@ -26,4 +27,5 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+
 }

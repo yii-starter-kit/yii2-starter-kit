@@ -5,10 +5,10 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\WidgetMenu;
+use common\models\WidgetMenu;
 
 /**
- * WidgetMenuSearch represents the model behind the search form about `app\models\WidgetMenu`.
+ * WidgetMenuSearch represents the model behind the search form about `common\models\WidgetMenu`.
  */
 class WidgetMenuSearch extends WidgetMenu
 {

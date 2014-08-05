@@ -1,10 +1,11 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
 use Yii;
-use backend\\models\SystemLog;
-use backend\\models\search\SystemLogSearch;
+use backend\models\SystemLog;
+use backend\models\search\SystemLogSearch;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,6 +36,10 @@ class LogController extends Controller
     {
         $searchModel = new SystemLogSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        if(strcasecmp(Yii::$app->request->method, 'delete') == 0){
+            SystemLog::deleteAll($dataProvider->query->where);
+        }
         $dataProvider->sort = [
             'defaultOrder'=>['log_time'=>SORT_DESC]
         ];
@@ -67,11 +72,6 @@ class LogController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
-    }
-
-    public function actionClear(){
-        SystemLog::deleteAll();
         return $this->redirect(['index']);
     }
 

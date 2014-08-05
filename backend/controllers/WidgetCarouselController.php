@@ -1,12 +1,12 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
-use app\models\WidgetCarouselItem;
-use backend\\models\search\WidgetCarouselItemSearch;
+use backend\models\search\WidgetCarouselItemSearch;
 use Yii;
-use app\models\WidgetCarousel;
-use backend\\models\search\WidgetCarouselSearch;
+use common\models\WidgetCarousel;
+use common\models\WidgetCarouselItem;
+use backend\models\search\WidgetCarouselSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

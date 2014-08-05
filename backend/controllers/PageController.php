@@ -1,10 +1,10 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
 use Yii;
-use app\models\Page;
-use backend\\models\search\PageSearch;
+use common\models\Page;
+use backend\models\search\PageSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

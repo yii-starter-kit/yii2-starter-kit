@@ -15,7 +15,7 @@ class BackendAsset extends AssetBundle{
     public $sourcePath = '@backend/assets/static';
 
     public $css = [
-        'css/style.css'
+        'css/backend.css'
     ];
     public $js = [
         'js/app.js'
@@ -23,9 +23,7 @@ class BackendAsset extends AssetBundle{
 
 
     public $depends = [
-        'yii\bootstrap\BootstrapPluginAsset',
-        'common\assets\FontAwesome',
-        'common\assets\Ionicons',
+        'backend\assets\AdminLTE',
         'common\assets\Respond',
         'common\assets\Html5shiv',
     ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\modules\manager\controllers;
+namespace backend\controllers;
 
 use Yii;
 use common\models\ArticleCategory;

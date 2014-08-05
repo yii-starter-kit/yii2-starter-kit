@@ -1,7 +1,7 @@
 <?php
 namespace common\models;
 
-use common\components\behaviors\MysqlTimestampBehavior;
+use backend\models\SystemEvent;
 use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
@@ -34,6 +34,9 @@ class User extends ActiveRecord implements IdentityInterface
     const ROLE_MANAGER = 2;
     const ROLE_ADMINISTRATOR = 10;
 
+    const EVENT_AFTER_SIGNUP = 'afterSignup';
+    const EVENT_AFTER_LOGIN = 'afterLogin';
+
     /**
      * @inheritdoc
      */
@@ -48,7 +51,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            MysqlTimestampBehavior::className(),
+            TimestampBehavior::className(),
         ];
     }
 
@@ -210,5 +213,18 @@ class User extends ActiveRecord implements IdentityInterface
             self::STATUS_DELETED=>Yii::t('common', 'Deleted')
         ];
         return $status ? ArrayHelper::getValue($statuses, $status) : $statuses;
+    }
+
+    public function afterSignup(){
+        SystemEvent::log('user', self::EVENT_AFTER_SIGNUP, [
+            'username'=>$this->username,
+            'email'=>$this->email,
+            'created_at'=>$this->created_at
+        ]);
+        $this->trigger(self::EVENT_AFTER_SIGNUP);
+    }
+
+    public function afterLogin(){
+        $this->trigger(self::EVENT_AFTER_LOGIN);
     }
 }

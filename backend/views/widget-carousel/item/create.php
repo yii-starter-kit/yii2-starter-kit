@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\WidgetCarouselItem */
+/* @var $model common\models\WidgetCarouselItem */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
     'modelClass' => 'Widget Carousel Item',

@@ -1,11 +1,10 @@
 <?php
 
-namespace backend\\controllers;
+namespace backend\controllers;
 
-use backend\\models\search\WidgetTextSearch;
+use backend\models\search\WidgetTextSearch;
 use Yii;
-use app\models\WidgetText;
-use backend\\models\search\TextBlockSearch;
+use common\models\WidgetText;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

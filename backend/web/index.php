@@ -7,8 +7,8 @@ if(isset($_SERVER['YII_ENV'])){
 }
 
 // Debug preparations
-defined('YII_DEBUG') or define('YII_DEBUG', false);
-defined('YII_ENV_DEV') or define('YII_ENV_DEV', false);
+defined('YII_DEBUG') or define('YII_DEBUG', YII_ENV != 'prod');
+defined('YII_ENV_DEV') or define('YII_ENV_DEV', YII_ENV != 'prod');
 
 if(YII_DEBUG){
     error_reporting(E_ALL);
@@ -22,7 +22,6 @@ require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 $config = \yii\helpers\ArrayHelper::merge(
     require(dirname(__DIR__).'/../common/config/web.php'),
     require(dirname(__DIR__).'/config/main.php'),
-    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/config/web.php')
+    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/config/backend.php')
 );
-
 (new yii\web\Application($config))->run();

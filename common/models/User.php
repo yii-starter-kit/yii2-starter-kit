@@ -224,6 +224,8 @@ class User extends ActiveRecord implements IdentityInterface
             'email'=>$this->email,
             'created_at'=>$this->created_at
         ]);
+        $profile = new UserProfile();
+        $this->link('profile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
     }
 }

@@ -49,6 +49,7 @@ class m140703_123000_user extends Migration
 
         $this->insert('{{%user_profile}}', [
             'user_id'=>1,
+            'locale'=>Yii::$app->sourceLanguage
         ]);
         $this->createIndex('idx_user_id', '{{%user_profile}}', 'user_id');
         $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id');

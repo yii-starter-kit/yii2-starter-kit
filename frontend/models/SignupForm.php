@@ -50,9 +50,6 @@ class SignupForm extends Model
             $user->setPassword($this->password);
             $user->generateAuthKey();
             $user->save();
-            $profile = new UserProfile();
-            $user->link('profile', $profile);
-            $user->afterSignup();
             return $user;
         }
 

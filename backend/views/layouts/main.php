@@ -83,7 +83,7 @@ use yii\widgets\Breadcrumbs;
                                 ['/log/index'],
                                 [
                                     'data-method' => 'delete',
-                                    'data-pjax' => '0',
+                                    'data-pjax' => '1',
                                 ])
                             ?>
                         </li>
@@ -107,7 +107,12 @@ use yii\widgets\Breadcrumbs;
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                             <?= Html::a(Yii::t('backend', 'Logout'), ['/user/logout'], ['class'=>'btn btn-default btn-flat']) ?>
+                            <div class="pull-left">
+                                <?= Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class'=>'btn btn-default btn-flat']) ?>
+                            </div>
+                            <div class="pull-right">
+                                <?= Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class'=>'btn btn-default btn-flat']) ?>
+                            </div>
                         </li>
                     </ul>
                 </li>

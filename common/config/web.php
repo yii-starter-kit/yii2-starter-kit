@@ -12,8 +12,9 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
+            'class'=>'common\components\User',
             'identityClass' => 'common\models\User',
-            'loginUrl'=>['user/login'],
+            'loginUrl'=>['sign-in/login'],
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
@@ -27,8 +28,8 @@ $config = [
             'cookieValidationKey'=>md5('yii2-starter-kit')
         ],
     ],
-    'as language'=>[
-        'class'=>'common\components\behaviors\LanguageBehavior'
+    'as locale'=>[
+        'class'=>'common\components\behaviors\LocaleBehavior'
     ],
     'params' => [
         'adminEmail' => 'webmaster@example.com',

@@ -10,7 +10,7 @@ use yii\base\Model;
  */
 class LoginForm extends Model
 {
-    public $username;
+    public $identity;
     public $password;
     public $rememberMe = true;
 
@@ -23,13 +23,22 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
+            [['identity', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'identity'=>\Yii::t('frontend', 'Username or password'),
+            'password'=>\Yii::t('frontend', 'Password'),
+        ];
+    }
+
 
     /**
      * Validates the password.
@@ -54,7 +63,6 @@ class LoginForm extends Model
     {
         if ($this->validate()) {
             if(Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0)){
-                $this->getUser()->afterLogin();
                 return true;
             }
         } else {
@@ -70,7 +78,7 @@ class LoginForm extends Model
     public function getUser()
     {
         if ($this->_user === false) {
-            $this->_user = User::findByUsername($this->username);
+            $this->_user = User::find()->where(['or', ['username'=>$this->identity], ['email'=>$this->identity]])->one();
         }
 
         return $this->_user;

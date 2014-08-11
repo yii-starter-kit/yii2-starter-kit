@@ -10,7 +10,7 @@ namespace common\components\behaviors;
 
 use yii\base\Behavior;
 
-class LanguageBehavior extends Behavior{
+class LocaleBehavior extends Behavior{
     public function events()
     {
         return [
@@ -19,8 +19,9 @@ class LanguageBehavior extends Behavior{
     }
 
     public function beforeRequest(){
-        if(\Yii::$app->session->has('language')){
-            \Yii::$app->language = \Yii::$app->session->get('language');
+        if(\Yii::$app->session->has('user.locale')){
+            \Yii::$app->language = \Yii::$app->session->get('user.locale');
         }
+        return;
     }
 } 

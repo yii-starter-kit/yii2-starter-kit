@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "user_profile".
  *
  * @property integer $user_id
+ * @property integer $locale
  * @property string $firstname
  * @property string $middlename
  * @property string $lastname
@@ -39,6 +40,8 @@ class UserProfile extends \yii\db\ActiveRecord
             [['user_id', 'gender'], 'integer'],
             [['gender'], 'in', 'range'=>[self::GENDER_FEMALE, self::GENDER_MALE]],
             [['firstname', 'middlename', 'lastname'], 'string', 'max' => 255],
+            ['locale', 'default', 'value' => Yii::$app->language],
+            ['locale', 'in', 'range' => array_keys(Yii::$app->params['availableLocales'])],
             [['picture'], 'string', 'max' => 2048]
         ];
     }

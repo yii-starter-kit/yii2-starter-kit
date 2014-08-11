@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
 use yii\imagine\Image;
 use yii\web\BadRequestHttpException;
 
-class UserController extends \yii\web\Controller
+class SignInController extends \yii\web\Controller
 {
 
     public function actions(){

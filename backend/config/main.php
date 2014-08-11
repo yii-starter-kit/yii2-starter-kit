@@ -20,12 +20,6 @@ $config = [
     ],
     'components' => [
 
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'loginUrl'=>'sign-in/login',
-            'enableAutoLogin' => true,
-        ],
-
         'urlManager'=>[
             'rules'=> require('_urlRules.php')
         ],

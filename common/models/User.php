@@ -27,10 +27,10 @@ use yii\web\IdentityInterface;
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const STATUS_ACTIVE = 1;
 
     const ROLE_USER = 1;
-    const ROLE_MANAGER = 2;
+    const ROLE_MANAGER = 5;
     const ROLE_ADMINISTRATOR = 10;
 
     const EVENT_AFTER_SIGNUP = 'afterSignup';
@@ -225,9 +225,5 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at'=>$this->created_at
         ]);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
-    }
-
-    public function afterLogin(){
-        $this->trigger(self::EVENT_AFTER_LOGIN);
     }
 }

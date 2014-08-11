@@ -30,24 +30,35 @@ use yii\bootstrap\NavBar;
                 'class' => 'navbar-inverse navbar-fixed-top',
             ],
         ]);
-        $menuItems = [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-        ];
-        if (Yii::$app->user->isGuest) {
-            $menuItems[] = ['label' => 'Signup', 'url' => ['/user/signup']];
-            $menuItems[] = ['label' => 'Login', 'url' => ['/user/login']];
-        } else {
-            $menuItems[] = [
-                'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                'url' => ['/user/logout'],
-                'linkOptions' => ['data-method' => 'post']
-            ];
-        }
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => $menuItems,
+            'items' => [
+                ['label' => \Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
+                ['label' => \Yii::t('frontend', 'About'), 'url' => ['/page/view', 'alias'=>'about']],
+                ['label' => \Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],
+                ['label' => \Yii::t('frontend', 'Signup'), 'url' => ['/user/signup'], 'visible'=>Yii::$app->user->isGuest],
+                ['label' => \Yii::t('frontend', 'Login'), 'url' => ['/user/login'], 'visible'=>Yii::$app->user->isGuest],
+                [
+                    'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->username,
+                    'visible'=>!Yii::$app->user->isGuest,
+                    'items'=>[
+                        [
+                            'label' => \Yii::t('frontend', 'Profile'),
+                            'url' => ['/user/profile']
+                        ],
+                        [
+                            'label' => \Yii::t('frontend', 'Backend'),
+                            'url' => Yii::getAlias('@backendUrl'),
+                            'visible'=>Yii::$app->user->can('manager')
+                        ],
+                        [
+                            'label' => \Yii::t('frontend', 'Logout'),
+                            'url' => ['/user/logout'],
+                            'linkOptions' => ['data-method' => 'post']
+                        ]
+                    ]
+                ],
+            ],
         ]);
         NavBar::end();
         ?>

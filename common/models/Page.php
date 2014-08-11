@@ -16,8 +16,8 @@ use yii\behaviors\TimestampBehavior;
  */
 class Page extends \yii\db\ActiveRecord
 {
-    const STATUS_PUBLISHED = 0;
-    const STATUS_DRAFT = 1;
+    const STATUS_DRAFT = 0;
+    const STATUS_PUBLISHED = 1;
 
     /**
      * @inheritdoc
@@ -62,7 +62,7 @@ class Page extends \yii\db\ActiveRecord
             'alias' => Yii::t('common', 'Alias'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
-            'status' => Yii::t('common', 'Status'),
+            'status' => Yii::t('common', 'Active'),
         ];
     }
 }

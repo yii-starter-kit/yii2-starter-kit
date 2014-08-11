@@ -48,6 +48,11 @@ return [
                 '*'=> [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath'=>'@common/messages',
+                    'fileMap'=>[
+                        'common'=>'common.php',
+                        'backend'=>'backend.php',
+                        'frontend'=>'frontend.php',
+                    ]
                 ],
             ],
         ],
@@ -78,5 +83,10 @@ return [
     ],
     'params' => [
         'adminEmail' => 'admin@example.com',
+        'availableLocales'=>[
+            'en_US'=>'English (US)',
+            'ru_RU'=>'Русский (РФ)',
+            'ua_UA'=>'Українська (Україна)'
+        ],
     ],
 ];

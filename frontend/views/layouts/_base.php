@@ -35,6 +35,7 @@ use yii\bootstrap\NavBar;
             'items' => [
                 ['label' => \Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
                 ['label' => \Yii::t('frontend', 'About'), 'url' => ['/page/view', 'alias'=>'about']],
+                ['label' => \Yii::t('frontend', 'Articles'), 'url' => ['/article/index']],
                 ['label' => \Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],
                 ['label' => \Yii::t('frontend', 'Signup'), 'url' => ['/user/signup'], 'visible'=>Yii::$app->user->isGuest],
                 ['label' => \Yii::t('frontend', 'Login'), 'url' => ['/user/login'], 'visible'=>Yii::$app->user->isGuest],

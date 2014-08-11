@@ -21,6 +21,15 @@ class m140703_123104_page extends Migration
             'created_at' => Schema::TYPE_DATETIME . ' NOT NULL',
             'updated_at' => Schema::TYPE_DATETIME . ' NOT NULL',
         ], $tableOptions);
+
+        $this->insert('{{%page}}', [
+            'alias'=>'about',
+            'title'=>'About',
+            'body'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            'status'=>\common\models\Page::STATUS_PUBLISHED,
+            'created_at'=>new \yii\db\Expression('NOW()'),
+            'updated_at'=>new \yii\db\Expression('NOW()'),
+        ]);
     }
 
     public function down()

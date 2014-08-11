@@ -22,7 +22,6 @@ use yii\web\UploadedFile;
  */
 class WidgetCarouselItem extends \yii\db\ActiveRecord
 {
-
     public $file;
 
     /**

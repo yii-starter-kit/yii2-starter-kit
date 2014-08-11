@@ -108,5 +108,5 @@ return [
     'Widget Menus' => 'Віджети меню',
     'You have {num} events' => 'Сталося {num} подій',
     'You have {num} log items' => '{num} записів у журналі',
-    '{uptime, duration}' => '{uptime, duration}',
+    '{uptime, duration}' => '',
 ];

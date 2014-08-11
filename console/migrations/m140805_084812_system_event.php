@@ -7,13 +7,23 @@ class m140805_084812_system_event extends Migration
 {
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+        }
 
+        $this->createTable('{{%system_event}}', [
+            'id' => Schema::TYPE_PK,
+            'application' => Schema::TYPE_STRING . '(64) NOT NULL',
+            'category' => Schema::TYPE_STRING . '(64) NOT NULL',
+            'event' => Schema::TYPE_STRING . '(64) NOT NULL',
+            'data' => Schema::TYPE_TEXT . ' NOT NULL',
+            'event_time' => Schema::TYPE_INTEGER . ' NOT NULL',
+        ], $tableOptions);
     }
 
     public function down()
     {
-        echo "m140805_084812_system_event cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('{{%system_event}}');
     }
 }

@@ -23,8 +23,9 @@ use yii\db\Expression;
  */
 class FileStorageItem extends \yii\db\ActiveRecord
 {
-    const STATUS_UPLOADED = 1;
     const STATUS_DELETED = 0;
+    const STATUS_UPLOADED = 1;
+
     /**
      * @inheritdoc
      */
@@ -51,7 +52,7 @@ class FileStorageItem extends \yii\db\ActiveRecord
             [['url'], 'unique'],
             [['size'], 'integer'],
             [['repository'], 'string', 'max' => 32],
-            [['url', 'path'], 'string', 'max' => 255],
+            [['url', 'path'], 'string', 'max' => 2048],
             [['category'], 'string', 'max' => 128],
             [['mimeType'], 'string', 'max' => 64],
             [['status'], 'default', 'value' => self::STATUS_UPLOADED],

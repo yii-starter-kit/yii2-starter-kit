@@ -2,6 +2,9 @@
 /environments/*
 !/environments/local
 
+# Storage
+/storage/uploads
+
 # composer vendor dir
 /vendor
 

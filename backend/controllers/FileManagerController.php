@@ -7,7 +7,8 @@ class FileManagerController extends \yii\web\Controller
     public function actions(){
         return [
             'upload-imperavi'=>[
-                'class'=>'common\components\storage\action\UploadAction',
+                'class'=>'common\components\fileStorage\action\UploadAction',
+                'fileparam'=>'file',
                 'responseUrlParam'=>'filelink'
             ]
         ];

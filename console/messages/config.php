@@ -18,7 +18,6 @@ return [
     // Defaults to false, which means each of these messages will be enclosed with a pair of '@@' marks.
     'removeUnused' => false,
 
-    'overwrite'=>true,
     // array, list of patterns that specify which files/directories should NOT be processed.
     // If empty or not set, all files/directories will be processed.
     // A path matches a pattern if it contains the pattern string at its end. For example,
@@ -46,15 +45,10 @@ return [
         '/storage'
     ],
 
-    // 'db' output format is for saving messages to database.
-    'format' => 'db',
-
-    // Connection component to use. Optional.
-    'db' => 'db',
-
-    // Custom source message table. Optional.
-    'sourceMessageTable' => '{{%i18n_source_message}}',
-
-    // Custom name for translation message table. Optional.
-    'messageTable' => '{{%i18n_message}}',
+    // 'php' output format is for saving messages to php files.
+    'format' => 'php',
+    // Root directory containing message translations.
+    'messagePath' => Yii::getAlias('@common/messages'),
+    // boolean, whether the message file should be overwritten with the merged messages
+    'overwrite' => true,
 ];

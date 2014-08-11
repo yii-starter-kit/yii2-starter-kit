@@ -14,7 +14,6 @@ use yii\web\IdentityInterface;
  *
  * @property integer $id
  * @property string $username
- * @property string $picture
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
@@ -69,6 +68,10 @@ class User extends ActiveRecord implements IdentityInterface
              ['role', 'in', 'range' => [self::ROLE_USER, self::ROLE_MANAGER, self::ROLE_ADMINISTRATOR]],
          ];
      }
+
+    public function getProfile(){
+        return $this->hasOne(UserProfile::className(), ['user_id'=>'id']);
+    }
 
     /**
      * @inheritdoc
@@ -169,7 +172,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Yii::$app->getSecurity()->generateRandomKey();
+        $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
     }
 
     /**
@@ -177,7 +180,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomKey() . '_' . time();
+        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomString() . '_' . time();
     }
 
     /**

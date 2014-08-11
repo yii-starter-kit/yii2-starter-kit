@@ -87,7 +87,7 @@ class FilesystemRepository extends BaseRepository{
         } else {
             $file->error = true;
         };
-        $this->afterSave($file);
+        $this->afterSave($file, $category);
         return $file;
     }
 

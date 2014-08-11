@@ -1,0 +1,26 @@
+{
+    "name": "ExplorerCanvas",
+    "version": "1.0.0",
+    "main": "excanvas.js",
+    "homepage": "https://code.google.com/p/explorercanvas/",
+    "authors": [
+        "Google Open Source",
+        "Emil A Eklund",
+        "Erik Arvidsson",
+        "Glen Murphy"
+    ],
+    "keywords": [
+        "javascript",
+        "canvas"
+    ],
+    "description": "Modern browsers all support the HTML5 canvas tag to allow 2D command-based drawing. ExplorerCanvas brings the same functionality to old versions of Internet Explorer (Internet Explorer 9+ supports canvas natively). To use, web developers only need to include a single script tag in their existing web pages.",
+    "license": "Apache License, Version 2.0",
+    "ignore": [
+        "examples",
+        "testcases",
+        "test",
+        "AUTHORS",
+        "COPYING",
+        "README"
+    ]
+}

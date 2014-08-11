@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
                 'toolbarFixed'=>true,
                 'convertDivs'=>false,
                 'removeEmptyTags'=>false,
-                'imageUpload'=>Yii::$app->urlManager->createUrl(['/manager/file-manager/upload-imperavi'])
+                'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-manager/upload-imperavi'])
             ]
         ]
     ) ?>

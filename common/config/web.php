@@ -2,6 +2,7 @@
 $base = require('_base.php');
 $config = [
     'bootstrap' => ['log'],
+    'defaultRoute'=>'system-information/index',
     'components' => [
         'assetManager'=>[
             'class'=>'yii\web\AssetManager',
@@ -25,6 +26,9 @@ $config = [
         'request'=>[
             'cookieValidationKey'=>md5('yii2-starter-kit')
         ],
+    ],
+    'as language'=>[
+        'class'=>'common\components\behaviors\LanguageBehavior'
     ],
     'params' => [
         'adminEmail' => 'webmaster@example.com',

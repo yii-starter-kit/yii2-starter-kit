@@ -10,7 +10,7 @@ use yii\widgets\Breadcrumbs;
 <?php $this->beginContent('@backend/views/layouts/_base.php'); ?>
 <!-- header logo: style can be found in header.less -->
 <header class="header">
-    <a href="<?= Yii::$app->homeUrl ?>" class="logo">
+    <a href="<?= Yii::getAlias('@frontendUrl') ?>" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
         <?= Yii::$app->name ?>
     </a>
@@ -69,7 +69,7 @@ use yii\widgets\Breadcrumbs;
                                 <?php foreach(\backend\models\SystemLog::find()->orderBy(['log_time'=>SORT_DESC])->limit(5)->all() as $logEntry): ?>
                                     <li>
                                         <a href="<?= Yii::$app->urlManager->createUrl(['/log/view', 'id'=>$logEntry->id]) ?>">
-                                            <i class="fa fa-warning <?= \yii\log\Logger::getLevelName($logEntry->level) ?>"></i>
+                                            <i class="fa fa-warning <?= $logEntry->level == \yii\log\Logger::LEVEL_ERROR ? 'bg-red' : 'bg-yellow' ?>"></i>
                                             <?= $logEntry->category ?>
                                         </a>
                                     </li>
@@ -98,11 +98,11 @@ use yii\widgets\Breadcrumbs;
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="<?= Yii::$app->user->identity->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                            <img src="<?= Yii::$app->user->identity->profile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                             <p>
                                 <?php Yii::$app->user->identity->username ?>
                                 <small>
-                                    <?= Yii::t('backend', 'Member since {0, date, short}', strtotime(Yii::$app->user->identity->created_at)) ?>
+                                    <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                                 </small>
                         </li>
                         <!-- Menu Footer-->
@@ -123,7 +123,7 @@ use yii\widgets\Breadcrumbs;
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= Yii::$app->user->identity->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                    <img src="<?= Yii::$app->user->identity->profile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
@@ -134,7 +134,7 @@ use yii\widgets\Breadcrumbs;
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <?= \common\components\widgets\menu\Widget::widget([
+            <?= \common\components\widgets\menu\MenuWidget::widget([
                 'options'=>['class'=>'sidebar-menu'],
                 'labelTemplate' => '<a href="#">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
@@ -144,7 +144,7 @@ use yii\widgets\Breadcrumbs;
                     [
                         'label'=>Yii::t('backend', 'Dashboard'),
                         'icon'=>'<i class="fa fa-bar-chart-o"></i>',
-                        'url'=>['/default/index']
+                        'url'=>['/site/index']
                     ],
                     [
                         'label'=>Yii::t('backend', 'Content'),
@@ -169,10 +169,21 @@ use yii\widgets\Breadcrumbs;
                         'icon'=>'<i class="fa fa-cogs"></i>',
                         'options'=>['class'=>'treeview'],
                         'items'=>[
+                            [
+                                'label'=>Yii::t('backend', 'System Information'),
+                                'url'=>['/system-information/index'],
+                                'icon'=>'<i class="fa fa-angle-double-right"></i>'
+                            ],
                             ['label'=>Yii::t('backend', 'Key-Value Storage'), 'url'=>['/key-storage/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                             ['label'=>Yii::t('backend', 'File Storage Items'), 'url'=>['/file-storage/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                             ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/file-manager/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
-                            ['label'=>Yii::t('backend', 'I18N'), 'url'=>['/i18n'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                            [
+                                'label'=>Yii::t('backend', 'System Events'),
+                                'url'=>['/system-event/index'],
+                                'icon'=>'<i class="fa fa-angle-double-right"></i>',
+                                'badge'=>\backend\models\SystemEvent::find()->today()->count(),
+                                'badgeBgClass'=>'bg-green',
+                            ],
                             [
                                 'label'=>Yii::t('backend', 'Logs'),
                                 'url'=>['/log/index'],

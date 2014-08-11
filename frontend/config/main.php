@@ -3,6 +3,7 @@ $base = require('_base.php');
 $config = [
     'id' => 'frontend',
     'bootstrap' => ['log'],
+    'defaultRoute' => 'site/index',
     'modules'=>[
         'manager' => [
             'class' => 'frontend\modules\manager\Module',

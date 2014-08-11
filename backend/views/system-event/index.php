@@ -18,10 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
+            'name',
             'application',
             'category',
             'event',
-            'name',
             'event_time:datetime',
 
             [

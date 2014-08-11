@@ -21,6 +21,10 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
 
+        'formatter'=>[
+            'class'=>'yii\i18n\Formatter'
+        ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
@@ -32,7 +36,7 @@ return [
                 [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
-                    'except'=>['yii\web\HttpException:404'], // todo: DbTarget для 404 и 403
+                    'except'=>['yii\web\HttpException:404', 'yii\i18n\I18N::format'], // todo: DbTarget для 404 и 403
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'
                 ]
@@ -42,10 +46,8 @@ return [
         'i18n' => [
             'translations' => [
                 '*'=> [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18n_source_message}}',
-                    'messageTable'=>'{{%i18n_message}}',
-                    'cachingDuration'=>60
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath'=>'@common/messages',
                 ],
             ],
         ],

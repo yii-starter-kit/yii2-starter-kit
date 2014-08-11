@@ -7,6 +7,7 @@
  */
 namespace common\components\fileStorage;
 
+use yii\base\InvalidCallException;
 use yii\base\Object;
 use yii\web\UploadedFile;
 
@@ -63,6 +64,9 @@ class File extends Object
         if(!$this->name){
             $this->name = pathinfo($this->path, PATHINFO_FILENAME);
         }
+        if(!$this->path){
+            throw new InvalidCallException;
+        }
     }
 
     /**
@@ -89,6 +93,10 @@ class File extends Object
      */
     public static function load($file){
 
+        if(is_a($file, self::className())){
+            return $file;
+        }
+
         // UploadedFile
         if(is_a($file, UploadedFile::className())){
             return \Yii::createObject([
@@ -111,7 +119,7 @@ class File extends Object
         else {
             return \Yii::createObject([
                 'class' => self::className(),
-                'path' => $file,
+                'path' => realpath($file),
                 'extension' => pathinfo($file, PATHINFO_EXTENSION)
             ]);
         }

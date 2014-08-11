@@ -10,12 +10,14 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FileStorageController implements the CRUD actions for FileStorageItem model.
  */
 class FileStorageController extends Controller
 {
+
     public function behaviors()
     {
         return [
@@ -67,14 +69,20 @@ class FileStorageController extends Controller
     public function actionCreate()
     {
         $model = new FileStorageItem();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if($model->load($_POST))
+        if($file = UploadedFile::getInstance($model, 'path')){
+            $file = Yii::$app->fileStorage->save($file, $model->repository);
+            if(!$file->error){
+                return $this->redirect(['index']);
+            } else {
+                $model->addError('path', $file->error);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
     }
 
     public function actionReset(){
@@ -95,8 +103,12 @@ class FileStorageController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        $file = File::load($model->path);
-        Yii::$app->fileStorage->delete($file, $model->repository);
+        if($model->status == FileStorageItem::STATUS_DELETED){
+            $model->delete();
+        } else {
+            $file = File::load($model->path);
+            Yii::$app->fileStorage->delete($file, $model->repository);
+        }
         return $this->redirect(['index']);
     }
 

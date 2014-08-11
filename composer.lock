@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4ad17dfeb24d6999e1773978ad1f3a34",
+    "hash": "faac27810b37159a0d3433994cb003cb",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -310,6 +310,42 @@
             "time": "2014-07-28 09:34:50"
         },
         {
+            "name": "trntv/system-info",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/system-info.git",
+                "reference": "e8c4c15484f8103d383ab16d4832ea71d12b7f14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/system-info/zipball/e8c4c15484f8103d383ab16d4832ea71d12b7f14",
+                "reference": "e8c4c15484f8103d383ab16d4832ea71d12b7f14",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "trntv\\systeminfo\\": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eugine Terentev",
+                    "email": "eugine@terentev.net"
+                }
+            ],
+            "description": "Simple system information helper",
+            "support": {
+                "source": "https://github.com/trntv/system-info/tree/master",
+                "issues": "https://github.com/trntv/system-info/issues"
+            },
+            "time": "2014-08-11 09:25:35"
+        },
+        {
             "name": "trntv/yii2-aceeditor",
             "version": "dev-master",
             "source": {
@@ -356,12 +392,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "6424acf69ae40a916db04b5c3235f1780f11b4be"
+                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/6424acf69ae40a916db04b5c3235f1780f11b4be",
-                "reference": "6424acf69ae40a916db04b5c3235f1780f11b4be",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
+                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
                 "shasum": ""
             },
             "replace": {
@@ -399,7 +435,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-03 04:16:32"
+            "time": "2014-08-08 19:23:55"
         },
         {
             "name": "yiisoft/jquery",
@@ -456,12 +492,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "5476902acf5bc6b6483951eda729a864b53dd5e9"
+                "reference": "47332be405dc8be3110ff86cf75d733ffa77f6c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5476902acf5bc6b6483951eda729a864b53dd5e9",
-                "reference": "5476902acf5bc6b6483951eda729a864b53dd5e9",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/47332be405dc8be3110ff86cf75d733ffa77f6c3",
+                "reference": "47332be405dc8be3110ff86cf75d733ffa77f6c3",
                 "shasum": ""
             },
             "require": {
@@ -529,7 +565,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-03 12:30:30"
+            "time": "2014-08-10 01:39:50"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -537,12 +573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "83489d3684485543d1fdbe6594da10c3f1f61b85"
+                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/83489d3684485543d1fdbe6594da10c3f1f61b85",
-                "reference": "83489d3684485543d1fdbe6594da10c3f1f61b85",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b95d716f49c1692a3824c3ffa021e878dfc3db11",
+                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11",
                 "shasum": ""
             },
             "require": {
@@ -570,7 +606,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-08 09:53:39"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -578,12 +614,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "4806202b6c090f261c6f2e002c792b18dcc6fe8e"
+                "reference": "844d1745ba85a4535fc9945298a278b014f5197d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/4806202b6c090f261c6f2e002c792b18dcc6fe8e",
-                "reference": "4806202b6c090f261c6f2e002c792b18dcc6fe8e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/844d1745ba85a4535fc9945298a278b014f5197d",
+                "reference": "844d1745ba85a4535fc9945298a278b014f5197d",
                 "shasum": ""
             },
             "require": {
@@ -614,7 +650,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-10 01:39:50"
         },
         {
             "name": "yiisoft/yii2-imagine",

@@ -24,7 +24,8 @@
 		"mihaildev/yii2-elfinder": "*",
 		"yiisoft/yii2-jui": "*",
         "yiisoft/yii2-imagine": "*",
-        "trntv/yii2-aceeditor": "*"
+        "trntv/yii2-aceeditor": "*",
+        "trntv/system-info": "*"
 	},
 	"require-dev": {
 		"yiisoft/yii2-codeception": "*",
@@ -37,6 +38,12 @@
 		"codeception/verify": "BDD Assertions for PHPUnit and Codeception",
         "ext-gmagick": "Gmagick PHP Extension"
 	},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/trntv/system-info.git"
+        }
+    ],
 	"scripts": {
 		"post-create-project-cmd": [
 			"yii\\composer\\Installer::setPermission",

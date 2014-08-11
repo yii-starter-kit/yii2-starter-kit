@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
             'options'=>[
                 'minHeight'=>400,
                 'maxHeight'=>400,
-                'imageUpload'=>Yii::$app->urlManager->createUrl(['/manager/file-manager/upload-imperavi'])
+                'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-manager/upload-imperavi'])
             ]
         ]
     ) ?>

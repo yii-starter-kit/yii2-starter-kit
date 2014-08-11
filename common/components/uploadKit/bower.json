@@ -1,0 +1,20 @@
+{
+  "name": "yii2-upload-kit",
+  "homepage": "http://github.com/trntv/yii2-blueimp-file-upload",
+  "authors": [
+    "Eugine Terentev <eugine@terentev.net>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "blueimp-file-upload": "~9.7.0"
+  }
+}

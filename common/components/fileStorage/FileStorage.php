@@ -25,22 +25,23 @@ class FileStorage extends \yii\base\Component{
         }
     }
 
-    public function save($file, $repository = false){
-        return $this->getRepository($repository)->save($file);
+    public function save($file, $category = null, $repository = null){
+        return $this->getRepository($repository)->save(File::load($file), $category);
     }
-    public function saveAll($files, $repository = false){
+
+    public function saveAll($files, $category = null, $repository = null){
         $result = [];
         foreach($files as $file){
-            $result[] = $this->save($file, $repository);
+            $result[] = $this->save($file, $category, $repository);
         }
         return $result;
     }
 
-    public function delete($file, $repository = false){
+    public function delete($file, $repository = null){
         return $this->getRepository($repository)->delete($file);
     }
 
-    public function deleteAll($files, $repository = false){
+    public function deleteAll($files, $repository = null){
         foreach($files as $file){
             $this->delete($file, $repository);
         }
@@ -65,5 +66,10 @@ class FileStorage extends \yii\base\Component{
             return false;
         }
         return $path;
+    }
+
+    public function getAvailableRepositories(){
+        $initiated = array_keys($this->_initiatedRepositories);
+        return array_combine($initiated, $initiated);
     }
 }

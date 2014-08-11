@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\components\fileStorage\action\UploadAction;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -10,25 +11,37 @@ use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\imagine\Image;
 use yii\web\BadRequestHttpException;
 
 class UserController extends \yii\web\Controller
 {
+
+    public function actions(){
+        return [
+            'avatar-upload'=>[
+                'class'=>UploadAction::className(),
+                'fileProcessing'=>function($file){
+                    Image::thumbnail($file->path, 215,215)
+                        ->save($file->path);
+                }
+            ]
+        ];
+    }
 
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
+                        'actions' => ['signup', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'profile', 'avatar-upload'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -45,7 +58,15 @@ class UserController extends \yii\web\Controller
 
     public function actionProfile()
     {
-        return $this->render('profile');
+        $model = Yii::$app->user->identity->profile;
+        if($model->load($_POST) && $model->save()){
+            Yii::$app->session->setFlash('alert', [
+                'options'=>['class'=>'alert-success'],
+                'body'=>Yii::t('frontend', 'Your profile has been successfully saved')
+            ]);
+            return $this->refresh();
+        }
+        return $this->render('profile', ['model'=>$model]);
     }
 
     public function actionLogin()
@@ -67,7 +88,6 @@ class UserController extends \yii\web\Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
 

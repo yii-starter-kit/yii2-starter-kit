@@ -4,11 +4,6 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
 
-        'assetsManager'=>[
-            'class'=>'yii\web\AssetManager',
-            'linkAssets'=>true,
-        ],
-
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
             'itemTable' => 'rbac_auth_item',
@@ -16,10 +11,6 @@ return [
             'assignmentTable' => 'rbac_auth_assignment',
             'ruleTable' => 'rbac_auth_rule',
             'defaultRoles' => ['administrator', 'manager', 'user'],
-        ],
-
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
         ],
 
         'mailer' => [
@@ -38,47 +29,6 @@ return [
                     'logTable'=>'{{%system_log}}'
                 ]
             ],
-        ],
-
-        'i18n' => [
-            'translations' => [
-                'system\common' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-                'system\backend' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-                'system\frontend' => [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-                '*'=> [
-                    'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18_source_message}}',
-                    'messageTable'=>'{{%i18_message}}',
-                    'cachingDuration'=>60
-                ],
-            ],
-        ],
-
-        'storage'=>[
-            'class'=>'frontend\components\storage\Component',
-            'targets'=>[
-                'fs'=>[
-                    'class'=>'frontend\components\storage\target\FsTarget',
-                    'basePath'=>'@webroot/uploads',
-                    'baseUrl'=>'@web/uploads',
-                ]
-            ],
-
         ],
 
         'urlManager'=>[

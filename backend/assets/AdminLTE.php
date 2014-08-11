@@ -13,11 +13,15 @@ use yii\web\AssetBundle;
 
 class AdminLTE extends AssetBundle{
     public $sourcePath = '@backend/assets/admin-lte';
+    public $js = [
+        'js/AdminLTE/app.js'
+    ];
     public $css = [
         'css/AdminLTE.css'
     ];
     public $depends = [
         '\yii\web\JqueryAsset',
+        '\yii\jui\SortableAsset',
         '\yii\bootstrap\BootstrapPluginAsset',
         'common\assets\FontAwesome',
         'common\assets\Ionicons',

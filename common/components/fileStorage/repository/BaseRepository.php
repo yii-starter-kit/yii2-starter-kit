@@ -24,10 +24,11 @@ abstract class BaseRepository extends Component{
         }
     }
 
-    public function afterSave($file){
+    public function afterSave($file, $category = null){
         if(!$file->error) {
             $model = new FileStorageItem();
             $model->repository = $this->name;
+            $model->category = $category;
             $model->url = $file->url;
             $model->path = $file->path;
             $model->size = $file->size;
@@ -41,7 +42,7 @@ abstract class BaseRepository extends Component{
     }
 
     public function afterDelete($file){
-        $model = FileStorageItem::findOne(['path'=>$file->path]);
+        $model = FileStorageItem::findOne(['path'=>$file->path, 'repository'=>$this->name]);
         if($model){
             $model->status = FileStorageItem::STATUS_DELETED;
             $model->save(false);
@@ -49,7 +50,7 @@ abstract class BaseRepository extends Component{
         $this->trigger(self::EVENT_AFTER_DELETE);
     }
 
-    abstract public function save(File $file);
+    abstract public function save(File $file, $category);
     abstract public function delete(File $file);
     abstract public function reset();
 }

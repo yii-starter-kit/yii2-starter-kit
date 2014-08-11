@@ -15,6 +15,7 @@ FEATURES
 - System events log
 - System information
 - aceeditor, imperavi, elfinder
+- nginx example config
 
 DEMO
 ----

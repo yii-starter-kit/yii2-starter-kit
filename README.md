@@ -3,6 +3,8 @@ Yii 2 Starter Kit
 
 FEATURES
 --------
+- Based on yii2-advanced application template
+- Beatiful and free dashboard theme for backend - http://almsaeedstudio.com/AdminLTE
 - Sign in, Sign up, profile, avatar etc
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks

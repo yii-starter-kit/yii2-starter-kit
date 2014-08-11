@@ -1,6 +1,28 @@
 Yii 2 Starter Kit
 ================================
 
+FEATURES
+--------
+- Sign in, Sign up, profile, avatar etc
+- User management: CRUD
+- Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
+- File storage component
+- Upload widget
+- Key value storage component
+- System log
+- System events log
+- System information
+- aceeditor, imperavi, elfinder
+
+DEMO
+----
+
+http://starter.terentev.net
+http://backend.starter.terentev.net
+
+Login: webmaster
+Passowrd: webmaster
+
 
 REQUIREMENTS
 ------------

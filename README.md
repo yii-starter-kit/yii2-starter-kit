@@ -24,7 +24,8 @@ http://starter.terentev.net
 http://backend.starter.terentev.net
 
 Login: webmaster
-Passowrd: webmaster
+
+Password: webmaster
 
 
 REQUIREMENTS

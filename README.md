@@ -5,7 +5,7 @@ FEATURES
 --------
 - Based on yii2-advanced application template
 - Beautiful and free dashboard theme for backend - http://almsaeedstudio.com/AdminLTE
-- Configured I18N + 2 translations: Ukrainian, Russian
+- I18N + 2 translations: Ukrainian, Russian
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
@@ -22,6 +22,7 @@ DEMO
 ----
 
 http://yii2-starter-kit.terentev.net
+
 http://backend.yii2-starter-kit.terentev.net
 
 ```

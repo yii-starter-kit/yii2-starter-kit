@@ -11,13 +11,29 @@ namespace common\components\fileStorage;
 use yii\base\InvalidCallException;
 use yii\helpers\ArrayHelper;
 
+/**
+ * Class FileStorage
+ * @package common\components\fileStorage
+ */
 class FileStorage extends \yii\base\Component{
 
+    /**
+     * @var array
+     */
     public $repositories = [];
+    /**
+     * @var string
+     */
     public $defaultRepository = 'filesystem';
 
+    /**
+     * @var array
+     */
     public $_initiatedRepositories = [];
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init(){
         foreach($this->repositories as $config){
             $repository = \Yii::createObject($config);
@@ -25,10 +41,22 @@ class FileStorage extends \yii\base\Component{
         }
     }
 
+    /**
+     * @param $file
+     * @param null $category
+     * @param null $repository
+     * @return File
+     */
     public function save($file, $category = null, $repository = null){
         return $this->getRepository($repository)->save(File::load($file), $category);
     }
 
+    /**
+     * @param $files
+     * @param null $category
+     * @param null $repository
+     * @return File[]
+     */
     public function saveAll($files, $category = null, $repository = null){
         $result = [];
         foreach($files as $file){
@@ -37,16 +65,29 @@ class FileStorage extends \yii\base\Component{
         return $result;
     }
 
+    /**
+     * @param $file
+     * @param null $repository
+     * @return mixed
+     */
     public function delete($file, $repository = null){
         return $this->getRepository($repository)->delete($file);
     }
 
+    /**
+     * @param $files
+     * @param null $repository
+     */
     public function deleteAll($files, $repository = null){
         foreach($files as $file){
             $this->delete($file, $repository);
         }
     }
 
+    /**
+     * @param bool $name
+     * @return mixed
+     */
     public function getRepository($name = false){
         if(!$name){
             $name = $this->defaultRepository ?: ArrayHelper::getValue(array_keys($this->repositories), 0);
@@ -57,6 +98,11 @@ class FileStorage extends \yii\base\Component{
         return ArrayHelper::getValue($this->_initiatedRepositories, $name);
     }
 
+    /**
+     * @param $link
+     * @param bool $path
+     * @return bool|string Downloaded file path
+     */
     public function download($link, $path = false){
         if(!$path){
             $path = tempnam(sys_get_temp_dir(), 'yii');
@@ -68,6 +114,9 @@ class FileStorage extends \yii\base\Component{
         return $path;
     }
 
+    /**
+     * @return array
+     */
     public function getAvailableRepositories(){
         $initiated = array_keys($this->_initiatedRepositories);
         return array_combine($initiated, $initiated);

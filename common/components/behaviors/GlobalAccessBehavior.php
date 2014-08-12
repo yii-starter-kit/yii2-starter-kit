@@ -10,12 +10,26 @@ namespace common\components\behaviors;
 
 use yii\base\Behavior;
 use yii\base\Controller;
-use yii\filters\AccessControl;
 
+/**
+ * Class GlobalAccessBehavior
+ * @package common\components\behaviors
+ */
 class GlobalAccessBehavior extends Behavior{
 
+    /**
+     * @var array @see \yii\filters\AccessControl::rules
+     */
     public $rules = [];
 
+    /**
+     * @var string
+     */
+    public $accessControlFilter = 'yii\filters\AccessControl';
+
+    /**
+     * @return array
+     */
     public function events()
     {
         return [
@@ -25,7 +39,7 @@ class GlobalAccessBehavior extends Behavior{
 
     public function beforeAction(){
         \Yii::$app->controller->attachBehavior('access', [
-            'class'=>AccessControl::className(),
+            'class'=>$this->accessControlFilter,
             'rules'=>$this->rules
         ]);
     }

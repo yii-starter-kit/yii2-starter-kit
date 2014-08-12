@@ -13,17 +13,49 @@ use common\models\FileStorageItem;
 use yii\base\Exception;
 use yii\base\InvalidConfigException;
 
+/**
+ * Class FilesystemRepository
+ * @package common\components\fileStorage\repository
+ */
 class FilesystemRepository extends BaseRepository{
 
+    /**
+     * Repository name
+     * @var string
+     */
     public $name = 'filesystem';
+    /**
+     * Storage path
+     * @var
+     */
     public $basePath;
+    /**
+     * Base url for stored files
+     * @var
+     */
     public $baseUrl;
+    /**
+     * Max files in directory
+     * @var int
+     */
     public $maxFiles = 65535; // Default: Fat32 limit
 
+    /**
+     * @var int
+     */
     private $_dirindex = 1;
+    /**
+     * @var
+     */
     private $_dirmtime;
+    /**
+     * @var
+     */
     private $_filescount;
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init(){
         if(!$this->basePath){
             throw new InvalidConfigException;
@@ -41,6 +73,9 @@ class FilesystemRepository extends BaseRepository{
         }
     }
 
+    /**
+     * @return int
+     */
     public function getDirIndex(){
         if(!file_exists($this->basePath.'/index')){
             file_put_contents($this->basePath.'/index', $this->_dirindex);
@@ -57,6 +92,9 @@ class FilesystemRepository extends BaseRepository{
         return $this->_dirindex;
     }
 
+    /**
+     * @return int
+     */
     public function getFilesCount(){
         if (filemtime($this->basePath . '/' . $this->_dirindex) > $this->_dirmtime) {
             $this->_dirmtime = filemtime($this->basePath . '/' . $this->_dirindex);
@@ -65,12 +103,18 @@ class FilesystemRepository extends BaseRepository{
         return $this->_filescount;
     }
 
+    /**
+     * @param File $file
+     * @param bool $category
+     * @return File
+     * @throws \Exception
+     * @throws \yii\base\Exception
+     */
     public function save(File $file, $category = false)
     {
         if(!file_exists($this->basePath.'/'.$this->getDirIndex())){
             mkdir($this->basePath.'/'.$this->getDirIndex());
         }
-
         $i = 0;
         do{
             $name = sprintf('%s.%s', \Yii::$app->security->generateRandomString(), $file->extension);
@@ -91,6 +135,10 @@ class FilesystemRepository extends BaseRepository{
         return $file;
     }
 
+    /**
+     * @param File $file
+     * @return bool
+     */
     public function delete(File $file){
         if(unlink($file->path)){
             $this->afterDelete($file);
@@ -99,6 +147,9 @@ class FilesystemRepository extends BaseRepository{
         return false;
     }
 
+    /**
+     * Reset storage
+     */
     public function reset()
     {
         $dirs = [];
@@ -109,7 +160,9 @@ class FilesystemRepository extends BaseRepository{
             if($v->isDir()){
                 $dirs[realpath($v->getPathname())] = realpath($v->getPathname());
             } else {
-                @unlink($v->getPathname());
+                if(@unlink($v->getPathname())){
+                    FileStorageItem::deleteAll(['path'=>$v->getPathname(), 'repository'=>$this->name]);
+                };
             }
         }
         array_unique($dirs);

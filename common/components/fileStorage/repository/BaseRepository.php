@@ -13,17 +13,37 @@ use Exception;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
+/**
+ * Class BaseRepository
+ * @package common\components\fileStorage\repository
+ */
 abstract class BaseRepository extends Component{
 
+    /**
+     * Event triggered after delete
+     */
     const EVENT_AFTER_DELETE = 'afterDelete';
+    /**
+     * Event triggered after save
+     */
     const EVENT_AFTER_SAVE = 'afterSave';
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init(){
         if(!$this->name){
             throw new InvalidConfigException(\Yii::t('common', 'Name cannot be empty'));
         }
     }
 
+    /**
+     * This method is called at the end saving a file.
+     * Method creates a record about saved file to db
+     * @param $file
+     * @param null $category
+     * @throws \Exception
+     */
     public function afterSave($file, $category = null){
         if(!$file->error) {
             $model = new FileStorageItem();
@@ -41,6 +61,9 @@ abstract class BaseRepository extends Component{
         $this->trigger(self::EVENT_AFTER_SAVE);
     }
 
+    /**
+     * @param $file
+     */
     public function afterDelete($file){
         $model = FileStorageItem::findOne(['path'=>$file->path, 'repository'=>$this->name]);
         if($model){
@@ -50,7 +73,21 @@ abstract class BaseRepository extends Component{
         $this->trigger(self::EVENT_AFTER_DELETE);
     }
 
+    /**
+     * @param File $file
+     * @param $category
+     * @return mixed
+     */
     abstract public function save(File $file, $category);
+
+    /**
+     * @param File $file
+     * @return mixed
+     */
     abstract public function delete(File $file);
+
+    /**
+     * @return mixed
+     */
     abstract public function reset();
 }

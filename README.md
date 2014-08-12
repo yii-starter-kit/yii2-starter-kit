@@ -20,14 +20,13 @@ FEATURES
 DEMO
 ----
 
-http://starter.terentev.net
+http://yii2-starter-kit.terentev.net
+http://backend.yii2-starter-kit.terentev.net
 
-http://backend.starter.terentev.net
-
+```
 Login: webmaster
-
 Password: webmaster
-
+```
 
 REQUIREMENTS
 ------------

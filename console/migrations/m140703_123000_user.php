@@ -34,8 +34,8 @@ class m140703_123000_user extends Migration
             'auth_key'=>Yii::$app->getSecurity()->generateRandomString(),
             'role'=>\common\models\User::ROLE_ADMINISTRATOR,
             'status'=>\common\models\User::STATUS_ACTIVE,
-            'created_at'=>new \yii\db\Expression('NOW()'),
-            'updated_at'=>new \yii\db\Expression('NOW()')
+            'created_at'=>time(),
+            'updated_at'=>time()
         ]);
 
         $this->createTable('{{%user_profile}}', [
@@ -43,6 +43,7 @@ class m140703_123000_user extends Migration
             'firstname' => Schema::TYPE_STRING . '(255) ',
             'middlename' => Schema::TYPE_STRING . '(255) ',
             'lastname' => Schema::TYPE_STRING . '(255) ',
+            'picture' => Schema::TYPE_STRING . '(2048) ',
             'locale' => Schema::TYPE_STRING . '(32) NOT NULL',
             'gender' => Schema::TYPE_INTEGER . '(1) NOT NULL',
         ], $tableOptions);

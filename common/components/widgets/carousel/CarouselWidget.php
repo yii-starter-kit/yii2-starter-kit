@@ -15,6 +15,10 @@ use yii\helpers\Html;
 
 class CarouselWidget extends Carousel{
     public $alias;
+    public $controls = [
+        '<span class="glyphicon glyphicon-chevron-left"></span>',
+        '<span class="glyphicon glyphicon-chevron-right"></span>',
+    ];
 
     public function init(){
         if(!$this->alias){

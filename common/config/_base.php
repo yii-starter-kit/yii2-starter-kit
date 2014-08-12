@@ -84,9 +84,9 @@ return [
     'params' => [
         'adminEmail' => 'admin@example.com',
         'availableLocales'=>[
-            'en_US'=>'English (US)',
-            'ru_RU'=>'Русский (РФ)',
-            'ua_UA'=>'Українська (Україна)'
+            'en-US'=>'English (US)',
+            'ru-RU'=>'Русский (РФ)',
+            'ua-UA'=>'Українська (Україна)'
         ],
     ],
 ];

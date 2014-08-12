@@ -17,7 +17,7 @@ $this->params['body-class'] = 'bg-black';
         <div class="body bg-gray">
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <?= $form->field($model, 'rememberMe')->checkbox(['class'=>'simple']) ?>
         </div>
         <div class="footer">
             <?= Html::submitButton(Yii::t('backend', 'Sign me in'), ['class' => 'btn bg-olive btn-block', 'name' => 'login-button']) ?>

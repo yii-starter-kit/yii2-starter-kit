@@ -78,14 +78,6 @@ use yii\widgets\Breadcrumbs;
                         </li>
                         <li class="footer">
                             <?= Html::a(Yii::t('backend', 'View all'), ['/log/index']) ?>
-                            <?= Html::a(
-                                Yii::t('backend', 'Clear'),
-                                ['/log/index'],
-                                [
-                                    'data-method' => 'delete',
-                                    'data-pjax' => '1',
-                                ])
-                            ?>
                         </li>
                     </ul>
                 </li>

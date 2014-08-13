@@ -16,7 +16,7 @@ class m140709_173306_widget_menu extends Migration
             'id' => Schema::TYPE_PK,
             'alias' => Schema::TYPE_STRING . '(1024) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
-            'menu' => Schema::TYPE_TEXT . ' NOT NULL',
+            'config' => Schema::TYPE_TEXT . ' NOT NULL',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0'
         ], $tableOptions);
     }

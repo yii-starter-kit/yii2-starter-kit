@@ -11,7 +11,7 @@ $config = [
             'disabledCommands' => ['netmount'], //отключение ненужных команд https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
             'roots' => [
                 [
-                    'path'   => '/uploads',
+                    'path'   => '@storage/uploads',
                     'name'   => ['category' => 'app','message' => 'Uploads'], // Yii::t($category, $message)
                     'access' => ['read' => 'manager', 'write' => 'manager'] // * - для всех, иначе проверка доступа в даааном примере все могут видет а редактировать могут пользователи только с правами UserFilesAccess
                 ]

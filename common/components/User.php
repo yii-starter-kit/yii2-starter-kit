@@ -10,7 +10,7 @@ class User extends \yii\web\User{
     public function init(){
         parent::init();
         // todo
-        $locale = !$this->isGuest && $this->getIdentity()->profile->locale
+        $locale = !$this->isGuest && $this->getIdentity()->profile
             ? $this->getIdentity()->profile->locale
             : \Yii::$app->sourceLanguage;
         if(!\Yii::$app->session->has('user.locale')){

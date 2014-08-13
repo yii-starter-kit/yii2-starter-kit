@@ -101,3 +101,7 @@ php environments/local/yii migrate
 ```php
 php environmetns/local/yii rbac/init
 ```
+### Demo user
+Login: webmaster
+
+Password: webmaster

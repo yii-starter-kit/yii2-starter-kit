@@ -17,6 +17,11 @@ class m140805_084745_key_storage_item extends Migration
             'key' => Schema::TYPE_STRING . '(128) NOT NULL',
             'value' => Schema::TYPE_TEXT . ' NOT NULL'
         ], $tableOptions);
+        // skin-black
+        $this->insert('{{%key_storage_item}}', [
+            'key'=>'backend.theme-skin',
+            'value'=>'skin-blue'
+        ]);
     }
 
     public function down()

@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\fileStorage\behaviors\UploadBehavior;
 use common\components\fileStorage\File;
 use Yii;
 use yii\imagine\Image;
@@ -22,14 +23,12 @@ use yii\web\UploadedFile;
  */
 class WidgetCarouselItem extends \yii\db\ActiveRecord
 {
-    public $file;
-
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'widget_carousel_item';
+        return '{{%widget_carousel_item}}';
     }
 
     public function scenarios(){
@@ -39,6 +38,17 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
         return $scenarios;
     }
 
+    public function behaviors()
+    {
+        return [
+            'path' => [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'path',
+                'fileCategory' => 'carousel',
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -46,10 +56,9 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     {
         return [
             [['carousel_id'], 'required'],
-            [['path'],'string'],
-            [['file'], 'file', 'extensions'=>['jpeg', 'jpg', 'png']],
+            [['path'], 'file', 'extensions'=>['jpeg', 'jpg', 'png']],
             [['carousel_id', 'status', 'order'], 'integer'],
-            [['path', 'url', 'caption'], 'string', 'max' => 1024]
+            [['url', 'caption'], 'string', 'max' => 1024]
         ];
     }
 
@@ -67,14 +76,6 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
             'status' => Yii::t('common', 'Status'),
             'order' => Yii::t('common', 'Order'),
         ];
-    }
-
-    public function afterValidate(){
-        parent::afterValidate();
-        $file = UploadedFile::getInstance($this, 'file');
-        if ($file && !$file->hasError && !$this->hasErrors()) {
-            $this->path = Yii::$app->fileStorage->save(File::load($file))->url;
-        }
     }
 
     /**

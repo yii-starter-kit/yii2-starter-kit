@@ -14,6 +14,10 @@ use yii\widgets\ActiveForm;
         'options'=>['enctype'=>'multipart/form-data']
     ]); ?>
 
+    <?php if($model->hasErrors()): ?>
+        <?= $form->errorSummary($model) ?>
+    <?php endif; ?>
+
     <?php if($model->path): ?>
         <div class="row">
             <div class="col-xs-12 text-center">
@@ -22,7 +26,7 @@ use yii\widgets\ActiveForm;
         </div>
     <?php endif; ?>
 
-    <?= $form->field($model, 'file')->fileInput() ?>
+    <?= $form->field($model, 'path')->fileInput() ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 

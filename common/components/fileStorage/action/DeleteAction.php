@@ -8,7 +8,29 @@
 
 namespace common\components\fileStorage\action;
 
+use yii\base\Action;
 
-class DeleteAction {
+/**
+ * public function actions(){
+ *   return [
+ *           'upload'=>[
+ *               'class'=>'common\components\fileStorage\action\DeleteAction',
+ *               'fileparam'=>'path',
+ *               'repositoryparam'=>'repository',
+ *           ]
+ *       ];
+ *   }
+ */
+class DeleteAction extends Action{
 
+    public $fileparam = 'path';
+    public $repositoryparam = 'repository';
+
+    public function run()
+    {
+        return \Yii::$app->fileStorage->delete(
+            \Yii::$app->request->get($this->fileparam),
+            \Yii::$app->request->get($this->repositoryparam)
+        );
+    }
 } 

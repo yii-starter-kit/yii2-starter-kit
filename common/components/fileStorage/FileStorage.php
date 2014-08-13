@@ -71,7 +71,10 @@ class FileStorage extends \yii\base\Component{
      * @return mixed
      */
     public function delete($file, $repository = null){
-        return $this->getRepository($repository)->delete($file);
+        $file = File::load($file);
+        if($file) {
+            return $this->getRepository($repository)->delete($file);
+        }
     }
 
     /**

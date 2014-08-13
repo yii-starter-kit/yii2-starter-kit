@@ -12,7 +12,10 @@ use yii\web\UploadedFile;
 *   return [
 *           'upload'=>[
 *               'class'=>'common\components\fileStorage\action\UploadAction',
-*               'responseUrlParam'=>'file-url'
+*               'responseUrlParam'=>'file-url',
+ *              'fileProcessing'=>function($file, $uploadAction){
+                    // do something
+ *              }
 *           ]
 *       ];
 *   }
@@ -43,7 +46,7 @@ class UploadAction extends Action{
     /**
      * @var \Closure
      * ```php
-     * function foo($file, $uploadAction) {
+     * function($file, $uploadAction) {
      *     // process file value
      * }
      * ```

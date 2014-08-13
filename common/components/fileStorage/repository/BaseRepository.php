@@ -75,16 +75,20 @@ abstract class BaseRepository extends Component{
 
     /**
      * @param File $file
-     * @param $category
      * @return mixed
      */
-    abstract public function save(File $file, $category);
+    public function delete(File $file){
+        $this->afterDelete($file);
+    }
 
     /**
      * @param File $file
+     * @param $category
      * @return mixed
      */
-    abstract public function delete(File $file);
+    public function save(File $file, $category = null){
+        $this->afterSave($file, $category);
+    }
 
     /**
      * @return mixed

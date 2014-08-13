@@ -14,6 +14,7 @@ use yii\web\UploadedFile;
 /**
  * Class File
  * @package common\components\storage
+ * todo: Extend form UploadedFile??
  */
 class File extends Object
 {

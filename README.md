@@ -105,3 +105,10 @@ php environmetns/local/yii rbac/init
 Login: webmaster
 
 Password: webmaster
+
+### TODO
+- Upload Kit improvements
+- Inline code documentation
+- Tests
+- Various improvements
+- Permanent bug fixing ;)

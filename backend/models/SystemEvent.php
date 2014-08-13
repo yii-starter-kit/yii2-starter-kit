@@ -70,7 +70,7 @@ class SystemEvent extends \yii\db\ActiveRecord
     public function getMessage(){
         $messages = [
             'user'=>[
-                User::EVENT_AFTER_SIGNUP => Yii::t('backend', 'New user {username} ({email}) war registered at {created_at, date} {created_at, time}', $this->data)
+                User::EVENT_AFTER_SIGNUP => Yii::t('backend', 'New user {username} ({email}) was registered at {created_at, date} {created_at, time}', $this->data)
             ]
         ];
         return ArrayHelper::getValue($messages, $this->getFullEventName());

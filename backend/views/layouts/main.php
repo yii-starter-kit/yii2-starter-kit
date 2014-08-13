@@ -42,6 +42,7 @@ use yii\widgets\Breadcrumbs;
                                 <?php foreach(\backend\models\SystemEvent::find()->today()->orderBy(['event_time'=>SORT_DESC])->limit(10)->all() as $eventRecord): ?>
                                     <li>
                                         <a href="<?= Yii::$app->urlManager->createUrl(['/system-event/view', 'id'=>$eventRecord->id]) ?>">
+                                            <i class="fa fa-bell"></i>
                                             <?= $eventRecord->getName() ?>
                                         </a>
                                     </li>

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2cd4f72ab339f2894c18bbbff8f4a975",
+    "hash": "29b3adc8f88dfabbea3972d6c76aa4e8",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -219,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-elfinder.git",
-                "reference": "870c933b0e6a06f0e0bbf3024216a1cf1e39b48e"
+                "reference": "7c387c29e4f77dd9f59579f7a1dfe37a7bd57666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-elfinder/zipball/870c933b0e6a06f0e0bbf3024216a1cf1e39b48e",
-                "reference": "870c933b0e6a06f0e0bbf3024216a1cf1e39b48e",
+                "url": "https://api.github.com/repos/trntv/yii2-elfinder/zipball/7c387c29e4f77dd9f59579f7a1dfe37a7bd57666",
+                "reference": "7c387c29e4f77dd9f59579f7a1dfe37a7bd57666",
                 "shasum": ""
             },
             "require": {
@@ -257,7 +257,7 @@
             "support": {
                 "source": "https://github.com/trntv/yii2-elfinder/tree/master"
             },
-            "time": "2014-08-13 12:32:23"
+            "time": "2014-08-13 12:45:15"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -494,12 +494,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4"
+                "reference": "9632451046441b86909df1146ef56ab68fb1b45d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/40923dfbadc16aff6527e08931a27ea8f1d09ee4",
-                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/9632451046441b86909df1146ef56ab68fb1b45d",
+                "reference": "9632451046441b86909df1146ef56ab68fb1b45d",
                 "shasum": ""
             },
             "require": {
@@ -567,7 +567,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-13 02:48:41"
+            "time": "2014-08-13 12:51:26"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -818,46 +818,6 @@
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
             "time": "2013-11-01 13:02:21"
-        },
-        {
-            "name": "yiisoft/yii2-codeception",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/yii2-codeception.git",
-                "reference": "b20673b381a6f3c3180ec8b6f1ba11e3572a6938"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/b20673b381a6f3c3180ec8b6f1ba11e3572a6938",
-                "reference": "b20673b381a6f3c3180ec8b6f1ba11e3572a6938",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/yii2": "*"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "yii\\codeception\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Mark Jebri",
-                    "email": "mark.github@yandex.ru"
-                }
-            ],
-            "description": "The Codeception integration for the Yii framework",
-            "keywords": [
-                "codeception",
-                "yii2"
-            ],
-            "time": "2014-07-29 22:40:46"
         },
         {
             "name": "yiisoft/yii2-debug",

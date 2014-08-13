@@ -86,7 +86,7 @@ class Article extends \yii\db\ActiveRecord
             'body' => Yii::t('common', 'Body'),
             'user_id' => Yii::t('common', 'User ID'),
             'category_id' => Yii::t('common', 'Category'),
-            'status' => Yii::t('common', 'Status'),
+            'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
             'created_at' => Yii::t('common', 'Created At'),
             'updated_at' => Yii::t('common', 'Updated At'),

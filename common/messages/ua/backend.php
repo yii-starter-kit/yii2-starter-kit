@@ -17,8 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'New user {username} ({email}) war registered at {created_at, date} {created_at, time}' => '',
-    'Profile' => '',
+    'Author' => 'Автор',
+    'New user {username} ({email}) was registered at {created_at, date} {created_at, time}'
+        => 'Новий користувач {username} ({email}) був зареєстрований {created_at, date} о {created_at, time',
+    'Profile' => 'Профіль',
+    '{uptime, duration}' => '{uptime, duration}',
+    'Language' => 'Мова',
+    'Translation' => 'Переклад',
     'Are you sure you want to delete this item?' => 'Ви впевнені, що хочете видалити чей запис?',
     'Are you sure ypu want to reset File Storage?' => 'Ви впевнені, що хочете очистити Сховище Файлів?',
     'Article Categories' => 'Категорії статей',
@@ -49,7 +54,6 @@ return [
     'Kernel version' => 'Версія ядра',
     'Key Storage Items' => 'Записи',
     'Key-Value Storage' => 'Сховище ключ-значення',
-    'Language' => 'Мова',
     'Level' => 'Рівень',
     'Load average' => 'Load average',
     'Log Time' => 'Час',
@@ -92,7 +96,6 @@ return [
     'Toggle navigation' => 'Навігація',
     'Total Swap' => 'Усього Swap',
     'Total memory' => 'Усього пам’яті',
-    'Translation' => 'Переклад',
     'Update' => 'Редагувати',
     'Update {modelClass}: ' => 'Редагування {modelClass}:',
     'Upload file' => 'Завантажити файл',
@@ -108,5 +111,4 @@ return [
     'Widget Menus' => 'Віджети меню',
     'You have {num} events' => 'Сталося {num} подій',
     'You have {num} log items' => '{num} записів у журналі',
-    '{uptime, duration}' => '',
 ];

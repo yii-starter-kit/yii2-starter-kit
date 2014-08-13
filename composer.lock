@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "faac27810b37159a0d3433994cb003cb",
+    "hash": "2cd4f72ab339f2894c18bbbff8f4a975",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -218,13 +218,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/MihailDev/yii2-elfinder.git",
-                "reference": "db01f45859a4795452e410861f4423386f9b4012"
+                "url": "https://github.com/trntv/yii2-elfinder.git",
+                "reference": "870c933b0e6a06f0e0bbf3024216a1cf1e39b48e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MihailDev/yii2-elfinder/zipball/db01f45859a4795452e410861f4423386f9b4012",
-                "reference": "db01f45859a4795452e410861f4423386f9b4012",
+                "url": "https://api.github.com/repos/trntv/yii2-elfinder/zipball/870c933b0e6a06f0e0bbf3024216a1cf1e39b48e",
+                "reference": "870c933b0e6a06f0e0bbf3024216a1cf1e39b48e",
                 "shasum": ""
             },
             "require": {
@@ -236,7 +236,6 @@
                     "mihaildev\\elfinder\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -255,7 +254,10 @@
                 "filemanager",
                 "yii"
             ],
-            "time": "2014-07-03 10:47:14"
+            "support": {
+                "source": "https://github.com/trntv/yii2-elfinder/tree/master"
+            },
+            "time": "2014-08-13 12:32:23"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -315,12 +317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/system-info.git",
-                "reference": "e8c4c15484f8103d383ab16d4832ea71d12b7f14"
+                "reference": "526a4cff59de95a0dc768ea26d229cdd0229627f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/system-info/zipball/e8c4c15484f8103d383ab16d4832ea71d12b7f14",
-                "reference": "e8c4c15484f8103d383ab16d4832ea71d12b7f14",
+                "url": "https://api.github.com/repos/trntv/system-info/zipball/526a4cff59de95a0dc768ea26d229cdd0229627f",
+                "reference": "526a4cff59de95a0dc768ea26d229cdd0229627f",
                 "shasum": ""
             },
             "type": "library",
@@ -343,7 +345,7 @@
                 "source": "https://github.com/trntv/system-info/tree/master",
                 "issues": "https://github.com/trntv/system-info/issues"
             },
-            "time": "2014-08-11 09:25:35"
+            "time": "2014-08-11 12:48:32"
         },
         {
             "name": "trntv/yii2-aceeditor",
@@ -492,12 +494,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "47332be405dc8be3110ff86cf75d733ffa77f6c3"
+                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/47332be405dc8be3110ff86cf75d733ffa77f6c3",
-                "reference": "47332be405dc8be3110ff86cf75d733ffa77f6c3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/40923dfbadc16aff6527e08931a27ea8f1d09ee4",
+                "reference": "40923dfbadc16aff6527e08931a27ea8f1d09ee4",
                 "shasum": ""
             },
             "require": {
@@ -565,7 +567,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-10 01:39:50"
+            "time": "2014-08-13 02:48:41"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -573,12 +575,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11"
+                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/b95d716f49c1692a3824c3ffa021e878dfc3db11",
-                "reference": "b95d716f49c1692a3824c3ffa021e878dfc3db11",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/2a5f1b92b45925c9a56ccb938f15fe632cad240b",
+                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +608,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-08-08 09:53:39"
+            "time": "2014-08-13 08:58:37"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -614,12 +616,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "844d1745ba85a4535fc9945298a278b014f5197d"
+                "reference": "94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/844d1745ba85a4535fc9945298a278b014f5197d",
-                "reference": "844d1745ba85a4535fc9945298a278b014f5197d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2",
+                "reference": "94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2",
                 "shasum": ""
             },
             "require": {
@@ -650,7 +652,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2014-08-10 01:39:50"
+            "time": "2014-08-12 01:42:09"
         },
         {
             "name": "yiisoft/yii2-imagine",

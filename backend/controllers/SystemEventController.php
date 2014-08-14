@@ -34,6 +34,9 @@ class SystemEventController extends Controller
     {
         $searchModel = new SystemEventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort = [
+            'defaultOrder'=>['event_time'=>SORT_DESC]
+        ];
 
         return $this->render('index', [
             'searchModel' => $searchModel,

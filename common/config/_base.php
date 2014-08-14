@@ -39,9 +39,10 @@ return [
                     'except'=>['yii\web\HttpException:404', 'yii\i18n\I18N::format'], // todo: DbTarget для 404 и 403
                     'prefix'=>function($message){
                         $traces = $message[4];
-                        $file = \yii\helpers\ArrayHelper::getValue($traces, 'file');
-                        $line = \yii\helpers\ArrayHelper::getValue($traces, 'line');
-                        return implode(':', [$file, $line]);
+                        $file = \yii\helpers\ArrayHelper::getValue($traces, 'file', 'unknown');
+                        $line = \yii\helpers\ArrayHelper::getValue($traces, 'line', 'unknown');
+                        $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
+                        return sprintf('[%s][%s]', $url, implode(':', [$file, $line]));
                     },
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'

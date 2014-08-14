@@ -23,6 +23,7 @@ use yii\web\UploadedFile;
  */
 class WidgetCarouselItem extends \yii\db\ActiveRecord
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -43,7 +44,8 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
         return [
             'path' => [
                 'class' => UploadBehavior::className(),
-                'attribute' => 'path',
+                'uploadAttribute' => 'file',
+                'resultAttribute' => 'path',
                 'fileCategory' => 'carousel',
             ],
         ];
@@ -56,9 +58,9 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     {
         return [
             [['carousel_id'], 'required'],
-            [['path'], 'file', 'extensions'=>['jpeg', 'jpg', 'png']],
+            [['file'], 'file', 'extensions'=>['gif', 'jpeg', 'jpg', 'png']],
             [['carousel_id', 'status', 'order'], 'integer'],
-            [['url', 'caption'], 'string', 'max' => 1024]
+            [['path', 'url', 'caption'], 'string', 'max' => 1024]
         ];
     }
 

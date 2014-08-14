@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
         </div>
     <?php endif; ?>
 
-    <?= $form->field($model, 'path')->fileInput() ?>
+    <?= $form->field($model, 'file')->fileInput() ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 

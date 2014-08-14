@@ -94,10 +94,6 @@ class File extends Object
      */
     public static function load($file){
 
-        if(!$file){
-            return false;
-        }
-
         if(is_a($file, self::className())){
             return $file;
         }
@@ -121,7 +117,7 @@ class File extends Object
         }
 
         // Path
-        else {
+        elseif(realpath($file)) {
             return \Yii::createObject([
                 'class' => self::className(),
                 'path' => realpath($file),

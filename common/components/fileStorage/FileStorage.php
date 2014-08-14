@@ -48,7 +48,10 @@ class FileStorage extends \yii\base\Component{
      * @return File
      */
     public function save($file, $category = null, $repository = null){
-        return $this->getRepository($repository)->save(File::load($file), $category);
+        $file = File::load($file);
+        if($file) {
+            return $this->getRepository($repository)->save($file, $category);
+        }
     }
 
     /**

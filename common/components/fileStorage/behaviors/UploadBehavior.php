@@ -21,7 +21,8 @@ use yii\db\ActiveRecord;
  *      return [
  *          'file' => [
  *              'class' => UploadBehavior::className(),
- *              'attribute' => 'path',
+ *              'uploadAttribute' => 'file',
+ *              'resultAttribute' => 'path',
  *              'fileCategory' => 'products',
  *              'fileRepository' => 'filesystem',
  *              'fileProcessing'=>function($file, $uploadAction){
@@ -35,7 +36,8 @@ use yii\db\ActiveRecord;
  */
 class UploadBehavior extends Behavior
 {
-    public $attribute;
+    public $uploadAttribute;
+    public $resultAttribute;
 
     public $fileCategory;
     public $fileRepository;
@@ -58,8 +60,6 @@ class UploadBehavior extends Behavior
     public function events()
     {
         return [
-            ActiveRecord::EVENT_BEFORE_INSERT => 'beforeInsert',
-            ActiveRecord::EVENT_BEFORE_UPDATE => 'beforeUpdate',
             ActiveRecord::EVENT_AFTER_DELETE => 'afterDelete',
             ActiveRecord::EVENT_BEFORE_VALIDATE => 'beforeValidate',
         ];
@@ -67,24 +67,8 @@ class UploadBehavior extends Behavior
 
     public function beforeValidate()
     {
-        /** @var ActiveRecord $model */
-        $model = $this->owner;
-        $this->_uploadedFile = UploadedFile::getInstance($model, $this->attribute);
+        $this->_uploadedFile = UploadedFile::getInstance($this->owner, $this->uploadAttribute);
         if ($this->_uploadedFile && !$this->_uploadedFile->hasError) {
-            $this->owner->setAttribute($this->attribute, $this->_uploadedFile);
-        }
-    }
-
-    public function beforeInsert()
-    {
-        if($this->_uploadedFile && !$this->_uploadedFile->hasError) {
-            $this->_save();
-        }
-    }
-
-    public function beforeUpdate()
-    {
-        if($this->_uploadedFile && !$this->_uploadedFile->hasError) {
             $this->_save();
         }
     }
@@ -98,19 +82,19 @@ class UploadBehavior extends Behavior
     {
         /** @var ActiveRecord $model */
         $model = $this->owner;
-        $file = Yii::$app->fileStorage->save($model->getAttribute($this->attribute), $this->fileCategory, $this->fileRepository);
-        if(!$file->error) {
+        $file = Yii::$app->fileStorage->save($this->_uploadedFile, $this->fileCategory, $this->fileRepository);
+        if($file && !$file->error) {
             if ($this->fileProcessing instanceof \Closure) {
                 call_user_func($this->fileProcessing, $file);
             }
             // delete the old version if it necessary
             $this->_delete();
-            $model->setAttribute($this->attribute, $file->url);
+            $model->setAttribute($this->resultAttribute, $file->url);
         }
     }
 
     private function _delete()
     {
-        Yii::$app->fileStorage->delete($this->owner->getOldAttribute($this->attribute));
+        Yii::$app->fileStorage->delete($this->owner->getOldAttribute($this->resultAttribute));
     }
 }

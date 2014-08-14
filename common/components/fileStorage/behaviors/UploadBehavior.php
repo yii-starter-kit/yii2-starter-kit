@@ -62,6 +62,7 @@ class UploadBehavior extends Behavior
         return [
             ActiveRecord::EVENT_AFTER_DELETE => 'afterDelete',
             ActiveRecord::EVENT_BEFORE_VALIDATE => 'beforeValidate',
+            ActiveRecord::EVENT_AFTER_VALIDATE => 'afterValidate',
         ];
     }
 
@@ -69,13 +70,20 @@ class UploadBehavior extends Behavior
     {
         $this->_uploadedFile = UploadedFile::getInstance($this->owner, $this->uploadAttribute);
         if ($this->_uploadedFile && !$this->_uploadedFile->hasError) {
+            $this->owner->{$this->uploadAttribute} = $this->_uploadedFile;
+        }
+    }
+
+    public function afterValidate(){
+        if($this->_uploadedFile && !$this->_uploadedFile->hasError){
             $this->_save();
         }
     }
 
+
     public function afterDelete()
     {
-        $this->_delete();
+        //$this->_delete();
     }
 
     private function _save()
@@ -88,13 +96,16 @@ class UploadBehavior extends Behavior
                 call_user_func($this->fileProcessing, $file);
             }
             // delete the old version if it necessary
-            $this->_delete();
+            //$this->_delete();
             $model->setAttribute($this->resultAttribute, $file->url);
         }
     }
 
     private function _delete()
     {
-        Yii::$app->fileStorage->delete($this->owner->getOldAttribute($this->resultAttribute));
+        $old = $this->owner->getOldAttribute($this->resultAttribute);
+        if($old && $old != '') {
+            Yii::$app->fileStorage->delete();
+        }
     }
 }

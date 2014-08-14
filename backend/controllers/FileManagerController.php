@@ -9,7 +9,8 @@ class FileManagerController extends \yii\web\Controller
             'upload-imperavi'=>[
                 'class'=>'common\components\fileStorage\action\UploadAction',
                 'fileparam'=>'file',
-                'responseUrlParam'=>'filelink'
+                'responseUrlParam'=>'filelink',
+                'disableCsrf'=>true
             ]
         ];
     }

@@ -34,9 +34,11 @@ class CarouselWidget extends Carousel{
             foreach($model->items as $k => $item){
                 if($item->path){
                     $this->items[$k]['content'] = Html::img($item->path);
+                } else {
+                    continue;
                 }
                 if($item->url){
-                    $this->items[$k]['content'] = Html::a($this->items[$k]['content'], $item->url,['target'=>'_blank']);
+                    $this->items[$k]['content'] = Html::a($this->items[$k]['content'], $item->url, ['target'=>'_blank']);
                 }
 
                 if($item->caption){

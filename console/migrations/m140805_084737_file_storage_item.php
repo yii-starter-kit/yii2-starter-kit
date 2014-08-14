@@ -15,7 +15,7 @@ class m140805_084737_file_storage_item extends Migration
         $this->createTable('{{%file_storage_item}}', [
             'id' => Schema::TYPE_PK,
             'repository' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'category' => Schema::TYPE_STRING . '(128) NOT NULL',
+            'category' => Schema::TYPE_STRING . '(128)',
             'url' => Schema::TYPE_STRING . '(2048) NOT NULL',
             'path' => Schema::TYPE_STRING . '(2048) NOT NULL',
             'mimeType' => Schema::TYPE_STRING . '(128) NOT NULL',

@@ -33,6 +33,7 @@ class UploadAction extends Action{
     public $fileCategoryParam = 'category';
 
     public $repository;
+    public $disableCsrf = false;
 
     // todo: Check types, max size, max count, etc;
 
@@ -64,11 +65,14 @@ class UploadAction extends Action{
         if(!$this->fileCategory){
             $this->fileCategory = \Yii::$app->request->get($this->fileCategoryParam);
         }
+        if($this->disableCsrf){
+            \Yii::$app->request->enableCsrfValidation = false;
+        }
     }
 
     public function run()
     {
-        $result = ['success'=>[], 'error'=>[]];
+        $result = [];
         $files = UploadedFile::getInstancesByName($this->fileparam);
         foreach ($files as $file) {
             if(!$file->error){
@@ -77,7 +81,7 @@ class UploadAction extends Action{
                     if ($this->fileProcessing instanceof \Closure) {
                         call_user_func($this->fileProcessing, $file, $this);
                     }
-                    $result['success'][] = [
+                    $result[] = [
                         $this->responsePathParam => $file->path,
                         $this->responseUrlParam => $file->url,
                         $this->responseExtensionParam => $file->extension,

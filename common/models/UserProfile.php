@@ -61,6 +61,11 @@ class UserProfile extends \yii\db\ActiveRecord
         ];
     }
 
+    public function afterSave($insert, $changedAttributes)
+    {
+        \Yii::$app->session->setFlash('forceUpdateLocale');
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */

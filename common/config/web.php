@@ -12,7 +12,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-            'class'=>'common\components\User',
+            'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',
             'loginUrl'=>['sign-in/login'],
             'enableAutoLogin' => true,

@@ -37,6 +37,12 @@ return [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
                     'except'=>['yii\web\HttpException:404', 'yii\i18n\I18N::format'], // todo: DbTarget для 404 и 403
+                    'prefix'=>function($message){
+                        $traces = $message[4];
+                        $file = \yii\helpers\ArrayHelper::getValue($traces, 'file');
+                        $line = \yii\helpers\ArrayHelper::getValue($traces, 'line');
+                        return implode(':', [$file, $line]);
+                    },
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'
                 ]

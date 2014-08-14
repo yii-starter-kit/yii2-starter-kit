@@ -19,10 +19,12 @@ class LocaleBehavior extends Behavior{
     }
 
     public function beforeRequest(){
-        if(!\Yii::$app->session->has('user.locale') && !\Yii::$app->session->hasFlash('forceUpdateLocale')){
+        if(\Yii::$app->session->has('user.locale') && !\Yii::$app->session->hasFlash('forceUpdateLocale')){
             $locale = \Yii::$app->session->get('user.locale');
-        } else{
-            $locale = !\Yii::$app->user->isGuest && \Yii::$app->user->getIdentity()->profile
+        } else {
+            $locale = !\Yii::$app->user->isGuest
+                        && \Yii::$app->user->getIdentity()->profile
+                        && \Yii::$app->user->getIdentity()->profile->locale
                 ? \Yii::$app->user->getIdentity()->profile->locale
                 : \Yii::$app->sourceLanguage;
             \Yii::$app->session->set('user.locale', $locale);

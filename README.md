@@ -101,6 +101,11 @@ php environments/local/yii migrate
 ```php
 php environmetns/local/yii rbac/init
 ```
+
+### Set your application urls
+```
+environments/local/config/_aliases
+```
 ### Demo user
 Login: webmaster
 

@@ -6,6 +6,7 @@ use common\components\fileStorage\action\UploadAction;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
+use frontend\models\SignupForm;
 use frontend\models\UserCreateForm;
 use Yii;
 use yii\base\InvalidParamException;
@@ -101,7 +102,7 @@ class SignInController extends \yii\web\Controller
 
     public function actionSignup()
     {
-        $model = new UserCreateForm();
+        $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {

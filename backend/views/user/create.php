@@ -1,5 +1,7 @@
 <?php
 
+use common\models\User;
+use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
 
@@ -14,10 +16,15 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?php $form = ActiveForm::begin(); ?>
+        <?= $form->field($model, 'username') ?>
+        <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
+        <?= $form->field($model, 'role')->dropdownList(User::getRoles()) ?>
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('frontend', 'Create'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+        </div>
+    <?php ActiveForm::end(); ?>
 
 </div>

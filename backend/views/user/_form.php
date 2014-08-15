@@ -13,8 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
+    <?= $form->field($model, 'username')->textInput() ?>
+    <?= $form->field($model, 'email')->textInput() ?>
+    <?= $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
     <?= $form->field($model, 'role')->dropdownList(User::getRoles()) ?>
 
     <div class="form-group">

@@ -6,7 +6,7 @@ use common\components\fileStorage\action\UploadAction;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
+use frontend\models\UserCreateForm;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
@@ -39,6 +39,14 @@ class SignInController extends \yii\web\Controller
                         'actions' => ['signup', 'login'],
                         'allow' => true,
                         'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['signup', 'login'],
+                        'allow' => false,
+                        'roles' => ['@'],
+                        'denyCallback'=>function($rule, $action){
+                            return Yii::$app->controller->redirect(['profile']);
+                        }
                     ],
                     [
                         'actions' => ['logout', 'profile', 'avatar-upload'],
@@ -93,7 +101,7 @@ class SignInController extends \yii\web\Controller
 
     public function actionSignup()
     {
-        $model = new SignupForm();
+        $model = new UserCreateForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user)) {

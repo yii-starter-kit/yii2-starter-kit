@@ -26,10 +26,9 @@ class LocaleBehavior extends Behavior{
                         && \Yii::$app->user->getIdentity()->profile
                         && \Yii::$app->user->getIdentity()->profile->locale
                 ? \Yii::$app->user->getIdentity()->profile->locale
-                : \Yii::$app->sourceLanguage;
+                : \Yii::$app->request->getPreferredLanguage(array_keys(\Yii::$app->params['availableLocales']));
             \Yii::$app->session->set('user.locale', $locale);
         }
         \Yii::$app->language = $locale;
-        return;
     }
-} 
+}

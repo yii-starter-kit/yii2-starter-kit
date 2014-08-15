@@ -105,6 +105,7 @@ Password: webmaster
 ~~~
 
 ### TODO
+- Chained selects extension
 - Upload Kit improvements
 - Inline code documentation
 - Tests

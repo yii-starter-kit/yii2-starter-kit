@@ -61,14 +61,6 @@ You can then install this application template using the following command:
 php composer.phar create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ~~~
 
-Now you should be able to access the application through the following URL, assuming `yii2-starter-kit` is the directory
-directly under the Web root.
-
-~~~
-http://localhost/web/
-~~~
-
-
 CONFIGURATION
 -------------
 
@@ -107,9 +99,10 @@ php environmetns/local/yii rbac/init
 environments/local/config/_aliases
 ```
 ### Demo user
+~~~
 Login: webmaster
-
 Password: webmaster
+~~~
 
 ### TODO
 - Upload Kit improvements

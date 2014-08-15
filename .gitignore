@@ -1,6 +1,7 @@
 # Application
 /environments/*
 !/environments/local
+!/environments/local/config
 
 # Storage
 /storage/uploads

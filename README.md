@@ -78,7 +78,8 @@ return [
 ];
 ```
 
-### Set your application urls `environments/local/config/_aliases`
+### Application urls
+Edit the file `environments/local/config/_aliases`
 ```php
 Yii::setAlias('@frontendUrl', 'http://example.com');
 Yii::setAlias('@backendUrl', 'http://backend.example.com');

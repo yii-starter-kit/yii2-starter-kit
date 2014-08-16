@@ -66,7 +66,7 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `environments/local/config/db.php` with real data, for example:
+Edit the file `environments/local/config/_db.php` with real data, for example:
 
 ```php
 return [
@@ -77,6 +77,14 @@ return [
     'charset' => 'utf8',
 ];
 ```
+
+### Set your application urls `environments/local/config/_aliases`
+```php
+Yii::setAlias('@frontendUrl', 'http://example.com');
+Yii::setAlias('@backendUrl', 'http://backend.example.com');
+Yii::setAlias('@storageUrl', 'http://storage.example.com');
+```
+
 
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
@@ -92,11 +100,6 @@ php environments/local/yii migrate
 
 ```php
 php environmetns/local/yii rbac/init
-```
-
-### Set your application urls
-```
-environments/local/config/_aliases
 ```
 ### Demo user
 ~~~

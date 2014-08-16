@@ -27,7 +27,7 @@ return [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => true,
+            'useFileTransport' => false,
         ],
 
         'log' => [

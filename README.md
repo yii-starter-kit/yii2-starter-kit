@@ -77,20 +77,17 @@ return [
     'charset' => 'utf8',
 ];
 ```
+**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
+
+Also check and edit the other files in the `config/` directory to customize your application.
 
 ### Application urls
-Edit the file `environments/local/config/_aliases`
+Edit the file `environments/local/config/_aliases.php`
 ```php
 Yii::setAlias('@frontendUrl', 'http://example.com');
 Yii::setAlias('@backendUrl', 'http://backend.example.com');
 Yii::setAlias('@storageUrl', 'http://storage.example.com');
 ```
-
-
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
-
-Also check and edit the other files in the `config/` directory to customize your application.
-
 #### Apply migrations
 
 ```php

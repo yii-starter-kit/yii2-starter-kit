@@ -36,12 +36,12 @@ class SignInController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['signup', 'login'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['signup', 'login'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
                         'allow' => false,
                         'roles' => ['@'],
                         'denyCallback'=>function($rule, $action){

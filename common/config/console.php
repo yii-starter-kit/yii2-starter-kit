@@ -12,14 +12,11 @@ return \yii\helpers\ArrayHelper::merge(
         'controllerMap'=>[
             'migrate'=>[
                 'class'=>'yii\console\controllers\MigrateController',
-                'migrationPath'=>'@app/console/migrations',
+                'migrationPath'=>'@console/migrations',
                 'migrationTable'=>'{{%system_migration}}'
             ]
         ],
         'components' => [
-            'cache' => [
-                'class' => 'yii\caching\FileCache',
-            ],
             'log' => [
                 'targets' => [
                     [

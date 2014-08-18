@@ -6,8 +6,6 @@ return \yii\helpers\ArrayHelper::merge(
     $base,
     [
         'id' => 'basic-console',
-        'basePath' => dirname(__DIR__),
-        'bootstrap' => ['log'],
         'controllerNamespace' => 'console\controllers',
         'controllerMap'=>[
             'migrate'=>[

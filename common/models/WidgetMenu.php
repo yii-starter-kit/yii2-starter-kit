@@ -24,7 +24,7 @@ class WidgetMenu extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'widget_menu';
+        return '{{%widget_menu}}';
     }
 
     /**

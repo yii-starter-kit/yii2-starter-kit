@@ -23,7 +23,7 @@ class SystemLog extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'system_log';
+        return '{{%system_log}}';
     }
 
     /**

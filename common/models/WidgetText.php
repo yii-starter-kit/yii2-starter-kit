@@ -23,7 +23,7 @@ class WidgetText extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'widget_text';
+        return '{{%widget_text}}';
     }
 
     /**

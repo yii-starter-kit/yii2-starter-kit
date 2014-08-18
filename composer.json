@@ -38,10 +38,6 @@
         {
             "type": "vcs",
             "url":  "https://github.com/trntv/system-info.git"
-        },
-        {
-            "type": "vcs",
-            "url":  "https://github.com/trntv/yii2-elfinder.git"
         }
     ],
 	"scripts": {

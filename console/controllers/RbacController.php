@@ -1,7 +1,6 @@
 <?php
 namespace console\controllers;
 
-use common\rbac\UpdateRepositoryRule;
 use Yii;
 use yii\console\Controller;
 

@@ -42,7 +42,7 @@ return [
                         $file = \yii\helpers\ArrayHelper::getValue($traces, 'file', 'unknown');
                         $line = \yii\helpers\ArrayHelper::getValue($traces, 'line', 'unknown');
                         $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
-                        return sprintf('[%s][%s]', $url, implode(':', [$file, $line]));
+                        return sprintf('[%s][%s][%s]', Yii::$app->id, $url, implode(':', [$file, $line]));
                     },
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'

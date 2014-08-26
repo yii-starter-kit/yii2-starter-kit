@@ -43,7 +43,7 @@
 	"scripts": {
 		"post-create-project-cmd": [
 			"yii\\composer\\Installer::setPermission",
-            "bower install"
+            //"bower install"
 		]
 	},
 	"config": {

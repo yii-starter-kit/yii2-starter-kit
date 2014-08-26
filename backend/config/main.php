@@ -3,6 +3,7 @@ $config = [
     'id' => 'backend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'homeUrl'=>'@backendUrl',
     'controllerNamespace' => 'backend\controllers',
     'controllerMap'=>[
         'file-manager-elfinder' => [

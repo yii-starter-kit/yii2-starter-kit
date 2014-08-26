@@ -31,7 +31,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'alias',
             'title',
-            'is_menu_visible',
             'status',
         ],
     ]) ?>

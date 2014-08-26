@@ -21,8 +21,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'is_menu_visible') ?>
-
     <?= $form->field($model, 'status') ?>
 
     <div class="form-group">

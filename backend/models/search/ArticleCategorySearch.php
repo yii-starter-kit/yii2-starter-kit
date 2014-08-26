@@ -18,7 +18,7 @@ class ArticleCategorySearch extends ArticleCategory
     public function rules()
     {
         return [
-            [['id', 'is_menu_visible', 'status'], 'integer'],
+            [['id', 'status'], 'integer'],
             [['alias', 'title'], 'safe'],
         ];
     }
@@ -50,7 +50,6 @@ class ArticleCategorySearch extends ArticleCategory
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'is_menu_visible' => $this->is_menu_visible,
             'status' => $this->status,
         ]);
 

@@ -4,8 +4,9 @@ return [
     'name'=>'Yii2 Starter Kit',
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
     'extensions' => require(dirname(__DIR__) . '/../vendor/yiisoft/extensions.php'),
-    'sourceLanguage'=>'en-US',
-    'language'=>'en-US',
+    'sourceLanguage'=>'en-us',
+    'language'=>'en-us',
+    'bootstrap' => ['log'],
     'components' => [
 
         'authManager' => [
@@ -33,7 +34,7 @@ return [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                [
+                'db'=>[
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
                     'except'=>['yii\web\HttpException:404', 'yii\i18n\I18N::format'], // todo: DbTarget для 404 и 403

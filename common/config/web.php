@@ -1,7 +1,6 @@
 <?php
 $base = require('_base.php');
 $config = [
-    'bootstrap' => ['log'],
     'defaultRoute'=>'system-information/index',
     'components' => [
         'assetManager'=>[

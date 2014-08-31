@@ -40,7 +40,7 @@ class FileStorageController extends Controller
         $searchModel = new FileStorageItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder'=>['status'=>SORT_DESC, 'created_at'=>SORT_DESC]
+            'defaultOrder'=>['created_at'=>SORT_DESC]
         ];
 
         return $this->render('index', [

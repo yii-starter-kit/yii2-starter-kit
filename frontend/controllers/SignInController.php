@@ -2,11 +2,11 @@
 
 namespace frontend\controllers;
 
-use common\components\fileStorage\action\UploadAction;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
+use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;

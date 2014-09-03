@@ -2,11 +2,10 @@
 
 namespace backend\controllers;
 
-use common\components\fileStorage\File;
 use Yii;
-use common\models\FileStorageItem;
+use trntv\filekit\storage\File;
+use trntv\filekit\storage\models\FileStorageItem;
 use backend\models\search\FileStorageItemSearch;
-use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

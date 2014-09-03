@@ -8,9 +8,8 @@
 
 namespace backend\controllers;
 
-
 use backend\models\LoginForm;
-use common\components\fileStorage\action\UploadAction;
+use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\imagine\Image;
 use yii\web\Controller;

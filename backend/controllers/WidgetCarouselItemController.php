@@ -2,10 +2,12 @@
 
 namespace backend\controllers;
 
+use common\models\WidgetCarousel;
 use Yii;
 use common\models\WidgetCarouselItem;
 use backend\models\search\WidgetCarouselItemSearch;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -39,8 +41,10 @@ class WidgetCarouselItemController extends Controller
     public function actionCreate($carousel_id)
     {
         $model = new WidgetCarouselItem();
+        $carousel = WidgetCarousel::findOne($carousel_id);
+        if(!$carousel) throw new HttpException(400);
 
-        $model->carousel_id =  $carousel_id;
+        $model->carousel_id =  $carousel->id;
         if ($model->load(Yii::$app->request->post())) {
             if($model->save()){
                 Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
@@ -49,6 +53,7 @@ class WidgetCarouselItemController extends Controller
         }
         return $this->render('create', [
             'model' => $model,
+            'carousel' => $carousel,
         ]);
     }
 

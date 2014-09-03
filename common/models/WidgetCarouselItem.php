@@ -2,11 +2,8 @@
 
 namespace common\models;
 
-use common\components\fileStorage\behaviors\UploadBehavior;
-use common\components\fileStorage\File;
+use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
-use yii\imagine\Image;
-use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "widget_carousel_item".
@@ -19,7 +16,7 @@ use yii\web\UploadedFile;
  * @property integer $status
  * @property integer $order
  *
- * @property WidgetCarousel $widget
+ * @property WidgetCarousel $carousel
  */
 class WidgetCarouselItem extends \yii\db\ActiveRecord
 {
@@ -85,7 +82,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getWidget()
+    public function getCarousel()
     {
         return $this->hasOne(WidgetCarousel::className(), ['id' => 'carousel_id']);
     }

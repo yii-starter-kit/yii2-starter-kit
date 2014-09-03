@@ -25,7 +25,8 @@
         "yiisoft/yii2-imagine": "*",
         "mihaildev/yii2-elfinder": "*",
         "trntv/yii2-aceeditor": "*",
-        "trntv/system-info": "*"
+        "trntv/system-info": "*",
+        "trntv/yii2-file-kit": "*"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",

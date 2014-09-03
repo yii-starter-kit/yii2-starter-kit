@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "29b3adc8f88dfabbea3972d6c76aa4e8",
+    "hash": "7c729a2f2ba5c752ef12270d57a4aa55",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -218,13 +218,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/trntv/yii2-elfinder.git",
-                "reference": "7c387c29e4f77dd9f59579f7a1dfe37a7bd57666"
+                "url": "https://github.com/MihailDev/yii2-elfinder.git",
+                "reference": "fe24d595d28e6c8a62c09d999f6a2f53e6de62d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-elfinder/zipball/7c387c29e4f77dd9f59579f7a1dfe37a7bd57666",
-                "reference": "7c387c29e4f77dd9f59579f7a1dfe37a7bd57666",
+                "url": "https://api.github.com/repos/MihailDev/yii2-elfinder/zipball/fe24d595d28e6c8a62c09d999f6a2f53e6de62d9",
+                "reference": "fe24d595d28e6c8a62c09d999f6a2f53e6de62d9",
                 "shasum": ""
             },
             "require": {
@@ -236,6 +236,7 @@
                     "mihaildev\\elfinder\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -254,10 +255,7 @@
                 "filemanager",
                 "yii"
             ],
-            "support": {
-                "source": "https://github.com/trntv/yii2-elfinder/tree/master"
-            },
-            "time": "2014-08-13 12:45:15"
+            "time": "2014-08-27 21:14:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -265,12 +263,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "62478c4c4ed84939a5457b15f9b978b58d0db849"
+                "reference": "8a2bcc6045e92acfbfea252cb6b444bc8c3f171e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/62478c4c4ed84939a5457b15f9b978b58d0db849",
-                "reference": "62478c4c4ed84939a5457b15f9b978b58d0db849",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/8a2bcc6045e92acfbfea252cb6b444bc8c3f171e",
+                "reference": "8a2bcc6045e92acfbfea252cb6b444bc8c3f171e",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +307,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-07-28 09:34:50"
+            "time": "2014-08-27 09:29:44"
         },
         {
             "name": "trntv/system-info",
@@ -317,12 +315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/system-info.git",
-                "reference": "526a4cff59de95a0dc768ea26d229cdd0229627f"
+                "reference": "df520b925ed6184e6e23658d42cee9927443107f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/system-info/zipball/526a4cff59de95a0dc768ea26d229cdd0229627f",
-                "reference": "526a4cff59de95a0dc768ea26d229cdd0229627f",
+                "url": "https://api.github.com/repos/trntv/system-info/zipball/df520b925ed6184e6e23658d42cee9927443107f",
+                "reference": "df520b925ed6184e6e23658d42cee9927443107f",
                 "shasum": ""
             },
             "type": "library",
@@ -345,7 +343,7 @@
                 "source": "https://github.com/trntv/system-info/tree/master",
                 "issues": "https://github.com/trntv/system-info/issues"
             },
-            "time": "2014-08-11 12:48:32"
+            "time": "2014-08-31 13:41:54"
         },
         {
             "name": "trntv/yii2-aceeditor",
@@ -353,12 +351,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-aceeditor.git",
-                "reference": "cc8fbe82aae71dc62f9279048a765de67ebc594d"
+                "reference": "d3b7d7ab4364f8b4802504dd7f53a0e6f36e9398"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-aceeditor/zipball/cc8fbe82aae71dc62f9279048a765de67ebc594d",
-                "reference": "cc8fbe82aae71dc62f9279048a765de67ebc594d",
+                "url": "https://api.github.com/repos/trntv/yii2-aceeditor/zipball/d3b7d7ab4364f8b4802504dd7f53a0e6f36e9398",
+                "reference": "d3b7d7ab4364f8b4802504dd7f53a0e6f36e9398",
                 "shasum": ""
             },
             "require": {
@@ -386,7 +384,43 @@
                 "code editor",
                 "yii"
             ],
-            "time": "2014-07-23 12:43:36"
+            "time": "2014-08-18 14:48:00"
+        },
+        {
+            "name": "trntv/yii2-file-kit",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/yii2-file-kit.git",
+                "reference": "902061731fdce81fb41631dd5a340659f4224152"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/902061731fdce81fb41631dd5a340659f4224152",
+                "reference": "902061731fdce81fb41631dd5a340659f4224152",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "trntv\\filekit\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugine Terentev",
+                    "email": "eugine@terentev.net"
+                }
+            ],
+            "description": "Yii2 file upload and storage kit",
+            "time": "2014-08-27 07:51:18"
         },
         {
             "name": "twbs/bootstrap",
@@ -394,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3"
+                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/a8437f0d2357368556368cbde1afecda4f0117f3",
-                "reference": "a8437f0d2357368556368cbde1afecda4f0117f3",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fe896923fce4ec29f09055b4778ebc64eda8fccc",
+                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc",
                 "shasum": ""
             },
             "replace": {
@@ -437,7 +471,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-08 19:23:55"
+            "time": "2014-08-30 05:43:44"
         },
         {
             "name": "yiisoft/jquery",
@@ -468,12 +502,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/jquery-pjax.git",
-                "reference": "520f8c12b5a417e21d2cd0df499fa2a4e4e9a9d6"
+                "reference": "1712c0fc794d622c57a3b0d1d450f416a63603f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/520f8c12b5a417e21d2cd0df499fa2a4e4e9a9d6",
-                "reference": "520f8c12b5a417e21d2cd0df499fa2a4e4e9a9d6",
+                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/1712c0fc794d622c57a3b0d1d450f416a63603f0",
+                "reference": "1712c0fc794d622c57a3b0d1d450f416a63603f0",
                 "shasum": ""
             },
             "require": {
@@ -486,7 +520,7 @@
             ],
             "description": "pushState + ajax = pjax, a forked maintainted by the Yii Framework core developers",
             "homepage": "https://github.com/yiisoft/jquery-pjax#readme",
-            "time": "2014-03-20 17:20:33"
+            "time": "2014-08-27 20:58:57"
         },
         {
             "name": "yiisoft/yii2",
@@ -494,12 +528,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "9632451046441b86909df1146ef56ab68fb1b45d"
+                "reference": "aaa66cea97992b4bd4e500b7e58cf6b921d31159"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/9632451046441b86909df1146ef56ab68fb1b45d",
-                "reference": "9632451046441b86909df1146ef56ab68fb1b45d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/aaa66cea97992b4bd4e500b7e58cf6b921d31159",
+                "reference": "aaa66cea97992b4bd4e500b7e58cf6b921d31159",
                 "shasum": ""
             },
             "require": {
@@ -567,7 +601,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-08-13 12:51:26"
+            "time": "2014-09-01 11:07:56"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -575,12 +609,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b"
+                "reference": "0bdbf0d9019adcf0ddf3e48284f34b1e8a7a72f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/2a5f1b92b45925c9a56ccb938f15fe632cad240b",
-                "reference": "2a5f1b92b45925c9a56ccb938f15fe632cad240b",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/0bdbf0d9019adcf0ddf3e48284f34b1e8a7a72f4",
+                "reference": "0bdbf0d9019adcf0ddf3e48284f34b1e8a7a72f4",
                 "shasum": ""
             },
             "require": {
@@ -608,7 +642,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-08-13 08:58:37"
+            "time": "2014-08-28 20:28:03"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -703,12 +737,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-jui.git",
-                "reference": "59bc89bba331397af331e932468ab258e6737cb6"
+                "reference": "43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/59bc89bba331397af331e932468ab258e6737cb6",
-                "reference": "59bc89bba331397af331e932468ab258e6737cb6",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832",
+                "reference": "43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832",
                 "shasum": ""
             },
             "require": {
@@ -733,10 +767,9 @@
             "description": "The Jquery UI extension for the Yii framework",
             "keywords": [
                 "jQuery UI",
-                "renderer",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-29 19:48:17"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -825,12 +858,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "bdb341073b9d9b8325ced6ade8fcb916906f0205"
+                "reference": "b83cbe8e35bbfc99d95549309186914fb6f33ca7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/bdb341073b9d9b8325ced6ade8fcb916906f0205",
-                "reference": "bdb341073b9d9b8325ced6ade8fcb916906f0205",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b83cbe8e35bbfc99d95549309186914fb6f33ca7",
+                "reference": "b83cbe8e35bbfc99d95549309186914fb6f33ca7",
                 "shasum": ""
             },
             "require": {
@@ -859,7 +892,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-08-28 20:28:03"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -867,12 +900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292"
+                "reference": "02dd7370206c4416678b21bc5f77dfa24a192165"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/8d8c2a11bef76c62e015f052c935a612e915c292",
-                "reference": "8d8c2a11bef76c62e015f052c935a612e915c292",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/02dd7370206c4416678b21bc5f77dfa24a192165",
+                "reference": "02dd7370206c4416678b21bc5f77dfa24a192165",
                 "shasum": ""
             },
             "require": {
@@ -902,7 +935,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-08-01 08:48:35"
+            "time": "2014-08-28 20:28:03"
         }
     ],
     "aliases": [

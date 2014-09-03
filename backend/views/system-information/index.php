@@ -4,7 +4,7 @@
  * @var $this \yii\web\View
  */
 use common\models\User;
-use \trntv\systeminfo\SystemInfo;
+use trntv\systeminfo\SystemInfo;
 
 $this->title = Yii::t('backend', 'System Information');
 \common\assets\Flot::register($this);
@@ -187,7 +187,7 @@ $this->registerJsFile('/js/system-information/index.js', ['\yii\web\JqueryAsset'
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        <?= \common\models\FileStorageItem::find()->count() ?>
+                        <?= trntv\filekit\storage\models\FileStorageItem::find()->count() ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Files in storage') ?>

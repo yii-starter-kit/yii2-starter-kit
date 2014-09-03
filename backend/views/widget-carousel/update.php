@@ -31,9 +31,9 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
             'order',
             [
                 'attribute'=>'path',
-                'format'=>'html',
+                'format'=>'raw',
                 'value'=>function($model){
-                    return $model->path ? Html::img($model->path, ['style'=>'max-width: 100px']) : null;
+                    return $model->path ? Html::img($model->path, ['style'=>'width: 100%']) : null;
                 }
             ],
             'url:url',

@@ -4,8 +4,8 @@ return [
     'name'=>'Yii2 Starter Kit',
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
     'extensions' => require(dirname(__DIR__) . '/../vendor/yiisoft/extensions.php'),
-    'sourceLanguage'=>'en-us',
-    'language'=>'en-us',
+    'sourceLanguage'=>'en-US',
+    'language'=>'en-US',
     'bootstrap' => ['log'],
     'components' => [
 
@@ -57,6 +57,7 @@ return [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath'=>'@common/messages',
                     'fileMap'=>[
+                        'app'=>'app.php',
                         'common'=>'common.php',
                         'backend'=>'backend.php',
                         'frontend'=>'frontend.php',
@@ -66,11 +67,10 @@ return [
         ],
 
         'fileStorage'=>[
-            'class'=>'common\components\fileStorage\FileStorage',
-            'defaultRepository'=>'filesystem',
+            'class'=>'trntv\filekit\storage\FileStorage',
             'repositories'=>[
-                [
-                    'class'=>'common\components\fileStorage\repository\FilesystemRepository',
+                'uploads'=>[
+                    'class'=>'trntv\filekit\storage\repository\FilesystemRepository',
                     'basePath'=>'@storage/uploads',
                     'baseUrl'=>'@storageUrl/uploads',
                 ]

@@ -7,7 +7,7 @@ class FileManagerController extends \yii\web\Controller
     public function actions(){
         return [
             'upload-imperavi'=>[
-                'class'=>'common\components\fileStorage\action\UploadAction',
+                'class'=>'trntv\yii2-file-kit\actions\UploadAction',
                 'fileparam'=>'file',
                 'responseUrlParam'=>'filelink',
                 'disableCsrf'=>true

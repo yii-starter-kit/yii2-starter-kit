@@ -1,5 +1,6 @@
 <?php
 
+use trntv\filekit\storage\models\FileStorageItem;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -27,8 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 </dt>
                 <dd>
                     <?= Yii::$app->formatter->asSize(
-                        \common\models\FileStorageItem::find()
-                            ->where(['status'=>\common\models\FileStorageItem::STATUS_UPLOADED])
+                        FileStorageItem::find()
+                            ->where(['status'=>FileStorageItem::STATUS_UPLOADED])
                             ->sum('size')
                     );
                     ?>

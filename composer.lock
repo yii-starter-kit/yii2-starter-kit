@@ -428,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc"
+                "reference": "af5f2213f066159e4bc51c627c4a853fec6ddc0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/fe896923fce4ec29f09055b4778ebc64eda8fccc",
-                "reference": "fe896923fce4ec29f09055b4778ebc64eda8fccc",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/af5f2213f066159e4bc51c627c4a853fec6ddc0f",
+                "reference": "af5f2213f066159e4bc51c627c4a853fec6ddc0f",
                 "shasum": ""
             },
             "replace": {
@@ -471,7 +471,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-08-30 05:43:44"
+            "time": "2014-09-04 02:00:29"
         },
         {
             "name": "yiisoft/jquery",
@@ -502,12 +502,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/jquery-pjax.git",
-                "reference": "1712c0fc794d622c57a3b0d1d450f416a63603f0"
+                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/1712c0fc794d622c57a3b0d1d450f416a63603f0",
-                "reference": "1712c0fc794d622c57a3b0d1d450f416a63603f0",
+                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
+                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
                 "shasum": ""
             },
             "require": {
@@ -520,7 +520,7 @@
             ],
             "description": "pushState + ajax = pjax, a forked maintainted by the Yii Framework core developers",
             "homepage": "https://github.com/yiisoft/jquery-pjax#readme",
-            "time": "2014-08-27 20:58:57"
+            "time": "2014-09-02 18:40:28"
         },
         {
             "name": "yiisoft/yii2",
@@ -528,12 +528,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "aaa66cea97992b4bd4e500b7e58cf6b921d31159"
+                "reference": "cb5a2ed38d0b785eedad4240ddc56e463f9520d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/aaa66cea97992b4bd4e500b7e58cf6b921d31159",
-                "reference": "aaa66cea97992b4bd4e500b7e58cf6b921d31159",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/cb5a2ed38d0b785eedad4240ddc56e463f9520d7",
+                "reference": "cb5a2ed38d0b785eedad4240ddc56e463f9520d7",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-09-01 11:07:56"
+            "time": "2014-09-03 23:27:13"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -650,12 +650,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2"
+                "reference": "f205416b9e4698af823c4ea6ec661a847188d5cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2",
-                "reference": "94b8a7fce81ca0c2ba94bac2c1f4d3b039ac6cf2",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/f205416b9e4698af823c4ea6ec661a847188d5cf",
+                "reference": "f205416b9e4698af823c4ea6ec661a847188d5cf",
                 "shasum": ""
             },
             "require": {
@@ -686,7 +686,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2014-08-12 01:42:09"
+            "time": "2014-09-03 03:17:50"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -900,12 +900,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "02dd7370206c4416678b21bc5f77dfa24a192165"
+                "reference": "3062e56767747143d75553d52795e048959dfee0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/02dd7370206c4416678b21bc5f77dfa24a192165",
-                "reference": "02dd7370206c4416678b21bc5f77dfa24a192165",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/3062e56767747143d75553d52795e048959dfee0",
+                "reference": "3062e56767747143d75553d52795e048959dfee0",
                 "shasum": ""
             },
             "require": {
@@ -935,7 +935,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-08-28 20:28:03"
+            "time": "2014-09-03 18:09:30"
         }
     ],
     "aliases": [

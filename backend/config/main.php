@@ -22,7 +22,6 @@ $config = [
         ]
     ],
     'components' => [
-
         'authManager' => [
             'defaultRoles' => ['administrator', 'manager', 'user'],
         ],

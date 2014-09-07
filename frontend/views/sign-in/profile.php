@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'picture')->widget(Upload::classname(), [
+    <?= $form->field($model, 'picture')->widget(SingleFileUpload::classname(), [
         'url'=>['avatar-upload', 'category'=>'avatar']
     ]) ?>
 

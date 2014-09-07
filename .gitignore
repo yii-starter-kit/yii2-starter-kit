@@ -8,6 +8,10 @@
 # composer vendor dir
 /vendor
 
+# composer
+composer.phar
+composer.lock
+
 # IDE
 .idea
 nbproject
@@ -17,9 +21,6 @@ nbproject
 
 # windows thumbnail cache
 Thumbs.db
-
-# composer itself is not needed
-composer.phar
 
 # Mac DS_Store Files
 .DS_Store

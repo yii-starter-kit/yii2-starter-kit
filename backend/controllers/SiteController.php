@@ -18,6 +18,12 @@ class SiteController extends \yii\web\Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        $this->layout = \Yii::$app->user->isGuest ? '_base' : 'main';
+        return parent::beforeAction($action);
+    }
+
     public function actionIndex()
     {
         return $this->render('index');

@@ -18,7 +18,7 @@ $config = [
         ],
 
         'request'=>[
-            'cookieValidationKey'=>md5('yii2-starter-kit.frontend')
+            'cookieValidationKey'=>'yii2-starter-kit.frontend',
         ],
 
         'urlManager'=>[

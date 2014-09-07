@@ -41,25 +41,31 @@
             "url":  "https://github.com/trntv/system-info.git"
         }
     ],
-	"scripts": {
-		"post-create-project-cmd": [
-			"yii\\composer\\Installer::setPermission"
-		]
-	},
 	"config": {
 		"process-timeout": 1800
 	},
-	"extra": {
-		"writable": [
-			"frontend/runtime",
-			"backend/runtime",
-			"console/runtime",
-			"frontend/web/assets",
-			"backend/web/assets",
-            "storage"
-		],
-		"executable": [
-			"environments/local/yii"
-		]
-	}
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "frontend/runtime": "0777",
+                    "backend/runtime": "0777",
+                    "console/runtime": "0777",
+                    "frontend/web/assets": "0777",
+                    "backend/web/assets": "0777",
+                    "storage": "0777",
+                    "environments/local/yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "frontend/config/main.php",
+                "backend/config/main.php"
+            ]
+        }
+    }
 }

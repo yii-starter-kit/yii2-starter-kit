@@ -36,7 +36,7 @@ $config = [
         ],
 
         'request'=>[
-            'cookieValidationKey'=>md5('yii2-starter-kit.backend')
+            'cookieValidationKey'=>'yii2-starter-kit.backend',
         ],
     ],
     'as globalAccess'=>[

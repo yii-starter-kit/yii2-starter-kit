@@ -1,6 +1,6 @@
 <?php
 
-use trntv\filekit\widget\Upload;
+use trntv\filekit\widget\SingleFileUpload;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "931c939f7763940e5f9f6e0d92dee0e2",
+    "hash": "256e6260a87b0dd2a362779d6e86038d",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -392,12 +392,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-file-kit.git",
-                "reference": "902061731fdce81fb41631dd5a340659f4224152"
+                "reference": "3bed8128f19ce1c30089202f344c6ef9cd18c22c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/902061731fdce81fb41631dd5a340659f4224152",
-                "reference": "902061731fdce81fb41631dd5a340659f4224152",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/3bed8128f19ce1c30089202f344c6ef9cd18c22c",
+                "reference": "3bed8128f19ce1c30089202f344c6ef9cd18c22c",
                 "shasum": ""
             },
             "require": {
@@ -420,7 +420,7 @@
                 }
             ],
             "description": "Yii2 file upload and storage kit",
-            "time": "2014-08-27 07:51:18"
+            "time": "2014-09-07 15:25:49"
         },
         {
             "name": "twbs/bootstrap",
@@ -428,12 +428,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "5603311acd6f06c15802ebdae5d94a6b2de6bb22"
+                "reference": "7f56233862a9706cec0131e272d7bf7c0ca9f90c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/5603311acd6f06c15802ebdae5d94a6b2de6bb22",
-                "reference": "5603311acd6f06c15802ebdae5d94a6b2de6bb22",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7f56233862a9706cec0131e272d7bf7c0ca9f90c",
+                "reference": "7f56233862a9706cec0131e272d7bf7c0ca9f90c",
                 "shasum": ""
             },
             "replace": {
@@ -471,7 +471,7 @@
                 "responsive",
                 "web"
             ],
-            "time": "2014-09-05 05:40:37"
+            "time": "2014-09-08 06:07:38"
         },
         {
             "name": "yiisoft/jquery",
@@ -528,12 +528,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7cac6f96386485f18661b1324afec28403db3cd3"
+                "reference": "0d957db97859ff6bb4533ce92cb5ca964ffb0495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7cac6f96386485f18661b1324afec28403db3cd3",
-                "reference": "7cac6f96386485f18661b1324afec28403db3cd3",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/0d957db97859ff6bb4533ce92cb5ca964ffb0495",
+                "reference": "0d957db97859ff6bb4533ce92cb5ca964ffb0495",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-09-06 03:10:23"
+            "time": "2014-09-09 00:18:53"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -942,9 +942,9 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "trntv/yii2-file-kit": 20
-    },
+    "stability-flags": [
+
+    ],
     "prefer-stable": false,
     "platform": {
         "php": ">=5.4.0",

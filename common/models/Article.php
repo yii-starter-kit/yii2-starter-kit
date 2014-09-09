@@ -38,6 +38,9 @@ class Article extends \yii\db\ActiveRecord
         return '{{%article}}';
     }
 
+    /**
+     * @return ArticleQuery
+     */
     public static function find()
     {
         return new ArticleQuery(get_called_class());

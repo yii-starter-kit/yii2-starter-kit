@@ -1,6 +1,5 @@
 <?php
 
-use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -13,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'picture')->widget(Upload::classname(), [
+    <?= $form->field($model, 'picture')->widget(\trntv\filekit\widget\SingleFileUpload::classname(), [
         'url'=>['avatar-upload', 'category'=>'avatar']
     ]) ?>
 

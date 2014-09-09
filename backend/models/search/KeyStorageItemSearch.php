@@ -18,7 +18,7 @@ class KeyStorageItemSearch extends KeyStorageItem
     public function rules()
     {
         return [
-            [['key', 'value'], 'integer'],
+            [['key', 'value'], 'string'],
         ];
     }
 

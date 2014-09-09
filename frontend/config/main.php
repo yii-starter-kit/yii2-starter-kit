@@ -5,7 +5,6 @@ $config = [
     'controllerNamespace' => 'frontend\controllers',
     'bootstrap' => ['log'],
     'defaultRoute' => 'site/index',
-    'homeUrl'=>'@frontendUrl',
     'components' => [
 
         'authManager' => [

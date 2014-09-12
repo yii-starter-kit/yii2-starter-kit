@@ -15,9 +15,10 @@ class m140805_084745_key_storage_item extends Migration
         $this->createTable('{{%key_storage_item}}', [
             'id' => Schema::TYPE_PK,
             'key' => Schema::TYPE_STRING . '(128) NOT NULL',
-            'value' => Schema::TYPE_TEXT . ' NOT NULL'
+            'value' => Schema::TYPE_TEXT . ' NOT NULL',
+            'updated_at'=>Schema::TYPE_INTEGER,
+            'created_at'=>Schema::TYPE_INTEGER,
         ], $tableOptions);
-        // skin-black
         $this->insert('{{%key_storage_item}}', [
             'key'=>'backend.theme-skin',
             'value'=>'skin-blue'

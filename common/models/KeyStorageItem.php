@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "key_storage_item".
@@ -18,6 +19,15 @@ class KeyStorageItem extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%key_storage_item}}';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+              'class' => TimestampBehavior::className(),
+            ],
+        ];
     }
 
     /**

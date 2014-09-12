@@ -23,7 +23,7 @@ class BackendAsset extends AssetBundle{
 
 
     public $depends = [
-        'backend\assets\AdminLTE',
+        'common\assets\AdminLTE',
         'common\assets\Respond',
         'common\assets\Html5shiv',
     ];

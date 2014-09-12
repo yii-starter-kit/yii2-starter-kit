@@ -20,6 +20,7 @@
     "html5shiv": "~3.7.2",
     "ionicons": "~1.5.2",
     "flot": "~0.8.3",
-    "excanvas": "*"
+    "excanvas": "*",
+    "admin-lte": "~1.2.1"
   }
 }

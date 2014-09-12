@@ -32,7 +32,7 @@ class m140712_123329_widget_carousel extends Migration
             'caption' => Schema::TYPE_STRING . '(1024) ',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
             'order' => Schema::TYPE_INTEGER . ' DEFAULT 0'
-        ]);
+        ], $tableOptions);
 
         $this->insert('{{%widget_carousel_item}}', [
             'carousel_id'=>1,

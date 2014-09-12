@@ -127,7 +127,7 @@ use yii\widgets\Breadcrumbs;
                     <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
                     <a href="#">
                         <i class="fa fa-circle text-success"></i>
-                        <?= Yii::$app->formatter->asTime(time()) ?>
+                        <?= Yii::$app->formatter->asDatetime(time()) ?>
                     </a>
                 </div>
             </div>

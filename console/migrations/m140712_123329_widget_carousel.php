@@ -31,7 +31,9 @@ class m140712_123329_widget_carousel extends Migration
             'url' => Schema::TYPE_STRING . '(1024) ',
             'caption' => Schema::TYPE_STRING . '(1024) ',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
-            'order' => Schema::TYPE_INTEGER . ' DEFAULT 0'
+            'order' => Schema::TYPE_INTEGER . ' DEFAULT 0',
+            'created_at' => Schema::TYPE_INTEGER,
+            'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);
 
         $this->insert('{{%widget_carousel_item}}', [

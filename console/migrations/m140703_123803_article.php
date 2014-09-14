@@ -18,7 +18,9 @@ class m140703_123803_article extends Migration
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT,
             'parent_id' => Schema::TYPE_INTEGER,
-            'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0'
+            'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
+            'created_at' => Schema::TYPE_INTEGER,
+            'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);
 
         $this->createTable('{{%article}}', [
@@ -30,8 +32,8 @@ class m140703_123803_article extends Migration
             'user_id' => Schema::TYPE_INTEGER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
             'published_at' => Schema::TYPE_DATETIME . ' NOT NULL',
-            'created_at' => Schema::TYPE_DATETIME . ' NOT NULL',
-            'updated_at' => Schema::TYPE_DATETIME . ' NOT NULL',
+            'created_at' => Schema::TYPE_INTEGER,
+            'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);
 
         $this->createIndex('idx_user_id', '{{%article}}', 'user_id');

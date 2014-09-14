@@ -13,6 +13,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string $title
  * @property string $body
  * @property integer $status
+ * @property integer $created_at
+ * @property integer $updated_at
  */
 class Page extends \yii\db\ActiveRecord
 {

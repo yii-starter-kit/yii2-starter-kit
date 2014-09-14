@@ -2,9 +2,9 @@
 
 namespace common\models;
 
-use common\components\behaviors\DatetimeBehavior;
 use common\models\query\ArticleQuery;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use yii\helpers\Inflector;
 
@@ -52,7 +52,7 @@ class Article extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            DatetimeBehavior::className(),
+            TimestampBehavior::className(),
         ];
     }
 

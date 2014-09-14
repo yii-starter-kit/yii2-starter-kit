@@ -37,15 +37,19 @@ use yii\bootstrap\NavBar;
                 ['label' => \Yii::t('frontend', 'About'), 'url' => ['/page/view', 'alias'=>'about']],
                 ['label' => \Yii::t('frontend', 'Articles'), 'url' => ['/article/index']],
                 ['label' => \Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],
-                ['label' => \Yii::t('frontend', 'Signup'), 'url' => ['/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest],
-                ['label' => \Yii::t('frontend', 'Login'), 'url' => ['/sign-in/login'], 'visible'=>Yii::$app->user->isGuest],
+                ['label' => \Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest],
+                ['label' => \Yii::t('frontend', 'Login'), 'url' => ['/user/sign-in/login'], 'visible'=>Yii::$app->user->isGuest],
                 [
                     'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->username,
                     'visible'=>!Yii::$app->user->isGuest,
                     'items'=>[
                         [
+                            'label' => \Yii::t('frontend', 'Account'),
+                            'url' => ['/user/default/index']
+                        ],
+                        [
                             'label' => \Yii::t('frontend', 'Profile'),
-                            'url' => ['/sign-in/profile']
+                            'url' => ['/user/default/profile']
                         ],
                         [
                             'label' => \Yii::t('frontend', 'Backend'),
@@ -54,7 +58,7 @@ use yii\bootstrap\NavBar;
                         ],
                         [
                             'label' => \Yii::t('frontend', 'Logout'),
-                            'url' => ['/sign-in/logout'],
+                            'url' => ['/user/sign-in/logout'],
                             'linkOptions' => ['data-method' => 'post']
                         ]
                     ]

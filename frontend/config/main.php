@@ -6,13 +6,12 @@ $config = [
     'bootstrap' => ['log'],
     'defaultRoute' => 'site/index',
     'components' => [
-
         'authManager' => [
             'defaultRoles' => ['administrator', 'manager', 'user'],
         ],
 
         'user' => [
-            'loginUrl'=>['user/login'],
+            'loginUrl'=>['/user/sign-in/login'],
             'enableAutoLogin' => true,
         ],
 
@@ -25,6 +24,11 @@ $config = [
             'enablePrettyUrl'=>true,
             'showScriptName'=>false,
             'rules'=> require('_urlRules.php')
+        ],
+    ],
+    'modules' => [
+        'user' => [
+            'class' => 'frontend\modules\user\Module',
         ],
     ],
 ];

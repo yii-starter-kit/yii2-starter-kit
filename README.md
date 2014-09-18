@@ -43,6 +43,12 @@ INSTALLATION
 
 Extract the github archive file to a directory named `yii2-starter-kit` that is directly under the Web root.
 
+After extraction run
+```
+php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
+php composer.phar install
+```
+
 You can then access the application through the following URL:
 
 ~~~

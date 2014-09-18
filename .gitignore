@@ -19,6 +19,9 @@ nbproject
 .project
 .settings
 
+# phing
+phing.phar
+
 # windows thumbnail cache
 Thumbs.db
 

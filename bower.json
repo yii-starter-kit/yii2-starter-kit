@@ -15,12 +15,11 @@
     "tests"
   ],
   "dependencies": {
-    "font-awesome": "~4.1.0",
+    "font-awesome": "~4.*",
     "respond": "~1.4.2",
     "html5shiv": "~3.7.2",
     "ionicons": "~1.5.2",
     "flot": "~0.8.3",
-    "excanvas": "*",
     "admin-lte": "~1.2.1"
   }
 }

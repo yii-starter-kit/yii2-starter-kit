@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "256e6260a87b0dd2a362779d6e86038d",
+    "hash": "d53758d5091dac1818cbab70f8c1ecc7",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -56,6 +56,492 @@
                 "yii"
             ],
             "time": "2014-07-23 06:33:01"
+        },
+        {
+            "name": "bower-asset/admin-lte",
+            "version": "1.2.1-patch1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "reference": "2ef7d1e4cfc27bc3e60961f9b3ff446b59d30933"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/2ef7d1e4cfc27bc3e60961f9b3ff446b59d30933",
+                "reference": "2ef7d1e4cfc27bc3e60961f9b3ff446b59d30933",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/bootstrap": ">=3.1.0",
+                "bower-asset/font-awesome": ">=4.0.0",
+                "bower-asset/icheck": ">=1.0.1,<1.1"
+            },
+            "require-dev": {
+                "bower-asset/bootstrap-daterangepicker": ">=1.3,<1.4",
+                "bower-asset/bootstrap-social": ">=4.2.0",
+                "bower-asset/bootstrap3-datetimepicker": ">=3.0,<3.1",
+                "bower-asset/bootstrap3-wysihtml5-bower": ">=0.2.10",
+                "bower-asset/bower-jvectormap": ">=1.2.2",
+                "bower-asset/ckeditor": ">=4.3.3",
+                "bower-asset/datatables": ">=1.9.4",
+                "bower-asset/datatables-bootstrap3": "default",
+                "bower-asset/flot": ">=0.8.3",
+                "bower-asset/fullcalendar": "1.6.4",
+                "bower-asset/ionicons": ">=1.4.0",
+                "bower-asset/ionslider": "dev->=1.8.5",
+                "bower-asset/jquery-knob": ">=1.2.0,<1.3",
+                "bower-asset/jquery-ui": ">=1.10.3",
+                "bower-asset/jquery.inputmask": ">=3.0.0,<3.1",
+                "bower-asset/mjolnic-bootstrap-colorpicker": ">=2.0.0,<2.1",
+                "bower-asset/morrisjs": ">=0.5.1,<0.6",
+                "bower-asset/seiyria-bootstrap-slider": ">=1.9.0",
+                "bower-asset/slimscroll": ">=1.3.0,<1.4",
+                "bower-asset/sparkline": "default"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "bower_components"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "AdminLTE - Free Premium Admin control Panel Theme That Is Based On Bootstrap 3.x",
+            "keywords": [
+                "admin",
+                "bootstrap",
+                "template",
+                "twitter bootstrap"
+            ]
+        },
+        {
+            "name": "bower-asset/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "48c67095b01406b4b8c89230bab000a4a9dd1900"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/48c67095b01406b4b8c89230bab000a4a9dd1900",
+                "reference": "48c67095b01406b4b8c89230bab000a4a9dd1900",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.9.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "less/bootstrap.less",
+                    "dist/css/bootstrap.css",
+                    "dist/js/bootstrap.js",
+                    "dist/fonts/glyphicons-halflings-regular.eot",
+                    "dist/fonts/glyphicons-halflings-regular.svg",
+                    "dist/fonts/glyphicons-halflings-regular.ttf",
+                    "dist/fonts/glyphicons-halflings-regular.woff"
+                ],
+                "bower-asset-ignore": [
+                    "/.*",
+                    "_config.yml",
+                    "CNAME",
+                    "composer.json",
+                    "CONTRIBUTING.md",
+                    "docs",
+                    "js/tests",
+                    "test-infra"
+                ]
+            },
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "keywords": [
+                "css",
+                "framework",
+                "front-end",
+                "js",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2014-09-16 20:01:00"
+        },
+        {
+            "name": "bower-asset/flot",
+            "version": "v0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/flot/flot.git",
+                "reference": "453b017cc5acfd75e252b93e8635f57f4196d45d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/flot/flot/zipball/453b017cc5acfd75e252b93e8635f57f4196d45d",
+                "reference": "453b017cc5acfd75e252b93e8635f57f4196d45d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library"
+        },
+        {
+            "name": "bower-asset/font-awesome",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./css/font-awesome.css",
+                    "./fonts/*"
+                ],
+                "bower-asset-ignore": [
+                    "*/.*",
+                    "*.json",
+                    "src",
+                    "*.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "*.md"
+                ]
+            },
+            "license": [
+                "OFL-1.1",
+                "MIT",
+                "CC-BY-3.0"
+            ],
+            "description": "Font Awesome"
+        },
+        {
+            "name": "bower-asset/html5shiv",
+            "version": "3.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aFarkas/html5shiv.git",
+                "reference": "40df868a76f1f19ea23b123d1480d44a7195f349"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aFarkas/html5shiv/zipball/40df868a76f1f19ea23b123d1480d44a7195f349",
+                "reference": "40df868a76f1f19ea23b123d1480d44a7195f349",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "dist/html5shiv.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "composer.json",
+                    "test",
+                    "build",
+                    "src",
+                    "build.xml"
+                ]
+            }
+        },
+        {
+            "name": "bower-asset/iCheck",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fronteed/iCheck.git",
+                "reference": "8a6eb37bd7dab1e843c1b630c91c6398ff409d05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fronteed/iCheck/zipball/8a6eb37bd7dab1e843c1b630c91c6398ff409d05",
+                "reference": "8a6eb37bd7dab1e843c1b630c91c6398ff409d05",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./icheck.min.js"
+                ],
+                "bower-asset-ignore": [
+                    ".gitignore",
+                    "CHANGELOG.md",
+                    "README.md",
+                    "demo/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Highly customizable checkboxes and radio buttons (jQuery & Zepto)",
+            "keywords": [
+                "accessibility",
+                "checkbox",
+                "checked",
+                "custom",
+                "disabled",
+                "field",
+                "form",
+                "icheck",
+                "indeterminate",
+                "input",
+                "radio",
+                "replacement",
+                "skins",
+                "ui"
+            ]
+        },
+        {
+            "name": "bower-asset/ionicons",
+            "version": "v1.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/driftyco/ionicons.git",
+                "reference": "f3b69b69b7b4f2769c66d053fea9ced4d596638d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/driftyco/ionicons/zipball/f3b69b69b7b4f2769c66d053fea9ced4d596638d",
+                "reference": "f3b69b69b7b4f2769c66d053fea9ced4d596638d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "css/ionicons.css",
+                    "fonts/*"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "builder",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Ionicons - free and beautiful icons from the creators of Ionic Framework",
+            "keywords": [
+                "fonts",
+                "icon font",
+                "icons",
+                "ionic",
+                "web font"
+            ]
+        },
+        {
+            "name": "bower-asset/jquery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery.git",
+                "reference": "b807aedb7fee321fb3aa5d156a5a256ab0634e2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery/zipball/b807aedb7fee321fb3aa5d156a5a256ab0634e2d",
+                "reference": "b807aedb7fee321fb3aa5d156a5a256ab0634e2d",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/jquery.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "build",
+                    "speed",
+                    "test",
+                    "*.md",
+                    "AUTHORS.txt",
+                    "Gruntfile.js",
+                    "package.json"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "javascript",
+                "jquery",
+                "library"
+            ],
+            "time": "2014-09-04 07:28:40"
+        },
+        {
+            "name": "bower-asset/jquery-ui",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "39890e8599bdd79c423ea21b967195106800b87d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/39890e8599bdd79c423ea21b967195106800b87d",
+                "reference": "39890e8599bdd79c423ea21b967195106800b87d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "jquery-ui.js"
+                ],
+                "bower-asset-ignore": [
+
+                ]
+            },
+            "time": "2014-08-13 21:01:50"
+        },
+        {
+            "name": "bower-asset/jquery.inputmask",
+            "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
+                "reference": "1e42949fd544abcc69027a7b52f55118df90360d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/1e42949fd544abcc69027a7b52f55118df90360d",
+                "reference": "1e42949fd544abcc69027a7b52f55118df90360d",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./dist/inputmask/jquery.inputmask.js",
+                    "./dist/inputmask/jquery.inputmask.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.date.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.numeric.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.phone.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.regex.extensions.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "qunit/",
+                    "nuget/",
+                    "tools/",
+                    "js/",
+                    "*.md",
+                    "build.properties",
+                    "build.xml",
+                    "jquery.inputmask.jquery.json"
+                ]
+            },
+            "license": [
+                "http://opensource.org/licenses/mit-license.php"
+            ],
+            "description": "jquery.inputmask is a jquery plugin which create an input mask.",
+            "keywords": [
+                "form",
+                "input",
+                "inputmask",
+                "jQuery",
+                "mask",
+                "plugins"
+            ],
+            "time": "2014-09-16 20:06:06"
+        },
+        {
+            "name": "bower-asset/punycode",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bestiejs/punycode.js.git",
+                "reference": "5c04e6fe9560bac8d38a0bcdf2d2c8581f5fc330"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/5c04e6fe9560bac8d38a0bcdf2d2c8581f5fc330",
+                "reference": "5c04e6fe9560bac8d38a0bcdf2d2c8581f5fc330",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "punycode.js",
+                "bower-asset-ignore": [
+                    "coverage",
+                    "tests",
+                    ".*",
+                    "component.json",
+                    "Gruntfile.js",
+                    "node_modules",
+                    "package.json"
+                ]
+            },
+            "time": "2014-08-31 18:26:08"
+        },
+        {
+            "name": "bower-asset/respond",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/scottjehl/Respond.git",
+                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/scottjehl/Respond/zipball/20b7f4a192bb910c8c7e067b961de38519d334e4",
+                "reference": "20b7f4a192bb910c8c7e067b961de38519d334e4",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dest/respond.src.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "test"
+                ]
+            },
+            "description": "Fast and lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)"
+        },
+        {
+            "name": "bower-asset/yii2-pjax",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/jquery-pjax.git",
+                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
+                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.8"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./jquery.pjax.js",
+                "bower-asset-ignore": [
+                    ".travis.yml",
+                    "test/"
+                ]
+            },
+            "time": "2014-09-02 18:40:28"
         },
         {
             "name": "cebe/markdown",
@@ -162,6 +648,62 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "fxp/composer-asset-plugin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/francoispluchino/composer-asset-plugin.git",
+                "reference": "bd98a60214381bbc060524124282b601795a6364"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/francoispluchino/composer-asset-plugin/zipball/bd98a60214381bbc060524124282b601795a6364",
+                "reference": "bd98a60214381bbc060524124282b601795a6364",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "1.0.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "composer/composer": "~1.0@dev"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Fxp\\Composer\\AssetPlugin\\FxpAssetPlugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fxp\\Composer\\AssetPlugin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Pluchino",
+                    "email": "francois.pluchino@gmail.com"
+                }
+            ],
+            "description": "NPM/Bower Dependency Manager for Composer",
+            "homepage": "https://github.com/francoispluchino/composer-asset-plugin",
+            "keywords": [
+                "asset",
+                "bower",
+                "composer",
+                "dependency manager",
+                "nodejs",
+                "npm",
+                "package"
+            ],
+            "time": "2014-09-16 15:37:41"
+        },
+        {
             "name": "imagine/imagine",
             "version": "v0.5.0",
             "source": {
@@ -212,6 +754,42 @@
                 "image processing"
             ],
             "time": "2013-07-10 17:25:36"
+        },
+        {
+            "name": "jakeasmith/http_build_url",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakeasmith/http_build_url.git",
+                "reference": "fa7da464442d65feacb5d185e360200af4cd22b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakeasmith/http_build_url/zipball/fa7da464442d65feacb5d185e360200af4cd22b5",
+                "reference": "fa7da464442d65feacb5d185e360200af4cd22b5",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/http_build_url.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jake A. Smith",
+                    "email": "theman@jakeasmith.com"
+                }
+            ],
+            "description": "Provides functionality for http_build_url() to environments without pecl_http.",
+            "time": "2014-07-01 17:50:40"
         },
         {
             "name": "mihaildev/yii2-elfinder",
@@ -392,15 +970,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-file-kit.git",
-                "reference": "3bed8128f19ce1c30089202f344c6ef9cd18c22c"
+                "reference": "02a10c890513c2af302657107506739b047b99a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/3bed8128f19ce1c30089202f344c6ef9cd18c22c",
-                "reference": "3bed8128f19ce1c30089202f344c6ef9cd18c22c",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/02a10c890513c2af302657107506739b047b99a1",
+                "reference": "02a10c890513c2af302657107506739b047b99a1",
                 "shasum": ""
             },
             "require": {
+                "jakeasmith/http_build_url": "*",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
@@ -420,107 +999,7 @@
                 }
             ],
             "description": "Yii2 file upload and storage kit",
-            "time": "2014-09-07 15:25:49"
-        },
-        {
-            "name": "twbs/bootstrap",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "7f56233862a9706cec0131e272d7bf7c0ca9f90c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/7f56233862a9706cec0131e272d7bf7c0ca9f90c",
-                "reference": "7f56233862a9706cec0131e272d7bf7c0ca9f90c",
-                "shasum": ""
-            },
-            "replace": {
-                "twitter/bootstrap": "self.version"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                },
-                {
-                    "name": "Mark Otto",
-                    "email": "markdotto@gmail.com"
-                }
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "http://getbootstrap.com",
-            "keywords": [
-                "JS",
-                "css",
-                "framework",
-                "front-end",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ],
-            "time": "2014-09-08 06:07:38"
-        },
-        {
-            "name": "yiisoft/jquery",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/jquery.git",
-                "reference": "bc09bbbc8b40cf89812036188b6f94ae7627c73c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery/zipball/bc09bbbc8b40cf89812036188b6f94ae7627c73c",
-                "reference": "bc09bbbc8b40cf89812036188b6f94ae7627c73c",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "jQuery JavaScript Library",
-            "homepage": "http://jquery.com",
-            "time": "2014-05-07 05:00:09"
-        },
-        {
-            "name": "yiisoft/jquery-pjax",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yiisoft/jquery-pjax.git",
-                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
-                "reference": "98caa41b39c0d8ab6fd4451ed249de7c0d05256a",
-                "shasum": ""
-            },
-            "require": {
-                "yiisoft/jquery": ">=1.8"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "pushState + ajax = pjax, a forked maintainted by the Yii Framework core developers",
-            "homepage": "https://github.com/yiisoft/jquery-pjax#readme",
-            "time": "2014-09-02 18:40:28"
+            "time": "2014-09-15 20:15:16"
         },
         {
             "name": "yiisoft/yii2",
@@ -528,22 +1007,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "0d957db97859ff6bb4533ce92cb5ca964ffb0495"
+                "reference": "2c3409c58c9a27a7f92ebea314d3973254ab0f76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/0d957db97859ff6bb4533ce92cb5ca964ffb0495",
-                "reference": "0d957db97859ff6bb4533ce92cb5ca964ffb0495",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/2c3409c58c9a27a7f92ebea314d3973254ab0f76",
+                "reference": "2c3409c58c9a27a7f92ebea314d3973254ab0f76",
                 "shasum": ""
             },
             "require": {
+                "bower-asset/jquery": ">=1.8",
+                "bower-asset/jquery.inputmask": ">=3.0.0",
+                "bower-asset/punycode": ">=1.3.0",
+                "bower-asset/yii2-pjax": ">=2.0.0",
                 "cebe/markdown": "0.9.*",
                 "ext-mbstring": "*",
                 "ezyang/htmlpurifier": "4.6.*",
                 "lib-pcre": "*",
                 "php": ">=5.4.0",
-                "yiisoft/jquery": "~2.0 | ~1.10",
-                "yiisoft/jquery-pjax": "*",
                 "yiisoft/yii2-composer": "*"
             },
             "bin": [
@@ -601,7 +1082,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-09-09 00:18:53"
+            "time": "2014-09-17 00:58:57"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -609,16 +1090,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "a3ab453aa0d5e0b493207928ea220e83a6a0ae69"
+                "reference": "774ae2e19fa811686b373e5896811365447baa2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/a3ab453aa0d5e0b493207928ea220e83a6a0ae69",
-                "reference": "a3ab453aa0d5e0b493207928ea220e83a6a0ae69",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/774ae2e19fa811686b373e5896811365447baa2c",
+                "reference": "774ae2e19fa811686b373e5896811365447baa2c",
                 "shasum": ""
             },
             "require": {
-                "twbs/bootstrap": "3.2.* | 3.1.* | 3.0.*",
+                "bower-asset/bootstrap": ">=3.0.0",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
@@ -642,7 +1123,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-09-05 17:37:52"
+            "time": "2014-09-17 00:03:53"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -737,15 +1218,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-jui.git",
-                "reference": "43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832"
+                "reference": "d6075c90dbfb59779aece1f27321975f974e110a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832",
-                "reference": "43e3ccb5afe81f9e3e7cdb44dabe24bfbffda832",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/d6075c90dbfb59779aece1f27321975f974e110a",
+                "reference": "d6075c90dbfb59779aece1f27321975f974e110a",
                 "shasum": ""
             },
             "require": {
+                "bower-asset/jquery-ui": ">=1.10.0",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
@@ -769,7 +1251,7 @@
                 "jQuery UI",
                 "yii2"
             ],
-            "time": "2014-08-29 19:48:17"
+            "time": "2014-09-17 03:01:49"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -819,6 +1301,34 @@
     ],
     "packages-dev": [
         {
+            "name": "bower-asset/typeahead.js",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twitter/typeahead.js.git",
+                "reference": "a9c3bb1068e7e33eabc3e5e1cd4fc0139ea382f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twitter/typeahead.js/zipball/a9c3bb1068e7e33eabc3e5e1cd4fc0139ea382f5",
+                "reference": "a9c3bb1068e7e33eabc3e5e1cd4fc0139ea382f5",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7"
+            },
+            "require-dev": {
+                "bower-asset/jasmine-ajax": ">=1.3.1,<1.4",
+                "bower-asset/jasmine-jquery": ">=1.5.2,<1.6",
+                "bower-asset/jquery": ">=1.7,<1.8"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/typeahead.bundle.js"
+            },
+            "time": "2014-09-16 14:50:58"
+        },
+        {
             "name": "phpspec/php-diff",
             "version": "dev-master",
             "source": {
@@ -858,12 +1368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "b83cbe8e35bbfc99d95549309186914fb6f33ca7"
+                "reference": "9c96250d43fc85324bfdc7dd24b4df25640ff782"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b83cbe8e35bbfc99d95549309186914fb6f33ca7",
-                "reference": "b83cbe8e35bbfc99d95549309186914fb6f33ca7",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/9c96250d43fc85324bfdc7dd24b4df25640ff782",
+                "reference": "9c96250d43fc85324bfdc7dd24b4df25640ff782",
                 "shasum": ""
             },
             "require": {
@@ -892,7 +1402,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-08-28 20:28:03"
+            "time": "2014-09-11 16:43:52"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -900,15 +1410,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "3062e56767747143d75553d52795e048959dfee0"
+                "reference": "8f4e6b19fda1e3386e136b5fa29fac7f2f1b6ea0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/3062e56767747143d75553d52795e048959dfee0",
-                "reference": "3062e56767747143d75553d52795e048959dfee0",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/8f4e6b19fda1e3386e136b5fa29fac7f2f1b6ea0",
+                "reference": "8f4e6b19fda1e3386e136b5fa29fac7f2f1b6ea0",
                 "shasum": ""
             },
             "require": {
+                "bower-asset/typeahead.js": ">=0.10.0",
                 "phpspec/php-diff": ">=1.0.2",
                 "yiisoft/yii2": "*",
                 "yiisoft/yii2-bootstrap": "*"
@@ -935,7 +1446,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-09-03 18:09:30"
+            "time": "2014-09-17 00:03:53"
         }
     ],
     "aliases": [

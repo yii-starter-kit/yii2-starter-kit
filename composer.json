@@ -26,7 +26,13 @@
         "mihaildev/yii2-elfinder": "*",
         "trntv/yii2-aceeditor": "*",
         "trntv/system-info": "*",
-        "trntv/yii2-file-kit": "*"
+        "trntv/yii2-file-kit": "*",
+        "bower-asset/font-awesome": "4.*",
+        "bower-asset/respond": "~1.4.2",
+        "bower-asset/html5shiv": "~3.7.2",
+        "bower-asset/ionicons": "~1.5.2",
+        "bower-asset/flot": "~0.8.3",
+        "bower-asset/admin-lte": "~1.2.1"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",
@@ -66,6 +72,10 @@
                 "frontend/config/main.php",
                 "backend/config/main.php"
             ]
+        },
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
         }
     }
 }

@@ -7,7 +7,7 @@ return [
         'controllerMap'=>[
             'migrate'=>[
                 'class'=>'yii\console\controllers\MigrateController',
-                'migrationPath'=>'@console/migrations',
+                'migrationPath'=>'@common/migrations',
                 'migrationTable'=>'{{%system_migration}}'
             ]
         ],

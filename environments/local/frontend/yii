@@ -14,12 +14,13 @@ defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
-require(dirname(__DIR__) . '/../vendor/autoload.php');
-require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
+require(dirname(__DIR__) . '/../../vendor/autoload.php');
+require(dirname(__DIR__) . '/../../vendor/yiisoft/yii2/Yii.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
-    require(__DIR__ . '/../../common/config/console.php'),
-    require(__DIR__ . '/../../console/config/main.php'),
+    require(__DIR__ . '/../../../common/config/console.php'),
+    require(__DIR__ . '/../../../frontend/config/console.php'),
+    require(__DIR__ . '/../common/config/console.php'),
     require(__DIR__ . '/config/console.php')
 );
 

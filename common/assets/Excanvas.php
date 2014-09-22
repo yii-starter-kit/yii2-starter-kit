@@ -12,7 +12,7 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class Excanvas extends AssetBundle{
-    public $sourcePath = '@bower/excanvas';
+    public $sourcePath = '@common/assets/bower/excanvas';
     public $js = [
         'excanvas.js'
     ];

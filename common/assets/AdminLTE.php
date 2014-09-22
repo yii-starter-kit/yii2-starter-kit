@@ -12,7 +12,7 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class AdminLTE extends AssetBundle{
-    public $sourcePath = '@bower/admin-lte';
+    public $sourcePath = '@common/assets/bower/admin-lte';
     public $js = [
         'js/AdminLTE/app.js'
     ];
@@ -21,7 +21,7 @@ class AdminLTE extends AssetBundle{
     ];
     public $depends = [
         '\yii\web\JqueryAsset',
-        '\yii\jui\SortableAsset',
+        '\yii\jui\JuiAsset',
         '\yii\bootstrap\BootstrapPluginAsset',
         'common\assets\FontAwesome',
         'common\assets\Ionicons',

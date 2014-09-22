@@ -7,5 +7,4 @@ Yii::setAlias('@backend', realpath(dirname(__DIR__) . '/../backend'));
 Yii::setAlias('@console', realpath(dirname(__DIR__) . '/../console'));
 Yii::setAlias('@storage', realpath(dirname(__DIR__) . '/../storage'));
 
-Yii::setAlias('@bower', dirname(__DIR__) . '/assets/bower');
 Yii::setAlias('@tests', dirname(__DIR__) . '/tests');

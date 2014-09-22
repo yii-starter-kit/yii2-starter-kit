@@ -12,7 +12,7 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class Respond extends AssetBundle{
-    public $sourcePath = '@bower/respond';
+    public $sourcePath = '@common/assets/bower/respond';
     public $js = [
         'src/respond.js'
     ];

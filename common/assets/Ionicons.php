@@ -12,7 +12,7 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class Ionicons extends AssetBundle{
-    public $sourcePath = '@bower/ionicons';
+    public $sourcePath = '@common/assets/bower/ionicons';
     public $css = [
         'css/ionicons.min.css'
     ];

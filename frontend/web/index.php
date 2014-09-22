@@ -21,8 +21,9 @@ require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
     require(dirname(__DIR__).'/../common/config/web.php'),
-    require(dirname(__DIR__).'/config/main.php'),
-    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/config/frontend.php')
+    require(dirname(__DIR__).'/config/web.php'),
+    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/common/config/web.php'),
+    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/frontend/config/web.php')
 );
 
 (new yii\web\Application($config))->run();

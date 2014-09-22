@@ -45,7 +45,7 @@ Extract the github archive file to a directory named `yii2-starter-kit` that is 
 
 After extraction run
 ```
-php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
+php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta1"
 php composer.phar install
 ```
 
@@ -72,7 +72,7 @@ CONFIGURATION
 
 ### Database
 
-Edit the file `environments/local/config/_db.php` with real data, for example:
+Edit the file `environments/local/common/config/_db.php` with real data, for example:
 
 ```php
 return [
@@ -88,7 +88,7 @@ return [
 Also check and edit the other files in the `config/` directory to customize your application.
 
 ### Application urls
-Edit the file `environments/local/config/_aliases.php`
+Edit the file `environments/local/common/config/_aliases.php`
 ```php
 Yii::setAlias('@frontendUrl', 'http://example.com');
 Yii::setAlias('@backendUrl', 'http://backend.example.com');
@@ -97,13 +97,13 @@ Yii::setAlias('@storageUrl', 'http://storage.example.com');
 #### Apply migrations
 
 ```php
-php environments/local/yii migrate
+php environments/local/console/yii migrate
 ```
 
 ### Initial RBAC config
 
 ```php
-php environmetns/local/yii rbac/init
+php environmetns/local/console/yii rbac/init
 ```
 ### Demo user
 ~~~

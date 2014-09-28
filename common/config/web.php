@@ -1,7 +1,6 @@
 <?php
 $base = require('_base.php');
 $config = [
-    'defaultRoute'=>'system-information/index',
     'components' => [
         'assetManager'=>[
             'class'=>'yii\web\AssetManager',

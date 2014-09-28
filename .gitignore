@@ -1,6 +1,5 @@
 # Application
-/environments/*
-!/environments/local
+/environments/local
 
 # Storage
 /storage/uploads
@@ -19,14 +18,14 @@ nbproject
 .project
 .settings
 
-# phing
-phing.phar
-
 # windows thumbnail cache
 Thumbs.db
 
 # Mac DS_Store Files
 .DS_Store
+
+# Grunt
+/node_modules
 
 # phpunit itself is not needed
 phpunit.phar

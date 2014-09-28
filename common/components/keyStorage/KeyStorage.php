@@ -117,6 +117,4 @@ class KeyStorage extends Component{
     protected function getModel($key){
         return call_user_func($this->modelClass.'::findOne', ['key'=>$key]);
     }
-
-
 }

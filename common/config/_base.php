@@ -74,8 +74,8 @@ return [
             'repositories'=>[
                 'uploads'=>[
                     'class'=>'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath'=>'@storage/uploads',
-                    'baseUrl'=>'@storageUrl/uploads',
+                    'basePath'=>'@storage',
+                    'baseUrl'=>'@storageUrl',
                 ]
             ],
 

@@ -9,7 +9,7 @@
 namespace backend\controllers;
 
 use backend\models\LoginForm;
-use backend\modules\user\models\AccountForm;
+use backend\models\AccountForm;
 use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\imagine\Image;

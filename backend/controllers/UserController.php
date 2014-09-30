@@ -80,7 +80,12 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = new UserForm($this->findModel($id));
+        $model = new UserForm();
+        $user = $this->findModel($id);
+        $model->username = $user->username;
+        $model->email = $user->email;
+        $model->status = $user->status;
+        $model->role = $user->role;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {

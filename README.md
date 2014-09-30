@@ -105,6 +105,7 @@ php environments/local/console/yii migrate
 ```php
 php environmetns/local/console/yii rbac/init
 ```
+**IMPORTANT: without rbac/init you CAN'T LOG IN into backend**
 ### Demo user
 ~~~
 Login: webmaster

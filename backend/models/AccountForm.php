@@ -28,4 +28,16 @@ class AccountForm extends Model
 
         ];
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('backend', 'Username'),
+            'password' => Yii::t('backend', 'Password'),
+            'password_confirm' => Yii::t('backend', 'Password Confirm')
+        ];
+    }
 }

@@ -32,6 +32,18 @@ class LoginForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('backend', 'Username'),
+            'password' => Yii::t('backend', 'Password'),
+            'rememberMe' => Yii::t('backend', 'Remember Me')
+        ];
+    }
+
+    /**
      * Validates the password.
      * This method serves as the inline validation for password.
      */
@@ -56,10 +68,12 @@ class LoginForm extends Model
             if(Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0)){
                 return true;
             }
-        } else {
-            return false;
         }
-    }/**
+
+        return false;
+    }
+
+    /**
      * Finds user by [[username]]
      *
      * @return User|null

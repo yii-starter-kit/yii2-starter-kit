@@ -59,7 +59,9 @@
                     "frontend/web/assets": "0777",
                     "backend/web/assets": "0777",
                     "storage": "0777",
-                    "environments/local/yii": "0755"
+                    "environments/local/backend/yii": "0755",
+                    "environments/local/frontend/yii": "0755",
+                    "environments/local/console/yii": "0755"
                 }
             ],
             "generateCookieValidationKey": [

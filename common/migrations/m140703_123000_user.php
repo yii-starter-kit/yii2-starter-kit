@@ -9,7 +9,7 @@ class m140703_123000_user extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE=InnoDB';
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
         $this->createTable('{{%user}}', [
@@ -37,7 +37,7 @@ class m140703_123000_user extends Migration
             'updated_at'=>time()
         ]);
         $this->insert('{{%user}}', [
-            'id'=>1,
+            'id'=>2,
             'username'=>'manager',
             'email'=>'manager@example.com',
             'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('manager'),

@@ -1,5 +1,6 @@
 # Application
-/environments/local
+/environments/*
+!/environments/local
 
 # Storage
 /storage/uploads
@@ -24,7 +25,7 @@ Thumbs.db
 # Mac DS_Store Files
 .DS_Store
 
-# Grunt
+# NPM
 /node_modules
 
 # phpunit itself is not needed

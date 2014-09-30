@@ -52,6 +52,6 @@ return [
     'Url' => 'Url',
     'User' => 'Пользователь',
     'User ID' => 'ID пользователя',
-    'Value' => 'Значние',
+    'Value' => 'Значение',
     '{attribute} must be a valid JSON' => '{attribute} должен быть валидным JSON',
 ];

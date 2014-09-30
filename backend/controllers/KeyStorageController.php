@@ -34,7 +34,9 @@ class KeyStorageController extends Controller
     {
         $searchModel = new KeyStorageItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        $dataProvider->sort = [
+            'defaultOrder'=>['key'=>SORT_DESC]
+        ];
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,

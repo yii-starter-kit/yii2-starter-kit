@@ -5,23 +5,21 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\User */
+/* @var $model backend\models\UserForm */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'username')->textInput() ?>
-    <?= $form->field($model, 'email')->textInput() ?>
-    <?= $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
-    <?= $form->field($model, 'role')->dropdownList(User::getRoles()) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
-
+        <?= $form->field($model, 'username') ?>
+        <?= $form->field($model, 'email') ?>
+        <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
+        <?= $form->field($model, 'role')->dropdownList(User::getRoles()) ?>
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+        </div>
     <?php ActiveForm::end(); ?>
 
 </div>

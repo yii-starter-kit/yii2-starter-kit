@@ -1,5 +1,6 @@
 <?php
 
+use common\models\User;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -27,6 +28,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'email:email',
+            [
+                'attribute'=>'role',
+                'value'=>function($model){
+                    return User::getRoles($model->role);
+                }
+            ],
             'role',
             'status',
             'created_at:datetime',

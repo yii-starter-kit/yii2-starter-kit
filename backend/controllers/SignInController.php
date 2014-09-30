@@ -9,6 +9,7 @@
 namespace backend\controllers;
 
 use backend\models\LoginForm;
+use backend\modules\user\models\AccountForm;
 use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\imagine\Image;
@@ -65,6 +66,23 @@ class SignInController extends Controller{
             return $this->refresh();
         }
         return $this->render('profile', ['model'=>$model]);
+    }
+
+    public function actionAccount(){
+        $user = Yii::$app->user->identity;
+        $model = new AccountForm();
+        $model->username = $user->username;
+        if($model->load($_POST) && $model->validate()){
+            $user->username = $model->username;
+            $user->setPassword($model->password);
+            $user->save();
+            Yii::$app->session->setFlash('alert', [
+                'options'=>['class'=>'alert-success'],
+                'body'=>Yii::t('frontend', 'Your profile has been successfully saved')
+            ]);
+            return $this->refresh();
+        }
+        return $this->render('account', ['model'=>$model]);
     }
 
 } 

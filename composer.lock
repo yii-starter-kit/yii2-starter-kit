@@ -180,16 +180,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.x-dev",
+            "version": "3.1.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
-                "reference": "1fc8d8c0aa066331ef4d9f277183cc92637cebf6"
+                "reference": "ebd3493bfbe032aa568c3574546402a60edd3ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/1fc8d8c0aa066331ef4d9f277183cc92637cebf6",
-                "reference": "1fc8d8c0aa066331ef4d9f277183cc92637cebf6",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/ebd3493bfbe032aa568c3574546402a60edd3ce5",
+                "reference": "ebd3493bfbe032aa568c3574546402a60edd3ce5",
                 "shasum": ""
             },
             "require": {
@@ -228,8 +228,7 @@
                 "jQuery",
                 "mask",
                 "plugins"
-            ],
-            "time": "2014-09-22 14:47:44"
+            ]
         },
         {
             "name": "bower-asset/punycode",
@@ -391,16 +390,16 @@
         },
         {
             "name": "imagine/imagine",
-            "version": "v0.5.0",
+            "version": "0.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/avalanche123/Imagine.git",
-                "reference": "f64ec666baaa800edcbf237db41121a569230709"
+                "reference": "343580fceed1f89220481ac98480e92f47d91e6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
-                "reference": "f64ec666baaa800edcbf237db41121a569230709",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/343580fceed1f89220481ac98480e92f47d91e6c",
+                "reference": "343580fceed1f89220481ac98480e92f47d91e6c",
                 "shasum": ""
             },
             "require": {
@@ -415,6 +414,11 @@
                 "ext-imagick": "to use the Imagick implementation"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.5-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Imagine": "lib/"
@@ -439,7 +443,7 @@
                 "image manipulation",
                 "image processing"
             ],
-            "time": "2013-07-10 17:25:36"
+            "time": "2014-06-13 10:54:04"
         },
         {
             "name": "jakeasmith/http_build_url",
@@ -527,12 +531,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "cd12d60cdd3b03de69a68a49089d85e119491b4d"
+                "reference": "9359e595d8649804946c039ac6ff6916948a5320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd12d60cdd3b03de69a68a49089d85e119491b4d",
-                "reference": "cd12d60cdd3b03de69a68a49089d85e119491b4d",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/9359e595d8649804946c039ac6ff6916948a5320",
+                "reference": "9359e595d8649804946c039ac6ff6916948a5320",
                 "shasum": ""
             },
             "require": {
@@ -571,7 +575,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-09-20 11:30:50"
+            "time": "2014-09-26 11:48:15"
         },
         {
             "name": "trntv/system-info",
@@ -579,12 +583,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/system-info.git",
-                "reference": "df520b925ed6184e6e23658d42cee9927443107f"
+                "reference": "ee04ff6a827c7fc587017438c361338d1ea75d53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/system-info/zipball/df520b925ed6184e6e23658d42cee9927443107f",
-                "reference": "df520b925ed6184e6e23658d42cee9927443107f",
+                "url": "https://api.github.com/repos/trntv/system-info/zipball/ee04ff6a827c7fc587017438c361338d1ea75d53",
+                "reference": "ee04ff6a827c7fc587017438c361338d1ea75d53",
                 "shasum": ""
             },
             "type": "library",
@@ -607,7 +611,7 @@
                 "source": "https://github.com/trntv/system-info/tree/master",
                 "issues": "https://github.com/trntv/system-info/issues"
             },
-            "time": "2014-08-31 13:41:54"
+            "time": "2014-09-30 09:45:58"
         },
         {
             "name": "trntv/yii2-aceeditor",
@@ -656,19 +660,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-file-kit.git",
-                "reference": "1c9006b8f39aaa491405a3d7ac2f6598d52e90fc"
+                "reference": "1e84532ff508809bd2acb2cebe003042679bb756"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/1c9006b8f39aaa491405a3d7ac2f6598d52e90fc",
-                "reference": "1c9006b8f39aaa491405a3d7ac2f6598d52e90fc",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/1e84532ff508809bd2acb2cebe003042679bb756",
+                "reference": "1e84532ff508809bd2acb2cebe003042679bb756",
                 "shasum": ""
             },
             "require": {
                 "jakeasmith/http_build_url": "*",
-                "yiisoft/yii2": "*"
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-jui": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "trntv\\filekit\\": ""
@@ -685,7 +696,7 @@
                 }
             ],
             "description": "Yii2 file upload and storage kit",
-            "time": "2014-09-22 14:45:30"
+            "time": "2014-09-29 20:53:49"
         },
         {
             "name": "yiisoft/yii2",
@@ -693,19 +704,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "7c22590aa00cd77d6096bc3f6b99ddde2d76e276"
+                "reference": "a28f18d760100f875c35d183d6dbed8b081867f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7c22590aa00cd77d6096bc3f6b99ddde2d76e276",
-                "reference": "7c22590aa00cd77d6096bc3f6b99ddde2d76e276",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a28f18d760100f875c35d183d6dbed8b081867f7",
+                "reference": "a28f18d760100f875c35d183d6dbed8b081867f7",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/jquery": "~1.11 | ~2.1",
-                "bower-asset/jquery.inputmask": "~3.1",
-                "bower-asset/punycode": "~1.3",
-                "bower-asset/yii2-pjax": "~2.0",
+                "bower-asset/jquery": "2.1.*@stable | 1.11.*@stable",
+                "bower-asset/jquery.inputmask": "3.1.*",
+                "bower-asset/punycode": "1.3.*",
+                "bower-asset/yii2-pjax": "2.0.*",
                 "cebe/markdown": "0.9.*",
                 "ext-mbstring": "*",
                 "ezyang/htmlpurifier": "4.6.*",
@@ -717,6 +728,11 @@
                 "yii"
             ],
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\": ""
@@ -768,7 +784,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-09-22 14:37:28"
+            "time": "2014-09-30 08:32:21"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -776,19 +792,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "ae812b0c945349b7bcef40ca7b1d8e4febee50b1"
+                "reference": "71d5e817161704eb501141c149d688ed07db68c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/ae812b0c945349b7bcef40ca7b1d8e4febee50b1",
-                "reference": "ae812b0c945349b7bcef40ca7b1d8e4febee50b1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/71d5e817161704eb501141c149d688ed07db68c0",
+                "reference": "71d5e817161704eb501141c149d688ed07db68c0",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap": "~3.2",
+                "bower-asset/bootstrap": "3.2.* | 3.1.*",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\bootstrap\\": ""
@@ -809,7 +830,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2014-09-22 11:15:43"
+            "time": "2014-09-30 08:15:28"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -817,12 +838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "f205416b9e4698af823c4ea6ec661a847188d5cf"
+                "reference": "458cae9af4bf1ddffdd91133610582eabd30c732"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/f205416b9e4698af823c4ea6ec661a847188d5cf",
-                "reference": "f205416b9e4698af823c4ea6ec661a847188d5cf",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/458cae9af4bf1ddffdd91133610582eabd30c732",
+                "reference": "458cae9af4bf1ddffdd91133610582eabd30c732",
                 "shasum": ""
             },
             "require": {
@@ -830,7 +851,10 @@
             },
             "type": "composer-plugin",
             "extra": {
-                "class": "yii\\composer\\Plugin"
+                "class": "yii\\composer\\Plugin",
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -853,7 +877,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2014-09-03 03:17:50"
+            "time": "2014-09-28 05:44:31"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -861,19 +885,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-imagine.git",
-                "reference": "572a6f08a4de15703e528614d1c6610bae27f9b1"
+                "reference": "59f942869d8b1fe5d1c8d93ac48d9b5e55c02eeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/572a6f08a4de15703e528614d1c6610bae27f9b1",
-                "reference": "572a6f08a4de15703e528614d1c6610bae27f9b1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/59f942869d8b1fe5d1c8d93ac48d9b5e55c02eeb",
+                "reference": "59f942869d8b1fe5d1c8d93ac48d9b5e55c02eeb",
                 "shasum": ""
             },
             "require": {
-                "imagine/imagine": "v0.5.0",
+                "imagine/imagine": "0.5.*",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\imagine\\": ""
@@ -896,7 +925,7 @@
                 "imagine",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-09-28 05:44:31"
         },
         {
             "name": "yiisoft/yii2-jui",
@@ -904,19 +933,24 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-jui.git",
-                "reference": "d9b8f0dc6b98af811ac3600b050a512aff07b2e0"
+                "reference": "216baa66dc3658eeae90115b1fff34b47e800ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/d9b8f0dc6b98af811ac3600b050a512aff07b2e0",
-                "reference": "d9b8f0dc6b98af811ac3600b050a512aff07b2e0",
+                "url": "https://api.github.com/repos/yiisoft/yii2-jui/zipball/216baa66dc3658eeae90115b1fff34b47e800ed5",
+                "reference": "216baa66dc3658eeae90115b1fff34b47e800ed5",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/jquery-ui": "~1.11",
+                "bower-asset/jquery-ui": "1.11.*@stable",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\jui\\": ""
@@ -937,7 +971,7 @@
                 "jQuery UI",
                 "yii2"
             ],
-            "time": "2014-09-22 11:15:43"
+            "time": "2014-09-28 05:44:31"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -945,12 +979,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
-                "reference": "5f50b47f0787ed6eb08ff0cda825a202d24dc392"
+                "reference": "4ac514cee17ddcb910705d906d3482d3d9d891d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/5f50b47f0787ed6eb08ff0cda825a202d24dc392",
-                "reference": "5f50b47f0787ed6eb08ff0cda825a202d24dc392",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/4ac514cee17ddcb910705d906d3482d3d9d891d9",
+                "reference": "4ac514cee17ddcb910705d906d3482d3d9d891d9",
                 "shasum": ""
             },
             "require": {
@@ -958,6 +992,11 @@
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\swiftmailer\\": ""
@@ -982,7 +1021,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2014-07-29 22:40:46"
+            "time": "2014-09-28 05:44:31"
         }
     ],
     "packages-dev": [
@@ -1053,12 +1092,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "d653a52d38d2abdd3dca2edb170949308e87147e"
+                "reference": "db038896862b2b221639017ea021de9b02a51eeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/d653a52d38d2abdd3dca2edb170949308e87147e",
-                "reference": "d653a52d38d2abdd3dca2edb170949308e87147e",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/db038896862b2b221639017ea021de9b02a51eeb",
+                "reference": "db038896862b2b221639017ea021de9b02a51eeb",
                 "shasum": ""
             },
             "require": {
@@ -1066,6 +1105,11 @@
                 "yiisoft/yii2-bootstrap": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\debug\\": ""
@@ -1087,7 +1131,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2014-09-19 03:25:38"
+            "time": "2014-09-28 05:44:31"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -1095,21 +1139,26 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "bc591d269ab81dfa132316e5d4605267c1ce39d6"
+                "reference": "72fcfc5bcdf2cd08132f8c247073488b832b54bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/bc591d269ab81dfa132316e5d4605267c1ce39d6",
-                "reference": "bc591d269ab81dfa132316e5d4605267c1ce39d6",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/72fcfc5bcdf2cd08132f8c247073488b832b54bd",
+                "reference": "72fcfc5bcdf2cd08132f8c247073488b832b54bd",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/typeahead.js": "~0.10",
+                "bower-asset/typeahead.js": "0.10.*",
                 "phpspec/php-diff": ">=1.0.2",
                 "yiisoft/yii2": "*",
                 "yiisoft/yii2-bootstrap": "*"
             },
             "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "yii\\gii\\": ""
@@ -1131,7 +1180,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2014-09-22 11:15:43"
+            "time": "2014-09-28 05:44:31"
         }
     ],
     "aliases": [

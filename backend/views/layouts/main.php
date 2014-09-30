@@ -103,6 +103,9 @@ use yii\widgets\Breadcrumbs;
                             <div class="pull-left">
                                 <?= Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class'=>'btn btn-default btn-flat']) ?>
                             </div>
+                            <div class="pull-left">
+                                <?= Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class'=>'btn btn-default btn-flat']) ?>
+                            </div>
                             <div class="pull-right">
                                 <?= Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class'=>'btn btn-default btn-flat']) ?>
                             </div>

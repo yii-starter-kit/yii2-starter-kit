@@ -7,7 +7,6 @@ use common\models\User;
 use trntv\systeminfo\SystemInfo;
 
 $this->title = Yii::t('backend', 'System Information');
-\common\assets\Flot::register($this);
 $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]) ?>
 <div id="system-information-index">
     <div class="row connectedSortable">

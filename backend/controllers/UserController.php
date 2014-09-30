@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\User;
-use backend\models\UserCreateForm;
+use backend\models\UserForm;
 use backend\models\search\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new UserCreateForm();
+        $model = new UserForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($model->create()) {
                 return $this->redirect(['index']);
@@ -75,16 +75,14 @@ class UserController extends Controller
 
     /**
      * Updates an existing User model.
-     * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-
+        $model = new UserForm($this->findModel($id));
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,

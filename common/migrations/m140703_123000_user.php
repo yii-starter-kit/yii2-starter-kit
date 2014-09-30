@@ -36,6 +36,17 @@ class m140703_123000_user extends Migration
             'created_at'=>time(),
             'updated_at'=>time()
         ]);
+        $this->insert('{{%user}}', [
+            'id'=>1,
+            'username'=>'manager',
+            'email'=>'manager@example.com',
+            'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('manager'),
+            'auth_key'=>Yii::$app->getSecurity()->generateRandomString(),
+            'role'=>\common\models\User::ROLE_MANAGER,
+            'status'=>\common\models\User::STATUS_ACTIVE,
+            'created_at'=>time(),
+            'updated_at'=>time()
+        ]);
 
         $this->createTable('{{%user_profile}}', [
             'user_id' => Schema::TYPE_INTEGER . ' NOT NULL',
@@ -51,9 +62,13 @@ class m140703_123000_user extends Migration
             'user_id'=>1,
             'locale'=>Yii::$app->sourceLanguage
         ]);
+        $this->insert('{{%user_profile}}', [
+            'user_id'=>2,
+            'locale'=>Yii::$app->sourceLanguage
+        ]);
         $this->addPrimaryKey('pk_user_id', '{{%user_profile}}', 'user_id');
         $this->createIndex('idx_user_id', '{{%user_profile}}', 'user_id');
-        $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id');
+        $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');
 
     }
 

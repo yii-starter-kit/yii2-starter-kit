@@ -9,7 +9,7 @@ use Yii;
 /**
  * Create user form
  */
-class UserCreateForm extends Model
+class UserForm extends Model
 {
     public $username;
     public $email;
@@ -46,7 +46,7 @@ class UserCreateForm extends Model
      *
      * @return User|null the saved model or null if saving fails
      */
-    public function create()
+    public function save()
     {
         if ($this->validate()) {
             $user = new User();

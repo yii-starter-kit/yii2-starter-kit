@@ -107,7 +107,7 @@ class KeyStorage extends Component{
      * @return mixed
      */
     public function removeGroup($groupKey){
-        return call_user_func($this->modelClass.'::findOne', ['like', 'key', $groupKey]);
+        return call_user_func($this->modelClass.'::deleteAll', ['like', 'key', $groupKey]);
     }
 
     /**
@@ -115,6 +115,7 @@ class KeyStorage extends Component{
      * @return mixed
      */
     protected function getModel($key){
-        return call_user_func($this->modelClass.'::findOne', ['key'=>$key]);
+        $query = call_user_func($this->modelClass.'::find');
+        return $query->where(['key'=>$key])->select(['key', 'value'])->one();
     }
 }

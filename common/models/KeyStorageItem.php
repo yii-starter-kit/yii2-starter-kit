@@ -38,7 +38,7 @@ class KeyStorageItem extends \yii\db\ActiveRecord
         return [
             [['key', 'value'], 'required'],
             [['key'], 'string', 'max'=>128],
-            [['value'], 'safe'],
+            [['value', 'comment'], 'safe'],
             [['key'], 'unique']
         ];
     }
@@ -51,6 +51,7 @@ class KeyStorageItem extends \yii\db\ActiveRecord
         return [
             'key' => Yii::t('common', 'Key'),
             'value' => Yii::t('common', 'Value'),
+            'comment' => Yii::t('common', 'Comment'),
         ];
     }
 }

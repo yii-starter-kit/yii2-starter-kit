@@ -37,13 +37,16 @@ return [
                 'db'=>[
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
-                    'except'=>['yii\web\HttpException:404', 'yii\i18n\I18N::format'], // todo: DbTarget для 404 и 403
+                    'except'=>['yii\web\HttpException', 'yii\i18n\I18N'],
                     'prefix'=>function($message){
-                        $traces = $message[4];
-                        $file = \yii\helpers\ArrayHelper::getValue($traces, 'file', 'unknown');
-                        $line = \yii\helpers\ArrayHelper::getValue($traces, 'line', 'unknown');
+                        $file = \yii\helpers\ArrayHelper::getValue($message[4], 'file');
+                        $line = \yii\helpers\ArrayHelper::getValue($message[4], 'line');
+                        $trace = null;
+                        if($file && $line){
+                            $trace =  '['.implode(':', [$file, $line]).']';
+                        }
                         $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
-                        return sprintf('[%s][%s][%s]', Yii::$app->id, $url, implode(':', [$file, $line]));
+                        return sprintf('[%s][%s]%s', Yii::$app->id, $url, $trace);
                     },
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'

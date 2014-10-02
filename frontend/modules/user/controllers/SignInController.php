@@ -11,6 +11,8 @@ use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\BadRequestHttpException;
+use yii\web\Response;
+use yii\widgets\ActiveForm;
 
 class SignInController extends \yii\web\Controller
 {
@@ -52,11 +54,12 @@ class SignInController extends \yii\web\Controller
 
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
+        if (Yii::$app->request->isAjax) {
+            $model->load($_POST);
+            Yii::$app->response->format = Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {

@@ -85,6 +85,7 @@ return [
     'Search' => 'Поиск',
     'Sign In' => 'Вход',
     'Sign me in' => 'Войти',
+    'Status'=>'Активно',
     'Software' => 'ПО',
     'Static pages' => 'Статические страницы',
     'System' => 'Система',

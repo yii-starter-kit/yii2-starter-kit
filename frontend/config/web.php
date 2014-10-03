@@ -11,7 +11,7 @@ $config = [
         ],
 
         'user' => [
-            'loginUrl'=>['/user/sign-in/login'],
+            'loginUrl'=>'/user/sign-in/login',
             'enableAutoLogin' => true,
         ],
 

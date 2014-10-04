@@ -38,15 +38,9 @@ return [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
                     'except'=>['yii\web\HttpException', 'yii\i18n\I18N'],
-                    'prefix'=>function($message){
-                        $file = \yii\helpers\ArrayHelper::getValue($message[4], 'file');
-                        $line = \yii\helpers\ArrayHelper::getValue($message[4], 'line');
-                        $trace = null;
-                        if($file && $line){
-                            $trace =  '['.implode(':', [$file, $line]).']';
-                        }
+                    'prefix'=>function(){
                         $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
-                        return sprintf('[%s][%s]%s', Yii::$app->id, $url, $trace);
+                        return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
                     'logVars'=>[],
                     'logTable'=>'{{%system_log}}'

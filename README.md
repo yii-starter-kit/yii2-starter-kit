@@ -103,7 +103,7 @@ php environments/local/console/yii migrate
 ### Initial RBAC config
 
 ```php
-php environmetns/local/console/yii rbac/init
+php environments/local/console/yii rbac/init
 ```
 **IMPORTANT: without rbac/init you CAN'T LOG IN into backend**
 ### Demo user

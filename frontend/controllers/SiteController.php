@@ -23,6 +23,10 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'set-locale'=>[
+                'class'=>'common\components\action\SetLocale',
+                'locales'=>array_keys(Yii::$app->params['availableLocales'])
+            ]
         ];
     }
 

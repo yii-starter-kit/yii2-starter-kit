@@ -9,14 +9,14 @@ FEATURES
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
-- File storage component
-- Upload widget
+- File storage component + custom upload widget (https://github.com/trntv/yii2-file-kit)
 - Key value storage component
 - System log
 - System events log
 - System information
 - aceeditor, imperavi, elfinder
 - nginx example config
+- example deploy script
 
 DEMO
 ----
@@ -114,6 +114,8 @@ Password: webmaster
 
 ### TODO
 - Chained selects extension
+- jGrowl widget
+- DbMessageSource management module
 - Upload Kit improvements
 - Inline code documentation
 - Tests

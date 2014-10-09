@@ -73,6 +73,7 @@ class KeyStorage extends Component{
                 $model = $this->getModel($key);
                 if($model){
                     $value = $model->value;
+                    $this->_values[$key] = $value;
                     \Yii::$app->cache->set($cacheKey, $value, $this->cachingDuration);
                 } else {
                     $value = $default;

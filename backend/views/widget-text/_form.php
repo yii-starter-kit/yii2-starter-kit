@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
         'options'=>[
             'minHeight'=>400,
             'maxHeight'=>400,
-            'toolbarFixed'=>true,
+            'buttonSource'=>true,
             'convertDivs'=>false,
             'removeEmptyTags'=>false,
             'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-manager/upload-imperavi'])

@@ -1,5 +1,5 @@
 <?php
-require('_aliases.php');
+require('_bootstrap.php');
 return [
     'components'=>[
         'cache' => [

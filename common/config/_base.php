@@ -1,5 +1,5 @@
 <?php
-require('_aliases.php');
+require('_bootstrap.php');
 return [
     'name'=>'Yii2 Starter Kit',
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
@@ -29,6 +29,10 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
+        ],
+
+        'db'=>[
+            'class'=>'yii\db\Connection'
         ],
 
         'log' => [

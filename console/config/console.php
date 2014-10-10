@@ -1,4 +1,5 @@
 <?php
+require('_bootstrap.php');
 return [
         'id' => 'console',
         'basePath' => dirname(__DIR__),

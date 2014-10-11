@@ -86,12 +86,18 @@ return [
             'class'=>'common\components\keyStorage\KeyStorage'
         ],
 
-        'urlManager'=>[
-            'class'=>'yii\web\UrlManager',
-            'enablePrettyUrl'=>true,
-            'showScriptName'=>false,
-            'rules'=> require('_urlRules.php')
-        ],
+        'backendUrlManager'=>\yii\helpers\ArrayHelper::merge(
+            [
+                'hostInfo'=>Yii::getAlias('@backendUrl')
+            ],
+            require(Yii::getAlias('@backend/config/_urlManager.php'))
+        ),
+        'frontendUrlManager'=>\yii\helpers\ArrayHelper::merge(
+            [
+                'hostInfo'=>Yii::getAlias('@frontendUrl')
+            ],
+            require(Yii::getAlias('@frontend/config/_urlManager.php'))
+        ),
     ],
     'params' => [
         'adminEmail' => 'admin@example.com',

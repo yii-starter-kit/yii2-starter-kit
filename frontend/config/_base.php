@@ -18,11 +18,6 @@ return [
             'cookieValidationKey'=>'yii2-starter-kit.frontend',
         ],
 
-        'urlManager'=>[
-            'class'=>'yii\web\UrlManager',
-            'enablePrettyUrl'=>true,
-            'showScriptName'=>false,
-            'rules'=> require('_urlRules.php')
-        ],
+        'urlManager'=>require(__DIR__.'/_urlManager.php'),
     ],
 ];

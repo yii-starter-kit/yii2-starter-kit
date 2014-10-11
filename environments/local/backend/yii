@@ -17,6 +17,9 @@ defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 require(dirname(__DIR__) . '/../../vendor/autoload.php');
 require(dirname(__DIR__) . '/../../vendor/yiisoft/yii2/Yii.php');
 
+// Bootstrap application
+require(__DIR__ . '/../bootstrap.php');
+
 $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../../../common/config/console.php'),
     require(__DIR__ . '/../../../backend/config/console.php'),

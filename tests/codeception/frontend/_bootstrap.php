@@ -19,4 +19,7 @@ $_SERVER['SCRIPT_FILENAME'] = FRONTEND_ENTRY_FILE;
 $_SERVER['SCRIPT_NAME'] = FRONTEND_ENTRY_URL;
 $_SERVER['SERVER_NAME'] = 'localhost';
 
+Yii::setAlias('@frontendUrl', 'http://localhost');
+Yii::setAlias('@backendUrl', 'http://localhost');
+Yii::setAlias('@storageUrl', 'http://localhost');
 Yii::setAlias('@tests', dirname(dirname(__DIR__)));

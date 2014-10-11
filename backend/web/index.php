@@ -19,6 +19,9 @@ if(YII_DEBUG){
 require(dirname(__DIR__) . '/../vendor/autoload.php');
 require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 
+// Bootstrap application
+require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap.php');
+
 $config = \yii\helpers\ArrayHelper::merge(
     require(dirname(__DIR__).'/../common/config/web.php'),
     require(dirname(__DIR__).'/config/web.php'),

@@ -8,9 +8,7 @@ return [
             'defaultRoles' => ['administrator', 'manager', 'user'],
         ],
 
-        'urlManager'=>[
-            'rules'=> require('_urlRules.php')
-        ],
+        'urlManager'=>require(__DIR__.'/_urlManager.php'),
 
         'errorHandler' => [
             'errorAction' => 'site/error',

@@ -6,6 +6,7 @@ FEATURES
 - Based on yii2-advanced application template
 - Beautiful and free dashboard theme for backend - http://almsaeedstudio.com/AdminLTE
 - I18N + 2 translations: Ukrainian, Russian
+- I18N DbMessageSource CRUD module + extended `MessageController` to migrate translations from one format to another
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
@@ -45,7 +46,7 @@ Extract the github archive file to a directory named `yii2-starter-kit` that is 
 
 After extraction run
 ```
-php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta1"
+php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta3"
 php composer.phar install
 ```
 
@@ -88,7 +89,7 @@ return [
 Also check and edit the other files in the `config/` directory to customize your application.
 
 ### Application urls
-Edit the file `environments/local/common/config/_aliases.php`
+Edit the file `environments/local/bootstrap.php`
 ```php
 Yii::setAlias('@frontendUrl', 'http://example.com');
 Yii::setAlias('@backendUrl', 'http://backend.example.com');

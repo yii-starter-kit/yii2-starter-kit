@@ -19,13 +19,5 @@ return [
             'cache' => [
                 'class' => 'yii\caching\FileCache',
             ],
-            'log' => [
-                'targets' => [
-                    [
-                        'class' => 'yii\log\DbTarget',
-                        'levels' => ['error', 'warning'],
-                    ],
-                ],
-            ],
         ],
 ];

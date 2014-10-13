@@ -5,7 +5,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\\models\search\UserSearch */
+/* @var $searchModel backend\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Users');
@@ -34,7 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return User::getRoles($model->role);
                 }
             ],
-            'role',
             'status',
             'created_at:datetime',
             // 'updated_at',

@@ -20,6 +20,12 @@ $config = \yii\helpers\ArrayHelper::merge(
                 ]
             ]
         ],
+        'modules'=>[
+            'i18n' => [
+                'class' => 'backend\modules\i18n\Module', //todo: Allow to manager, disallow other
+                'defaultRoute'=>'i18n-message/index'
+            ]
+        ],
         'as globalAccess'=>[
             'class'=>'\common\components\behaviors\GlobalAccessBehavior',
             'rules'=>[

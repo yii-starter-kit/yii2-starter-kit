@@ -10,6 +10,9 @@ return [
                 'class'=>'yii\console\controllers\MigrateController',
                 'migrationPath'=>'@common/migrations',
                 'migrationTable'=>'{{%system_migration}}'
+            ],
+            'message-migrate'=>[
+                'class'=>'console\controllers\MessageMigrateController'
             ]
         ],
         'components' => [

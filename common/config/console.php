@@ -7,13 +7,6 @@ return \yii\helpers\ArrayHelper::merge(
     [
         'id' => 'basic-console',
         'controllerNamespace' => 'console\controllers',
-        'controllerMap'=>[
-            'migrate'=>[
-                'class'=>'yii\console\controllers\MigrateController',
-                'migrationPath'=>'@console/migrations',
-                'migrationTable'=>'{{%system_migration}}'
-            ]
-        ],
         'components' => [
             'log' => [
                 'targets' => [

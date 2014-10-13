@@ -67,6 +67,16 @@ return [
                         'frontend'=>'frontend.php',
                     ]
                 ],
+                /*
+                 '*'=> [
+                    'class' => 'yii\i18n\DbMessageSource',
+                    'sourceMessageTable'=>'{{%i18n_source_message}}',
+                    'messageTable'=>'{{%i18n_message}}',
+                    'enableCaching' => true,
+                    'cachingDuration' => 3600
+                ],
+                */
+
             ],
         ],
 

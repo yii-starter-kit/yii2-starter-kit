@@ -6,7 +6,7 @@ FEATURES
 - Based on yii2-advanced application template
 - Beautiful and free dashboard theme for backend - http://almsaeedstudio.com/AdminLTE
 - I18N + 2 translations: Ukrainian, Russian
-- I18N DbMessageSource CRUD module + extended `MessageController` to migrate translations from one format to another
+- I18N DbMessageSource CRUD module + `MessageMigrateController` to migrate translations between formats
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks

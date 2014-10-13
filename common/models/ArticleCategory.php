@@ -3,13 +3,14 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 use yii\helpers\Inflector;
 
 /**
  * This is the model class for table "article_category".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property integer $status
  *
@@ -28,6 +29,17 @@ class ArticleCategory extends \yii\db\ActiveRecord
         return '{{%article_category}}';
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class'=>SluggableBehavior::className(),
+                'attribute'=>'title'
+            ]
+        ];
+    }
+
+
     /**
      * @inheritdoc
      */
@@ -35,11 +47,8 @@ class ArticleCategory extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
-            [['alias'], 'default', 'value'=>function($model, $attribute){
-                return Inflector::slug($model->$attribute);
-            }],
-            [['alias'], 'unique'],
-            [['alias'], 'string', 'max' => 1024],
+            [['slug'], 'unique'],
+            [['slug'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512]
         ];
     }
@@ -51,7 +60,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'slug' => Yii::t('common', 'Slug'),
             'title' => Yii::t('common', 'Title'),
             'status' => Yii::t('common', 'Status'),
         ];

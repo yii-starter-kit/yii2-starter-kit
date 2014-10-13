@@ -66,15 +66,19 @@ class m140703_123000_user extends Migration
             'user_id'=>2,
             'locale'=>Yii::$app->sourceLanguage
         ]);
-        $this->addPrimaryKey('pk_user_id', '{{%user_profile}}', 'user_id');
-        $this->createIndex('idx_user_id', '{{%user_profile}}', 'user_id');
-        $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');
+        if ($this->db->driverName === 'mysql') {
+            $this->addPrimaryKey('pk_user_id', '{{%user_profile}}', 'user_id');
+            $this->createIndex('idx_user_id', '{{%user_profile}}', 'user_id');
+            $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');
+        }
 
     }
 
     public function down()
     {
-        $this->dropForeignKey('fk_user', '{{%user_profile}}');
+        if ($this->db->driverName === 'mysql') {
+            $this->dropForeignKey('fk_user', '{{%user_profile}}');
+        }
         $this->dropTable('{{%user_profile}}');
         $this->dropTable('{{%user}}');
 

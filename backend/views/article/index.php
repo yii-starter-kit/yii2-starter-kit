@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\\models\search\ArticleSearch */
+/* @var $searchModel backend\models\search\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Articles');
@@ -26,10 +26,21 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             'id',
-            'alias',
+            'slug',
             'title',
-            ['attribute'=>'category.title', 'label'=>\Yii::t('backend', 'Category')],
-            ['attribute'=>'user.username', 'label'=>\Yii::t('backend', 'Author')],
+            [
+                'attribute'=>'category_id',
+                'value'=>function($model){
+                    return $model->category ? $model->category->title : null;
+                },
+                'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
+            ],
+            [
+                'attribute'=>'author_id',
+                'value'=>function($model){
+                    return $model->author->username;
+                }
+            ],
             'status',
             'published_at:datetime',
             'created_at:datetime',

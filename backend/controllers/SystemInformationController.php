@@ -5,8 +5,7 @@
 
 namespace backend\controllers;
 
-
-use trntv\systeminfo\SystemInfo;
+use trntv\systeminfo\SI;
 use yii\web\Controller;
 use yii\web\Response;
 
@@ -17,10 +16,10 @@ class SystemInformationController extends Controller{
             if($key = \Yii::$app->request->get('data')){
                 switch($key){
                     case 'cpu_usage':
-                        return SystemInfo::getCpuUsage(1);
+                        return SI::getCpuUsage(1);
                         break;
                     case 'memory_usage':
-                        return (SystemInfo::getTotalMem() - SystemInfo::getFreeMem()) / SystemInfo::getTotalMem();
+                        return (SI::getTotalMem() - SI::getFreeMem()) / SI::getTotalMem();
                         break;
                 }
             }

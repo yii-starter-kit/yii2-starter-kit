@@ -4,6 +4,8 @@ namespace common\models;
 
 use common\models\query\ArticleQuery;
 use Yii;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
 use yii\helpers\Inflector;
@@ -12,17 +14,19 @@ use yii\helpers\Inflector;
  * This is the model class for table "article".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $body
- * @property integer $user_id
+ * @property integer $author_id
+ * @property integer $updater_id
  * @property integer $category_id
  * @property integer $status
  * @property integer $published_at
  * @property integer $created_at
  * @property integer $updated_at
  *
- * @property User $user
+ * @property User $author
+ * @property User $updater
  * @property ArticleCategory $category
  */
 class Article extends \yii\db\ActiveRecord
@@ -53,6 +57,16 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
+            [
+                'class'=>BlameableBehavior::className(),
+                'createdByAttribute' => 'author_id',
+                'updatedByAttribute' => 'updater_id',
+
+            ],
+            [
+                'class'=>SluggableBehavior::className(),
+                'attribute'=>'title'
+            ]
         ];
     }
 
@@ -63,16 +77,12 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'body'], 'required'],
-            [['alias'], 'default', 'value'=>function($model, $attribute){
-                return Inflector::slug($model->$attribute);
-            }],
-            [['alias'], 'unique'],
+            [['slug'], 'unique'],
             [['body'], 'string'],
             [['published_at'], 'default', 'value'=>new Expression('NOW()')],
             [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
-            [['user_id'], 'default', 'value'=>Yii::$app->user->id],
-            [['user_id', 'status'], 'integer'],
-            [['alias'], 'string', 'max' => 1024],
+            [['author_id', 'status'], 'integer'],
+            [['slug'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512]
         ];
     }
@@ -84,10 +94,11 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'slug' => Yii::t('common', 'Slug'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
-            'user_id' => Yii::t('common', 'User ID'),
+            'author_id' => Yii::t('common', 'Author'),
+            'updater_id' => Yii::t('common', 'Updater'),
             'category_id' => Yii::t('common', 'Category'),
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
@@ -99,9 +110,17 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
+        return $this->hasOne(User::className(), ['id' => 'author_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUpdater()
+    {
+        return $this->hasOne(User::className(), ['id' => 'updater_id']);
     }
 
     /**

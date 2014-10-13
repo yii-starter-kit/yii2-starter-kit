@@ -19,7 +19,7 @@ class ArticleCategorySearch extends ArticleCategory
     {
         return [
             [['id', 'status'], 'integer'],
-            [['alias', 'title'], 'safe'],
+            [['slug', 'title'], 'safe'],
         ];
     }
 
@@ -53,7 +53,7 @@ class ArticleCategorySearch extends ArticleCategory
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'alias', $this->alias])
+        $query->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title]);
 
         return $dataProvider;

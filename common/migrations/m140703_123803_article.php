@@ -14,7 +14,7 @@ class m140703_123803_article extends Migration
 
         $this->createTable('{{%article_category}}', [
             'id' => Schema::TYPE_PK,
-            'alias' => Schema::TYPE_STRING . '(1024) NOT NULL',
+            'slug' => Schema::TYPE_STRING . '(1024) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT,
             'parent_id' => Schema::TYPE_INTEGER,
@@ -25,32 +25,41 @@ class m140703_123803_article extends Migration
 
         $this->createTable('{{%article}}', [
             'id' => Schema::TYPE_PK,
-            'alias' => Schema::TYPE_STRING . '(1024) NOT NULL',
+            'slug' => Schema::TYPE_STRING . '(1024) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT . ' NOT NULL',
             'category_id' => Schema::TYPE_INTEGER,
-            'user_id' => Schema::TYPE_INTEGER,
+            'author_id' => Schema::TYPE_INTEGER,
+            'updater_id' => Schema::TYPE_INTEGER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
             'published_at' => Schema::TYPE_DATETIME . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER,
             'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);
 
-        $this->createIndex('idx_user_id', '{{%article}}', 'user_id');
-        $this->addForeignKey('fk_article_user', '{{%article}}', 'user_id', '{{%user}}', 'id');
+        if ($this->db->driverName === 'mysql') {
+            $this->createIndex('idx_article_author_id', '{{%article}}', 'author_id');
+            $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id');
 
-        $this->createIndex('idx_category_id', '{{%article}}', 'category_id');
-        $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
+            $this->createIndex('idx_article_updater_id', '{{%article}}', 'author_id');
+            $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
 
-        $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
-        $this->addForeignKey('fk_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
+            $this->createIndex('idx_category_id', '{{%article}}', 'category_id');
+            $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
+
+            $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
+            $this->addForeignKey('fk_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
+        }
+
 
     }
 
     public function down()
     {
-        $this->dropForeignKey('fk_article_user', '{{%article}}');
-        $this->dropForeignKey('fk_article_category', '{{%article}}');
+        if ($this->db->driverName === 'mysql') {
+            $this->dropForeignKey('fk_article_user', '{{%article}}');
+            $this->dropForeignKey('fk_article_category', '{{%article}}');
+        }
         $this->dropTable('{{%article}}');
         $this->dropTable('{{%article_category}}');
     }

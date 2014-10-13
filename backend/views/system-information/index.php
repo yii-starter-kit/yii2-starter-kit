@@ -4,7 +4,7 @@
  * @var $this \yii\web\View
  */
 use common\models\User;
-use trntv\systeminfo\SystemInfo;
+use trntv\systeminfo\SI;
 
 $this->title = Yii::t('backend', 'System Information');
 $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]) ?>
@@ -19,13 +19,13 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?= Yii::t('backend', 'Processor') ?></dt>
-                        <dd><?= SystemInfo::getCpuinfo('model name') ?></dd>
+                        <dd><?= SI::getCpuinfo('model name') ?></dd>
 
                         <dt><?= Yii::t('backend', 'Processor Architecture') ?></dt>
-                        <dd><?= SystemInfo::getArchitecture() ?></dd>
+                        <dd><?= SI::getArchitecture() ?></dd>
 
                         <dt><?= Yii::t('backend', 'Number of cores') ?></dt>
-                        <dd><?= SystemInfo::getCpuCores() ?></dd>
+                        <dd><?= SI::getCpuCores() ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>
@@ -39,14 +39,14 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?= Yii::t('backend', 'OS') ?></dt>
-                        <dd><?= SystemInfo::getOS() ?></dd>
+                        <dd><?= SI::getOS() ?></dd>
 
-                        <?php if(!SystemInfo::getIsWindows()): ?>
+                        <?php if(!SI::getIsWindows()): ?>
                             <dt><?= Yii::t('backend', 'OS Release') ?></dt>
-                            <dd><?= SystemInfo::getLinuxOSRelease() ?></dd>
+                            <dd><?= SI::getLinuxOSRelease() ?></dd>
 
                             <dt><?= Yii::t('backend', 'Kernel version') ?></dt>
-                            <dd><?= SystemInfo::getLinuxKernelVersion() ?></dd>
+                            <dd><?= SI::getLinuxKernelVersion() ?></dd>
                         <?php endif; ?>
                     </dl>
                 </div><!-- /.box-body -->
@@ -61,13 +61,13 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?= Yii::t('backend', 'Hostname') ?></dt>
-                        <dd><?= SystemInfo::getHostname() ?></dd>
+                        <dd><?= SI::getHostname() ?></dd>
 
                         <dt><?= Yii::t('backend', 'Internal IP') ?></dt>
-                        <dd><?= SystemInfo::getServerIP() ?></dd>
+                        <dd><?= SI::getServerIP() ?></dd>
 
                         <dt><?= Yii::t('backend', 'External IP') ?></dt>
-                        <dd><?= SystemInfo::getExternalIP() ?></dd>
+                        <dd><?= SI::getExternalIP() ?></dd>
 
                         <dt><?= Yii::t('backend', 'Port') ?></dt>
                         <dd><?= $_SERVER['REMOTE_PORT'] ?></dd>
@@ -84,16 +84,16 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?= Yii::t('backend', 'Web Server') ?></dt>
-                        <dd><?= SystemInfo::getServerSoftware() ?></dd>
+                        <dd><?= SI::getServerSoftware() ?></dd>
 
                         <dt><?= Yii::t('backend', 'PHP Version') ?></dt>
-                        <dd><?= SystemInfo::getPhpVersion() ?></dd>
+                        <dd><?= SI::getPhpVersion() ?></dd>
 
                         <dt><?= Yii::t('backend', 'DB Type') ?></dt>
-                        <dd><?= SystemInfo::getDbType(Yii::$app->db->pdo) ?></dd>
+                        <dd><?= SI::getDbType(Yii::$app->db->pdo) ?></dd>
 
                         <dt><?= Yii::t('backend', 'DB Version') ?></dt>
-                        <dd><?= SystemInfo::getDbVersion(Yii::$app->db->pdo) ?></dd>
+                        <dd><?= SI::getDbVersion(Yii::$app->db->pdo) ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>
@@ -107,16 +107,16 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?= Yii::t('backend', 'Total memory') ?></dt>
-                        <dd><?= Yii::$app->formatter->asSize(SystemInfo::getTotalMem()) ?></dd>
+                        <dd><?= Yii::$app->formatter->asSize(SI::getTotalMem()) ?></dd>
 
                         <dt><?= Yii::t('backend', 'Free memory') ?></dt>
-                        <dd><?= Yii::$app->formatter->asSize(SystemInfo::getFreeMem()) ?></dd>
+                        <dd><?= Yii::$app->formatter->asSize(SI::getFreeMem()) ?></dd>
 
                         <dt><?= Yii::t('backend', 'Total Swap') ?></dt>
-                        <dd><?= Yii::$app->formatter->asSize(SystemInfo::getTotalSwap()) ?></dd>
+                        <dd><?= Yii::$app->formatter->asSize(SI::getTotalSwap()) ?></dd>
 
                         <dt><?= Yii::t('backend', 'Free Swap') ?></dt>
-                        <dd><?= Yii::$app->formatter->asSize(SystemInfo::getFreeSwap()) ?></dd>
+                        <dd><?= Yii::$app->formatter->asSize(SI::getFreeSwap()) ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>
@@ -128,7 +128,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>
-                        <?= Yii::t('backend', '{uptime, duration}', ['uptime'=>SystemInfo::getUptime()]) ?>
+                        <?= Yii::t('backend', '{uptime, duration}', ['uptime'=>SI::getUptime()]) ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Uptime') ?>
@@ -147,7 +147,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-aqua">
                 <div class="inner">
                     <h3>
-                        <?= SystemInfo::getLoadAverage(5) ?>
+                        <?= SI::getLoadAverage(5) ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Load average') ?>

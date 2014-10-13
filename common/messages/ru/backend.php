@@ -105,7 +105,7 @@ return [
     'Widget Menus' => 'Виджеты меню',
     'You have {num} events' => 'У вас {num} событий',
     'You have {num} log items' => 'У вас {num} записей в журнале',
-    'i18n' => 'Интернационализация',
+    'i18n' => 'I18N',
     'i18n Message' => 'Перевод',
     'i18n Source Message' => 'Текст',
     '{uptime, duration}' => '{uptime, duration}',

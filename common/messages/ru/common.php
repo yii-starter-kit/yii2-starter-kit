@@ -22,7 +22,7 @@ return [
     'Path' => 'Путь',
     'Picture' => 'Аватар',
     'Published' => 'Опубликовано',
-    'Published At' => 'Опубликовано',
+    'Published At' => 'Дата публикации',
     'Status' => 'Статус',
     'Title' => 'Название',
     'Updated At' => 'Обновлено',

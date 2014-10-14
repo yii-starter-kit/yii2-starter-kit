@@ -30,6 +30,7 @@
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",
+		"trntv/yii2-debug-xhprof": "*",
 		"yiisoft/yii2-gii": "*",
         "trntv/yii2-deploy": "*",
         "yiisoft/yii2-codeception": "*",

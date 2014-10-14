@@ -120,6 +120,11 @@ php environments/local/console/yii message-migrate @common/config/messages/php.p
 ```
 it will copy all existing messages to database
 
+Then uncomment config for `DbMessageSource` in
+```php
+common/config/_base.php
+```
+
 ### TODO
 - Chained selects extension
 - jGrowl widget

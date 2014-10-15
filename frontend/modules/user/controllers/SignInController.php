@@ -17,6 +17,16 @@ use yii\widgets\ActiveForm;
 class SignInController extends \yii\web\Controller
 {
 
+    public function actions()
+    {
+        return [
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successAuthCallback'],
+            ]
+        ];
+    }
+
     public function behaviors()
     {
         return [
@@ -24,15 +34,15 @@ class SignInController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'auth'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'auth'],
                         'allow' => false,
                         'roles' => ['@'],
-                        'denyCallback'=>function($rule, $action){
+                        'denyCallback'=>function(){
                             return Yii::$app->controller->redirect(['user/default/profile']);
                         }
                     ],
@@ -126,6 +136,54 @@ class SignInController extends \yii\web\Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * @param \yii\authclient\clients\GitHub $client
+     */
+    public function successAuthCallback($client)
+    {
+        $attributes = $client->getUserAttributes();
+
+        if($client::className() == 'yii\authclient\clients\GitHub'){
+            $user = User::find()->where(['oauth_client'=>'github', 'oauth_client_user_id'=>$attributes['id']])->one();
+            if(!$user){
+                $user = new User();
+                $user->scenario = 'oauth_create';
+                $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login'), time());
+                $user->email = ArrayHelper::getValue($attributes, 'email');
+                $user->oauth_client = 'github';
+                $user->oauth_client_user_id = $attributes['id'];
+                $password = Yii::$app->security->generateRandomString(8);
+                $user->generateAuthKey();
+                $user->setPassword($password);
+                if($user->save()){
+                    $user->afterSignup();
+                    Yii::$app->session->setFlash(
+                        'alert',
+                        [
+                            'options'=>['class'=>'alert-success'],
+                            'body'=>Yii::t('frontend', 'Welcome to Gitplay. Email with your login information was send to your email.')
+                        ]
+                    );
+                    Yii::$app->mailer->compose('oauth_welcome', ['user'=>$user, 'password'=>$password])
+                        ->setSubject(Yii::t('frontend', 'Gitplay.com | Your login information'))
+                        ->setTo($user->email)
+                        ->send();
+                } else {
+                    Yii::$app->session->setFlash(
+                        'alert',
+                        [
+                            'options'=>['class'=>'alert-danger'],
+                            'body'=>Yii::t('frontend', 'Error while oauth process')
+                        ]
+                    );
+                };
+            }
+            if(Yii::$app->user->login($user, 3600 * 24 * 30)){
+                return $this->goHome();
+            }
+        }
     }
 
 

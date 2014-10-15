@@ -55,6 +55,21 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
+     * @return array
+     */
+    public function scenarios(){
+        return ArrayHelper::merge(
+            parent::scenarios(),
+            [
+                'oauth_create'=>[
+                    'oauth_client', 'oauth_client_user_id', 'email', 'username', '!status', '!role'
+                ]
+            ]
+        );
+    }
+
+
+    /**
       * @inheritdoc
       */
      public function rules()

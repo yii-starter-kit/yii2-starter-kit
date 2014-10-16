@@ -8,6 +8,7 @@ FEATURES
 - I18N + 2 translations: Ukrainian, Russian
 - I18N DbMessageSource CRUD module + `MessageMigrateController` to migrate translations between formats
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
+- OAuth authorization
 - User management: CRUD
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + custom upload widget (https://github.com/trntv/yii2-file-kit)

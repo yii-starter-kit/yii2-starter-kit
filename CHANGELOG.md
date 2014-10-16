@@ -3,6 +3,8 @@ Yii Framework 2 Change Log
 
 1.4.0 under development
 -----------------------
+- Enh #11: OAuth authorization
+- Fix #13: Article showing fix
 - Xhprof debug panel
 
 1.3.0

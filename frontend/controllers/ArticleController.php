@@ -18,7 +18,7 @@ class ArticleController extends Controller{
     {
         $dataProvider = new ActiveDataProvider(
             [
-                'query'=>Article::find()->with('user')->published()->orderBy(['created_at'=>SORT_DESC])
+                'query'=>Article::find()->with('author')->published()->orderBy(['created_at'=>SORT_DESC])
             ]
         );
         return $this->render('index', ['dataProvider'=>$dataProvider]);
@@ -26,7 +26,7 @@ class ArticleController extends Controller{
 
     public function actionView($id)
     {
-        $model = Article::find()->published()->with('user')->andWhere(['id'=>$id])->one();
+        $model = Article::find()->published()->with('author')->andWhere(['id'=>$id])->one();
         if(!$model){
             throw new NotFoundHttpException;
         }

@@ -180,13 +180,27 @@ class SignInController extends \yii\web\Controller
                 }
 
             } else {
-                Yii::$app->session->setFlash(
-                    'alert',
-                    [
-                        'options'=>['class'=>'alert-danger'],
-                        'body'=>Yii::t('frontend', 'Error while oauth process')
-                    ]
-                );
+                // We already have a user with this email. Do what you want in such case
+                if(User::find()->where(['email'=>$user->email])->count()){
+                    Yii::$app->session->setFlash(
+                        'alert',
+                        [
+                            'options'=>['class'=>'alert-danger'],
+                            'body'=>Yii::t('frontend', 'We already have a user with email {email}', [
+                                'email'=>$user->email
+                            ])
+                        ]
+                    );
+                } else {
+                    Yii::$app->session->setFlash(
+                        'alert',
+                        [
+                            'options'=>['class'=>'alert-danger'],
+                            'body'=>Yii::t('frontend', 'Error while oauth process. You\'ve probably already ')
+                        ]
+                    );
+                }
+
             };
         }
         if(Yii::$app->user->login($user, 3600 * 24 * 30)){

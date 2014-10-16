@@ -51,14 +51,15 @@ class m140703_123803_article extends Migration
             $this->addForeignKey('fk_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
         }
 
-
     }
 
     public function down()
     {
         if ($this->db->driverName === 'mysql') {
-            $this->dropForeignKey('fk_article_user', '{{%article}}');
+            $this->dropForeignKey('fk_article_author', '{{%article}}');
+            $this->dropForeignKey('fk_article_updater', '{{%article}}');
             $this->dropForeignKey('fk_article_category', '{{%article}}');
+            $this->dropForeignKey('fk_article_section', '{{%article}}');
         }
         $this->dropTable('{{%article}}');
         $this->dropTable('{{%article_category}}');

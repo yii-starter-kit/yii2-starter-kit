@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
+                <h2><?php echo \Yii::t('frontend', 'Log in with')  ?>:</h2>
                 <div class="form-group">
                     <?= yii\authclient\widgets\AuthChoice::widget([
                         'baseAuthUrl' => ['/user/sign-in/oauth'],

@@ -23,13 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="form-group">
                     <?= Html::submitButton(Yii::t('frontend', 'Signup'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                 </div>
+                <h2><?php echo \Yii::t('frontend', 'Sign up with')  ?>:</h2>
                 <div class="form-group">
-                    <div class="form-group">
-                        <?= yii\authclient\widgets\AuthChoice::widget([
-                            'baseAuthUrl' => ['/user/sign-in/oauth'],
-                            'popupMode'=>false
-                        ]) ?>
-                    </div>
+                    <?= yii\authclient\widgets\AuthChoice::widget([
+                        'baseAuthUrl' => ['/user/sign-in/oauth'],
+                        'popupMode'=>false
+                    ]) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

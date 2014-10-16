@@ -204,7 +204,7 @@ class SignInController extends \yii\web\Controller
             };
         }
         if(Yii::$app->user->login($user, 3600 * 24 * 30)){
-            return $this->goHome();
+            return true;
         } else {
             throw new Exception('OAuth error');
         }

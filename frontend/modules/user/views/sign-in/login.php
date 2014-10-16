@@ -29,8 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <h2><?php echo \Yii::t('frontend', 'Log in with')  ?>:</h2>
                 <div class="form-group">
                     <?= yii\authclient\widgets\AuthChoice::widget([
-                        'baseAuthUrl' => ['/user/sign-in/oauth'],
-                        'popupMode'=>false
+                        'baseAuthUrl' => ['/user/sign-in/oauth']
                     ]) ?>
                 </div>
             <?php ActiveForm::end(); ?>

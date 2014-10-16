@@ -10,6 +10,7 @@ FEATURES
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization
 - User management: CRUD
+- RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + custom upload widget (https://github.com/trntv/yii2-file-kit)
 - Key value storage component
@@ -27,9 +28,22 @@ http://yii2-starter-kit.terentev.net
 
 http://backend.yii2-starter-kit.terentev.net
 
+`administrator` role account
 ```
 Login: webmaster
 Password: webmaster
+```
+
+`manager` role account
+```
+Login: manager
+Password: manager
+```
+
+`user` role account
+```
+Login: user
+Password: user
 ```
 
 REQUIREMENTS

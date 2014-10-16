@@ -28,6 +28,21 @@ class GlobalAccessBehavior extends Behavior{
     public $accessControlFilter = 'yii\filters\AccessControl';
 
     /**
+     * @var callable a callback that will be called if the access should be denied
+     * to the current user. If not set, [[denyAccess()]] will be called.
+     *
+     * The signature of the callback should be as follows:
+     *
+     * ~~~
+     * function ($rule, $action)
+     * ~~~
+     *
+     * where `$rule` is the rule that denies the user, and `$action` is the current [[Action|action]] object.
+     * `$rule` can be `null` if access is denied because none of the rules matched.
+     */
+    public $denyCallback;
+
+    /**
      * @return array
      */
     public function events()
@@ -40,6 +55,7 @@ class GlobalAccessBehavior extends Behavior{
     public function beforeAction(){
         \Yii::$app->controller->attachBehavior('access', [
             'class'=>$this->accessControlFilter,
+            'denyCallback'=>$this->denyCallback,
             'rules'=>$this->rules
         ]);
     }

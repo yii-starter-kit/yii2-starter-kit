@@ -163,7 +163,8 @@ use yii\widgets\Breadcrumbs;
                     [
                         'label'=>Yii::t('backend', 'Users'),
                         'icon'=>'<i class="fa fa-users"></i>',
-                        'url'=>['/user/index']
+                        'url'=>['/user/index'],
+                        'visible'=>Yii::$app->user->can('administrator')
                     ],
                     [
                         'label'=>Yii::t('backend', 'System'),

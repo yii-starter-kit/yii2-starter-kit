@@ -55,13 +55,18 @@ The minimum requirement by this application template that your Web server suppor
 INSTALLATION
 ------------
 
+### Before installation
+Install composer-asset-plugin needed for yii assets management
+```
+php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta3"
+```
+
 ### Install from an Archive File
 
 Extract the github archive file to a directory named `yii2-starter-kit` that is directly under the Web root.
 
 After extraction run
 ```
-php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta3"
 php composer.phar install
 ```
 

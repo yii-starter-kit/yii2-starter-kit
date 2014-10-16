@@ -70,13 +70,6 @@ After extraction run
 php composer.phar install
 ```
 
-You can then access the application through the following URL:
-
-~~~
-http://localhost/yii2-starter-kit/web/
-~~~
-
-
 ### Install via Composer
 
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions

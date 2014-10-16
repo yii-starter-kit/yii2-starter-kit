@@ -9,6 +9,11 @@ $config = \yii\helpers\ArrayHelper::merge(
                 'class' => 'frontend\modules\user\Module',
             ],
         ],
+        'components' => [
+            'authClientCollection' => [
+                'class' => 'yii\authclient\Collection',
+            ]
+        ]
     ]
 );
 

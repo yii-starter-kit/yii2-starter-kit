@@ -2,20 +2,33 @@
 
 namespace frontend\modules\user\controllers;
 
+use common\models\User;
 use frontend\modules\user\models\LoginForm;
 use frontend\modules\user\models\PasswordResetRequestForm;
 use frontend\modules\user\models\ResetPasswordForm;
 use frontend\modules\user\models\SignupForm;
 use Yii;
+use yii\base\Exception;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
 class SignInController extends \yii\web\Controller
 {
+
+    public function actions()
+    {
+        return [
+            'oauth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successOAuthCallback'],
+            ]
+        ];
+    }
 
     public function behaviors()
     {
@@ -24,16 +37,16 @@ class SignInController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password'],
+                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
                         'allow' => false,
                         'roles' => ['@'],
-                        'denyCallback'=>function($rule, $action){
-                            return Yii::$app->controller->redirect(['user/default/profile']);
+                        'denyCallback'=>function(){
+                            return Yii::$app->controller->redirect(['/user/default/profile']);
                         }
                     ],
                     [
@@ -126,6 +139,61 @@ class SignInController extends \yii\web\Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+
+    /**
+     * @param \yii\authclient\clients\GitHub $client
+     */
+    public function successOAuthCallback($client)
+    {
+        // use BaseClient::normalizeUserAttributeMap to provide consistency for user attribute`s names
+        $attributes = $client->getUserAttributes();
+        $user = User::find()->where(['oauth_client'=>$client->getName(), 'oauth_client_user_id'=>ArrayHelper::getValue($attributes, 'id')])->one();
+        if(!$user){
+            $user = new User();
+            $user->scenario = 'oauth_create';
+            $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login'), time());
+            $user->email = ArrayHelper::getValue($attributes, 'email');
+            $user->oauth_client = $client->getName();
+            $user->oauth_client_user_id = ArrayHelper::getValue($attributes, 'id');
+            $password = Yii::$app->security->generateRandomString(8);
+            $user->generateAuthKey();
+            $user->setPassword($password);
+            if($user->save()){
+                $user->afterSignup();
+                $sentSuccess = Yii::$app->mailer->compose('oauth_welcome', ['user'=>$user, 'password'=>$password])
+                    ->setSubject(Yii::t('frontend', '{app-name} | Your login information', [
+                        'app-name'=>Yii::$app->name
+                    ]))
+                    ->setTo($user->email)
+                    ->send();
+                if($sentSuccess){
+                    Yii::$app->session->setFlash(
+                        'alert',
+                        [
+                            'options'=>['class'=>'alert-success'],
+                            'body'=>Yii::t('frontend', 'Welcome to {app-name}. Email with your login information was sent to your email.', [
+                                'app-name'=>Yii::$app->name
+                            ])
+                        ]
+                    );
+                }
+
+            } else {
+                Yii::$app->session->setFlash(
+                    'alert',
+                    [
+                        'options'=>['class'=>'alert-danger'],
+                        'body'=>Yii::t('frontend', 'Error while oauth process')
+                    ]
+                );
+            };
+        }
+        if(Yii::$app->user->login($user, 3600 * 24 * 30)){
+            return $this->goHome();
+        } else {
+            throw new Exception('OAuth error');
+        }
     }
 
 

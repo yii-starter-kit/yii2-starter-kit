@@ -20,6 +20,7 @@
 		"yiisoft/yii2": "*",
 		"yiisoft/yii2-bootstrap": "*",
 		"yiisoft/yii2-swiftmailer": "*",
+		"yiisoft/yii2-authclient": "*",
 		"asofter/yii2-imperavi-redactor": "*",
 		"yiisoft/yii2-jui": "*",
         "yiisoft/yii2-imagine": "*",

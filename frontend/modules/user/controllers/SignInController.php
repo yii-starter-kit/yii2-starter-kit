@@ -142,7 +142,7 @@ class SignInController extends \yii\web\Controller
     }
 
     /**
-     * @param \yii\authclient\clients\GitHub $client
+     * @param \yii\authclient\BaseClient $client
      */
     public function successOAuthCallback($client)
     {
@@ -152,7 +152,7 @@ class SignInController extends \yii\web\Controller
         if(!$user){
             $user = new User();
             $user->scenario = 'oauth_create';
-            $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login'), time());
+            $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login', $client->getName()), time());
             $user->email = ArrayHelper::getValue($attributes, 'email');
             $user->oauth_client = $client->getName();
             $user->oauth_client_user_id = ArrayHelper::getValue($attributes, 'id');

@@ -52,6 +52,11 @@ $config = \yii\helpers\ArrayHelper::merge(
                     'roles' => ['manager'],
                 ],
                 [
+                    'controllers'=>['user'],
+                    'allow' => true,
+                    'roles' => ['administrator'],
+                ],
+                [
                     'allow' => true,
                     'roles' => ['manager'],
                 ]

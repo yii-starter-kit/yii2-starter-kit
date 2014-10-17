@@ -1,5 +1,6 @@
 Yii 2 Starter Kit
 ================================
+Yii2 start application template
 
 FEATURES
 --------
@@ -150,3 +151,8 @@ common/config/_base.php
 
 ### Have any questions?
 mail to `eugine@terentev.net`
+
+#### NOTE
+This template was created mostly for developer NOT for end users. 
+This is a point where you can begin your application, rather than creating it from scratch.
+Good luck!

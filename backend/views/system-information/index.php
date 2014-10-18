@@ -30,7 +30,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -48,6 +48,26 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                             <dt><?= Yii::t('backend', 'Kernel version') ?></dt>
                             <dd><?= SI::getLinuxKernelVersion() ?></dd>
                         <?php endif; ?>
+                    </dl>
+                </div><!-- /.box-body -->
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-hdd-o"></i>
+                    <h3 class="box-title"><?= Yii::t('backend', 'Time') ?></h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt><?= Yii::t('backend', 'System Date') ?></dt>
+                        <dd><?= Yii::$app->formatter->asDate(time()) ?></dd>
+
+                        <dt><?= Yii::t('backend', 'System Time') ?></dt>
+                        <dd><?= Yii::$app->formatter->asTime(time()) ?></dd>
+
+                        <dt><?= Yii::t('backend', 'Timezone') ?></dt>
+                        <dd><?= date_default_timezone_get() ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>

@@ -3,11 +3,14 @@ Yii Framework 2 Change Log
 
 1.4.0 under development
 -----------------------
+- Enh: Time information on "system information" screen
+- Fix #12: Locale bug
 - Enh: I18N validation rules
 - Enh: User backend controller don't available for `manager`
 - Enh #11: OAuth authorization
 - Fix #13: Article showing fix
-- Xhprof debug panel
+- Enh: Xhprof debug panel
+- ... many small enhancements and bugfixes ...
 
 1.3.0
 -----

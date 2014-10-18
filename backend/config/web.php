@@ -22,7 +22,7 @@ $config = \yii\helpers\ArrayHelper::merge(
         ],
         'modules'=>[
             'i18n' => [
-                'class' => 'backend\modules\i18n\Module', //todo: Allow to manager, disallow other
+                'class' => 'backend\modules\i18n\Module',
                 'defaultRoute'=>'i18n-message/index'
             ]
         ],

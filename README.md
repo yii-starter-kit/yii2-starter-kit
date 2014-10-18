@@ -138,6 +138,20 @@ Then uncomment config for `DbMessageSource` in
 ```php
 common/config/_base.php
 ```
+### Updates
+Add remote repository `upstream`.
+```
+git remote add upstream https://github.com/trntv/yii2-starter-kit.git
+```
+Fetch latest commit from it
+```
+git fetch upstream/master
+```
+Merge these commits to your repository
+```
+git merger upstream/master
+```
+**IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve merging conflicts on your own**
 
 ### TODO
 - Chained selects extension

@@ -76,7 +76,7 @@ class SystemEvent extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($messages, $this->getFullEventName());
     }
 
-    public static function log($category, $event, $data = false){
+    public static function log($category, $event, $data = ''){
         $model = new self;
         $model->application = Yii::$app->id;
         $model->category = $category;

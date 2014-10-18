@@ -27,8 +27,8 @@ class m140703_123104_page extends Migration
             'title'=>'About',
             'body'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'status'=>\common\models\Page::STATUS_PUBLISHED,
-            'created_at'=>new \yii\db\Expression('NOW()'),
-            'updated_at'=>new \yii\db\Expression('NOW()'),
+            'created_at'=>time(),
+            'updated_at'=>time(),
         ]);
     }
 

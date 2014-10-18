@@ -68,7 +68,7 @@ class m140703_123000_user extends Migration
             'lastname' => Schema::TYPE_STRING . '(255) ',
             'picture' => Schema::TYPE_STRING . '(2048) ',
             'locale' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'gender' => Schema::TYPE_INTEGER . '(1) NOT NULL',
+            'gender' => Schema::TYPE_INTEGER . '(1)',
         ], $tableOptions);
 
         $this->insert('{{%user_profile}}', [

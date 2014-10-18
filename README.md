@@ -149,7 +149,7 @@ git fetch upstream/master
 ```
 Merge these commits to your repository
 ```
-git merger upstream/master
+git merge upstream/master
 ```
 **IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve merging conflicts on your own**
 

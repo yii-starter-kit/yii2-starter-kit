@@ -41,7 +41,9 @@ if (YII_ENV_DEV) {
         'class'=>'yii\debug\Module',
         'allowedIPs' => ['*'],
         'panels'=>[
-            'xhprof'=>'\trntv\debug\xhprof\panels\XhprofPanel'
+            'xhprof'=>[
+                'class'=>'\trntv\debug\xhprof\panels\XhprofPanel'
+            ]
         ]
     ];
 

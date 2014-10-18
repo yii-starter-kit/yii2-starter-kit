@@ -1,5 +1,6 @@
 Yii 2 Starter Kit
 ================================
+Yii2 start application template
 
 FEATURES
 --------
@@ -137,6 +138,20 @@ Then uncomment config for `DbMessageSource` in
 ```php
 common/config/_base.php
 ```
+### Updates
+Add remote repository `upstream`.
+```
+git remote add upstream https://github.com/trntv/yii2-starter-kit.git
+```
+Fetch latest commit from it
+```
+git fetch upstream
+```
+Merge these commits to your repository
+```
+git merge upstream/master
+```
+**IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve merging conflicts on your own**
 
 ### TODO
 - Chained selects extension
@@ -150,3 +165,8 @@ common/config/_base.php
 
 ### Have any questions?
 mail to `eugine@terentev.net`
+
+#### NOTE
+This template was created mostly for developer NOT for end users. 
+This is a point where you can begin your application, rather than creating it from scratch.
+Good luck!

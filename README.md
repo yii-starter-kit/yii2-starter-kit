@@ -145,7 +145,7 @@ git remote add upstream https://github.com/trntv/yii2-starter-kit.git
 ```
 Fetch latest commit from it
 ```
-git fetch upstream/master
+git fetch upstream
 ```
 Merge these commits to your repository
 ```

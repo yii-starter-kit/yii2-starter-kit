@@ -48,7 +48,7 @@ class m140703_123803_article extends Migration
             $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
 
             $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
-            $this->addForeignKey('fk_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
+            $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
         }
 
     }
@@ -59,7 +59,7 @@ class m140703_123803_article extends Migration
             $this->dropForeignKey('fk_article_author', '{{%article}}');
             $this->dropForeignKey('fk_article_updater', '{{%article}}');
             $this->dropForeignKey('fk_article_category', '{{%article}}');
-            $this->dropForeignKey('fk_article_section', '{{%article}}');
+            $this->dropForeignKey('fk_article_category_section', '{{%article_category}}');
         }
         $this->dropTable('{{%article}}');
         $this->dropTable('{{%article_category}}');

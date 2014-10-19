@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'application',
             'category',
             'event',
-            'event_time:datetime',
+            'created_at:datetime',
 
             [
                 'class' => 'yii\grid\ActionColumn',

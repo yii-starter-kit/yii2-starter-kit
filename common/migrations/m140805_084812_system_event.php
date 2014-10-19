@@ -17,8 +17,8 @@ class m140805_084812_system_event extends Migration
             'application' => Schema::TYPE_STRING . '(64) NOT NULL',
             'category' => Schema::TYPE_STRING . '(64) NOT NULL',
             'event' => Schema::TYPE_STRING . '(64) NOT NULL',
-            'data' => Schema::TYPE_TEXT . ' NOT NULL',
-            'event_time' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'data' => Schema::TYPE_TEXT,
+            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
     }
 

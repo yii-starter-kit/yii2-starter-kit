@@ -1,9 +1,8 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
-use backend\models\query\SystemEventQuery;
-use common\models\User;
+use common\models\query\SystemEventQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\helpers\ArrayHelper;
@@ -15,7 +14,7 @@ use yii\helpers\ArrayHelper;
  * @property string $category
  * @property string $event
  * @property string $data
- * @property string $event_time
+ * @property string $created_at
  */
 class SystemEvent extends \yii\db\ActiveRecord
 {
@@ -31,7 +30,7 @@ class SystemEvent extends \yii\db\ActiveRecord
         return [
             'timestamp'=>[
                 'class'=>TimestampBehavior::className(),
-                'createdAtAttribute'=>'event_time',
+                'createdAtAttribute'=>'created_at',
                 'updatedAtAttribute'=>null
             ]
         ];
@@ -48,8 +47,8 @@ class SystemEvent extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['application', 'category', 'event', 'data'], 'required'],
-            [['event_time', 'data'], 'safe'],
+            [['application', 'category', 'event'], 'required'],
+            [['data'], 'safe'],
             [['application', 'category', 'event'], 'string', 'max' => 64]
         ];
     }
@@ -76,7 +75,7 @@ class SystemEvent extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($messages, $this->getFullEventName());
     }
 
-    public static function log($category, $event, $data = false){
+    public static function log($category, $event, $data = null){
         $model = new self;
         $model->application = Yii::$app->id;
         $model->category = $category;
@@ -86,7 +85,7 @@ class SystemEvent extends \yii\db\ActiveRecord
     }
 
     public function beforeValidate(){
-        $this->data = json_encode($this->data);
+        $this->data = ($this->data !== null) ? json_encode($this->data) : $this->data;
         return parent::beforeValidate();
     }
     public function afterFind(){

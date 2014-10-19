@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\SystemEvent;
+use common\models\SystemEvent;
 use backend\models\search\SystemEventSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,7 +35,7 @@ class SystemEventController extends Controller
         $searchModel = new SystemEventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder'=>['event_time'=>SORT_DESC]
+            'defaultOrder'=>['created_at'=>SORT_DESC]
         ];
 
         return $this->render('index', [

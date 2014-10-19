@@ -5,7 +5,7 @@ namespace backend\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\SystemEvent;
+use common\models\SystemEvent;
 
 /**
  * SystemEventSearch represents the model behind the search form about `common\models\SystemEvent`.
@@ -18,7 +18,7 @@ class SystemEventSearch extends SystemEvent
     public function rules()
     {
         return [
-            [['application', 'category', 'event', 'event_time'], 'safe'],
+            [['application', 'category', 'event', 'created_at'], 'safe'],
         ];
     }
 
@@ -52,7 +52,7 @@ class SystemEventSearch extends SystemEvent
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'event_time' => $this->event_time,
+            'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'application', $this->application]);

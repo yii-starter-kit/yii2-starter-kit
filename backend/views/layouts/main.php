@@ -29,17 +29,17 @@ use yii\widgets\Breadcrumbs;
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell"></i>
                         <span class="badge bg-green">
-                            <?= \backend\models\SystemEvent::find()->today()->count() ?>
+                            <?= \common\models\SystemEvent::find()->today()->count() ?>
                         </span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="header">
-                            <?= Yii::t('backend', 'You have {num} events', ['num'=>\backend\models\SystemEvent::find()->today()->count()]) ?>
+                            <?= Yii::t('backend', 'You have {num} events', ['num'=>\common\models\SystemEvent::find()->today()->count()]) ?>
                         </li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <?php foreach(\backend\models\SystemEvent::find()->today()->orderBy(['event_time'=>SORT_DESC])->limit(10)->all() as $eventRecord): ?>
+                                <?php foreach(\common\models\SystemEvent::find()->today()->orderBy(['created_at'=>SORT_DESC])->limit(10)->all() as $eventRecord): ?>
                                     <li>
                                         <a href="<?= Yii::$app->urlManager->createUrl(['/system-event/view', 'id'=>$eventRecord->id]) ?>">
                                             <i class="fa fa-bell"></i>
@@ -187,7 +187,7 @@ use yii\widgets\Breadcrumbs;
                                 'label'=>Yii::t('backend', 'System Events'),
                                 'url'=>['/system-event/index'],
                                 'icon'=>'<i class="fa fa-angle-double-right"></i>',
-                                'badge'=>\backend\models\SystemEvent::find()->today()->count(),
+                                'badge'=>\common\models\SystemEvent::find()->today()->count(),
                                 'badgeBgClass'=>'bg-green',
                             ],
                             [

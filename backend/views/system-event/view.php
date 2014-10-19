@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\SystemEvent */
+/* @var $model common\models\SystemEvent */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'System Events'), 'url' => ['index']];
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'event',
             'name',
             'message',
-            'event_time:datetime',
+            'created_at:datetime',
         ],
     ]) ?>
 

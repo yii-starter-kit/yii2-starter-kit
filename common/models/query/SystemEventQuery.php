@@ -6,15 +6,14 @@
  * Time: 10:46 AM
  */
 
-namespace backend\models\query;
+namespace common\models\query;
 
-
-use backend\models\SystemEvent;
+use common\models\SystemEvent;
 use yii\db\ActiveQuery;
 
 class SystemEventQuery extends ActiveQuery{
     public function today(){
-        $this->andWhere(SystemEvent::tableName().'.event_time > :midnight', [':midnight'=>strtotime('today midnight')]);
+        $this->andWhere(SystemEvent::tableName().'.created_at > :midnight', [':midnight'=>strtotime('today midnight')]);
         return $this;
     }
 } 

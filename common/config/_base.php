@@ -29,6 +29,9 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
+            'messageConfig' => [
+                'charset' => 'UTF-8'
+            ]
         ],
 
         'db'=>[

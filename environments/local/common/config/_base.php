@@ -9,6 +9,10 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => true,
+            'messageConfig' => [
+                'charset' => 'UTF-8',
+                'from' => 'noreply@yii2-starter-kit.localhost',
+            ]
         ],
     ]
 ];

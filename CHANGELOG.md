@@ -3,6 +3,7 @@ Yii Framework 2 Change Log
 
 1.4.0 under development
 -----------------------
+- Fix: added some settings to prevent postfix `fatal: usage: sendmail [options]` error
 - Enh: Gii Module has separate configs for backend and frontend
 - Enh: Added gii templates for backend
 - Enh: Time information on "system information" screen

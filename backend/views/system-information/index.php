@@ -7,7 +7,9 @@ use common\models\User;
 use trntv\systeminfo\SI;
 
 $this->title = Yii::t('backend', 'System Information');
-$this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]) ?>
+$this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]);
+$numberFormatter = new NumberFormatter("en-US", NumberFormatter::DURATION);
+?>
 <div id="system-information-index">
     <div class="row connectedSortable">
         <div class="col-md-6">
@@ -36,20 +38,22 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                     <i class="fa fa-hdd-o"></i>
                     <h3 class="box-title"><?= Yii::t('backend', 'Operating System') ?></h3>
                 </div><!-- /.box-header -->
-                <div class="box-body">
-                    <dl class="dl-horizontal">
-                        <dt><?= Yii::t('backend', 'OS') ?></dt>
-                        <dd><?= SI::getOS() ?></dd>
-
-                        <?php if(!SI::getIsWindows()): ?>
-                            <dt><?= Yii::t('backend', 'OS Release') ?></dt>
-                            <dd><?= SI::getLinuxOSRelease() ?></dd>
-
-                            <dt><?= Yii::t('backend', 'Kernel version') ?></dt>
-                            <dd><?= SI::getLinuxKernelVersion() ?></dd>
-                        <?php endif; ?>
-                    </dl>
-                </div><!-- /.box-body -->
+                <div class="box-body" style="word-wrap: break-word;">
+                    <div class="row">
+                        <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'OS') ?></strong></div>
+                        <div class="col-md-6"><?= SI::getOS() ?></div>
+                    </div>
+                    <?php if(!SI::getIsWindows()): ?>
+                        <div class="row">
+                            <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'OS Release') ?></strong></div>
+                            <div class="col-md-6"><?= SI::getLinuxOSRelease() ?></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'Kernel version') ?></strong></div>
+                            <div class="col-md-6"><?= SI::getLinuxKernelVersion() ?></div>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
@@ -59,16 +63,18 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                     <h3 class="box-title"><?= Yii::t('backend', 'Time') ?></h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
-                    <dl class="dl-horizontal">
-                        <dt><?= Yii::t('backend', 'System Date') ?></dt>
-                        <dd><?= Yii::$app->formatter->asDate(time()) ?></dd>
-
-                        <dt><?= Yii::t('backend', 'System Time') ?></dt>
-                        <dd><?= Yii::$app->formatter->asTime(time()) ?></dd>
-
-                        <dt><?= Yii::t('backend', 'Timezone') ?></dt>
-                        <dd><?= date_default_timezone_get() ?></dd>
-                    </dl>
+                    <div class="row">
+                        <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'System Date') ?></strong></div>
+                        <div class="col-md-6"><?= Yii::$app->formatter->asDate(time()) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'System Time') ?></strong></div>
+                        <div class="col-md-6"><?= Yii::$app->formatter->asTime(time()) ?></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 text-right"><strong><?= Yii::t('backend', 'Timezone') ?></strong></div>
+                        <div class="col-md-6"><?= date_default_timezone_get() ?></div>
+                    </div>
                 </div><!-- /.box-body -->
             </div>
         </div>
@@ -148,7 +154,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>
-                        <?= Yii::t('backend', '{uptime, duration}', ['uptime'=>SI::getUptime()]) ?>
+                        <?= $numberFormatter->format(SI::getUptime());?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Uptime') ?>

@@ -74,4 +74,11 @@ class UserProfile extends \yii\db\ActiveRecord
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
+
+    public function getFullName()
+    {
+        if($this->firstname || $this->lastname){
+            return implode(' ', [$this->firstname, $this->lastname]);
+        }
+    }
 }

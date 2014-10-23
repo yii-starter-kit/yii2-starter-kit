@@ -242,4 +242,15 @@ class User extends ActiveRecord implements IdentityInterface
         $this->link('profile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
     }
+
+    public function getPublicIdentity()
+    {
+        if($this->profile && $this->profile->getFullname()){
+            return $this->profile->getFullname();
+        }
+        if($this->username){
+            return $this->username;
+        }
+        return $this->email;
+    }
 }

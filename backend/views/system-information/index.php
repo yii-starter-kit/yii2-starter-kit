@@ -10,7 +10,7 @@ $this->title = Yii::t('backend', 'System Information');
 $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]) ?>
 <div id="system-information-index">
     <div class="row connectedSortable">
-        <div class="col-md-6">
+        <div class="col-lg-6 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -30,7 +30,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-xs-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -52,7 +52,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-xs-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -72,7 +72,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -95,7 +95,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -118,7 +118,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 col-xs-6">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -148,7 +148,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>
-                        <?= Yii::t('backend', '{uptime, duration}', ['uptime'=>SI::getUptime()]) ?>
+                        <?= Yii::$app->i18n->format('{uptime, duration}', ['uptime'=>SI::getUptime()], 'en-US') ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Uptime') ?>

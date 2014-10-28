@@ -20,6 +20,7 @@ return [
 
         'cache' => [
             'class' => 'yii\caching\FileCache',
+            'keyPrefix'=>'yii2-starter-kit'
         ],
 
         'formatter'=>[

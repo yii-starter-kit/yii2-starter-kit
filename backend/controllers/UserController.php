@@ -63,7 +63,7 @@ class UserController extends Controller
     {
         $model = new UserForm();
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->create()) {
+            if ($model->save()) {
                 return $this->redirect(['index']);
             }
         }

@@ -3,6 +3,8 @@ Yii Framework 2 Change Log
 
 1.4.0 under development
 -----------------------
+- Chg: added utf-8 charset to nginx.conf
+- Enh: Added filters for `log` and `file-storage` grids
 - Enh: Backend now use `yii\bootstrap\ActiveForm` instead of `yii\widgets\ActiveForm`
 - Enh: added `getFullName` for `UserProfile` and `getPublicIdentity` for `User`
 - Fix: added some settings to prevent postfix `fatal: usage: sendmail [options]` error

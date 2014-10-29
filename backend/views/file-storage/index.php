@@ -44,7 +44,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
 
-            'repository',
+            [
+                'attribute'=>'repository',
+                'filter'=>\yii\helpers\ArrayHelper::map(
+                    FileStorageItem::find()->select('DISTINCT `repository`')->all(), 'repository', 'repository'
+                )
+            ],
             'url:url',
             'size',
             'mimeType',

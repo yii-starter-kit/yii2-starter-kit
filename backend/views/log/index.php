@@ -28,7 +28,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'level',
                 'value'=>function($model){
                     return \yii\log\Logger::getLevelName($model->level);
-                }
+                },
+                'filter'=>[
+                    \yii\log\Logger::LEVEL_ERROR => 'error',
+                    \yii\log\Logger::LEVEL_WARNING => 'warning',
+                    \yii\log\Logger::LEVEL_INFO => 'info',
+                    \yii\log\Logger::LEVEL_TRACE => 'trace',
+                    \yii\log\Logger::LEVEL_PROFILE_BEGIN => 'profile begin',
+                    \yii\log\Logger::LEVEL_PROFILE_END => 'profile end',
+                ]
             ],
             'category',
             'prefix',

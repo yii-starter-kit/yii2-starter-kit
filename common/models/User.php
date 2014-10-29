@@ -83,6 +83,17 @@ class User extends ActiveRecord implements IdentityInterface
          ];
      }
 
+    public function attributeLabels()
+    {
+        return [
+            'username' => Yii::t('common', 'Username'),
+            'role' => Yii::t('common', 'Role'),
+            'email' => Yii::t('common', 'E-mail'),
+            'status' => Yii::t('common', 'Status'),
+            'created_at' => Yii::t('common', 'Created at')
+        ];
+    }
+
     public function getProfile(){
         return $this->hasOne(UserProfile::className(), ['user_id'=>'id']);
     }

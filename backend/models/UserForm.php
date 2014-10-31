@@ -17,6 +17,8 @@ class UserForm extends Model
     public $status;
     public $role;
 
+    private $_model;
+
     /**
      * @inheritdoc
      */
@@ -25,15 +27,23 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass'=>'\common\models\User'],
+            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter'=>function($query){
+                if(!$this->getModel()->isNewRecord){
+                    $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
+                }
+            }],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass'=> '\common\models\User'],
+            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter'=>function($query){
+                if(!$this->getModel()->isNewRecord){
+                    $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
+                }
+            }],
 
-            ['password', 'required'],
+            ['password', 'required', 'on'=>'create'],
             ['password', 'string', 'min' => 6],
 
             [['status'], 'boolean'],
@@ -54,6 +64,24 @@ class UserForm extends Model
         ];
     }
 
+    public function setModel($model)
+    {
+        $this->username = $model->username;
+        $this->email = $model->email;
+        $this->status = $model->status;
+        $this->role = $model->role;
+        $this->_model = $model;
+        return $this->_model;
+    }
+
+    public function getModel()
+    {
+        if(!$this->_model){
+            $this->_model = new User();
+        }
+        return $this->_model;
+    }
+
     /**
      * Signs user up.
      *
@@ -62,18 +90,22 @@ class UserForm extends Model
     public function save()
     {
         if ($this->validate()) {
-            $user = new User();
-            $user->username = $this->username;
-            $user->email = $this->email;
-            $user->status = $this->status;
-            $user->role = $this->role;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
-            $user->save();
-            $user->afterSignup();
-            return $user;
+            $model = $this->getModel();
+            $model->username = $this->username;
+            $model->email = $this->email;
+            $model->status = $this->status;
+            $model->role = $this->role;
+            if($this->password){
+                $model->setPassword($this->password);
+            }
+            if($model->getIsNewRecord()){
+                $model->generateAuthKey();
+            }
+            if($model->save() && $model->getIsNewRecord()){
+                $model->afterSignup();
+            }
+            return $model;
         }
-
         return null;
     }
 }

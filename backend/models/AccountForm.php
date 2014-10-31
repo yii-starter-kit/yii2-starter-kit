@@ -21,7 +21,13 @@ class AccountForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass'=>'\common\models\User', 'message' => \Yii::t('frontend', 'This username has already been taken.')],
+            ['username', 'unique',
+                'targetClass'=>'\common\models\User',
+                'message' => \Yii::t('frontend', 'This username has already been taken.'),
+                'filter'=>function($query){
+                    $query->andWhere(['not', ['id'=>Yii::$app->user->id]]);
+                }
+            ],
             ['username', 'string', 'min' => 1, 'max' => 255],
 
             [['password_confirm'], 'compare', 'compareAttribute' => 'password'],

@@ -62,6 +62,7 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new UserForm();
+        $model->setScenario('create');
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
                 return $this->redirect(['index']);
@@ -81,12 +82,8 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = new UserForm();
-        $user = $this->findModel($id);
-        $model->username = $user->username;
-        $model->email = $user->email;
-        $model->status = $user->status;
-        $model->role = $user->role;
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model->model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post()) && $model->save()){
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [

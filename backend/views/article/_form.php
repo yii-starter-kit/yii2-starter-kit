@@ -32,7 +32,7 @@ use yii\bootstrap\ActiveForm;
                 'buttonSource'=>true,
                 'convertDivs'=>false,
                 'removeEmptyTags'=>false,
-                'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-manager/upload-imperavi'])
+                'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
             ]
         ]
     ) ?>

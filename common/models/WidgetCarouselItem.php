@@ -20,8 +20,6 @@ use Yii;
  */
 class WidgetCarouselItem extends \yii\db\ActiveRecord
 {
-    public $file;
-
     /**
      * @inheritdoc
      */
@@ -55,8 +53,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['carousel_id'], 'required'],
-            [['file'], 'file', 'extensions'=>['gif', 'jpeg', 'jpg', 'png']],
+            [['path'], 'required'],
             [['carousel_id', 'status', 'order'], 'integer'],
             [['url', 'caption'], 'string', 'max' => 1024],
             [['path'], 'safe'],

@@ -10,23 +10,16 @@ use yii\bootstrap\ActiveForm;
 
 <div class="widget-carousel-item-form">
 
-    <?php $form = ActiveForm::begin([
-        'options'=>['enctype'=>'multipart/form-data']
-    ]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
-    <?php if($model->hasErrors()): ?>
-        <?= $form->errorSummary($model) ?>
-    <?php endif; ?>
+    <?php echo $form->errorSummary($model) ?>
 
-    <?php if($model->path): ?>
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <?= Html::img($model->path, ['style'=>'max-width: 100%']) ?>
-            </div>
-        </div>
-    <?php endif; ?>
-
-    <?= $form->field($model, 'file')->fileInput() ?>
+    <?= $form->field($model, 'path')->widget(
+        \trntv\filekit\widget\SingleFileUpload::className(),
+        [
+            'url'=>['/file-storage/upload'],
+        ]
+    ) ?>
 
     <?= $form->field($model, 'order')->textInput() ?>
 

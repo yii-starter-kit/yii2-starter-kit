@@ -3,6 +3,7 @@ Yii Framework 2 Change Log
 
 1.4.0 under development
 -----------------------
+- Fix #25: backend user update
 - Chg: added utf-8 charset to nginx.conf
 - Enh: Added filters for `log` and `file-storage` grids
 - Enh: Backend now use `yii\bootstrap\ActiveForm` instead of `yii\widgets\ActiveForm`

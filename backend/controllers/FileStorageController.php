@@ -30,6 +30,20 @@ class FileStorageController extends Controller
         ];
     }
 
+    public function actions(){
+        return [
+            'upload'=>[
+                'class'=>'trntv\filekit\actions\UploadAction'
+            ],
+            'upload-imperavi'=>[
+                'class'=>'trntv\filekit\actions\UploadAction',
+                'fileparam'=>'file',
+                'responseUrlParam'=>'filelink',
+                'disableCsrf'=>true
+            ]
+        ];
+    }
+
     /**
      * Lists all FileStorageItem models.
      * @return mixed

@@ -42,7 +42,9 @@ class UserProfile extends \yii\db\ActiveRecord
             [['firstname', 'middlename', 'lastname'], 'string', 'max' => 255],
             ['locale', 'default', 'value' => Yii::$app->language],
             ['locale', 'in', 'range' => array_keys(Yii::$app->params['availableLocales'])],
-            [['picture'], 'string', 'max' => 2048]
+            [['picture'], 'string', 'max' => 2048],
+
+            [['picture'], 'required'],
         ];
     }
 

@@ -14,7 +14,7 @@ FEATURES
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + custom upload widget (https://github.com/trntv/yii2-file-kit)
-- Xhprof Debug panel + custom upload widget (https://github.com/trntv/yii2-debug-xhprof)
+- Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
 - Key value storage component
 - System log
 - System events log
@@ -188,10 +188,14 @@ Yii::$app->keyStorage->get('articles-per-page');
 ```
 
 ### Many more useful components
-`console\controllers\MessageMigrateController`
-`common\behaviors\GlobalAccessController`
-`common\validators\JsonValidator`
-`common\widgets\DatetimepickerWidget`
+``console\controllers\MessageMigrateController``
+
+``common\behaviors\GlobalAccessController``
+
+``common\validators\JsonValidator``
+
+``common\widgets\DatetimepickerWidget``
+
 ...
 
 OTHER

@@ -1,5 +1,4 @@
 <?php
-require('_bootstrap.php');
 return [
     'name'=>'Yii2 Starter Kit',
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',

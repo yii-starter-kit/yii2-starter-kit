@@ -37,7 +37,9 @@ return [
             'frontend/web/assets',
         ],
         'setExecutable' => [
-            'yii',
+            'environments/dev/backend/yii',
+            'environments/dev/frontend/yii',
+            'environments/dev/console/yii',
         ],
         'setCookieValidationKey' => [
             'environments/dev/backend/config/web-local.php',

@@ -188,10 +188,14 @@ Yii::$app->keyStorage->get('articles-per-page');
 ```
 
 ### Many more useful components
-`console\controllers\MessageMigrateController`
-`common\behaviors\GlobalAccessController`
-`common\validators\JsonValidator`
-`common\widgets\DatetimepickerWidget`
+``console\controllers\MessageMigrateController``
+
+``common\behaviors\GlobalAccessController``
+
+``common\validators\JsonValidator``
+
+``common\widgets\DatetimepickerWidget``
+
 ...
 
 OTHER

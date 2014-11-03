@@ -104,7 +104,7 @@ CONFIGURATION
 All configuration files are in `config` directories in each application
 Environment specific configuration files are in `environments/some-environment`
 
-`environments/-some environment-/_local` folder contains config templates that will be used in initialization process. 
+`environments/-some environment-/_local-templates` folder contains config templates that will be used in initialization process. 
 So your can easily change them to fit your needs on specific environment. They are stored under the git. 
 
 Application resolves current environment by `YII ENV` environment variable.

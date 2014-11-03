@@ -1,6 +1,6 @@
 # Application
-/environments/*-local
-!/environments/*/_local/*-local
+/environments/**/*-local.*
+!/environments/**/_local-templates/**/*-local.*
 
 # Storage
 /storage/uploads

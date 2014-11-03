@@ -20,6 +20,12 @@ $config = \yii\helpers\ArrayHelper::merge(
                 ]
             ]
         ],
+        'user' => [
+            'class'=>'yii\web\User',
+            'identityClass' => 'common\models\User',
+            'loginUrl'=>['sign-in/login'],
+            'enableAutoLogin' => true,
+        ],
         'modules'=>[
             'i18n' => [
                 'class' => 'backend\modules\i18n\Module',

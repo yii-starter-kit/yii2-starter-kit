@@ -18,7 +18,7 @@ return [
         ],
 
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => 'yii\caching\DummyCache',
             'keyPrefix'=>'yii2-starter-kit'
         ],
 
@@ -28,7 +28,6 @@ return [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => false,
             'messageConfig' => [
                 'charset' => 'UTF-8'
             ]
@@ -81,6 +80,11 @@ return [
                 */
 
             ],
+        ],
+
+        'user'=>[
+            'class'=>'yii\web\User',
+            'identityClass'=>'common\models\User'
         ],
 
         'fileStorage'=>[

@@ -2,6 +2,7 @@
 $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__.'/_base.php'),
     [
+        'homeUrl'=>Yii::getAlias('@frontendUrl'),
         'controllerNamespace' => 'frontend\controllers',
         'defaultRoute' => 'site/index',
         'modules' => [

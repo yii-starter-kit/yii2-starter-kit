@@ -22,12 +22,18 @@ require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 // Bootstrap application
 require(dirname(__DIR__) . '/../common/config/bootstrap.php');
 require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap.php');
-require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap-local.php');
+if(file_exists(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap-local.php')){
+    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap-local.php');
+} else {
+    throw new \Exception('You\'ve probably forgot to init application');
+}
 
 $config = \yii\helpers\ArrayHelper::merge(
+    // Common
     require(dirname(__DIR__) . '/../common/config/base.php'),
     require(dirname(__DIR__).'/../common/config/web.php'),
     require(dirname(__DIR__).'/config/web.php'),
+    // Environment specific
     require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/common/config/base.php'),
     require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/common/config/base-local.php'),
     require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/common/config/web.php'),

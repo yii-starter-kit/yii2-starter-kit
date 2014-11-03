@@ -21,11 +21,17 @@ require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 
 // Bootstrap application
 require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap.php');
+require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/bootstrap-local.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
+    require(dirname(__DIR__) . '/../common/config/base.php'),
     require(dirname(__DIR__).'/../common/config/web.php'),
     require(dirname(__DIR__).'/config/web.php'),
+    require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/common/config/base.php'),
+    require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/common/config/base-local.php'),
     require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/common/config/web.php'),
-    require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/backend/config/web.php')
+    require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/common/config/web-local.php'),
+    require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/backend/config/web.php'),
+    require(dirname(__DIR__) . '/../environments/' . YII_ENV . '/backend/config/web-local.php')
 );
 (new yii\web\Application($config))->run();

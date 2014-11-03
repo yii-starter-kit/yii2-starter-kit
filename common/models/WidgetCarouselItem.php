@@ -2,8 +2,8 @@
 
 namespace common\models;
 
-use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "widget_carousel_item".
@@ -38,12 +38,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            'path' => [
-                'class' => UploadBehavior::className(),
-                'uploadAttribute' => 'file',
-                'resultAttribute' => 'path',
-                'fileCategory' => 'carousel',
-            ],
+            TimestampBehavior::className()
         ];
     }
 
@@ -53,10 +48,9 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['path'], 'required'],
+            [['carousel_id'], 'required'],
             [['carousel_id', 'status', 'order'], 'integer'],
-            [['url', 'caption'], 'string', 'max' => 1024],
-            [['path'], 'safe'],
+            [['url', 'caption', 'path'], 'string', 'max' => 1024],
         ];
     }
 

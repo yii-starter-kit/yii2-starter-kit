@@ -42,9 +42,7 @@ class UserProfile extends \yii\db\ActiveRecord
             [['firstname', 'middlename', 'lastname'], 'string', 'max' => 255],
             ['locale', 'default', 'value' => Yii::$app->language],
             ['locale', 'in', 'range' => array_keys(Yii::$app->params['availableLocales'])],
-            [['picture'], 'string', 'max' => 2048],
-
-            [['picture'], 'required'],
+            [['picture'], 'string', 'max' => 2048]
         ];
     }
 
@@ -82,5 +80,6 @@ class UserProfile extends \yii\db\ActiveRecord
         if($this->firstname || $this->lastname){
             return implode(' ', [$this->firstname, $this->lastname]);
         }
+        return null;
     }
 }

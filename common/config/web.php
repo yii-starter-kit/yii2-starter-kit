@@ -1,6 +1,5 @@
 <?php
-$base = require('_base.php');
-$config = [
+return [
     'components' => [
         'assetManager'=>[
             'class'=>'yii\web\AssetManager',
@@ -29,11 +28,5 @@ $config = [
     'as locale'=>[
         'class'=>'common\components\behaviors\LocaleBehavior'
     ],
-    'params' => [
-        'adminEmail' => 'webmaster@example.com',
-    ],
 ];
 
-$config = yii\helpers\ArrayHelper::merge($base, $config);
-
-return $config;

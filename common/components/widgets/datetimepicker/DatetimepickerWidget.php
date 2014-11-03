@@ -12,9 +12,19 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\InputWidget;
 
+/**
+ * Class DatetimepickerWidget
+ * @package common\components\widgets\datetimepicker
+ */
 class DatetimepickerWidget extends InputWidget{
+    /**
+     * @var array
+     */
     public $jsOptions = [];
 
+    /**
+     * @throws \yii\base\InvalidConfigException
+     */
     public function init(){
         parent::init();
         // Init default jsOptions
@@ -31,6 +41,9 @@ class DatetimepickerWidget extends InputWidget{
         $this->getView()->registerJs('$("#'.$this->options['id'].'").datetimepicker('.json_encode($this->jsOptions).')');
     }
 
+    /**
+     * @return string
+     */
     public function run(){
         if ($this->hasModel()) {
             return Html::activeTextInput($this->model, $this->attribute, $this->options);

@@ -19,12 +19,15 @@ require(dirname(__DIR__) . '/../../vendor/yiisoft/yii2/Yii.php');
 
 // Bootstrap application
 require(__DIR__ . '/../bootstrap.php');
+require(__DIR__ . '/../bootstrap-local.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../../../common/config/console.php'),
-    require(__DIR__ . '/../../../frontend/config/console.php'),
+    require(__DIR__ . '/../../../console/config/console.php'),
     require(__DIR__ . '/../common/config/console.php'),
-    require(__DIR__ . '/config/console.php')
+    require(__DIR__ . '/../common/config/console-local.php'),
+    require(__DIR__ . '/config/console.php'),
+    require(__DIR__ . '/config/console-local.php')
 );
 
 

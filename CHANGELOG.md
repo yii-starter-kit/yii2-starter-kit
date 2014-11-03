@@ -1,8 +1,9 @@
 Yii Framework 2 Change Log
 ==========================
 
-1.4.0 under development
------------------------
+1.4.0
+-----
+- Enh #28: init tool + local config files
 - Fix #25: backend user update
 - Chg: added utf-8 charset to nginx.conf
 - Enh: Added filters for `log` and `file-storage` grids

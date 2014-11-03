@@ -1,7 +1,7 @@
 <?php
 
-use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\WidgetCarouselItem */
@@ -14,6 +14,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php echo $form->errorSummary($model) ?>
 
+    <?php var_dump($model->path) ?>
     <?= $form->field($model, 'path')->widget(
         \trntv\filekit\widget\SingleFileUpload::className(),
         [

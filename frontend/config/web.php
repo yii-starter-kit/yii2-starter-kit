@@ -13,7 +13,16 @@ $config = \yii\helpers\ArrayHelper::merge(
         'components' => [
             'authClientCollection' => [
                 'class' => 'yii\authclient\Collection',
-            ]
+            ],
+            'errorHandler' => [
+                'errorAction' => 'site/error',
+            ],
+            'user' => [
+                'class'=>'yii\web\User',
+                'identityClass' => 'common\models\User',
+                'loginUrl'=>['/user/sign-in/login'],
+                'enableAutoLogin' => true,
+            ],
         ]
     ]
 );

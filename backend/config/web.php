@@ -20,11 +20,16 @@ $config = \yii\helpers\ArrayHelper::merge(
                 ]
             ]
         ],
-        'user' => [
-            'class'=>'yii\web\User',
-            'identityClass' => 'common\models\User',
-            'loginUrl'=>['sign-in/login'],
-            'enableAutoLogin' => true,
+        'components'=>[
+            'errorHandler' => [
+                'errorAction' => 'site/error',
+            ],
+            'user' => [
+                'class'=>'yii\web\User',
+                'identityClass' => 'common\models\User',
+                'loginUrl'=>['sign-in/login'],
+                'enableAutoLogin' => true,
+            ],
         ],
         'modules'=>[
             'i18n' => [
@@ -69,20 +74,7 @@ $config = \yii\helpers\ArrayHelper::merge(
         ]
     ]
 );
-
 if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class'=>'yii\debug\Module',
-        'allowedIPs' => ['*'],
-        'panels'=>[
-            'xhprof'=>[
-                'class'=>'\trntv\debug\xhprof\panels\XhprofPanel'
-            ]
-        ]
-    ];
-
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',
@@ -97,5 +89,4 @@ if (YII_ENV_DEV) {
         ]
     ];
 }
-
 return $config;

@@ -8,15 +8,6 @@ return [
     'bootstrap' => ['log'],
     'components' => [
 
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager',
-            'itemTable' => 'rbac_auth_item',
-            'itemChildTable' => 'rbac_auth_item_child',
-            'assignmentTable' => 'rbac_auth_assignment',
-            'ruleTable' => 'rbac_auth_rule',
-            'defaultRoles' => ['administrator', 'manager', 'user'],
-        ],
-
         'cache' => [
             'class' => 'yii\caching\DummyCache',
             'keyPrefix'=>'yii2-starter-kit'
@@ -80,11 +71,6 @@ return [
                 */
 
             ],
-        ],
-
-        'user'=>[
-            'class'=>'yii\web\User',
-            'identityClass'=>'common\models\User'
         ],
 
         'fileStorage'=>[

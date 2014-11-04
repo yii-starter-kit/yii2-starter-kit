@@ -39,6 +39,7 @@ class LogController extends Controller
 
         if(strcasecmp(Yii::$app->request->method, 'delete') == 0){
             SystemLog::deleteAll($dataProvider->query->where);
+            return $this->refresh();
         }
         $dataProvider->sort = [
             'defaultOrder'=>['log_time'=>SORT_DESC]

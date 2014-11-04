@@ -1,11 +1,5 @@
-# Environments
-/environments/**/*-local.*
-!/environments/**/_init/**/*-local.*
-
-# composer vendor dir
+# composer
 /vendor
-
-# composer itself
 composer.phar
 composer.lock
 

@@ -28,7 +28,7 @@
 $emptyConfigTemplate = "<?php\r\nreturn [];";
 return [
     'Development' => [
-        'path' => 'dev/_local-templates',
+        'path' => 'dev/_init',
         'configPath' => 'environments/dev',
         'setWritable' => [
             'backend/runtime',
@@ -47,7 +47,7 @@ return [
         ],
     ],
     'Poduction' => [
-        'path' => 'prod/_local-templates',
+        'path' => 'prod/_init',
         'configPath' => 'environments/prod',
         'setWritable' => [
             'backend/runtime',

@@ -22,7 +22,6 @@ class BackendAsset extends AssetBundle{
         'js/app.js'
     ];
 
-
     public $depends = [
         'yii\web\YiiAsset',
         'common\assets\AdminLTE',

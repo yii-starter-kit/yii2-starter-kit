@@ -46,7 +46,7 @@ return [
             'environments/dev/frontend/config/web-local.php',
         ],
     ],
-    'Poduction' => [
+    'Production' => [
         'path' => 'prod/_init',
         'configPath' => 'environments/prod',
         'setWritable' => [

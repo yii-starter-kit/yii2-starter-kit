@@ -3,6 +3,7 @@ namespace console\controllers;
 
 use Yii;
 use yii\console\Controller;
+use yii\helpers\Console;
 
 class RbacController extends Controller{
     public function actionInit()
@@ -26,5 +27,7 @@ class RbacController extends Controller{
         $admin->ruleName = $userRule->name;
         $auth->add($admin);
         $auth->addChild($admin, $manager);
+
+        Console::output('Success! RBAC roles has been added.');
     }
 } 

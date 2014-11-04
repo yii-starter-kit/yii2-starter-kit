@@ -1,6 +1,9 @@
 Yii 2 Starter Kit
 ================================
-Yii2 start application template
+Yii2 start application kit.
+This project was created and developing as a fast start for building an advanced sites based on Yii2. 
+It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
+
 
 FEATURES
 --------
@@ -12,16 +15,18 @@ FEATURES
 - OAuth authorization
 - User management: CRUD
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
-- Content management: articles, categories, static pages, editable menu, editable carousels, text blocks
-- File storage component + custom upload widget (https://github.com/trntv/yii2-file-kit)
+- Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
+- File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
+- Key-value storage component
+- Yii2 log web interface
+- Application events component
+- System information web interface
+- Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
+- Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 
+- Elfinder Extension (http://elfinder.org, https://github.com/MihailDev/yii2-elfinder)
 - Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
-- Key value storage component
-- System log
-- System events log
-- System information
-- aceeditor, imperavi, elfinder
-- nginx example config
-- example deploy script
+- Nginx config example
+- many other features i'm lazy to write about :-)
 
 DEMO
 ----

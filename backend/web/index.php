@@ -20,7 +20,6 @@ require(dirname(__DIR__) . '/../vendor/autoload.php');
 require(dirname(__DIR__) . '/../vendor/yiisoft/yii2/Yii.php');
 
 // Bootstrap application
-require(dirname(__DIR__) . '/../common/config/bootstrap.php');
 require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap.php');
 if(file_exists(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap-local.php')){
     require(dirname(__DIR__) . '/../environments/'.YII_ENV.'/bootstrap-local.php');

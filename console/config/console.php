@@ -11,6 +11,9 @@ return [
         ],
         'message-migrate'=>[
             'class'=>'console\controllers\MessageMigrateController'
+        ],
+        'rbac'=>[
+            'class'=>'console\controllers\RbacController'
         ]
     ],
 ];

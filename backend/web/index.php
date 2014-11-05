@@ -3,7 +3,7 @@
 if(isset($_SERVER['YII_ENV'])){
     defined('YII_ENV') or define('YII_ENV', $_SERVER['YII_ENV']);
 } else {
-    defined('YII_ENV') or define('YII_ENV', 'local');
+    defined('YII_ENV') or define('YII_ENV', 'dev');
 }
 
 // Debug preparations

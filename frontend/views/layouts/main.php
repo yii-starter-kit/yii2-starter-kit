@@ -5,7 +5,7 @@ use yii\widgets\Breadcrumbs;
 
 /* @var $content string */
 
-$this->beginContent('@app/views/layouts/_base.php')
+$this->beginContent('@frontend/views/layouts/_base.php')
 ?>
     <div class="container">
 

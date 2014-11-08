@@ -25,9 +25,8 @@
  * ];
  * ```
  */
-$emptyConfigTemplate = "<?php\r\nreturn [];";
 return [
-    'Development' => [
+    'dev' => [
         'path' => 'dev/_init',
         'configPath' => 'environments/dev',
         'setWritable' => [
@@ -46,7 +45,7 @@ return [
             'environments/dev/frontend/config/web-local.php',
         ],
     ],
-    'Production' => [
+    'prod' => [
         'path' => 'prod/_init',
         'configPath' => 'environments/prod',
         'setWritable' => [
@@ -56,9 +55,9 @@ return [
             'frontend/web/assets',
         ],
         'setExecutable' => [
-            'environments/prod/backend/yii',
-            'environments/prod/frontend/yii',
-            'environments/prod/console/yii',
+            'backend/yii',
+            'frontend/yii',
+            'console/yii',
         ],
         'setCookieValidationKey' => [
             'environments/prod/backend/config/web-local.php',

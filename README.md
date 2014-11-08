@@ -96,11 +96,11 @@ php composer.phar create-project --prefer-dist --stability=dev trntv/yii2-starte
 ```
 
 ### Initialization
-Initialise application by creating `*-local` config files
+Initialise application
 ```
 ./init // init.bat for windows
 ```
-Initialization tools will create config files where you can override settings specific for local machine.
+Initialization tools will create config (`*-local`) files where you can override settings specific for your local environment.
 **NOTE:** `environments/*-local` files are excluded from your git in `.gitignore`
 
 CONFIGURATION
@@ -116,11 +116,14 @@ So your can easily change them to fit your needs on specific environment. They a
 Application resolves current environment by `YII ENV` environment variable.
 You should set it in your server config or change `web/index.php` file
 
+Environment by default for console applications is `dev`. You can change it by setting environment variable ``YII_ENV``
+```export YII_ENV='prod' && ./path/to/yii```
+
 ### Web Server
 Application resolves current environment by `YII ENV` environment variable.
 You should set it in your server config or change `web/index.php` files
 
-Preferable web server for me (personally) is nginx. So there is a `nginx.conf` with an example config. You can copy it to `sites-enabled` folder or even create 
+Preferable web server for me (personally) is nginx. So there is a `nginx.conf` with an example config. You can use it or even create 
 a copy called `nginx-local.conf` and make a symlink:
 ```
 ln -s /path/to/environments/-some environment-/nginx-local.conf
@@ -128,7 +131,7 @@ ln -s /path/to/environments/-some environment-/nginx-local.conf
 
 ### Database
 
-Edit the file `environments/local/common/config/base-local.php` with real data, for example:
+Edit the file `environments/dev/common/config/base-local.php` with real data, for example:
 
 ```php
 ...
@@ -156,13 +159,13 @@ Yii::setAlias('@storageUrl', 'http://storage.example.com');
 #### Apply migrations
 
 ```php
-php environments/dev/console/yii migrate
+php console/yii migrate
 ```
 
 ### Initial RBAC config
 
 ```php
-php environments/dev/console/yii rbac/init
+php console/yii rbac/init
 ```
 **IMPORTANT: without rbac/init you CAN'T LOG IN into backend**
 ### Demo user

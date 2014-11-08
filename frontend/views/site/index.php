@@ -13,7 +13,12 @@ $this->title = Yii::$app->name;
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p>
+            <a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a>
+            <a class="btn btn-lg btn-primary" href="https://gtihub.com/trntv/yii2-starter-kit">Yii2 Starter Kit on GitHub</a>
+            <a class="btn btn-lg btn-danger" href="https://gtihub.com/trntv/yii2-starter-kit/issues">Find a bug?</a>
+        </p>
+
     </div>
 
     <div class="body-content">

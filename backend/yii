@@ -1,0 +1,45 @@
+#!/usr/bin/env php
+<?php
+// Environment
+require(__DIR__ . '/../environments/Environment.php');
+$environment = new Environment([
+    //'envVar'=>'$environment->getEnv()',
+    //'env'=>null,
+    //'debugVar'=>'YII_DEBUG',
+    //'debug'=>null,
+]);
+
+// Composer
+require(__DIR__ . '/../vendor/autoload.php');
+require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
+
+// fcgi doesn't have STDIN and STDOUT defined by default
+defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
+defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
+
+// Bootstrap application
+require(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap.php');
+if(file_exists(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap-local.php')){
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap-local.php');
+} else {
+    throw new \Exception('You\'ve probably forgot to init application');
+}
+
+$config = \yii\helpers\ArrayHelper::merge(
+    // Common
+    require(__DIR__ . '/../common/config/base.php'),
+    require(__DIR__ . '/../common/config/console.php'),
+    require(__DIR__ . '/../frontend/config/console.php'),
+    // Environment specific
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base.php'),
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base-local.php'),
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/console.php'),
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/console-local.php'),
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/backend/config/console.php'),
+    require(__DIR__ . '/../environments/'.$environment->getEnv().'/backend/config/console-local.php')
+);
+
+
+$application = new yii\console\Application($config);
+$exitCode = $application->run();
+exit($exitCode);

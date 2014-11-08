@@ -28,7 +28,7 @@ class TextWidget extends \yii\base\Widget{
     public function run(){
         $content = \Yii::$app->cache->get("widget_text_{$this->alias}");
         if(!$content){
-            $model =  WidgetText::findOne(['alias'=>$this->alias]);
+            $model =  WidgetText::findOne(['alias'=>$this->alias, 'status'=>1]);
             if($model){
                 $content = $model->body;
                 \Yii::$app->cache->set("widget_text_{$this->alias}", $content, 3600, new DbDependency([

@@ -1,6 +1,11 @@
 Yii Framework 2 Change Log
 ==========================
 
+1.5.0 under development
+-----------------------
+- Chg: message-migrate has moved to console/controllers/ExtendedMessageController - `yii message/migrate @common/config/messages/php.php @common/config/messages/db.php` 
+- Eng #30: Tool to change code source language - `yii message/replace-source-language @path language-LOCALE`
+
 1.4.0
 -----
 - Enh: backend user view page enhancement

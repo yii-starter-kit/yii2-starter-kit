@@ -10,7 +10,8 @@ FEATURES
 - Based on yii2-advanced application template
 - Beautiful and opensource dashboard theme for backend (http://almsaeedstudio.com/AdminLTE)
 - I18N + 2 translations: Ukrainian, Russian
-- I18N DbMessageSource CRUD module + `MessageMigrateController` to migrate translations between formats
+- I18N DbMessageSource CRUD module
+- `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization
 - User management: CRUD
@@ -191,6 +192,18 @@ Values can be stored both via api or by backend CRUD component.
 Yii::$app->keyStorage->set('key', 'value');
 Yii::$app->keyStorage->get('articles-per-page');
 ```
+
+### ExtendedMessageController
+This controller extends default MessageController to provide some useful actions
+
+Migrate messages between different message sources:
+``yii message/migrate @common/config/messages/php.php @common/config/messages/db.php``
+
+Replace source code language:
+``yii message/replace-source-language @path language-LOCALE``
+
+Remove Yii::t from code
+``yii message/replace-source-language @path``
 
 ### Many more useful components
 ``console\controllers\MessageMigrateController``

@@ -1,31 +1,103 @@
 <?php
 /**
- * Author: Eugine Terentev <eugine@terentev.net>
+ * Eugine Terentev <eugine@terentev.net>
  */
+
 namespace console\controllers;
 
+use Yii;
 use yii\base\InvalidConfigException;
-use yii\console\Controller;
+use yii\console\Exception;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Console;
 use yii\helpers\FileHelper;
 use yii\helpers\VarDumper;
 
 /**
- * Class MessageMigrateController
- * Example (migrate PhpMessageSource messages to DbMessageSource):
- * ./yii message-migrate @common/config/messages/php.php @common/config/messages/db.php
+ * Class ExtendedMessageController
  * @package console\controllers
  */
-class MessageMigrateController extends Controller{
+class ExtendedMessageController extends \yii\console\controllers\MessageController{
     /**
-     * @var string
+     * @param $path
+     * @param bool $newSourcelanguage
+     * @param bool $configFile
+     * @throws Exception
      */
-    public $defaultAction = 'migrate';
+    public function actionReplaceSourceLanguage($path, $newSourcelanguage = false, $configFile = false)
+    {
+        Yii::$app->language = $newSourcelanguage;
+        $config = [
+            'translator' => 'Yii::t',
+            'overwrite' => false,
+            'removeUnused' => false,
+            'sort' => false,
+            'format' => 'php',
+        ];
+        if($configFile){
+            $configFile = Yii::getAlias($configFile);
+            if (!is_file($configFile)) {
+                throw new Exception("The configuration file does not exist: $configFile");
+            }
+
+            $config = array_merge($config, require($configFile));
+        }
+
+        $path = Yii::getAlias($path);
+        if(is_dir($path)){
+            $files = FileHelper::findFiles(realpath(Yii::getAlias($path)), $config);
+        } else {
+            $files = [$path];
+        }
+
+        $unremoved = [];
+        foreach($files as $fileName){
+            if (!is_array($config['translator'])) {
+                $translator = [$config['translator']];
+            }
+            foreach ($translator as $currentTranslator) {
+                $n = 0;
+                $subject = file_get_contents($fileName);
+                $replacedSubject = preg_replace_callback(
+                    '/\b' . $currentTranslator . '\s*\(\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*,\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*[,\)]/s',
+                    function($matches) use ($newSourcelanguage, $fileName, &$unremoved){
+                        $category = substr($matches[1], 1, -1);
+                        $message = $matches[2];
+
+                        if($newSourcelanguage !== false){
+                            $message = eval("return {$message};");
+                            $result = str_replace($message,Yii::t($category, $message, [], $newSourcelanguage), $matches[0]);
+                        } else {
+                                if(strpos($matches[0], ')') != strlen($matches[0]) - 1){
+                                    $unremoved[$fileName][] = $message;
+                                    $result = $matches[0];
+                                } else {
+                                    $result = $message;
+                                }
+                        }
+                        return $result;
+
+                    },
+                    $subject,
+                    -1,
+                    $n
+                );
+                Console::output("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
+                file_put_contents($fileName, $replacedSubject);
+            }
+        }
+        if($newSourcelanguage == false && !empty($unremoved)){
+            Console::output('Messages with params, can`t be removed by this tool. Remove it manually');
+            foreach($unremoved as $fileName => $messages){
+                $messages = implode(PHP_EOL, $messages);
+                Console::output("$fileName:".PHP_EOL.$messages);
+            }
+        }
+    }
 
     /**
-     * @param $inputConfigFile
-     * @param $outputConfigFile
+     * @param string $inputConfigFile
+     * @param string $outputConfigFile
      * @throws InvalidConfigException
      * @throws \Exception
      */
@@ -218,4 +290,4 @@ class MessageMigrateController extends Controller{
     {
         throw new \Exception("PO migration didn't implemented yet");
     }
-} 
+}

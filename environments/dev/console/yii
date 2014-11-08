@@ -27,8 +27,6 @@ $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/config/console.php'),
     require(__DIR__ . '/config/console-local.php')
 );
-
-
 $application = new yii\console\Application($config);
 $exitCode = $application->run();
 exit($exitCode);

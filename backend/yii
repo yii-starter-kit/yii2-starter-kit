@@ -29,7 +29,7 @@ $config = \yii\helpers\ArrayHelper::merge(
     // Common
     require(__DIR__ . '/../common/config/base.php'),
     require(__DIR__ . '/../common/config/console.php'),
-    require(__DIR__ . '/../frontend/config/console.php'),
+    require(__DIR__ . '/config/console.php'),
     // Environment specific
     require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base.php'),
     require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base-local.php'),

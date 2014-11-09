@@ -98,13 +98,13 @@ return [
             'class'=>'common\components\keyStorage\KeyStorage'
         ],
 
-        'backendUrlManager'=>\yii\helpers\ArrayHelper::merge(
+        'urlManagerBackend'=>\yii\helpers\ArrayHelper::merge(
             [
                 'hostInfo'=>Yii::getAlias('@backendUrl')
             ],
             require(Yii::getAlias('@backend/config/_urlManager.php'))
         ),
-        'frontendUrlManager'=>\yii\helpers\ArrayHelper::merge(
+        'urlManagerFrontend'=>\yii\helpers\ArrayHelper::merge(
             [
                 'hostInfo'=>Yii::getAlias('@frontendUrl')
             ],

@@ -24,9 +24,8 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
      * @param bool $configFile
      * @throws Exception
      */
-    public function actionReplaceSourceLanguage($path, $newSourcelanguage = false, $configFile = false)
+    public function actionReplaceSourceLanguage($configFile, $newSourcelanguage = false)
     {
-        Yii::$app->language = $newSourcelanguage;
         $config = [
             'translator' => 'Yii::t',
             'overwrite' => false,
@@ -34,21 +33,19 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
             'sort' => false,
             'format' => 'php',
         ];
-        if($configFile){
-            $configFile = Yii::getAlias($configFile);
-            if (!is_file($configFile)) {
-                throw new Exception("The configuration file does not exist: $configFile");
-            }
 
-            $config = array_merge($config, require($configFile));
+        $configFile = Yii::getAlias($configFile);
+        if (!is_file($configFile)) {
+            throw new Exception("The configuration file does not exist: $configFile");
         }
 
-        $path = Yii::getAlias($path);
-        if(is_dir($path)){
-            $files = FileHelper::findFiles(realpath(Yii::getAlias($path)), $config);
-        } else {
-            $files = [$path];
+        $config = array_merge($config, require($configFile));
+
+        if (!is_dir($config['sourcePath'])) {
+            throw new Exception("The source path {$config['sourcePath']} is not a valid directory.");
         }
+
+        $files = FileHelper::findFiles(realpath($config['sourcePath']), $config);
 
         $unremoved = [];
         foreach($files as $fileName){
@@ -82,8 +79,11 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                     -1,
                     $n
                 );
-                Console::output("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
-                file_put_contents($fileName, $replacedSubject);
+                if(@file_put_contents($fileName, $replacedSubject) !== false){
+                    Console::output("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
+                } else {
+                    Console::err("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
+                };
             }
         }
         if($newSourcelanguage == false && !empty($unremoved)){

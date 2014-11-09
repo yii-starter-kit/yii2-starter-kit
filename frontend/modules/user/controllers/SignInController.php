@@ -109,11 +109,11 @@ class SignInController extends \yii\web\Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
+                Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'Check your email for further instructions.'));
 
                 return $this->goHome();
             } else {
-                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->getSession()->setFlash('error', Yii::t('frontend', 'Sorry, we are unable to reset password for email provided.'));
             }
         }
 
@@ -131,7 +131,7 @@ class SignInController extends \yii\web\Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
+            Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'New password was saved.'));
 
             return $this->goHome();
         }
@@ -196,7 +196,7 @@ class SignInController extends \yii\web\Controller
                         'alert',
                         [
                             'options'=>['class'=>'alert-danger'],
-                            'body'=>Yii::t('frontend', 'Error while oauth process. You\'ve probably already ')
+                            'body'=>Yii::t('frontend', 'Error while oauth process.')
                         ]
                     );
                 }

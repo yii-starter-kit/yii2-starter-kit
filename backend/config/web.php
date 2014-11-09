@@ -3,7 +3,7 @@ $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__.'/_base.php'),
     [
         'controllerNamespace' => 'backend\controllers',
-        'defaultRoute'=>'system-information/index',
+        'defaultRoute'=>'system-event/timeline',
         'controllerMap'=>[
             'file-manager-elfinder' => [
                 'class' => 'mihaildev\elfinder\Controller',

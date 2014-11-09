@@ -17,13 +17,22 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Account' => 'Account',
+    'Application timeline' => 'Хроніка',
+    'Error #{id}' => 'Помилка #{id}',
+    'Incorrect username or password.' => 'Неправильні им’я користувача або пароль',
+    'No events found' => 'Подій не знайдено',
+    'System Date' => 'Системна дата',
+    'System Time' => 'Системний час',
+    'Time' => 'Час',
+    'Timeline' => 'Хроніка',
+    'Timezone' => 'Часовий пояс',
+    'View' => 'Перегляд',
+    'Account' => 'Аккаунт',
     'Active' => 'Активно',
     'Are you sure you want to delete this item?' => 'Ви впевнені, що хочете видалити чей запис?',
     'Are you sure ypu want to reset File Storage?' => 'Ви впевнені, що хочете очистити Сховище Файлів?',
     'Article Categories' => 'Категорії статей',
     'Articles' => 'Статті',
-    'Backend' => 'Панель управління',
     'CPU Usage' => 'Використання CPU',
     'Carousel Widgets' => 'Віджети каруселі',
     'Carousel slide was successfully saved' => 'Слайд був успішно збережен',
@@ -34,7 +43,6 @@ return [
     'Create {modelClass}' => 'Створити {modelClass}',
     'DB Type' => 'Тип бази даних',
     'DB Version' => 'Версія бази даних',
-    'Dashboard' => 'Приборна панель',
     'Delete' => 'Видалити',
     'Edit account' => 'Редагувати аккаунт',
     'Edit profile' => 'Редагувати профіль',
@@ -124,5 +132,4 @@ return [
     'i18n' => 'Інтернаціоналізація',
     'i18n Message' => 'Переклад',
     'i18n Source Message' => 'Текст',
-    '{uptime, duration}' => '{uptime, duration}',
 ];

@@ -51,6 +51,7 @@ use yii\widgets\Breadcrumbs;
                         </li>
                         <li class="footer">
                             <?= Html::a(Yii::t('backend', 'View all'), ['/system-event/index']) ?>
+                            <?= Html::a(Yii::t('backend', 'Timeline'), ['/system-event/timeline']) ?>
                         </li>
                     </ul>
                 </li>
@@ -143,9 +144,9 @@ use yii\widgets\Breadcrumbs;
                 'activateParents'=>true,
                 'items'=>[
                     [
-                        'label'=>Yii::t('backend', 'Dashboard'),
+                        'label'=>Yii::t('backend', 'Timeline'),
                         'icon'=>'<i class="fa fa-bar-chart-o"></i>',
-                        'url'=>['/site/index']
+                        'url'=>['/system-event/timeline']
                     ],
                     [
                         'label'=>Yii::t('backend', 'Content'),

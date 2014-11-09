@@ -17,9 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Author' => '',
-    'Slug' => '',
-    'Updater' => '',
+    'Author' => 'Автор',
+    'Created at' => 'Створено',
+    'E-mail' => 'E-mail',
+    'Role' => 'Роль',
+    'Slug' => 'ЧПУ',
+    'Updater' => 'Оновлено',
+    'Username' => 'Им’я користувача',
     'Active' => 'Активно',
     'Administrator' => 'Адміністратор',
     'Alias' => 'Псевдонім',

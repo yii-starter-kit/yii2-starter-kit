@@ -45,6 +45,23 @@ class SystemEventController extends Controller
     }
 
     /**
+     * Lists all SystemEvent models in timeline.
+     * @return mixed
+     */
+    public function actionTimeline()
+    {
+        $searchModel = new SystemEventSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->sort = [
+            'defaultOrder'=>['created_at'=>SORT_DESC]
+        ];
+        return $this->render('timeline', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
      * Displays a single SystemEvent model.
      * @param integer $id
      * @return mixed

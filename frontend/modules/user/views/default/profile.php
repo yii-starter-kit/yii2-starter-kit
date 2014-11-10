@@ -7,6 +7,8 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\UserProfile */
 /* @var $form yii\widgets\ActiveForm */
+
+$this->title = \Yii::t('frontend', 'Profile')
 ?>
 
 <div class="user-profile-form">

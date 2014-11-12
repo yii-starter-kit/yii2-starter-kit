@@ -31,14 +31,14 @@
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",
+        "trntv/yii2-debug-xhprof": "*",
 		"yiisoft/yii2-gii": "*",
         "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-faker": "*",
         "codeception/codeception": "2.*"
 	},
     "suggest": {
-        "trntv/yii2-deploy": "*",
-        "trntv/yii2-debug-xhprof": "*"
+        "trntv/yii2-deploy": "*"
     },
 	"config": {
 		"process-timeout": 1800

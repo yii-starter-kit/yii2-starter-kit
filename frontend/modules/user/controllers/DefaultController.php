@@ -16,8 +16,8 @@ class DefaultController extends Controller
             'avatar-upload'=>[
                 'class'=>UploadAction::className(),
                 'fileProcessing'=>function($file){
-                    Image::thumbnail($file->path, 215,215)
-                        ->save($file->path);
+                    Image::thumbnail($file->path->getPath(), 215,215)
+                        ->save($file->path->getPath());
                 }
             ]
         ];

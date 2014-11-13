@@ -27,4 +27,9 @@ class DatetimepickerAsset extends AssetBundle{
         'eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     ];
 
+    public $depends = [
+        'yii\web\JqueryAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
+
 }

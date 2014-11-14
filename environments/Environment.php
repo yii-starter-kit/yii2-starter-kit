@@ -49,9 +49,9 @@ class Environment{
      */
     public function getDebug()
     {
-        if(!$this->_debug){
+        if($this->_debug === null){
             $debug = isset($_SERVER[$this->debugVar]) ? $_SERVER[$this->debugVar] : $this->getEnv() == 'dev';
-            $this->_debug = boolval($debug);
+            $this->_debug = !!$debug;
         }
         return $this->_debug;
     }
@@ -70,7 +70,7 @@ class Environment{
      */
     public function getEnv()
     {
-        if(!$this->_env){
+        if($this->_env === null){
             $env = getenv($this->envVar) ?: 'dev';
             if(!$env){
                 throw new \Exception('You should set environment by setting environmental YII_ENV variable or Environment::env');

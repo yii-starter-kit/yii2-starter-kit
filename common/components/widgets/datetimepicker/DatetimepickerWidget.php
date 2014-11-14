@@ -30,7 +30,7 @@ class DatetimepickerWidget extends InputWidget{
         // Init default jsOptions
         $this->jsOptions = ArrayHelper::merge([
             'language'=>\Yii::$app->language,
-            'format'=>'YYYY.MM.DD HH:mm'
+            'format'=>'DD.MM.YYYY, HH:mm'
         ], $this->jsOptions);
 
         // Init default options

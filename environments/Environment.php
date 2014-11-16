@@ -7,6 +7,7 @@
  */
 class Environment{
 
+    public $errorReporting = E_ALL;
     /**
      * @var string
      */
@@ -39,7 +40,7 @@ class Environment{
         defined('YII_ENV_TEST') or define('YII_ENV_TEST', $this->getEnv() == 'test');
 
         if($this->getDebug()){
-            error_reporting(E_ALL);
+            error_reporting($this->errorReporting);
             ini_set('display_errors', 1);
         }
     }

@@ -23,7 +23,7 @@ $icons = [
                                 <?= Yii::$app->formatter->asDate($model->created_at) ?>
                             </span>
                         </li>
-                        <?php $date = new DateTime($model->created_at) ?>
+                        <?php $date = new DateTime('@'.$model->created_at) ?>
                     <?php endif; ?>
                     <li>
                         <!-- timeline icon -->

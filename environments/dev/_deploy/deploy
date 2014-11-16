@@ -1,0 +1,3 @@
+#!/bin/sh
+
+/usr/bin/php console/yii deploy @environments/dev/_deploy/config/release.php @environments/dev/_deploy/config/servers.php --verbosity=1

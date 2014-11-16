@@ -87,6 +87,17 @@ class KeyStorage extends Component{
     }
 
     /**
+     * @param array $keys
+     */
+    public function getAll(array $keys){
+        $values = [];
+        foreach($keys as $key){
+            $values[$key] = $this->get($key);
+        }
+        return $values;
+    }
+
+    /**
      * @param $key
      * @return mixed
      */

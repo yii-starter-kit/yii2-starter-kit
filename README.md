@@ -23,6 +23,7 @@ FEATURES
 - Application events component
 - System information web interface
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
+- Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 
 - Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 
 - Elfinder Extension (http://elfinder.org, https://github.com/MihailDev/yii2-elfinder)
 - Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
@@ -215,7 +216,7 @@ Remove Yii::t from code
 
 ``common\validators\JsonValidator``
 
-``common\widgets\DatetimepickerWidget``
+Datetimepicker Widget - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
 
 ...
 

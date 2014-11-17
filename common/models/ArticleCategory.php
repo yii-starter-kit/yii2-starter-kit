@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\SluggableBehavior;
+use yii\behaviors\TimestampBehavior;
 use yii\helpers\Inflector;
 
 /**
@@ -32,6 +33,7 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
+            TimestampBehavior::className(),
             [
                 'class'=>SluggableBehavior::className(),
                 'attribute'=>'title'
@@ -47,9 +49,10 @@ class ArticleCategory extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
+            [['title'], 'string', 'max' => 512],
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            ['status', 'integer']
         ];
     }
 

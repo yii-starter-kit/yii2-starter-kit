@@ -27,7 +27,8 @@
         "mihaildev/yii2-elfinder": "*",
         "trntv/yii2-aceeditor": "*",
         "trntv/systeminfo": "*",
-        "trntv/yii2-file-kit": "*"
+        "trntv/yii2-file-kit": "*",
+        "trntv/yii2-bootstrap-datetimepicker": "dev-master"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",

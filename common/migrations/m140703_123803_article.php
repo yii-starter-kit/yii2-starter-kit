@@ -32,7 +32,7 @@ class m140703_123803_article extends Migration
             'author_id' => Schema::TYPE_INTEGER,
             'updater_id' => Schema::TYPE_INTEGER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
-            'published_at' => Schema::TYPE_DATETIME . ' NOT NULL',
+            'published_at' => Schema::TYPE_INTEGER,
             'created_at' => Schema::TYPE_INTEGER,
             'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);

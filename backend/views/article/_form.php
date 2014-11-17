@@ -39,7 +39,7 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'status')->checkbox() ?>
 
-    <?= $form->field($model, 'published_at')->widget(\common\components\widgets\datetimepicker\DatetimepickerWidget::className()) ?>
+    <?= $form->field($model, 'published_at')->widget('trntv\yii\datetimepicker\DatetimepickerWidget') ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

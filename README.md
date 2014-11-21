@@ -118,7 +118,7 @@ Application resolves current environment by `YII ENV` environment variable.
 You should set it in your server config or change `web/index.php` file
 
 Environment by default for console applications is `dev`. You can change it by setting environment variable ``YII_ENV``
-```export YII_ENV='prod' && ./path/to/yii```
+```export YII_ENV='prod' && php ./path/to/yii```
 
 ### Web Server
 Application resolves current environment by `YII ENV` environment variable.

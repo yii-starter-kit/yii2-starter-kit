@@ -25,7 +25,7 @@ class Environment{
     /**
      * @var
      */
-    public $_debug;
+    public $debug;
 
     public function __construct($config = [])
     {
@@ -50,11 +50,11 @@ class Environment{
      */
     public function getDebug()
     {
-        if($this->_debug === null){
+        if($this->debug === null){
             $debug = isset($_SERVER[$this->debugVar]) ? $_SERVER[$this->debugVar] : $this->getEnv() == 'dev';
-            $this->_debug = !!$debug;
+            $this->debug = !!$debug;
         }
-        return $this->_debug;
+        return $this->debug;
     }
 
     /**
@@ -62,7 +62,7 @@ class Environment{
      */
     public function setDebug($debug)
     {
-        $this->_debug = $debug;
+        $this->debug = $debug;
     }
 
     /**

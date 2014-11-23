@@ -46,7 +46,7 @@ $icons = [
                                 <a href="<?php echo \yii\helpers\Url::to(['view', 'id'=>$model->id]) ?>" class="btn btn-primary btn-xs" data-pjax="0">
                                     <?php echo Yii::t('backend', 'View') ?>
                                 </a>
-                                <a href="<?php echo \yii\helpers\Url::to(['timeline', 'SystemEventSearch[category]'=>$model->category, 'SystemEventSearch[name]'=>$model->name]) ?>" class="btn btn-success btn-xs">
+                                <a href="<?php echo \yii\helpers\Url::to(['timeline', 'SystemEventSearch[category]'=>$model->category, 'SystemEventSearch[event]'=>$model->event]) ?>" class="btn btn-success btn-xs">
                                     <?php echo $model->getFullEventName() ?>
                                 </a>
                             </div>

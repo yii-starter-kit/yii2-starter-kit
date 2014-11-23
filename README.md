@@ -180,7 +180,7 @@ COMPONENTS
 ### I18N
 If you want to store application messages in DB and to have ability to edit them from backend, run:
 ```php
-php console/yii message-migrate @common/config/messages/php.php @common/config/messages/db.php
+php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
 ```
 it will copy all existing messages to database
 

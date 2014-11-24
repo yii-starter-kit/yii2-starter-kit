@@ -1,7 +1,8 @@
 Yii 2 Starter Kit
 ================================
-Yii2 start application kit.
-This project was created and developing as a fast start for building an advanced sites based on Yii2. 
+This is Yii2 start application template.
+
+It was created and developing as a fast start for building an advanced sites based on Yii2. 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 
@@ -99,21 +100,22 @@ Initialise application
 ```
 ./init // init.bat for windows
 ```
-Initialization tools will create config (`*-local`) files where you can override settings specific for your local environment.
-**NOTE:** `environments/*-local` files are excluded from your git in `.gitignore`
+Initialization tools will copy config (`*-local`) files where you can override settings specific for application local environment.
+**NOTE:** `environments/*-local` files are excluded from git in `.gitignore`
 
 CONFIGURATION
 -------------
 
 ### Environments 
 All configuration files are in `config` directories in each application
-Environment specific configuration files are in `environments/some-environment` directory
 
-`environments/-some environment-/_init` folder contains config templates that will be used in initialization process. 
-So your can easily change them to fit your needs on specific environment. They are stored under the VCS. 
+Environment specific configuration files stored in `environments/some-environment` directory
+
+`environments/-some environment-/_init` folder contains config templates that will be copied to your config in initialization process, so your can change them to fit your needs on specific environment. 
+They are stored under the VCS. 
 
 Application resolves current environment by `YII ENV` environment variable.
-You should set it in your server config or change `web/index.php` file.
+You should set it in your web server config or change in `frontend/web/index.php`, `backend/web/index.php`, `console/yii` files.
 Default environment is `dev`.
 
 For console application, you can change current environment by setting ``YII_ENV`` variable
@@ -130,13 +132,9 @@ You should configure web server with three different web roots:
 
 `storage.example.com` => `path/to/yii2-starter-kit/storage`
 
-Application resolves current environment by `YII ENV` environment variable.
-You can set it in your server config or in `web/index.php` file.
-
-**NOTE:** Preferable web server for me is nginx, so there is a `nginx.conf` file with an example nginx config.
+**NOTE:** Preferable web server for me, personally, is nginx, so there is a `nginx.conf` file with an example nginx config.
   
 ### Database
-Default environment is `dev`.
 Edit the file `environments/dev/common/config/base-local.php` with real data, for example:
 
 ```php
@@ -152,7 +150,7 @@ Edit the file `environments/dev/common/config/base-local.php` with real data, fo
 ```
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
-Also check and edit the other files in the `config/` directory to customize your application.
+Also check and edit the other files in the `environments/dev` directory to customize your application.
 
 ### Application urls
 Set your current application urls in `environments/dev/bootstrap-local.php`
@@ -168,12 +166,13 @@ Yii::setAlias('@storageUrl', 'http://storage.example.com');
 php console/yii migrate
 ```
 
-### Initial RBAC config
+### Initialise RBAC config
 
 ```php
 php console/yii rbac/init
 ```
 **IMPORTANT: without rbac/init you CAN'T LOG IN into backend**
+
 ### Demo user
 ~~~
 Login: webmaster
@@ -232,24 +231,21 @@ Add remote repository `upstream`.
 ```
 git remote add upstream https://github.com/trntv/yii2-starter-kit.git
 ```
-Fetch latest commit from it
+Fetch latest changes from it
 ```
 git fetch upstream
 ```
-Merge these commits to your repository
+Merge these changes into your repository
 ```
 git merge upstream/master
 ```
-**IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve merging conflicts on your own**
+**IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve conflicts on your own**
 
 ### TODO
-- Chained selects extension
-- jGrowl widget
-- DbMessageSource management module
-- Upload Kit improvements
 - Inline code documentation
 - Tests
 - Various improvements
+- New features
 - Permanent bug fixing ;)
 
 ### Have any questions?

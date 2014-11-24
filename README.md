@@ -76,9 +76,7 @@ php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta4"
 
 ### Install from GitHub (preferred way)
 
-Extract the github archive file to a directory named `yii2-starter-kit` that is directly under the Web root.
-
-Or clone this repository to your Web root.
+Extract the github archive file or clone this repository.
 ```
 git clone https://github.com/trntv/yii2-starter-kit.git
 ```
@@ -109,30 +107,36 @@ CONFIGURATION
 
 ### Environments 
 All configuration files are in `config` directories in each application
-Environment specific configuration files are in `environments/some-environment`
+Environment specific configuration files are in `environments/some-environment` directory
 
-`environments/-some environment-/_local-templates` folder contains config templates that will be used in initialization process. 
-So your can easily change them to fit your needs on specific environment. They are stored under the git. 
+`environments/-some environment-/_init` folder contains config templates that will be used in initialization process. 
+So your can easily change them to fit your needs on specific environment. They are stored under the VCS. 
 
 Application resolves current environment by `YII ENV` environment variable.
-You should set it in your server config or change `web/index.php` file
+You should set it in your server config or change `web/index.php` file.
+Default environment is `dev`.
 
-Environment by default for console applications is `dev`. You can change it by setting environment variable ``YII_ENV``
+For console application, you can change current environment by setting ``YII_ENV`` variable
 
 ```export YII_ENV=prod && php ./path/to/yii controller/action```
 
 ### Web Server
+
+You should configure web server with three different web roots:
+
+`example.com` => `path/to/yii2-starter-kit/frontend/web`
+
+`backend.example.com` => `path/to/yii2-starter-kit/backend/web`
+
+`storage.example.com` => `path/to/yii2-starter-kit/storage`
+
 Application resolves current environment by `YII ENV` environment variable.
-You should set it in your server config or change `web/index.php` files
+You can set it in your server config or in `web/index.php` file.
 
-Preferable web server for me (personally) is nginx. So there is a `nginx.conf` with an example config. You can use it or even create 
-a copy called `nginx-local.conf` and make a symlink:
-```
-ln -s /path/to/environments/-some environment-/nginx-local.conf
-```
-
+**NOTE:** Preferable web server for me is nginx, so there is a `nginx.conf` file with an example nginx config.
+  
 ### Database
-
+Default environment is `dev`.
 Edit the file `environments/dev/common/config/base-local.php` with real data, for example:
 
 ```php

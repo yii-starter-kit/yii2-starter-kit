@@ -4,7 +4,7 @@ body > .header .logo {
 body > .header .navbar .nav > li > a > .badge {
   position: absolute;
   top: 4px;
-  right: 0px;
+  right: 0;
   font-size: 75%;
 }
 body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon,
@@ -12,4 +12,7 @@ body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .f
 body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion {
   background: none;
   color: inherit;
+}
+body .user-panel > .info {
+  padding-left: 10px;
 }

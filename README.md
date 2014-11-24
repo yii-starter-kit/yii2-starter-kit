@@ -214,15 +214,12 @@ Remove Yii::t from code
 ``yii message/replace-source-language @path``
 
 ### Many more useful components
-``console\controllers\MessageMigrateController``
-
-``common\behaviors\GlobalAccessController``
-
-``common\validators\JsonValidator``
-
-Datetimepicker Widget - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
-
-...
+- ``common\behaviors\GlobalAccessBeahvior``
+- ``common\validators\JsonValidator``
+- Datetimepicker - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
+- Ace Editor - (https://github.com/trntv/yii2-aceeditor)
+- ElFinder - (https://github.com/MihailDev/yii2-elfinder)
+- ...
 
 OTHER
 -----

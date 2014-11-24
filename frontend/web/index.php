@@ -20,9 +20,6 @@ if(file_exists(__DIR__ . '/../../environments/'.$environment->getEnv().'/bootstr
     throw new \Exception('You\'ve probably forgot to init application');
 }
 
-$a = YII_ENV_DEV;
-
-
 $config = \yii\helpers\ArrayHelper::merge(
     // Common
     require(__DIR__ . '/../../common/config/base.php'),

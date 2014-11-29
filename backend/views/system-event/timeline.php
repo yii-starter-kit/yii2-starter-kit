@@ -16,14 +16,14 @@ $icons = [
             <ul class="timeline">
                 <?php $date = null; ?>
                 <?php foreach($dataProvider->getModels() as $model): ?>
-                    <?php if(!$date || $date->format(Yii::$app->formatter->dateFormat) != (new DateTime($model->created_at))->format(Yii::$app->formatter->dateFormat)): ?>
+                    <?php if(!$date || $date != Yii::$app->formatter->asDate($model->created_at)): ?>
                         <!-- timeline time label -->
                         <li class="time-label">
                             <span class="bg-blue">
                                 <?= Yii::$app->formatter->asDate($model->created_at) ?>
                             </span>
                         </li>
-                        <?php $date = new DateTime('@'.$model->created_at) ?>
+                        <?php $date = Yii::$app->formatter->asDate($model->created_at) ?>
                     <?php endif; ?>
                     <li>
                         <!-- timeline icon -->

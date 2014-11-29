@@ -250,6 +250,7 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at'=>$this->created_at
         ]);
         $profile = new UserProfile();
+        $profile->locale = Yii::$app->language;
         $this->link('profile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
     }

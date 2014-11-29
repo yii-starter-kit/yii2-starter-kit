@@ -4,6 +4,8 @@ Yii Framework 2 Change Log
 1.5.0 under development
 -----------------------
 ...
+- Enh: common\components\behaviors\CacheInvalidateBehavior
+- ... Fixes ...
 
 1.4.1
 -----

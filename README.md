@@ -3,6 +3,7 @@ Yii 2 Starter Kit
 This is Yii2 start application template.
 
 It was created and developing as a fast start for building an advanced sites based on Yii2. 
+
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 
@@ -20,6 +21,7 @@ FEATURES
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
 - Key-value storage component
+- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
 - Yii2 log web interface
 - Application events component
 - System information web interface
@@ -213,9 +215,35 @@ Replace source code language:
 Remove Yii::t from code
 ``yii message/replace-source-language @path``
 
+### Behaviors
+`common\components\behaviors\CacheInvalidateBehavior`
+```php
+ public function behaviors()
+ {
+     return [
+         [
+             'class' => CacheInvalidateBehavior::className(),
+             'tags' => [
+                  'awesomeTag',
+                   function($model){
+                       return "tag-{$model->id}"
+                  }
+              ],
+             'keys' => [
+                  'awesomeKey',
+                  function($model){
+                      return "key-{$model->id}"
+                  }
+              ]
+         ],
+     ];
+ }
+```
+
+
 ### Many more useful components
-- ``common\behaviors\GlobalAccessBeahvior``
-- ``common\validators\JsonValidator``
+- ``common\components\behaviors\GlobalAccessBeahvior``
+- ``common\components\validators\JsonValidator``
 - Datetimepicker - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - Ace Editor - (https://github.com/trntv/yii2-aceeditor)
 - ElFinder - (https://github.com/MihailDev/yii2-elfinder)

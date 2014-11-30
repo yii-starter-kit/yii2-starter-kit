@@ -12,11 +12,11 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'alias')->textInput(['maxlength' => 1024]) ?>
+    <?= $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
-    <?= $form->field($model, 'config', ['enableClientValidation'=>false])->widget(
+    <?= $form->field($model, 'items')->widget(
         trntv\aceeditor\AceEditor::className(),
         [
             'mode' => 'json',

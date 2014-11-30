@@ -10,9 +10,10 @@ It covers typical use cases for a new project and will help you not to waste you
 FEATURES
 --------
 - Based on yii2-advanced application template
-- Beautiful and opensource dashboard theme for backend (http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend (http://almsaeedstudio.com/AdminLTE)
 - I18N + 2 translations: Ukrainian, Russian
 - I18N DbMessageSource CRUD module
+- Language change action + behavior to choose locale based on browser preferred language 
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization
@@ -216,13 +217,13 @@ Remove Yii::t from code
 ``yii message/replace-source-language @path``
 
 ### Behaviors
-`common\components\behaviors\CacheInvalidateBehavior`
+#### CacheInvalidateBehavior
 ```php
  public function behaviors()
  {
      return [
          [
-             'class' => CacheInvalidateBehavior::className(),
+             'class' => `common\components\behaviors\CacheInvalidateBehavior`,
              'tags' => [
                   'awesomeTag',
                    function($model){
@@ -239,15 +240,34 @@ Remove Yii::t from code
      ];
  }
 ```
+#### GlobalAccessBehavior
+usage example in `backend\config\web.php`
 
+### Widgets configurable from backend
+#### Carousel
+...
 
-### Many more useful components
-- ``common\components\behaviors\GlobalAccessBeahvior``
-- ``common\components\validators\JsonValidator``
+#### DbText
+...
+
+#### DbMenu
+```php
+echo common\components\widgets\DbMenu::widget([
+      'key'=>'stored-menu-key',
+      /* any other option from \yii\widgets\Menu */ 
+])
+``` 
+
+### Input widgets
+- WYSIWYG Redactor widget (https://github.com/asofter/yii2-imperavi-redactor)  
 - Datetimepicker - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - Ace Editor - (https://github.com/trntv/yii2-aceeditor)
+
+### Many more useful components
+- ``common\components\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config
+- ``common\components\validators\JsonValidator`` validates a value to be a valid json
 - ElFinder - (https://github.com/MihailDev/yii2-elfinder)
-- ...
+- RBAC OwnModelRule - simple rule to check if the current user is model owner
 
 OTHER
 -----

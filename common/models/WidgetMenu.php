@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\behaviors\CacheInvalidateBehavior;
 use common\components\validators\JsonValidator;
 use Yii;
 
@@ -9,9 +10,9 @@ use Yii;
  * This is the model class for table "widget_menu".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $key
  * @property string $title
- * @property string $config
+ * @property string $items
  * @property integer $status
  */
 class WidgetMenu extends \yii\db\ActiveRecord
@@ -27,18 +28,35 @@ class WidgetMenu extends \yii\db\ActiveRecord
         return '{{%widget_menu}}';
     }
 
+    public function behaviors()
+    {
+        return [
+            'cacheInvalidate'=>[
+                'class'=>CacheInvalidateBehavior::className(),
+                'keys'=>[
+                    function($model){
+                        return [
+                            get_class($model),
+                            $model->key
+                        ];
+                    }
+                ]
+            ]
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['alias', 'title', 'config'], 'required'],
-            [['alias'], 'unique'],
-            [['config'], JsonValidator::className()],
+            [['key', 'title', 'items'], 'required'],
+            [['key'], 'unique'],
+            [['items'], JsonValidator::className()],
             [['status'], 'integer'],
-            [['alias'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            [['key'], 'string', 'max' => 32],
+            [['title'], 'string', 'max' => 255]
         ];
     }
 
@@ -49,15 +67,10 @@ class WidgetMenu extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'key' => Yii::t('common', 'Key'),
             'title' => Yii::t('common', 'Title'),
-            'config' => Yii::t('common', 'Config'),
+            'items' => Yii::t('common', 'Config'),
             'status' => Yii::t('common', 'Status'),
         ];
-    }
-
-    public static function getConfigByAlias($alias){
-        $model = self::findOne(['alias'=>$alias]);
-        return $model && @json_decode($model->config) ? @json_decode($model->config) : [];
     }
 }

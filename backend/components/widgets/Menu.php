@@ -6,7 +6,7 @@
  * Time: 11:16 AM
  */
 
-namespace common\components\widgets\menu;
+namespace backend\components\widgets;
 
 
 use frontend\models\WidgetMenu;
@@ -14,15 +14,37 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-class MenuWidget extends \yii\widgets\Menu{
+/**
+ * Class Menu
+ * @package backend\components\widget
+ */
+class Menu extends \yii\widgets\Menu{
 
+    /**
+     * @var string
+     */
     public $linkTemplate = "<a href=\"{url}\">\n{icon}\n{label}\n{right-icon}\n{badge}</a>";
+    /**
+     * @var string
+     */
     public $labelTemplate = '{icon}\n{label}\n{badge}';
 
+    /**
+     * @var string
+     */
     public $badgeTag = 'small';
+    /**
+     * @var string
+     */
     public $badgeClass = 'badge pull-right';
+    /**
+     * @var string
+     */
     public $badgeBgClass = 'bg-green';
 
+    /**
+     * @var string
+     */
     public $parentRightIcon = '<i class="fa fa-angle-left pull-right"></i>';
 
     /**

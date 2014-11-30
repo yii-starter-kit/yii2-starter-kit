@@ -19,7 +19,7 @@ class WidgetMenuSearch extends WidgetMenu
     {
         return [
             [['id', 'status'], 'integer'],
-            [['alias', 'title', 'config'], 'safe'],
+            [['key', 'title', 'items'], 'safe'],
         ];
     }
 
@@ -53,9 +53,9 @@ class WidgetMenuSearch extends WidgetMenu
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'alias', $this->alias])
+        $query->andFilterWhere(['like', 'key', $this->key])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'menu', $this->menu]);
+            ->andFilterWhere(['like', 'items', $this->items]);
 
         return $dataProvider;
     }

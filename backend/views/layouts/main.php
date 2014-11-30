@@ -136,7 +136,7 @@ use yii\widgets\Breadcrumbs;
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <?= \common\components\widgets\menu\MenuWidget::widget([
+            <?= backend\components\widgets\Menu::widget([
                 'options'=>['class'=>'sidebar-menu'],
                 'labelTemplate' => '<a href="#">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',

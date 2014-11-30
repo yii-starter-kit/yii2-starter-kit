@@ -3,6 +3,7 @@ return [
     'components'=>[
         'cache' => [
             'class' => 'yii\caching\FileCache',
+            'cachePath' => '@common/runtime/cache'
         ],
         'db' => [
             'class' => 'yii\db\Connection',

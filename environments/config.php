@@ -30,6 +30,7 @@ return [
         'path' => 'dev/_init',
         'configPath' => 'environments/dev',
         'setWritable' => [
+            'common/runtime',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -50,6 +51,7 @@ return [
         'path' => 'prod/_init',
         'configPath' => 'environments/prod',
         'setWritable' => [
+            'common/runtime',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',

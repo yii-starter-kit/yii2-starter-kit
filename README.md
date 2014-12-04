@@ -31,6 +31,7 @@ FEATURES
 - Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 
 - Elfinder Extension (http://elfinder.org, https://github.com/MihailDev/yii2-elfinder)
 - Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
+- Extended IDE autocompletion
 - Nginx config example
 - many other features i'm lazy to write about :-)
 

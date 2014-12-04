@@ -3,6 +3,7 @@ Yii Framework 2 Change Log
 
 1.5.0 under development
 -----------------------
+- Chng #52: Bower requirements was moved to composer
 - Fix: Autocompletion support
 - Enh: FileCache now uses same path for all applications
 - Enh: common\components\behaviors\CacheInvalidateBehavior

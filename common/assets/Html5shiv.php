@@ -12,7 +12,7 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class Html5shiv extends AssetBundle{
-    public $sourcePath = '@common/assets/bower/html5shiv';
+    public $sourcePath = '@bower/html5shiv';
     public $js = [
         'dist/html5shiv.min.js'
     ];

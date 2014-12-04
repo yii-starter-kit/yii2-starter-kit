@@ -28,7 +28,11 @@
         "trntv/yii2-aceeditor": "*",
         "trntv/systeminfo": "*",
         "trntv/yii2-file-kit": "*",
-        "trntv/yii2-bootstrap-datetimepicker": "dev-master"
+        "trntv/yii2-bootstrap-datetimepicker": "dev-master",
+        "bower-asset/admin-lte": "~1.0",
+        "bower-asset/font-awesome": "~4.0",
+        "bower-asset/html5shiv": "~3.0",
+        "bower-asset/flot": "~0.8"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",

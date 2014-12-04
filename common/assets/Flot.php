@@ -12,13 +12,12 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class Flot extends AssetBundle{
-    public $sourcePath = '@common/assets/bower/flot';
+    public $sourcePath = '@bower/flot';
     public $js = [
         'jquery.flot.js'
     ];
 
     public $depends = [
-        '\yii\web\JqueryAsset',
-        '\common\assets\Excanvas'
+        '\yii\web\JqueryAsset'
     ];
 } 

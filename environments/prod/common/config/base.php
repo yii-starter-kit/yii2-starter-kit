@@ -17,5 +17,16 @@ return [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false
         ],
+
+        /*'log'=>[
+            'targets'=>[
+                'email' => [
+                    'class' => 'yii\log\EmailTarget',
+                    'except' => ['yii\web\HttpException:404'],
+                    'levels' => ['error', 'warning'],
+                    'message' => ['from' => 'robot@example.com', 'to' => 'admin@example.com'],
+                ]
+            ]
+        ]*/
     ]
 ];

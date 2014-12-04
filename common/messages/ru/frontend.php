@@ -43,7 +43,7 @@ return [
     'Profile' => 'Профиль',
     'Sign up with' => 'Создать аккаунт с помощью',
     'Signup' => 'Регистрация',
-    'Sorry, we are unable to reset password for email provided.' => 'Извините, мы не может сбросить пароль для этого e-mail.',
+    'Sorry, we are unable to reset password for email provided.' => 'Извините, мы не можем сбросить пароль для этого e-mail.',
     'This email address has already been taken.' => 'Этот e-mail уже занят',
     'This username has already been taken.' => 'Это имя пользователя уже занято',
     'Update' => 'Редактировать',

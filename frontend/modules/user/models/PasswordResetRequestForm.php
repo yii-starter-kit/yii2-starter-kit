@@ -54,4 +54,11 @@ class PasswordResetRequestForm extends Model
 
         return false;
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'email'=>\Yii::t('frontend', 'E-mail')
+        ];
+    }
 }

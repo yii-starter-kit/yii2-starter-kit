@@ -137,8 +137,10 @@ class SignInController extends \yii\web\Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->getSession()->setFlash('success', Yii::t('frontend', 'New password was saved.'));
-
+            Yii::$app->getSession()->setFlash('alert', [
+                'body'=> Yii::t('frontend', 'New password was saved.'),
+                'options'=>['class'=>'success']
+            ]);
             return $this->goHome();
         }
 

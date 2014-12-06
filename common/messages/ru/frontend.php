@@ -17,9 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'If you forgot your password you can reset it <a href="{link}">here</a>' => '',
-    'Request password reset' => '',
-    'Reset password' => '',
+    'Confirm Password' => 'Подтвердите пароль',
+    'E-mail' => 'E-mail',
+    'If you forgot your password you can reset it <a href="{link}">here</a>' => 'Если вы забыли пароль, вы можете сбросить его <a href="{link}">здесь</a>',
+    'Need an account? Sign up.' => 'Нужен аккаунт? Зарегистрируйтесь',
+    'Remember Me' => 'Запомнить меня',
+    'Request password reset' => 'Запрос сброса пароля',
+    'Reset password' => 'Сброс пароля',
     'About' => 'О нас',
     'Account' => 'Аккаунт',
     'Articles' => 'Статьи',

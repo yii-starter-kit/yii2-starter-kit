@@ -14,7 +14,7 @@ class m140703_123000_user extends Migration
 
         $this->createTable('{{%user}}', [
             'id' => Schema::TYPE_PK,
-            'username' => Schema::TYPE_STRING . ' NOT NULL',
+            'username' => Schema::TYPE_STRING . '(32)',
             'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
             'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
             'password_reset_token' => Schema::TYPE_STRING,

@@ -34,4 +34,13 @@ class AccountForm extends Model
 
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'username'=>\Yii::t('frontend', 'Username'),
+            'password'=>\Yii::t('frontend', 'Password'),
+            'password_confirm'=>\Yii::t('frontend', 'Confirm Password')
+        ];
+    }
 }

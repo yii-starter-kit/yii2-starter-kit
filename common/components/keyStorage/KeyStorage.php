@@ -66,12 +66,9 @@ class KeyStorage extends Component{
     public function get($key, $default = null, $cache = true){
         if($cache){
             $cacheKey = sprintf('%s.%s', $this->cachePrefix, $key);
-            $value = ArrayHelper::getValue($this->_values, $key, false)
-                ? ArrayHelper::getValue($this->_values, $key, false)
-                : $value = \Yii::$app->cache->get($cacheKey);
+            $value = ArrayHelper::getValue($this->_values, $key, false) ?: \Yii::$app->cache->get($cacheKey);
             if($value === false){
-                $model = $this->getModel($key);
-                if($model){
+                if($model = $this->getModel($key)){
                     $value = $model->value;
                     $this->_values[$key] = $value;
                     \Yii::$app->cache->set($cacheKey, $value, $this->cachingDuration);

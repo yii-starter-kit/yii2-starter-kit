@@ -41,6 +41,7 @@ return  [
         '.hgkeep',
         '/messages',
         '/vendor',
-        '/storage'
+        '/storage',
+        '/tests'
     ],
 ];

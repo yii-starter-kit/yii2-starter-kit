@@ -36,6 +36,7 @@ class LoginForm extends Model
         return [
             'identity'=>\Yii::t('frontend', 'Username or email'),
             'password'=>\Yii::t('frontend', 'Password'),
+            'rememberMe'=>\Yii::t('frontend', 'Remember Me'),
         ];
     }
 

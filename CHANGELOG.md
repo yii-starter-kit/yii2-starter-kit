@@ -3,6 +3,7 @@ Yii Framework 2 Change Log
 
 1.5.0 under development
 -----------------------
+- Enh: autocomplete now supports urlManagerFrontend and urlManagerBackend
 - Enh #55: `components\grid\EnumColumn` for GridView
 - Chng #52: Bower requirements was moved to composer
 - Fix: Many `frontend/modules/user` fixes

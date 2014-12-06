@@ -19,6 +19,8 @@ class Yii extends \yii\BaseYii
  *
  * @property \trntv\filekit\storage\FileStorage $fileStorage The auth manager for this application. Null is returned if auth manager is not configured. This property is read-only. Extended component.
  * @property common\components\keyStorage\KeyStorage $keyStorage The auth manager for this application. Null is returned if auth manager is not configured. This property is read-only. Extended component.
+ * @property yii\web\UrlManager $urlManagerFrontend UrlManager for frontend application.
+ * @property yii\web\UrlManager $urlManagerBackend UrlManager for backend application.
  */
 abstract class BaseApplication extends yii\base\Application
 {

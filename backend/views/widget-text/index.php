@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\\models\search\TextBlockSearch */
+/* @var $searchModel \backend\models\search\WidgetTextSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Text Blocks');
@@ -29,7 +29,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'alias',
             'title',
-            'status',
+            [
+                'class'=>\common\components\grid\EnumColumn::className(),
+                'attribute'=>'status',
+                'enum'=>[
+                    \Yii::t('backend', 'Disabled'),
+                    \Yii::t('backend', 'Enabled')
+                ],
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',

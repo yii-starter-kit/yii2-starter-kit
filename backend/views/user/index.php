@@ -29,12 +29,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             'email:email',
             [
+                'class'=>\common\components\grid\EnumColumn::className(),
                 'attribute'=>'role',
-                'value'=>function($model){
-                    return User::getRoles($model->role);
-                }
+                'enum'=>User::getRoles(),
+                'filter'=>User::getRoles()
             ],
-            'status',
+            [
+                'class'=>\common\components\grid\EnumColumn::className(),
+                'attribute'=>'status',
+                'enum'=>User::getStatuses(),
+                'filter'=>User::getStatuses()
+            ],
             'created_at:datetime',
             // 'updated_at',
 

@@ -3,7 +3,9 @@ Yii Framework 2 Change Log
 
 1.5.0 under development
 -----------------------
+- Enh #55: `components\grid\EnumColumn` for GridView
 - Chng #52: Bower requirements was moved to composer
+- Fix: Many `frontend/modules/user` fixes
 - Fix: Autocompletion support
 - Enh: FileCache now uses same path for all applications
 - Enh: common\components\behaviors\CacheInvalidateBehavior

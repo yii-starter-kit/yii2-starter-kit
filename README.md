@@ -184,7 +184,7 @@ Password: webmaster
 ~~~
 
 COMPONENTS
--------------
+----------
 ### I18N
 If you want to store application messages in DB and to have ability to edit them from backend, run:
 ```php
@@ -263,6 +263,16 @@ echo common\components\widgets\DbMenu::widget([
 - WYSIWYG Redactor widget (https://github.com/asofter/yii2-imperavi-redactor)  
 - Datetimepicker - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - Ace Editor - (https://github.com/trntv/yii2-aceeditor)
+
+### Grid
+#### EnumColumn
+```php
+ [
+      'class'=>'\common\components\grid\EnumColumn',
+      'attribute'=>'status',
+      'enum'=>User::getStatuses() // [0=>'Deleted', 1=>'Active']
+ ]
+```
 
 ### Many more useful components
 - ``common\components\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config

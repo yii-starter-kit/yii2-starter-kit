@@ -30,6 +30,13 @@ class m140709_173333_widget_text extends Migration
             'created_at'=> time(),
             'updated_at'=> time(),
         ]);
+
+        if ($this->db->driverName === 'mysql') {
+            $this->createIndex('idx_widget_text_alias', '{{%widget_text}}', 'alias');
+
+            //cache invalidation will use MAX(updated_at)
+            $this->createIndex('idx_widget_text_updated_at', '{{%widget_text}}', 'updated_at');
+        }
     }
 
     public function down()

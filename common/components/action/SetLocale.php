@@ -7,6 +7,7 @@ namespace common\components\action;
 
 use yii\base\Action;
 use yii\base\InvalidParamException;
+use Yii;
 
 /**
  * Class SetLocale
@@ -44,13 +45,13 @@ class SetLocale extends Action
         if(is_array($this->locales) && !in_array($locale, $this->locales)){
             throw new InvalidParamException('Unacceptable locale');
         }
-        \Yii::$app->session->set($this->localeSessionKey, $locale);
+        Yii::$app->session->set($this->localeSessionKey, $locale);
         if($this->callback && $this->callback instanceof \Closure){
             return call_user_func_array($this->callback, [
                 $this,
                 $locale
             ]);
         }
-        return \Yii::$app->response->redirect(\Yii::$app->request->referrer ?: \Yii::$app->homeUrl);
+        return Yii::$app->response->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
-} 
+}

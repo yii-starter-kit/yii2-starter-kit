@@ -10,6 +10,7 @@ namespace common\components\keyStorage;
 
 use yii\base\Component;
 use yii\helpers\ArrayHelper;
+use Yii;
 
 /**
  * Class KeyStorage
@@ -66,12 +67,12 @@ class KeyStorage extends Component{
     public function get($key, $default = null, $cache = true){
         if($cache){
             $cacheKey = sprintf('%s.%s', $this->cachePrefix, $key);
-            $value = ArrayHelper::getValue($this->_values, $key, false) ?: \Yii::$app->cache->get($cacheKey);
+            $value = ArrayHelper::getValue($this->_values, $key, false) ?: Yii::$app->cache->get($cacheKey);
             if($value === false){
                 if($model = $this->getModel($key)){
                     $value = $model->value;
                     $this->_values[$key] = $value;
-                    \Yii::$app->cache->set($cacheKey, $value, $this->cachingDuration);
+                    Yii::$app->cache->set($cacheKey, $value, $this->cachingDuration);
                 } else {
                     $value = $default;
                 }

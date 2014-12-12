@@ -17,7 +17,7 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
     <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-        \common\models\ArticleCategory::find()->where(['status'=>\common\models\ArticleCategory::STATUS_ACTIVE])->all(),
+        $categories,
         'id',
         'title'
     ), ['prompt'=>'']) ?>

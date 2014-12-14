@@ -67,6 +67,7 @@ class ArticleCategoryController extends Controller
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'categories' => ArticleCategory::find()->noParents()->all(),
             ]);
         }
     }
@@ -86,6 +87,7 @@ class ArticleCategoryController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => ArticleCategory::find()->noParents()->all(),
             ]);
         }
     }

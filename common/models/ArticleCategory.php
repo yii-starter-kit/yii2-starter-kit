@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\models\query\ArticleCategoryQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -28,6 +29,14 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%article_category}}';
+    }
+
+    /**
+     * @return ArticleCategoryQuery
+     */
+    public static function find()
+    {
+        return new ArticleCategoryQuery(get_called_class());
     }
 
     public function behaviors()

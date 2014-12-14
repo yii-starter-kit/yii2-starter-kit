@@ -1,7 +1,7 @@
 <?php
 /**
  * @var $this yii\web\View
- * @var $model frontend\models\Article
+ * @var $model common\models\Article
  */
 $this->title = Yii::t('frontend', 'Articles')
 ?>

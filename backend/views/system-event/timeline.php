@@ -4,7 +4,7 @@
  * @var $model \common\models\SystemEvent
  * @var $dataProvider \yii\data\ActiveDataProvider
  */
-$this->title = \Yii::t('backend', 'Application timeline');
+$this->title = Yii::t('backend', 'Application timeline');
 $icons = [
     'user'=>'<i class="fa fa-user bg-blue"></i>'
 ];
@@ -58,7 +58,7 @@ $icons = [
                 </li>
             </ul>
         <?php else: ?>
-            <?php echo \Yii::t('backend', 'No events found') ?>
+            <?php echo Yii::t('backend', 'No events found') ?>
         <?php endif; ?>
     </div>
     <div class="col-md-12 text-center">

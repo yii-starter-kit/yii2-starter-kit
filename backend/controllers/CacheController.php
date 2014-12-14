@@ -57,7 +57,7 @@ class CacheController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function flushTag($id, $tag)
+    public function actionFlushTag($id, $tag)
     {
         //todo: Implement
     }

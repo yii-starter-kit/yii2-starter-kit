@@ -32,7 +32,8 @@
         "bower-asset/admin-lte": "~1.0",
         "bower-asset/font-awesome": "~4.0",
         "bower-asset/html5shiv": "~3.0",
-        "bower-asset/flot": "~0.8"
+        "bower-asset/flot": "~0.8",
+        "vlucas/phpdotenv": "~1.0@dev"
 	},
 	"require-dev": {
 		"yiisoft/yii2-debug": "*",

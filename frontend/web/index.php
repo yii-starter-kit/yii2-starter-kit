@@ -27,11 +27,8 @@ $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/web.php'),
     // Environment specific
     require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/base.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/base-local.php'),
     require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/web.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/web-local.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/frontend/config/web.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/frontend/config/web-local.php')
+    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/frontend/config/web.php')
 );
 
 (new yii\web\Application($config))->run();

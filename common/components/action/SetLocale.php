@@ -42,7 +42,7 @@ class SetLocale extends Action
 
     public function run($locale)
     {
-        if(is_array($this->locales) && !in_array($locale, $this->locales)){
+        if(!is_array($this->locales) || !in_array($locale, $this->locales)){
             throw new InvalidParamException('Unacceptable locale');
         }
         Yii::$app->session->set($this->localeSessionKey, $locale);

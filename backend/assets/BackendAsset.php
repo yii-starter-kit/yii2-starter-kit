@@ -12,11 +12,11 @@ namespace backend\assets;
 use yii\web\AssetBundle;
 
 class BackendAsset extends AssetBundle{
-    public $basePath = '/';
+    public $basePath = '@webroot';
     public $baseUrl = '@backendUrl';
 
     public $css = [
-        'css/style.css'
+        'css/style.less'
     ];
     public $js = [
         'js/app.js'

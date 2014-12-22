@@ -151,7 +151,7 @@ Edit the file `environments/dev/common/config/base-local.php` with real data, fo
         'password' => '1234',
         'charset' => 'utf8',
     ]
-];
+]
 ...
 ```
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.

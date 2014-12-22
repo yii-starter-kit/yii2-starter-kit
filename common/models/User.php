@@ -243,6 +243,9 @@ class User extends ActiveRecord implements IdentityInterface
         return $status ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 
+    /**
+     * Creates user profile and application event
+     */
     public function afterSignup(){
         SystemEvent::log('user', self::EVENT_AFTER_SIGNUP, [
             'username'=>$this->username,

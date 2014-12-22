@@ -4,7 +4,15 @@ $config = [
         'assetManager'=>[
             'class'=>'yii\web\AssetManager',
             'linkAssets'=>true,
-        ]
+            'converter' => [
+                'class' => 'yii\web\AssetConverter',
+                'forceConvert' => true,
+                'commands' => [
+                    'less' => ['css', 'lessc {from} {to} --no-color'],
+                    'ts' => ['js', 'tsc --out {to} {from}'],
+                ],
+            ],
+        ],
     ],
     'as locale'=>[
         'class'=>'common\components\behaviors\LocaleBehavior'

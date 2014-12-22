@@ -143,12 +143,14 @@ Edit the file `environments/dev/common/config/base-local.php` with real data, fo
 
 ```php
 ...
-'db' => [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
+'components'=>[
+    'db' => [
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit',
+        'username' => 'root',
+        'password' => '1234',
+        'charset' => 'utf8',
+    ]
 ];
 ...
 ```

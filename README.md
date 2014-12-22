@@ -25,6 +25,7 @@ FEATURES
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
 - Yii2 log web interface
 - Application events component
+- Web Cache Controller
 - System information web interface
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
 - Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 

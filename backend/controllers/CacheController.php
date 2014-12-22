@@ -7,59 +7,88 @@ namespace backend\controllers;
 
 use Yii;
 use yii\caching\Cache;
+use yii\caching\TagDependency;
 use yii\data\ArrayDataProvider;
 use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\HttpException;
 
+/**
+ * Class CacheController
+ * @package backend\controllers
+ */
 class CacheController extends Controller
 {
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'flush' => ['post']
-                ],
-            ],
-        ];
-    }
-
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
         $dataProvider = new ArrayDataProvider(['allModels'=>$this->findCaches()]);
         return $this->render('index', ['dataProvider'=>$dataProvider]);
     }
 
-    public function actionFlush($id, $key = false)
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws HttpException
+     */
+    public function actionFlushCache($id)
     {
-        /** @var \yii\caching\Cache $cache */
-        $cache = Yii::$app->get($id);
-        if(!in_array($id, array_keys($this->findCaches()))){
-            throw new HttpException(400, 'Given cache name is not a name of cache component');
-        }
-        if($key === false){
-            if($cache->flush()){
-                Yii::$app->session->setFlash('alert', [
-                    'body'=>\Yii::t('backend', 'Cache has been successfully flushed'),
-                    'options'=>['class'=>'alert-success']
-                ]);
-            };
-        } else {
-            if($cache->delete($key)){
-                Yii::$app->session->setFlash('alert', [
-                    'body'=>\Yii::t('backend', 'Value was successfully deleted'),
-                    'options'=>['class'=>'alert-success']
-                ]);
-            };
-        }
+        if($this->getCache($id)->flush()){
+            Yii::$app->session->setFlash('alert', [
+                'body'=>\Yii::t('backend', 'Cache has been successfully flushed'),
+                'options'=>['class'=>'alert-success']
+            ]);
+        };
         return $this->redirect(['index']);
     }
 
-    public function actionFlushTag($id, $tag)
+    /**
+     * @param $id
+     * @param $key
+     * @return \yii\web\Response
+     * @throws HttpException
+     */
+    public function actionFlushCacheKey($id, $key)
     {
-        //todo: Implement
+        if($this->getCache($id)->delete($key)){
+            Yii::$app->session->setFlash('alert', [
+                'body'=>\Yii::t('backend', 'Cache entry has been successfully deleted'),
+                'options'=>['class'=>'alert-success']
+            ]);
+        };
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $id
+     * @param $tag
+     * @return \yii\web\Response
+     * @throws HttpException
+     */
+    public function actionFlushCacheTag($id, $tag)
+    {
+        TagDependency::invalidate($this->getCache($id), $tag);
+        Yii::$app->session->setFlash('alert', [
+            'body'=>\Yii::t('backend', 'TagDependency was invalidated'),
+            'options'=>['class'=>'alert-success']
+        ]);
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $id
+     * @return \yii\caching\Cache|null
+     * @throws HttpException
+     * @throws \yii\base\InvalidConfigException
+     */
+    protected function getCache($id)
+    {
+        if(!in_array($id, array_keys($this->findCaches()))){
+            throw new HttpException(400, 'Given cache name is not a name of cache component');
+        }
+        return Yii::$app->get($id);
     }
 
     /**

@@ -23,7 +23,7 @@ class AccountForm extends Model
             ['username', 'required'],
             ['username', 'unique',
                 'targetClass'=>'\common\models\User',
-                'message' => \Yii::t('frontend', 'This username has already been taken.'),
+                'message' => Yii::t('frontend', 'This username has already been taken.'),
                 'filter'=>function($query){
                     $query->andWhere(['not', ['id'=>Yii::$app->user->id]]);
                 }
@@ -38,9 +38,9 @@ class AccountForm extends Model
     public function attributeLabels()
     {
         return [
-            'username'=>\Yii::t('frontend', 'Username'),
-            'password'=>\Yii::t('frontend', 'Password'),
-            'password_confirm'=>\Yii::t('frontend', 'Confirm Password')
+            'username'=>Yii::t('frontend', 'Username'),
+            'password'=>Yii::t('frontend', 'Password'),
+            'password_confirm'=>Yii::t('frontend', 'Confirm Password')
         ];
     }
 }

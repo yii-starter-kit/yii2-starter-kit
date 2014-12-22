@@ -103,7 +103,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
      */
     public function actionMigrate($inputConfigFile, $outputConfigFile)
     {
-        $inputConfigFile = \Yii::getAlias($inputConfigFile);
+        $inputConfigFile = Yii::getAlias($inputConfigFile);
         if (!is_file($inputConfigFile)) {
             throw new \Exception("The configuration file does not exist: $inputConfigFile");
         }
@@ -131,7 +131,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
         }
 
         if($this->confirm('All existing messages in the output source will be removed. Proceed?')){
-            $outputConfigFile = \Yii::getAlias($outputConfigFile);
+            $outputConfigFile = Yii::getAlias($outputConfigFile);
             if (!is_file($outputConfigFile)) {
                 throw new \Exception("The configuration file does not exist: $outputConfigFile");
             }
@@ -168,7 +168,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
     {
         $messages = [];
         foreach($config['languages'] as $language){
-            $messagePath = \Yii::getAlias("$config[messagePath]/$language");
+            $messagePath = Yii::getAlias("$config[messagePath]/$language");
             $files = FileHelper::findFiles(FileHelper::normalizePath($messagePath));
             foreach($files as $file){
                 $category = pathinfo($file, PATHINFO_FILENAME);
@@ -187,7 +187,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
     protected function readFromDbInput($config)
     {
         $messages = [];
-        $db = \Yii::$app->get(isset($config['db']) ? $config['db'] : 'db');
+        $db = Yii::$app->get(isset($config['db']) ? $config['db'] : 'db');
         $sourceMessageTable = isset($config['sourceMessageTable']) ? $config['sourceMessageTable'] : '{{%source_message}}';
         $messageTable = isset($config['messageTable']) ? $config['messageTable'] : '{{%message}}';
         if (!$db instanceof \yii\db\Connection) {
@@ -226,7 +226,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
      */
     protected function saveToDbOutput($messages, $config)
     {
-        $db = \Yii::$app->get(isset($config['db']) ? $config['db'] : 'db');
+        $db = Yii::$app->get(isset($config['db']) ? $config['db'] : 'db');
         $sourceMessageTable = isset($config['sourceMessageTable']) ? $config['sourceMessageTable'] : '{{%source_message}}';
         $messageTable = isset($config['messageTable']) ? $config['messageTable'] : '{{%message}}';
         if (!$db instanceof \yii\db\Connection) {
@@ -267,7 +267,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
      */
     protected function saveToPhpOutput($messages, $config){
         foreach($messages as $language => $categories){
-            $dirName = FileHelper::normalizePath(\Yii::getAlias($config['messagePath'].'/'.$language));
+            $dirName = FileHelper::normalizePath(Yii::getAlias($config['messagePath'].'/'.$language));
             FileHelper::createDirectory($dirName);
             Console::output("Language: $language");
             foreach($categories as $category => $msgs){

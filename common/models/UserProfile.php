@@ -64,7 +64,7 @@ class UserProfile extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
-        \Yii::$app->session->setFlash('forceUpdateLocale');
+        Yii::$app->session->setFlash('forceUpdateLocale');
     }
 
     /**

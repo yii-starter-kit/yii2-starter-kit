@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use Yii;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArticleSearch */
@@ -45,8 +46,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class'=>\common\components\grid\EnumColumn::className(),
                 'attribute'=>'status',
                 'enum'=>[
-                    \Yii::t('backend', 'Disabled'),
-                    \Yii::t('backend', 'Enabled')
+                    Yii::t('backend', 'Disabled'),
+                    Yii::t('backend', 'Enabled')
                 ],
             ],
             'published_at:datetime',

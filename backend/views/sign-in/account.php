@@ -6,7 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\UserProfile */
 /* @var $form yii\bootstrap\ActiveForm */
-$this->title = \Yii::t('backend', 'Edit account')
+$this->title = Yii::t('backend', 'Edit account')
 ?>
 
 <div class="user-profile-form">

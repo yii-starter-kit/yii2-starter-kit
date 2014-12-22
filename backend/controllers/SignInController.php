@@ -35,12 +35,12 @@ class SignInController extends Controller{
     public function actionLogin()
     {
         $this->layout = '_base';
-        if (!\Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
-        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             return $this->render('login', [
@@ -51,7 +51,7 @@ class SignInController extends Controller{
 
     public function actionLogout()
     {
-        \Yii::$app->user->logout();
+        Yii::$app->user->logout();
         return $this->goHome();
     }
 
@@ -85,4 +85,4 @@ class SignInController extends Controller{
         return $this->render('account', ['model'=>$model]);
     }
 
-} 
+}

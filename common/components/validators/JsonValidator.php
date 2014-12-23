@@ -28,4 +28,11 @@ class JsonValidator extends Validator{
             return [$this->message, []];
         }
     }
+
+    public function clientValidateAttribute($model, $attribute, $view)
+    {
+        return null;
+    }
+
+
 }

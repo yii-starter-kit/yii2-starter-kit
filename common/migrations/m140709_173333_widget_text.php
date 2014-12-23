@@ -14,7 +14,7 @@ class m140709_173333_widget_text extends Migration
 
         $this->createTable('{{%widget_text}}', [
             'id' => Schema::TYPE_PK,
-            'alias' => Schema::TYPE_STRING . '(1024) NOT NULL',
+            'alias' => Schema::TYPE_STRING . '(255) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT . ' NOT NULL',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 0',
@@ -31,12 +31,7 @@ class m140709_173333_widget_text extends Migration
             'updated_at'=> time(),
         ]);
 
-        if ($this->db->driverName === 'mysql') {
-            $this->createIndex('idx_widget_text_alias', '{{%widget_text}}', 'alias');
-
-            //cache invalidation will use MAX(updated_at)
-            $this->createIndex('idx_widget_text_updated_at', '{{%widget_text}}', 'updated_at');
-        }
+        $this->createIndex('idx_widget_text_alias', '{{%widget_text}}', 'alias');
     }
 
     public function down()

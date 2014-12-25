@@ -14,7 +14,6 @@ use yii\helpers\Html;
 
     <?php echo $form->errorSummary($model) ?>
 
-    <?php var_dump($model->path) ?>
     <?= $form->field($model, 'path')->widget(
         \trntv\filekit\widget\SingleFileUpload::className(),
         [

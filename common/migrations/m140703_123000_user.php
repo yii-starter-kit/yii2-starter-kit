@@ -62,7 +62,7 @@ class m140703_123000_user extends Migration
         ]);
 
         $this->createTable('{{%user_profile}}', [
-            'user_id' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'user_id' => Schema::TYPE_PK,
             'firstname' => Schema::TYPE_STRING . '(255) ',
             'middlename' => Schema::TYPE_STRING . '(255) ',
             'lastname' => Schema::TYPE_STRING . '(255) ',
@@ -84,8 +84,6 @@ class m140703_123000_user extends Migration
             'locale'=>Yii::$app->sourceLanguage
         ]);
         if ($this->db->driverName === 'mysql') {
-            $this->addPrimaryKey('pk_user_id', '{{%user_profile}}', 'user_id');
-            $this->createIndex('idx_user_id', '{{%user_profile}}', 'user_id');
             $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');
         }
 

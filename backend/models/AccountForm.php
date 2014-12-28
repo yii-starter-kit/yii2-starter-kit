@@ -23,7 +23,7 @@ class AccountForm extends Model
             ['username', 'required'],
             ['username', 'unique',
                 'targetClass'=>'\common\models\User',
-                'message' => \Yii::t('frontend', 'This username has already been taken.'),
+                'message' => Yii::t('frontend', 'This username has already been taken.'),
                 'filter'=>function($query){
                     $query->andWhere(['not', ['id'=>Yii::$app->user->id]]);
                 }

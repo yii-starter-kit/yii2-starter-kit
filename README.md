@@ -25,6 +25,7 @@ FEATURES
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
 - Yii2 log web interface
 - Application events component
+- Web Cache Controller
 - System information web interface
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
 - Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 
@@ -143,13 +144,15 @@ Edit the file `environments/dev/common/config/base-local.php` with real data, fo
 
 ```php
 ...
-'db' => [
-    'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit',
-    'username' => 'root',
-    'password' => '1234',
-    'charset' => 'utf8',
-];
+'components'=>[
+    'db' => [
+        'class' => 'yii\db\Connection',
+        'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit',
+        'username' => 'root',
+        'password' => '1234',
+        'charset' => 'utf8',
+    ]
+]
 ...
 ```
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.

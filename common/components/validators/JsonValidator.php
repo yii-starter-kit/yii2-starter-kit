@@ -8,15 +8,15 @@
 
 namespace common\components\validators;
 
-
 use yii\validators\Validator;
+use Yii;
 
 class JsonValidator extends Validator{
 
     public function init(){
         parent::init();
         if(!$this->message){
-            $this->message = \Yii::t('common', '{attribute} must be a valid JSON');
+            $this->message = Yii::t('common', '{attribute} must be a valid JSON');
         }
     }
     /**
@@ -28,4 +28,11 @@ class JsonValidator extends Validator{
             return [$this->message, []];
         }
     }
-} 
+
+    public function clientValidateAttribute($model, $attribute, $view)
+    {
+        return null;
+    }
+
+
+}

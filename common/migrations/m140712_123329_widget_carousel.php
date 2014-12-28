@@ -19,7 +19,7 @@ class m140712_123329_widget_carousel extends Migration
         ], $tableOptions);
 
         $this->insert('{{%widget_carousel}}', [
-           'id'=>1,
+            'id'=>1,
             'alias'=>'index',
             'status'=>\common\models\WidgetCarousel::STATUS_ACTIVE
         ]);

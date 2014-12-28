@@ -41,7 +41,7 @@ class m140703_123803_article extends Migration
             $this->createIndex('idx_article_author_id', '{{%article}}', 'author_id');
             $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id');
 
-            $this->createIndex('idx_article_updater_id', '{{%article}}', 'author_id');
+            $this->createIndex('idx_article_updater_id', '{{%article}}', 'updater_id');
             $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
 
             $this->createIndex('idx_category_id', '{{%article}}', 'category_id');

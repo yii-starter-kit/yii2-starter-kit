@@ -45,8 +45,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class'=>\common\components\grid\EnumColumn::className(),
                 'attribute'=>'status',
                 'enum'=>[
-                    \Yii::t('backend', 'Disabled'),
-                    \Yii::t('backend', 'Enabled')
+                    Yii::t('backend', 'Disabled'),
+                    Yii::t('backend', 'Enabled')
                 ],
             ],
             'published_at:datetime',

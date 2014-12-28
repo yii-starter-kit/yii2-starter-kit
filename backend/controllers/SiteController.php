@@ -1,6 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use Yii;
+
 /**
  * Site controller
  */
@@ -20,7 +22,7 @@ class SiteController extends \yii\web\Controller
 
     public function beforeAction($action)
     {
-        $this->layout = \Yii::$app->user->isGuest ? '_base' : 'main';
+        $this->layout = Yii::$app->user->isGuest ? '_base' : 'main';
         return parent::beforeAction($action);
     }
 }

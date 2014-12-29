@@ -1,6 +1,4 @@
 <?php
-use Dotenv;
-
 /**
  * Eugine Terentev <eugine@terentev.net>
  */

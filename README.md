@@ -286,12 +286,9 @@ git merge upstream/master
 ```
 **IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve conflicts on your own**
 
-### TODO
-- Inline code documentation
-- Tests
-- Various improvements
-- New features
-- Permanent bug fixing ;)
+### READ MORE
+https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
+https://github.com/yiisoft/yii2/tree/master/docs
 
 ### Have any questions?
 mail to `eugine@terentev.net`

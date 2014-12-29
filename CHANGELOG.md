@@ -3,6 +3,8 @@ Yii Framework 2 Change Log
 
 1.5.0 under development
 -----------------------
+- Chg: application structure
+- Chg #59: dotenv support
 - Enh #61: Backend Cache Controller
 - Enh: autocomplete now supports urlManagerFrontend and urlManagerBackend
 - Enh #55: `components\grid\EnumColumn` for GridView

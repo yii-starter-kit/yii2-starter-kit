@@ -27,8 +27,7 @@
  */
 return [
     'dev' => [
-        'path' => 'dev/_init',
-        'configPath' => 'environments/dev',
+        'path' => 'dev',
         'setWritable' => [
             'common/runtime',
             'backend/runtime',
@@ -48,8 +47,7 @@ return [
         ],
     ],
     'prod' => [
-        'path' => 'prod/_init',
-        'configPath' => 'environments/prod',
+        'path' => 'prod',
         'setWritable' => [
             'common/runtime',
             'backend/runtime',

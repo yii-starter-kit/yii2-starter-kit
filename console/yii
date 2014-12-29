@@ -4,42 +4,33 @@
 defined('STDIN') or define('STDIN', fopen('php://stdin', 'r'));
 defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'w'));
 
+// Composer
+require(__DIR__ . '/../vendor/autoload.php');
+
 // Environment
-require(__DIR__ . '/../environments/Environment.php');
+require(__DIR__ . '/../common/Environment.php');
 $environment = new Environment([
-    //'envVar'=>'YII_ENV',
+    //'envVar'=>'$environment->getEnv()',
     //'env'=>null,
     //'debugVar'=>'YII_DEBUG',
     //'debug'=>null,
 ]);
 
-// Composer
-require(__DIR__ . '/../vendor/autoload.php');
+// Yii
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 
 // Bootstrap application
-require(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap.php');
-if(file_exists(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap-local.php')){
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/bootstrap-local.php');
-} else {
-    throw new \Exception('You\'ve probably forgot to init application');
-}
+require(__DIR__ . '/../common/config/bootstrap.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
 // Common
     require(__DIR__ . '/../common/config/base.php'),
+    require(__DIR__ . '/../common/config/base-local.php'),
     require(__DIR__ . '/../common/config/console.php'),
+    require(__DIR__ . '/../common/config/console-local.php'),
     require(__DIR__ . '/config/console.php'),
-    // Environment specific
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base.php'),
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/base-local.php'),
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/console.php'),
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/common/config/console-local.php'),
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/console/config/console.php'),
-    require(__DIR__ . '/../environments/'.$environment->getEnv().'/console/config/console-local.php')
+    require(__DIR__ . '/config/console-local.php')
 );
 
-
-$application = new yii\console\Application($config);
-$exitCode = $application->run();
+$exitCode = (new yii\console\Application($config))->run();
 exit($exitCode);

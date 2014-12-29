@@ -24,7 +24,7 @@ return [
                     'class' => 'yii\log\EmailTarget',
                     'except' => ['yii\web\HttpException:404'],
                     'levels' => ['error', 'warning'],
-                    'message' => ['from' => 'robot@example.com', 'to' => 'admin@example.com'],
+                    'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
                 ]
             ]
         ]*/

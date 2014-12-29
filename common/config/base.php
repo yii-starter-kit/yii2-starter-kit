@@ -34,7 +34,12 @@ return [
         ],
 
         'db'=>[
-            'class'=>'yii\db\Connection'
+            'class'=>'yii\db\Connection',
+            'dsn' => getenv('MYSQL_DSN'),
+            'username' => getenv('MYSQL_USERNAME'),
+            'password' => getenv('MYSQL_PASSWORD'),
+            'tablePrefix' => getenv('MYSQL_TABLE_PREFIX'),
+            'charset' => 'utf8'
         ],
 
         'log' => [
@@ -69,7 +74,7 @@ return [
                         'frontend'=>'frontend.php',
                     ]
                 ],
-                /*
+                /* Uncomment this code to use DbMessageSource
                  '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
@@ -117,7 +122,7 @@ return [
         ),
     ],
     'params' => [
-        'adminEmail' => 'admin@example.com',
+        'adminEmail' => getenv('ADMIN_EMAIL'),
         'availableLocales'=>[
             'en-US'=>'English (US)',
             'ru-RU'=>'Русский (РФ)',

@@ -1,6 +1,9 @@
 <?php
+// Composer
+require(__DIR__ . '/../../vendor/autoload.php');
+
 // Environment
-require(__DIR__ . '/../../environments/Environment.php');
+require(__DIR__ . '/../../common/Environment.php');
 $environment = new Environment([
     //'envVar'=>'$environment->getEnv()',
     //'env'=>null,
@@ -8,29 +11,21 @@ $environment = new Environment([
     //'debug'=>null,
 ]);
 
-// Composer
-require(__DIR__ . '/../../vendor/autoload.php');
+// Yii
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 
 // Bootstrap application
-require(__DIR__ . '/../../environments/'.$environment->getEnv().'/bootstrap.php');
-if(file_exists(__DIR__ . '/../../environments/'.$environment->getEnv().'/bootstrap-local.php')){
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/bootstrap-local.php');
-} else {
-    throw new \Exception('You\'ve probably forgot to init application');
-}
+require(__DIR__ . '/../../common/config/bootstrap.php');
+
 
 $config = \yii\helpers\ArrayHelper::merge(
-    // Common
+// Common
     require(__DIR__ . '/../../common/config/base.php'),
+    require(__DIR__ . '/../../common/config/base-local.php'),
     require(__DIR__ . '/../../common/config/web.php'),
+    require(__DIR__ . '/../../common/config/web-local.php'),
     require(__DIR__ . '/../config/web.php'),
-    // Environment specific
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/base.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/base-local.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/web.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/common/config/web-local.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/backend/config/web.php'),
-    require(__DIR__ . '/../../environments/'.$environment->getEnv().'/backend/config/web-local.php')
+    require(__DIR__ . '/../config/web-local.php')
 );
+
 (new yii\web\Application($config))->run();

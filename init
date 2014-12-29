@@ -20,7 +20,7 @@ if (!extension_loaded('mcrypt')) {
 
 $params = getParams();
 $root = str_replace('\\', '/', __DIR__);
-$envs = require("$root/environments/config.php");
+$envs = require("$root/environments/index.php");
 $envNames = array_keys($envs);
 
 echo "Yii Application Initialization Tool v1.0\n\n";
@@ -67,7 +67,7 @@ echo "\n  Start initialization ...\n\n";
 $files = getFileList("$root/environments/{$env['path']}");
 $all = false;
 foreach ($files as $file) {
-    if (!copyFile($root, "environments/{$env['path']}/$file", "{$env['configPath']}/$file", $all, $params)) {
+    if (!copyFile($root, "environments/{$env['path']}/$file", $file, $all, $params)) {
         break;
     }
 }
@@ -86,7 +86,7 @@ function getFileList($root, $basePath = '')
     $files = [];
     $handle = opendir($root);
     while (($path = readdir($handle)) !== false) {
-        if (in_array($path, ['.svn', '.gitignore', '.', '..'])){
+        if ($path === '.svn' || $path === '.' || $path === '..') {
             continue;
         }
         $fullPath = "$root/$path";

@@ -18,6 +18,12 @@ return \yii\helpers\ArrayHelper::merge(
                     ]
                 ],
             ],
-        ]
+        ],
+
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'FOHExYrKjKVzaA1vLGu6K3z_GrVZOSnj',
+        ],
+
     ]
 );

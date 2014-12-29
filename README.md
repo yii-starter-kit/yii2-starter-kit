@@ -100,7 +100,19 @@ You can install this application template with `composer` using the following co
 php composer.phar create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
-### Initialization
+Application configuration process include:
+1. Edit configuration templates if you need
+2. Initialise application
+3. Configure environment local settings
+5. Apply migrations
+6. Initialise RBAC
+
+### 1. Configuration templates
+Environment specific configuration files stored in `environments/some-environment` directory. These folders contain config templates that will be copied to your config in initialization process, so your can change them to fit your needs on specific environment. 
+They are stored under the VCS. 
+
+
+### 2. Initialization
 Initialise application
 ```
 ./init // init.bat for windows
@@ -108,26 +120,20 @@ Initialise application
 Initialization tools will copy config (`*-local`) files where you can override settings specific for application local environment.
 **NOTE:** `environments/*-local` files are excluded from git in `.gitignore`
 
-CONFIGURATION
--------------
-
-### Environments 
-All configuration files are in `config` directories in each application
-
-Environment specific configuration files stored in `environments/some-environment` directory
-
-`environments/-some environment-/_init` folder contains config templates that will be copied to your config in initialization process, so your can change them to fit your needs on specific environment. 
-They are stored under the VCS. 
-
-Application resolves current environment by `YII ENV` environment variable.
-You should set it in your web server config or change in `frontend/web/index.php`, `backend/web/index.php`, `console/yii` files.
+### 3. Environment
+You should set it in your ``.env`` file, web server config or change in `frontend/web/index.php`, `backend/web/index.php`, `console/yii` files.
 Default environment is `dev`.
 
-For console application, you can change current environment by setting ``YII_ENV`` variable
+### 3.1 Database
+Edit the file `.env` with your data:
+```
+MYSQL_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
+MYSQL_USERNAME      = user
+MYSQL_PASSWORD      = password
+```
+**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
-```export YII_ENV=prod && php ./path/to/yii controller/action```
-
-### Web Server
+### 3.2 Web Server
 
 You should configure web server with three different web roots:
 
@@ -139,41 +145,21 @@ You should configure web server with three different web roots:
 
 **NOTE:** Preferable web server for me, personally, is nginx, so there is a `nginx.conf` file with an example nginx config.
   
-### Database
-Edit the file `environments/dev/common/config/base-local.php` with real data, for example:
+### 3.3 Application urls
+Set your current application urls in `.env`
 
 ```php
-...
-'components'=>[
-    'db' => [
-        'class' => 'yii\db\Connection',
-        'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit',
-        'username' => 'root',
-        'password' => '1234',
-        'charset' => 'utf8',
-    ]
-]
-...
+FRONTEND_URL    = http://yii2-starter-kit.localhost
+BACKEND_URL     = http://backend.yii2-starter-kit.localhost
+STORAGE_URL     = http://storage.yii2-starter-kit.localhost
 ```
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
-
-Also check and edit the other files in the `environments/dev` directory to customize your application.
-
-### Application urls
-Set your current application urls in `environments/dev/bootstrap-local.php`
-
-```php
-Yii::setAlias('@frontendUrl', 'http://example.com');
-Yii::setAlias('@backendUrl', 'http://backend.example.com');
-Yii::setAlias('@storageUrl', 'http://storage.example.com');
-```
-#### Apply migrations
+### 4. Apply migrations
 
 ```php
 php console/yii migrate
 ```
 
-### Initialise RBAC config
+### 5. Initialise RBAC config
 
 ```php
 php console/yii rbac/init

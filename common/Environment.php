@@ -1,4 +1,6 @@
 <?php
+use Dotenv;
+
 /**
  * Eugine Terentev <eugine@terentev.net>
  */
@@ -29,6 +31,7 @@ class Environment{
 
     public function __construct($config = [])
     {
+        Dotenv::load(__DIR__ . '/..');
         foreach ($config as $name => $value) {
             $this->$name = $value;
         }
@@ -51,7 +54,7 @@ class Environment{
     public function getDebug()
     {
         if($this->debug === null){
-            $debug = isset($_SERVER[$this->debugVar]) ? $_SERVER[$this->debugVar] : $this->getEnv() == 'dev';
+            $debug = array_key_exists($this->debugVar, $_SERVER) ? $_SERVER[$this->debugVar] : $this->getEnv() == 'dev';
             $this->debug = !!$debug;
         }
         return $this->debug;
@@ -88,7 +91,4 @@ class Environment{
     {
         $this->_env = $env;
     }
-
-
-
 }

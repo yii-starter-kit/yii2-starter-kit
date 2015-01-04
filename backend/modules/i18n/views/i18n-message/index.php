@@ -28,19 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             [
                 'attribute'=>'language',
-                'filter'=>\yii\helpers\ArrayHelper::map(
-                        \backend\modules\i18n\models\I18nMessage::find()->select('DISTINCT `language`')->all(),
-                        'language',
-                        'language'
-                )
+                'filter'=> $languages
             ],
             [
                 'attribute'=>'category',
-                'filter'=>\yii\helpers\ArrayHelper::map(
-                    \backend\modules\i18n\models\I18nSourceMessage::find()->select('DISTINCT `category`')->all(),
-                    'category',
-                    'category'
-                )
+                'filter'=> $categories
             ],
             'sourceMessage',
             'translation:ntext',

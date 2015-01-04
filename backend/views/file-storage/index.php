@@ -7,6 +7,8 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\FileStorageItemSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $totalSize integer */
+/* @var $repositories array */
 
 $this->title = Yii::t('backend', 'File Storage Items');
 $this->params['breadcrumbs'][] = $this->title;
@@ -27,12 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= Yii::t('backend', 'Used size') ?>:
                 </dt>
                 <dd>
-                    <?= Yii::$app->formatter->asSize(
-                        FileStorageItem::find()
-                            ->where(['status'=>FileStorageItem::STATUS_UPLOADED])
-                            ->sum('size')
-                    );
-                    ?>
+                    <?= Yii::$app->formatter->asSize($totalSize); ?>
                 </dd>
             </dl>
 
@@ -46,9 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'attribute'=>'repository',
-                'filter'=>\yii\helpers\ArrayHelper::map(
-                    FileStorageItem::find()->select('DISTINCT `repository`')->all(), 'repository', 'repository'
-                )
+                'filter'=>$repositories
             ],
             'url:url',
             'size',

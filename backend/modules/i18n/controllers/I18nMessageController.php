@@ -2,9 +2,11 @@
 
 namespace backend\modules\i18n\controllers;
 
+use backend\modules\i18n\models\I18nSourceMessage;
 use Yii;
 use backend\modules\i18n\models\I18nMessage;
 use backend\modules\i18n\models\search\I18nMessageSearch;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -37,9 +39,22 @@ class I18nMessageController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         Url::remember(Yii::$app->request->getUrl(), 'i18n-messages-filter');
 
+        $languages = ArrayHelper::map(
+            I18nMessage::find()->select('language')->distinct()->all(),
+            'language',
+            'language'
+        );
+        $categories = ArrayHelper::map(
+            I18nSourceMessage::find()->select('category')->distinct()->all(),
+            'category',
+            'category'
+        );
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'languages' => $languages,
+            'categories' => $categories
         ]);
     }
 

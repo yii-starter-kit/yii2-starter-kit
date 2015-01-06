@@ -42,7 +42,7 @@ class DbMenu extends \yii\widgets\Menu{
                 throw new InvalidConfigException;
             }
             $this->items =json_decode($model->items, true);
-            Yii::$app->cache->set($cacheKey, 60*60*24*365);
+            Yii::$app->cache->set($cacheKey, $this->items, 60*60*24*365);
         }
     }
 }

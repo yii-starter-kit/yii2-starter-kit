@@ -101,10 +101,10 @@ class UserForm extends Model
             if($model->getIsNewRecord()){
                 $model->generateAuthKey();
             }
-            if($model->getIsNewRecord() && $model->save()){
+            if($model->save() && $model->getIsNewRecord()){
                 $model->afterSignup();
             }
-            return $model;
+            return !$model->hasErrors();
         }
         return null;
     }

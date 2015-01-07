@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: zein
- * Date: 7/5/14
- * Time: 11:16 AM
+ * Eugine Terentev <eugine@terentev.net>
  */
 
 namespace common\components\widgets;
@@ -42,7 +39,7 @@ class DbMenu extends \yii\widgets\Menu{
                 throw new InvalidConfigException;
             }
             $this->items =json_decode($model->items, true);
-            Yii::$app->cache->set($cacheKey, $this->items, 60*60*24*365);
+            Yii::$app->cache->set($cacheKey, $this->items, 60*60*24);
         }
     }
 }

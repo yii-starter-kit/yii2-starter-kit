@@ -14,13 +14,13 @@ class m140712_123329_widget_carousel extends Migration
 
         $this->createTable('{{%widget_carousel}}', [
             'id' => Schema::TYPE_PK,
-            'alias' => Schema::TYPE_STRING . '(1024) NOT NULL',
+            'key' => Schema::TYPE_STRING . '(1024) NOT NULL',
             'status' => Schema::TYPE_SMALLINT . ' DEFAULT 0'
         ], $tableOptions);
 
         $this->insert('{{%widget_carousel}}', [
             'id'=>1,
-            'alias'=>'index',
+            'key'=>'index',
             'status'=>\common\models\WidgetCarousel::STATUS_ACTIVE
         ]);
 

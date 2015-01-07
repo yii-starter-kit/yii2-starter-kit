@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'alias',
+            'key',
             'title',
             [
                 'class'=>\common\components\grid\EnumColumn::className(),

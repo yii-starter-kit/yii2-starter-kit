@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\behaviors\CacheInvalidateBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -38,7 +39,18 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className()
+            TimestampBehavior::className(),
+            'cacheInvalidate'=>[
+                'class'=>CacheInvalidateBehavior::className(),
+                'keys'=>[
+                    function($model){
+                        return [
+                            WidgetCarousel::className(),
+                            $model->carousel->key
+                        ];
+                    }
+                ]
+            ]
         ];
     }
 

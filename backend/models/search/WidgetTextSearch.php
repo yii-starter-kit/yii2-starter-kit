@@ -16,7 +16,7 @@ class WidgetTextSearch extends WidgetText
     {
         return [
             [['id', 'status'], 'integer'],
-            [['alias', 'title', 'body'], 'safe'],
+            [['key', 'title', 'body'], 'safe'],
         ];
     }
 
@@ -50,7 +50,7 @@ class WidgetTextSearch extends WidgetText
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'alias', $this->alias])
+        $query->andFilterWhere(['like', 'key', $this->alias])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'body', $this->body]);
 

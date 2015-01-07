@@ -4,8 +4,8 @@ $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
-    <?= \common\components\widgets\carousel\CarouselWidget::widget([
-        'alias'=>'index'
+    <?= \common\components\widgets\DbCarousel::widget([
+        'key'=>'index'
     ]) ?>
 
     <div class="jumbotron">

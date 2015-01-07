@@ -16,7 +16,7 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'alias') ?>
+    <?= $form->field($model, 'key') ?>
 
     <?= $form->field($model, 'title') ?>
 

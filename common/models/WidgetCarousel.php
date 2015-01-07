@@ -2,16 +2,17 @@
 
 namespace common\models;
 
+use common\components\behaviors\CacheInvalidateBehavior;
 use Yii;
 
 /**
  * This is the model class for table "widget_carousel".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $key
  * @property integer $status
  *
- * @property WidgetCarouselItem[] $widgetCarouselItems
+ * @property WidgetCarouselItem[] $items
  */
 class WidgetCarousel extends \yii\db\ActiveRecord
 {
@@ -27,16 +28,33 @@ class WidgetCarousel extends \yii\db\ActiveRecord
         return '{{%widget_carousel}}';
     }
 
+    public function behaviors()
+    {
+        return [
+            'cacheInvalidate'=>[
+                'class'=>CacheInvalidateBehavior::className(),
+                'keys'=>[
+                    function($model){
+                        return [
+                            self::className(),
+                            $model->key
+                        ];
+                    }
+                ]
+            ]
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['alias'], 'required'],
-            [['alias'], 'unique'],
+            [['key'], 'required'],
+            [['key'], 'unique'],
             [['status'], 'integer'],
-            [['alias'], 'string', 'max' => 1024]
+            [['key'], 'string', 'max' => 1024]
         ];
     }
 
@@ -47,7 +65,7 @@ class WidgetCarousel extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'key' => Yii::t('common', 'Key'),
             'status' => Yii::t('common', 'Active'),
         ];
     }

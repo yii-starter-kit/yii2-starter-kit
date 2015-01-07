@@ -12,7 +12,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'alias')->textInput(['maxlength' => 1024]) ?>
+    <?= $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 
     <?= $form->field($model, 'status')->checkbox() ?>
 

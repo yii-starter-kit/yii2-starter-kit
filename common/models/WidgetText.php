@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\behaviors\CacheInvalidateBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -9,7 +10,7 @@ use yii\behaviors\TimestampBehavior;
  * This is the model class for table "text_block".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $key
  * @property string $title
  * @property string $body
  * @property integer $status
@@ -34,6 +35,17 @@ class WidgetText extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
+            'cacheInvalidate'=>[
+                'class'=>CacheInvalidateBehavior::className(),
+                'keys'=>[
+                    function($model){
+                        return [
+                            self::className(),
+                            $model->key
+                        ];
+                    }
+                ]
+            ]
         ];
     }
 
@@ -43,11 +55,11 @@ class WidgetText extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'title', 'body'], 'required'],
-            [['alias'], 'unique'],
+            [['key', 'title', 'body'], 'required'],
+            [['key'], 'unique'],
             [['body'], 'string'],
             [['status'], 'integer'],
-            [['alias'], 'string', 'max' => 1024],
+            [['key'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512]
         ];
     }
@@ -59,7 +71,7 @@ class WidgetText extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'key' => Yii::t('common', 'Key'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
             'status' => Yii::t('common', 'Status'),

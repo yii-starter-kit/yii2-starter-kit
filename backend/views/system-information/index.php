@@ -30,7 +30,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-3 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -52,7 +52,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-3 col-xs-6">
+        <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -72,7 +72,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4 col-xs-6">
+        <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -95,7 +95,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4 col-xs-6">
+        <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>
@@ -118,7 +118,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                 </div><!-- /.box-body -->
             </div>
         </div>
-        <div class="col-md-4 col-xs-6">
+        <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="box box-primary">
                 <div class="box-header">
                     <i class="fa fa-hdd-o"></i>

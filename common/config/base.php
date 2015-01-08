@@ -29,7 +29,8 @@ return [
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'messageConfig' => [
-                'charset' => 'UTF-8'
+                'charset' => 'UTF-8',
+                'from' => getenv('ADMIN_EMAIL')
             ]
         ],
 

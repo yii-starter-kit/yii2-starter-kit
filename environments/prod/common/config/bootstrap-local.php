@@ -7,8 +7,3 @@ Yii::setAlias('@backend',   realpath(__DIR__.'/../../backend'));
 Yii::setAlias('@console',   realpath(__DIR__.'/../../console'));
 Yii::setAlias('@storage',   realpath(__DIR__.'/../../storage'));
 Yii::setAlias('@tests',     realpath(__DIR__.'/../../tests'));
-
-// Url Aliases
-Yii::setAlias('@frontendUrl', 'http://example.com');
-Yii::setAlias('@backendUrl', 'http://backend.example.com');
-Yii::setAlias('@storageUrl', 'http://storage.example.com');

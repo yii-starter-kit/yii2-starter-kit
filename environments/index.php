@@ -37,9 +37,9 @@ return [
             'storage'
         ],
         'setExecutable' => [
-            'environments/dev/backend/yii',
-            'environments/dev/frontend/yii',
-            'environments/dev/console/yii',
+            'backend/yii',
+            'frontend/yii',
+            'console/yii',
         ],
         'setCookieValidationKey' => [
             'backend/config/web-local.php',

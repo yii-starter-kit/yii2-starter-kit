@@ -148,7 +148,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-green">
                 <div class="inner">
                     <h3>
-                        <?= Yii::$app->i18n->format('{uptime, duration}', ['uptime'=>SI::getUptime()], 'en-US') // todo: change after #5146 will be implemented ?>
+                        <?= Yii::$app->i18n->format('{uptime, duration}', ['uptime'=>SI::getUptime() ?: 0], 'en-US') // todo: change after #5146 will be implemented ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Uptime') ?>

@@ -5,7 +5,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 // Environment
 require(__DIR__ . '/../../common/Environment.php');
 $environment = new Environment([
-    //'envVar'=>'$environment->getEnv()',
+    //'envVar'=>'YII_ENV',
     //'env'=>null,
     //'debugVar'=>'YII_DEBUG',
     //'debug'=>null,

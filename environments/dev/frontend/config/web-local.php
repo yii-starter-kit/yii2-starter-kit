@@ -19,7 +19,7 @@ return [
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'WD9hJCenBNYYeQaIgvB-f9lRvEo2YzBR',
+            'cookieValidationKey' => '',
         ],
     ]
 ];

@@ -51,6 +51,11 @@ class SetLocaleAction extends Action
     public $cookieExpire;
 
     /**
+     * @var string
+     */
+    public $cookieDomain;
+
+    /**
      * @var \Closure
      */
     public $callback;
@@ -69,6 +74,7 @@ class SetLocaleAction extends Action
             'name' => $this->localeCookieName,
             'value' => $locale,
             'expire' => $this->cookieExpire ?: time() + 60 * 60 * 24 * 365,
+            'domain' => $this->cookieDomain ?: '',
         ]);
         Yii::$app->getResponse()->getCookies()->add($cookie);
         if($this->callback && $this->callback instanceof \Closure){

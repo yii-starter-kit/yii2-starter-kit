@@ -28,6 +28,7 @@ $config = \yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../common/config/base-local.php'),
     require(__DIR__ . '/../common/config/console.php'),
     require(__DIR__ . '/../common/config/console-local.php'),
+    require(__DIR__ . '/config/base.php'),
     require(__DIR__ . '/config/console.php'),
     require(__DIR__ . '/config/console-local.php')
 );

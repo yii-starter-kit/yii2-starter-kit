@@ -291,7 +291,7 @@ https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
 https://github.com/yiisoft/yii2/tree/master/docs
 
 ### Have any questions?
-mail to `eugine@terentev.net`
+mail to `eugene@terentev.net`
 
 #### NOTE
 This template was created mostly for developer NOT for end users. 

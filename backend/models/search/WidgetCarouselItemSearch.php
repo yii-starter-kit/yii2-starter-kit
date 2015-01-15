@@ -34,9 +34,10 @@ class WidgetCarouselItemSearch extends WidgetCarouselItem
 
     /**
      * Creates data provider instance with search query applied
+     * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params = null)
     {
         $query = WidgetCarouselItem::find();
 

@@ -12,9 +12,9 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'alias')->textInput(['maxlength' => 1024]) ?>
-
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+
+    <?= $form->field($model, 'slug')->textInput(['maxlength' => 2048]) ?>
 
     <?= $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),

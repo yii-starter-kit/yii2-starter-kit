@@ -3,13 +3,14 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "page".
  *
  * @property integer $id
- * @property string $alias
+ * @property string $slug
  * @property string $title
  * @property string $body
  * @property integer $status
@@ -36,6 +37,12 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
+            'slug'=>[
+                'class'=>SluggableBehavior::className(),
+                'attribute'=>'title',
+                'ensureUnique'=>true,
+                'immutable'=>true
+            ]
         ];
     }
 
@@ -45,11 +52,10 @@ class Page extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['alias', 'title', 'body'], 'required'],
-            [['alias'], 'unique'],
+            [['title', 'body'], 'required'],
             [['body'], 'string'],
             [['status'], 'integer'],
-            [['alias'], 'string', 'max' => 1024],
+            [['slug'], 'string', 'max' => 2048],
             [['title'], 'string', 'max' => 512]
         ];
     }
@@ -61,7 +67,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('common', 'ID'),
-            'alias' => Yii::t('common', 'Alias'),
+            'slug' => Yii::t('common', 'Slug'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
             'status' => Yii::t('common', 'Active'),

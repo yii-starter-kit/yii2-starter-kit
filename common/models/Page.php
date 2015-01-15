@@ -55,6 +55,7 @@ class Page extends \yii\db\ActiveRecord
             [['title', 'body'], 'required'],
             [['body'], 'string'],
             [['status'], 'integer'],
+            [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 2048],
             [['title'], 'string', 'max' => 512]
         ];

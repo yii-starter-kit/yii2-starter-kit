@@ -4,6 +4,6 @@ return [
     'enablePrettyUrl'=>true,
     'showScriptName'=>false,
     'rules'=> [
-        ['pattern'=>'page/<alias>', 'route'=>'page/view']
+        ['pattern'=>'page/<slug>', 'route'=>'page/view']
     ]
 ];

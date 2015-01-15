@@ -23,7 +23,7 @@ class m140703_123104_page extends Migration
         ], $tableOptions);
 
         $this->insert('{{%page}}', [
-            'alias'=>'about',
+            'slug'=>'about',
             'title'=>'About',
             'body'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'status'=>\common\models\Page::STATUS_PUBLISHED,

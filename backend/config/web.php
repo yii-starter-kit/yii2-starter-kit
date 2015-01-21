@@ -13,7 +13,6 @@ $config = [
                     'baseUrl' => '@storageUrl',
                     'basePath' => '@storage',
                     'path'   => '/uploads',
-                    'name'   => ['category' => 'app','message' => 'Uploads'], // Yii::t($category, $message)
                     'access' => ['read' => 'manager', 'write' => 'manager'] // * - для всех, иначе проверка доступа в даааном примере все могут видет а редактировать могут пользователи только с правами UserFilesAccess
                 ]
             ]

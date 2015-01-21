@@ -294,6 +294,6 @@ https://github.com/yiisoft/yii2/tree/master/docs
 mail to `eugene@terentev.net`
 
 #### NOTE
-This template was created mostly for developer NOT for end users. 
+This template was created mostly for developers NOT for end users.
 This is a point where you can begin your application, rather than creating it from scratch.
 Good luck!

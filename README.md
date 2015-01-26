@@ -76,7 +76,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 Install composer-asset-plugin needed for yii assets management
 ```
-php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta4"
+php composer.phar global require "fxp/composer-asset-plugin"
 ```
 
 

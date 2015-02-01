@@ -18,30 +18,31 @@
         "ext-intl": "*",
         "ext-mcrypt": "*",
 		"yiisoft/yii2": "~2.0",
-		"yiisoft/yii2-bootstrap": "*",
-		"yiisoft/yii2-swiftmailer": "*",
-		"yiisoft/yii2-authclient": "*",
-		"asofter/yii2-imperavi-redactor": "*",
-		"yiisoft/yii2-jui": "*",
-        "yiisoft/yii2-imagine": "*",
+		"yiisoft/yii2-bootstrap": "~2.0",
+		"yiisoft/yii2-swiftmailer": "~2.0",
+		"yiisoft/yii2-authclient": "~2.0",
+		"yiisoft/yii2-jui": "~2.0",
+        "yiisoft/yii2-imagine": "~2.0",
+        "asofter/yii2-imperavi-redactor": "*",
         "mihaildev/yii2-elfinder": "*",
-        "trntv/yii2-aceeditor": "*",
+        "trntv/yii2-aceeditor": "~2.0",
         "trntv/systeminfo": "*",
         "trntv/yii2-file-kit": "~0.3",
         "trntv/yii2-bootstrap-datetimepicker": "~1.0",
+        "vlucas/phpdotenv": "~1.0",
         "bower-asset/admin-lte": "~1.0",
         "bower-asset/font-awesome": "~4.0",
         "bower-asset/html5shiv": "~3.0",
-        "bower-asset/flot": "~0.8",
-        "vlucas/phpdotenv": "~1.0@dev"
+        "bower-asset/flot": "~0.8"
+
 	},
 	"require-dev": {
-		"yiisoft/yii2-debug": "*",
-        "trntv/yii2-debug-xhprof": "*",
-		"yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-codeception": "*",
-        "yiisoft/yii2-faker": "*",
-        "codeception/codeception": "2.*"
+		"yiisoft/yii2-debug": "~2.0",
+		"yiisoft/yii2-gii": "~2.0",
+        "yiisoft/yii2-codeception": "~2.0",
+        "yiisoft/yii2-faker": "~2.0",
+        "codeception/codeception": "~2.0",
+        "trntv/yii2-debug-xhprof": "*"
 	},
     "suggest": {
         "trntv/yii2-deploy": "*"

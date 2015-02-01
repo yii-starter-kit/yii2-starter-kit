@@ -29,7 +29,7 @@ class ArticleCategoryQuery extends ActiveQuery
      */
     public function noParents()
     {
-        $this->andWhere('article_category.parent_id IS NULL');
+        $this->andWhere('{{%article_category}}.parent_id IS NULL');
 
         return $this;
     }

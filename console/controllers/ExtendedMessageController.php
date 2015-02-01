@@ -250,7 +250,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                     if($lastId == false){
                         $db->createCommand()
                             ->insert($sourceMessageTable, ['category' => $category, 'message' => $m])->execute();
-                        $lastId = $db->getLastInsertID();
+                        $lastId = $db->getLastInsertID($db->driverName == 'pgsql' ? 'i18n_source_message_id_seq' : null);
                         $insertedSourceMessages[$category][$lastId] = $m;
                     }
                     $db->createCommand()

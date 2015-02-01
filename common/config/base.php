@@ -36,10 +36,10 @@ return [
 
         'db'=>[
             'class'=>'yii\db\Connection',
-            'dsn' => getenv('MYSQL_DSN'),
-            'username' => getenv('MYSQL_USERNAME'),
-            'password' => getenv('MYSQL_PASSWORD'),
-            'tablePrefix' => getenv('MYSQL_TABLE_PREFIX'),
+            'dsn' => getenv('DB_DSN'),
+            'username' => getenv('DB_USERNAME'),
+            'password' => getenv('DB_PASSWORD'),
+            'tablePrefix' => getenv('DB_TABLE_PREFIX'),
             'charset' => 'utf8'
         ],
 

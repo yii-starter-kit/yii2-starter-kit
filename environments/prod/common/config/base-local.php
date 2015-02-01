@@ -12,15 +12,15 @@ return [
             'useFileTransport' => false
         ],
 
-        /*'log'=>[
+        'log'=>[
             'targets'=>[
                 'email' => [
                     'class' => 'yii\log\EmailTarget',
-                    'except' => ['yii\web\HttpException:404'],
+                    'except' => ['yii\web\HttpException:*'],
                     'levels' => ['error', 'warning'],
                     'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
                 ]
             ]
-        ]*/
+        ]
     ]
 ];

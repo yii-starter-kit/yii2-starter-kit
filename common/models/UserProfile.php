@@ -56,6 +56,7 @@ class UserProfile extends \yii\db\ActiveRecord
             'firstname' => Yii::t('common', 'Firstname'),
             'middlename' => Yii::t('common', 'Middlename'),
             'lastname' => Yii::t('common', 'Lastname'),
+            'locale' => Yii::t('common', 'Locale'),
             'picture' => Yii::t('common', 'Picture'),
             'gender' => Yii::t('common', 'Gender'),
         ];

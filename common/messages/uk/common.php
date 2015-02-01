@@ -40,6 +40,7 @@ return [
     'ID' => 'ID',
     'Key' => 'Ключ',
     'Lastname' => 'Прізвище',
+    'Locale' => 'Локаль',
     'Manager' => 'Менеджер',
     'Middlename' => 'По батькові',
     'Order' => 'Порядок',

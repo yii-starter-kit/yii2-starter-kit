@@ -127,9 +127,9 @@ Default environment is `dev`.
 ### 3.1 Database
 Edit the file `.env` with your data:
 ```
-MYSQL_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
-MYSQL_USERNAME      = user
-MYSQL_PASSWORD      = password
+DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
+DB_USERNAME      = user
+DB_PASSWORD      = password
 ```
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 

@@ -33,7 +33,8 @@
         "bower-asset/admin-lte": "~1.0",
         "bower-asset/font-awesome": "~4.0",
         "bower-asset/html5shiv": "~3.0",
-        "bower-asset/flot": "~0.8"
+        "bower-asset/flot": "~0.8",
+        "trntv/cheatsheet": "dev-master"
 
 	},
 	"require-dev": {

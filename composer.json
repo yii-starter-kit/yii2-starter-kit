@@ -26,7 +26,7 @@
         "asofter/yii2-imperavi-redactor": "*",
         "mihaildev/yii2-elfinder": "*",
         "trntv/yii2-aceeditor": "~2.0",
-        "trntv/systeminfo": "*",
+        "trntv/systeminfo": "~0.1",
         "trntv/yii2-file-kit": "~0.3",
         "trntv/yii2-bootstrap-datetimepicker": "~1.0",
         "vlucas/phpdotenv": "~1.0",

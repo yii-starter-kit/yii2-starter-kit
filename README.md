@@ -22,7 +22,7 @@ FEATURES
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
 - Key-value storage component
-- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
+- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
 - Application events component
 - Web Cache Controller
@@ -231,7 +231,10 @@ Remove Yii::t from code
  }
 ```
 #### GlobalAccessBehavior
-usage example in `backend\config\web.php`
+usage example in ``backend\config\web.php``
+
+#### MaintenanceBehavior
+usage example in ``frontend\config\web.php``
 
 ### Widgets configurable from backend
 #### Carousel

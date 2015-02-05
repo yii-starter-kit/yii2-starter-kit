@@ -1,10 +1,6 @@
 # Env
 /.env
 
-# Local config files
-*-local.*
-!environments/*-local.*
-
 # composer
 /vendor
 composer.phar

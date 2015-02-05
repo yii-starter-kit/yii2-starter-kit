@@ -189,7 +189,7 @@ function setCookieValidationKey($root, $paths)
         $length = 32;
         $bytes = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
         $key = strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
-        $content = preg_replace('/(("|\')cookieValidationKey("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents($file));
+        $content = preg_replace('/(("|\')COOKIE_VALIDATION_KEY("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents($file));
         file_put_contents($file, $content);
     }
 }

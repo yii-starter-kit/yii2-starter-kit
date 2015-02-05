@@ -11,6 +11,13 @@ $config = [
     'components' => [
         'authClientCollection' => [
             'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'github' => [
+                    'class' => 'yii\authclient\clients\GitHub',
+                    'clientId' => getenv('GITHUB_CLIENT_ID'),
+                    'clientSecret' => 'your-client-secret',
+                ]
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

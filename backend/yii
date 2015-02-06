@@ -23,14 +23,10 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../common/config/bootstrap.php');
 
 $config = \yii\helpers\ArrayHelper::merge(
-// Common
     require(__DIR__ . '/../common/config/base.php'),
-    require(__DIR__ . '/../common/config/base-local.php'),
     require(__DIR__ . '/../common/config/console.php'),
-    require(__DIR__ . '/../common/config/console-local.php'),
     require(__DIR__ . '/config/base.php'),
-    require(__DIR__ . '/config/console.php'),
-    require(__DIR__ . '/config/console-local.php')
+    require(__DIR__ . '/config/console.php')
 );
 
 $exitCode = (new yii\console\Application($config))->run();

@@ -3,7 +3,7 @@
 
 # Local config files
 *-local.*
-!environments/*-local.*
+!environments/**/*-local.*
 
 # composer
 /vendor

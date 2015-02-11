@@ -22,6 +22,9 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'request' => [
+            'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
+        ],
         'user' => [
             'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',

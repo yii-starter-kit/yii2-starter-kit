@@ -185,11 +185,12 @@ function setCookieValidationKey($root, $paths)
 {
     foreach ($paths as $file) {
         echo "   generate cookie validation key in $file\n";
-        $file = $root . '/' . $file;
-        $length = 32;
-        $bytes = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
-        $key = strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
-        $content = preg_replace('/(("|\')COOKIE_VALIDATION_KEY("|\')\s*=>\s*)(""|\'\')/', "\\1'$key'", file_get_contents($file));
+        $content = file_get_contents($file);
+        $content = preg_replace_callback('/\$COOKIE_VALIDATION_KEY/', function () use ($content) {
+            $length = 32;
+            $bytes = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
+            return strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
+        }, $content);
         file_put_contents($file, $content);
     }
 }

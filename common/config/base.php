@@ -41,8 +41,7 @@ $config = [
             'password' => getenv('DB_PASSWORD'),
             'tablePrefix' => getenv('DB_TABLE_PREFIX'),
             'charset' => 'utf8',
-            'enableSchemaCache' => true,
-            'schemaCachingDuration' => 3600 * 24
+            'enableSchemaCache' => YII_ENV_PROD,
         ],
 
         'log' => [
@@ -136,12 +135,12 @@ $config = [
 
 if (YII_ENV_PROD) {
 
-    $config['cache'] = [
+    $config['components']['cache'] = [
         'class' => 'yii\caching\FileCache',
         'cachePath' => '@common/runtime/cache'
     ];
 
-    $config['log']['targets']['email'] = [
+    $config['components']['log']['targets']['email'] = [
         'class' => 'yii\log\EmailTarget',
         'except' => ['yii\web\HttpException:*'],
         'levels' => ['error', 'warning'],

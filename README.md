@@ -87,9 +87,9 @@ Extract the github archive file or clone this repository.
 git clone https://github.com/trntv/yii2-starter-kit.git
 ```
 
-After extraction run
+After clone run
 ```
-php composer.phar install
+composer install
 ```
 
 ### Install via Composer
@@ -97,43 +97,17 @@ php composer.phar install
 You can install this application template with `composer` using the following command:
 
 ```
-php composer.phar create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
 Application configuration process include:
-1. Edit configuration templates if you need
-2. Initialise application
-3. Configure environment local settings
-5. Apply migrations
-6. Initialise RBAC
+0. Prepare web server
+1. Initialise application
+2. Configure environment local settings
+3. Apply migrations
+4. Initialise RBAC
 
-### 1. Configuration templates
-Environment specific configuration files stored in `environments/some-environment` directory. These folders contain config templates that will be copied to your config in initialization process, so your can change them to fit your needs on specific environment. 
-They are stored under the VCS. 
-
-
-### 2. Initialization
-Initialise application
-```
-./init // init.bat for windows
-```
-Initialization tools will copy config (`*-local`) files where you can override settings specific for application local environment.
-**NOTE:** `environments/*-local` files are excluded from git in `.gitignore`
-
-### 3. Environment
-You should set it in your ``.env`` file, web server config or change in `frontend/web/index.php`, `backend/web/index.php`, `console/yii` files.
-Default environment is `dev`.
-
-### 3.1 Database
-Edit the file `.env` with your data:
-```
-DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
-DB_USERNAME      = user
-DB_PASSWORD      = password
-```
-**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
-
-### 3.2 Web Server
+### 0 Web Server
 
 You should configure web server with three different web roots:
 
@@ -144,8 +118,27 @@ You should configure web server with three different web roots:
 `storage.example.com` => `path/to/yii2-starter-kit/storage`
 
 **NOTE:** Preferable web server for me, personally, is nginx, so there is a `nginx.conf` file with an example nginx config.
-  
-### 3.3 Application urls
+
+### 1. Initialization
+Initialise application
+```
+./init // init.bat for windows
+```
+
+### 2. Setup environment
+Adjust settings in `.env` file
+
+### 2.1 Database
+Edit the file `.env` with your data:
+```
+DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
+DB_USERNAME      = user
+DB_PASSWORD      = password
+```
+**NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
+
+
+### 2.2 Application urls
 Set your current application urls in `.env`
 
 ```php
@@ -153,13 +146,13 @@ FRONTEND_URL    = http://yii2-starter-kit.localhost
 BACKEND_URL     = http://backend.yii2-starter-kit.localhost
 STORAGE_URL     = http://storage.yii2-starter-kit.localhost
 ```
-### 4. Apply migrations
+### 3. Apply migrations
 
 ```php
 php console/yii migrate
 ```
 
-### 5. Initialise RBAC config
+### 4. Initialise RBAC config
 
 ```php
 php console/yii rbac/init

@@ -1,5 +1,5 @@
 <?php
-return [
+$config = [
     'name'=>'Yii2 Starter Kit',
     'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
     'extensions' => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
@@ -19,7 +19,6 @@ return [
 
         'cache' => [
             'class' => 'yii\caching\DummyCache',
-            'keyPrefix'=>'yii2-starter-kit'
         ],
 
         'formatter'=>[
@@ -28,6 +27,7 @@ return [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport' => YII_ENV_DEV,
             'messageConfig' => [
                 'charset' => 'UTF-8',
                 'from' => getenv('ADMIN_EMAIL')
@@ -40,7 +40,8 @@ return [
             'username' => getenv('DB_USERNAME'),
             'password' => getenv('DB_PASSWORD'),
             'tablePrefix' => getenv('DB_TABLE_PREFIX'),
-            'charset' => 'utf8'
+            'charset' => 'utf8',
+            'enableSchemaCache' => YII_ENV_PROD,
         ],
 
         'log' => [
@@ -50,7 +51,7 @@ return [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
                     'except'=>['yii\web\HttpException:*', 'yii\i18n\I18N\*'],
-                    'prefix'=>function(){
+                    'prefix'=>function () {
                         $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
                         return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
@@ -88,18 +89,18 @@ return [
             ],
         ],
 
-        'fileStorage'=>[
-            'class'=>'trntv\filekit\storage\FileStorage',
-            'repositories'=>[
-                'uploads'=>[
-                    'class'=>'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath'=>'@storage',
-                    'baseUrl'=>'@storageUrl',
+        'fileStorage' => [
+            'class' => 'trntv\filekit\storage\FileStorage',
+            'repositories' => [
+                'uploads' => [
+                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
+                    'basePath' => '@storage',
+                    'baseUrl' => '@storageUrl',
                 ],
                 'tmp'=>[
-                    'class'=>'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath'=>'@storage',
-                    'baseUrl'=>'@storageUrl',
+                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
+                    'basePath' => '/tmp',
+                    'baseUrl' => false,
                 ]
             ],
 
@@ -131,3 +132,21 @@ return [
         ],
     ],
 ];
+
+if (YII_ENV_PROD) {
+
+    $config['components']['cache'] = [
+        'class' => 'yii\caching\FileCache',
+        'cachePath' => '@common/runtime/cache'
+    ];
+
+    $config['components']['log']['targets']['email'] = [
+        'class' => 'yii\log\EmailTarget',
+        'except' => ['yii\web\HttpException:*'],
+        'levels' => ['error', 'warning'],
+        'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
+    ];
+
+}
+
+return $config;

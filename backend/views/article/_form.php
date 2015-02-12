@@ -37,6 +37,18 @@ use yii\bootstrap\ActiveForm;
         ]
     ) ?>
 
+    <?= $form->field($model, 'attachments')->widget(
+        \trntv\filekit\widget\Upload::className(),
+        [
+            'url'=>['/file-storage/upload'],
+            'sortable'=>true,
+            'fileuploadOptions'=>[
+                'maxFileSize'=>10000000, // 10 MiB
+                'maxNumberOfFiles'=>3
+            ]
+        ]);
+    ?>
+
     <?= $form->field($model, 'status')->checkbox() ?>
 
     <?= $form->field($model, 'published_at')->widget('trntv\yii\datetimepicker\DatetimepickerWidget') ?>

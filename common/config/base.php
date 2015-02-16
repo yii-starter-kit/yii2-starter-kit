@@ -134,7 +134,6 @@ $config = [
 ];
 
 if (YII_ENV_PROD) {
-
     $config['components']['cache'] = [
         'class' => 'yii\caching\FileCache',
         'cachePath' => '@common/runtime/cache'
@@ -146,7 +145,13 @@ if (YII_ENV_PROD) {
         'levels' => ['error', 'warning'],
         'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
     ];
+}
 
+if (YII_ENV_DEV) {
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class'=>'yii\gii\Module',
+    ];
 }
 
 return $config;

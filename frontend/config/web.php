@@ -15,7 +15,7 @@ $config = [
                 'github' => [
                     'class' => 'yii\authclient\clients\GitHub',
                     'clientId' => getenv('GITHUB_CLIENT_ID'),
-                    'clientSecret' => 'your-client-secret',
+                    'clientSecret' => getenv('GITHUB_CLIENT_SECRET'),
                 ]
             ],
         ],
@@ -45,4 +45,5 @@ if (YII_ENV_DEV) {
         ]
     ];
 }
+
 return $config;

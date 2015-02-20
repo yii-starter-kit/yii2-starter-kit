@@ -96,13 +96,8 @@ $config = [
                     'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
                     'basePath' => '@storage',
                     'baseUrl' => '@storageUrl',
-                ],
-                'tmp'=>[
-                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath' => '/tmp',
-                    'baseUrl' => false,
                 ]
-            ],
+            ]
 
         ],
 

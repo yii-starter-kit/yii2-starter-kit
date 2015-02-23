@@ -17,6 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Attachments' => '',
+    'Thank you for contacting us. We will respond to you as soon as possible.' => '',
+    'There was an error sending email.' => '',
     'Body' => 'Сообщение',
     'Email' => 'Email',
     'Name' => 'Имя',
@@ -24,6 +27,13 @@ return [
     'Thank you for contacting us. We will respond to you as soon as possible.' => 'Спасибо. Мы свяжемся с Вами в ближайщее время',
     'There was an error sending email.' => 'Ошибка при отправке сообщения.',
     'Verification Code' => 'Проверочный код',
+    'Confirm Password' => 'Подтвердите пароль',
+    'E-mail' => 'E-mail',
+    'If you forgot your password you can reset it <a href="{link}">here</a>' => 'Если вы забыли пароль, вы можете сбросить его <a href="{link}">здесь</a>',
+    'Need an account? Sign up.' => 'Нужен аккаунт? Зарегистрируйтесь',
+    'Remember Me' => 'Запомнить меня',
+    'Request password reset' => 'Запрос сброса пароля',
+    'Reset password' => 'Сброс пароля',
     'About' => 'О нас',
     'Account' => 'Аккаунт',
     'Articles' => 'Статьи',

@@ -8,6 +8,7 @@ use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
 
 /**
@@ -17,6 +18,7 @@ use yii\helpers\Inflector;
  * @property string $slug
  * @property string $title
  * @property string $body
+ * @property array $attachments
  * @property integer $author_id
  * @property integer $updater_id
  * @property integer $category_id
@@ -28,9 +30,15 @@ use yii\helpers\Inflector;
  * @property User $author
  * @property User $updater
  * @property ArticleCategory $category
+ * @property ArticleAttachment[] $articleAttachments
  */
 class Article extends \yii\db\ActiveRecord
 {
+    /**
+     * @var array
+     */
+    public $attachments = [];
+
     const STATUS_PUBLISHED = 1;
     const STATUS_DRAFT = 0;
 
@@ -82,9 +90,10 @@ class Article extends \yii\db\ActiveRecord
             [['published_at'], 'default', 'value'=>time()],
             [['published_at'], 'filter', 'filter'=>'strtotime'],
             [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
-            [['author_id', 'status'], 'integer'],
+            [['author_id', 'updater_id', 'status'], 'integer'],
             [['slug'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            [['title'], 'string', 'max' => 512],
+            [['attachments'], 'safe']
         ];
     }
 
@@ -104,7 +113,7 @@ class Article extends \yii\db\ActiveRecord
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
             'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At'),
+            'updated_at' => Yii::t('common', 'Updated At')
         ];
     }
 
@@ -130,5 +139,37 @@ class Article extends \yii\db\ActiveRecord
     public function getCategory()
     {
         return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleAttachments()
+    {
+        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
+    }
+
+    /**
+     * @inherit
+     */
+    public function afterFind()
+    {
+        $this->attachments = ArrayHelper::getColumn($this->articleAttachments, 'url');
+        parent::afterFind();
+    }
+
+    /**
+     * @param bool $insert
+     * @param array $changedAttributes
+     */
+    public function afterSave($insert, $changedAttributes)
+    {
+        ArticleAttachment::deleteAll(['not in', 'url', $this->attachments]);
+        foreach ($this->attachments as $url) {
+            $model = new ArticleAttachment();
+            $model->url = $url;
+            $this->link('articleAttachments', $model);
+        }
+        parent::afterSave($insert, $changedAttributes);
     }
 }

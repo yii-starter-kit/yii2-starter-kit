@@ -12,9 +12,11 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => 1024]) ?>
-
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+
+    <?= $form->field($model, 'slug')
+        ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+        ->textInput(['maxlength' => 1024]) ?>
 
     <?= $form->field($model, 'parent_id')->dropDownList(\yii\helpers\ArrayHelper::map(
         $categories,

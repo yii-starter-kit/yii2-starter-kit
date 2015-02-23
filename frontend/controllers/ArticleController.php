@@ -13,7 +13,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class ArticleController extends Controller{
+class ArticleController extends Controller
+{
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider(
@@ -26,10 +27,10 @@ class ArticleController extends Controller{
 
     public function actionView($id)
     {
-        $model = Article::find()->published()->with('author')->andWhere(['id'=>$id])->one();
-        if(!$model){
+        $model = Article::find()->published()->andWhere(['id'=>$id])->one();
+        if (!$model) {
             throw new NotFoundHttpException;
         }
         return $this->render('view', ['model'=>$model]);
     }
-} 
+}

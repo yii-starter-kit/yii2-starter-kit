@@ -30,6 +30,7 @@ use yii\helpers\Inflector;
  * @property User $author
  * @property User $updater
  * @property ArticleCategory $category
+ * @property ArticleAttachment[] $articleAttachments
  */
 class Article extends \yii\db\ActiveRecord
 {
@@ -91,7 +92,8 @@ class Article extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
             [['author_id', 'updater_id', 'status'], 'integer'],
             [['slug'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            [['title'], 'string', 'max' => 512],
+            [['attachments'], 'safe']
         ];
     }
 
@@ -111,7 +113,7 @@ class Article extends \yii\db\ActiveRecord
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
             'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At'),
+            'updated_at' => Yii::t('common', 'Updated At')
         ];
     }
 
@@ -144,7 +146,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getArticleAttachments()
     {
-        return $this->hasOne(ArticleAttachment::className(), ['article_id' => 'id']);
+        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
     }
 
     /**
@@ -162,7 +164,12 @@ class Article extends \yii\db\ActiveRecord
      */
     public function afterSave($insert, $changedAttributes)
     {
-        // @todo: saving
+        ArticleAttachment::deleteAll(['not in', 'url', $this->attachments]);
+        foreach ($this->attachments as $url) {
+            $model = new ArticleAttachment();
+            $model->url = $url;
+            $this->link('articleAttachments', $model);
+        }
         parent::afterSave($insert, $changedAttributes);
     }
 }

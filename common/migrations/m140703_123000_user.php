@@ -24,7 +24,7 @@ class m140703_123000_user extends Migration
             'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::ROLE_USER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::STATUS_ACTIVE,
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL'
         ], $tableOptions);
 
         $this->insert('{{%user}}', [
@@ -73,7 +73,9 @@ class m140703_123000_user extends Migration
 
         $this->insert('{{%user_profile}}', [
             'user_id'=>1,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->sourceLanguage,
+            'firstname' => 'John',
+            'lastname' => 'Doe'
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>2,

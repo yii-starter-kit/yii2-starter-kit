@@ -20,10 +20,10 @@ class Maintenance extends Component implements BootstrapInterface
      */
     public $catchAll;
 
-    public $retryAfter = 60;
+    public $retryAfter = 300;
     public $maintenanceLayout = '@common/components/maintenance/views/layouts/main.php';
     public $maintenanceView = '@common/components/maintenance/views/maintenance/index.php';
-    public $maintenanceText = 'Down to maintenance';
+    public $maintenanceText = 'Down to maintenance.';
 
     /**
      * Bootstrap method to be called during application bootstrap stage.

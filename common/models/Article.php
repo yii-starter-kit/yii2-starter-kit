@@ -165,10 +165,15 @@ class Article extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes)
     {
         ArticleAttachment::deleteAll(['not in', 'url', $this->attachments]);
-        foreach ($this->attachments as $url) {
-            $model = new ArticleAttachment();
-            $model->url = $url;
-            $this->link('articleAttachments', $model);
+        $existingAttachments = ArrayHelper::getColumn($this->getArticleAttachments()->all(), 'url');
+        if (is_array($this->attachments)) {
+            foreach ($this->attachments as $url) {
+                if (!in_array($url, $existingAttachments, true)) {
+                    $model = new ArticleAttachment();
+                    $model->url = $url;
+                    $this->link('articleAttachments', $model);
+                }
+            }
         }
         parent::afterSave($insert, $changedAttributes);
     }

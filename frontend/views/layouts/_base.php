@@ -65,15 +65,15 @@ use yii\bootstrap\NavBar;
                 ],
                 [
                     'label'=>Yii::t('frontend', 'Language'),
-                    'items'=>array_map(function($code){
+                    'items'=>array_map(function ($code) {
                         return [
-                            'label'=>Yii::$app->params['availableLocales'][$code],
-                            'url'=>['/site/set-locale', 'locale'=>$code],
-                            'active'=>Yii::$app->language == $code
+                            'label' => Yii::$app->params['availableLocales'][$code],
+                            'url' => ['/site/set-locale', 'locale'=>$code],
+                            'active' => Yii::$app->language === $code
                         ];
                     }, array_keys(Yii::$app->params['availableLocales']))
                 ]
-            ],
+            ]
         ]);
         NavBar::end();
         ?>

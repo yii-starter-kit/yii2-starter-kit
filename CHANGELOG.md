@@ -5,6 +5,7 @@ Yii Framework 2 Change Log
 -----------------------
 - Enh: Maintenance mode
 - Enh: #79 chosen locale is stored in cookies
+- Enh: #84 Article Attachments
 - Chg: application structure
 - Chg #59: dotenv support
 - Enh #61: Backend Cache Controller

@@ -11,7 +11,7 @@ $config = [
     ],
 ];
 
-if(YII_DEBUG){
+if (YII_DEBUG) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class'=>'yii\debug\Module',
@@ -21,14 +21,6 @@ if(YII_DEBUG){
                 'class'=>'\trntv\debug\xhprof\panels\XhprofPanel'
             ]
         ]*/
-    ];
-}
-
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module',
     ];
 }
 

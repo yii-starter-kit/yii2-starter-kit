@@ -6,14 +6,14 @@ $config = [
     'controllerMap'=>[
         'file-manager-elfinder' => [
             'class' => 'mihaildev\elfinder\Controller',
-            'access' => ['manager'], //глобальный доступ к фаил менеджеру @ - для авторизорованных , ? - для гостей , чтоб открыть всем ['@', '?']
-            'disabledCommands' => ['netmount'], //отключение ненужных команд https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#commands
+            'access' => ['manager'],
+            'disabledCommands' => ['netmount'],
             'roots' => [
                 [
                     'baseUrl' => '@storageUrl',
                     'basePath' => '@storage',
                     'path'   => '/uploads',
-                    'access' => ['read' => 'manager', 'write' => 'manager'] // * - для всех, иначе проверка доступа в даааном примере все могут видет а редактировать могут пользователи только с правами UserFilesAccess
+                    'access' => ['read' => 'manager', 'write' => 'manager']
                 ]
             ]
         ]
@@ -21,6 +21,9 @@ $config = [
     'components'=>[
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'request' => [
+            'cookieValidationKey' => getenv('BACKEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [
             'class'=>'yii\web\User',

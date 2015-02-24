@@ -42,8 +42,7 @@ return [
             'console/yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/web-local.php',
-            'frontend/config/web-local.php',
+            '.env'
         ],
     ],
     'prod' => [
@@ -62,8 +61,7 @@ return [
             'console/yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/web-local.php',
-            'frontend/config/web-local.php',
+            '.env'
         ],
     ],
 ];

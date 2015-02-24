@@ -1,9 +1,6 @@
 # Env
 /.env
-
-# Local config files
-*-local.*
-!environments/*-local.*
+/nginx-local.conf
 
 # composer
 /vendor

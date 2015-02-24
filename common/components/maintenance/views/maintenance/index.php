@@ -5,7 +5,7 @@
  * @var int|string $retryAfter
  */
 ?>
-<div class="jumbotron">
+<div class="jumbotron text-center" style="margin-top: 10%">
     <p>
         <?php echo Yii::t('common', $maintenanceText, [
             'retryAfter' => $retryAfter,

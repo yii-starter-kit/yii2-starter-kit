@@ -21,8 +21,8 @@ class Maintenance extends Component implements BootstrapInterface
     public $catchAll;
 
     public $retryAfter = 60;
-    public $maintenanceLayout = '@common\components\maintenance\views\layouts\main.php';
-    public $maintenanceView = '@common\components\maintenance\views\maintenance\index.php';
+    public $maintenanceLayout = '@common/components/maintenance/views/layouts/main.php';
+    public $maintenanceView = '@common/components/maintenance/views/maintenance/index.php';
     public $maintenanceText = 'Down to maintenance';
 
     /**
@@ -45,7 +45,7 @@ class Maintenance extends Component implements BootstrapInterface
                     'maintenanceView' => $this->maintenanceView,
                     'maintenanceText' => $this->maintenanceText
                 ];
-                $app->catchAll = ['maintenance\index'];
+                $app->catchAll = ['maintenance/index'];
             } else {
                 $app->catchAll = $this->catchAll;
             }

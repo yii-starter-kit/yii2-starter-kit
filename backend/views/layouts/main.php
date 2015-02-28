@@ -92,7 +92,7 @@ use yii\widgets\Breadcrumbs;
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="<?= Yii::$app->user->identity->profile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                            <img src="<?= Yii::$app->user->identity->userProfile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                             <p>
                                 <?php Yii::$app->user->identity->username ?>
                                 <small>
@@ -125,7 +125,7 @@ use yii\widgets\Breadcrumbs;
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= Yii::$app->user->identity->profile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                    <img src="<?= Yii::$app->user->identity->userProfile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                 </div>
                 <div class="pull-left info">
                     <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>

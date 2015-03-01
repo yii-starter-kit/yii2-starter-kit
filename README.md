@@ -83,7 +83,7 @@ php composer.phar global require "fxp/composer-asset-plugin"
 ```
 
 
-### Install from GitHub (preferred way)
+### Clone from GitHub
 
 Extract the github archive file or clone this repository.
 ```

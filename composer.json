@@ -22,7 +22,6 @@
     "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
     "source": "https://github.com/trntv/yii2-starter-kit"
   },
-  "minimum-stability": "dev",
   "require": {
     "php": ">=5.4.0",
     "ext-intl": "*",
@@ -35,7 +34,7 @@
     "asofter/yii2-imperavi-redactor": "dev-master",
     "mihaildev/yii2-elfinder": "~1.0",
     "trntv/yii2-aceeditor": "~2.0",
-    "trntv/systeminfo": "~0.1",
+    "trntv/probe": "@dev",
     "trntv/yii2-file-kit": "~0.3",
     "trntv/yii2-bootstrap-datetimepicker": "~1.0",
     "trntv/cheatsheet": "dev-master",

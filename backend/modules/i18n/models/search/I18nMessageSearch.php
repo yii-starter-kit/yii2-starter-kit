@@ -44,7 +44,7 @@ class I18nMessageSearch extends I18nMessage
         $query = I18nMessage::find()->with('sourceMessageModel')->joinWith('sourceMessageModel');
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => $query
         ]);
 
         if (!($this->load($params) && $this->validate())) {
@@ -54,13 +54,13 @@ class I18nMessageSearch extends I18nMessage
 
 
         $query->andFilterWhere([
-            'id' => $this->id,
+            'id' => $this->id
         ]);
 
         $query->andFilterWhere(['like', 'language', $this->language])
             ->andFilterWhere(['like', 'translation', $this->translation])
-            ->andFilterWhere(['like', 'i18n_source_message.message', $this->sourceMessage])
-            ->andFilterWhere(['like', 'i18n_source_message.category', $this->category]);
+            ->andFilterWhere(['like', '{{%i18n_source_message}}.message', $this->sourceMessage])
+            ->andFilterWhere(['like', '{{%i18n_source_message}}.category', $this->category]);
 
 
         return $dataProvider;

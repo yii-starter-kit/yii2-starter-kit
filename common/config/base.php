@@ -120,6 +120,7 @@ $config = [
     ],
     'params' => [
         'adminEmail' => getenv('ADMIN_EMAIL'),
+        'robotEmail' => getenv('ROBOT_EMAIL'),
         'availableLocales'=>[
             'en-US'=>'English (US)',
             'ru-RU'=>'Русский (РФ)',
@@ -138,14 +139,14 @@ if (YII_ENV_PROD) {
         'class' => 'yii\log\EmailTarget',
         'except' => ['yii\web\HttpException:*'],
         'levels' => ['error', 'warning'],
-        'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
+        'message' => ['from' => getenv('ROBOT_EMAIL'), 'to' => getenv('ADMIN_EMAIL')]
     ];
 }
 
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module',
+        'class'=>'yii\gii\Module'
     ];
 }
 

@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 8/3/14
- * Time: 6:40 PM
- */
-
 namespace common\components\keyStorage;
 
 use yii\base\Component;

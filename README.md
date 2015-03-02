@@ -38,9 +38,10 @@ FEATURES
 
 DEMO
 ----
-
+Frontend:
 http://yii2-starter-kit.terentev.net
 
+Backend:
 http://backend.yii2-starter-kit.terentev.net
 
 `administrator` role account

@@ -14,7 +14,7 @@ use yii\helpers\Html;
         <title><?php echo Html::encode(Yii::$app->name); ?></title>
         <?php $this->head(); ?>
     </head>
-    <body>
+    <body class="maintenance-body">
     <?php $this->beginBody() ?>
         <div class="container">
             <?php echo $content; ?>

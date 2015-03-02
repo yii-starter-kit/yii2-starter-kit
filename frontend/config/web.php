@@ -1,7 +1,6 @@
 <?php
 $config = [
     'homeUrl'=>Yii::getAlias('@frontendUrl'),
-    //'bootstrap' => ['maintenance'],
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
     'modules' => [
@@ -23,12 +22,6 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error'
         ],
-        /*'maintenance' => [
-            'class' => 'common\components\maintenance\Maintenance',
-            'enabled' => function ($app) {
-                return $app->keyStorage->get('frontend.maintenance');
-            }
-        ],*/
         'request' => [
             'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
@@ -50,6 +43,17 @@ if (YII_ENV_DEV) {
                 'messageCategory'=>'frontend'
             ]
         ]
+    ];
+}
+
+if (YII_ENV_PROD) {
+    // Maintenance mode
+    $config['bootstrap'] = ['maintenance'];
+    $config['components']['maintenance'] = [
+        'class' => 'common\components\maintenance\Maintenance',
+        'enabled' => function ($app) {
+            return boolval($app->keyStorage->get('frontend.maintenance'));
+        }
     ];
 }
 

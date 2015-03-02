@@ -26,7 +26,7 @@ FEATURES
 - Yii2 log web interface
 - Application events component
 - Cache web controller
-- Maintenance mode component (-- тут ссылка --)
+- Maintenance mode component ([more](### Maintenance mode))
 - System information web interface
 - dotenv support
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
@@ -217,7 +217,7 @@ component in your config
 ]
 ```
 This component will catch all incoming requests, set proper response HTTP headers (503, "Retry After") and show a maintenance message.
-Additional configuration options can be found in a corresponding class
+Additional configuration options can be found in a corresponding class.
 
 ### Behaviors
 #### CacheInvalidateBehavior

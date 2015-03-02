@@ -1,5 +1,7 @@
 <?php
 namespace common\components\maintenance;
+
+use Yii;
 use yii\base\Component;
 use yii\base\BootstrapInterface;
 
@@ -15,15 +17,28 @@ class Maintenance extends Component implements BootstrapInterface
      */
     public $enabled;
     /**
-     * @var array
+     * @var string
      * @see \yii\web\Application::catchAll
      */
-    public $catchAll;
+    public $catchAllRoute;
 
+    /**
+     * @var mixed
+     * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.37
+     */
     public $retryAfter = 300;
+    /**
+     * @var string
+     */
     public $maintenanceLayout = '@common/components/maintenance/views/layouts/main.php';
+    /**
+     * @var string
+     */
     public $maintenanceView = '@common/components/maintenance/views/maintenance/index.php';
-    public $maintenanceText = 'Down to maintenance.';
+    /**
+     * @var string
+     */
+    public $maintenanceText;
 
     /**
      * Bootstrap method to be called during application bootstrap stage.
@@ -37,7 +52,8 @@ class Maintenance extends Component implements BootstrapInterface
             $enabled = $this->enabled;
         }
         if ($enabled) {
-            if ($this->catchAll === null) {
+            $this->maintenanceText = $this->maintenanceText ?: Yii::t('common', 'Down to maintenance.');
+            if ($this->catchAllRoute === null) {
                 $app->controllerMap['maintenance'] = [
                     'class' => 'common\components\maintenance\controllers\MaintenanceController',
                     'retryAfter' => $this->retryAfter,
@@ -46,8 +62,13 @@ class Maintenance extends Component implements BootstrapInterface
                     'maintenanceText' => $this->maintenanceText
                 ];
                 $app->catchAll = ['maintenance/index'];
+                Yii::$app->view->registerAssetBundle(MaintenanceAsset::className());
             } else {
-                $app->catchAll = $this->catchAll;
+                $app->catchAll = [
+                    $this->catchAllRoute,
+                    'retryAfter' => $this->retryAfter,
+                    'maintenanceText' => $this->maintenanceText
+                ];
             }
         }
     }

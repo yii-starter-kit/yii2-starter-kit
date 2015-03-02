@@ -3,6 +3,7 @@ Yii Framework 2 Change Log
 
 1.5.0 under development
 -----------------------
+- Enh: ``$cachingDuration`` parameter was added to ``common\components\keyStorage\KeyStorage::get``
 - Fix: contact form fix
 - Enh: "robot" email now ca be set in .env
 - Enh #72: Maintenance mode

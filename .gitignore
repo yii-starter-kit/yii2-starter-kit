@@ -5,6 +5,7 @@
 # composer
 /vendor
 composer.phar
+composer.lock
 
 # IDE
 .idea

@@ -46,4 +46,15 @@ if (YII_ENV_DEV) {
     ];
 }
 
+if (YII_ENV_PROD) {
+    // Maintenance mode
+    $config['bootstrap'] = ['maintenance'];
+    $config['components']['maintenance'] = [
+        'class' => 'common\components\maintenance\Maintenance',
+        'enabled' => function ($app) {
+            return boolval($app->keyStorage->get('frontend.maintenance'));
+        }
+    ];
+}
+
 return $config;

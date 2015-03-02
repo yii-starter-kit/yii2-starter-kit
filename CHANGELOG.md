@@ -5,7 +5,9 @@ Yii Framework 2 Change Log
 -----------------------
 - Fix: contact form fix
 - Enh: "robot" email now ca be set in .env
+- Enh #72: Maintenance mode
 - Enh: #79 chosen locale is stored in cookies
+- Enh: #84 Article Attachments
 - Chg: application structure
 - Chg #59: dotenv support
 - Enh #61: Backend Cache Controller

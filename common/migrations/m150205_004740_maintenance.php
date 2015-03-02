@@ -10,7 +10,7 @@ class m150205_004740_maintenance extends Migration
         $this->insert('{{%key_storage_item}}', [
             'key' => 'frontend.maintenance',
             'value' => 0,
-            'comment' => 'Is frontend app in maintenance mode (1|0)'
+            'comment' => 'Set it to "true" to turn on maintenance mode'
         ]);
     }
 

@@ -52,7 +52,7 @@ if (YII_ENV_PROD) {
     $config['components']['maintenance'] = [
         'class' => 'common\components\maintenance\Maintenance',
         'enabled' => function ($app) {
-            return boolval($app->keyStorage->get('frontend.maintenance'));
+            return $app->keyStorage->get('frontend.maintenance') === 'true';
         }
     ];
 }

@@ -8,6 +8,7 @@ use common\models\User;
 use trntv\systeminfo\SI;
 
 $this->title = Yii::t('backend', 'System Information');
+$this->registerJs("window.paceOptions = { ajax: false }", \yii\web\View::POS_HEAD);
 $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]) ?>
 <div id="system-information-index">
     <div class="row connectedSortable">

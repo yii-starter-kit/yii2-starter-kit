@@ -58,6 +58,11 @@
   "config": {
     "process-timeout": 1800
   },
+  "scripts": {
+      "post-create-project-cmd": [
+          "yii\\composer\\Installer::postCreateProject"
+      ]
+  },
   "extra": {
     "asset-installer-paths": {
       "npm-asset-library": "vendor/npm",

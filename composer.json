@@ -1,62 +1,68 @@
 {
   "name": "trntv/yii2-starter-kit",
   "description": "Yii2 Starter Kit Application Template",
-  "keywords": ["yii2", "framework", "start", "application template", "yii2 advanced"],
-    "authors": [
-      {
-        "name": "Eugene Terentev",
-        "email": "eugene@terentev.net",
-        "homepage": "http://terentev.net",
-        "role": "Developer"
-      }
-    ],
-	"type": "project",
-	"license": "BSD-3-Clause",
-	"support": {
-      "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
-      "source": "https://github.com/trntv/yii2-starter-kit"
-	},
-	"minimum-stability": "dev",
-	"require": {
-      "php": ">=5.4.0",
-      "ext-intl": "*",
-      "yiisoft/yii2": "~2.0",
-      "yiisoft/yii2-bootstrap": "~2.0",
-      "yiisoft/yii2-swiftmailer": "~2.0",
-      "yiisoft/yii2-authclient": "~2.0",
-      "yiisoft/yii2-jui": "~2.0",
-      "yiisoft/yii2-imagine": "~2.0",
-      "asofter/yii2-imperavi-redactor": "dev-master",
-      "mihaildev/yii2-elfinder": "~1.0",
-      "trntv/yii2-aceeditor": "~2.0",
-      "trntv/systeminfo": "~0.1",
-      "trntv/yii2-file-kit": "~0.3",
-      "trntv/yii2-bootstrap-datetimepicker": "~1.0",
-      "trntv/cheatsheet": "dev-master",
-      "vlucas/phpdotenv": "~1.0",
-      "bower-asset/admin-lte": "~1.0",
-      "bower-asset/font-awesome": "~4.0",
-      "bower-asset/html5shiv": "~3.0",
-      "bower-asset/flot": "~0.8"
-	},
-	"require-dev": {
-      "yiisoft/yii2-debug": "~2.0",
-      "yiisoft/yii2-gii": "~2.0",
-      "yiisoft/yii2-codeception": "~2.0",
-      "yiisoft/yii2-faker": "~2.0",
-      "codeception/codeception": "~2.0"
-	},
-    "suggest": {
-      "trntv/yii2-deploy": "dev-master",
-      "trntv/yii2-debug-xhprof": "dev-master"
-    },
-	"config": {
-		"process-timeout": 1800
-	},
-    "extra": {
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
-        }
+  "keywords": [
+    "yii2",
+    "framework",
+    "start",
+    "application template",
+    "yii2 advanced"
+  ],
+  "authors": [
+    {
+      "name": "Eugene Terentev",
+      "email": "eugene@terentev.net",
+      "homepage": "http://terentev.net",
+      "role": "Developer"
     }
+  ],
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
+    "source": "https://github.com/trntv/yii2-starter-kit"
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4.0",
+    "ext-intl": "*",
+    "yiisoft/yii2": "~2.0",
+    "yiisoft/yii2-bootstrap": "~2.0",
+    "yiisoft/yii2-swiftmailer": "~2.0",
+    "yiisoft/yii2-authclient": "~2.0",
+    "yiisoft/yii2-jui": "~2.0",
+    "yiisoft/yii2-imagine": "~2.0",
+    "asofter/yii2-imperavi-redactor": "dev-master",
+    "mihaildev/yii2-elfinder": "~1.0",
+    "trntv/yii2-aceeditor": "~2.0",
+    "trntv/systeminfo": "~0.1",
+    "trntv/yii2-file-kit": "~0.3",
+    "trntv/yii2-bootstrap-datetimepicker": "~1.0",
+    "trntv/cheatsheet": "dev-master",
+    "vlucas/phpdotenv": "~1.0",
+    "bower-asset/admin-lte": "~1.0",
+    "bower-asset/font-awesome": "~4.0",
+    "bower-asset/html5shiv": "~3.0",
+    "bower-asset/flot": "~0.8"
+  },
+  "require-dev": {
+    "yiisoft/yii2-debug": "~2.0",
+    "yiisoft/yii2-gii": "~2.0",
+    "yiisoft/yii2-codeception": "~2.0",
+    "yiisoft/yii2-faker": "~2.0",
+    "codeception/codeception": "~2.0"
+  },
+  "suggest": {
+    "trntv/yii2-deploy": "dev-master",
+    "trntv/yii2-debug-xhprof": "dev-master"
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "extra": {
+    "asset-installer-paths": {
+      "npm-asset-library": "vendor/npm",
+      "bower-asset-library": "vendor/bower"
+    }
+  }
 }

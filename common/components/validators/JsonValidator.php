@@ -20,10 +20,8 @@ class JsonValidator extends Validator
     public function init()
     {
         parent::init();
-        if (!$this->message) {
-            $this->message = Yii::t('common', '"{attribute}" must be a valid JSON', [
-
-            ]);
+        if ($this->message === null) {
+            $this->message = Yii::t('common', '"{attribute}" must be a valid JSON');
         }
     }
     /**
@@ -34,7 +32,6 @@ class JsonValidator extends Validator
         if (!@json_decode($value)) {
             return [$this->message, []];
         }
-        return true;
     }
 
     /**
@@ -42,7 +39,7 @@ class JsonValidator extends Validator
      */
     public function clientValidateAttribute($model, $attribute, $view)
     {
-        $message = Yii::$app->getI18n()->format($this->message, [
+        /*$message = Yii::$app->getI18n()->format($this->message, [
             'attribute' => $model->getAttributeLabel($attribute)
         ], Yii::$app->language);
         return <<<"JS"
@@ -51,6 +48,6 @@ class JsonValidator extends Validator
             } catch (e) {
                 messages.push('{$message}')
             }
-JS;
+JS;*/
     }
 }

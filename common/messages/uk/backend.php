@@ -17,9 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'If you\'ll leave this field empty, slug will be generated automatically' => 'Якщо ви залишете це поле пустим, ЧПУ буде сгенеровано автоматично',
-    'Not Published' => 'Не опубликовано',
-    'Published' => 'Опубліковано',
+    'Sorry, application failed to collect information about your system. See {link}.' => 'Вибчате, але ми не змогли зібрати інформацію про вашу системи. Дивіться {link}',
+    'Your account has been successfully saved' => 'Ваш аккаунт було успішно збережено',
+    'Your profile has been successfully saved' => 'Ваш профиль було успешно збережено',
     'Account' => 'Аккаунт',
     'Active' => 'Активно',
     'Application timeline' => 'Хроніка',
@@ -61,6 +61,7 @@ return [
     'I18n Messages' => 'I18N переклади',
     'I18n Source Messages' => 'Тексти',
     'ID' => 'ID',
+    'If you\'ll leave this field empty, slug will be generated automatically' => 'Якщо ви залишете це поле пустим, ЧПУ буде сгенеровано автоматично',
     'Incorrect username or password.' => 'Неправильні им’я користувача або пароль',
     'Internal IP' => 'Внутрішній IP',
     'Invalidate tag' => 'Скинути тег',
@@ -84,6 +85,7 @@ return [
     'New user' => 'Новий користувач',
     'New user {username} ({email}) was registered at {created_at, date} {created_at, time}' => 'Новий користувач {username} ({email}) був зареєстрований {created_at, date} о {created_at, time',
     'No events found' => 'Подій не знайдено',
+    'Not Published' => 'Не опубликовано',
     'Number of cores' => 'Кількість ядер',
     'OS' => 'ОС',
     'OS Release' => 'Версія ОС',
@@ -99,6 +101,7 @@ return [
     'Processor' => 'Процессор',
     'Processor Architecture' => 'Архітектура процессора',
     'Profile' => 'Профіль',
+    'Published' => 'Опубліковано',
     'Real time' => 'У реальному часі',
     'Remember Me' => 'Запам\'ятати мене',
     'Reset' => 'Очистити',

@@ -17,16 +17,17 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Attachments' => 'Вкладення',
+    'Submit' => 'Відправити',
+    'Your account has been successfully saved' => 'Ваш аккаунт було успішно збережено',
     'About' => 'О нас',
     'Account' => 'Аккаунт',
     'Articles' => 'Статті',
+    'Attachments' => 'Вкладення',
     'Backend' => 'Панель управління',
     'Body' => 'Повідомлення',
     'Check your email for further instructions.' => 'Перевірте ваш e-mail.',
     'Confirm Password' => 'Підтвердження пароля',
     'Contact' => 'Контакти',
-    'Create' => 'Створити',
     'E-mail' => 'E-mail',
     'Email' => 'Email',
     'Error while oauth process.' => 'Помилка під час OAuth авторизації.',

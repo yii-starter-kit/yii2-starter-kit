@@ -17,10 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Article ID' => 'ID Статті',
-    'Parent Category' => 'Батьківська категорія',
+    '"{attribute}" must be a valid JSON' => '"{attribute}" повинен містити валідний JSON',
+    'Down to maintenance.' => 'Закрито на обслуговування.',
     'Active' => 'Активно',
     'Administrator' => 'Адміністратор',
+    'Article ID' => 'ID Статті',
     'Author' => 'Автор',
     'Body' => 'Текст',
     'Caption' => 'Текст',
@@ -41,6 +42,7 @@ return [
     'Manager' => 'Менеджер',
     'Middlename' => 'По батькові',
     'Order' => 'Порядок',
+    'Parent Category' => 'Батьківська категорія',
     'Path' => 'Шлях',
     'Picture' => 'Аватар',
     'Published' => 'Опубліковано',
@@ -56,5 +58,4 @@ return [
     'User ID' => 'ID Користувача',
     'Username' => 'Им’я користувача',
     'Value' => 'Значення',
-    '{attribute} must be a valid JSON' => '{attribute} повинен бути валідним JSON',
 ];

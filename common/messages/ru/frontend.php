@@ -17,7 +17,8 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Email' => 'Email',
+    'Submit' => 'Отправить',
+    'Your account has been successfully saved' => 'Ваш аккаунт был успешно сохранен',
     'About' => 'О нас',
     'Account' => 'Аккаунт',
     'Articles' => 'Статьи',
@@ -27,8 +28,8 @@ return [
     'Check your email for further instructions.' => 'Проверьте ваш e-mail.',
     'Confirm Password' => 'Подтвердите пароль',
     'Contact' => 'Контакты',
-    'Create' => 'Создать',
     'E-mail' => 'E-mail',
+    'Email' => 'Email',
     'Error while oauth process.' => 'Ошибка в процессе OAuth авторизации.',
     'Female' => 'Женский',
     'Home' => 'Главная',

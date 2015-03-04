@@ -17,10 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Article ID' => 'ID Статьи',
-    'Parent Category' => 'Родительская категория',
+    '"{attribute}" must be a valid JSON' => '"{attribute}" должен содержать валидный JSON',
+    'Down to maintenance.' => 'Закрыто на обслуживание',
     'Active' => 'Активно',
     'Administrator' => 'Администратор',
+    'Article ID' => 'ID Статьи',
     'Author' => 'Автор',
     'Body' => 'Текст',
     'Caption' => 'Текст',
@@ -41,6 +42,7 @@ return [
     'Manager' => 'Менеджер',
     'Middlename' => 'Отчество',
     'Order' => 'Порядок',
+    'Parent Category' => 'Родительская категория',
     'Path' => 'Путь',
     'Picture' => 'Аватар',
     'Published' => 'Опубликовано',
@@ -56,5 +58,4 @@ return [
     'User ID' => 'ID пользователя',
     'Username' => 'Имя пользователя',
     'Value' => 'Значение',
-    '{attribute} must be a valid JSON' => '{attribute} должен быть валидным JSON',
 ];

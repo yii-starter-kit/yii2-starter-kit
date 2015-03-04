@@ -17,9 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'If you\'ll leave this field empty, slug will be generated automatically' => 'Если вы оставите это поле пустым. ЧПУ будет сгенерирован автоматически',
-    'Not Published' => 'Не опубликовано',
-    'Published' => 'Опубликовано',
+    'Sorry, application failed to collect information about your system. See {link}.' => 'Извините, но приложению не удалось собрать информацию о вашей системе. Смотрите {link}',
+    'Your account has been successfully saved' => 'Ваш аккаунт был успешно сохранен',
+    'Your profile has been successfully saved' => 'Ваш профиль был успешно сохранен',
     'Account' => 'Аккаунт',
     'Active' => 'Активно',
     'Application timeline' => 'Хроника приложения',
@@ -61,6 +61,7 @@ return [
     'I18n Messages' => 'I18N переводы',
     'I18n Source Messages' => 'Тексты',
     'ID' => 'ID',
+    'If you\'ll leave this field empty, slug will be generated automatically' => 'Если вы оставите это поле пустым. ЧПУ будет сгенерирован автоматически',
     'Incorrect username or password.' => 'Неправильный логин или пароль',
     'Internal IP' => 'Внутренний IP',
     'Invalidate tag' => 'Сбросить тег',
@@ -84,6 +85,7 @@ return [
     'New user' => 'Новый пользователь',
     'New user {username} ({email}) was registered at {created_at, date} {created_at, time}' => 'Новый пользователь {username} ({email}) был зарегистрирован {created_at, date} в {created_at, time}',
     'No events found' => 'Событий нет',
+    'Not Published' => 'Не опубликовано',
     'Number of cores' => 'Кол-во ядер',
     'OS' => 'ОС',
     'OS Release' => 'Версия ОС',
@@ -99,6 +101,7 @@ return [
     'Processor' => 'Процессор',
     'Processor Architecture' => 'Архитектура процессора',
     'Profile' => 'Профиль',
+    'Published' => 'Опубликовано',
     'Real time' => 'В режиме реального времени',
     'Remember Me' => 'Запомнить меня',
     'Reset' => 'Сбросить',

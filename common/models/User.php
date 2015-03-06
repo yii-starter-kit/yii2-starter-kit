@@ -238,7 +238,7 @@ class User extends ActiveRecord implements IdentityInterface
             self::ROLE_MANAGER => Yii::t('common', 'Manager'),
             self::ROLE_ADMINISTRATOR => Yii::t('common', 'Administrator')
         ];
-        return $role === false ? ArrayHelper::getValue($roles, $role) : $roles;
+        return $role !== false ? ArrayHelper::getValue($roles, $role) : $roles;
     }
 
     /**
@@ -252,7 +252,7 @@ class User extends ActiveRecord implements IdentityInterface
             self::STATUS_ACTIVE => Yii::t('common', 'Active'),
             self::STATUS_DELETED => Yii::t('common', 'Deleted')
         ];
-        return $status === false ? ArrayHelper::getValue($statuses, $status) : $statuses;
+        return $status !== false ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 
     /**

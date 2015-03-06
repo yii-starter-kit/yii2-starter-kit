@@ -34,7 +34,8 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
-            'storage'
+            'storage/cache',
+            'storage/source'
         ],
         'setExecutable' => [
             'backend/yii',
@@ -53,7 +54,8 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
-            'storage'
+            'storage/cache',
+            'storage/source'
         ],
         'setExecutable' => [
             'backend/yii',

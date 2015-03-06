@@ -94,8 +94,8 @@ $config = [
             'repositories' => [
                 'uploads' => [
                     'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath' => '@storage',
-                    'baseUrl' => '@storageUrl',
+                    'basePath' => '@storage/source',
+                    'baseUrl' => '@storageUrl/source',
                 ]
             ]
 

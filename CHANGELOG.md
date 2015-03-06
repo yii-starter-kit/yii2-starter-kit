@@ -3,7 +3,7 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
-
+- Enh: Glide Integration
 
 1.5.0
 -----

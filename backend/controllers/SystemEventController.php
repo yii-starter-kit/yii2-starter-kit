@@ -14,6 +14,7 @@ use yii\filters\VerbFilter;
  */
 class SystemEventController extends Controller
 {
+
     public function behaviors()
     {
         return [
@@ -50,6 +51,7 @@ class SystemEventController extends Controller
      */
     public function actionTimeline()
     {
+        $this->layout = 'common';
         $searchModel = new SystemEventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [

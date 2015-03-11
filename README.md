@@ -10,7 +10,7 @@ It covers typical use cases for a new project and will help you not to waste you
 FEATURES
 --------
 - Based on yii2-advanced application template
-- Beautiful and open source dashboard theme for backend (http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend AdminLTE 2 (http://almsaeedstudio.com/AdminLTE)
 - I18N + 2 translations: Ukrainian, Russian
 - I18N DbMessageSource CRUD module
 - Language change action + behavior to choose locale based on browser preferred language 

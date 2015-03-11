@@ -36,7 +36,7 @@ class SignInController extends Controller
 
     public function actionLogin()
     {
-        $this->layout = '_base';
+        $this->layout = 'base';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }

@@ -39,7 +39,7 @@
     "trntv/yii2-bootstrap-datetimepicker": "~1.0",
     "trntv/cheatsheet": "~0.1@dev",
     "vlucas/phpdotenv": "~1.0",
-    "bower-asset/admin-lte": "~1.0",
+    "bower-asset/admin-lte": "~2.0",
     "bower-asset/font-awesome": "~4.0",
     "bower-asset/html5shiv": "~3.0",
     "bower-asset/flot": "~0.8"

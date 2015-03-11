@@ -12,12 +12,13 @@ namespace common\assets;
 use yii\web\AssetBundle;
 
 class AdminLTE extends AssetBundle{
-    public $sourcePath = '@bower/admin-lte';
+    public $sourcePath = '@bower/admin-lte/dist';
     public $js = [
-        'js/AdminLTE/app.js'
+        'js/app.min.js'
     ];
     public $css = [
-        'css/AdminLTE.css'
+        'css/AdminLTE.min.css',
+        'css/skins/_all-skins.min.css'
     ];
     public $depends = [
         '\yii\web\JqueryAsset',

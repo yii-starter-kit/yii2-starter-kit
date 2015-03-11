@@ -13,6 +13,8 @@ use Yii;
 
 class SystemInformationController extends Controller
 {
+    public $layout = 'common';
+
     public function actionIndex()
     {
         $provider = Factory::create();

@@ -5,7 +5,8 @@ use Yii;
 use yii\console\Controller;
 use yii\helpers\Console;
 
-class RbacController extends Controller{
+class RbacController extends Controller
+{
     public function actionInit()
     {
         $auth = Yii::$app->authManager;
@@ -30,4 +31,4 @@ class RbacController extends Controller{
 
         Console::output('Success! RBAC roles has been added.');
     }
-} 
+}

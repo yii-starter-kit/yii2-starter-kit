@@ -28,7 +28,7 @@ class UserForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter'=>function($query){
-                if(!$this->getModel()->isNewRecord){
+                if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
@@ -38,7 +38,7 @@ class UserForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter'=>function($query){
-                if(!$this->getModel()->isNewRecord){
+                if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
@@ -76,7 +76,7 @@ class UserForm extends Model
 
     public function getModel()
     {
-        if(!$this->_model){
+        if (!$this->_model) {
             $this->_model = new User();
         }
         return $this->_model;
@@ -95,13 +95,13 @@ class UserForm extends Model
             $model->email = $this->email;
             $model->status = $this->status;
             $model->role = $this->role;
-            if($this->password){
+            if ($this->password) {
                 $model->setPassword($this->password);
             }
-            if($model->getIsNewRecord()){
+            if ($model->getIsNewRecord()) {
                 $model->generateAuthKey();
             }
-            if($model->save() && $model->getIsNewRecord()){
+            if ($model->save() && $model->getIsNewRecord()) {
                 $model->afterSignup();
             }
             return !$model->hasErrors();

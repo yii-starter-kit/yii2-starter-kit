@@ -17,7 +17,8 @@ use yii\filters\VerbFilter;
 class WidgetCarouselItemController extends Controller
 {
 
-    public function getViewPath(){
+    public function getViewPath()
+    {
         return $this->module->getViewPath() . DIRECTORY_SEPARATOR . 'widget-carousel/item';
     }
 
@@ -42,11 +43,13 @@ class WidgetCarouselItemController extends Controller
     {
         $model = new WidgetCarouselItem();
         $carousel = WidgetCarousel::findOne($carousel_id);
-        if(!$carousel) throw new HttpException(400);
+        if (!$carousel) {
+            throw new HttpException(400);
+        }
 
         $model->carousel_id =  $carousel->id;
         if ($model->load(Yii::$app->request->post())) {
-            if($model->save()){
+            if ($model->save()) {
                 Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
                 return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
             }
@@ -85,7 +88,7 @@ class WidgetCarouselItemController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        if($model->delete()){
+        if ($model->delete()) {
             return $this->redirect(['/widget-carousel/update', 'id'=>$model->carousel_id]);
         };
     }

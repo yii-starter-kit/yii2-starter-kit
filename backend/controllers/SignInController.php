@@ -87,5 +87,4 @@ class SignInController extends Controller
         }
         return $this->render('account', ['model'=>$model]);
     }
-
 }

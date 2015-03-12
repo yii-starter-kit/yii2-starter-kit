@@ -30,7 +30,8 @@ class FileStorageController extends Controller
         ];
     }
 
-    public function actions(){
+    public function actions()
+    {
         return [
             'upload'=>[
                 'class'=>'trntv\filekit\actions\UploadAction'
@@ -57,7 +58,9 @@ class FileStorageController extends Controller
         ];
 
         $repositories = \yii\helpers\ArrayHelper::map(
-            FileStorageItem::find()->select('repository')->distinct()->all(), 'repository', 'repository'
+            FileStorageItem::find()->select('repository')->distinct()->all(),
+            'repository',
+            'repository'
         );
         $totalSize = FileStorageItem::find()->where(['status' => FileStorageItem::STATUS_UPLOADED])->sum('size');
 
@@ -89,13 +92,14 @@ class FileStorageController extends Controller
     public function actionCreate()
     {
         $model = new FileStorageItem();
-        if($model->load($_POST))
-        if($file = UploadedFile::getInstance($model, 'path')){
-            $file = Yii::$app->fileStorage->save($file, $model->repository);
-            if(!$file->error){
-                return $this->redirect(['index']);
-            } else {
-                $model->addError('path', $file->error);
+        if ($model->load($_POST)) {
+            if ($file = UploadedFile::getInstance($model, 'path')) {
+                $file = Yii::$app->fileStorage->save($file, $model->repository);
+                if (!$file->error) {
+                    return $this->redirect(['index']);
+                } else {
+                    $model->addError('path', $file->error);
+                }
             }
         }
 
@@ -105,9 +109,10 @@ class FileStorageController extends Controller
 
     }
 
-    public function actionReset(){
+    public function actionReset()
+    {
         $rows = Yii::$app->db->createCommand('SELECT DISTINCT repository FROM {{%file_storage_item}}')->queryAll();
-        foreach($rows as $row){
+        foreach ($rows as $row) {
             Yii::$app->fileStorage->getRepository($row['repository'])->reset();
         }
         FileStorageItem::deleteAll();
@@ -123,7 +128,7 @@ class FileStorageController extends Controller
     public function actionDelete($id)
     {
         $model = $this->findModel($id);
-        if($model->status == FileStorageItem::STATUS_DELETED){
+        if ($model->status == FileStorageItem::STATUS_DELETED) {
             $model->delete();
         } else {
             $file = File::load($model->path);

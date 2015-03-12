@@ -33,8 +33,9 @@ class DbCarousel extends Carousel
     /**
      * @throws InvalidConfigException
      */
-    public function init(){
-        if(!$this->key){
+    public function init()
+    {
+        if (!$this->key) {
             throw new InvalidConfigException;
         }
         $cacheKey = [
@@ -42,7 +43,7 @@ class DbCarousel extends Carousel
             $this->key
         ];
         $items = \Yii::$app->cache->get($cacheKey);
-        if($items === false){
+        if ($items === false) {
             $items = [];
             $query = WidgetCarouselItem::find()
                 ->joinWith('carousel')
@@ -52,17 +53,17 @@ class DbCarousel extends Carousel
                     '{{%widget_carousel}}.key'=>$this->key,
                 ])
                 ->orderBy(['order'=>SORT_ASC]);
-            foreach($query->all() as $k => $item){
+            foreach ($query->all() as $k => $item) {
                 /** @var $item \common\models\WidgetCarouselItem */
-                if($item->path){
+                if ($item->path) {
                     $items[$k]['content'] = Html::img($item->path);
                 }
 
-                if($item->url){
+                if ($item->url) {
                     $items[$k]['content'] = Html::a($items[$k]['content'], $item->url, ['target'=>'_blank']);
                 }
 
-                if($item->caption){
+                if ($item->caption) {
                     $items[$k]['caption'] = $item->caption;
                 }
             }
@@ -71,5 +72,4 @@ class DbCarousel extends Carousel
         $this->items = $items;
         parent::init();
     }
-
-} 
+}

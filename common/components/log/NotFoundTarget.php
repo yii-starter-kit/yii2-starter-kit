@@ -8,10 +8,10 @@
 
 namespace common\components\log;
 
-
 use yii\log\Target;
 
-class NotFoundTarget extends Target{
+class NotFoundTarget extends Target
+{
 
     /**
      * Exports log [[messages]] to a specific destination.

@@ -14,7 +14,8 @@ use Yii;
  * Return a text block content stored in db
  * @package common\components\widgets\text
  */
-class DbText extends \yii\base\Widget{
+class DbText extends \yii\base\Widget
+{
     /**
      * @var string text block key
      */
@@ -23,15 +24,16 @@ class DbText extends \yii\base\Widget{
     /**
      * @return string
      */
-    public function run(){
+    public function run()
+    {
         $cacheKey = [
             WidgetText::className(),
             $this->key
         ];
         $content = Yii::$app->cache->get($cacheKey);
-        if(!$content){
+        if (!$content) {
             $model =  WidgetText::findOne(['key'=>$this->key, 'status'=>WidgetText::STATUS_ACTIVE]);
-            if($model){
+            if ($model) {
                 $content = $model->body;
                 Yii::$app->cache->set($cacheKey, $content, 60*60*24);
             }

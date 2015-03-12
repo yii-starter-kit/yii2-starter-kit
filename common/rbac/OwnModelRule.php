@@ -4,6 +4,7 @@
  */
 
 namespace common\rbac;
+
 use yii\rbac\Item;
 use yii\rbac\Rule;
 

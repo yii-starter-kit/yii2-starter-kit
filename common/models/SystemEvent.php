@@ -26,7 +26,8 @@ class SystemEvent extends \yii\db\ActiveRecord
         return '{{%system_event}}';
     }
 
-    public function behaviors(){
+    public function behaviors()
+    {
         return [
             'timestamp'=>[
                 'class'=>TimestampBehavior::className(),
@@ -53,11 +54,13 @@ class SystemEvent extends \yii\db\ActiveRecord
         ];
     }
 
-    public function getFullEventName(){
+    public function getFullEventName()
+    {
         return sprintf('%s.%s', $this->category, $this->event);
     }
 
-    public function getName(){
+    public function getName()
+    {
         $names = [
             'user'=>[
                 User::EVENT_AFTER_SIGNUP => Yii::t('backend', 'New user')
@@ -66,7 +69,8 @@ class SystemEvent extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($names, $this->getFullEventName(), $this->getFullEventName());
     }
 
-    public function getMessage(){
+    public function getMessage()
+    {
         $messages = [
             'user'=>[
                 User::EVENT_AFTER_SIGNUP => Yii::t('backend', 'New user {username} ({email}) was registered at {created_at, date} {created_at, time}', $this->data)
@@ -75,7 +79,8 @@ class SystemEvent extends \yii\db\ActiveRecord
         return ArrayHelper::getValue($messages, $this->getFullEventName());
     }
 
-    public static function log($category, $event, $data = null){
+    public static function log($category, $event, $data = null)
+    {
         $model = new self;
         $model->application = Yii::$app->id;
         $model->category = $category;
@@ -84,11 +89,13 @@ class SystemEvent extends \yii\db\ActiveRecord
         return $model->save();
     }
 
-    public function beforeValidate(){
+    public function beforeValidate()
+    {
         $this->data = ($this->data !== null) ? json_encode($this->data) : $this->data;
         return parent::beforeValidate();
     }
-    public function afterFind(){
+    public function afterFind()
+    {
         $this->data = @json_decode($this->data);
         parent::afterFind();
     }

@@ -1,15 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 7/5/14
- * Time: 11:16 AM
- */
-
 namespace backend\components\widgets;
 
-
-use frontend\models\WidgetMenu;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -18,7 +9,8 @@ use yii\helpers\Url;
  * Class Menu
  * @package backend\components\widget
  */
-class Menu extends \yii\widgets\Menu{
+class Menu extends \yii\widgets\Menu
+{
 
     /**
      * @var string
@@ -54,12 +46,12 @@ class Menu extends \yii\widgets\Menu{
     {
         $item['badgeOptions'] = isset($item['badgeOptions']) ? $item['badgeOptions'] : [];
 
-        if(!ArrayHelper::getValue($item, 'badgeOptions.class')){
+        if (!ArrayHelper::getValue($item, 'badgeOptions.class')) {
             $bg = isset($item['badgeBgClass']) ? $item['badgeBgClass'] : $this->badgeBgClass;
             $item['badgeOptions']['class'] = $this->badgeClass.' '.$bg;
         }
 
-        if(isset($item['items']) && !isset($item['right-icon'])){
+        if (isset($item['items']) && !isset($item['right-icon'])) {
             $item['right-icon'] = $this->parentRightIcon;
         }
 
@@ -88,5 +80,4 @@ class Menu extends \yii\widgets\Menu{
             ]);
         }
     }
-
 }

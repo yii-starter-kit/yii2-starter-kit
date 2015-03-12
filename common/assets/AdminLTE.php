@@ -8,10 +8,10 @@
 
 namespace common\assets;
 
-
 use yii\web\AssetBundle;
 
-class AdminLTE extends AssetBundle{
+class AdminLTE extends AssetBundle
+{
     public $sourcePath = '@bower/admin-lte/dist';
     public $js = [
         'js/app.min.js'

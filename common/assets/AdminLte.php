@@ -10,7 +10,7 @@ namespace common\assets;
 
 use yii\web\AssetBundle;
 
-class AdminLTE extends AssetBundle
+class AdminLte extends AssetBundle
 {
     public $sourcePath = '@bower/admin-lte/dist';
     public $js = [
@@ -24,6 +24,7 @@ class AdminLTE extends AssetBundle
         '\yii\web\JqueryAsset',
         '\yii\jui\JuiAsset',
         '\yii\bootstrap\BootstrapPluginAsset',
-        'common\assets\FontAwesome'
+        '\common\assets\FontAwesome',
+        '\common\assets\JquerySlimScroll'
     ];
 }

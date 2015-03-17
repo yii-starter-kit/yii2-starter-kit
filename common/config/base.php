@@ -90,15 +90,12 @@ $config = [
         ],
 
         'fileStorage' => [
-            'class' => 'trntv\filekit\storage\FileStorage',
-            'repositories' => [
-                'uploads' => [
-                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath' => '@storage',
-                    'baseUrl' => '@storageUrl',
-                ]
+            'class' => '\trntv\filekit\Storage',
+            'baseUrl' => '@storageUrl/source',
+            'filesystem' => [
+                'class' => 'common\components\filesystem\LocalFlysystemBuilder',
+                'path' => '@storage/source'
             ]
-
         ],
 
         'keyStorage'=>[

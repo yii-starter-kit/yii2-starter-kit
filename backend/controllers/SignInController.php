@@ -14,6 +14,7 @@ use Intervention\Image\ImageManagerStatic;
 use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
 use Yii;
+use yii\filters\VerbFilter;
 use yii\imagine\Image;
 use yii\web\Controller;
 
@@ -21,6 +22,18 @@ class SignInController extends Controller
 {
 
     public $defaultAction = 'login';
+
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post']
+                ]
+            ]
+        ];
+    }
 
     public function actions()
     {

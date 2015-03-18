@@ -22,7 +22,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'level',
             'category',
-            'log_time:datetime',
+            [
+                'attribute' => 'log_time',
+                'format' => 'datetime',
+                'value' => (int) $model->log_time
+            ],
             'prefix:ntext',
             [
                 'attribute'=>'message',

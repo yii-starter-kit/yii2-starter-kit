@@ -35,7 +35,7 @@
     "mihaildev/yii2-elfinder": "~1.0",
     "trntv/yii2-aceeditor": "~2.0",
     "trntv/probe": "@dev",
-    "trntv/yii2-file-kit": "@dev",
+    "trntv/yii2-file-kit": "~1.0.0",
     "trntv/yii2-bootstrap-datetimepicker": "~1.0",
     "trntv/cheatsheet": "~0.1@dev",
     "intervention/image": "~2.1",
@@ -43,7 +43,7 @@
     "bower-asset/admin-lte": "~2.0",
     "bower-asset/font-awesome": "~4.0",
     "bower-asset/html5shiv": "~3.0",
-    "bower-asset/jquery-slimscroll": "~1.3"
+    "bower-asset/jquery-slimscroll": "~1.3",
     "bower-asset/flot": "~0.8"
   },
   "require-dev": {

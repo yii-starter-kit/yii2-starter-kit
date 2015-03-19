@@ -164,7 +164,7 @@ class Article extends \yii\db\ActiveRecord
      */
     public function afterSave($insert, $changedAttributes)
     {
-        ArticleAttachment::deleteAll(['and', ['article_id', $this->id], ['not in', 'url', $this->attachments]]);
+        ArticleAttachment::deleteAll(['and', ['article_id' => $this->id], ['not in', 'url', $this->attachments]]);
         $existingAttachments = ArrayHelper::getColumn($this->getArticleAttachments()->all(), 'url');
         if (is_array($this->attachments)) {
             foreach ($this->attachments as $url) {

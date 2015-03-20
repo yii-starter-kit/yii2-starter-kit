@@ -73,7 +73,8 @@ class Article extends \yii\db\ActiveRecord
             ],
             [
                 'class'=>SluggableBehavior::className(),
-                'attribute'=>'title'
+                'attribute'=>'title',
+                'immutable' => true
             ]
         ];
     }

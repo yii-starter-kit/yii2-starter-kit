@@ -1,6 +1,25 @@
+.article-item {
+  margin-bottom: 15px;
+}
+.article-item .article-title,
+.article-item .article-title a {
+  color: inherit;
+  margin: 0;
+}
+.article-item .article-meta,
+.article-item .article-meta a {
+  color: #999;
+  font-size: .85em;
+}
+.article-item .article-meta a {
+  text-decoration: underline;
+}
 .article-item .article-thumb {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.article-item .article-text {
+  margin-top: 7px;
 }
 html,
 body {

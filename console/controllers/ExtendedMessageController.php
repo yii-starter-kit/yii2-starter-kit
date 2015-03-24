@@ -57,7 +57,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 $n = 0;
                 $subject = file_get_contents($fileName);
                 $replacedSubject = preg_replace_callback(
-                    '/\b' . $currentTranslator . '\s*\(\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*,\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*[,\)]/s',
+                    '/\b(\\\\)?' . $currentTranslator . '\s*\(\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*,\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*[,\)]/s',
                     function($matches) use ($newSourcelanguage, $fileName, &$unremoved){
                         $category = substr($matches[1], 1, -1);
                         $message = $matches[2];
@@ -83,7 +83,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 if (@file_put_contents($fileName, $replacedSubject) !== false) {
                     Console::output("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
                 } else {
-                    Console::err("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
+                    Console::error("File: {$fileName}; Translator: {$currentTranslator}; Affected: {$n}");
                 };
             }
         }

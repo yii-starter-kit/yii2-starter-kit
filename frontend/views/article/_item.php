@@ -3,15 +3,29 @@
  * @var $this yii\web\View
  * @var $model common\models\Article
  */
+use yii\helpers\Html;
+
 ?>
-<div class="row">
+<hr/>
+<div class="article-item row">
     <div class="col-xs-12">
-        <h2>
-            <?= \yii\helpers\Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
+        <h2 class="article-title">
+            <?= Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
         </h2>
-        <div class="article-item">
+        <div class="article-meta">
+            <span class="article-date">
+                <?php echo Yii::$app->formatter->asDatetime($model->created_at) ?>
+            </span>,
+            <span class="article-category">
+                <?php echo Html::a(
+                    $model->category->title,
+                    ['index', 'ArticleSearch[category_id]' => $model->category_id]
+                )?>
+            </span>
+        </div>
+        <div class="article-content">
             <?php if ($model->thumbnail_path): ?>
-                <?php echo \yii\helpers\Html::img(
+                <?php echo Html::img(
                     Yii::$app->glide->createSignedUrl([
                         'glide/index',
                         'path' => $model->thumbnail_path,

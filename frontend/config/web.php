@@ -6,6 +6,12 @@ $config = [
     'modules' => [
         'user' => [
             'class' => 'frontend\modules\user\Module'
+        ],
+        'api' => [
+            'class' => 'frontend\modules\api\Module',
+            'modules' => [
+                'v1' => 'frontend\modules\api\v1\Module'
+            ]
         ]
     ],
     'components' => [

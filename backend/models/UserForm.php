@@ -91,6 +91,7 @@ class UserForm extends Model
     {
         if ($this->validate()) {
             $model = $this->getModel();
+            $isNewRecord = $model->getIsNewRecord();
             $model->username = $this->username;
             $model->email = $this->email;
             $model->status = $this->status;
@@ -98,10 +99,11 @@ class UserForm extends Model
             if ($this->password) {
                 $model->setPassword($this->password);
             }
-            if ($model->getIsNewRecord()) {
+
+            if ($isNewRecord) {
                 $model->generateAuthKey();
             }
-            if ($model->save() && $model->getIsNewRecord()) {
+            if ($model->save() && $isNewRecord) {
                 $model->afterSignup();
             }
             return !$model->hasErrors();

@@ -28,7 +28,7 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
         [
-            'plugins' => ['fullscreen'],
+            'plugins' => ['fullscreen', 'fontcolor', 'video'],
             'options'=>[
                 'minHeight'=>400,
                 'maxHeight'=>400,

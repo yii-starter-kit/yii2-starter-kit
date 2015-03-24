@@ -96,7 +96,10 @@ $config = [
                 'class' => 'common\components\filesystem\LocalFlysystemBuilder',
                 'path' => '@storage/source'
             ],
-            'as recordUpload' => 'common\components\behaviors\FileStorageBehavior'
+            'as log' => [
+                'class' => 'common\components\behaviors\FileStorageLogBehavior',
+                'component' => 'fileStorage'
+            ]
         ],
 
         'keyStorage'=>[

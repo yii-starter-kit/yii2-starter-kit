@@ -44,8 +44,8 @@ class SignInController extends Controller
                 'on afterSave' => function($event) {
                     /* @var $file \League\Flysystem\File */
                     $file = $event->file;
-                    $img = ImageManagerStatic::make($file->read())->resize(215, 215);
-                    $file->put($img);
+                    $img = ImageManagerStatic::make($file->read())->fit(215, 215);
+                    $file->put($img->encode());
                 }
             ],
             'avatar-delete' => [

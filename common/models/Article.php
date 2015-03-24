@@ -3,6 +3,7 @@
 namespace common\models;
 
 use common\models\query\ArticleQuery;
+use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
@@ -37,7 +38,7 @@ class Article extends \yii\db\ActiveRecord
     /**
      * @var array
      */
-    public $attachments = [];
+    public $attachments;
 
     const STATUS_PUBLISHED = 1;
     const STATUS_DRAFT = 0;
@@ -74,6 +75,12 @@ class Article extends \yii\db\ActiveRecord
             [
                 'class'=>SluggableBehavior::className(),
                 'attribute'=>'title'
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'attachments',
+                'multiple' => true,
+                'uploadRelation' => 'articleAttachments'
             ]
         ];
     }
@@ -147,34 +154,5 @@ class Article extends \yii\db\ActiveRecord
     public function getArticleAttachments()
     {
         return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
-    }
-
-    /**
-     * @inherit
-     */
-    public function afterFind()
-    {
-        $this->attachments = ArrayHelper::getColumn($this->articleAttachments, 'url');
-        parent::afterFind();
-    }
-
-    /**
-     * @param bool $insert
-     * @param array $changedAttributes
-     */
-    public function afterSave($insert, $changedAttributes)
-    {
-        ArticleAttachment::deleteAll(['and', ['article_id', $this->id], ['not in', 'url', $this->attachments]]);
-        $existingAttachments = ArrayHelper::getColumn($this->getArticleAttachments()->all(), 'url');
-        if (is_array($this->attachments)) {
-            foreach ($this->attachments as $url) {
-                if (!in_array($url, $existingAttachments, true)) {
-                    $model = new ArticleAttachment();
-                    $model->url = $url;
-                    $this->link('articleAttachments', $model);
-                }
-            }
-        }
-        parent::afterSave($insert, $changedAttributes);
     }
 }

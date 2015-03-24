@@ -17,6 +17,7 @@ $this->title = Yii::t('backend', 'Edit profile')
     <?= $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::classname(), [
         'url'=>['avatar-upload']
     ]) ?>
+
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
 
     <?= $form->field($model, 'middlename')->textInput(['maxlength' => 255]) ?>

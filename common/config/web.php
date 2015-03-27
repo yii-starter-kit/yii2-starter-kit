@@ -15,7 +15,6 @@ if (YII_DEBUG) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
         'class'=>'yii\debug\Module',
-        'allowedIPs' => ['*'],
         /*'panels'=>[
             'xhprof'=>[
                 'class'=>'\trntv\debug\xhprof\panels\XhprofPanel'

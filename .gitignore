@@ -24,3 +24,5 @@ Thumbs.db
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+tests/_output/*
+tests/_output/*

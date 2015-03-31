@@ -42,6 +42,19 @@ class NewsCategory extends \yii\db\ActiveRecord
         return new NewsCategoryQuery(get_called_class());
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+            [
+                'class'=>SluggableBehavior::className(),
+                'attribute'=>'title'
+            ]
+        ];
+    }
 
     /**
      * @inheritdoc
@@ -49,10 +62,11 @@ class NewsCategory extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slug', 'title', 'body'], 'required'],
-            [['body'], 'string'],
-            [['parent_id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['slug', 'title'], 'string', 'max' => 255]
+            [['title'], 'required'],
+            [['title'], 'string', 'max' => 512],
+            [['slug'], 'unique'],
+            [['slug'], 'string', 'max' => 1024],
+            ['status', 'integer']
         ];
     }
 
@@ -61,15 +75,13 @@ class NewsCategory extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
+
         return [
-            'id' => 'ID',
-            'slug' => 'Slug',
-            'title' => 'Title',
-            'body' => 'Body',
-            'parent_id' => 'Parent ID',
-            'status' => 'Status',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'id' => Yii::t('common', 'ID'),
+            'slug' => Yii::t('common', 'Slug'),
+            'title' => Yii::t('common', 'Title'),
+            'parent_id' => Yii::t('common', 'Parent Category'),
+            'status' => Yii::t('common', 'Active')
         ];
     }
 }

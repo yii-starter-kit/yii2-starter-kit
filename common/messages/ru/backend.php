@@ -18,6 +18,7 @@
  */
 return [
     'Count' => 'Количество',
+    'No change' => 'Не выбрано',
     'File Storage' => 'Файловое хранилище',
     'Account' => 'Аккаунт',
     'Active' => 'Активно',
@@ -150,4 +151,9 @@ return [
     'i18n' => 'I18N',
     'i18n Message' => 'Перевод',
     'i18n Source Message' => 'Текст',
+    'News' => 'Новости',
+    'News Categories' => 'Категории новостей',
+    'Create News' => 'Создать новость',
+    'Create News Category' => 'Cоздать категорию новостей',
+
 ];

@@ -28,8 +28,37 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'slug',
             'title',
-            'body:ntext',
-            'category_id',
+            [
+                'attribute'=>'category_id',
+                'value'=>function ($model) {
+                    return $model->category ? $model->category->title : null;
+                },
+                'filter'=>\yii\helpers\ArrayHelper::map(\common\models\NewsCategory::find()->all(), 'id', 'title')
+            ],
+            /*[
+                'attribute'=>'author_id',
+                'value'=>function ($model) {
+                    return $model->author->username;
+                }
+            ],*/
+            [
+                'class'=>\common\components\grid\EnumColumn::className(),
+                'attribute'=>'status',
+                'enum'=>[
+                    Yii::t('backend', 'Not Published'),
+                    Yii::t('backend', 'Published')
+                ]
+            ],
+            'published_at:datetime',
+            'created_at:datetime',
+
+            // 'updated_at',
+
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{update} {delete}'
+            ]
+
             // 'author_id',
             // 'updater_id',
             // 'status',
@@ -37,7 +66,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

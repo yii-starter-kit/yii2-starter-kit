@@ -63,7 +63,7 @@ class ArticleCategoryController extends Controller
         $model = new ArticleCategory();
 
         $category = [];
-        $category[] = ['id' => 0, 'title' => 'Not change'];
+        $category[] = ['id' => 0, 'title' => Yii::t('backend', 'No change')];
         $category =  array_merge($category, ArticleCategory::find()->noParents()->all());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

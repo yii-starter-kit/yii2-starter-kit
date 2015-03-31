@@ -4,6 +4,11 @@ namespace common\models;
 
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\SluggableBehavior;
+use yii\behaviors\TimestampBehavior;
+use common\models\query\NewsQuery;
+use trntv\filekit\behaviors\UploadBehavior;
 
 /**
  * This is the model class for table "news".
@@ -39,6 +44,33 @@ class News extends \yii\db\ActiveRecord
         return '{{%news}}';
     }
 
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+            [
+                'class'=>BlameableBehavior::className(),
+                'createdByAttribute' => 'author_id',
+                'updatedByAttribute' => 'updater_id',
+
+            ],
+            [
+                'class'=>SluggableBehavior::className(),
+                'attribute'=>'title',
+                'immutable' => true
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'attachments',
+                'multiple' => true,
+                'uploadRelation' => 'newsAttachments'
+            ]
+        ];
+    }
 
     /**
      * @inheritdoc

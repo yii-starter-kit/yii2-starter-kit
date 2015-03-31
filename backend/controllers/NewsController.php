@@ -63,12 +63,16 @@ class NewsController extends Controller
     {
         $model = new News();
 
+        $category = [];
+        $category[] = ['id' => 0, 'title' => Yii::t('backend', 'No change')];
+        $category   = array_merge($category, NewsCategory::find()->noParents()->all());
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => NewsCategory::find()->active()->all(),
+                'categories' => $category,
             ]);
         }
     }
@@ -83,11 +87,16 @@ class NewsController extends Controller
     {
         $model = $this->findModel($id);
 
+        $category = [];
+        $category[] = ['id' => 0, 'title' => Yii::t('backend', 'No change')];
+        $category   = array_merge($category, NewsCategory::find()->noParents()->all());
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'categories' => $category,
             ]);
         }
     }

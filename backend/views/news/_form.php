@@ -44,10 +44,8 @@ use yii\widgets\ActiveForm;
         [
             'url'=>['/file-storage/upload'],
             'sortable'=>true,
-            'fileuploadOptions'=>[
-                'maxFileSize'=>10000000, // 10 MiB
-                'maxNumberOfFiles'=>10
-            ]
+            'maxFileSize'=>10000000, // 10 MiB
+            'maxNumberOfFiles'=>10
         ]);
     ?>
 

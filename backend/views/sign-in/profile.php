@@ -14,8 +14,8 @@ $this->title = Yii::t('backend', 'Edit profile')
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'picture')->widget(\trntv\filekit\widget\SingleFileUpload::classname(), [
-        'url'=>['avatar-upload', 'category'=>'avatar']
+    <?= $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::classname(), [
+        'url'=>['avatar-upload']
     ]) ?>
 
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
@@ -32,7 +32,7 @@ $this->title = Yii::t('backend', 'Edit profile')
     ]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Update'), ['btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

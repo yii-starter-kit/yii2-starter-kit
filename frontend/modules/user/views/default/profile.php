@@ -1,6 +1,6 @@
 <?php
 
-use trntv\filekit\widget\SingleFileUpload;
+use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,8 +15,8 @@ $this->title = Yii::t('frontend', 'Profile')
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'picture')->widget(SingleFileUpload::classname(), [
-        'url'=>['avatar-upload', 'category'=>'avatar']
+    <?= $form->field($model, 'picture')->widget(Upload::classname(), [
+        'url'=>['avatar-upload']
     ]) ?>
 
     <?= $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
@@ -28,8 +28,8 @@ $this->title = Yii::t('frontend', 'Profile')
     <?= $form->field($model, 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
 
     <?= $form->field($model, 'gender')->dropDownlist([
-        \common\models\UserProfile::GENDER_FEMALE=>Yii::t('frontend', 'Female'),
-        \common\models\UserProfile::GENDER_MALE=>Yii::t('frontend', 'Male'),
+        \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
+        \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
     ]) ?>
 
     <div class="form-group">

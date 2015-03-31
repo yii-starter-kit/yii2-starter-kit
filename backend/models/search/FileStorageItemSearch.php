@@ -2,10 +2,10 @@
 
 namespace backend\models\search;
 
-use trntv\filekit\storage\models\FileStorageItem;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use common\models\FileStorageItem;
 
 /**
  * FileStorageItemSearch represents the model behind the search form about `common\models\FileStorageItem`.
@@ -18,8 +18,8 @@ class FileStorageItemSearch extends FileStorageItem
     public function rules()
     {
         return [
-            [['id', 'size', 'status'], 'integer'],
-            [['url', 'path', 'mimeType', 'upload_ip', 'repository'], 'safe'],
+            [['id', 'size', 'created_at'], 'integer'],
+            [['component', 'base_url', 'path', 'type', 'name', 'upload_ip'], 'safe'],
         ];
     }
 
@@ -54,13 +54,15 @@ class FileStorageItemSearch extends FileStorageItem
         $query->andFilterWhere([
             'id' => $this->id,
             'size' => $this->size,
-            'upload_time' => $this->upload_time,
+            'created_at' => $this->created_at,
         ]);
 
-        $query->andFilterWhere(['like', 'storage', $this->storage])
-            ->andFilterWhere(['like', 'url', $this->url])
+        $query->andFilterWhere(['like', 'component', $this->component])
+            ->andFilterWhere(['like', 'base_url', $this->base_url])
             ->andFilterWhere(['like', 'path', $this->path])
-            ->andFilterWhere(['like', 'mime', $this->mime]);
+            ->andFilterWhere(['like', 'type', $this->type])
+            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'upload_ip', $this->upload_ip]);
 
         return $dataProvider;
     }

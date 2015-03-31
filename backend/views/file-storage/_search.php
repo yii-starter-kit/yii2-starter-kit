@@ -17,17 +17,21 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'repository') ?>
+    <?= $form->field($model, 'component') ?>
 
-    <?= $form->field($model, 'url') ?>
+    <?= $form->field($model, 'base_url') ?>
 
     <?= $form->field($model, 'path') ?>
 
-    <?= $form->field($model, 'size') ?>
+    <?= $form->field($model, 'type') ?>
 
-    <?php // echo $form->field($model, 'mime') ?>
+    <?php // echo $form->field($model, 'size') ?>
 
-    <?php // echo $form->field($model, 'upload_time') ?>
+    <?php // echo $form->field($model, 'name') ?>
+
+    <?php // echo $form->field($model, 'upload_ip') ?>
+
+    <?php // echo $form->field($model, 'created_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

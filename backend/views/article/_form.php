@@ -28,7 +28,7 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
         [
-            'plugins' => ['fullscreen'],
+            'plugins' => ['fullscreen', 'fontcolor', 'video'],
             'options'=>[
                 'minHeight'=>400,
                 'maxHeight'=>400,
@@ -45,10 +45,8 @@ use yii\bootstrap\ActiveForm;
         [
             'url'=>['/file-storage/upload'],
             'sortable'=>true,
-            'fileuploadOptions'=>[
-                'maxFileSize'=>10000000, // 10 MiB
-                'maxNumberOfFiles'=>10
-            ]
+            'maxFileSize'=>10000000, // 10 MiB
+            'maxNumberOfFiles'=>10
         ]);
     ?>
 

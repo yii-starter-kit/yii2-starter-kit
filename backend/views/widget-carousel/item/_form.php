@@ -28,7 +28,7 @@ use yii\helpers\Html;
     <?= $form->field($model, 'caption')->widget(
         \yii\imperavi\Widget::className(),
         [
-            'plugins' => ['fullscreen'],
+            'plugins' => ['fullscreen', 'fontcolor', 'video'],
             'options'=>[
                 'minHeight'=>400,
                 'maxHeight'=>400,

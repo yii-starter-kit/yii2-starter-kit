@@ -93,7 +93,7 @@ use yii\widgets\Breadcrumbs;
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header light-blue">
-                                    <img src="<?= Yii::$app->user->identity->userProfile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?= Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         <?php Yii::$app->user->identity->username ?>
                                         <small>
@@ -125,7 +125,7 @@ use yii\widgets\Breadcrumbs;
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="<?= Yii::$app->user->identity->userProfile->picture ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                        <img src="<?= Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="img-circle" />
                     </div>
                     <div class="pull-left info">
                         <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
@@ -182,8 +182,8 @@ use yii\widgets\Breadcrumbs;
                                     ]
                                 ],
                                 ['label'=>Yii::t('backend', 'Key-Value Storage'), 'url'=>['/key-storage/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
+                                ['label'=>Yii::t('backend', 'File Storage'), 'url'=>['/file-storage/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'Cache'), 'url'=>['/cache/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
-                                ['label'=>Yii::t('backend', 'File Storage Items'), 'url'=>['/file-storage/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/file-manager/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 [
                                     'label'=>Yii::t('backend', 'System Events'),

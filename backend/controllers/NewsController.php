@@ -3,16 +3,17 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ArticleCategory;
-use backend\models\search\ArticleCategorySearch;
+use common\models\News;
+use common\models\NewsCategory;
+use backend\models\search\NewsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
+ * NewsController implements the CRUD actions for News model.
  */
-class ArticleCategoryController extends Controller
+class NewsController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +28,12 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Lists all ArticleCategory models.
+     * Lists all News models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleCategorySearch();
+        $searchModel = new NewsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +43,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Displays a single ArticleCategory model.
+     * Displays a single News model.
      * @param integer $id
      * @return mixed
      */
@@ -54,30 +55,26 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Creates a new ArticleCategory model.
+     * Creates a new News model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ArticleCategory();
-
-        $category = [];
-        $category[] = ['id' => 0, 'title' => 'Not change'];
-        $category =  array_merge($category, ArticleCategory::find()->noParents()->all());
+        $model = new News();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => $category,
+                'categories' => NewsCategory::find()->active()->all(),
             ]);
         }
     }
 
     /**
-     * Updates an existing ArticleCategory model.
+     * Updates an existing News model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,13 +88,12 @@ class ArticleCategoryController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->noParents()->all(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing ArticleCategory model.
+     * Deletes an existing News model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +106,15 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Finds the ArticleCategory model based on its primary key value.
+     * Finds the News model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ArticleCategory the loaded model
+     * @return News the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ArticleCategory::findOne($id)) !== null) {
+        if (($model = News::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

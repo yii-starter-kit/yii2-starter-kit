@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ArticleCategory;
-use backend\models\search\ArticleCategorySearch;
+use common\models\NewsCategory;
+use backend\models\search\NewsCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
+ * NewsCategoryController implements the CRUD actions for NewsCategory model.
  */
-class ArticleCategoryController extends Controller
+class NewsCategoryController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Lists all ArticleCategory models.
+     * Lists all NewsCategory models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleCategorySearch();
+        $searchModel = new NewsCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Displays a single ArticleCategory model.
+     * Displays a single NewsCategory model.
      * @param integer $id
      * @return mixed
      */
@@ -54,30 +54,30 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Creates a new ArticleCategory model.
+     * Creates a new NewsCategory model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ArticleCategory();
+        $model = new NewsCategory();
 
-        $category = [];
-        $category[] = ['id' => 0, 'title' => 'Not change'];
-        $category =  array_merge($category, ArticleCategory::find()->noParents()->all());
+        $categories = [];
+        $categories []= ['id' => 0, 'title' => 'Not change'];
+        $categories =  array_merge($categories, NewsCategory::find()->noParents()->all());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => $category,
+                'categories' => $categories,
             ]);
         }
     }
 
     /**
-     * Updates an existing ArticleCategory model.
+     * Updates an existing NewsCategory model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,13 +91,12 @@ class ArticleCategoryController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->noParents()->all(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing ArticleCategory model.
+     * Deletes an existing NewsCategory model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +109,15 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Finds the ArticleCategory model based on its primary key value.
+     * Finds the NewsCategory model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ArticleCategory the loaded model
+     * @return NewsCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ArticleCategory::findOne($id)) !== null) {
+        if (($model = NewsCategory::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

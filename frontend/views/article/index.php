@@ -1,13 +1,16 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = Yii::t('frontend', 'Articles')
+$this->title = Yii::t('frontend', 'Articles');
+$this->params['breadcrumbs'][] = Yii::t('frontend', 'Articles');
 ?>
+
 <div id="article-index">
     <h1><?= Yii::t('frontend', 'Articles') ?></h1>
+
     <?= \yii\widgets\ListView::widget([
         'dataProvider'=>$dataProvider,
         'pager'=>[
-            'hideOnSinglePage'=>true,
+            'hideOnSinglePage'=> true,
         ],
         'itemView'=>'_item'
     ])?>

@@ -40,6 +40,7 @@
     "trntv/cheatsheet": "~0.1@dev",
     "intervention/image": "~2.1",
     "vlucas/phpdotenv": "~1.0",
+    "league/glide": "0.3.*",
     "bower-asset/admin-lte": "~2.0",
     "bower-asset/font-awesome": "~4.0",
     "bower-asset/html5shiv": "~3.0",

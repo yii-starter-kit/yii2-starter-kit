@@ -42,7 +42,7 @@ return [
             'frontend/yii',
             'console/yii',
         ],
-        'setCookieValidationKey' => [
+        'setGeneratedKey' => [
             '.env'
         ],
     ],
@@ -62,7 +62,7 @@ return [
             'frontend/yii',
             'console/yii',
         ],
-        'setCookieValidationKey' => [
+        'setGeneratedKey' => [
             '.env'
         ],
     ],

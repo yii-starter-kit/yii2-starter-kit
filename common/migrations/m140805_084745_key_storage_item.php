@@ -22,8 +22,15 @@ class m140805_084745_key_storage_item extends Migration
         ], $tableOptions);
 
         $this->insert('{{%key_storage_item}}', [
-            'key'=>'backend.theme-skin',
-            'value'=>'skin-blue'
+            'key' => 'backend.theme-skin',
+            'value' => 'skin-blue',
+            'comment' => 'skin-blue, skin-black, skin-purple, skin-green, skin-red, skin-yellow'
+        ]);
+
+        $this->insert('{{%key_storage_item}}', [
+            'key'=>'backend.theme-layout',
+            'value'=>'fixed',
+            'comment' => 'fixed, layout-boxed, sidebar-collapse'
         ]);
 
         $this->createIndex('idx_key_storage_item_key', '{{%key_storage_item}}', 'key', true);

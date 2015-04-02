@@ -20,7 +20,8 @@ use Yii;
  * ])
  * @package common\components\widgets\menu
  */
-class DbMenu extends \yii\widgets\Menu{
+class DbMenu extends \yii\widgets\Menu
+{
 
     /**
      * @var string Key to find menu model
@@ -34,8 +35,8 @@ class DbMenu extends \yii\widgets\Menu{
             $this->key
         ];
         $this->items = Yii::$app->cache->get($cacheKey);
-        if($this->items == false){
-            if(!($model = WidgetMenu::findOne(['key'=>$this->key, 'status'=>WidgetMenu::STATUS_ACTIVE]))){
+        if ($this->items == false) {
+            if (!($model = WidgetMenu::findOne(['key'=>$this->key, 'status'=>WidgetMenu::STATUS_ACTIVE]))) {
                 throw new InvalidConfigException;
             }
             $this->items =json_decode($model->items, true);

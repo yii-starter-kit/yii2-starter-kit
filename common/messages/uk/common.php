@@ -17,8 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Base Url' => 'Базовий Url',
+    'Component' => 'Компонент',
+    'Name' => 'Им\'я',
+    'Size' => 'Розмір',
+    'Type' => 'Тип',
+    'Upload Ip' => 'IP',
     '"{attribute}" must be a valid JSON' => '"{attribute}" повинен містити валідний JSON',
-    'Down to maintenance.' => 'Закрито на обслуговування.',
     'Active' => 'Активно',
     'Administrator' => 'Адміністратор',
     'Article ID' => 'ID Статті',
@@ -32,6 +37,7 @@ return [
     'Created At' => 'Створено',
     'Created at' => 'Створено',
     'Deleted' => 'Видалено',
+    'Down to maintenance.' => 'Закрито на обслуговування.',
     'E-mail' => 'E-mail',
     'Firstname' => 'Ім’я',
     'Gender' => 'Стать',

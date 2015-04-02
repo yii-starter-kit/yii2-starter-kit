@@ -16,7 +16,8 @@ use Yii;
  * Class GlobalAccessBehavior
  * @package common\components\behaviors
  */
-class GlobalAccessBehavior extends Behavior{
+class GlobalAccessBehavior extends Behavior
+{
 
     /**
      * @var array @see \yii\filters\AccessControl::rules
@@ -53,12 +54,12 @@ class GlobalAccessBehavior extends Behavior{
         ];
     }
 
-    public function beforeAction(){
+    public function beforeAction()
+    {
         Yii::$app->controller->attachBehavior('access', [
             'class'=>$this->accessControlFilter,
             'denyCallback'=>$this->denyCallback,
             'rules'=>$this->rules
         ]);
     }
-
 }

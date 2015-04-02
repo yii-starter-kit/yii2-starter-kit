@@ -153,7 +153,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return static::findOne([
             'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
+            'status' => self::STATUS_ACTIVE
         ]);
     }
 
@@ -238,7 +238,7 @@ class User extends ActiveRecord implements IdentityInterface
             self::ROLE_MANAGER => Yii::t('common', 'Manager'),
             self::ROLE_ADMINISTRATOR => Yii::t('common', 'Administrator')
         ];
-        return $role === false ? ArrayHelper::getValue($roles, $role) : $roles;
+        return $role !== false ? ArrayHelper::getValue($roles, $role) : $roles;
     }
 
     /**
@@ -252,7 +252,7 @@ class User extends ActiveRecord implements IdentityInterface
             self::STATUS_ACTIVE => Yii::t('common', 'Active'),
             self::STATUS_DELETED => Yii::t('common', 'Deleted')
         ];
-        return $status === false ? ArrayHelper::getValue($statuses, $status) : $statuses;
+        return $status !== false ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 
     /**
@@ -267,7 +267,7 @@ class User extends ActiveRecord implements IdentityInterface
         ]);
         $profile = new UserProfile();
         $profile->locale = Yii::$app->language;
-        $this->link('profile', $profile);
+        $this->link('userProfile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
     }
 

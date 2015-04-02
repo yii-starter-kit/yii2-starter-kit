@@ -3,7 +3,10 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
-- Enh: Glide Integration
+- Imperavi redactor plugins enabled
+- Upload Kit updated to 1.0
+- AdminLTE updated to 2.0 branch
+- PSR2 formatting
 
 1.5.0
 -----

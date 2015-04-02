@@ -27,8 +27,8 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter'=>function($query){
-                if(!$this->getModel()->isNewRecord){
+            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter' => function($query) {
+                if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
@@ -37,8 +37,8 @@ class UserForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter'=>function($query){
-                if(!$this->getModel()->isNewRecord){
+            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter' => function($query) {
+                if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
@@ -76,7 +76,7 @@ class UserForm extends Model
 
     public function getModel()
     {
-        if(!$this->_model){
+        if (!$this->_model) {
             $this->_model = new User();
         }
         return $this->_model;
@@ -91,17 +91,19 @@ class UserForm extends Model
     {
         if ($this->validate()) {
             $model = $this->getModel();
+            $isNewRecord = $model->getIsNewRecord();
             $model->username = $this->username;
             $model->email = $this->email;
             $model->status = $this->status;
             $model->role = $this->role;
-            if($this->password){
+            if ($this->password) {
                 $model->setPassword($this->password);
             }
-            if($model->getIsNewRecord()){
+
+            if ($isNewRecord) {
                 $model->generateAuthKey();
             }
-            if($model->save() && $model->getIsNewRecord()){
+            if ($model->save() && $isNewRecord) {
                 $model->afterSignup();
             }
             return !$model->hasErrors();

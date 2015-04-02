@@ -10,8 +10,11 @@ namespace backend\controllers;
 
 use backend\models\LoginForm;
 use backend\models\AccountForm;
+use Intervention\Image\ImageManagerStatic;
+use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
 use Yii;
+use yii\filters\VerbFilter;
 use yii\imagine\Image;
 use yii\web\Controller;
 
@@ -20,15 +23,33 @@ class SignInController extends Controller
 
     public $defaultAction = 'login';
 
+    public function behaviors()
+    {
+        return [
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['post']
+                ]
+            ]
+        ];
+    }
+
     public function actions()
     {
         return [
             'avatar-upload' => [
                 'class' => UploadAction::className(),
-                'fileProcessing' => function($file) {
-                    Image::thumbnail($file->path->getPath(), 215, 215)
-                        ->save($file->path->getPath());
+                'deleteRoute' => 'avatar-delete',
+                'on afterSave' => function($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img = ImageManagerStatic::make($file->read())->fit(215, 215);
+                    $file->put($img->encode());
                 }
+            ],
+            'avatar-delete' => [
+                'class' => DeleteAction::className()
             ]
         ];
     }
@@ -36,7 +57,7 @@ class SignInController extends Controller
 
     public function actionLogin()
     {
-        $this->layout = '_base';
+        $this->layout = 'base';
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -87,5 +108,4 @@ class SignInController extends Controller
         }
         return $this->render('account', ['model'=>$model]);
     }
-
 }

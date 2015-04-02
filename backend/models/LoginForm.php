@@ -65,7 +65,7 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-            if(Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0)){
+            if (Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0)) {
                 return true;
             }
         }
@@ -84,7 +84,7 @@ class LoginForm extends Model
             $this->_user = User::find()
                 ->andWhere(['or', ['username'=>$this->username], ['email'=>$this->username]])
                 ->one();
-            if(!Yii::$app->user->can('manager', ['user'=>$this->_user])){
+            if (!Yii::$app->user->can('manager', ['user'=>$this->_user])) {
                 $this->_user = null;
             }
         }

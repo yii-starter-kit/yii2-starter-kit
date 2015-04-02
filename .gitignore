@@ -1,6 +1,6 @@
 # Env
 /.env
-/nginx-local.conf
+/nginx.conf
 
 # composer
 /vendor

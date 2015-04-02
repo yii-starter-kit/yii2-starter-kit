@@ -37,7 +37,7 @@ class LogController extends Controller
         $searchModel = new SystemLogSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        if(strcasecmp(Yii::$app->request->method, 'delete') == 0){
+        if (strcasecmp(Yii::$app->request->method, 'delete') == 0) {
             SystemLog::deleteAll($dataProvider->query->where);
             return $this->refresh();
         }

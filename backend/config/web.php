@@ -78,13 +78,14 @@ $config = [
 if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',
-        'generators'=>[
-            'crud'=>[
+        'generators' => [
+            'crud' => [
                 'class'=>'yii\gii\generators\crud\Generator',
                 'templates'=>[
-                    'yii2-starter-kit'=>Yii::getAlias('@backend/views/_gii/templates')
+                    'yii2-starter-kit' => Yii::getAlias('@backend/views/_gii/templates')
                 ],
-                'messageCategory'=>'backend'
+                'template' => 'yii2-starter-kit',
+                'messageCategory' => 'backend'
             ]
         ]
     ];

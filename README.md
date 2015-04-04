@@ -36,6 +36,7 @@ FEATURES
 - Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
 - Extended IDE autocompletion
 - Nginx config example
+- Test-ready
 - many other features i'm lazy to write about :-)
 
 DEMO

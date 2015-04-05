@@ -55,14 +55,6 @@ class FixtureHelper extends Module
     public function fixtures()
     {
         return [
-            'user' => [
-                'class' => UserFixture::className(),
-                'dataFile' => '@tests/codeception/common/fixtures/data/user.php',
-            ],
-            'user_profile' => [
-                'class' => UserProfileFixture::className(),
-                'dataFile' => '@tests/codeception/common/fixtures/data/user_profile.php',
-            ],
             'article' => [
                 'class' => ArticleFixture::className(),
                 'dataFile' => '@tests/codeception/common/fixtures/data/article.php',
@@ -74,6 +66,14 @@ class FixtureHelper extends Module
             'article_attachment' => [
                 'class' => ArticleAttachmentFixture::className(),
                 'dataFile' => '@tests/codeception/common/fixtures/data/article_attachment.php',
+            ],
+            'user' => [
+                'class' => UserFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/user.php',
+            ],
+            'user_profile' => [
+                'class' => UserProfileFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/user_profile.php',
             ]
         ];
     }

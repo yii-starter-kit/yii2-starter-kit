@@ -23,12 +23,6 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-<!--    <link href="css/morris/morris.css" rel="stylesheet" type="text/css" />
-    <link href="css/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-    <link href="css/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="css/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />-->
-
-
 </head>
 <?php echo Html::beginTag('body', [
     'class' => implode(' ', [

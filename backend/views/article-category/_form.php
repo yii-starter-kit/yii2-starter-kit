@@ -22,7 +22,7 @@ use yii\bootstrap\ActiveForm;
         $categories,
         'id',
         'title'
-    )) ?>
+    ), ['prompt'=>'']) ?>
 
     <?= $form->field($model, 'status')->checkbox() ?>
 

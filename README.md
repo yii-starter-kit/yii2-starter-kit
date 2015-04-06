@@ -107,7 +107,19 @@ Application configuration process include:
 3. Apply migrations
 4. Initialise RBAC
 
-### 0 Web Server
+### Vagrant
+If you want, you can use bundled Vagrant instead of installing app to your local machine.
+0. Install [Vagrant](https://www.vagrantup.com/)
+1. Copy `vagrant.dist.yml` and save it as `vagrant.yml` in the project root
+2. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and paste in into `vagrant.yml`
+3. Run:
+```
+vagrant plugin install vagrant-hostmanager
+vagrant up
+```
+That`s all. Application is accessible on http://yii2-starter-kit.dev
+
+### 0. Web Server
 
 You should configure web server with three different web roots:
 

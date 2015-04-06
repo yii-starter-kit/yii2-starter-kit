@@ -13,11 +13,6 @@
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
-
-if (!extension_loaded('mcrypt')) {
-    die('The mcrypt PHP extension is required by Yii2.');
-}
-
 $params = getParams();
 $root = str_replace('\\', '/', __DIR__);
 $envs = require("$root/environments/index.php");
@@ -188,8 +183,8 @@ function setCookieValidationKey($root, $paths)
         $content = file_get_contents($file);
         $content = preg_replace_callback('/<generated_cookie_validation_key>/', function () {
             $length = 32;
-            $bytes = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM);
-            return strtr(substr(base64_encode($bytes), 0, $length), '+/=', '_-.');
+            $bytes = openssl_random_pseudo_bytes(32, $cryptoStrong);
+            return strtr(substr(base64_encode($bytes), 0, $length), '+/', '_-');
         }, $content);
         file_put_contents($file, $content);
     }

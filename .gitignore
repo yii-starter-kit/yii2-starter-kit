@@ -20,8 +20,9 @@ Thumbs.db
 # Mac DS_Store Files
 .DS_Store
 
-# phpunit itself is not needed
+# phpunit
 phpunit.phar
-# local phpunit config
 /phpunit.xml
-tests/_output/*
+
+# Vagrant
+/.vagrant

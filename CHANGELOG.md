@@ -3,12 +3,13 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
+- Added Vagrant support
 - testing framework configuration
 - Imperavi redactor plugins enabled
 - Upload Kit updated to 1.0
 - AdminLTE updated to 2.0 branch
 - PSR2 formatting
-
+- ... fixes and many small changes ...
 1.5.0
 -----
 - Enh: ``$cachingDuration`` parameter was added to ``common\components\keyStorage\KeyStorage::get``

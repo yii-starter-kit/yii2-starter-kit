@@ -1,0 +1,8 @@
+vm:
+  memory: 1024
+  cpus: 1
+network:
+  ip: 192.168.33.10
+github:
+  # NOTE: Change it to your personal github api token because this token may reach rate limit
+  token: e510e1368d822ca57cf19620ba30a9379cea32bb

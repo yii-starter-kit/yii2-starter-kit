@@ -37,6 +37,7 @@ FEATURES
 - Extended IDE autocompletion
 - Nginx config example
 - Test-ready
+- Vagrant support
 - many other features i'm lazy to write about :-)
 
 DEMO
@@ -80,7 +81,7 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 Install composer-asset-plugin needed for yii assets management
 ```
-php composer.phar global require "fxp/composer-asset-plugin"
+composer global require "fxp/composer-asset-plugin"
 ```
 
 
@@ -105,23 +106,40 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
 Application configuration process include:
-0. Prepare web server
-1. Initialise application
+0. Initialise application
+1. Prepare web server
 2. Configure environment local settings
 3. Apply migrations
 4. Initialise RBAC
 
-### 0 Web Server
+### Vagrant
+If you want, you can use bundled Vagrant instead of installing app to your local machine.
+0. Install [Vagrant](https://www.vagrantup.com/)
+1. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and paste in into `vagrant.yml`
+3. Run:
+```
+vagrant plugin install vagrant-hostmanager
+vagrant up
+```
+That`s all. Application is accessible on http://yii2-starter-kit.dev
+
+### 1. Initialization
+Initialise application
+```
+./init // init.bat for windows
+```
+
+### 0. Web Server
 
 You should configure web server with three different web roots:
 
-`example.com` => `path/to/yii2-starter-kit/frontend/web`
+`yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/frontend/web`
 
-`backend.example.com` => `path/to/yii2-starter-kit/backend/web`
+`backend.yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/backend/web`
 
-`storage.example.com` => `path/to/yii2-starter-kit/storage`
+`storage.yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/storage`
 
-**NOTE:** Preferable web server for me, personally, is nginx, so there is a `nginx.conf` file with an example nginx config.
+**NOTE:** You can use `nginx.conf` file that is located in the project root.
 
 ### 1. Initialization
 Initialise application
@@ -146,9 +164,9 @@ DB_PASSWORD      = password
 Set your current application urls in `.env`
 
 ```php
-FRONTEND_URL    = http://yii2-starter-kit.localhost
-BACKEND_URL     = http://backend.yii2-starter-kit.localhost
-STORAGE_URL     = http://storage.yii2-starter-kit.localhost
+FRONTEND_URL    = http://yii2-starter-kit.dev
+BACKEND_URL     = http://backend.yii2-starter-kit.dev
+STORAGE_URL     = http://storage.yii2-starter-kit.dev
 ```
 ### 3. Apply migrations
 

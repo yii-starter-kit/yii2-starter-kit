@@ -5,6 +5,7 @@ use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
+/* @var $categories common\models\ArticleCategory[] */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
@@ -12,20 +13,22 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => 1024]) ?>
-
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
+    <?= $form->field($model, 'slug')
+        ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+        ->textInput(['maxlength' => 1024]) ?>
+
     <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-        $categories,
-        'id',
-        'title'
-    ), ['prompt'=>'']) ?>
+            $categories,
+            'id',
+            'title'
+        ), ['prompt'=>'']) ?>
 
     <?= $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
         [
-            'plugins' => ['fullscreen'],
+            'plugins' => ['fullscreen', 'fontcolor', 'video'],
             'options'=>[
                 'minHeight'=>400,
                 'maxHeight'=>400,
@@ -42,10 +45,8 @@ use yii\bootstrap\ActiveForm;
         [
             'url'=>['/file-storage/upload'],
             'sortable'=>true,
-            'fileuploadOptions'=>[
-                'maxFileSize'=>10000000, // 10 MiB
-                'maxNumberOfFiles'=>3
-            ]
+            'maxFileSize'=>10000000, // 10 MiB
+            'maxNumberOfFiles'=>10
         ]);
     ?>
 
@@ -54,7 +55,9 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'published_at')->widget('trntv\yii\datetimepicker\DatetimepickerWidget') ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(
+            $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

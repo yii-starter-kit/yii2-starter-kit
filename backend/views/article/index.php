@@ -15,9 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Article',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(
+            Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Article']),
+            ['create'],
+            ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -30,14 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             [
                 'attribute'=>'category_id',
-                'value'=>function($model){
+                'value'=>function ($model) {
                     return $model->category ? $model->category->title : null;
                 },
                 'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
             ],
             [
                 'attribute'=>'author_id',
-                'value'=>function($model){
+                'value'=>function ($model) {
                     return $model->author->username;
                 }
             ],
@@ -45,9 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class'=>\common\components\grid\EnumColumn::className(),
                 'attribute'=>'status',
                 'enum'=>[
-                    Yii::t('backend', 'Disabled'),
-                    Yii::t('backend', 'Enabled')
-                ],
+                    Yii::t('backend', 'Not Published'),
+                    Yii::t('backend', 'Published')
+                ]
             ],
             'published_at:datetime',
             'created_at:datetime',
@@ -57,8 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template'=>'{update} {delete}'
-            ],
-        ],
+            ]
+        ]
     ]); ?>
 
 </div>

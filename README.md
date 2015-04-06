@@ -10,7 +10,7 @@ It covers typical use cases for a new project and will help you not to waste you
 FEATURES
 --------
 - Based on yii2-advanced application template
-- Beautiful and open source dashboard theme for backend (http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend AdminLTE 2 (http://almsaeedstudio.com/AdminLTE)
 - I18N + 2 translations: Ukrainian, Russian
 - I18N DbMessageSource CRUD module
 - Language change action + behavior to choose locale based on browser preferred language 
@@ -22,11 +22,13 @@ FEATURES
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
 - Key-value storage component
-- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
+- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
 - Application events component
-- Web Cache Controller
+- Cache web controller
+- Maintenance mode component ([more](### Maintenance mode))
 - System information web interface
+- dotenv support
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
 - Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 
 - Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 
@@ -34,13 +36,15 @@ FEATURES
 - Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
 - Extended IDE autocompletion
 - Nginx config example
+- Test-ready
 - many other features i'm lazy to write about :-)
 
 DEMO
 ----
-
+Frontend:
 http://yii2-starter-kit.terentev.net
 
+Backend:
 http://backend.yii2-starter-kit.terentev.net
 
 `administrator` role account
@@ -80,7 +84,7 @@ php composer.phar global require "fxp/composer-asset-plugin"
 ```
 
 
-### Install from GitHub (preferred way)
+### Clone from GitHub
 
 Extract the github archive file or clone this repository.
 ```
@@ -192,7 +196,7 @@ common/config/_base.php
 ```
 
 ### KeyStorage
-Key storeage is a key-value storage to store different information. Application params for example.
+Key storage is a key-value storage to store different information. Application params for example.
 Values can be stored both via api or by backend CRUD component.
 ```
 Yii::$app->keyStorage->set('key', 'value');
@@ -210,6 +214,26 @@ Replace source code language:
 
 Remove Yii::t from code
 ``yii message/replace-source-language @path``
+
+### Maintenance mode
+Starter kit has built-in component to provide a maintenance functionality. All you have to do is to configure ``maintenance``
+component in your config
+```php
+'bootstrap' => ['maintenance'],
+...
+'components' => [
+    ...
+    'maintenance' => [
+        'class' => 'common\components\maintenance\Maintenance',
+        'enabled' => Astronomy::isAFullMoonToday()
+    ]
+    ...
+]
+```
+This component will catch all incoming requests, set proper response HTTP headers (503, "Retry After") and show a maintenance message.
+Additional configuration options can be found in a corresponding class.
+
+Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true``
 
 ### Behaviors
 #### CacheInvalidateBehavior
@@ -236,14 +260,14 @@ Remove Yii::t from code
  }
 ```
 #### GlobalAccessBehavior
-usage example in `backend\config\web.php`
+usage example in ``backend\config\web.php``
 
 ### Widgets configurable from backend
 #### Carousel
-...
+TBD
 
 #### DbText
-...
+TBD
 
 #### DbMenu
 ```php

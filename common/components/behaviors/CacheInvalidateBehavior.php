@@ -5,7 +5,6 @@
 
 namespace common\components\behaviors;
 
-
 use Yii;
 use yii\base\Behavior;
 use yii\db\ActiveRecord;
@@ -75,10 +74,10 @@ class CacheInvalidateBehavior extends Behavior
      */
     public function invalidateCache()
     {
-        if(!empty($this->keys)){
+        if (!empty($this->keys)) {
             $this->invalidateKeys();
         }
-        if(!empty($this->tags)){
+        if (!empty($this->tags)) {
             $this->invalidateTags();
         }
         return true;
@@ -87,9 +86,10 @@ class CacheInvalidateBehavior extends Behavior
     /**
      * Invalidates
      */
-    protected function invalidateKeys(){
-        foreach($this->keys as $key){
-            if(is_callable($key)){
+    protected function invalidateKeys()
+    {
+        foreach ($this->keys as $key) {
+            if (is_callable($key)) {
                 $key = call_user_func($key, $this->owner);
             }
             $this->getCache()->delete($key);
@@ -99,11 +99,12 @@ class CacheInvalidateBehavior extends Behavior
     /**
      *
      */
-    protected function invalidateTags(){
+    protected function invalidateTags()
+    {
         \yii\caching\TagDependency::invalidate(
             $this->getCache(),
             array_map(function($tag){
-                if(is_callable($tag)){
+                if (is_callable($tag)) {
                     $tag = call_user_func($tag, $this->owner);
                 }
                 return $tag;
@@ -114,7 +115,8 @@ class CacheInvalidateBehavior extends Behavior
     /**
      * @return \yii\caching\Cache
      */
-    protected function getCache(){
+    protected function getCache()
+    {
         return $this->_cache ?: Yii::$app->{$this->cacheComponent};
     }
 }

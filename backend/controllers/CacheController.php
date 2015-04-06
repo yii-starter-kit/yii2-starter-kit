@@ -35,7 +35,7 @@ class CacheController extends Controller
      */
     public function actionFlushCache($id)
     {
-        if($this->getCache($id)->flush()){
+        if ($this->getCache($id)->flush()) {
             Yii::$app->session->setFlash('alert', [
                 'body'=>\Yii::t('backend', 'Cache has been successfully flushed'),
                 'options'=>['class'=>'alert-success']
@@ -52,7 +52,7 @@ class CacheController extends Controller
      */
     public function actionFlushCacheKey($id, $key)
     {
-        if($this->getCache($id)->delete($key)){
+        if ($this->getCache($id)->delete($key)) {
             Yii::$app->session->setFlash('alert', [
                 'body'=>\Yii::t('backend', 'Cache entry has been successfully deleted'),
                 'options'=>['class'=>'alert-success']
@@ -85,7 +85,7 @@ class CacheController extends Controller
      */
     protected function getCache($id)
     {
-        if(!in_array($id, array_keys($this->findCaches()))){
+        if (!in_array($id, array_keys($this->findCaches()))) {
             throw new HttpException(400, 'Given cache name is not a name of cache component');
         }
         return Yii::$app->get($id);
@@ -128,5 +128,4 @@ class CacheController extends Controller
     {
         return is_subclass_of($className, Cache::className());
     }
-
 }

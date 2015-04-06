@@ -34,7 +34,7 @@ class WidgetMenu extends \yii\db\ActiveRecord
             'cacheInvalidate'=>[
                 'class'=>CacheInvalidateBehavior::className(),
                 'keys'=>[
-                    function($model){
+                    function ($model) {
                         return [
                             get_class($model),
                             $model->key
@@ -70,7 +70,7 @@ class WidgetMenu extends \yii\db\ActiveRecord
             'key' => Yii::t('common', 'Key'),
             'title' => Yii::t('common', 'Title'),
             'items' => Yii::t('common', 'Config'),
-            'status' => Yii::t('common', 'Status'),
+            'status' => Yii::t('common', 'Status')
         ];
     }
 }

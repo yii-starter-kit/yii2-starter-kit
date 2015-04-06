@@ -10,7 +10,6 @@ use yii\helpers\ArrayHelper;
 $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     $this->params['body-class']
     : null;
-
 ?>
 
 <?php $this->beginPage() ?>
@@ -31,10 +30,16 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
 
 
 </head>
-<body class="<?= ArrayHelper::getValue($this->params, 'body-class') ?> <?= Yii::$app->keyStorage->get('backend.theme-skin', 'skin-blue') ?>">
-<?php $this->beginBody() ?>
-    <?= $content ?>
-<?php $this->endBody() ?>
-</body>
+<?php echo Html::beginTag('body', [
+    'class' => implode(' ', [
+        ArrayHelper::getValue($this->params, 'body-class'),
+        Yii::$app->keyStorage->get('backend.theme-skin', 'skin-blue'),
+        Yii::$app->keyStorage->get('backend.theme-layout', 'fixed')
+    ])
+])?>
+    <?php $this->beginBody() ?>
+        <?= $content ?>
+    <?php $this->endBody() ?>
+<?php echo Html::endTag('body') ?>
 </html>
 <?php $this->endPage() ?>

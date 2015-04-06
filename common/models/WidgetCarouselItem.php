@@ -29,7 +29,8 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
         return '{{%widget_carousel_item}}';
     }
 
-    public function scenarios(){
+    public function scenarios()
+    {
         $scenarios = parent::scenarios();
         $key = array_search('carousel_id', $scenarios[self::SCENARIO_DEFAULT]);
         $scenarios[self::SCENARIO_DEFAULT][$key] = '!carousel_id';

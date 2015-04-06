@@ -39,7 +39,7 @@ class m140703_123803_article extends Migration
 
         if ($this->db->driverName === 'mysql') {
             $this->createIndex('idx_article_author_id', '{{%article}}', 'author_id');
-            $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id');
+            $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id', 'cascade', 'cascade');
 
             $this->createIndex('idx_article_updater_id', '{{%article}}', 'updater_id');
             $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
@@ -48,7 +48,7 @@ class m140703_123803_article extends Migration
             $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
 
             $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
-            $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id');
+            $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
         }
 
     }

@@ -5,8 +5,8 @@ $config = [
     'defaultRoute' => 'site/index',
     'modules' => [
         'user' => [
-            'class' => 'frontend\modules\user\Module',
-        ],
+            'class' => 'frontend\modules\user\Module'
+        ]
     ],
     'components' => [
         'authClientCollection' => [
@@ -15,12 +15,12 @@ $config = [
                 'github' => [
                     'class' => 'yii\authclient\clients\GitHub',
                     'clientId' => getenv('GITHUB_CLIENT_ID'),
-                    'clientSecret' => 'your-client-secret',
+                    'clientSecret' => getenv('GITHUB_CLIENT_SECRET')
                 ]
-            ],
+            ]
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'site/error'
         ],
         'request' => [
             'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
@@ -29,8 +29,8 @@ $config = [
             'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',
             'loginUrl'=>['/user/sign-in/login'],
-            'enableAutoLogin' => true,
-        ],
+            'enableAutoLogin' => true
+        ]
     ]
 ];
 
@@ -45,4 +45,16 @@ if (YII_ENV_DEV) {
         ]
     ];
 }
+
+if (YII_ENV_PROD) {
+    // Maintenance mode
+    $config['bootstrap'] = ['maintenance'];
+    $config['components']['maintenance'] = [
+        'class' => 'common\components\maintenance\Maintenance',
+        'enabled' => function ($app) {
+            return $app->keyStorage->get('frontend.maintenance') === 'true';
+        }
+    ];
+}
+
 return $config;

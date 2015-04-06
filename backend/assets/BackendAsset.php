@@ -8,10 +8,10 @@
 
 namespace backend\assets;
 
-
 use yii\web\AssetBundle;
 
-class BackendAsset extends AssetBundle{
+class BackendAsset extends AssetBundle
+{
     public $basePath = '/';
     public $baseUrl = '@backendUrl';
 
@@ -24,7 +24,7 @@ class BackendAsset extends AssetBundle{
 
     public $depends = [
         'yii\web\YiiAsset',
-        'common\assets\AdminLTE',
-        'common\assets\Html5shiv',
+        'common\assets\AdminLte',
+        'common\assets\Html5shiv'
     ];
-} 
+}

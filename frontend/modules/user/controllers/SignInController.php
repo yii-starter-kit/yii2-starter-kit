@@ -25,7 +25,7 @@ class SignInController extends \yii\web\Controller
         return [
             'oauth' => [
                 'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this, 'successOAuthCallback'],
+                'successCallback' => [$this, 'successOAuthCallback']
             ]
         ];
     }
@@ -39,13 +39,13 @@ class SignInController extends \yii\web\Controller
                     [
                         'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
                         'allow' => true,
-                        'roles' => ['?'],
+                        'roles' => ['?']
                     ],
                     [
                         'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
                         'allow' => false,
                         'roles' => ['@'],
-                        'denyCallback'=>function(){
+                        'denyCallback' => function() {
                             return Yii::$app->controller->redirect(['/user/default/profile']);
                         }
                     ],
@@ -53,15 +53,15 @@ class SignInController extends \yii\web\Controller
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
-                    ],
-                ],
+                    ]
+                ]
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+                    'logout' => ['post']
+                ]
+            ]
         ];
     }
 
@@ -77,7 +77,7 @@ class SignInController extends \yii\web\Controller
             return $this->goBack();
         } else {
             return $this->render('login', [
-                'model' => $model,
+                'model' => $model
             ]);
         }
     }
@@ -92,15 +92,14 @@ class SignInController extends \yii\web\Controller
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
+            $user = $model->signup();
+            if ($user && Yii::$app->getUser()->login($user)) {
+                return $this->goHome();
             }
         }
 
         return $this->render('signup', [
-            'model' => $model,
+            'model' => $model
         ]);
     }
 
@@ -118,7 +117,7 @@ class SignInController extends \yii\web\Controller
             } else {
                 Yii::$app->getSession()->setFlash('alert', [
                     'body'=>Yii::t('frontend', 'Sorry, we are unable to reset password for email provided.'),
-                    'options'=>['class'=>'alert-error']
+                    'options'=>['class'=>'alert-danger']
                 ]);
             }
         }
@@ -149,15 +148,16 @@ class SignInController extends \yii\web\Controller
         ]);
     }
 
-    /**
-     * @param \yii\authclient\BaseClient $client
-     */
     public function successOAuthCallback($client)
     {
         // use BaseClient::normalizeUserAttributeMap to provide consistency for user attribute`s names
         $attributes = $client->getUserAttributes();
-        $user = User::find()->where(['oauth_client'=>$client->getName(), 'oauth_client_user_id'=>ArrayHelper::getValue($attributes, 'id')])->one();
-        if(!$user){
+        $user = User::find()->where([
+                'oauth_client'=>$client->getName(),
+                'oauth_client_user_id'=>ArrayHelper::getValue($attributes, 'id')
+            ])
+            ->one();
+        if (!$user) {
             $user = new User();
             $user->scenario = 'oauth_create';
             $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login', $client->getName()), time());
@@ -167,7 +167,7 @@ class SignInController extends \yii\web\Controller
             $password = Yii::$app->security->generateRandomString(8);
             $user->generateAuthKey();
             $user->setPassword($password);
-            if($user->save()){
+            if ($user->save()) {
                 $user->afterSignup();
                 $sentSuccess = Yii::$app->mailer->compose('oauth_welcome', ['user'=>$user, 'password'=>$password])
                     ->setSubject(Yii::t('frontend', '{app-name} | Your login information', [
@@ -175,7 +175,7 @@ class SignInController extends \yii\web\Controller
                     ]))
                     ->setTo($user->email)
                     ->send();
-                if($sentSuccess){
+                if ($sentSuccess) {
                     Yii::$app->session->setFlash(
                         'alert',
                         [
@@ -189,7 +189,7 @@ class SignInController extends \yii\web\Controller
 
             } else {
                 // We already have a user with this email. Do what you want in such case
-                if(User::find()->where(['email'=>$user->email])->count()){
+                if (User::find()->where(['email'=>$user->email])->count()) {
                     Yii::$app->session->setFlash(
                         'alert',
                         [
@@ -211,12 +211,10 @@ class SignInController extends \yii\web\Controller
 
             };
         }
-        if(Yii::$app->user->login($user, 3600 * 24 * 30)){
+        if (Yii::$app->user->login($user, 3600 * 24 * 30)) {
             return true;
         } else {
             throw new Exception('OAuth error');
         }
     }
-
-
 }

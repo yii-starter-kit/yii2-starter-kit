@@ -1,33 +1,26 @@
 <?php
 $config = [
     'components' => [
-        'assetManager'=>[
-            'class'=>'yii\web\AssetManager',
-            'linkAssets'=>true,
+        'assetManager' => [
+            'class' => 'yii\web\AssetManager',
+            'linkAssets' => true,
+            'appendTimestamp' => YII_ENV_DEV
         ]
     ],
-    'as locale'=>[
-        'class'=>'common\components\behaviors\LocaleBehavior'
-    ],
+    'as locale' => [
+        'class' => 'common\components\behaviors\LocaleBehavior'
+    ]
 ];
 
 if (YII_DEBUG) {
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
-        'class'=>'yii\debug\Module',
-        'allowedIPs' => ['*'],
+        'class' => 'yii\debug\Module',
         /*'panels'=>[
             'xhprof'=>[
                 'class'=>'\trntv\debug\xhprof\panels\XhprofPanel'
             ]
         ]*/
-    ];
-}
-
-if (YII_ENV_DEV) {
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module',
     ];
 }
 

@@ -24,7 +24,7 @@ class m140703_123000_user extends Migration
             'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::ROLE_USER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::STATUS_ACTIVE,
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL'
         ], $tableOptions);
 
         $this->insert('{{%user}}', [
@@ -66,14 +66,17 @@ class m140703_123000_user extends Migration
             'firstname' => Schema::TYPE_STRING . '(255) ',
             'middlename' => Schema::TYPE_STRING . '(255) ',
             'lastname' => Schema::TYPE_STRING . '(255) ',
-            'picture' => Schema::TYPE_STRING . '(2048) ',
+            'avatar_path' => Schema::TYPE_STRING . '(255) ',
+            'avatar_base_url' => Schema::TYPE_STRING . '(255) ',
             'locale' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'gender' => Schema::TYPE_INTEGER . '(1)',
+            'gender' => Schema::TYPE_INTEGER . '(1)'
         ], $tableOptions);
 
         $this->insert('{{%user_profile}}', [
             'user_id'=>1,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->sourceLanguage,
+            'firstname' => 'John',
+            'lastname' => 'Doe'
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>2,

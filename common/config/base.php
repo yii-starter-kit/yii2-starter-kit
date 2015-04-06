@@ -90,20 +90,16 @@ $config = [
         ],
 
         'fileStorage' => [
-            'class' => 'trntv\filekit\storage\FileStorage',
-            'repositories' => [
-                'uploads' => [
-                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath' => '@storage',
-                    'baseUrl' => '@storageUrl',
-                ],
-                'tmp'=>[
-                    'class' => 'trntv\filekit\storage\repository\FilesystemRepository',
-                    'basePath' => '/tmp',
-                    'baseUrl' => false,
-                ]
+            'class' => '\trntv\filekit\Storage',
+            'baseUrl' => '@storageUrl/source',
+            'filesystem' => [
+                'class' => 'common\components\filesystem\LocalFlysystemBuilder',
+                'path' => '@storage/source'
             ],
-
+            'as log' => [
+                'class' => 'common\components\behaviors\FileStorageLogBehavior',
+                'component' => 'fileStorage'
+            ]
         ],
 
         'keyStorage'=>[
@@ -125,6 +121,7 @@ $config = [
     ],
     'params' => [
         'adminEmail' => getenv('ADMIN_EMAIL'),
+        'robotEmail' => getenv('ROBOT_EMAIL'),
         'availableLocales'=>[
             'en-US'=>'English (US)',
             'ru-RU'=>'Русский (РФ)',
@@ -134,7 +131,6 @@ $config = [
 ];
 
 if (YII_ENV_PROD) {
-
     $config['components']['cache'] = [
         'class' => 'yii\caching\FileCache',
         'cachePath' => '@common/runtime/cache'
@@ -144,9 +140,15 @@ if (YII_ENV_PROD) {
         'class' => 'yii\log\EmailTarget',
         'except' => ['yii\web\HttpException:*'],
         'levels' => ['error', 'warning'],
-        'message' => ['from' => 'robot@example.com', 'to' => getenv('ADMIN_EMAIL')],
+        'message' => ['from' => getenv('ROBOT_EMAIL'), 'to' => getenv('ADMIN_EMAIL')]
     ];
+}
 
+if (YII_ENV_DEV) {
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class'=>'yii\gii\Module'
+    ];
 }
 
 return $config;

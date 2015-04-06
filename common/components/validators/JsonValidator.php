@@ -11,12 +11,17 @@ namespace common\components\validators;
 use yii\validators\Validator;
 use Yii;
 
-class JsonValidator extends Validator{
+class JsonValidator extends Validator
+{
 
-    public function init(){
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
         parent::init();
-        if(!$this->message){
-            $this->message = Yii::t('common', '{attribute} must be a valid JSON');
+        if ($this->message === null) {
+            $this->message = Yii::t('common', '"{attribute}" must be a valid JSON');
         }
     }
     /**
@@ -24,15 +29,25 @@ class JsonValidator extends Validator{
      */
     public function validateValue($value)
     {
-        if(!@json_decode($value)){
+        if (!@json_decode($value)) {
             return [$this->message, []];
         }
     }
 
+    /**
+     * @inheritdoc
+     */
     public function clientValidateAttribute($model, $attribute, $view)
     {
-        return null;
+        /*$message = Yii::$app->getI18n()->format($this->message, [
+            'attribute' => $model->getAttributeLabel($attribute)
+        ], Yii::$app->language);
+        return <<<"JS"
+            try {
+                JSON.parse(value);
+            } catch (e) {
+                messages.push('{$message}')
+            }
+JS;*/
     }
-
-
 }

@@ -28,7 +28,7 @@ use yii\bootstrap\ActiveForm;
 
     <?= "<?php " ?>$form = ActiveForm::begin(); ?>
 
-    <?= "<?php " ?>$form->errorSummary($model); ?>
+    <?= "<?php echo " ?>$form->errorSummary($model); ?>
 
 <?php foreach ($generator->getColumnNames() as $attribute) {
     if (in_array($attribute, $safeAttributes)) {

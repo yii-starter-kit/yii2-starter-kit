@@ -1,9 +1,22 @@
-Yii Framework 2 Change Log
+Yii Starter Kit Change Log
 ==========================
 
-1.5.0 under development
+2.0.0 under development
 -----------------------
+- testing framework configuration
+- Imperavi redactor plugins enabled
+- Upload Kit updated to 1.0
+- AdminLTE updated to 2.0 branch
+- PSR2 formatting
+
+1.5.0
+-----
+- Enh: ``$cachingDuration`` parameter was added to ``common\components\keyStorage\KeyStorage::get``
+- Fix: contact form fix
+- Enh: "robot" email now ca be set in .env
+- Enh #72: Maintenance mode
 - Enh: #79 chosen locale is stored in cookies
+- Enh: #84 Article Attachments
 - Chg: application structure
 - Chg #59: dotenv support
 - Enh #61: Backend Cache Controller

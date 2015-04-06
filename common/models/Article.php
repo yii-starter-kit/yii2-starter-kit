@@ -3,6 +3,7 @@
 namespace common\models;
 
 use common\models\query\ArticleQuery;
+use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
@@ -30,13 +31,14 @@ use yii\helpers\Inflector;
  * @property User $author
  * @property User $updater
  * @property ArticleCategory $category
+ * @property ArticleAttachment[] $articleAttachments
  */
 class Article extends \yii\db\ActiveRecord
 {
     /**
      * @var array
      */
-    public $attachments = [];
+    public $attachments;
 
     const STATUS_PUBLISHED = 1;
     const STATUS_DRAFT = 0;
@@ -72,7 +74,14 @@ class Article extends \yii\db\ActiveRecord
             ],
             [
                 'class'=>SluggableBehavior::className(),
-                'attribute'=>'title'
+                'attribute'=>'title',
+                'immutable' => true
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'attachments',
+                'multiple' => true,
+                'uploadRelation' => 'articleAttachments'
             ]
         ];
     }
@@ -91,7 +100,8 @@ class Article extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
             [['author_id', 'updater_id', 'status'], 'integer'],
             [['slug'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            [['title'], 'string', 'max' => 512],
+            [['attachments'], 'safe']
         ];
     }
 
@@ -111,7 +121,7 @@ class Article extends \yii\db\ActiveRecord
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),
             'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At'),
+            'updated_at' => Yii::t('common', 'Updated At')
         ];
     }
 
@@ -144,25 +154,6 @@ class Article extends \yii\db\ActiveRecord
      */
     public function getArticleAttachments()
     {
-        return $this->hasOne(ArticleAttachment::className(), ['article_id' => 'id']);
-    }
-
-    /**
-     * @inherit
-     */
-    public function afterFind()
-    {
-        $this->attachments = ArrayHelper::getColumn($this->articleAttachments, 'url');
-        parent::afterFind();
-    }
-
-    /**
-     * @param bool $insert
-     * @param array $changedAttributes
-     */
-    public function afterSave($insert, $changedAttributes)
-    {
-        // @todo: saving
-        parent::afterSave($insert, $changedAttributes);
+        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
     }
 }

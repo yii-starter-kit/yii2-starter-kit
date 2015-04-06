@@ -15,9 +15,10 @@ use yii\web\NotFoundHttpException;
 
 class PageController extends Controller
 {
-    public function actionView($slug){
+    public function actionView($slug)
+    {
         $model = Page::find()->where(['slug'=>$slug, 'status'=>Page::STATUS_PUBLISHED])->one();
-        if(!$model){
+        if (!$model) {
             throw new NotFoundHttpException(Yii::t('frontend', 'Page not found'));
         }
         return $this->render('view', ['model'=>$model]);

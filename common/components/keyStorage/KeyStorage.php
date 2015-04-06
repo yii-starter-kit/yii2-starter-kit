@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 8/3/14
- * Time: 6:40 PM
- */
-
 namespace common\components\keyStorage;
 
 use yii\base\Component;
@@ -16,7 +9,8 @@ use Yii;
  * Class KeyStorage
  * @package common\components\keyStorage
  */
-class KeyStorage extends Component{
+class KeyStorage extends Component
+{
     /**
      * @var string
      */
@@ -33,17 +27,20 @@ class KeyStorage extends Component{
     /**
      * @var array Runtime values cache
      */
-    private $_values = [];
+    private $values = [];
 
     /**
      * @param $key
      * @param $value
      * @return mixed
      */
-    public function set($key, $value){
-        $this->_values[$key] = $value;
+    public function set($key, $value)
+    {
+        $this->values[$key] = $value;
         $model = $this->getModel($key);
-        if(!$model) $model = new $this->modelClass;
+        if (!$model) {
+            $model = new $this->modelClass;
+        }
         $model->key = $key;
         $model->value = $value;
         return $model->save();
@@ -52,8 +49,9 @@ class KeyStorage extends Component{
     /**
      * @param array $values
      */
-    public function setAll(array $values){
-        foreach($values as $key => $value){
+    public function setAll(array $values)
+    {
+        foreach ($values as $key => $value) {
             $this->set($key, $value);
         }
     }
@@ -62,17 +60,23 @@ class KeyStorage extends Component{
      * @param $key
      * @param null $default
      * @param bool $cache
+     * @param int|bool $cachingDuration
      * @return mixed|null
      */
-    public function get($key, $default = null, $cache = true){
-        if($cache){
-            $cacheKey = sprintf('%s.%s', $this->cachePrefix, $key);
-            $value = ArrayHelper::getValue($this->_values, $key, false) ?: Yii::$app->cache->get($cacheKey);
-            if($value === false){
-                if($model = $this->getModel($key)){
+    public function get($key, $default = null, $cache = true, $cachingDuration = false)
+    {
+        if ($cache) {
+            $cacheKey = [$this->cachePrefix, $key];
+            $value = ArrayHelper::getValue($this->values, $key, false) ?: Yii::$app->cache->get($cacheKey);
+            if ($value === false) {
+                if ($model = $this->getModel($key)) {
                     $value = $model->value;
-                    $this->_values[$key] = $value;
-                    Yii::$app->cache->set($cacheKey, $value, $this->cachingDuration);
+                    $this->values[$key] = $value;
+                    Yii::$app->cache->set(
+                        $cacheKey,
+                        $value,
+                        $cachingDuration === false ? $this->cachingDuration : $cachingDuration
+                    );
                 } else {
                     $value = $default;
                 }
@@ -86,10 +90,12 @@ class KeyStorage extends Component{
 
     /**
      * @param array $keys
+     * @return array
      */
-    public function getAll(array $keys){
+    public function getAll(array $keys)
+    {
         $values = [];
-        foreach($keys as $key){
+        foreach ($keys as $key) {
             $values[$key] = $this->get($key);
         }
         return $values;
@@ -97,34 +103,29 @@ class KeyStorage extends Component{
 
     /**
      * @param $key
-     * @return mixed
+     * @return bool
      */
-    public function remove($key){
+    public function remove($key)
+    {
         return call_user_func($this->modelClass.'::deleteAll', ['key'=>$key]);
     }
 
     /**
      * @param array $keys
      */
-    public function removeAll(array $keys){
-        foreach($keys as $key){
+    public function removeAll(array $keys)
+    {
+        foreach ($keys as $key) {
             $this->remove($key);
         }
-    }
-
-    /**
-     * @param $groupKey
-     * @return mixed
-     */
-    public function removeGroup($groupKey){
-        return call_user_func($this->modelClass.'::deleteAll', ['like', 'key', $groupKey]);
     }
 
     /**
      * @param $key
      * @return mixed
      */
-    protected function getModel($key){
+    protected function getModel($key)
+    {
         $query = call_user_func($this->modelClass.'::find');
         return $query->where(['key'=>$key])->select(['key', 'value'])->one();
     }

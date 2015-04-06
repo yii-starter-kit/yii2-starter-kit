@@ -181,7 +181,7 @@ function setCookieValidationKey($root, $paths)
     foreach ($paths as $file) {
         echo "   generate cookie validation key in $file\n";
         $content = file_get_contents($file);
-        $content = preg_replace_callback('/\$COOKIE_VALIDATION_KEY/', function () use ($content) {
+        $content = preg_replace_callback('/<generated_cookie_validation_key>/', function () {
             $length = 32;
             $bytes = openssl_random_pseudo_bytes(32, $cryptoStrong);
             return strtr(substr(base64_encode($bytes), 0, $length), '+/', '_-');

@@ -12,6 +12,8 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->errorSummary($model) ?>
+
     <?= $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
@@ -19,8 +21,7 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'items')->widget(
         trntv\aceeditor\AceEditor::className(),
         [
-            'mode' => 'json',
-
+            'mode' => 'json'
         ]
     ) ?>
 

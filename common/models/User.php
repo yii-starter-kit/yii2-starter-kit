@@ -17,11 +17,13 @@ use yii\web\IdentityInterface;
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
+ * @property string $publicIdentity
  * @property integer $role
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property \common\models\UserProfile $userProfile
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -49,14 +51,15 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::className()
         ];
     }
 
     /**
      * @return array
      */
-    public function scenarios(){
+    public function scenarios()
+    {
         return ArrayHelper::merge(
             parent::scenarios(),
             [
@@ -69,20 +72,23 @@ class User extends ActiveRecord implements IdentityInterface
 
 
     /**
-      * @inheritdoc
-      */
-     public function rules()
-     {
-         return [
-             [['username', 'email'], 'unique'],
-             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['username', 'email'], 'unique'],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 
-             ['role', 'default', 'value' => self::ROLE_USER],
-             ['role', 'in', 'range' => [self::ROLE_USER, self::ROLE_MANAGER, self::ROLE_ADMINISTRATOR]],
-         ];
-     }
+            ['role', 'default', 'value' => self::ROLE_USER],
+            ['role', 'in', 'range' => [self::ROLE_USER, self::ROLE_MANAGER, self::ROLE_ADMINISTRATOR]]
+        ];
+    }
 
+    /**
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [
@@ -94,7 +100,11 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    public function getProfile(){
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserProfile()
+    {
         return $this->hasOne(UserProfile::className(), ['user_id'=>'id']);
     }
 
@@ -143,7 +153,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return static::findOne([
             'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
+            'status' => self::STATUS_ACTIVE
         ]);
     }
 
@@ -218,35 +228,38 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * Returns user roles list
-     * @param bool $role
+     * @param mixed $role
      * @return array|mixed
      */
-    public static function getRoles($role = false){
+    public static function getRoles($role = false)
+    {
         $roles = [
-            self::ROLE_USER=>Yii::t('common', 'User'),
-            self::ROLE_MANAGER=>Yii::t('common', 'Manager'),
-            self::ROLE_ADMINISTRATOR=>Yii::t('common', 'Administrator'),
+            self::ROLE_USER => Yii::t('common', 'User'),
+            self::ROLE_MANAGER => Yii::t('common', 'Manager'),
+            self::ROLE_ADMINISTRATOR => Yii::t('common', 'Administrator')
         ];
-        return $role ? ArrayHelper::getValue($roles, $role) : $roles;
+        return $role !== false ? ArrayHelper::getValue($roles, $role) : $roles;
     }
 
     /**
      * Returns user statuses list
-     * @param bool $status
+     * @param mixed $status
      * @return array|mixed
      */
-    public static function getStatuses($status = false){
+    public static function getStatuses($status = false)
+    {
         $statuses = [
-            self::STATUS_ACTIVE=>Yii::t('common', 'Active'),
-            self::STATUS_DELETED=>Yii::t('common', 'Deleted')
+            self::STATUS_ACTIVE => Yii::t('common', 'Active'),
+            self::STATUS_DELETED => Yii::t('common', 'Deleted')
         ];
-        return $status ? ArrayHelper::getValue($statuses, $status) : $statuses;
+        return $status !== false ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 
     /**
      * Creates user profile and application event
      */
-    public function afterSignup(){
+    public function afterSignup()
+    {
         SystemEvent::log('user', self::EVENT_AFTER_SIGNUP, [
             'username'=>$this->username,
             'email'=>$this->email,
@@ -254,16 +267,19 @@ class User extends ActiveRecord implements IdentityInterface
         ]);
         $profile = new UserProfile();
         $profile->locale = Yii::$app->language;
-        $this->link('profile', $profile);
+        $this->link('userProfile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
     }
 
+    /**
+     * @return string
+     */
     public function getPublicIdentity()
     {
-        if($this->profile && $this->profile->getFullname()){
-            return $this->profile->getFullname();
+        if ($this->userProfile && $this->userProfile->getFullname()) {
+            return $this->userProfile->getFullname();
         }
-        if($this->username){
+        if ($this->username) {
             return $this->username;
         }
         return $this->email;

@@ -1,8 +1,10 @@
 <?php
 namespace common\models;
 
+use cheatsheet\Time;
 use Yii;
 use yii\base\NotSupportedException;
+use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
@@ -22,6 +24,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $logged_at
  * @property string $password write-only password
  * @property \common\models\UserProfile $userProfile
  */
@@ -51,7 +54,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className()
+            TimestampBehavior::className(),
+            'auth_key' => [
+                'class' => AttributeBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => 'auth_key'
+                ],
+                'value' => Yii::$app->getSecurity()->generateRandomString()
+            ]
         ];
     }
 
@@ -96,7 +106,9 @@ class User extends ActiveRecord implements IdentityInterface
             'role' => Yii::t('common', 'Role'),
             'email' => Yii::t('common', 'E-mail'),
             'status' => Yii::t('common', 'Status'),
-            'created_at' => Yii::t('common', 'Created at')
+            'created_at' => Yii::t('common', 'Created at'),
+            'updated_at' => Yii::t('common', 'Updated at'),
+            'logged_at' => Yii::t('common', 'Last login'),
         ];
     }
 
@@ -143,7 +155,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByPasswordResetToken($token)
     {
-        $expire = 60 * 60 * 24; // 1 day
+        $expire = Time::SECONDS_IN_A_DAY;
         $parts = explode('_', $token);
         $timestamp = (int) end($parts);
         if ($timestamp + $expire < time()) {
@@ -200,14 +212,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
-    }
-
-    /**
-     * Generates "remember me" authentication key
-     */
-    public function generateAuthKey()
-    {
-        $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
     }
 
     /**

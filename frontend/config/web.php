@@ -29,7 +29,8 @@ $config = [
             'class'=>'yii\web\User',
             'identityClass' => 'common\models\User',
             'loginUrl'=>['/user/sign-in/login'],
-            'enableAutoLogin' => true
+            'enableAutoLogin' => true,
+            'as afterLogin' => 'common\components\behaviors\LoginTimestampBehavior'
         ]
     ]
 ];

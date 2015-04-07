@@ -17,7 +17,7 @@ class UserForm extends Model
     public $status;
     public $role;
 
-    private $_model;
+    private $model;
 
     /**
      * @inheritdoc
@@ -27,7 +27,7 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter' => function($query) {
+            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
@@ -37,7 +37,7 @@ class UserForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter' => function($query) {
+            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
@@ -70,16 +70,16 @@ class UserForm extends Model
         $this->email = $model->email;
         $this->status = $model->status;
         $this->role = $model->role;
-        $this->_model = $model;
-        return $this->_model;
+        $this->model = $model;
+        return $this->model;
     }
 
     public function getModel()
     {
-        if (!$this->_model) {
-            $this->_model = new User();
+        if (!$this->model) {
+            $this->model = new User();
         }
-        return $this->_model;
+        return $this->model;
     }
 
     /**
@@ -98,10 +98,6 @@ class UserForm extends Model
             $model->role = $this->role;
             if ($this->password) {
                 $model->setPassword($this->password);
-            }
-
-            if ($isNewRecord) {
-                $model->generateAuthKey();
             }
             if ($model->save() && $isNewRecord) {
                 $model->afterSignup();

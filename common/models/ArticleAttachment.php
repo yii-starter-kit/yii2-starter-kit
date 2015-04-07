@@ -10,7 +10,12 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property integer $id
  * @property integer $article_id
+ * @property string $base_url
+ * @property string $path
  * @property string $url
+ * @property string $name
+ * @property string $type
+ * @property string $size
  *
  * @property Article $article
  */
@@ -57,7 +62,7 @@ class ArticleAttachment extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('common', 'ID'),
             'article_id' => Yii::t('common', 'Article ID'),
-            'base' => Yii::t('common', 'Base Url'),
+            'base_url' => Yii::t('common', 'Base Url'),
             'path' => Yii::t('common', 'Path'),
             'size' => Yii::t('common', 'Size'),
             'type' => Yii::t('common', 'Type'),
@@ -71,5 +76,10 @@ class ArticleAttachment extends \yii\db\ActiveRecord
     public function getArticle()
     {
         return $this->hasOne(Article::className(), ['id' => 'article_id']);
+    }
+
+    public function getUrl()
+    {
+        return $this->base_url .'/'. $this->path;
     }
 }

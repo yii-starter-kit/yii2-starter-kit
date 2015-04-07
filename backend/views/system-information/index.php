@@ -4,8 +4,8 @@
  * @var $this \yii\web\View
  * @var $provider \probe\provider\ProviderInterface
  */
+use common\models\FileStorageItem;
 use common\models\User;
-use trntv\systeminfo\SI;
 
 $this->title = Yii::t('backend', 'System Information');
 $this->registerJs("window.paceOptions = { ajax: false }", \yii\web\View::POS_HEAD);
@@ -206,7 +206,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
             <div class="small-box bg-red">
                 <div class="inner">
                     <h3>
-                        <?= trntv\filekit\storage\models\FileStorageItem::find()->count() ?>
+                        <?= FileStorageItem::find()->count() ?>
                     </h3>
                     <p>
                         <?= Yii::t('backend', 'Files in storage') ?>

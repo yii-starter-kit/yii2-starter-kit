@@ -128,7 +128,7 @@ use yii\widgets\Breadcrumbs;
                         <img src="<?= Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="img-circle" />
                     </div>
                     <div class="pull-left info">
-                        <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->username]) ?></p>
+                        <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->getPublicIdentity()]) ?></p>
                         <a href="<?php echo \yii\helpers\Url::to(['/sign-in/profile']) ?>">
                             <i class="fa fa-circle text-success"></i>
                             <?= Yii::$app->formatter->asDatetime(time()) ?>

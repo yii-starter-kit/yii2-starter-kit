@@ -23,8 +23,9 @@ class m140703_123000_user extends Migration
             'email' => Schema::TYPE_STRING . ' NOT NULL',
             'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::ROLE_USER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::STATUS_ACTIVE,
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL'
+            'created_at' => Schema::TYPE_INTEGER,
+            'updated_at' => Schema::TYPE_INTEGER,
+            'logged_at' => Schema::TYPE_INTEGER
         ], $tableOptions);
 
         $this->insert('{{%user}}', [

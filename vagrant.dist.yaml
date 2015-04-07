@@ -1,0 +1,7 @@
+vm:
+  memory: 1024
+  cpus: 1
+network:
+  ip: 192.168.33.10
+github:
+  token: <your-github-api-token>

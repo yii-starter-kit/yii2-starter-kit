@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=>User::getStatuses()
             ],
             'created_at:datetime',
+            'logged_at:datetime',
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],

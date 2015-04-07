@@ -9,3 +9,8 @@ paths:
 
 settings:
   colors: true
+
+db:
+  dsn:
+  username:
+  password:

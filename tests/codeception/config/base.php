@@ -13,8 +13,9 @@ return [
     ],
     'components' => [
         'db' => [
-            'dsn' => 'mysql:host=localhost;dbname=yii2-starter-kit_tests',
-            'username' => 'root'
+            'dsn' => getenv('DB_DSN'),
+            'username' => getenv('DB_USERNAME'),
+            'password' => getenv('DB_PASSWORD')
         ],
         'mailer' => [
             'useFileTransport' => true,

@@ -1,4 +1,6 @@
 <?php
+require_once( __DIR__ . '/../../bootstrap.php');
+
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'test');
 
@@ -7,12 +9,6 @@ defined('YII_APP_BASE_PATH') or define('YII_APP_BASE_PATH', dirname(dirname(dirn
 $testEntryUrl = \Codeception\Configuration::config()['config']['test_entry_url'];
 defined('BACKEND_ENTRY_URL') or define('BACKEND_ENTRY_URL', parse_url($testEntryUrl, PHP_URL_PATH));
 defined('BACKEND_ENTRY_FILE') or define('BACKEND_ENTRY_FILE', YII_APP_BASE_PATH . '/backend/web/index-test.php');
-
-// Composer
-require_once(YII_APP_BASE_PATH . '/vendor/autoload.php');
-
-// Environment
-Dotenv::load( YII_APP_BASE_PATH );
 
 require_once(YII_APP_BASE_PATH . '/vendor/yiisoft/yii2/Yii.php');
 require_once(YII_APP_BASE_PATH . '/common/config/bootstrap.php');

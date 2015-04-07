@@ -106,22 +106,23 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
 Application configuration process include:
-0. Initialise application
-1. Prepare web server
-2. Configure environment local settings
-3. Apply migrations
-4. Initialise RBAC
+1. Initialise application
+2. Prepare web server
+3. Configure environment local settings
+4. Apply migrations
+5. Initialise RBAC
 
 ### Vagrant
 If you want, you can use bundled Vagrant instead of installing app to your local machine.
-0. Install [Vagrant](https://www.vagrantup.com/)
-1. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and paste in into `vagrant.yml`
-3. Run:
+1. Install [Vagrant](https://www.vagrantup.com/)
+2. Rename `vagrant.dist.yaml` to `vagrant.yaml`
+3. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and paste in into `vagrant.yml`
+4. Run:
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant up
 ```
-That`s all. Application is accessible on http://yii2-starter-kit.dev
+That`s all. After provision application will be accessible on http://yii2-starter-kit.dev
 
 ### 1. Initialization
 Initialise application

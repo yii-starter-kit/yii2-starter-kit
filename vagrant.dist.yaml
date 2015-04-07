@@ -4,4 +4,4 @@ vm:
 network:
   ip: 192.168.33.10
 github:
-  token: e9779d7035b28e4a3b61d32e2e8aef515a18e125
+  token: <your-github-api-token>

@@ -22,6 +22,8 @@ Thumbs.db
 
 # phpunit
 phpunit.phar
-# local phpunit config
 /phpunit.xml
-tests/_output/*
+
+# Vagrant
+/.vagrant
+/vagrant.yaml

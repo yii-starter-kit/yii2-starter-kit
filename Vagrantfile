@@ -19,15 +19,15 @@ packages = [
     "php5-mcrypt",
     "php5-xdebug",
     "nginx",
-    "mysql-server-5.5",
+    "mysql-server",
     "git"
 ]
 
 Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
-    vb.memory = "1024"
-    vb.cpus = "1"
+    vb.memory = options['vm']['memory']
+    vb.cpus = options['vm']['cpus']
   end
 
   config.vm.box = "ubuntu/trusty64"

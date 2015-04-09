@@ -27,7 +27,7 @@ $config = [
 
         'glide' => [
             'class' => 'trntv\glide\components\Glide',
-            'sourcePath' => '@storage/source',
+            'sourcePath' => '@storage/web/source',
             'cachePath' => '@storage/cache',
             'urlManager' => 'urlManagerStorage',
             'maxImageSize' => getenv('GLIDE_MAX_IMAGE_SIZE'),

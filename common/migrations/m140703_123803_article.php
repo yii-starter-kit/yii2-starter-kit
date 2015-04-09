@@ -37,30 +37,35 @@ class m140703_123803_article extends Migration
             'updated_at' => Schema::TYPE_INTEGER,
         ], $tableOptions);
 
-        if ($this->db->driverName === 'mysql') {
-            $this->createIndex('idx_article_author_id', '{{%article}}', 'author_id');
-            $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id', 'cascade', 'cascade');
+        $this->insert('{{%article_category}}', [
+            'id' => 1,
+            'slug' => 'news',
+            'title' => 'News',
+            'status' => \common\models\ArticleCategory::STATUS_ACTIVE,
+            'created_at' => time()
+        ]);
 
-            $this->createIndex('idx_article_updater_id', '{{%article}}', 'updater_id');
-            $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
+        $this->createIndex('idx_article_author_id', '{{%article}}', 'author_id');
+        $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id', 'cascade', 'cascade');
 
-            $this->createIndex('idx_category_id', '{{%article}}', 'category_id');
-            $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
+        $this->createIndex('idx_article_updater_id', '{{%article}}', 'updater_id');
+        $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
 
-            $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
-            $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
-        }
+        $this->createIndex('idx_category_id', '{{%article}}', 'category_id');
+        $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id');
+
+        $this->createIndex('idx_parent_id', '{{%article_category}}', 'parent_id');
+        $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
 
     }
 
     public function down()
     {
-        if ($this->db->driverName === 'mysql') {
-            $this->dropForeignKey('fk_article_author', '{{%article}}');
-            $this->dropForeignKey('fk_article_updater', '{{%article}}');
-            $this->dropForeignKey('fk_article_category', '{{%article}}');
-            $this->dropForeignKey('fk_article_category_section', '{{%article_category}}');
-        }
+        $this->dropForeignKey('fk_article_author', '{{%article}}');
+        $this->dropForeignKey('fk_article_updater', '{{%article}}');
+        $this->dropForeignKey('fk_article_category', '{{%article}}');
+        $this->dropForeignKey('fk_article_category_section', '{{%article_category}}');
+
         $this->dropTable('{{%article}}');
         $this->dropTable('{{%article_category}}');
     }

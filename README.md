@@ -127,7 +127,7 @@ That`s all. After provision application will be accessible on http://yii2-starte
 ### 1. Initialization
 Initialise application
 ```
-./init // init.bat for windows
+./init #init.bat for windows
 ```
 
 ### 0. Web Server

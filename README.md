@@ -26,7 +26,7 @@ FEATURES
 - Yii2 log web interface
 - Application events component
 - Cache web controller
-- Maintenance mode component ([more](### Maintenance mode))
+- Maintenance mode component ([more](#maintenance-mode))
 - System information web interface
 - dotenv support
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources

@@ -25,6 +25,15 @@ $config = [
             'class'=>'yii\i18n\Formatter'
         ],
 
+        'glide' => [
+            'class' => 'trntv\glide\components\Glide',
+            'sourcePath' => '@storage/source',
+            'cachePath' => '@storage/cache',
+            'urlManager' => 'urlManagerStorage',
+            'maxImageSize' => getenv('GLIDE_MAX_IMAGE_SIZE'),
+            'signKey' => getenv('GLIDE_SIGN_KEY')
+        ],
+
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => YII_ENV_DEV,
@@ -94,7 +103,7 @@ $config = [
             'baseUrl' => '@storageUrl/source',
             'filesystem' => [
                 'class' => 'common\components\filesystem\LocalFlysystemBuilder',
-                'path' => '@storage/source'
+                'path' => '@storage/web/source'
             ],
             'as log' => [
                 'class' => 'common\components\behaviors\FileStorageLogBehavior',
@@ -102,22 +111,28 @@ $config = [
             ]
         ],
 
-        'keyStorage'=>[
-            'class'=>'common\components\keyStorage\KeyStorage'
+        'keyStorage' => [
+            'class' => 'common\components\keyStorage\KeyStorage'
         ],
 
-        'urlManagerBackend'=>\yii\helpers\ArrayHelper::merge(
+        'urlManagerBackend' => \yii\helpers\ArrayHelper::merge(
             [
-                'hostInfo'=>Yii::getAlias('@backendUrl')
+                'hostInfo' => Yii::getAlias('@backendUrl')
             ],
             require(Yii::getAlias('@backend/config/_urlManager.php'))
         ),
-        'urlManagerFrontend'=>\yii\helpers\ArrayHelper::merge(
+        'urlManagerFrontend' => \yii\helpers\ArrayHelper::merge(
             [
                 'hostInfo'=>Yii::getAlias('@frontendUrl')
             ],
             require(Yii::getAlias('@frontend/config/_urlManager.php'))
         ),
+        'urlManagerStorage' => \yii\helpers\ArrayHelper::merge(
+            [
+                'hostInfo'=>Yii::getAlias('@storageUrl')
+            ],
+            require(Yii::getAlias('@storage/config/_urlManager.php'))
+        )
     ],
     'params' => [
         'adminEmail' => getenv('ADMIN_EMAIL'),

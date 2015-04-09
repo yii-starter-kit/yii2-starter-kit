@@ -11,16 +11,16 @@ FEATURES
 --------
 - Based on yii2-advanced application template
 - Beautiful and open source dashboard theme for backend AdminLTE 2 (http://almsaeedstudio.com/AdminLTE)
-- I18N + 2 translations: Ukrainian, Russian
+- I18N + 3 translations: English, Russian, Ukrainian
 - I18N DbMessageSource CRUD module
 - Language change action + behavior to choose locale based on browser preferred language 
-- `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization
 - User management: CRUD
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
+- (thephpleague/glide)[https://github.com/thephpleague/glide] integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
 - Key-value storage component
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
@@ -29,6 +29,7 @@ FEATURES
 - Maintenance mode component ([more](### Maintenance mode))
 - System information web interface
 - dotenv support
+- `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
 - Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
 - Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 
 - Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 

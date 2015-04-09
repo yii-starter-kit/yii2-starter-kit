@@ -67,7 +67,7 @@ foreach ($files as $file) {
     }
 }
 
-$callbacks = ['setCookieValidationKey', 'setWritable', 'setExecutable'];
+$callbacks = ['setGeneratedKey', 'setWritable', 'setExecutable'];
 foreach ($callbacks as $callback) {
     if (!empty($env[$callback])) {
         $callback($root, $env[$callback]);
@@ -176,12 +176,12 @@ function setExecutable($root, $paths)
     }
 }
 
-function setCookieValidationKey($root, $paths)
+function setGeneratedKey($root, $paths)
 {
     foreach ($paths as $file) {
-        echo "   generate cookie validation key in $file\n";
+        echo "   generate key in $file\n";
         $content = file_get_contents($file);
-        $content = preg_replace_callback('/<generated_cookie_validation_key>/', function () {
+        $content = preg_replace_callback('/<generated_key>/', function () {
             $length = 32;
             $bytes = openssl_random_pseudo_bytes(32, $cryptoStrong);
             return strtr(substr(base64_encode($bytes), 0, $length), '+/', '_-');

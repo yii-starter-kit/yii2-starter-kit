@@ -12,7 +12,7 @@ $config = [
                 [
                     'baseUrl' => '@storageUrl',
                     'basePath' => '@storage',
-                    'path'   => '/uploads',
+                    'path'   => '/',
                     'access' => ['read' => 'manager', 'write' => 'manager']
                 ]
             ]

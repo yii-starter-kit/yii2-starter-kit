@@ -29,24 +29,32 @@ use yii\bootstrap\ActiveForm;
         \yii\imperavi\Widget::className(),
         [
             'plugins' => ['fullscreen', 'fontcolor', 'video'],
-            'options'=>[
-                'minHeight'=>400,
-                'maxHeight'=>400,
-                'buttonSource'=>true,
-                'convertDivs'=>false,
-                'removeEmptyTags'=>false,
-                'imageUpload'=>Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
+            'options' => [
+                'minHeight' => 400,
+                'maxHeight' => 400,
+                'buttonSource' => true,
+                'convertDivs' => false,
+                'removeEmptyTags' => false,
+                'imageUpload' => Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
             ]
         ]
     ) ?>
 
+    <?= $form->field($model, 'thumbnail')->widget(
+        \trntv\filekit\widget\Upload::className(),
+        [
+            'url' => ['/file-storage/upload'],
+            'maxFileSize' => 5000000, // 5 MiB
+        ]);
+    ?>
+
     <?= $form->field($model, 'attachments')->widget(
         \trntv\filekit\widget\Upload::className(),
         [
-            'url'=>['/file-storage/upload'],
+            'url' => ['/file-storage/upload'],
             'sortable'=>true,
-            'maxFileSize'=>10000000, // 10 MiB
-            'maxNumberOfFiles'=>10
+            'maxFileSize' => 10000000, // 10 MiB
+            'maxNumberOfFiles' => 10
         ]);
     ?>
 

@@ -34,14 +34,15 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
-            'storage'
+            'storage/cache',
+            'storage/source'
         ],
         'setExecutable' => [
             'backend/yii',
             'frontend/yii',
             'console/yii',
         ],
-        'setCookieValidationKey' => [
+        'setGeneratedKey' => [
             '.env'
         ],
     ],
@@ -53,14 +54,15 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
-            'storage'
+            'storage/cache',
+            'storage/source'
         ],
         'setExecutable' => [
             'backend/yii',
             'frontend/yii',
             'console/yii',
         ],
-        'setCookieValidationKey' => [
+        'setGeneratedKey' => [
             '.env'
         ],
     ],

@@ -29,11 +29,6 @@ else
 fi
 sudo composer global config github-oauth.github.com ${github_token}
 
-# create nginx config
-if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
-    sudo ln -s /var/www/nginx.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
-fi
-
 # init application
 if [ ! -d /var/www/vendor ]; then
     cd /var/www && composer install --prefer-dist --optimize-autoloader
@@ -42,6 +37,11 @@ else
 fi
 
 php /var/www/init --env=dev --overwrite=n
+
+# create nginx config
+if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
+    sudo ln -s /var/www/nginx.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
+fi
 
 # Configuring application
 echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLLATE utf8_unicode_ci" | mysql -uroot -proot

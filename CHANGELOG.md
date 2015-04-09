@@ -10,6 +10,11 @@ Yii Starter Kit Change Log
 - AdminLTE updated to 2.0 branch
 - PSR2 formatting
 - ... fixes and many small changes ...
+
+1.5.1
+-----
+- fixes
+
 1.5.0
 -----
 - Enh: ``$cachingDuration`` parameter was added to ``common\components\keyStorage\KeyStorage::get``

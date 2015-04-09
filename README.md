@@ -80,7 +80,7 @@ If you do not have [Composer](http://getcomposer.org/), you may install it by fo
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 Install composer-asset-plugin needed for yii assets management
-```
+```bash
 composer global require "fxp/composer-asset-plugin"
 ```
 
@@ -88,7 +88,7 @@ composer global require "fxp/composer-asset-plugin"
 ### Clone from GitHub
 
 Extract the github archive file or clone this repository.
-```
+```bash
 git clone https://github.com/trntv/yii2-starter-kit.git
 ```
 
@@ -106,6 +106,7 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
 Application configuration process include:
+
 1. Initialise application
 2. Prepare web server
 3. Configure environment local settings
@@ -124,13 +125,13 @@ vagrant up
 ```
 That`s all. After provision application will be accessible on http://yii2-starter-kit.dev
 
-### 1. Initialization
+#### 0. Initialization
 Initialise application
 ```
-./init // init.bat for windows
+./init #init.bat for windows
 ```
 
-### 0. Web Server
+#### 1. Web Server
 
 You should configure web server with three different web roots:
 
@@ -142,16 +143,16 @@ You should configure web server with three different web roots:
 
 **NOTE:** You can use `nginx.conf` file that is located in the project root.
 
-### 1. Initialization
+#### 1. Initialization
 Initialise application
 ```
 ./init // init.bat for windows
 ```
 
-### 2. Setup environment
+#### 2. Setup environment
 Adjust settings in `.env` file
 
-### 2.1 Database
+##### 2.1 Database
 Edit the file `.env` with your data:
 ```
 DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
@@ -161,7 +162,7 @@ DB_PASSWORD      = password
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
 
-### 2.2 Application urls
+##### 2.2 Application urls
 Set your current application urls in `.env`
 
 ```php
@@ -169,13 +170,13 @@ FRONTEND_URL    = http://yii2-starter-kit.dev
 BACKEND_URL     = http://backend.yii2-starter-kit.dev
 STORAGE_URL     = http://storage.yii2-starter-kit.dev
 ```
-### 3. Apply migrations
+#### 3. Apply migrations
 
 ```php
 php console/yii migrate
 ```
 
-### 4. Initialise RBAC config
+#### 4. Initialise RBAC config
 
 ```php
 php console/yii rbac/init

@@ -30,24 +30,24 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
         'columns' => [
             'order',
             [
-                'attribute'=>'path',
-                'format'=>'raw',
-                'value'=>function($model){
-                    return $model->path ? Html::img($model->path, ['style'=>'width: 100%']) : null;
+                'attribute' => 'path',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->path ? Html::img($model->getImageUrl(), ['style'=>'width: 100%']) : null;
                 }
             ],
             'url:url',
             [
-                'format'=>'html',
-                'attribute'=>'caption',
-                'options'=>['style'=>'width: 20%']
+                'format' => 'html',
+                'attribute' => 'caption',
+                'options' => ['style' => 'width: 20%']
             ],
             'status',
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'controller'=>'/widget-carousel-item',
-                'template'=>'{update} {delete}'
+                'controller' => '/widget-carousel-item',
+                'template' => '{update} {delete}'
             ],
         ],
     ]); ?>

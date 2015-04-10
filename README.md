@@ -20,13 +20,13 @@ FEATURES
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
-- (thephpleague/glide)[https://github.com/thephpleague/glide] integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
+- [thephpleague/glide](https://github.com/thephpleague/glide) integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
 - Key-value storage component
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
 - Application events component
 - Cache web controller
-- Maintenance mode component ([more](### Maintenance mode))
+- Maintenance mode component ([more](#maintenance-mode))
 - System information web interface
 - dotenv support
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources

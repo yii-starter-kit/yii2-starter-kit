@@ -16,6 +16,7 @@ if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php5/mods-available/xdebug.
     (
      echo "xdebug.remote_enable = on";
      echo "xdebug.remote_connect_back = on";
+     echo "xdebug.remote_host = 10.0.2.2";
      echo "xdebug.idekey = \"vagrant\""
     ) >> /etc/php5/mods-available/xdebug.ini
 fi

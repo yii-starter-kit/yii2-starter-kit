@@ -148,6 +148,11 @@ class SignInController extends \yii\web\Controller
         ]);
     }
 
+    /**
+     * @param $client \yii\authclient\BaseClient
+     * @return bool
+     * @throws Exception
+     */
     public function successOAuthCallback($client)
     {
         // use BaseClient::normalizeUserAttributeMap to provide consistency for user attribute`s names
@@ -160,7 +165,7 @@ class SignInController extends \yii\web\Controller
         if (!$user) {
             $user = new User();
             $user->scenario = 'oauth_create';
-            $user->username = sprintf('%s_%s', ArrayHelper::getValue($attributes, 'login', $client->getName()), time());
+            $user->username = ArrayHelper::getValue($attributes, 'login');
             $user->email = ArrayHelper::getValue($attributes, 'email');
             $user->oauth_client = $client->getName();
             $user->oauth_client_user_id = ArrayHelper::getValue($attributes, 'id');

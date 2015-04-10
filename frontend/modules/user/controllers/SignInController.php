@@ -165,7 +165,6 @@ class SignInController extends \yii\web\Controller
             $user->oauth_client = $client->getName();
             $user->oauth_client_user_id = ArrayHelper::getValue($attributes, 'id');
             $password = Yii::$app->security->generateRandomString(8);
-            $user->generateAuthKey();
             $user->setPassword($password);
             if ($user->save()) {
                 $user->afterSignup();

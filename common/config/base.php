@@ -90,7 +90,7 @@ $config = [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
                     'messageTable'=>'{{%i18n_message}}',
-                    'enableCaching' => true,
+                    'enableCaching' => YII_ENV_DEV,
                     'cachingDuration' => 3600
                 ],
                 */

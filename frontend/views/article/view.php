@@ -6,10 +6,21 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Articles'), 'ur
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content">
-    <article>
+    <article class="article-item">
         <h1><?= $model->title ?></h1>
 
-        <?= $model->body ?>
+        <?php if ($model->thumbnail_path): ?>
+            <?php echo \yii\helpers\Html::img(
+                Yii::$app->glide->createSignedUrl([
+                    'glide/index',
+                    'path' => $model->thumbnail_path,
+                    'w' => 200
+                ], true),
+                ['class' => 'article-thumb img-rounded pull-left']
+            ) ?>
+        <?php endif; ?>
+
+        <?php echo $model->body, 150 ?>
 
         <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>

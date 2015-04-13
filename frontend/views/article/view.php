@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ) ?>
         <?php endif; ?>
 
-        <?php echo $model->body, 150 ?>
+        <?php echo $model->body ?>cd
 
         <?php if (!empty($model->articleAttachments)): ?>
             <h3><?php echo Yii::t('frontend', 'Attachments') ?></h3>

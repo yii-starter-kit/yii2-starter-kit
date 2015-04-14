@@ -1,7 +1,8 @@
 <?php
 /**
  * Eugine Terentev <eugine@terentev.net>
- * @var $model \common\models\SystemEvent
+ * @var $this \yii\web\View
+ * @var $model \common\models\TimelineEvent
  * @var $dataProvider \yii\data\ActiveDataProvider
  */
 $this->title = Yii::t('backend', 'Application timeline');
@@ -25,31 +26,14 @@ $icons = [
                         <?php $date = Yii::$app->formatter->asDate($model->created_at) ?>
                     <?php endif; ?>
                     <li>
-                        <!-- timeline icon -->
-                        <?php echo \yii\helpers\ArrayHelper::getValue($icons, $model->category, '<i class="fa fa-envelope bg-blue"></i>') ?>
-                        <div class="timeline-item">
-                            <span class="time">
-                                <i class="fa fa-clock-o"></i>
-                                <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?>
-                            </span>
-
-                            <h3 class="timeline-header">
-                                <?php echo $model->name  ?>
-                            </h3>
-
-                            <div class="timeline-body">
-                                <?php echo $model->getMessage() ?>
-                            </div>
-
-                            <div class="timeline-footer">
-                                <a href="<?php echo \yii\helpers\Url::to(['view', 'id'=>$model->id]) ?>" class="btn btn-primary btn-xs" data-pjax="0">
-                                    <?php echo Yii::t('backend', 'View') ?>
-                                </a>
-                                <a href="<?php echo \yii\helpers\Url::to(['timeline', 'SystemEventSearch[category]'=>$model->category, 'SystemEventSearch[event]'=>$model->event]) ?>" class="btn btn-success btn-xs">
-                                    <?php echo $model->getFullEventName() ?>
-                                </a>
-                            </div>
-                        </div>
+                        <?php
+                            try {
+                                $viewFile = sprintf('%s/%s', $model->category, $model->event);
+                                echo $this->render($viewFile, ['model' => $model]);
+                            } catch (\yii\base\InvalidParamException $e) {
+                                echo $this->render('_item', ['model' => $model]);
+                            }
+                        ?>
                     </li>
                 <?php endforeach; ?>
                 <li>

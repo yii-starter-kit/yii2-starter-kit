@@ -2,8 +2,10 @@
 /**
  * @var $this yii\web\View
  */
+use common\models\TimelineEvent;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 
 ?>
@@ -26,35 +28,13 @@ use yii\widgets\Breadcrumbs;
                 </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <li id="notifications-dropdown" class="dropdown notifications-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <li id="timeline-notifications" class="notifications-menu">
+                            <a href="<?php echo Url::to(['/timeline-event/index']) ?>">
                                 <i class="fa fa-bell"></i>
-                            <span class="label label-success">
-                                <?= \common\models\SystemEvent::find()->today()->count() ?>
-                            </span>
+                                <span class="label label-success">
+                                    <?php echo TimelineEvent::find()->today()->count() ?>
+                                </span>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">
-                                    <?= Yii::t('backend', 'You have {num} events', ['num'=>\common\models\SystemEvent::find()->today()->count()]) ?>
-                                </li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <?php foreach(\common\models\SystemEvent::find()->today()->orderBy(['created_at'=>SORT_DESC])->limit(10)->all() as $eventRecord): ?>
-                                            <li>
-                                                <a href="<?= Yii::$app->urlManager->createUrl(['/system-event/view', 'id'=>$eventRecord->id]) ?>">
-                                                    <i class="fa fa-bell"></i>
-                                                    <?= $eventRecord->getName() ?>
-                                                </a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </li>
-                                <li class="footer">
-                                    <?= Html::a(Yii::t('backend', 'View all'), ['/system-event/index']) ?>
-                                    <?= Html::a(Yii::t('backend', 'Timeline'), ['/system-event/timeline']) ?>
-                                </li>
-                            </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
                         <li id="log-dropdown" class="dropdown notifications-menu">
@@ -129,7 +109,7 @@ use yii\widgets\Breadcrumbs;
                     </div>
                     <div class="pull-left info">
                         <p><?= Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->getPublicIdentity()]) ?></p>
-                        <a href="<?php echo \yii\helpers\Url::to(['/sign-in/profile']) ?>">
+                        <a href="<?php echo Url::to(['/sign-in/profile']) ?>">
                             <i class="fa fa-circle text-success"></i>
                             <?= Yii::$app->formatter->asDatetime(time()) ?>
                         </a>
@@ -186,10 +166,10 @@ use yii\widgets\Breadcrumbs;
                                 ['label'=>Yii::t('backend', 'Cache'), 'url'=>['/cache/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 ['label'=>Yii::t('backend', 'File Manager'), 'url'=>['/file-manager/index'], 'icon'=>'<i class="fa fa-angle-double-right"></i>'],
                                 [
-                                    'label'=>Yii::t('backend', 'System Events'),
-                                    'url'=>['/system-event/index'],
+                                    'label'=>Yii::t('backend', 'Timeline'),
+                                    'url'=>['/timeline-event/index'],
                                     'icon'=>'<i class="fa fa-angle-double-right"></i>',
-                                    'badge'=>\common\models\SystemEvent::find()->today()->count(),
+                                    'badge'=> TimelineEvent::find()->today()->count(),
                                     'badgeBgClass'=>'green',
                                 ],
                                 [

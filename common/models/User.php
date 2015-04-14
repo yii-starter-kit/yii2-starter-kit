@@ -244,11 +244,15 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function afterSignup()
     {
-        SystemEvent::log('user', self::EVENT_AFTER_SIGNUP, [
-            'username'=>$this->username,
-            'email'=>$this->email,
-            'created_at'=>$this->created_at
-        ]);
+        TimelineEvent::log(
+            'user',
+            'signup',
+            [
+                'publicIdentity' => $this->getPublicIdentity(),
+                'userId' => $this->getId(),
+                'created_at' => $this->created_at
+            ]
+        );
         $profile = new UserProfile();
         $profile->locale = Yii::$app->language;
         $this->link('userProfile', $profile);

@@ -8,14 +8,13 @@
 
 namespace common\models\query;
 
-use common\models\SystemEvent;
 use yii\db\ActiveQuery;
 
-class SystemEventQuery extends ActiveQuery
+class TimelineEventQuery extends ActiveQuery
 {
     public function today()
     {
-        $this->andWhere(SystemEvent::tableName().'.created_at > :midnight', [':midnight'=>strtotime('today midnight')]);
+        $this->andWhere(['>=', 'created_at', strtotime('today midnight')]);
         return $this;
     }
 }

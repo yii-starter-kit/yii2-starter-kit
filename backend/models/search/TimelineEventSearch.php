@@ -2,15 +2,15 @@
 
 namespace backend\models\search;
 
+use common\models\TimelineEvent;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\SystemEvent;
 
 /**
- * SystemEventSearch represents the model behind the search form about `common\models\SystemEvent`.
+ * TimelineEventSearch represents the model behind the search form about `common\models\TimelineEvent`.
  */
-class SystemEventSearch extends SystemEvent
+class TimelineEventSearch extends TimelineEvent
 {
     /**
      * @inheritdoc
@@ -40,7 +40,7 @@ class SystemEventSearch extends SystemEvent
      */
     public function search($params)
     {
-        $query = SystemEvent::find();
+        $query = TimelineEvent::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\search\SystemEventSearch */
+/* @var $model backend\models\search\TimelineEventSearch */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
@@ -20,10 +20,6 @@ use yii\bootstrap\ActiveForm;
     <?= $form->field($model, 'application') ?>
 
     <?= $form->field($model, 'event') ?>
-
-    <?= $form->field($model, 'data') ?>
-
-    <?= $form->field($model, 'created_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>

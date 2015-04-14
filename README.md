@@ -24,7 +24,7 @@ FEATURES
 - Key-value storage component
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
-- Application events component
+- Application timeline component
 - Cache web controller
 - Maintenance mode component ([more](#maintenance-mode))
 - System information web interface

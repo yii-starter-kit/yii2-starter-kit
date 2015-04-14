@@ -49,9 +49,15 @@ $config = [
                 'actions'=>['login']
             ],
             [
+                'controllers'=>['sign-in'],
+                'allow' => true,
+                'roles' => ['@'],
+                'actions'=>['logout']
+            ],
+            [
                 'controllers'=>['site'],
                 'allow' => true,
-                'roles' => ['?'],
+                'roles' => ['?', '@'],
                 'actions'=>['error']
             ],
             [

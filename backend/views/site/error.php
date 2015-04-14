@@ -9,15 +9,20 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-
-<div class="error-page">
+<div class="error">
     <div class="row">
         <div class="col-xs-12">
-            <h2 class="headline">
-                <?= property_exists($exception, 'statusCode') ? $exception->statusCode : 500 ?>
-            </h2>
-            <div class="error-content">
-                <h3><i class="fa fa-warning text-yellow"></i> <?= Html::encode($name) ?></h3>
+            <div class="error-content text-center">
+                <h3 class="headline">
+                    <i class="fa fa-warning text-yellow"></i>
+                    <?php echo Yii::t(
+                        'backend',
+                        'Error {code}',
+                        [
+                            'code' => property_exists($exception, 'statusCode') ? $exception->statusCode : 500
+                        ])
+                    ?>
+                </h3>
                 <p>
                     <?= nl2br(Html::encode($message)) ?>
                 </p>

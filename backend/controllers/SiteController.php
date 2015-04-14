@@ -15,14 +15,14 @@ class SiteController extends \yii\web\Controller
     {
         return [
             'error' => [
-                'class' => 'yii\web\ErrorAction'
+                'class' => 'yii\web\ErrorAction',
             ]
         ];
     }
 
     public function beforeAction($action)
     {
-        $this->layout = Yii::$app->user->isGuest ? '_base' : 'main';
+        $this->layout = Yii::$app->user->isGuest ? 'base' : 'common';
         return parent::beforeAction($action);
     }
 }

@@ -6,6 +6,7 @@ use Yii;
 use common\models\User;
 use backend\models\UserForm;
 use backend\models\search\UserSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,14 +64,13 @@ class UserController extends Controller
     {
         $model = new UserForm();
         $model->setScenario('create');
-        if ($model->load(Yii::$app->request->post())) {
-            if ($model->save()) {
-                return $this->redirect(['index']);
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name')
         ]);
     }
 
@@ -82,14 +82,15 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = new UserForm();
-        $model->model = $this->findModel($id);
+        $model->setModel($this->findModel($id));
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+            'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name')
+        ]);
     }
 
     /**
@@ -100,6 +101,7 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
+        Yii::$app->authManager->revokeAll($id);
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

@@ -21,7 +21,6 @@ class m140703_123000_user extends Migration
             'oauth_client' => Schema::TYPE_STRING,
             'oauth_client_user_id' => Schema::TYPE_STRING,
             'email' => Schema::TYPE_STRING . ' NOT NULL',
-            'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::ROLE_USER,
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT '.\common\models\User::STATUS_ACTIVE,
             'created_at' => Schema::TYPE_INTEGER,
             'updated_at' => Schema::TYPE_INTEGER,
@@ -34,7 +33,6 @@ class m140703_123000_user extends Migration
             'email'=>'webmaster@example.com',
             'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('webmaster'),
             'auth_key'=>Yii::$app->getSecurity()->generateRandomString(),
-            'role'=>\common\models\User::ROLE_ADMINISTRATOR,
             'status'=>\common\models\User::STATUS_ACTIVE,
             'created_at'=>time(),
             'updated_at'=>time()
@@ -45,7 +43,6 @@ class m140703_123000_user extends Migration
             'email'=>'manager@example.com',
             'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('manager'),
             'auth_key'=>Yii::$app->getSecurity()->generateRandomString(),
-            'role'=>\common\models\User::ROLE_MANAGER,
             'status'=>\common\models\User::STATUS_ACTIVE,
             'created_at'=>time(),
             'updated_at'=>time()
@@ -56,7 +53,6 @@ class m140703_123000_user extends Migration
             'email'=>'user@example.com',
             'password_hash'=>Yii::$app->getSecurity()->generatePasswordHash('user'),
             'auth_key'=>Yii::$app->getSecurity()->generateRandomString(),
-            'role'=>\common\models\User::ROLE_USER,
             'status'=>\common\models\User::STATUS_ACTIVE,
             'created_at'=>time(),
             'updated_at'=>time()

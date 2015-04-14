@@ -5,6 +5,7 @@ use common\models\User;
 use common\models\UserProfile;
 use yii\base\Model;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * Create user form
@@ -15,7 +16,7 @@ class UserForm extends Model
     public $email;
     public $password;
     public $status;
-    public $role;
+    public $roles;
 
     private $model;
 
@@ -47,7 +48,12 @@ class UserForm extends Model
             ['password', 'string', 'min' => 6],
 
             [['status'], 'boolean'],
-            [['role'], 'in', 'range'=>array_keys(User::getRoles())],
+            [['roles'], 'each',
+                'rule' => ['in', 'range' => ArrayHelper::getColumn(
+                    Yii::$app->authManager->getRoles(),
+                    'name'
+                )]
+            ],
         ];
     }
 
@@ -60,7 +66,7 @@ class UserForm extends Model
             'username' => Yii::t('backend', 'Username'),
             'email' => Yii::t('backend', 'Email'),
             'password' => Yii::t('backend', 'Password'),
-            'role' => Yii::t('backend', 'Role')
+            'roles' => Yii::t('backend', 'Roles')
         ];
     }
 
@@ -69,8 +75,11 @@ class UserForm extends Model
         $this->username = $model->username;
         $this->email = $model->email;
         $this->status = $model->status;
-        $this->role = $model->role;
         $this->model = $model;
+        $this->roles = ArrayHelper::getColumn(
+            Yii::$app->authManager->getRolesByUser($model->getId()),
+            'name'
+        );
         return $this->model;
     }
 
@@ -95,13 +104,21 @@ class UserForm extends Model
             $model->username = $this->username;
             $model->email = $this->email;
             $model->status = $this->status;
-            $model->role = $this->role;
             if ($this->password) {
                 $model->setPassword($this->password);
             }
             if ($model->save() && $isNewRecord) {
                 $model->afterSignup();
             }
+            $auth = Yii::$app->authManager;
+            $auth->revokeAll($model->getId());
+
+            if ($this->roles && is_array($this->roles)) {
+                foreach ($this->roles as $role) {
+                    $auth->assign($auth->getRole($role), $model->getId());
+                }
+            }
+
             return !$model->hasErrors();
         }
         return null;

@@ -20,7 +20,6 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property string $publicIdentity
- * @property integer $role
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -33,9 +32,9 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 1;
 
-    const ROLE_USER = 1;
-    const ROLE_MANAGER = 5;
-    const ROLE_ADMINISTRATOR = 10;
+    const ROLE_USER = 'user';
+    const ROLE_MANAGER = 'manager';
+    const ROLE_ADMINISTRATOR = 'administrator';
 
     const EVENT_AFTER_SIGNUP = 'afterSignup';
     const EVENT_AFTER_LOGIN = 'afterLogin';
@@ -74,7 +73,7 @@ class User extends ActiveRecord implements IdentityInterface
             parent::scenarios(),
             [
                 'oauth_create'=>[
-                    'oauth_client', 'oauth_client_user_id', 'email', 'username', '!status', '!role'
+                    'oauth_client', 'oauth_client_user_id', 'email', 'username', '!status'
                 ]
             ]
         );
@@ -90,9 +89,6 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'email'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-
-            ['role', 'default', 'value' => self::ROLE_USER],
-            ['role', 'in', 'range' => [self::ROLE_USER, self::ROLE_MANAGER, self::ROLE_ADMINISTRATOR]]
         ];
     }
 
@@ -103,7 +99,6 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             'username' => Yii::t('common', 'Username'),
-            'role' => Yii::t('common', 'Role'),
             'email' => Yii::t('common', 'E-mail'),
             'status' => Yii::t('common', 'Status'),
             'created_at' => Yii::t('common', 'Created at'),
@@ -231,21 +226,6 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Returns user roles list
-     * @param mixed $role
-     * @return array|mixed
-     */
-    public static function getRoles($role = false)
-    {
-        $roles = [
-            self::ROLE_USER => Yii::t('common', 'User'),
-            self::ROLE_MANAGER => Yii::t('common', 'Manager'),
-            self::ROLE_ADMINISTRATOR => Yii::t('common', 'Administrator')
-        ];
-        return $role !== false ? ArrayHelper::getValue($roles, $role) : $roles;
-    }
-
-    /**
      * Returns user statuses list
      * @param mixed $status
      * @return array|mixed
@@ -273,6 +253,9 @@ class User extends ActiveRecord implements IdentityInterface
         $profile->locale = Yii::$app->language;
         $this->link('userProfile', $profile);
         $this->trigger(self::EVENT_AFTER_SIGNUP);
+        // Default role
+        $auth =  Yii::$app->authManager;
+        $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
     }
 
     /**

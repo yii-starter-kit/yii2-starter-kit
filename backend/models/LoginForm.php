@@ -1,9 +1,12 @@
 <?php
 namespace backend\models;
 
+use cheatsheet\Time;
 use common\models\User;
 use Yii;
+use yii\base\Exception;
 use yii\base\Model;
+use yii\web\ForbiddenHttpException;
 
 /**
  * Login form
@@ -14,7 +17,7 @@ class LoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-    private $_user = false;
+    private $user = false;
 
     /**
      * @inheritdoc
@@ -59,15 +62,21 @@ class LoginForm extends Model
 
     /**
      * Logs in a user using the provided username and password.
-     *
-     * @return boolean whether the user is logged in successfully
+     * @return bool whether the user is logged in successfully
+     * @throws ForbiddenHttpException
      */
     public function login()
     {
-        if ($this->validate()) {
-            if (Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0)) {
-                return true;
+        if (!$this->validate()) {
+            return false;
+        }
+        $duration = $this->rememberMe ? Time::SECONDS_IN_A_MONTH : 0;
+        if (Yii::$app->user->login($this->getUser(), $duration)) {
+            if (!Yii::$app->user->can('loginToBackend')) {
+                Yii::$app->user->logout();
+                throw new ForbiddenHttpException;
             }
+            return true;
         }
 
         return false;
@@ -80,15 +89,12 @@ class LoginForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
-            $this->_user = User::find()
+        if ($this->user === false) {
+            $this->user = User::find()
                 ->andWhere(['or', ['username'=>$this->username], ['email'=>$this->username]])
                 ->one();
-            if (!Yii::$app->user->can('manager', ['user'=>$this->_user])) {
-                $this->_user = null;
-            }
         }
 
-        return $this->_user;
+        return $this->user;
     }
 }

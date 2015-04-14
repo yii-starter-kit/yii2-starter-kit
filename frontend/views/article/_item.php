@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-xs-12">
         <h2>
-            <?= \yii\helpers\Html::a($model->title, ['view', 'id'=>$model->id]) ?>
+            <?= \yii\helpers\Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
         </h2>
         <div class="article-item">
             <?php if ($model->thumbnail_path): ?>

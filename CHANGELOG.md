@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
+- Enh #128: Articles are available via slugs
 - Added Vagrant support
 - testing framework configuration
 - Imperavi redactor plugins enabled

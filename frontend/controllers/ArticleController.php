@@ -25,9 +25,9 @@ class ArticleController extends Controller
         return $this->render('index', ['dataProvider'=>$dataProvider]);
     }
 
-    public function actionView($id)
+    public function actionView($slug)
     {
-        $model = Article::find()->published()->andWhere(['id'=>$id])->one();
+        $model = Article::find()->published()->andWhere(['slug'=>$slug])->one();
         if (!$model) {
             throw new NotFoundHttpException;
         }

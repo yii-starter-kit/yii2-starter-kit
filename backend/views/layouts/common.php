@@ -2,6 +2,7 @@
 /**
  * @var $this yii\web\View
  */
+use backend\widgets\Menu;
 use common\models\TimelineEvent;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -116,7 +117,7 @@ use yii\widgets\Breadcrumbs;
                     </div>
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
-                <?= backend\components\widgets\Menu::widget([
+                <?php echo Menu::widget([
                     'options'=>['class'=>'sidebar-menu'],
                     'labelTemplate' => '<a href="#">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                     'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
@@ -170,7 +171,7 @@ use yii\widgets\Breadcrumbs;
                                     'url'=>['/timeline-event/index'],
                                     'icon'=>'<i class="fa fa-angle-double-right"></i>',
                                     'badge'=> TimelineEvent::find()->today()->count(),
-                                    'badgeBgClass'=>'green',
+                                    'badgeBgClass'=>'label-success',
                                 ],
                                 [
                                     'label'=>Yii::t('backend', 'System Information'),
@@ -182,7 +183,7 @@ use yii\widgets\Breadcrumbs;
                                     'url'=>['/log/index'],
                                     'icon'=>'<i class="fa fa-angle-double-right"></i>',
                                     'badge'=>\backend\models\SystemLog::find()->count(),
-                                    'badgeBgClass'=>'red',
+                                    'badgeBgClass'=>'label-danger',
                                 ],
                             ]
                         ]

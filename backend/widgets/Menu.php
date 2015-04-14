@@ -1,5 +1,5 @@
 <?php
-namespace backend\components\widgets;
+namespace backend\widgets;
 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -24,15 +24,15 @@ class Menu extends \yii\widgets\Menu
     /**
      * @var string
      */
-    public $badgeTag = 'small';
+    public $badgeTag = 'span';
     /**
      * @var string
      */
-    public $badgeClass = 'badge pull-right';
+    public $badgeClass = 'label pull-right';
     /**
      * @var string
      */
-    public $badgeBgClass = 'bg-green';
+    public $badgeBgClass;
 
     /**
      * @var string

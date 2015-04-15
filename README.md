@@ -9,7 +9,6 @@ It covers typical use cases for a new project and will help you not to waste you
 
 FEATURES
 --------
-- Based on yii2-advanced application template
 - Beautiful and open source dashboard theme for backend AdminLTE 2 (http://almsaeedstudio.com/AdminLTE)
 - I18N + 3 translations: English, Russian, Ukrainian
 - I18N DbMessageSource CRUD module
@@ -19,6 +18,7 @@ FEATURES
 - User management: CRUD
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
+- Ready-to-go RESTful API module
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
 - [thephpleague/glide](https://github.com/thephpleague/glide) integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
 - Key-value storage component

@@ -300,6 +300,8 @@ echo common\components\widgets\DbMenu::widget([
       'enum'=>User::getStatuses() // [0=>'Deleted', 1=>'Active']
  ]
 ```
+### API
+TBD
 
 ### Many more useful components
 - ``common\components\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config

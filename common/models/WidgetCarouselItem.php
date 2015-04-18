@@ -16,6 +16,7 @@ use yii\helpers\FileHelper;
  * @property string $base_url
  * @property string $path
  * @property string $type
+ * @property string $image
  * @property string $imageUrl
  * @property string $url
  * @property string $caption
@@ -81,7 +82,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
             [['carousel_id', 'status', 'order'], 'integer'],
             [['url', 'caption', 'base_url', 'path'], 'string', 'max' => 1024],
             [['type'], 'string', 'max' => 45],
-            ['file', 'safe']
+            ['image', 'safe']
         ];
     }
 

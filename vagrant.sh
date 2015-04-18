@@ -7,6 +7,8 @@ sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e72
 sudo add-apt-repository 'deb http://dl.hhvm.com/ubuntu trusty main'
 
 # Configuring server software
+sudo update-locale LC_ALL="C"
+sudo dpkg-reconfigure locales
 echo "mysql-server-5.6 mysql-server/root_password password root" | debconf-set-selections
 echo "mysql-server-5.6 mysql-server/root_password_again password root" | debconf-set-selections
 

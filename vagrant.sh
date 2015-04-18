@@ -30,11 +30,11 @@ fi
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
 	sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    sudo composer global require fxp/composer-asset-plugin
+    composer global require fxp/composer-asset-plugin
 else
-	sudo composer self-update
+	composer self-update
 fi
-sudo composer global config github-oauth.github.com ${github_token}
+composer global config github-oauth.github.com ${github_token}
 
 # init application
 if [ ! -d /var/www/vendor ]; then

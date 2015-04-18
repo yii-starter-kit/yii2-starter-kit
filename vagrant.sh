@@ -2,12 +2,16 @@
 packages=$(echo "$1")
 github_token=$(echo "$2")
 
+# Additional repositories
+sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0x5a16e7281be7a449
+sudo add-apt-repository 'deb http://dl.hhvm.com/ubuntu trusty main'
+
 # Configuring server software
-echo "mysql-server mysql-server/root_password password root" | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
+echo "mysql-server-5.6 mysql-server/root_password password root" | debconf-set-selections
+echo "mysql-server-5.6 mysql-server/root_password_again password root" | debconf-set-selections
 
 sudo apt-get update
-sudo apt-get upgrade -y
+# sudo apt-get upgrade -y
 sudo apt-get install -y ${packages}
 
 sudo php5enmod mcrypt
@@ -32,9 +36,9 @@ sudo composer global config github-oauth.github.com ${github_token}
 
 # init application
 if [ ! -d /var/www/vendor ]; then
-    cd /var/www && composer install --prefer-dist --optimize-autoloader
+    cd /var/www && hhvm /usr/local/bin/composer install --prefer-dist --optimize-autoloader
 else
-    cd /var/www && composer update --prefer-dist --optimize-autoloader
+    cd /var/www && hhvm /usr/local/bin/composer update --prefer-dist --optimize-autoloader
 fi
 
 php /var/www/init --env=dev --overwrite=n

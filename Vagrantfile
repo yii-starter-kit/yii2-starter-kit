@@ -19,7 +19,8 @@ packages = [
     "php5-mcrypt",
     "php5-xdebug",
     "nginx",
-    "mysql-server",
+    "mysql-server-5.6",
+    "hhvm",
     "git"
 ]
 

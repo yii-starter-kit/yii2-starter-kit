@@ -1,6 +1,8 @@
 vm:
-  memory: 1024
+  memory: 1536
   cpus: 1
+system:
+  swapsize: 1024
 network:
   ip: 192.168.33.10
 github:

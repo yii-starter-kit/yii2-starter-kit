@@ -25,11 +25,13 @@ packages = [
 ]
 
 Vagrant.configure(2) do |config|
+  config.vm.post_up_message = "Done! Now you can access site at http://yii2-starter-kit.dev"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = options['vm']['memory']
     vb.cpus = options['vm']['cpus']
   end
+
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = domains[0]
@@ -43,5 +45,9 @@ Vagrant.configure(2) do |config|
   config.hostmanager.include_offline    = true
   config.hostmanager.aliases            = domains
 
-  config.vm.provision "shell", path: "./vagrant.sh", args: [packages.join(" "), options['github']['token']]
+  config.vm.provision "shell", path: "./vagrant.sh", args: [
+    packages.join(" "),
+    options['github']['token'],
+    options['system']['swapsize']
+  ]
 end

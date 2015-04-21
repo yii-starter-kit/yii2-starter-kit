@@ -118,6 +118,6 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
      */
     public function getImageUrl()
     {
-        return rtrim($this->base_url. '/') . '/' . $this->path;
+        return rtrim($this->base_url, '/') . '/' . ltrim($this->path, '/');
     }
 }

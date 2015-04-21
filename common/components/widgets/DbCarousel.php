@@ -56,7 +56,7 @@ class DbCarousel extends Carousel
             foreach ($query->all() as $k => $item) {
                 /** @var $item \common\models\WidgetCarouselItem */
                 if ($item->path) {
-                    $items[$k]['content'] = Html::img($item->path);
+                    $items[$k]['content'] = Html::img($item->getImageUrl());
                 }
 
                 if ($item->url) {

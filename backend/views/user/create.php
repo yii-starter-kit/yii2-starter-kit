@@ -1,4 +1,4 @@
-s<?php
+<?php
 
 use common\models\User;
 use yii\bootstrap\ActiveForm;

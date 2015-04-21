@@ -201,7 +201,7 @@ it will copy all existing messages to database
 
 Then uncomment config for `DbMessageSource` in
 ```php
-common/config/_base.php
+common/config/base.php
 ```
 
 ### KeyStorage

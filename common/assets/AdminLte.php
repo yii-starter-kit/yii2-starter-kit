@@ -21,10 +21,10 @@ class AdminLte extends AssetBundle
         'css/skins/_all-skins.min.css'
     ];
     public $depends = [
-        '\yii\web\JqueryAsset',
-        '\yii\jui\JuiAsset',
-        '\yii\bootstrap\BootstrapPluginAsset',
-        '\common\assets\FontAwesome',
-        '\common\assets\JquerySlimScroll'
+        'yii\web\JqueryAsset',
+        'yii\jui\JuiAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
+        'common\assets\FontAwesome',
+        'common\assets\JquerySlimScroll'
     ];
 }

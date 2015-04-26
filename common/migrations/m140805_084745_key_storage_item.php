@@ -37,11 +37,6 @@ class m140805_084745_key_storage_item extends Migration
         ]);
 
         $this->insert('{{%key_storage_item}}', [
-            'key' => 'backend.layout-fixed',
-            'value' => 0
-        ]);
-
-        $this->insert('{{%key_storage_item}}', [
             'key' => 'backend.layout-collapsed-sidebar',
             'value' => 0
         ]);

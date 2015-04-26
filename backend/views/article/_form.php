@@ -60,7 +60,12 @@ use yii\bootstrap\ActiveForm;
 
     <?= $form->field($model, 'status')->checkbox() ?>
 
-    <?= $form->field($model, 'published_at')->widget('trntv\yii\datetimepicker\DatetimepickerWidget') ?>
+    <?= $form->field($model, 'published_at')->widget(
+        'trntv\yii\datetimepicker\DatetimepickerWidget',
+        [
+            'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
+        ]
+    ) ?>
 
     <div class="form-group">
         <?= Html::submitButton(

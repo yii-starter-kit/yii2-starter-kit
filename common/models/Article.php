@@ -38,6 +38,9 @@ use yii\helpers\Inflector;
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const STATUS_PUBLISHED = 1;
+    const STATUS_DRAFT = 0;
+
     /**
      * @var array
      */
@@ -47,9 +50,6 @@ class Article extends \yii\db\ActiveRecord
      * @var array
      */
     public $thumbnail;
-
-    const STATUS_PUBLISHED = 1;
-    const STATUS_DRAFT = 0;
 
     /**
      * @inheritdoc
@@ -109,9 +109,9 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'body'], 'required'],
             [['slug'], 'unique'],
             [['body'], 'string'],
-            [['published_at'], 'default', 'value'=>time()],
-            [['published_at'], 'filter', 'filter'=>'strtotime'],
-            [['category_id'], 'exist', 'targetClass'=>ArticleCategory::className(), 'targetAttribute'=>'id'],
+            [['published_at'], 'default', 'value' => time()],
+            [['published_at'], 'filter', 'filter' => 'strtotime'],
+            [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute'=>'id'],
             [['author_id', 'updater_id', 'status'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],

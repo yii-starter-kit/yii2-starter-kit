@@ -68,17 +68,17 @@ use yii\widgets\Breadcrumbs;
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span><?= Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                                <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="user-image">
+                                <span><?php echo Yii::$app->user->identity->username ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header light-blue">
-                                    <img src="<?= Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar() ?: '/img/anonymous.jpg' ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         <?php Yii::$app->user->identity->username ?>
                                         <small>
-                                            <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                                            <?php echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                                         </small>
                                 </li>
                                 <!-- Menu Footer-->
@@ -94,6 +94,9 @@ use yii\widgets\Breadcrumbs;
                                     </div>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <?php echo Html::a('<i class="fa fa-cogs"></i>', ['/site/settings'])?>
                         </li>
                     </ul>
                 </div>

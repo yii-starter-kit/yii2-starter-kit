@@ -27,9 +27,23 @@ class m140805_084745_key_storage_item extends Migration
         ]);
 
         $this->insert('{{%key_storage_item}}', [
-            'key'=>'backend.theme-layout',
-            'value'=>'fixed',
-            'comment' => 'fixed, layout-boxed, sidebar-collapse'
+            'key' => 'backend.layout-fixed',
+            'value' => 0
+        ]);
+
+        $this->insert('{{%key_storage_item}}', [
+            'key' => 'backend.layout-boxed',
+            'value' => 0
+        ]);
+
+        $this->insert('{{%key_storage_item}}', [
+            'key' => 'backend.layout-fixed',
+            'value' => 0
+        ]);
+
+        $this->insert('{{%key_storage_item}}', [
+            'key' => 'backend.layout-collapsed-sidebar',
+            'value' => 0
         ]);
 
         $this->addPrimaryKey('pk_key_storage_item_key', '{{%key_storage_item}}', 'key');

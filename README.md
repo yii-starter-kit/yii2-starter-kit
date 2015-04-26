@@ -18,6 +18,7 @@ FEATURES
 - User management: CRUD
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
+- Application settings form (based on KeyStorage component)
 - Ready-to-go RESTful API module
 - File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
 - [thephpleague/glide](https://github.com/thephpleague/glide) integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)

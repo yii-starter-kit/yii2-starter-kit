@@ -28,7 +28,9 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     'class' => implode(' ', [
         ArrayHelper::getValue($this->params, 'body-class'),
         Yii::$app->keyStorage->get('backend.theme-skin', 'skin-blue'),
-        Yii::$app->keyStorage->get('backend.theme-layout', 'fixed')
+        Yii::$app->keyStorage->get('backend.layout-fixed') ? 'fixed' : null,
+        Yii::$app->keyStorage->get('backend.layout-boxed') ? 'layout-boxed' : null,
+        Yii::$app->keyStorage->get('backend.layout-collapsed-sidebar') ? 'sidebar-collapse' : null,
     ])
 ])?>
     <?php $this->beginBody() ?>

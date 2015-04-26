@@ -10,9 +10,9 @@ use yii\helpers\ArrayHelper;
 /**
  * Class EnumColumn
  * [
- *      'class'=>'\common\components\grid\EnumColumn',
- *      'attribute'=>'role',
- *      'enum'=>User::getRoles()
+ *      'class' => '\common\components\grid\EnumColumn',
+ *      'attribute' => 'role',
+ *      'enum' => User::getRoles()
  * ]
  * @package common\components\grid
  */
@@ -22,6 +22,20 @@ class EnumColumn extends DataColumn
      * @var array List of value => name pairs
      */
     public $enum = [];
+    /**
+     * @var bool
+     */
+    public $loadFilterDefaultValues = true;
+
+    /**
+     * @inheritdoc
+     */
+    public function init()
+    {
+        if ($this->loadFilterDefaultValues && $this->filter === null) {
+            $this->filter = $this->enum;
+        }
+    }
 
     /**
      * @param mixed $model

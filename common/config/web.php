@@ -8,7 +8,7 @@ $config = [
         ]
     ],
     'as locale' => [
-        'class' => 'common\components\behaviors\LocaleBehavior'
+        'class' => 'common\behaviors\LocaleBehavior'
     ]
 ];
 

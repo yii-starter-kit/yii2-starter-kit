@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'key',
             [
-                'class'=>\common\components\grid\EnumColumn::className(),
+                'class'=>\common\grid\EnumColumn::className(),
                 'attribute'=>'status',
                 'enum'=>[
                     Yii::t('backend', 'Disabled'),

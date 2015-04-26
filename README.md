@@ -209,8 +209,8 @@ common/config/base.php
 Key storage is a key-value storage to store different information. Application params for example.
 Values can be stored both via api or by backend CRUD component.
 ```
-Yii::$app->keyStorage->set('key', 'value');
-Yii::$app->keyStorage->get('articles-per-page');
+Yii::$app->keyStorage->set('articles-per-page', 20);
+Yii::$app->keyStorage->get('articles-per-page'); // 20
 ```
 
 ### ExtendedMessageController
@@ -252,7 +252,7 @@ Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` k
  {
      return [
          [
-             'class' => `common\components\behaviors\CacheInvalidateBehavior`,
+             'class' => `common\behaviors\CacheInvalidateBehavior`,
              'tags' => [
                   'awesomeTag',
                    function($model){
@@ -281,7 +281,7 @@ TBD
 
 #### DbMenu
 ```php
-echo common\components\widgets\DbMenu::widget([
+echo common\widgets\DbMenu::widget([
       'key'=>'stored-menu-key',
       /* any other option from \yii\widgets\Menu */ 
 ])
@@ -296,7 +296,7 @@ echo common\components\widgets\DbMenu::widget([
 #### EnumColumn
 ```php
  [
-      'class'=>'\common\components\grid\EnumColumn',
+      'class'=>'\common\grid\EnumColumn',
       'attribute'=>'status',
       'enum'=>User::getStatuses() // [0=>'Deleted', 1=>'Active']
  ]
@@ -305,10 +305,11 @@ echo common\components\widgets\DbMenu::widget([
 TBD
 
 ### Many more useful components
-- ``common\components\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config
-- ``common\components\validators\JsonValidator`` validates a value to be a valid json
-- ElFinder - (https://github.com/MihailDev/yii2-elfinder)
+- ``common\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config
+- ``common\validators\JsonValidator`` validates a value to be a valid json
+- [ElFinder](https://github.com/MihailDev/yii2-elfinder)
 - RBAC OwnModelRule - simple rule to check if the current user is model owner
+- ``common\base\MultiModel`` - class for handling multiple models in one
 
 OTHER
 -----

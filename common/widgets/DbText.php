@@ -1,20 +1,18 @@
 <?php
-/**
- * Eugine Terentev <eugine@terentev.net>
- */
 
-namespace common\components\widgets;
+namespace common\widgets;
 
 use common\models\WidgetText;
+use yii\base\Widget;
 use yii\caching\DbDependency;
 use Yii;
 
 /**
- * Class TextWidget
+ * Class DbText
  * Return a text block content stored in db
- * @package common\components\widgets\text
+ * @package common\widgets\text
  */
-class DbText extends \yii\base\Widget
+class DbText extends Widget
 {
     /**
      * @var string text block key
@@ -32,7 +30,7 @@ class DbText extends \yii\base\Widget
         ];
         $content = Yii::$app->cache->get($cacheKey);
         if (!$content) {
-            $model =  WidgetText::findOne(['key'=>$this->key, 'status'=>WidgetText::STATUS_ACTIVE]);
+            $model =  WidgetText::findOne(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE]);
             if ($model) {
                 $content = $model->body;
                 Yii::$app->cache->set($cacheKey, $content, 60*60*24);

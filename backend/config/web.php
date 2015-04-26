@@ -30,7 +30,7 @@ $config = [
             'identityClass' => 'common\models\User',
             'loginUrl'=>['sign-in/login'],
             'enableAutoLogin' => true,
-            'as afterLogin' => 'common\components\behaviors\LoginTimestampBehavior'
+            'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
         ],
     ],
     'modules'=>[
@@ -40,7 +40,7 @@ $config = [
         ]
     ],
     'as globalAccess'=>[
-        'class'=>'\common\components\behaviors\GlobalAccessBehavior',
+        'class'=>'\common\behaviors\GlobalAccessBehavior',
         'rules'=>[
             [
                 'controllers'=>['sign-in'],

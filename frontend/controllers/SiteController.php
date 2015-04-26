@@ -24,7 +24,7 @@ class SiteController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
             ],
             'set-locale'=>[
-                'class'=>'common\components\action\SetLocaleAction',
+                'class'=>'common\actions\SetLocaleAction',
                 'locales'=>array_keys(Yii::$app->params['availableLocales'])
             ]
         ];

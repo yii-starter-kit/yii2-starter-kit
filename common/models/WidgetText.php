@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use common\components\behaviors\CacheInvalidateBehavior;
+use common\behaviors\CacheInvalidateBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 

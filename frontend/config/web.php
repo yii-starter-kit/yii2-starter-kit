@@ -36,7 +36,7 @@ $config = [
             'identityClass' => 'common\models\User',
             'loginUrl'=>['/user/sign-in/login'],
             'enableAutoLogin' => true,
-            'as afterLogin' => 'common\components\behaviors\LoginTimestampBehavior'
+            'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
         ]
     ]
 ];

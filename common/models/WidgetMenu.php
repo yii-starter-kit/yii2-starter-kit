@@ -2,8 +2,8 @@
 
 namespace common\models;
 
-use common\components\behaviors\CacheInvalidateBehavior;
-use common\components\validators\JsonValidator;
+use common\behaviors\CacheInvalidateBehavior;
+use common\validators\JsonValidator;
 use Yii;
 
 /**

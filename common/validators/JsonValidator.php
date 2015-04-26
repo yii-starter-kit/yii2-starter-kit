@@ -1,19 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 7/10/14
- * Time: 9:57 AM
- */
 
-namespace common\components\validators;
+namespace common\validators;
 
 use yii\validators\Validator;
 use Yii;
 
+/**
+ * @author Eugene Terentev <eugene@terentev.net>
+ */
 class JsonValidator extends Validator
 {
-
     /**
      * @inheritdoc
      */
@@ -39,7 +35,7 @@ class JsonValidator extends Validator
      */
     public function clientValidateAttribute($model, $attribute, $view)
     {
-        /*$message = Yii::$app->getI18n()->format($this->message, [
+        $message = Yii::$app->getI18n()->format($this->message, [
             'attribute' => $model->getAttributeLabel($attribute)
         ], Yii::$app->language);
         return <<<"JS"
@@ -48,6 +44,6 @@ class JsonValidator extends Validator
             } catch (e) {
                 messages.push('{$message}')
             }
-JS;*/
+JS;
     }
 }

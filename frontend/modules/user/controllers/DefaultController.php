@@ -2,7 +2,7 @@
 
 namespace frontend\modules\user\controllers;
 
-use common\components\MultiModel;
+use common\base\MultiModel;
 use frontend\modules\user\models\AccountForm;
 use Intervention\Image\ImageManagerStatic;
 use trntv\filekit\actions\DeleteAction;

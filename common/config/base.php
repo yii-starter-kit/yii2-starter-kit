@@ -105,7 +105,7 @@ $config = [
                 'path' => '@storage/web/source'
             ],
             'as log' => [
-                'class' => 'common\components\behaviors\FileStorageLogBehavior',
+                'class' => 'common\behaviors\FileStorageLogBehavior',
                 'component' => 'fileStorage'
             ]
         ],

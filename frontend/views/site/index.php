@@ -4,7 +4,7 @@ $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
-    <?= \common\components\widgets\DbCarousel::widget([
+    <?= \common\widgets\DbCarousel::widget([
         'key'=>'index'
     ]) ?>
 
@@ -13,7 +13,7 @@ $this->title = Yii::$app->name;
 
         <p class="lead">You have successfully created your Yii-powered application.</p>
 
-        <?php echo common\components\widgets\DbMenu::widget([
+        <?php echo common\widgets\DbMenu::widget([
             'key'=>'frontend-index',
             'options'=>[
                 'tag'=>'p'

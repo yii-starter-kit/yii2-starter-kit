@@ -3,10 +3,11 @@
  * Eugine Terentev <eugine@terentev.net>
  */
 
-namespace common\components\behaviors;
+namespace common\behaviors;
 
 use Yii;
 use yii\base\Behavior;
+use yii\caching\TagDependency;
 use yii\db\ActiveRecord;
 
 /**
@@ -32,7 +33,7 @@ use yii\db\ActiveRecord;
  *     ];
  * }
  * ```
- * @package common\components\behaviors
+ * @package common\behaviors
  */
 class CacheInvalidateBehavior extends Behavior
 {
@@ -52,7 +53,7 @@ class CacheInvalidateBehavior extends Behavior
     /**
      * @var
      */
-    private $_cache;
+    private $cache;
 
 
     /**
@@ -101,9 +102,9 @@ class CacheInvalidateBehavior extends Behavior
      */
     protected function invalidateTags()
     {
-        \yii\caching\TagDependency::invalidate(
+        TagDependency::invalidate(
             $this->getCache(),
-            array_map(function($tag){
+            array_map(function ($tag) {
                 if (is_callable($tag)) {
                     $tag = call_user_func($tag, $this->owner);
                 }
@@ -117,6 +118,6 @@ class CacheInvalidateBehavior extends Behavior
      */
     protected function getCache()
     {
-        return $this->_cache ?: Yii::$app->{$this->cacheComponent};
+        return $this->cache ?: Yii::$app->{$this->cacheComponent};
     }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace common\components\behaviors;
+namespace common\behaviors;
 
 use League\Flysystem\File;
 use Yii;
@@ -10,7 +10,7 @@ use yii\base\InvalidConfigException;
 
 /**
  * Class FileStorageLogBehavior
- * @package common\components\behaviors
+ * @package common\behaviors
  * @author Eugene Terentev <eugene@terentev.net>
  */
 class FileStorageLogBehavior extends Behavior

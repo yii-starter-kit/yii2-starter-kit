@@ -3,17 +3,18 @@
  * Eugine Terentev <eugine@terentev.net>
  */
 
-namespace common\components\widgets;
+namespace common\widgets;
 
 use common\models\WidgetCarousel;
 use common\models\WidgetCarouselItem;
+use Yii;
 use yii\base\InvalidConfigException;
 use yii\bootstrap\Carousel;
 use yii\helpers\Html;
 
 /**
  * Class DbCarousel
- * @package common\components\widgets
+ * @package common\widgets
  */
 class DbCarousel extends Carousel
 {
@@ -42,17 +43,17 @@ class DbCarousel extends Carousel
             WidgetCarousel::className(),
             $this->key
         ];
-        $items = \Yii::$app->cache->get($cacheKey);
+        $items = Yii::$app->cache->get($cacheKey);
         if ($items === false) {
             $items = [];
             $query = WidgetCarouselItem::find()
                 ->joinWith('carousel')
                 ->where([
-                    '{{%widget_carousel_item}}.status'=>1,
-                    '{{%widget_carousel}}.status'=>WidgetCarousel::STATUS_ACTIVE,
-                    '{{%widget_carousel}}.key'=>$this->key,
+                    '{{%widget_carousel_item}}.status' => 1,
+                    '{{%widget_carousel}}.status' => WidgetCarousel::STATUS_ACTIVE,
+                    '{{%widget_carousel}}.key' => $this->key,
                 ])
-                ->orderBy(['order'=>SORT_ASC]);
+                ->orderBy(['order' => SORT_ASC]);
             foreach ($query->all() as $k => $item) {
                 /** @var $item \common\models\WidgetCarouselItem */
                 if ($item->path) {
@@ -67,7 +68,7 @@ class DbCarousel extends Carousel
                     $items[$k]['caption'] = $item->caption;
                 }
             }
-            \Yii::$app->cache->set($cacheKey, $items, 60*60*24*365);
+            Yii::$app->cache->set($cacheKey, $items, 60*60*24*365);
         }
         $this->items = $items;
         parent::init();

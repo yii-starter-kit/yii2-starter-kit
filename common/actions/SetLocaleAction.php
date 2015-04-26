@@ -3,7 +3,7 @@
  * Author: Eugine Terentev <eugine@terentev.net>
  */
 
-namespace common\components\action;
+namespace common\actions;
 
 use yii\base\Action;
 use yii\base\InvalidParamException;
@@ -12,7 +12,7 @@ use yii\web\Cookie;
 
 /**
  * Class SetLocaleAction
- * @package common\components\action
+ * @package common\actions
  *
  * Example:
  *
@@ -20,7 +20,7 @@ use yii\web\Cookie;
  *   {
  *       return [
  *           'set-locale'=>[
- *               'class'=>'common\components\actions\SetLocaleAction',
+ *               'class'=>'common\actions\SetLocaleAction',
  *               'locales'=>[
  *                   'en-US', 'ru-RU', 'ua-UA'
  *               ],
@@ -67,7 +67,7 @@ class SetLocaleAction extends Action
      */
     public function run($locale)
     {
-        if (!is_array($this->locales) || !in_array($locale, $this->locales)) {
+        if (!is_array($this->locales) || !in_array($locale, $this->locales, true)) {
             throw new InvalidParamException('Unacceptable locale');
         }
         $cookie = new Cookie([

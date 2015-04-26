@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 8/1/14
- * Time: 10:34 AM
- */
 
-namespace common\components\behaviors;
+namespace common\behaviors;
 
 use yii\base\Behavior;
 use yii\base\Controller;
@@ -14,13 +8,14 @@ use Yii;
 
 /**
  * Class GlobalAccessBehavior
- * @package common\components\behaviors
+ * @package common\behaviors
  */
 class GlobalAccessBehavior extends Behavior
 {
 
     /**
-     * @var array @see \yii\filters\AccessControl::rules
+     * @var array
+     * @see \yii\filters\AccessControl::rules
      */
     public $rules = [];
 
@@ -50,16 +45,16 @@ class GlobalAccessBehavior extends Behavior
     public function events()
     {
         return [
-            Controller::EVENT_BEFORE_ACTION=>'beforeAction'
+            Controller::EVENT_BEFORE_ACTION => 'beforeAction'
         ];
     }
 
     public function beforeAction()
     {
         Yii::$app->controller->attachBehavior('access', [
-            'class'=>$this->accessControlFilter,
-            'denyCallback'=>$this->denyCallback,
-            'rules'=>$this->rules
+            'class' => $this->accessControlFilter,
+            'denyCallback' => $this->denyCallback,
+            'rules'=> $this->rules
         ]);
     }
 }

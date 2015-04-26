@@ -1,8 +1,5 @@
 <?php
-/**
- * Author: Eugine Terentev <eugine@terentev.net>
- */
-namespace common\components\grid;
+namespace common\grid;
 
 use yii\grid\DataColumn;
 use yii\helpers\ArrayHelper;
@@ -10,7 +7,7 @@ use yii\helpers\ArrayHelper;
 /**
  * Class EnumColumn
  * [
- *      'class' => '\common\components\grid\EnumColumn',
+ *      'class' => 'common\grid\EnumColumn',
  *      'attribute' => 'role',
  *      'enum' => User::getRoles()
  * ]

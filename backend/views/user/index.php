@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             'email:email',
             [
-                'class' => \common\components\grid\EnumColumn::className(),
+                'class' => \common\grid\EnumColumn::className(),
                 'attribute' => 'status',
                 'enum' => User::getStatuses(),
                 'filter' => User::getStatuses()

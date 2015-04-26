@@ -3,7 +3,9 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
-- End #145: Added Application settings + FormModel and FormWidget for keyStorage component
+- Enh: Frontend Account and Profile actions merged into one
+- Enh #146: Added MultiModel for handling multiple models at once
+- Enh #145: Added Application settings + FormModel and FormWidget for keyStorage component
 - Fixed: KeyStorage::set()
 - Enh #147: implemented KeyStorage::has() and KeyStorage::hasAll()
 - Enh: EnumColumn now loads enum as filter items

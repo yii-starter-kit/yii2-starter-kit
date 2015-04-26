@@ -44,12 +44,8 @@ use yii\bootstrap\NavBar;
                     'visible'=>!Yii::$app->user->isGuest,
                     'items'=>[
                         [
-                            'label' => Yii::t('frontend', 'Account'),
+                            'label' => Yii::t('frontend', 'Settings'),
                             'url' => ['/user/default/index']
-                        ],
-                        [
-                            'label' => Yii::t('frontend', 'Profile'),
-                            'url' => ['/user/default/profile']
                         ],
                         [
                             'label' => Yii::t('frontend', 'Backend'),

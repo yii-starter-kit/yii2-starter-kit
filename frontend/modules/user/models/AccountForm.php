@@ -13,6 +13,14 @@ class AccountForm extends Model
     public $password;
     public $password_confirm;
 
+    private $user;
+
+    public function setUser($user)
+    {
+        $this->user = $user;
+        $this->username = $user->username;
+    }
+
     /**
      * @inheritdoc
      */
@@ -24,8 +32,8 @@ class AccountForm extends Model
             ['username', 'unique',
                 'targetClass'=>'\common\models\User',
                 'message' => Yii::t('frontend', 'This username has already been taken.'),
-                'filter'=>function($query){
-                    $query->andWhere(['not', ['id'=>Yii::$app->user->id]]);
+                'filter' => function ($query) {
+                    $query->andWhere(['not', ['id' => Yii::$app->user->getId()]]);
                 }
             ],
             ['username', 'string', 'min' => 1, 'max' => 255],
@@ -42,5 +50,14 @@ class AccountForm extends Model
             'password'=>Yii::t('frontend', 'Password'),
             'password_confirm'=>Yii::t('frontend', 'Confirm Password')
         ];
+    }
+
+    public function save()
+    {
+        $this->user->username = $this->username;
+        if ($this->password) {
+            $this->user->setPassword($this->password);
+        }
+        return $this->user->save();
     }
 }

@@ -2,6 +2,7 @@
 
 namespace frontend\modules\user\controllers;
 
+use common\components\MultiModel;
 use frontend\modules\user\models\AccountForm;
 use Intervention\Image\ImageManagerStatic;
 use trntv\filekit\actions\DeleteAction;
@@ -21,7 +22,7 @@ class DefaultController extends Controller
             'avatar-upload' => [
                 'class' => UploadAction::className(),
                 'deleteRoute' => 'avatar-delete',
-                'on afterSave' => function($event) {
+                'on afterSave' => function ($event) {
                     /* @var $file \League\Flysystem\File */
                     $file = $event->file;
                     $img = ImageManagerStatic::make($file->read())->fit(215, 215);
@@ -57,13 +58,17 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $user = Yii::$app->user->identity;
-        $model = new AccountForm();
-        $model->username = $user->username;
-        if ($model->load($_POST) && $model->validate()) {
-            $user->username = $model->username;
-            $user->setPassword($model->password);
-            $user->save();
+        $accountModel = new AccountForm();
+        $accountModel->setUser(Yii::$app->user->identity);
+
+        $model = new MultiModel([
+            'models' => [
+                'account' => $accountModel,
+                'profile' => Yii::$app->user->identity->userProfile
+            ]
+        ]);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class'=>'alert-success'],
                 'body' => Yii::t('frontend', 'Your account has been successfully saved')
@@ -71,21 +76,5 @@ class DefaultController extends Controller
             return $this->refresh();
         }
         return $this->render('index', ['model'=>$model]);
-    }
-
-    /**
-     * @return string|\yii\web\Response
-     */
-    public function actionProfile()
-    {
-        $model = Yii::$app->user->identity->userProfile;
-        if ($model->load($_POST) && $model->save()) {
-            Yii::$app->session->setFlash('alert', [
-                'options' => ['class'=>'alert-success'],
-                'body' => Yii::t('frontend', 'Your profile has been successfully saved', [], $model->locale)
-            ]);
-            return $this->refresh();
-        }
-        return $this->render('profile', ['model'=>$model]);
     }
 }

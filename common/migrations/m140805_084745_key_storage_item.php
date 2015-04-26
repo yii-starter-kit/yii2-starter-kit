@@ -13,12 +13,11 @@ class m140805_084745_key_storage_item extends Migration
         }
 
         $this->createTable('{{%key_storage_item}}', [
-            'id' => Schema::TYPE_PK,
             'key' => Schema::TYPE_STRING . '(128) NOT NULL',
             'value' => Schema::TYPE_TEXT . ' NOT NULL',
             'comment' => Schema::TYPE_TEXT,
             'updated_at'=>Schema::TYPE_INTEGER,
-            'created_at'=>Schema::TYPE_INTEGER,
+            'created_at'=>Schema::TYPE_INTEGER
         ], $tableOptions);
 
         $this->insert('{{%key_storage_item}}', [
@@ -33,6 +32,7 @@ class m140805_084745_key_storage_item extends Migration
             'comment' => 'fixed, layout-boxed, sidebar-collapse'
         ]);
 
+        $this->addPrimaryKey('pk_key_storage_item_key', '{{%key_storage_item}}', 'key');
         $this->createIndex('idx_key_storage_item_key', '{{%key_storage_item}}', 'key', true);
     }
 

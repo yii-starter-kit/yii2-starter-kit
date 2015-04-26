@@ -36,14 +36,18 @@ class KeyStorage extends Component
      */
     public function set($key, $value)
     {
-        $this->values[$key] = $value;
         $model = $this->getModel($key);
         if (!$model) {
             $model = new $this->modelClass;
+            $model->key = $key;
         }
-        $model->key = $key;
         $model->value = $value;
-        return $model->save();
+        if ($model->save(false)) {
+            $this->values[$key] = $value;
+            Yii::$app->cache->set($this->getCacheKey($key), $value, $this->cachingDuration);
+            return true;
+        };
+        return false;
     }
 
     /**
@@ -66,7 +70,7 @@ class KeyStorage extends Component
     public function get($key, $default = null, $cache = true, $cachingDuration = false)
     {
         if ($cache) {
-            $cacheKey = [$this->cachePrefix, $key];
+            $cacheKey = $this->getCacheKey($key);
             $value = ArrayHelper::getValue($this->values, $key, false) ?: Yii::$app->cache->get($cacheKey);
             if ($value === false) {
                 if ($model = $this->getModel($key)) {
@@ -105,9 +109,33 @@ class KeyStorage extends Component
      * @param $key
      * @return bool
      */
+    public function has($key)
+    {
+        return $this->get($key) !== null;
+    }
+
+    /**
+     * @param array $keys
+     * @return bool
+     */
+    public function hasAll(array $keys)
+    {
+        foreach ($keys as $key) {
+            if (!$this->has($key)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * @param $key
+     * @return bool
+     */
     public function remove($key)
     {
-        return call_user_func($this->modelClass.'::deleteAll', ['key'=>$key]);
+        unset($this->values[$key]);
+        return call_user_func($this->modelClass.'::deleteAll', ['key' => $key]);
     }
 
     /**
@@ -128,5 +156,18 @@ class KeyStorage extends Component
     {
         $query = call_user_func($this->modelClass.'::find');
         return $query->where(['key'=>$key])->select(['key', 'value'])->one();
+    }
+
+    /**
+     * @param $key
+     * @return array
+     */
+    protected function getCacheKey($key)
+    {
+        return [
+            __CLASS__,
+            $this->cachePrefix,
+            $key
+        ];
     }
 }

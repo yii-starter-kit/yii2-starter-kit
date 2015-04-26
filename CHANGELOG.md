@@ -3,6 +3,8 @@ Yii Starter Kit Change Log
 
 2.0.0 under development
 -----------------------
+- Fixed: KeyStorage::set()
+- Enh #147: implemented KeyStorage::has() and KeyStorage::hasAll()
 - Enh #37: REST API module example
 - Enh #119: Removed default roles
 - Enh #128: Articles are available via slugs

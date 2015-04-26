@@ -21,11 +21,11 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
 {
     /**
      * @param $path
-     * @param bool $newSourcelanguage
+     * @param bool $newSourceLanguage
      * @param bool $configFile
      * @throws Exception
      */
-    public function actionReplaceSourceLanguage($configFile, $newSourcelanguage = false)
+    public function actionReplaceSourceLanguage($configFile, $newSourceLanguage = false)
     {
         $config = [
             'translator' => 'Yii::t',
@@ -58,13 +58,13 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 $subject = file_get_contents($fileName);
                 $replacedSubject = preg_replace_callback(
                     '/\b(\\\\)?' . $currentTranslator . '\s*\(\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*,\s*(\'.*?(?<!\\\\)\'|".*?(?<!\\\\)")\s*[,\)]/s',
-                    function($matches) use ($newSourcelanguage, $fileName, &$unremoved){
-                        $category = substr($matches[1], 1, -1);
-                        $message = $matches[2];
+                    function($matches) use ($newSourceLanguage, $fileName, &$unremoved){
+                        $category = substr($matches[2], 1, -1);
+                        $message = $matches[3];
 
-                        if ($newSourcelanguage !== false) {
+                        if ($newSourceLanguage !== false) {
                             $message = eval("return {$message};");
-                            $result = str_replace($message, Yii::t($category, $message, [], $newSourcelanguage), $matches[0]);
+                            $result = str_replace($message, Yii::t($category, $message, [], $newSourceLanguage), $matches[0]);
                         } else {
                             if (strpos($matches[0], ')') != strlen($matches[0]) - 1) {
                                 $unremoved[$fileName][] = $message;
@@ -87,7 +87,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 };
             }
         }
-        if ($newSourcelanguage == false && !empty($unremoved)) {
+        if ($newSourceLanguage == false && !empty($unremoved)) {
             Console::output('Messages with params, can`t be removed by this tool. Remove it manually');
             foreach ($unremoved as $fileName => $messages) {
                 $messages = implode(PHP_EOL, $messages);

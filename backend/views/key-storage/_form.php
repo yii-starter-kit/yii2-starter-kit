@@ -12,14 +12,14 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'key')->textInput() ?>
+    <?php echo $form->field($model, 'key')->textInput() ?>
 
-    <?= $form->field($model, 'value')->textInput() ?>
+    <?php echo $form->field($model, 'value')->textInput() ?>
 
-    <?= $form->field($model, 'comment')->textarea() ?>
+    <?php echo $form->field($model, 'comment')->textarea() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

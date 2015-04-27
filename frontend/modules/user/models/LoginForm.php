@@ -15,7 +15,7 @@ class LoginForm extends Model
     public $password;
     public $rememberMe = true;
 
-    private $_user = false;
+    private $user = false;
 
     /**
      * @inheritdoc
@@ -78,10 +78,10 @@ class LoginForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
-            $this->_user = User::find()->where(['or', ['username'=>$this->identity], ['email'=>$this->identity]])->one();
+        if ($this->user === false) {
+            $this->user = User::find()->where(['or', ['username'=>$this->identity], ['email'=>$this->identity]])->one();
         }
 
-        return $this->_user;
+        return $this->user;
     }
 }

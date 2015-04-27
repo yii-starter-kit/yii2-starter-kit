@@ -14,19 +14,19 @@ use yii\bootstrap\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php echo $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'key') ?>
+    <?php echo $form->field($model, 'key') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?php echo $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'body') ?>
+    <?php echo $form->field($model, 'body') ?>
 
-    <?= $form->field($model, 'status') ?>
+    <?php echo $form->field($model, 'status') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

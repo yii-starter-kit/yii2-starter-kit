@@ -10,7 +10,7 @@ use yii\helpers\Html;
 <div class="article-item row">
     <div class="col-xs-12">
         <h2 class="article-title">
-            <?= Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
+            <?php echo Html::a($model->title, ['view', 'slug'=>$model->slug]) ?>
         </h2>
         <div class="article-meta">
             <span class="article-date">

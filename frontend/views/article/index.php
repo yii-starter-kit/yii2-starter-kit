@@ -3,8 +3,8 @@
 $this->title = Yii::t('frontend', 'Articles')
 ?>
 <div id="article-index">
-    <h1><?= Yii::t('frontend', 'Articles') ?></h1>
-    <?= \yii\widgets\ListView::widget([
+    <h1><?php echo Yii::t('frontend', 'Articles') ?></h1>
+    <?php echo \yii\widgets\ListView::widget([
         'dataProvider'=>$dataProvider,
         'pager'=>[
             'hideOnSinglePage'=>true,

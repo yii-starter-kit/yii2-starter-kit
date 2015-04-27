@@ -4,7 +4,7 @@ $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
-    <?= \common\widgets\DbCarousel::widget([
+    <?php echo \common\widgets\DbCarousel::widget([
         'key'=>'index'
     ]) ?>
 

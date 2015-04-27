@@ -7,7 +7,7 @@
 <div class="timeline-item">
     <span class="time">
         <i class="fa fa-clock-o"></i>
-        <?= Yii::$app->formatter->asRelativeTime($model->created_at) ?>
+        <?php echo Yii::$app->formatter->asRelativeTime($model->created_at) ?>
     </span>
 
     <h3 class="timeline-header">

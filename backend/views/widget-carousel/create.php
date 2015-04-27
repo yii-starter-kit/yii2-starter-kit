@@ -1,8 +1,4 @@
 <?php
-
-use yii\helpers\Html;
-
-
 /* @var $this yii\web\View */
 /* @var $model common\models\WidgetCarousel */
 
@@ -14,8 +10,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-carousel-create">
 
-    <?= $this->render('_form', [
-        'model' => $model,
+    <?php echo $this->render('_form', [
+        'model' => $model
     ]) ?>
 
 </div>

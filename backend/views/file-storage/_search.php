@@ -15,15 +15,15 @@ use yii\bootstrap\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php echo $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'component') ?>
+    <?php echo $form->field($model, 'component') ?>
 
-    <?= $form->field($model, 'base_url') ?>
+    <?php echo $form->field($model, 'base_url') ?>
 
-    <?= $form->field($model, 'path') ?>
+    <?php echo $form->field($model, 'path') ?>
 
-    <?= $form->field($model, 'type') ?>
+    <?php echo $form->field($model, 'type') ?>
 
     <?php // echo $form->field($model, 'size') ?>
 
@@ -34,8 +34,8 @@ use yii\bootstrap\ActiveForm;
     <?php // echo $form->field($model, 'created_at') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

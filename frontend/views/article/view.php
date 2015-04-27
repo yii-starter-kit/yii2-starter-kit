@@ -7,7 +7,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="content">
     <article class="article-item">
-        <h1><?= $model->title ?></h1>
+        <h1><?php echo $model->title ?></h1>
 
         <?php if ($model->thumbnail_path): ?>
             <?php echo \yii\helpers\Html::img(

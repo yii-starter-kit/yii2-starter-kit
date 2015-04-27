@@ -10,13 +10,13 @@ use yii\bootstrap\NavBar;
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?php echo Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>"/>
+    <meta charset="<?php echo Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <?= Html::csrfMetaTags() ?>
+    <?php echo Html::csrfMetaTags() ?>
 </head>
 <body>
 
@@ -74,14 +74,14 @@ use yii\bootstrap\NavBar;
         NavBar::end();
         ?>
 
-        <?= $content ?>
+        <?php echo $content ?>
 
     </div>
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-            <p class="pull-right"><?= Yii::powered() ?></p>
+            <p class="pull-left">&copy; My Company <?php echo date('Y') ?></p>
+            <p class="pull-right"><?php echo Yii::powered() ?></p>
         </div>
     </footer>
 

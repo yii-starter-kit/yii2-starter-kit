@@ -13,12 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="widget-carousel-index">
 
     <p>
-        <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Widget Carousel',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+                'modelClass' => 'Widget Carousel',
+            ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [

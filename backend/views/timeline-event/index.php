@@ -13,14 +13,14 @@ $icons = [
 <?php \yii\widgets\Pjax::begin() ?>
 <div class="row">
     <div class="col-md-12">
-        <?php if($dataProvider->count > 0): ?>
+        <?php if ($dataProvider->count > 0): ?>
             <ul class="timeline">
                 <?php foreach($dataProvider->getModels() as $model): ?>
                     <?php if(!isset($date) || $date != Yii::$app->formatter->asDate($model->created_at)): ?>
                         <!-- timeline time label -->
                         <li class="time-label">
                             <span class="bg-blue">
-                                <?= Yii::$app->formatter->asDate($model->created_at) ?>
+                                <?php echo Yii::$app->formatter->asDate($model->created_at) ?>
                             </span>
                         </li>
                         <?php $date = Yii::$app->formatter->asDate($model->created_at) ?>

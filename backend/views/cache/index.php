@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <?= GridView::widget([
+    <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             'name',
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'template'=>'{flush-cache}',
                 'buttons'=>[
-                    'flush-cache'=>function($url, $model){
+                    'flush-cache'=>function ($url, $model) {
                         return \yii\helpers\Html::a('<i class="fa fa-refresh"></i>', $url, [
                             'title' => Yii::t('backend', 'Flush'),
                             'data-confirm' => Yii::t('backend', 'Are you sure you want to flush this cache?')
@@ -39,12 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method'=>'get',
                 'layout'=>'inline',
             ]) ?>
-                <?= Html::dropDownList(
+                <?php echo Html::dropDownList(
                     'id', null, \yii\helpers\ArrayHelper::map($dataProvider->allModels, 'name', 'name'),
                     ['class'=>'form-control', 'prompt'=>\Yii::t('backend', 'Select cache')])
                 ?>
-                <?= Html::input('string', 'key', null, ['class'=>'form-control', 'placeholder'=>\Yii::t('backend', 'Key')]) ?>
-                <?= Html::submitButton(Yii::t('backend', 'Flush'), ['class'=>'btn btn-danger']) ?>
+                <?php echo Html::input('string', 'key', null, ['class'=>'form-control', 'placeholder'=>\Yii::t('backend', 'Key')]) ?>
+                <?php echo Html::submitButton(Yii::t('backend', 'Flush'), ['class'=>'btn btn-danger']) ?>
             <?php \yii\bootstrap\ActiveForm::end() ?>
         </div>
         <div class="col-xs-6">
@@ -54,11 +54,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method'=>'get',
                 'layout'=>'inline'
             ]) ?>
-                <?= Html::dropDownList(
+                <?php echo Html::dropDownList(
                     'id', null, \yii\helpers\ArrayHelper::map($dataProvider->allModels, 'name', 'name'),
                     ['class'=>'form-control', 'prompt'=>\Yii::t('backend', 'Select cache')]) ?>
-                <?= Html::input('string', 'tag', null, ['class'=>'form-control', 'placeholder'=>\Yii::t('backend', 'Tag')]) ?>
-                <?= Html::submitButton(Yii::t('backend', 'Flush'), ['class'=>'btn btn-danger']) ?>
+                <?php echo Html::input('string', 'tag', null, ['class'=>'form-control', 'placeholder'=>\Yii::t('backend', 'Tag')]) ?>
+                <?php echo Html::submitButton(Yii::t('backend', 'Flush'), ['class'=>'btn btn-danger']) ?>
             <?php \yii\bootstrap\ActiveForm::end() ?>
         </div>
     </div>

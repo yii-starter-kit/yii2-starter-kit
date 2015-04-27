@@ -1,8 +1,4 @@
 <?php
-
-use yii\helpers\Html;
-
-
 /* @var $this yii\web\View */
 /* @var $model common\models\WidgetMenu */
 
@@ -14,7 +10,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="widget-menu-create">
 
-    <?= $this->render('_form', [
+    <?php echo $this->render('_form', [
         'model' => $model,
     ]) ?>
 

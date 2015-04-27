@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = ['label'=>Yii::t('backend', 'Update')];
 ?>
 <div class="user-update">
 
-    <?= $this->render('_form', [
+    <?php echo $this->render('_form', [
         'model' => $model,
         'roles' => $roles
     ]) ?>

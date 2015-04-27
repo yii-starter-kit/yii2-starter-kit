@@ -12,11 +12,11 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
+    <?php echo $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+    <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
-    <?= $form->field($model, 'body')->widget(\yii\imperavi\Widget::className(), [
+    <?php echo $form->field($model, 'body')->widget(\yii\imperavi\Widget::className(), [
         // More options, see http://imperavi.com/redactor/docs/
         'plugins' => ['fullscreen', 'fontcolor', 'video'],
         'options'=>[
@@ -30,10 +30,10 @@ use yii\bootstrap\ActiveForm;
         ]
     ]) ?>
 
-    <?= $form->field($model, 'status')->checkbox() ?>
+    <?php echo $form->field($model, 'status')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton(
+        <?php echo Html::submitButton(
             $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
             ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']
         ) ?>

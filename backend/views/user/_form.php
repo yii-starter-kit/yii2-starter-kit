@@ -14,13 +14,13 @@ use yii\bootstrap\ActiveForm;
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
-        <?= $form->field($model, 'username') ?>
-        <?= $form->field($model, 'email') ?>
-        <?= $form->field($model, 'password')->passwordInput() ?>
-        <?= $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
-        <?= $form->field($model, 'roles')->checkboxList($roles) ?>
+        <?php echo $form->field($model, 'username') ?>
+        <?php echo $form->field($model, 'email') ?>
+        <?php echo $form->field($model, 'password')->passwordInput() ?>
+        <?php echo $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
+        <?php echo $form->field($model, 'roles')->checkboxList($roles) ?>
         <div class="form-group">
-            <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+            <?php echo Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
         </div>
     <?php ActiveForm::end(); ?>
 

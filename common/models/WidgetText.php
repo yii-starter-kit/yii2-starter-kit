@@ -38,7 +38,7 @@ class WidgetText extends \yii\db\ActiveRecord
             'cacheInvalidate'=>[
                 'class'=>CacheInvalidateBehavior::className(),
                 'keys'=>[
-                    function($model){
+                    function ($model) {
                         return [
                             self::className(),
                             $model->key

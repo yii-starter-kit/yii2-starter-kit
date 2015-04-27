@@ -4,7 +4,6 @@ namespace common\widgets;
 
 use common\models\WidgetText;
 use yii\base\Widget;
-use yii\caching\DbDependency;
 use Yii;
 
 /**

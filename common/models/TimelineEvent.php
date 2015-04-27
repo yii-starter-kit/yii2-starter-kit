@@ -2,12 +2,10 @@
 
 namespace common\models;
 
-use common\models\query\SystemEventQuery;
 use common\models\query\TimelineEventQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "timeline_event".

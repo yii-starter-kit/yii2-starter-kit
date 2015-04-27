@@ -6,9 +6,7 @@
 namespace common\widgets;
 
 use \common\models\WidgetMenu;
-use yii\base\Exception;
 use yii\base\InvalidConfigException;
-use yii\caching\TagDependency;
 use Yii;
 use yii\widgets\Menu;
 

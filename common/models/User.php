@@ -3,7 +3,6 @@ namespace common\models;
 
 use cheatsheet\Time;
 use Yii;
-use yii\base\NotSupportedException;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;

@@ -135,5 +135,4 @@ class MultiModel extends Model
     {
         return \Yii::$app->get($this->db);
     }
-
 }

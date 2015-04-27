@@ -4,7 +4,6 @@ namespace common\models;
 
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
-use yii\helpers\Url;
 
 /**
  * This is the model class for table "user_profile".

@@ -8,9 +8,6 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
-use yii\db\Expression;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Inflector;
 
 /**
  * This is the model class for table "article".
@@ -21,7 +18,6 @@ use yii\helpers\Inflector;
  * @property string $body
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
- * @property string $body
  * @property array $attachments
  * @property integer $author_id
  * @property integer $updater_id

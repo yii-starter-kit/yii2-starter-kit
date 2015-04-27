@@ -6,7 +6,6 @@ use common\behaviors\CacheInvalidateBehavior;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
-use yii\helpers\FileHelper;
 
 /**
  * This is the model class for table "widget_carousel_item".

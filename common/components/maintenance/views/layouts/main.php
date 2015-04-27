@@ -1,6 +1,7 @@
 <?php
 /**
  * @author Eugene Terentev <eugene@terentev.net>
+ * @var $content string
  */
 use yii\helpers\Html;
 

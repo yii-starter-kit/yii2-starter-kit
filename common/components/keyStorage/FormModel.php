@@ -1,6 +1,7 @@
 <?php
 
 namespace common\components\keyStorage;
+
 use Yii;
 use yii\base\Exception;
 use yii\base\InvalidParamException;
@@ -231,7 +232,7 @@ class FormModel extends Model
      */
     public function hasAttribute($name)
     {
-        return isset($this->attributes[$name]) || in_array($name, $this->attributes());
+        return isset($this->attributes[$name]) || in_array($name, $this->attributes(), false);
     }
 
     /**

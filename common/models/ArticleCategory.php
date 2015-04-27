@@ -6,7 +6,6 @@ use common\models\query\ArticleCategoryQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
-use yii\helpers\Inflector;
 
 /**
  * This is the model class for table "article_category".

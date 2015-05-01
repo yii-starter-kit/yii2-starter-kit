@@ -90,7 +90,7 @@ $this->registerJsFile('/js/system-information/index.js', ['depends'=>['\yii\web\
                         <dd><?= $provider->getExternalIP() ?></dd>
 
                         <dt><?= Yii::t('backend', 'Port') ?></dt>
-                        <dd><?= $provider->getServerIP('REMOTE_PORT') ?></dd>
+                        <dd><?= $provider->getServerVariable('SERVER_PORT') ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>

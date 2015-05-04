@@ -17,10 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Submit' => 'Відправити',
-    'Your account has been successfully saved' => 'Ваш аккаунт було успішно збережено',
+    'Account Settings' => 'Налаштування аккаунта',
+    'Profile settings' => 'Налаштування профілю',
+    'Settings' => 'Налаштування',
+    'User Settings' => 'Налаштування користувача',
     'About' => 'О нас',
-    'Account' => 'Аккаунт',
     'Articles' => 'Статті',
     'Attachments' => 'Вкладення',
     'Backend' => 'Панель управління',
@@ -46,7 +47,6 @@ return [
     'Page not found' => 'Сторінка не знайдена',
     'Password' => 'Пароль',
     'Password reset for {name}' => 'Скидання пароля для {name}',
-    'Profile' => 'Профіль',
     'Remember Me' => 'Запом’ятати мене',
     'Request password reset' => 'Запит на скидання пароля',
     'Reset password' => 'Скидання пароля',
@@ -54,6 +54,7 @@ return [
     'Signup' => 'Реєстрація',
     'Sorry, we are unable to reset password for email provided.' => 'Вибачте, але ми не можемо скинути пароль для цього e-mail.',
     'Subject' => 'Тема',
+    'Submit' => 'Відправити',
     'Thank you for contacting us. We will respond to you as soon as possible.' => 'Дякуэмо. Ми відповімо Вам якнайшвидше.',
     'There was an error sending email.' => 'Сталася помилка при відправці email',
     'This email address has already been taken.' => 'Цей e-mail вже зайнятий',
@@ -64,6 +65,6 @@ return [
     'Verification Code' => 'Код перевірки',
     'We already have a user with email {email}' => 'Користувач с e-mail {email} вже зареэстрований',
     'Welcome to {app-name}. Email with your login information was sent to your email.' => 'Вітаємо у {app-name}. Вам був надісланий e-mail с інформациєю щодо користувача',
-    'Your profile has been successfully saved' => 'Ваш профіль було успішно збережено',
+    'Your account has been successfully saved' => 'Ваш аккаунт було успішно збережено',
     '{app-name} | Your login information' => '{app-name} | Інформація про користувача',
 ];

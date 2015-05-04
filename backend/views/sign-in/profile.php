@@ -1,5 +1,6 @@
 <?php
 
+use common\models\UserProfile;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -27,8 +28,8 @@ $this->title = Yii::t('backend', 'Edit profile')
     <?php echo $form->field($model, 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
 
     <?php echo $form->field($model, 'gender')->dropDownlist([
-        \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
-        \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
+        UserProfile::GENDER_FEMALE => Yii::t('backend', 'Female'),
+        UserProfile::GENDER_MALE => Yii::t('backend', 'Male')
     ]) ?>
 
     <div class="form-group">

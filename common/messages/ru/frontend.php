@@ -17,10 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Submit' => 'Отправить',
-    'Your account has been successfully saved' => 'Ваш аккаунт был успешно сохранен',
+    'Settings' => 'Настройки',
+    'User Settings' => 'Настройки пользователя',
     'About' => 'О нас',
-    'Account' => 'Аккаунт',
+    'Account Settings' => 'Настройки аккаунта',
     'Articles' => 'Статьи',
     'Attachments' => 'Приложения',
     'Backend' => 'Панель управления',
@@ -46,7 +46,7 @@ return [
     'Page not found' => 'Страница не найдена',
     'Password' => 'Пароль',
     'Password reset for {name}' => 'Сброс пароля для {name}',
-    'Profile' => 'Профиль',
+    'Profile settings' => 'Настройки профиля',
     'Remember Me' => 'Запомнить меня',
     'Request password reset' => 'Запрос сброса пароля',
     'Reset password' => 'Сброс пароля',
@@ -54,6 +54,7 @@ return [
     'Signup' => 'Регистрация',
     'Sorry, we are unable to reset password for email provided.' => 'Извините, мы не можем сбросить пароль для этого e-mail.',
     'Subject' => 'Тема',
+    'Submit' => 'Отправить',
     'Thank you for contacting us. We will respond to you as soon as possible.' => 'Спасибо. Мы свяжемся с Вами в ближайщее время',
     'There was an error sending email.' => 'Ошибка при отправке сообщения.',
     'This email address has already been taken.' => 'Этот e-mail уже занят',
@@ -64,6 +65,6 @@ return [
     'Verification Code' => 'Проверочный код',
     'We already have a user with email {email}' => 'Пользователь с email {email} уже зарегистрирован.',
     'Welcome to {app-name}. Email with your login information was sent to your email.' => 'Добро пожаловать в {app-name}. E-mail с информацией о пользователе был отправлен на вашу почту.',
-    'Your profile has been successfully saved' => 'Ваш профиль бы успешно сохранен',
+    'Your account has been successfully saved' => 'Ваш аккаунт был успешно сохранен',
     '{app-name} | Your login information' => '{app-name} | Информация о пользователе',
 ];

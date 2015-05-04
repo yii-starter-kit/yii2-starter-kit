@@ -110,11 +110,11 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 
 Application configuration process include:
 
-1. [Initialise application](#Initialization)
-2. [Web server configuration](#web-server-configuration)
-3. Configure environment
-4. Apply migrations
-5. Initialise RBAC
+1. [Initialise application](#1-initialization)
+2. [Web server configuration](#2-web-server-configuration)
+3. [Configure environment](#3-setup-environment)
+4. [Apply migrations](#4-apply-migrations)
+5. [Initialise RBAC](#5-initialise-rbac-config)
 
 ### Vagrant
 If you want, you can use bundled Vagrant instead of installing app to your local machine.

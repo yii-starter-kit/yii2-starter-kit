@@ -68,7 +68,7 @@ class SiteController extends \yii\web\Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('alert', [
-                'body' => Yii::t('frontend', 'Settings was successfully saved'),
+                'body' => Yii::t('backend', 'Settings was successfully saved'),
                 'options' => ['class' => 'alert alert-success']
             ]);
             return $this->refresh();

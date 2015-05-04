@@ -6,23 +6,30 @@ It was created and developing as a fast start for building an advanced sites bas
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
-
-FEATURES
---------
-- Beautiful and open source dashboard theme for backend AdminLTE 2 (http://almsaeedstudio.com/AdminLTE)
+## TABLE OF CONTENTS
+- [Features](#features)
+- [Demo](#demo)
+- [Installation](#installation)
+- [Application components](#application-components)
+- [Updates](#updates)
+- [How to contribute?](#how-to-contribute)
+- [Have any questions](#have-any-questions)
+ 
+## FEATURES
+- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
 - I18N + 3 translations: English, Russian, Ukrainian
 - I18N DbMessageSource CRUD module
 - Language change action + behavior to choose locale based on browser preferred language 
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization
-- User management: CRUD
+- User management
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
+- Key-value storage component
 - Application settings form (based on KeyStorage component)
 - Ready-to-go RESTful API module
-- File storage component + file upload widget (https://github.com/trntv/yii2-file-kit)
-- [thephpleague/glide](https://github.com/thephpleague/glide) integration with [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
-- Key-value storage component
+- [File storage component + file upload widget](https://github.com/trntv/yii2-file-kit)
+- On-demand thumbnail creation [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
 - Application timeline component
@@ -31,19 +38,18 @@ FEATURES
 - System information web interface
 - dotenv support
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
-- Aceeditor widget (http://ace.c9.io, https://github.com/trntv/yii2-aceeditor), 
-- Datetimepicker widget (https://github.com/trntv/yii2-bootstrap-datetimepicker), 
-- Imperavi Reactor Widget (http://imperavi.com/redactor, https://github.com/asofter/yii2-imperavi-redactor), 
-- Elfinder Extension (http://elfinder.org, https://github.com/MihailDev/yii2-elfinder)
-- Xhprof Debug panel (https://github.com/trntv/yii2-debug-xhprof)
+- [Aceeditor widget](https://github.com/trntv/yii2-aceeditor)
+- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
+- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor), 
+- [Elfinder Extension](https://github.com/MihailDev/yii2-elfinder)
+- [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
 - Extended IDE autocompletion
 - Nginx config example
 - Test-ready
 - Vagrant support
 - many other features i'm lazy to write about :-)
 
-DEMO
-----
+##DEMO
 Frontend:
 http://yii2-starter-kit.terentev.net
 
@@ -68,15 +74,11 @@ Login: user
 Password: user
 ```
 
-REQUIREMENTS
-------------
-
+##REQUIREMENTS
 The minimum requirement by this application template that your Web server supports PHP 5.4.0.
 
 
-INSTALLATION
-------------
-
+##INSTALLATION
 ### Before installation
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
@@ -85,7 +87,6 @@ Install composer-asset-plugin needed for yii assets management
 ```bash
 composer global require "fxp/composer-asset-plugin"
 ```
-
 
 ### Clone from GitHub
 
@@ -109,9 +110,9 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 
 Application configuration process include:
 
-1. Initialise application
-2. Prepare web server
-3. Configure environment local settings
+1. [Initialise application](#Initialization)
+2. [Web server configuration](#web-server-configuration)
+3. Configure environment
 4. Apply migrations
 5. Initialise RBAC
 
@@ -127,13 +128,13 @@ vagrant up
 ```
 That`s all. After provision application will be accessible on http://yii2-starter-kit.dev
 
-#### 0. Initialization
+#### 1. Initialization
 Initialise application
 ```
 ./init #init.bat for windows
 ```
 
-#### 1. Web Server
+#### 2. Web server configuration 
 
 You should configure web server with three different web roots:
 
@@ -145,16 +146,10 @@ You should configure web server with three different web roots:
 
 **NOTE:** You can use `nginx.conf` file that is located in the project root.
 
-#### 1. Initialization
-Initialise application
-```
-./init // init.bat for windows
-```
-
-#### 2. Setup environment
+#### 3. Setup environment
 Adjust settings in `.env` file
 
-##### 2.1 Database
+##### 3.1 Database
 Edit the file `.env` with your data:
 ```
 DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
@@ -164,7 +159,7 @@ DB_PASSWORD      = password
 **NOTE:** Yii won't create the database for you, this has to be done manually before you can access it.
 
 
-##### 2.2 Application urls
+##### 3.2 Application urls
 Set your current application urls in `.env`
 
 ```php
@@ -172,13 +167,13 @@ FRONTEND_URL    = http://yii2-starter-kit.dev
 BACKEND_URL     = http://backend.yii2-starter-kit.dev
 STORAGE_URL     = http://storage.yii2-starter-kit.dev
 ```
-#### 3. Apply migrations
+#### 4. Apply migrations
 
 ```php
 php console/yii migrate
 ```
 
-#### 4. Initialise RBAC config
+#### 5. Initialise RBAC config
 
 ```php
 php console/yii rbac/init
@@ -186,16 +181,16 @@ php console/yii rbac/init
 **IMPORTANT: without rbac/init you CAN'T LOG IN into backend**
 
 ### Demo user
-~~~
+```
 Login: webmaster
 Password: webmaster
-~~~
+```
 
-COMPONENTS
-----------
+# Application Components
+
 ### I18N
 If you want to store application messages in DB and to have ability to edit them from backend, run:
-```php
+```
 php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
 ```
 it will copy all existing messages to database
@@ -206,7 +201,7 @@ common/config/base.php
 ```
 
 ### KeyStorage
-Key storage is a key-value storage to store different information. Application params for example.
+Key storage is a key-value storage to store different information. Application settings for example.
 Values can be stored both via api or by backend CRUD component.
 ```
 Yii::$app->keyStorage->set('articles-per-page', 20);
@@ -270,39 +265,79 @@ Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` k
  }
 ```
 #### GlobalAccessBehavior
-usage example in ``backend\config\web.php``
+Add in your application config:
+```php
+'as globalAccess'=>[
+        'class'=>'\common\behaviors\GlobalAccessBehavior',
+        'rules'=>[
+            [
+                'controllers'=>['sign-in'],
+                'allow' => true,
+                'roles' => ['?'],
+                'actions'=>['login']
+            ],
+            [
+                'controllers'=>['sign-in'],
+                'allow' => true,
+                'roles' => ['@'],
+                'actions'=>['logout']
+            ],
+            [
+                'controllers'=>['site'],
+                'allow' => true,
+                'roles' => ['?', '@'],
+                'actions'=>['error']
+            ],
+            [
+				'allow' => true,
+				'roles' => ['@']
+			]
+        ]
+    ]
+```
+It will allow access to you application only for authentificated users. 
 
 ### Widgets configurable from backend
 #### Carousel
-TBD
+1. Create carousel in backend
+2. Use it:
+```php
+<?php echo DbCarousel::widget(['key' => 'key-from-backend']) ?>
+```
 
 #### DbText
-TBD
+1. Create text block in backend
+2. Use it:
+```php
+<?php echo DbText::widget(['key' => 'key-from-backend']) ?>
+```
 
 #### DbMenu
+1. Create text block in backend
+2. Use it:
 ```php
-echo common\widgets\DbMenu::widget([
-      'key'=>'stored-menu-key',
-      /* any other option from \yii\widgets\Menu */ 
-])
-``` 
+<?php echo DbMenu::widget(['key' => 'key-from-backend']) ?>
+```
 
 ### Input widgets
-- WYSIWYG Redactor widget (https://github.com/asofter/yii2-imperavi-redactor)  
-- Datetimepicker - (http://eonasdan.github.io/bootstrap-datetimepicker, https://github.com/trntv/yii2-bootstrap-datetimepicker)
-- Ace Editor - (https://github.com/trntv/yii2-aceeditor)
+- [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor)  
+- [DateTime picker](https://github.com/trntv/yii2-bootstrap-datetimepicker)
+- [Ace Editor](https://github.com/trntv/yii2-aceeditor)
+- [File upload](https://github.com/trntv/yii2-file-kit)
+
 
 ### Grid
 #### EnumColumn
 ```php
  [
-      'class'=>'\common\grid\EnumColumn',
-      'attribute'=>'status',
-      'enum'=>User::getStatuses() // [0=>'Deleted', 1=>'Active']
+      'class' => '\common\grid\EnumColumn',
+      'attribute' => 'status',
+      'enum' => User::getStatuses() // [0=>'Deleted', 1=>'Active']
  ]
 ```
 ### API
-TBD
+Starter Kit has fully configured and ready-to-go REST API module. You can access it on
+http://yii2-starter-kit.dev/api/v1
 
 ### Many more useful components
 - ``common\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config
@@ -311,9 +346,7 @@ TBD
 - RBAC OwnModelRule - simple rule to check if the current user is model owner
 - ``common\base\MultiModel`` - class for handling multiple models in one
 
-OTHER
------
-### Updates
+##Updates
 Add remote repository `upstream`.
 ```
 git remote add upstream https://github.com/trntv/yii2-starter-kit.git
@@ -328,14 +361,17 @@ git merge upstream/master
 ```
 **IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve conflicts on your own**
 
-### READ MORE
+##How to contribute?
+You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
+
+##Have any questions?
+mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+
+##READ MORE
 https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
 https://github.com/yiisoft/yii2/tree/master/docs
 
-### Have any questions?
-mail to `eugene@terentev.net`
-
-#### NOTE
+###NOTE
 This template was created mostly for developers NOT for end users.
 This is a point where you can begin your application, rather than creating it from scratch.
 Good luck!

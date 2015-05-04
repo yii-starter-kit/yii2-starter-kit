@@ -1,8 +1,8 @@
 Yii Starter Kit Change Log
 ==========================
 
-2.0.0 under development
------------------------
+2.0.0 
+-----
 - Enh: Frontend Account and Profile actions merged into one
 - Enh #146: Added MultiModel for handling multiple models at once
 - Enh #145: Added Application settings + FormModel and FormWidget for keyStorage component

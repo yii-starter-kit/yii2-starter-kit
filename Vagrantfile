@@ -50,4 +50,6 @@ Vagrant.configure(2) do |config|
     options['github']['token'],
     options['system']['swapsize']
   ]
+
+  config.vm.provision "shell", inline: "service nginx restart", run: "always"
 end

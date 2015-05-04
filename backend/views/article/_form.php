@@ -52,7 +52,7 @@ use yii\bootstrap\ActiveForm;
         \trntv\filekit\widget\Upload::className(),
         [
             'url' => ['/file-storage/upload'],
-            'sortable'=>true,
+            'sortable' => true,
             'maxFileSize' => 10000000, // 10 MiB
             'maxNumberOfFiles' => 10
         ]);

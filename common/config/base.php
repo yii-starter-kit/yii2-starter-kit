@@ -139,7 +139,8 @@ $config = [
         'availableLocales'=>[
             'en-US'=>'English (US)',
             'ru-RU'=>'Русский (РФ)',
-            'uk-UA'=>'Українська (Україна)'
+            'uk-UA'=>'Українська (Україна)',
+            'es' => 'Español'
         ],
     ],
 ];

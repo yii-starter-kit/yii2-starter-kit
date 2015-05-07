@@ -17,10 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Submit' => 'Enviar',
-    'Your account has been successfully saved' => 'Su cuenta ha sido grabada con éxito',
+    'Account Settings' => '',
+    'Profile settings' => '',
+    'Settings' => '',
+    'User Settings' => '',
     'About' => 'Sobre',
-    'Account' => 'Cuenta',
     'Articles' => 'Artículos',
     'Attachments' => 'Adjuntos',
     'Backend' => 'Segundo Plano',
@@ -46,7 +47,6 @@ return [
     'Page not found' => 'Página no encontrada',
     'Password' => 'Palabra de paso',
     'Password reset for {name}' => 'Palabra de paso cambiada para {name}',
-    'Profile' => 'Perfil',
     'Remember Me' => 'Recuérdame',
     'Request password reset' => 'Solicita cambiar la palabra de paso',
     'Reset password' => 'Cambiar Palabra de Paso',
@@ -54,6 +54,7 @@ return [
     'Signup' => 'Registrado',
     'Sorry, we are unable to reset password for email provided.' => 'Lo siento, no puedo cambiar el password para el email provisto.',
     'Subject' => 'Tema',
+    'Submit' => 'Enviar',
     'Thank you for contacting us. We will respond to you as soon as possible.' => 'Gracias por contactarnos. responderemos tan pronto como sea posible.',
     'There was an error sending email.' => 'Ha ocurrido un error enviando el correo',
     'This email address has already been taken.' => 'La dirección de correo ya ha sido usada',
@@ -64,6 +65,6 @@ return [
     'Verification Code' => 'Código de verificación',
     'We already have a user with email {email}' => 'Ya tenemos un usuario con el correo {email} ',
     'Welcome to {app-name}. Email with your login information was sent to your email.' => '¡Bienvenido a {app-name}!. Un correo con la información de su conexión ha sido enviado a su correo',
-    'Your profile has been successfully saved' => 'Su perfile ha sido guardado con éxito',
+    'Your account has been successfully saved' => 'Su cuenta ha sido grabada con éxito',
     '{app-name} | Your login information' => '{app-name} | Información de conexión',
 ];

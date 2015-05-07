@@ -17,8 +17,8 @@ It covers typical use cases for a new project and will help you not to waste you
  
 ## FEATURES
 - Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
-- I18N + 3 translations: English, Russian, Ukrainian
-- I18N DbMessageSource CRUD module
+- Translations: English, Spanish, Russian, Ukrainian
+- Translations Editor
 - Language change action + behavior to choose locale based on browser preferred language 
 - Sign in, Sign up, profile(avatar, locale, personal data) etc
 - OAuth authorization

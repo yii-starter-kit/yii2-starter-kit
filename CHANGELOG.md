@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 2.0.0 
 -----
+- Enh: Added Spanish locale
 - Enh: Frontend Account and Profile actions merged into one
 - Enh #146: Added MultiModel for handling multiple models at once
 - Enh #145: Added Application settings + FormModel and FormWidget for keyStorage component

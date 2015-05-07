@@ -17,10 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Base URL' => '',
-    'File Type' => '',
-    'Image' => '',
-    'Thumbnail' => '',
+    'Base URL' => 'URL Base',
+    'File Type' => 'Tipo fichero',
+    'Image' => 'Imagen',
+    'Thumbnail' => 'Miniatura',
     '"{attribute}" must be a valid JSON' => '"{attribute}" debe de ser un JSON válido',
     'Active' => 'Activo',
     'Article ID' => 'ID Artículo',

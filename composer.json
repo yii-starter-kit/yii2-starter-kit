@@ -33,7 +33,7 @@
     "asofter/yii2-imperavi-redactor": "dev-master@dev",
     "mihaildev/yii2-elfinder": "~1.0",
     "trntv/yii2-aceeditor": "~2.0",
-    "trntv/probe": "@dev",
+    "trntv/probe": "~0.2",
     "trntv/yii2-file-kit": "~1.0.0",
     "trntv/yii2-glide": "~1.0",
     "trntv/yii2-bootstrap-datetimepicker": "~1.5",

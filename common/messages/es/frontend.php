@@ -17,10 +17,10 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Account Settings' => '',
-    'Profile settings' => '',
-    'Settings' => '',
-    'User Settings' => '',
+    'Account Settings' => 'Configuración de la cuenta',
+    'Profile settings' => 'Configuración del perfil',
+    'Settings' => 'Configuración',
+    'User Settings' => 'Configuración de usuario',
     'About' => 'Sobre',
     'Articles' => 'Artículos',
     'Attachments' => 'Adjuntos',

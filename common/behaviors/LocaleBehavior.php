@@ -4,6 +4,7 @@ namespace common\behaviors;
 
 use yii\base\Behavior;
 use Yii;
+use yii\web\Application;
 
 /**
  * Class LocaleBehavior
@@ -22,7 +23,7 @@ class LocaleBehavior extends Behavior
     public function events()
     {
         return [
-            \yii\web\Application::EVENT_BEFORE_REQUEST => 'beforeRequest'
+            Application::EVENT_BEFORE_REQUEST => 'beforeRequest'
         ];
     }
 

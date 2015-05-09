@@ -2,6 +2,7 @@
 namespace console\controllers;
 
 use common\models\User;
+use common\rbac\OwnModelRule;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\Console;
@@ -15,6 +16,10 @@ class RbacController extends Controller
 
         $user = $auth->createRole(User::ROLE_USER);
         $auth->add($user);
+
+        // own model rule
+        $ownModelRule = new OwnModelRule();
+        $auth->add($ownModelRule);
 
         $manager = $auth->createRole(User::ROLE_MANAGER);
         $auth->add($manager);

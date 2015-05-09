@@ -319,11 +319,12 @@ It will allow access to you application only for authentificated users.
 <?php echo DbMenu::widget(['key' => 'key-from-backend']) ?>
 ```
 
-### Input widgets
+### Widgets
 - [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor)  
 - [DateTime picker](https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - [Ace Editor](https://github.com/trntv/yii2-aceeditor)
 - [File upload](https://github.com/trntv/yii2-file-kit)
+- [ElFinder](https://github.com/MihailDev/yii2-elfinder)
 
 
 ### Grid
@@ -339,12 +340,33 @@ It will allow access to you application only for authentificated users.
 Starter Kit has fully configured and ready-to-go REST API module. You can access it on
 http://yii2-starter-kit.dev/api/v1
 
-### Many more useful components
-- ``common\behaviors\GlobalAccessBehavior`` allows to set access rules for your application in application config
-- ``common\validators\JsonValidator`` validates a value to be a valid json
-- [ElFinder](https://github.com/MihailDev/yii2-elfinder)
-- RBAC OwnModelRule - simple rule to check if the current user is model owner
-- ``common\base\MultiModel`` - class for handling multiple models in one
+### MultiModel
+``common\base\MultiModel`` - class for handling multiple models in one
+In controller:
+```php
+$model = new MultiModel([
+    'models' => [
+        'user' => $userModel,
+        'profile' => $userProfileModel
+    ]
+]);
+
+if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    ...
+}
+```
+In view:
+```php
+<?php echo $form->field($model->getModel('account'), 'username') ?>
+
+<?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>    
+```
+### Other
+- ``common\behaviors\GlobalAccessBehavior`` - allows to set access rules for your application in application config
+- ``common\behaviors\LocaleBehavior`` - discover user locale from browser or account settings and set it
+- ``common\behaviors\LoginTimestampBehavior`` - logs user login time
+- ``common\validators\JsonValidator`` - validates a value to be a valid json
+- ``common\rbac\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
 
 ##Updates
 Add remote repository `upstream`.

@@ -1,6 +1,10 @@
 Yii Starter Kit Change Log
 ==========================
 
+next
+----
+- Enh #160: LocaleBehavior::enablePreferredLanguage
+
 2.0.0 
 -----
 - Enh: Added Spanish locale

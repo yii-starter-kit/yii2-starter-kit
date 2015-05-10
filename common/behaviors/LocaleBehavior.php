@@ -4,6 +4,7 @@ namespace common\behaviors;
 
 use yii\base\Behavior;
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\web\Application;
 
 /**
@@ -17,6 +18,10 @@ class LocaleBehavior extends Behavior
      */
     public $cookieName = '_locale';
 
+    /**
+     * @var bool
+     */
+    public $enablePreferredLanguage = true;
     /**
      * @return array
      */
@@ -38,12 +43,21 @@ class LocaleBehavior extends Behavior
         ) {
             $userLocale = Yii::$app->getRequest()->getCookies()->getValue($this->cookieName);
         } else {
-            $userLocale = !Yii::$app->user->isGuest
-                        && Yii::$app->user->getIdentity()->userProfile
-                        && Yii::$app->user->getIdentity()->userProfile->locale
-                ? Yii::$app->user->getIdentity()->userProfile->locale
-                : Yii::$app->request->getPreferredLanguage(array_keys(Yii::$app->params['availableLocales']));
+            $userLocale = Yii::$app->language;
+            if (!Yii::$app->user->isGuest && ArrayHelper::getValue('userProfile.locale', Yii::$app->user->identity)) {
+                $userLocale = Yii::$app->user->getIdentity()->userProfile->locale;
+            } elseif ($this->enablePreferredLanguage) {
+                $userLocale = Yii::$app->request->getPreferredLanguage($this->getAvailableLocales());
+            }
         }
         Yii::$app->language = $userLocale;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getAvailableLocales()
+    {
+        return array_keys(Yii::$app->params['availableLocales']);
     }
 }

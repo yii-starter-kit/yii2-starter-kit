@@ -4,7 +4,6 @@ namespace common\behaviors;
 
 use yii\base\Behavior;
 use Yii;
-use yii\helpers\ArrayHelper;
 use yii\web\Application;
 
 /**
@@ -44,7 +43,7 @@ class LocaleBehavior extends Behavior
             $userLocale = Yii::$app->getRequest()->getCookies()->getValue($this->cookieName);
         } else {
             $userLocale = Yii::$app->language;
-            if (!Yii::$app->user->isGuest && ArrayHelper::getValue('userProfile.locale', Yii::$app->user->identity)) {
+            if (!Yii::$app->user->isGuest && Yii::$app->user->identity->userProfile->locale) {
                 $userLocale = Yii::$app->user->getIdentity()->userProfile->locale;
             } elseif ($this->enablePreferredLanguage) {
                 $userLocale = Yii::$app->request->getPreferredLanguage($this->getAvailableLocales());

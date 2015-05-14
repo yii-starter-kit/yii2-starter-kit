@@ -35,7 +35,11 @@ class UserProfile extends \yii\db\ActiveRecord
                 'class' => UploadBehavior::className(),
                 'attribute' => 'picture',
                 'pathAttribute' => 'avatar_path',
-                'baseUrlAttribute' => 'avatar_base_url'
+                'baseUrlAttribute' => 'avatar_base_url',
+                'typeAttribute' => false,
+                'sizeAttribute' => false,
+                'nameAttribute' => false,
+                'orderAttribute' => false
             ]
         ];
     }

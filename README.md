@@ -118,6 +118,7 @@ Application configuration process include:
 
 ### Vagrant
 If you want, you can use bundled Vagrant instead of installing app to your local machine.
+
 1. Install [Vagrant](https://www.vagrantup.com/)
 2. Rename `vagrant.dist.yaml` to `vagrant.yaml`
 3. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and paste in into `vagrant.yml`

@@ -1,5 +1,13 @@
-Yii 2 Starter Kit
-================================
+# Yii 2 Starter Kit
+
+<!-- BADGES/ -->
+
+[![Packagist](https://img.shields.io/packagist/v/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
+[![Packagist](https://img.shields.io/packagist/dt/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
+[![PayPayl donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8 "Donate once-off to this project using Paypal")
+
+<!-- /BADGES -->
+
 This is Yii2 start application template.
 
 It was created and developing as a fast start for building an advanced sites based on Yii2. 
@@ -88,24 +96,23 @@ Install composer-asset-plugin needed for yii assets management
 composer global require "fxp/composer-asset-plugin"
 ```
 
-### Clone from GitHub
-
-Extract the github archive file or clone this repository.
-```bash
-git clone https://github.com/trntv/yii2-starter-kit.git
-```
-
-After clone run
-```
-composer install
-```
-
 ### Install via Composer
 
 You can install this application template with `composer` using the following command:
 
 ```
 composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+```
+
+### Manually installation
+Download the github archive file or clone this repository:
+```bash
+git clone https://github.com/trntv/yii2-starter-kit.git
+```
+
+Run:
+```
+composer install
 ```
 
 Application configuration process include:

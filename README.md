@@ -150,7 +150,7 @@ You should configure web server with three different web roots:
 
 `backend.yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/backend/web`
 
-`storage.yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/storage`
+`storage.yii2-starter-kit.dev` => `/path/to/yii2-starter-kit/storage/web`
 
 **NOTE:** You can use `nginx.conf` file that is located in the project root.
 

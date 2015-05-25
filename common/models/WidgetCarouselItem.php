@@ -54,12 +54,14 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
             TimestampBehavior::className(),
             [
                 'class' => UploadBehavior::className(),
-                'attribute' => 'image'
-
+                'attribute' => 'image',
+                'pathAttribute' => 'path',
+                'baseUrlAttribute' => 'base_url',
+                'typeAttribute' => 'type'
             ],
             'cacheInvalidate'=>[
-                'class'=>CacheInvalidateBehavior::className(),
-                'keys'=>[
+                'class' => CacheInvalidateBehavior::className(),
+                'keys' => [
                     function ($model) {
                         return [
                             WidgetCarousel::className(),

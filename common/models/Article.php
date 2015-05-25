@@ -85,7 +85,12 @@ class Article extends \yii\db\ActiveRecord
                 'class' => UploadBehavior::className(),
                 'attribute' => 'attachments',
                 'multiple' => true,
-                'uploadRelation' => 'articleAttachments'
+                'uploadRelation' => 'articleAttachments',
+                'pathAttribute' => 'path',
+                'baseUrlAttribute' => 'base_url',
+                'typeAttribute' => 'type',
+                'sizeAttribute' => 'size',
+                'nameAttribute' => 'name',
             ],
             [
                 'class' => UploadBehavior::className(),

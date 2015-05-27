@@ -12,6 +12,8 @@ class KeyStorageTest extends TestCase
     {
         \Yii::$app->keyStorage->set('test.key', 'testValue');
         $this->assertEquals('testValue', \Yii::$app->keyStorage->get('test.key', null, false));
+        \Yii::$app->keyStorage->set('test.key', 'anotherTestValue');
+        $this->assertEquals('anotherTestValue', \Yii::$app->keyStorage->get('test.key', null, false));
     }
 
     public function testKeyStorageHas()

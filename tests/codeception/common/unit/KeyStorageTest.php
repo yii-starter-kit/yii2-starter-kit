@@ -16,20 +16,21 @@ class KeyStorageTest extends TestCase
         $this->assertEquals('anotherTestValue', \Yii::$app->keyStorage->get('test.key', null, false));
     }
 
+    /**
+     * @depends testKeyStorageSet
+     */
     public function testKeyStorageHas()
     {
-        $this->assertTrue(\Yii::$app->keyStorage->has('frontend.maintenance'));
+        $this->assertTrue(\Yii::$app->keyStorage->has('test.key'));
         $this->assertFalse(\Yii::$app->keyStorage->has('falseKey'));
     }
 
-    public function testKeyStorageGet()
-    {
-        $this->assertEquals('0', \Yii::$app->keyStorage->get('frontend.maintenance'));
-    }
-
+    /**
+     * @depends testKeyStorageHas
+     */
     public function testKeyStorageRemove()
     {
-        \Yii::$app->keyStorage->remove('frontend.maintenance');
-        $this->assertFalse(\Yii::$app->keyStorage->has('frontend.maintenance'));
+        \Yii::$app->keyStorage->remove('test.key');
+        $this->assertFalse(\Yii::$app->keyStorage->has('test.key'));
     }
 }

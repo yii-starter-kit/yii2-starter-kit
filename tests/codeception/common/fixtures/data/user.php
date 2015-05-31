@@ -10,7 +10,6 @@ return [
         'created_at' => '1392559490',
         'updated_at' => '1392559490',
         'email' => 'webmaster@example.org',
-        'role' => \common\models\User::ROLE_ADMINISTRATOR
     ],
     [
         'id' => 2,
@@ -20,8 +19,7 @@ return [
         'password_reset_token' => 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490',
         'created_at' => '1392559490',
         'updated_at' => '1392559490',
-        'email' => 'user@example.org',
-        'role' => \common\models\User::ROLE_MANAGER
+        'email' => 'user@example.org'
     ],
     [
         'id' => 3,
@@ -31,7 +29,6 @@ return [
         'password_reset_token' => 'RkD_Jw0_8HEedzLk7MM-ZKEFfYR7VbMr_1392559490',
         'created_at' => '1392559490',
         'updated_at' => '1392559490',
-        'email' => 'user@example.org',
-        'role' => \common\models\User::ROLE_USER
+        'email' => 'user@example.org'
     ],
 ];

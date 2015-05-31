@@ -8,15 +8,8 @@ class m150205_004740_maintenance extends Migration
     {
         $this->insert('{{%key_storage_item}}', [
             'key' => 'frontend.maintenance',
-            'value' => 0,
+            'value' => 'disabled',
             'comment' => 'Set it to "true" to turn on maintenance mode'
-        ]);
-    }
-
-    public function down()
-    {
-        $this->delete('{{%key_storage_item}}', [
-            'key' => 'frontend.maintenance'
         ]);
     }
 }

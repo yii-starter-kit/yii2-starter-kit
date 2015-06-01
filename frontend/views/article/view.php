@@ -27,8 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <ul id="article-attachments">
                 <?php foreach ($model->articleAttachments as $attachment): ?>
                     <li>
-                        <?php echo \yii\helpers\Html::a($attachment->name, $attachment->url) ?>
-                        - <?php echo Yii::$app->formatter->asSize($attachment->size) ?>
+                        <?php echo \yii\helpers\Html::a(
+                            $attachment->name,
+                            ['attachment-download', 'id' => $attachment->id])
+                        ?>
+                        (<?php echo Yii::$app->formatter->asSize($attachment->size) ?>)
                     </li>
                 <?php endforeach; ?>
             </ul>

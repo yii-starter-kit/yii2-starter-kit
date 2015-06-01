@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 next
 ----
+- Enh #184: Preserve article attachments file name
 - Enh #176: Added ability to set custom view for static pages and articles
 - Enh #160: LocaleBehavior::enablePreferredLanguage
 

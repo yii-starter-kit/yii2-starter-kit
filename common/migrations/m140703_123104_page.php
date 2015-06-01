@@ -17,6 +17,7 @@ class m140703_123104_page extends Migration
             'slug' => Schema::TYPE_STRING . '(2048) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT . ' NOT NULL',
+            'view' => Schema::TYPE_STRING . '(255)',
             'status' => Schema::TYPE_SMALLINT . ' NOT NULL',
             'created_at' => Schema::TYPE_INTEGER,
             'updated_at' => Schema::TYPE_INTEGER,

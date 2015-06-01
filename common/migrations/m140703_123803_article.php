@@ -28,6 +28,7 @@ class m140703_123803_article extends Migration
             'slug' => Schema::TYPE_STRING . '(1024) NOT NULL',
             'title' => Schema::TYPE_STRING . '(512) NOT NULL',
             'body' => Schema::TYPE_TEXT . ' NOT NULL',
+            'view' => Schema::TYPE_STRING . '(255)',
             'category_id' => Schema::TYPE_INTEGER,
             'author_id' => Schema::TYPE_INTEGER,
             'updater_id' => Schema::TYPE_INTEGER,

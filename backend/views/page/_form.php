@@ -12,9 +12,9 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+    <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?php echo $form->field($model, 'slug')->textInput(['maxlength' => 2048]) ?>
+    <?php echo $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'body')->widget(
         \yii\imperavi\Widget::className(),
@@ -28,6 +28,8 @@ use yii\bootstrap\ActiveForm;
             ]
         ]
     ) ?>
+
+    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'status')->checkbox() ?>
 

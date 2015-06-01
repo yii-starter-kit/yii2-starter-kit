@@ -13,11 +13,11 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+    <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'slug')
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
-        ->textInput(['maxlength' => 1024]) ?>
+        ->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
             $categories,
@@ -57,6 +57,8 @@ use yii\bootstrap\ActiveForm;
             'maxNumberOfFiles' => 10
         ]);
     ?>
+
+    <?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'status')->checkbox() ?>
 

@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\ArticleCategory;
 use backend\models\search\ArticleCategorySearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -62,12 +63,15 @@ class ArticleCategoryController extends Controller
     {
         $model = new ArticleCategory();
 
+        $categories = ArticleCategory::find()->noParents()->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->noParents()->all(),
+                'categories' => $categories,
             ]);
         }
     }
@@ -82,12 +86,16 @@ class ArticleCategoryController extends Controller
     {
         $model = $this->findModel($id);
 
+        $categories = ArticleCategory::find()->noParents()->andWhere(['not in', 'id', $id])->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
+
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'categories' => ArticleCategory::find()->noParents()->all(),
+                'categories' => $categories,
             ]);
         }
     }

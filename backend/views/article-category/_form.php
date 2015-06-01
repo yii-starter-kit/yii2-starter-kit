@@ -6,6 +6,7 @@ use yii\bootstrap\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\ArticleCategory */
 /* @var $form yii\bootstrap\ActiveForm */
+/* @var $categories array */
 ?>
 
 <div class="article-category-form">
@@ -18,11 +19,7 @@ use yii\bootstrap\ActiveForm;
         ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
         ->textInput(['maxlength' => 1024]) ?>
 
-    <?php echo $form->field($model, 'parent_id')->dropDownList(\yii\helpers\ArrayHelper::map(
-        $categories,
-        'id',
-        'title'
-    ), ['prompt'=>'']) ?>
+    <?php echo $form->field($model, 'parent_id')->dropDownList($categories, ['prompt'=>'']) ?>
 
     <?php echo $form->field($model, 'status')->checkbox() ?>
 

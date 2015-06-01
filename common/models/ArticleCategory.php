@@ -16,6 +16,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $status
  *
  * @property Article[] $articles
+ * @property ArticleCategory $parent
  */
 class ArticleCategory extends \yii\db\ActiveRecord
 {
@@ -60,7 +61,8 @@ class ArticleCategory extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 512],
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
-            ['status', 'integer']
+            ['status', 'integer'],
+            ['parent_id', 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id']
         ];
     }
 
@@ -84,5 +86,13 @@ class ArticleCategory extends \yii\db\ActiveRecord
     public function getArticles()
     {
         return $this->hasMany(Article::className(), ['category_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent()
+    {
+        return $this->hasMany(ArticleCategory::className(), ['id' => 'parent_id']);
     }
 }

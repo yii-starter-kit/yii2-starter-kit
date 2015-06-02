@@ -2,6 +2,7 @@
 
 namespace frontend\modules\user\controllers;
 
+use common\commands\command\SendEmailCommand;
 use common\models\User;
 use frontend\modules\user\models\LoginForm;
 use frontend\modules\user\models\PasswordResetRequestForm;
@@ -173,12 +174,12 @@ class SignInController extends \yii\web\Controller
             $user->setPassword($password);
             if ($user->save()) {
                 $user->afterSignup();
-                $sentSuccess = Yii::$app->mailer->compose('oauth_welcome', ['user'=>$user, 'password'=>$password])
-                    ->setSubject(Yii::t('frontend', '{app-name} | Your login information', [
-                        'app-name'=>Yii::$app->name
-                    ]))
-                    ->setTo($user->email)
-                    ->send();
+                $sentSuccess = Yii::$app->commandBus->handle(new SendEmailCommand([
+                    'view' => 'oauth_welcome',
+                    'params' => ['user'=>$user, 'password'=>$password],
+                    'subject' => Yii::t('frontend', '{app-name} | Your login information', ['app-name'=>Yii::$app->name]),
+                    'to' => $user->email
+                ]));
                 if ($sentSuccess) {
                     Yii::$app->session->setFlash(
                         'alert',

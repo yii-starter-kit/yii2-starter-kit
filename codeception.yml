@@ -1,0 +1,16 @@
+include:
+  - tests/codeception/common
+  - tests/codeception/console
+  - tests/codeception/backend
+  - tests/codeception/frontend
+
+paths:
+  log: tests/codeception/_output
+
+settings:
+  colors: true
+
+db:
+  dsn:
+  username:
+  password:

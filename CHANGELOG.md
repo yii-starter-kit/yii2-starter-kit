@@ -1,8 +1,8 @@
 Yii Starter Kit Change Log
 ==========================
 
-2.1.0
-----
+2.1.0 under development
+-----------------------
 - Changed application setup proccess
 - Enh #160: LocaleBehavior::enablePreferredLanguage
 - fixes and improvements

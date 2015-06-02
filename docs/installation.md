@@ -37,7 +37,7 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ### Setup application
 1. Copy `.env.dist` to `.env` in the project root
 2. Adjust settings in `.env` file
-	- Set debug mode and current environment
+	- Set debug mode and your current environment
 	```
 	YII_DEBUG   = true
 	YII_ENV     = dev
@@ -62,7 +62,8 @@ php console/yii app/setup
 ```
 
 ### Configure your web server
-Copy `nginx.conf.dist` to `nginx.conf` and change it with your local settings or configure your web server with three different web roots:
+Copy `vhost.conf.dist` to `vhost.conf`, change it with your local settings and copy (symlink) it to nginx ``sites-enabled`` directory.
+Or configure your web server with three different web roots:
 - yii2-starter-kit.dev => /path/to/yii2-starter-kit/frontend/web
 - backend.yii2-starter-kit.dev => /path/to/yii2-starter-kit/backend/web
 - storage.yii2-starter-kit.dev => /path/to/yii2-starter-kit/storage/web

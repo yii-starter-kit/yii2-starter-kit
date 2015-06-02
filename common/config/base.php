@@ -20,6 +20,16 @@ $config = [
             'class' => 'yii\caching\DummyCache',
         ],
 
+        'commandBus' => [
+            'class' => '\trntv\tactician\Tactician',
+            'commandNameExtractor' => '\League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor',
+            'methodNameInflector' => '\League\Tactician\Handler\MethodNameInflector\HandleInflector',
+            'commandToHandlerMap' => [
+                'common\commands\command\SendEmailCommand' => '\common\commands\handler\SendEmailHandler',
+                'common\commands\command\AddToTimelineCommand' => '\common\commands\handler\AddToTimelineHandler',
+            ]
+        ],
+
         'formatter'=>[
             'class'=>'yii\i18n\Formatter'
         ],

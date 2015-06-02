@@ -1,0 +1,43 @@
+cli:
+  build: .
+  volumes:
+    - ./:/app
+  working_dir: /app
+  entrypoint: /app/console/yii
+  expose:
+    - 9000
+  links:
+    - db
+
+fpm:
+  build: docker/fpm
+  volumes:
+    - ./:/app
+  expose:
+    - 9000
+  links:
+    - db
+  environment:
+    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_host=172.17.42.1"
+
+nginx:
+  image: nginx:latest
+  ports:
+    - "127.0.0.1:8000:80"
+  volumes:
+    - ./:/app
+    - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
+  links:
+    - fpm
+
+db:
+  image: mysql:5.6
+  volumes:
+    - /var/lib/mysql
+  ports:
+    - "127.0.0.1:33060:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+    MYSQL_DATABASE: yii2-starter-kit
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root

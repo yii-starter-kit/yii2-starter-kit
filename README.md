@@ -18,8 +18,13 @@ It covers typical use cases for a new project and will help you not to waste you
 ## TABLE OF CONTENTS
 - [Demo](#demo)
 - [Features](#features)
-- [Installation](https://github.com/trntv/yii2-starter-kit/blob/master/docs/installation.md)
+- [Installation](docs/installation.md)
+    - [Manual installation](docs/installation.md#manual-installation)
+    - [Docker installation](docs/installation.md#docker-installation)
+    - [Vagrant installation](docs/installation.md#vagrant-installation)
 - [Application components](#application-components)
+- [Console commands](docs/console.md)
+- [Testing](docs/testing.md)
 - [FAQ](#faq)
 - [How to contribute?](#how-to-contribute)
 - [Have any questions](#have-any-questions)
@@ -81,6 +86,7 @@ Password: user
 - Extended IDE autocompletion
 - Nginx config example
 - Test-ready
+- Docker support
 - Vagrant support
 - many other features i'm lazy to write about :-)
 
@@ -126,6 +132,30 @@ This component will catch all incoming requests, set proper response HTTP header
 Additional configuration options can be found in a corresponding class.
 
 Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true``
+
+### Command Bus
+- [What is command bus?](http://shawnmc.cool/command-bus)
+
+In Starter Kit Command Bus pattern is implemented with [tactician](https://github.com/thephpleague/tactician) package and 
+it's yii2 connector - [yii2-tactician](https://github.com/trntv/yii2-tactician)
+
+Command are stored in ``common/commands/command`` directory, handlers in ``common/commands/handler``
+
+To execute command run
+```php
+$sendEmailCommand = new SendEmailCommand(['to' => 'user@example.org', 'body' => 'Hello User!']);
+Yii::$app->commandBus->handle($sendEmailCommand);
+```
+
+### Timeline (Activity)
+```php
+$addToTimelineCommand = new AddToTimelineCommand([
+    'category' => 'user', 
+    'event' => 'signup', 
+    'data' => ['foo' => 'bar']
+]);
+Yii::$app->commandBus->handle($addToTimelineCommand);
+```
 
 ### Behaviors
 #### CacheInvalidateBehavior
@@ -224,8 +254,7 @@ It will allow access to you application only for authentificated users.
  ]
 ```
 ### API
-Starter Kit has fully configured and ready-to-go REST API module. You can access it on
-http://yii2-starter-kit.dev/api/v1
+Starter Kit has fully configured and ready-to-go REST API module. You can access it on http://yii2-starter-kit.dev/api/v1
 
 ### MultiModel
 ``common\base\MultiModel`` - class for handling multiple models in one

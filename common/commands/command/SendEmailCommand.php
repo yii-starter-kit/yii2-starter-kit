@@ -29,6 +29,14 @@ class SendEmailCommand extends BaseCommand
      * @var array
      */
     public $params;
+    /**
+     * @var string
+     */
+    public $body;
+    /**
+     * @var bool
+     */
+    public $html = true;
 
     public function init()
     {

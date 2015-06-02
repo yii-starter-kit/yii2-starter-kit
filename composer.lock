@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5286b5e1f652ba072cfc0e2389dc3521",
+    "hash": "df03a42e96adb5c732ee3960bd1b3ef7",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -1048,6 +1048,57 @@
             "time": "2015-05-22 23:35:09"
         },
         {
+            "name": "league/tactician",
+            "version": "v0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/tactician.git",
+                "reference": "fd8cfd4ab84723bcd0cf10493654eeec0d3ca4ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/tactician/zipball/fd8cfd4ab84723bcd0cf10493654eeec0d3ca4ba",
+                "reference": "fd8cfd4ab84723bcd0cf10493654eeec0d3ca4ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.3",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Tactician\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ross Tuck",
+                    "homepage": "http://tactician.thephpleague.com"
+                }
+            ],
+            "description": "A small, flexible command bus. Handy for building service layers.",
+            "keywords": [
+                "command",
+                "command bus",
+                "service layer"
+            ],
+            "time": "2015-05-08 12:58:09"
+        },
+        {
             "name": "league/url",
             "version": "3.3.2",
             "source": {
@@ -1743,6 +1794,47 @@
                 "yii2"
             ],
             "time": "2015-04-09 21:02:46"
+        },
+        {
+            "name": "trntv/yii2-tactician",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/yii2-tactician.git",
+                "reference": "43f3ef1c8f816c0fece8f34fa039a10cded6b8ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/yii2-tactician/zipball/43f3ef1c8f816c0fece8f34fa039a10cded6b8ca",
+                "reference": "43f3ef1c8f816c0fece8f34fa039a10cded6b8ca",
+                "shasum": ""
+            },
+            "require": {
+                "league/tactician": "^0.6.0",
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "trntv\\tactician\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Terentev",
+                    "email": "eugene@terentev.net"
+                }
+            ],
+            "description": "A simple, flexible command bus. This package provide it's integration with Yii2",
+            "keywords": [
+                "extension",
+                "yii2"
+            ],
+            "time": "2015-06-02 19:42:07"
         },
         {
             "name": "true/punycode",

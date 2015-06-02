@@ -1,3 +1,7 @@
+# Console
+### AppController
+TBD
+
 ### ExtendedMessageController
 This controller extends default MessageController to provide some useful actions:
 

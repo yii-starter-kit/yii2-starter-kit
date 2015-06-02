@@ -37,6 +37,7 @@
     "trntv/yii2-file-kit": "^1.0.0@dev",
     "trntv/yii2-glide": "^1.0.0",
     "trntv/yii2-bootstrap-datetimepicker": "^1.5",
+    "trntv/yii2-tactician": "^0.1.0",
     "trntv/cheatsheet": "^0.1@dev",
     "intervention/image": "^2.1",
     "vlucas/phpdotenv": "^2.0",
@@ -45,8 +46,7 @@
     "bower-asset/font-awesome": "^4.0",
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
-    "bower-asset/flot": "^0.8",
-    "trntv/yii2-tactician": "^0.1.0"
+    "bower-asset/flot": "^0.8"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

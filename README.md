@@ -18,7 +18,7 @@ It covers typical use cases for a new project and will help you not to waste you
 ## TABLE OF CONTENTS
 - [Demo](#demo)
 - [Features](#features)
-- [Installation](#installation)
+- [Installation](https://github.com/trntv/yii2-starter-kit/blob/master/docs/installation.md)
 - [Application components](#application-components)
 - [Updates](#updates)
 - [How to contribute?](#how-to-contribute)

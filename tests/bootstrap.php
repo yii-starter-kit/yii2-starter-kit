@@ -6,4 +6,4 @@
 require_once( dirname(__DIR__) . '/vendor/autoload.php');
 
 // Environment
-Dotenv::load( __DIR__ );
+(new \Dotenv\Dotenv( __DIR__ ))->load();

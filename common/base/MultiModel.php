@@ -122,7 +122,7 @@ class MultiModel extends Model
                 $transaction->rollBack();
                 return false;
             }
-            $success = $model->save();
+            $success = $model->save(false);
         }
         $transaction->commit();
         return $success;

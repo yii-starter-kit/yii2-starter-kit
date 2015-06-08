@@ -12,9 +12,11 @@
 - [Single domain installtion](#single-domain-installation)
 
 ## REQUIREMENTS
-The minimum requirement by this application template that your Web server supports PHP 5.4.0.
+The minimum requirement by this application template that your Web server supports PHP 5.5.0.
 Required PHP extensions:
-- php-intl
+- intl
+- gd
+- mcrypt
 
 ## Regular installation
 ### Before you begin

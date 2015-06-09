@@ -20,7 +20,6 @@ It covers typical use cases for a new project and will help you not to waste you
 - [Features](#features)
 - [Installation](https://github.com/trntv/yii2-starter-kit/blob/master/docs/installation.md)
 - [Application components](#application-components)
-- [Updates](#updates)
 - [How to contribute?](#how-to-contribute)
 - [Have any questions](#have-any-questions)
 
@@ -253,21 +252,6 @@ In view:
 - ``common\behaviors\LoginTimestampBehavior`` - logs user login time
 - ``common\validators\JsonValidator`` - validates a value to be a valid json
 - ``common\rbac\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
-
-##Updates
-Add remote repository `upstream`.
-```
-git remote add upstream https://github.com/trntv/yii2-starter-kit.git
-```
-Fetch latest changes from it
-```
-git fetch upstream
-```
-Merge these changes into your repository
-```
-git merge upstream/master
-```
-**IMPORTANT: there might be a conflicts between `upstream` and your code. You should resolve conflicts on your own**
 
 ##How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)

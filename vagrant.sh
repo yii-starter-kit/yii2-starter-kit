@@ -59,11 +59,13 @@ else
     cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
 fi
 
-php /var/www/init --env=dev --overwrite=n
+cp /var/www/.env.dist /var/www/.env
+php /var/www/console/yii app/setup
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
-    sudo ln -s /var/www/nginx.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
+    cp /var/www/vhost.conf.dist /var/www/vhost.conf
+    sudo ln -s /var/www/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
 fi
 
 # Configuring application

@@ -97,4 +97,53 @@ Password: user
 ```
 
 ## Single domain
+### Before you begin
+If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
+at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+
+Install composer-asset-plugin needed for yii assets management
+```bash
+composer global require "fxp/composer-asset-plugin"
+```
+
+### Install via Composer
+
+You can install this application template with `composer` using the following command:
+
+```
+composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+```
+
+### Setup application
+1. Copy `.env.dist` to `.env` in the project root
+2. Adjust settings in `.env` file
+	- Set debug mode and your current environment
+	```
+	YII_DEBUG   = true
+	YII_ENV     = dev
+	```
+	- Set DB configuration
+	```
+	DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
+	DB_USERNAME      = user
+	DB_PASSWORD      = password
+	```
+
+	- Set application canonical urls
+	```
+	FRONTEND_URL    = http://yii2-starter-kit.dev
+	BACKEND_URL     = http://yii2-starter-kit.dev/backend
+	STORAGE_URL     = http://yii2-starter-kit.dev/storage
+	```
+
+3. Run
+```
+php console/yii app/setup
+```
+
+### Configure your web server
+#### Nginx
+Copy `vhost.single.conf.dist` to `vhost.conf`, change it with your local settings and copy (symlink) it to nginx ``sites-enabled`` directory.
+
+#### Apache
 TBD

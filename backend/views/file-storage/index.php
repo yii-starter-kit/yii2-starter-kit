@@ -54,7 +54,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'component',
                 'filter' => $components
             ],
-            'base_url:url',
             'path',
             'type',
             'size:size',

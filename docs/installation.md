@@ -95,7 +95,7 @@ Login: user
 Password: user
 ```
 
-## Single domain
+## Single domain installation
 ### Setup application
 Adjust settings in `.env` file
 

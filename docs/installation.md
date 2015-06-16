@@ -103,12 +103,13 @@ Adjust settings in `.env` file
 FRONTEND_URL    = http://yii2-starter-kit.dev
 BACKEND_URL     = http://yii2-starter-kit.dev/backend
 STORAGE_URL     = http://yii2-starter-kit.dev/storage
-	```
+```
 	
 
 ### Configure your web server
 #### Nginx
 This is an example single domain config for nginx
+
 ```
 # Based on https://github.com/mickgeek/yii2-advanced-one-domain-config
 
@@ -131,29 +132,15 @@ server {
         try_files  $uri /frontend/web/index.php?$args;
         
         # location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|pdf|ppt|txt|bmp|rtf|js)$ {
-    	  #	  access_log off;
-    	  #	  expires max;
-    	  # }
+	#	  access_log off;
+	#	  expires max;
+	# }
     }
     
     # backend access
     location /backend {
         alias  /path/to/yii2-starter-kit/backend/web;
         try_files  $uri /backend/web/index.php?$args;
-
-        # redirect to the page without a trailing slash (uncomment if necessary)
-        #location = /admin/ {
-        #    return  301 /admin;
-        #}
-
-        location ~* ^/backend/(.+\.php)$ {
-            try_files  $uri /backend/web/$1?$args;
-        }
-
-        # avoid processing of calls to non-existing static files by Yii (uncomment if necessary)
-        #location ~* ^/backend/(.+\.(css|js|jpg|jpeg|png|gif|bmp|ico|mov|swf|pdf|zip|rar))$ {
-        #    try_files  $uri /backend/web/$1?$args;
-        #}
     }
     
     # storage access

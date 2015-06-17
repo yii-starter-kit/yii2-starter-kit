@@ -20,6 +20,7 @@ It covers typical use cases for a new project and will help you not to waste you
 - [Features](#features)
 - [Installation](https://github.com/trntv/yii2-starter-kit/blob/master/docs/installation.md)
 - [Application components](#application-components)
+- [FAQ](#faq)
 - [How to contribute?](#how-to-contribute)
 - [Have any questions](#have-any-questions)
 
@@ -252,6 +253,12 @@ In view:
 - ``common\behaviors\LoginTimestampBehavior`` - logs user login time
 - ``common\validators\JsonValidator`` - validates a value to be a valid json
 - ``common\rbac\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
+
+##FAQ
+### 1. Where is Gii?
+Gii is available on:
+- http://yii2-starter-kit.dev/gii
+- http://backend.yii2-starter-kit.dev/gii
 
 ##How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)

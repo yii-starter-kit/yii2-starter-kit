@@ -3,12 +3,12 @@
  * Eugine Terentev <eugine@terentev.net>
  */
 
-namespace common\rbac;
+namespace common\rbac\rule;
 
 use yii\rbac\Item;
 use yii\rbac\Rule;
 
-class OwnModelRule extends Rule
+class OwnModel extends Rule
 {
     /** @var string */
     public $name = 'ownModelRule';

@@ -58,6 +58,7 @@ Password: user
 - OAuth authorization
 - User management
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
+- RBAC migrations support
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - Key-value storage component
 - Application settings form (based on KeyStorage component)

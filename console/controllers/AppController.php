@@ -12,6 +12,7 @@ use yii\helpers\Console;
 class AppController extends Controller
 {
     public $writablePaths = [
+        '@common/runtime',
         '@frontend/runtime',
         '@frontend/web/assets',
         '@backend/runtime',
@@ -36,7 +37,7 @@ class AppController extends Controller
         $this->setExecutable($this->executablePaths);
         $this->setGeneratedKey($this->generateKeysPaths);
         \Yii::$app->runAction('migrate/up');
-        \Yii::$app->runAction('rbac/init');
+        \Yii::$app->runAction('rbac-migrate/up');
     }
 
     public function setWritable($paths)

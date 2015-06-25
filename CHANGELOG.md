@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 2.1.0 under development
 -----------------------
+- Enh #223: Migrations for RBAC
 - Enh #189: Added command bus
 - Changed application setup proccess 
 - Enh #184: Preserve article attachments file name

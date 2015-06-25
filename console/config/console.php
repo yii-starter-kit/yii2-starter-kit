@@ -10,10 +10,13 @@ return [
         'migrate'=>[
             'class'=>'yii\console\controllers\MigrateController',
             'migrationPath'=>'@common/migrations',
-            'migrationTable'=>'{{%system_migration}}'
+            'migrationTable'=>'{{%system_db_migration}}'
         ],
-        'rbac'=>[
-            'class'=>'console\controllers\RbacController'
-        ]
+        'rbac-migrate'=>[
+            'class'=>'console\controllers\RbacMigrateController',
+            'migrationPath'=>'@common/migrations/rbac/',
+            'migrationTable'=>'{{%system_rbac_migration}}',
+            'templateFile' => '@common/rbac/views/migration.php'
+        ],
     ],
 ];

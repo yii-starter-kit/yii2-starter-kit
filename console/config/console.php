@@ -9,7 +9,7 @@ return [
         ],
         'migrate'=>[
             'class'=>'yii\console\controllers\MigrateController',
-            'migrationPath'=>'@common/migrations',
+            'migrationPath'=>'@common/migrations/db',
             'migrationTable'=>'{{%system_db_migration}}'
         ],
         'rbac-migrate'=>[

@@ -19,7 +19,11 @@ class Menu extends \yii\widgets\Menu
     /**
      * @var string
      */
-    public $labelTemplate = '{icon}\n{label}\n{badge}';
+    public $labelTemplate = "{icon}\n{label}\n{badge}";
+    /**
+     * @var string
+     */
+    public $headerLabelTemplate = "{label}\n{badge}";
 
     /**
      * @var string
@@ -67,6 +71,15 @@ class Menu extends \yii\widgets\Menu
                 '{url}' => Url::to($item['url']),
                 '{label}' => $item['label'],
             ]);
+        } elseif (ArrayHelper::getValue($item, 'options.class') == 'header') {
+            $template = ArrayHelper::getValue($item, 'template', $this->headerLabelTemplate);
+
+            return strtr($template, [
+                '{badge}'=> isset($item['badge'])
+                    ? Html::tag('small', $item['badge'], $item['badgeOptions'])
+                    : '',
+                '{label}' => $item['label'],
+                ]);
         } else {
             $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
 

@@ -39,7 +39,7 @@ $this->title = Yii::t('frontend', 'User Settings')
 
     <h2><?php echo Yii::t('frontend', 'Account Settings') ?></h2>
 
-    <?php echo $form->field($model->getModel('account'), 'username') ?>
+    <?php echo $form->field($model->getModel('account'), 'email') ?>
 
     <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
 

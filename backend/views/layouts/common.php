@@ -122,11 +122,14 @@ use yii\widgets\Breadcrumbs;
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <?php echo Menu::widget([
                     'options'=>['class'=>'sidebar-menu'],
-                    'labelTemplate' => '<a href="#">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                     'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                     'submenuTemplate'=>"\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
                     'activateParents'=>true,
                     'items'=>[
+                        [
+                            'label'=>Yii::t('backend', 'Main'),
+                            'options' => ['class' => 'header']
+                        ],
                         [
                             'label'=>Yii::t('backend', 'Timeline'),
                             'icon'=>'<i class="fa fa-bar-chart-o"></i>',
@@ -136,6 +139,7 @@ use yii\widgets\Breadcrumbs;
                         ],
                         [
                             'label'=>Yii::t('backend', 'Content'),
+                            'url' => '#',
                             'icon'=>'<i class="fa fa-edit"></i>',
                             'options'=>['class'=>'treeview'],
                             'items'=>[
@@ -148,13 +152,18 @@ use yii\widgets\Breadcrumbs;
                             ]
                         ],
                         [
+                            'label'=>Yii::t('backend', 'System'),
+                            'options' => ['class' => 'header']
+                        ],
+                        [
                             'label'=>Yii::t('backend', 'Users'),
                             'icon'=>'<i class="fa fa-users"></i>',
                             'url'=>['/user/index'],
                             'visible'=>Yii::$app->user->can('administrator')
                         ],
                         [
-                            'label'=>Yii::t('backend', 'System'),
+                            'label'=>Yii::t('backend', 'Other'),
+                            'url' => '#',
                             'icon'=>'<i class="fa fa-cogs"></i>',
                             'options'=>['class'=>'treeview'],
                             'items'=>[

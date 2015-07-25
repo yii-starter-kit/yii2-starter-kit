@@ -46,9 +46,9 @@ class FileStorageItem extends \yii\db\ActiveRecord
         return [
             [['component', 'path'], 'required'],
             [['size'], 'integer'],
-            [['component', 'name'], 'string', 'max' => 255],
-            [['path', 'base_url'], 'string', 'max' => 512],
-            [['type'], 'string', 'max' => 128],
+            [['component', 'name', 'type'], 'string', 'max' => 255],
+            [['path', 'base_url'], 'string', 'max' => 1024],
+            [['type'], 'string', 'max' => 45],
             [['upload_ip'], 'string', 'max' => 15]
         ];
     }

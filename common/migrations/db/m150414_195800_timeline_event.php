@@ -13,12 +13,12 @@ class m150414_195800_timeline_event extends Migration
         }
 
         $this->createTable('{{%timeline_event}}', [
-            'id' => Schema::TYPE_PK,
-            'application' => Schema::TYPE_STRING . '(64) NOT NULL',
-            'category' => Schema::TYPE_STRING . '(64) NOT NULL',
-            'event' => Schema::TYPE_STRING . '(64) NOT NULL',
-            'data' => Schema::TYPE_TEXT,
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL'
+            'id' => Schema::primaryKey(),
+            'application' => Schema::string(64)->notNull(),
+            'category' => Schema::string(64)->notNull(),
+            'event' => Schema::string(64)->notNull(),
+            'data' => Schema::text(),
+            'created_at' => Schema::integer()->notNull()
         ], $tableOptions);
 
         $this->createIndex('idx_created_at', '{{%timeline_event}}', 'created_at');

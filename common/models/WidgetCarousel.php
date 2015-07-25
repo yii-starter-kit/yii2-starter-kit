@@ -54,7 +54,7 @@ class WidgetCarousel extends \yii\db\ActiveRecord
             [['key'], 'required'],
             [['key'], 'unique'],
             [['status'], 'integer'],
-            [['key'], 'string', 'max' => 1024]
+            [['key'], 'string', 'max' => 255]
         ];
     }
 

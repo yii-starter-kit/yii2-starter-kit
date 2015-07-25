@@ -82,7 +82,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
             [['carousel_id'], 'required'],
             [['carousel_id', 'status', 'order'], 'integer'],
             [['url', 'caption', 'base_url', 'path'], 'string', 'max' => 1024],
-            [['type'], 'string', 'max' => 45],
+            [['type'], 'string', 'max' => 255],
             ['image', 'safe']
         ];
     }

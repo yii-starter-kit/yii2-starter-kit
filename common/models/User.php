@@ -264,8 +264,8 @@ class User extends ActiveRecord implements IdentityInterface
             'category' => 'user',
             'event' => 'signup',
             'data' => [
-                'publicIdentity' => $this->getPublicIdentity(),
-                'userId' => $this->getId(),
+                'public_identity' => $this->getPublicIdentity(),
+                'user_id' => $this->getId(),
                 'created_at' => $this->created_at
             ]
         ]));

@@ -59,8 +59,7 @@ class WidgetText extends \yii\db\ActiveRecord
             [['key'], 'unique'],
             [['body'], 'string'],
             [['status'], 'integer'],
-            [['key'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512]
+            [['title', 'key'], 'string', 'max' => 255]
         ];
     }
 

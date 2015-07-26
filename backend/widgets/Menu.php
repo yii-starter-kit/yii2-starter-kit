@@ -11,7 +11,6 @@ use yii\helpers\Url;
  */
 class Menu extends \yii\widgets\Menu
 {
-
     /**
      * @var string
      */
@@ -19,7 +18,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @var string
      */
-    public $labelTemplate = '{icon}\n{label}\n{badge}';
+    public $labelTemplate = "{icon}\n{label}\n{badge}";
 
     /**
      * @var string

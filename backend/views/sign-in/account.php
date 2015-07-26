@@ -15,6 +15,8 @@ $this->title = Yii::t('backend', 'Edit account')
 
     <?php echo $form->field($model, 'username') ?>
 
+    <?php echo $form->field($model, 'email') ?>
+
     <?php echo $form->field($model, 'password')->passwordInput() ?>
 
     <?php echo $form->field($model, 'password_confirm')->passwordInput() ?>

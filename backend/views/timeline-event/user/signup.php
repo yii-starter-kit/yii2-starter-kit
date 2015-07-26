@@ -16,7 +16,7 @@
 
     <div class="timeline-body">
         <?php echo Yii::t('backend', 'New user ({identity}) was registered at {created_at}', [
-            'identity' => $model->data['publicIdentity'],
+            'identity' => $model->data['public_identity'],
             'created_at' => Yii::$app->formatter->asDatetime($model->data['created_at'])
         ]) ?>
     </div>
@@ -24,7 +24,7 @@
     <div class="timeline-footer">
         <?php echo \yii\helpers\Html::a(
             Yii::t('backend', 'View user'),
-            ['/user/view', 'id' => $model->data['userId']],
+            ['/user/view', 'id' => $model->data['user_id']],
             ['class' => 'btn btn-success btn-sm']
         ) ?>
     </div>

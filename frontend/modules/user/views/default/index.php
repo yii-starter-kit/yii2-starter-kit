@@ -41,6 +41,8 @@ $this->title = Yii::t('frontend', 'User Settings')
 
     <?php echo $form->field($model->getModel('account'), 'username') ?>
 
+    <?php echo $form->field($model->getModel('account'), 'email') ?>
+
     <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
 
     <?php echo $form->field($model->getModel('account'), 'password_confirm')->passwordInput() ?>

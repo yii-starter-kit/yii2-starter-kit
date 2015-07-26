@@ -27,9 +27,9 @@ class m150414_195800_timeline_event extends Migration
             '{{%timeline_event}}',
             ['application', 'category', 'event', 'data', 'created_at'],
             [
-                ['frontend', 'user', 'signup', json_encode(['publicIdentity' => 'webmaster', 'userId' => 1, 'created_at' => time()]), time()],
-                ['frontend', 'user', 'signup', json_encode(['publicIdentity' => 'manager', 'userId' => 2, 'created_at' => time()]), time()],
-                ['frontend', 'user', 'signup', json_encode(['publicIdentity' => 'user', 'userId' => 3, 'created_at' => time()]), time()]
+                ['frontend', 'user', 'signup', json_encode(['public_identity' => 'webmaster', 'user_id' => 1, 'created_at' => time()]), time()],
+                ['frontend', 'user', 'signup', json_encode(['public_identity' => 'manager', 'user_id' => 2, 'created_at' => time()]), time()],
+                ['frontend', 'user', 'signup', json_encode(['public_identity' => 'user', 'user_id' => 3, 'created_at' => time()]), time()]
             ]
         );
     }

@@ -103,10 +103,10 @@ class UserProfile extends \yii\db\ActiveRecord
         return null;
     }
 
-    public function getAvatar()
+    public function getAvatar($default = null)
     {
         return $this->avatar_path
             ? Yii::getAlias($this->avatar_base_url . '/' . $this->avatar_path)
-            : false;
+            : $default;
     }
 }

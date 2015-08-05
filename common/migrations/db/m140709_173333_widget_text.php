@@ -13,13 +13,13 @@ class m140709_173333_widget_text extends Migration
         }
 
         $this->createTable('{{%widget_text}}', [
-            'id' => Schema::primaryKey(),
-            'key' => Schema::string()->notNull(),
-            'title' => Schema::string()->notNull(),
-            'body' => Schema::text()->notNull(),
-            'status' => Schema::smallInteger(),
-            'created_at' => Schema::integer(),
-            'updated_at' => Schema::integer(),
+            'id' => $this->primaryKey(),
+            'key' => $this->string()->notNull(),
+            'title' => $this->string()->notNull(),
+            'body' => $this->text()->notNull(),
+            'status' => $this->smallInteger(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
         ], $tableOptions);
 
         $this->createIndex('idx_widget_text_key', '{{%widget_text}}', 'key');

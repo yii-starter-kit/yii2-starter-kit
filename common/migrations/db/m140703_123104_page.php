@@ -13,14 +13,14 @@ class m140703_123104_page extends Migration
         }
 
         $this->createTable('{{%page}}', [
-            'id' => Schema::primaryKey(),
-            'slug' => Schema::string(2048)->notNull(),
-            'title' => Schema::string(512)->notNull(),
-            'body' => Schema::string()->notNull(),
-            'view' => Schema::string(),
-            'status' => Schema::smallInteger()->notNull(),
-            'created_at' => Schema::integer(),
-            'updated_at' => Schema::integer(),
+            'id' => $this->primaryKey(),
+            'slug' => $this->string(2048)->notNull(),
+            'title' => $this->string(512)->notNull(),
+            'body' => $this->string()->notNull(),
+            'view' => $this->string(),
+            'status' => $this->smallInteger()->notNull(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
         ], $tableOptions);
     }
 

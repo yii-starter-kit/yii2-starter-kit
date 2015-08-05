@@ -31,13 +31,13 @@ class AppController extends Controller
         '@base/.env'
     ];
 
-    public function actionSetup()
+    public function actionSetup($params = [])
     {
         $this->setWritable($this->writablePaths);
         $this->setExecutable($this->executablePaths);
         $this->setGeneratedKey($this->generateKeysPaths);
-        \Yii::$app->runAction('migrate/up');
-        \Yii::$app->runAction('rbac-migrate/up');
+        \Yii::$app->runAction('migrate/up', ['interactive' => $this->interactive]);
+        \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
     }
 
     public function setWritable($paths)

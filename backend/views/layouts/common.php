@@ -171,6 +171,7 @@ $bundle = BackendAsset::register($this);
                             'items'=>[
                                 [
                                     'label'=>Yii::t('backend', 'i18n'),
+                                    'url' => '#',
                                     'icon'=>'<i class="fa fa-flag"></i>',
                                     'options'=>['class'=>'treeview'],
                                     'items'=>[

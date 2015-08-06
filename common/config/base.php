@@ -17,7 +17,8 @@ $config = [
         ],
 
         'cache' => [
-            'class' => 'yii\caching\DummyCache',
+            'class' => 'yii\caching\FileCache',
+            'cachePath' => '@common/runtime/cache'
         ],
 
         'commandBus' => [
@@ -132,7 +133,7 @@ $config = [
         ),
         'urlManagerFrontend' => \yii\helpers\ArrayHelper::merge(
             [
-                'hostInfo'=>Yii::getAlias('@frontendUrl')
+                'hostInfo' => Yii::getAlias('@frontendUrl')
             ],
             require(Yii::getAlias('@frontend/config/_urlManager.php'))
         ),
@@ -156,11 +157,6 @@ $config = [
 ];
 
 if (YII_ENV_PROD) {
-    $config['components']['cache'] = [
-        'class' => 'yii\caching\FileCache',
-        'cachePath' => '@common/runtime/cache'
-    ];
-
     $config['components']['log']['targets']['email'] = [
         'class' => 'yii\log\EmailTarget',
         'except' => ['yii\web\HttpException:*'],
@@ -173,6 +169,10 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module'
+    ];
+
+    $config['components']['cache'] = [
+        'class' => 'yii\caching\DummyCache'
     ];
 }
 

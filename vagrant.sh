@@ -60,7 +60,6 @@ else
 fi
 
 cp /var/www/.env.dist /var/www/.env
-php /var/www/console/yii app/setup
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
@@ -73,9 +72,7 @@ echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root'" | mysql -u
 echo "FLUSH PRIVILEGES" | mysql -uroot -proot
 echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLLATE utf8_unicode_ci" | mysql -uroot -proot
 
-php /var/www/console/yii migrate up --interactive=0
-php /var/www/console/yii rbac/init
-php /var/www/console/yii rbac-migrate/up --interactive=0
+php /var/www/console/yii app/setup --interactive=0
 
 sudo service mysql restart
 sudo service php5-fpm restart

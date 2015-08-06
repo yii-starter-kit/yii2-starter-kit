@@ -13,15 +13,15 @@ class m150318_213934_file_storage_item extends Migration
         }
 
         $this->createTable('{{%file_storage_item}}', [
-            'id' => Schema::primaryKey(),
-            'component' => Schema::string()->notNull(),
-            'base_url' => Schema::string(1024)->notNull(),
-            'path' => Schema::string(1024)->notNull(),
-            'type' => Schema::string(),
-            'size' => Schema::integer(),
-            'name' => Schema::string(),
-            'upload_ip' => Schema::string(15),
-            'created_at' => Schema::integer()->notNull()
+            'id' => $this->primaryKey(),
+            'component' => $this->string()->notNull(),
+            'base_url' => $this->string(1024)->notNull(),
+            'path' => $this->string(1024)->notNull(),
+            'type' => $this->string(),
+            'size' => $this->integer(),
+            'name' => $this->string(),
+            'upload_ip' => $this->string(15),
+            'created_at' => $this->integer()->notNull()
         ], $tableOptions);
     }
     public function down()

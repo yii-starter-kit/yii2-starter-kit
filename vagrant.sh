@@ -75,6 +75,7 @@ echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLL
 
 php /var/www/console/yii migrate up --interactive=0
 php /var/www/console/yii rbac/init
+php /var/www/console/yii rbac-migrate/up --interactive=0
 
 sudo service mysql restart
 sudo service php5-fpm restart

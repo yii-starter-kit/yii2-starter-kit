@@ -13,42 +13,42 @@ class m140703_123803_article extends Migration
         }
 
         $this->createTable('{{%article_category}}', [
-            'id' => Schema::primaryKey(),
-            'slug' => Schema::string(1024)->notNull(),
-            'title' => Schema::string(512)->notNull(),
-            'body' => Schema::text(),
-            'parent_id' => Schema::integer(),
-            'status' => Schema::smallInteger()->notNull()->default(0),
-            'created_at' => Schema::integer(),
-            'updated_at' => Schema::integer(),
+            'id' => $this->primaryKey(),
+            'slug' => $this->string(1024)->notNull(),
+            'title' => $this->string(512)->notNull(),
+            'body' => $this->text(),
+            'parent_id' => $this->integer(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
         ], $tableOptions);
 
         $this->createTable('{{%article}}', [
-            'id' => Schema::primaryKey(),
-            'slug' => Schema::string(1024)->notNull(),
-            'title' => Schema::string(512)->notNull(),
-            'body' => Schema::text()->notNull(),
-            'view' => Schema::string(),
-            'category_id' => Schema::integer(),
-            'thumbnail_base_url' => Schema::string(1024),
-            'thumbnail_path' => Schema::string(1024),
-            'author_id' => Schema::integer(),
-            'updater_id' => Schema::integer(),
-            'status' => Schema::smallInteger()->notNull()->default(0),
-            'published_at' => Schema::integer(),
-            'created_at' => Schema::integer(),
-            'updated_at' => Schema::integer(),
+            'id' => $this->primaryKey(),
+            'slug' => $this->string(1024)->notNull(),
+            'title' => $this->string(512)->notNull(),
+            'body' => $this->text()->notNull(),
+            'view' => $this->string(),
+            'category_id' => $this->integer(),
+            'thumbnail_base_url' => $this->string(1024),
+            'thumbnail_path' => $this->string(1024),
+            'author_id' => $this->integer(),
+            'updater_id' => $this->integer(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'published_at' => $this->integer(),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
         ], $tableOptions);
 
         $this->createTable('{{%article_attachment}}', [
-            'id' => Schema::primaryKey(),
-            'article_id' => Schema::integer()->notNull(),
-            'path' => Schema::string()->notNull(),
-            'base_url' => Schema::string(),
-            'type' => Schema::string(),
-            'size' => Schema::integer(),
-            'name' => Schema::string(),
-            'created_at' => Schema::integer()
+            'id' => $this->primaryKey(),
+            'article_id' => $this->integer()->notNull(),
+            'path' => $this->string()->notNull(),
+            'base_url' => $this->string(),
+            'type' => $this->string(),
+            'size' => $this->integer(),
+            'name' => $this->string(),
+            'created_at' => $this->integer()
         ]);
 
         $this->addForeignKey('fk_article_attachment_article', '{{%article_attachment}}', 'article_id', '{{%article}}', 'id', 'cascade', 'cascade');

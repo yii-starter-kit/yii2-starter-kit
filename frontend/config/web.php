@@ -62,6 +62,11 @@ if (YII_ENV_PROD) {
             return $app->keyStorage->get('frontend.maintenance') === 'enabled';
         }
     ];
+
+    // Compressed assets
+    //$config['components']['assetManager'] = [
+    //   'bundles' => require(__DIR__ . '/assets/_bundles.php')
+    //];
 }
 
 return $config;

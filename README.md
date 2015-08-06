@@ -88,6 +88,7 @@ Password: user
 - Test-ready
 - Docker support
 - Vagrant support
+- Assets compression and concatenation
 - many other features i'm lazy to write about :-)
 
 

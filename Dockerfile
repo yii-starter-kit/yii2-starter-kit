@@ -1,26 +1,34 @@
 FROM php:5.6-cli
+MAINTAINER Eugene Terentev <eugene@terentev.net>
 
-RUN apt-get update && \
-        DEBIAN_FRONTEND=noninteractive apt-get -y install \
-                git \
-                curl \
-                openssl \
-                libfreetype6-dev \
-                libjpeg62-turbo-dev \
-                libmcrypt-dev \
-                libpng12-dev \
-                libicu-dev \
-                        --no-install-recommends \
-        && docker-php-ext-install zip mcrypt intl mbstring pdo_mysql \
-        && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-        && docker-php-ext-install gd
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get --yes install \
+        git \
+        openssl \
+        curl \
+        wget \
+        libicu-dev \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+        libicu-dev
 
+RUN docker-php-ext-install zip mcrypt intl mbstring pdo_mysql \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install gd
 
-# Install modules
-RUN apt-get update && apt-get install -y
+RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+RUN curl -sL https://www.npmjs.org/install.sh | bash -
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get --yes install \
+        nodejs \
+        build-essential \
+        default-jre
 
 RUN apt-get autoremove -y \
         && rm -r /var/lib/apt/lists/*
+
+RUN npm install -g uglifyjs yuicompressor
 
 # Install composer && global asset plugin
 ENV COMPOSER_HOME /root/.composer

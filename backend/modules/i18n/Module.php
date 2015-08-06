@@ -9,7 +9,13 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
+    }
 
-        // custom initialization code goes here
+    /**
+     * @param \yii\i18n\MissingTranslationEvent $event
+     */
+    public function missingTranslation($event)
+    {
+        // do something with missing translation
     }
 }

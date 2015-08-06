@@ -14,29 +14,29 @@ class m140703_123000_user extends Migration
         }
 
         $this->createTable('{{%user}}', [
-            'id' => Schema::primaryKey(),
-            'username' => Schema::string(32),
-            'auth_key' => Schema::string(32)->notNull(),
-            'password_hash' => Schema::string()->notNull(),
-            'password_reset_token' => Schema::string(),
-            'oauth_client' => Schema::string(),
-            'oauth_client_user_id' => Schema::string(),
-            'email' => Schema::string()->notNull(),
-            'status' => Schema::smallInteger()->notNull()->default(User::STATUS_ACTIVE),
-            'created_at' => Schema::integer(),
-            'updated_at' => Schema::integer(),
-            'logged_at' => Schema::integer()
+            'id' => $this->primaryKey(),
+            'username' => $this->string(32),
+            'auth_key' => $this->string(32)->notNull(),
+            'password_hash' => $this->string()->notNull(),
+            'password_reset_token' => $this->string(),
+            'oauth_client' => $this->string(),
+            'oauth_client_user_id' => $this->string(),
+            'email' => $this->string()->notNull(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(User::STATUS_ACTIVE),
+            'created_at' => $this->integer(),
+            'updated_at' => $this->integer(),
+            'logged_at' => $this->integer()
         ], $tableOptions);
 
         $this->createTable('{{%user_profile}}', [
-            'user_id' => Schema::primaryKey(),
-            'firstname' => Schema::string(),
-            'middlename' => Schema::string(),
-            'lastname' => Schema::string(),
-            'avatar_path' => Schema::string(),
-            'avatar_base_url' => Schema::string(),
-            'locale' => Schema::string(32)->notNull(),
-            'gender' => Schema::smallInteger(1)
+            'user_id' => $this->primaryKey(),
+            'firstname' => $this->string(),
+            'middlename' => $this->string(),
+            'lastname' => $this->string(),
+            'avatar_path' => $this->string(),
+            'avatar_base_url' => $this->string(),
+            'locale' => $this->string(32)->notNull(),
+            'gender' => $this->smallInteger(1)
         ], $tableOptions);
 
         $this->addForeignKey('fk_user', '{{%user_profile}}', 'user_id', '{{%user}}', 'id', 'cascade', 'cascade');

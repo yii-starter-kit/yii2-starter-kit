@@ -13,15 +13,15 @@ class m141012_101932_i18n_tables extends Migration
         }
 
         $this->createTable('{{%i18n_source_message}}', [
-            'id'=>Schema::primaryKey(),
-            'category'=>Schema::string(32),
-            'message'=>Schema::text()
+            'id'=>$this->primaryKey(),
+            'category'=>$this->string(32),
+            'message'=>$this->text()
         ], $tableOptions);
 
         $this->createTable('{{%i18n_message}}', [
-            'id'=>Schema::integer(),
-            'language'=>Schema::string(16),
-            'translation'=>Schema::text()
+            'id'=>$this->integer(),
+            'language'=>$this->string(16),
+            'translation'=>$this->text()
         ], $tableOptions);
 
         $this->addPrimaryKey('i18n_message_pk', '{{%i18n_message}}', ['id', 'language']);

@@ -21,5 +21,7 @@ RUN apt-get purge -y g++ \
     && rm -r /var/lib/apt/lists/* \
     && rm -rf /tmp/*
 
+RUN usermod -u 1000 www-data
+
 EXPOSE 9000
 CMD ["php-fpm"]

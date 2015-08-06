@@ -11,8 +11,8 @@ cli:
 
 fpm:
   build: docker/fpm
-  volumes:
-    - ./:/app
+  volumes_from:
+    - cli
   expose:
     - 9000
   links:

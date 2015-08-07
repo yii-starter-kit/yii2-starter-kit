@@ -52,11 +52,11 @@ class I18nSourceMessageSearch extends I18nSourceMessage
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
+            '{{%i18n_source_message}}.id' => $this->id,
         ]);
 
-        $query->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'message', $this->message]);
+        $query->andFilterWhere(['like', '{{%i18n_source_message}}.category', $this->category])
+            ->andFilterWhere(['like', '{{%i18n_source_message}}.message', $this->message]);
 
         return $dataProvider;
     }

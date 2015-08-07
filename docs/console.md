@@ -26,7 +26,9 @@ Provides migrate functionality for RBAC.
 
 ### Compress assets
 You need to have yuicompressor and uglifyjs installed.
-``php console/yii asset/compress frontend/config/assets/compress.php frontend/config/assets/_bundles.php``
+
+```php console/yii asset/compress frontend/config/assets/compress.php frontend/config/assets/_bundles.php```
+
 then uncomment these lines in the ``frontend/config/web.php``
 ```
 // Compressed assets

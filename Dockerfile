@@ -17,7 +17,11 @@ RUN docker-php-ext-install zip mcrypt intl mbstring pdo_mysql \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 
-RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
+RUN wget -O setupnode.sh https://deb.nodesource.com/setup_0.12
+RUN sh setupnode.sh
+RUN rm setupnode.sh
+RUN apt-get install -y nodejs
+
 RUN curl -sL https://www.npmjs.org/install.sh | bash -
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get --yes install \

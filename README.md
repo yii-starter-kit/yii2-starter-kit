@@ -249,7 +249,7 @@ It will allow access to you application only for authentificated users.
 #### EnumColumn
 ```php
  [
-      'class' => '\common\grid\EnumColumn',
+      'class' => '\common\components\grid\EnumColumn',
       'attribute' => 'status',
       'enum' => User::getStatuses() // [0=>'Deleted', 1=>'Active']
  ]

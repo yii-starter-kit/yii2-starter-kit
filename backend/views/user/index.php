@@ -1,8 +1,9 @@
 <?php
 
+use common\components\grid\EnumColumn;
 use common\models\User;
-use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\UserSearch */
@@ -17,8 +18,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'User',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+            'modelClass' => 'User',
+        ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php echo GridView::widget([
@@ -29,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'username',
             'email:email',
             [
-                'class' => \common\grid\EnumColumn::className(),
+                'class' => EnumColumn::className(),
                 'attribute' => 'status',
                 'enum' => User::getStatuses(),
                 'filter' => User::getStatuses()

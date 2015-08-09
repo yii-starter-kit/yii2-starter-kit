@@ -1,7 +1,8 @@
 <?php
 
-use yii\helpers\Html;
+use common\components\grid\EnumColumn;
 use yii\grid\GridView;
+use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\WidgetCarouselSearch */
@@ -14,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-                'modelClass' => 'Widget Carousel',
-            ]), ['create'], ['class' => 'btn btn-success']) ?>
+            'modelClass' => 'Widget Carousel',
+        ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php echo GridView::widget([
@@ -27,9 +28,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'key',
             [
-                'class'=>\common\grid\EnumColumn::className(),
-                'attribute'=>'status',
-                'enum'=>[
+                'class' => EnumColumn::className(),
+                'attribute' => 'status',
+                'enum' => [
                     Yii::t('backend', 'Disabled'),
                     Yii::t('backend', 'Enabled')
                 ],
@@ -37,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
+                'template' => '{update} {delete}'
             ],
         ],
     ]); ?>

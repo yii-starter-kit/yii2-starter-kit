@@ -2,8 +2,8 @@
 
 namespace backend\models;
 
-use backend\models\query\SystemLogQuery;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "system_log".
@@ -15,7 +15,7 @@ use Yii;
  * @property string $prefix
  * @property integer $message
  */
-class SystemLog extends \yii\db\ActiveRecord
+class SystemLog extends ActiveRecord
 {
     const CATEGORY_NOTIFICATION = 'notification';
     /**

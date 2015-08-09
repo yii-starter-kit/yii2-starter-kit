@@ -4,6 +4,7 @@ namespace common\models;
 
 use common\behaviors\CacheInvalidateBehavior;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "widget_carousel".
@@ -14,7 +15,7 @@ use Yii;
  *
  * @property WidgetCarouselItem[] $items
  */
-class WidgetCarousel extends \yii\db\ActiveRecord
+class WidgetCarousel extends ActiveRecord
 {
 
     const STATUS_DRAFT = 0;
@@ -31,9 +32,9 @@ class WidgetCarousel extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            'cacheInvalidate'=>[
-                'class'=>CacheInvalidateBehavior::className(),
-                'keys'=>[
+            'cacheInvalidate' => [
+                'class' => CacheInvalidateBehavior::className(),
+                'keys' => [
                     function ($model) {
                         return [
                             self::className(),

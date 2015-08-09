@@ -2,10 +2,10 @@
 
 namespace backend\models\search;
 
+use common\models\Article;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Article;
 
 /**
  * ArticleSearch represents the model behind the search form about `common\models\Article`.
@@ -34,9 +34,10 @@ class ArticleSearch extends Article
 
     /**
      * Creates data provider instance with search query applied
+     * @param array $params
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search(array $params)
     {
         $query = Article::find();
 

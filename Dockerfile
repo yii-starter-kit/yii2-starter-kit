@@ -18,12 +18,13 @@ RUN docker-php-ext-install zip mcrypt intl mbstring pdo_mysql \
     && docker-php-ext-install gd
 
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
-RUN curl -sL https://www.npmjs.org/install.sh | bash -
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get --yes install \
         nodejs \
         build-essential \
         default-jre
+
+RUN curl -sL https://www.npmjs.org/install.sh | bash -
 
 RUN apt-get autoremove -y \
         && rm -r /var/lib/apt/lists/*

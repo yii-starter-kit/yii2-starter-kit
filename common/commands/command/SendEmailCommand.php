@@ -36,7 +36,7 @@ class SendEmailCommand extends BaseCommand
     /**
      * @var bool
      */
-    public $html = true;
+    public $isHtml = true;
 
     public function init()
     {

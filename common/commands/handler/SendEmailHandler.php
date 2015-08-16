@@ -20,7 +20,7 @@ class SendEmailHandler extends BaseHandler
             $message = \Yii::$app->mailer->compose($command->view, $command->params);
         } else {
             $message = new Message();
-            if ($command->getIsHtml()) {
+            if ($command->isHtml()) {
                 $message->setHtmlBody($command->body);
             } else {
                 $message->setTextBody($command->body);

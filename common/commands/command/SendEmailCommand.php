@@ -42,4 +42,8 @@ class SendEmailCommand extends BaseCommand
     {
         $this->from = $this->from ?: \Yii::$app->params['robotEmail'];
     }
+
+    public function getIsHtml(){
+        return $this->html;
+    }
 }

@@ -2,7 +2,6 @@
 namespace backend\models;
 
 use common\models\User;
-use common\models\UserProfile;
 use yii\base\Model;
 use Yii;
 use yii\helpers\ArrayHelper;

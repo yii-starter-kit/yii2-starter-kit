@@ -89,6 +89,7 @@ Password: user
 - Docker support
 - Vagrant support
 - Assets compression and concatenation
+- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/shortcuts.php)
 - many other features i'm lazy to write about :-)
 
 

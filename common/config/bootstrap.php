@@ -12,3 +12,7 @@ Yii::setAlias('@tests', realpath(__DIR__.'/../../tests'));
 Yii::setAlias('@frontendUrl', getenv('FRONTEND_URL'));
 Yii::setAlias('@backendUrl', getenv('BACKEND_URL'));
 Yii::setAlias('@storageUrl', getenv('STORAGE_URL'));
+
+
+// Other
+require(__DIR__ . '/../shortcuts.php');

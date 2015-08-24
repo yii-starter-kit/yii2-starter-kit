@@ -196,7 +196,9 @@ server {
 1. How do i run yii console command?
 
 ``docker-compose run cli help``
+
 ``docker-compose run cli migrate``
+
 ``docker-compose run cli rbac-migrate``
 
 2. How to connect to the application database with my workbench, navicat etc?

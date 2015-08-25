@@ -12,8 +12,8 @@ use yii\web\AssetBundle;
 
 class BackendAsset extends AssetBundle
 {
-    public $basePath = '/';
-    public $baseUrl = '@backendUrl';
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
 
     public $css = [
         'css/style.css'

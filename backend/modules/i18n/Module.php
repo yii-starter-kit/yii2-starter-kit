@@ -14,7 +14,7 @@ class Module extends \yii\base\Module
     /**
      * @param \yii\i18n\MissingTranslationEvent $event
      */
-    public function missingTranslation($event)
+    public static function missingTranslation($event)
     {
         // do something with missing translation
     }

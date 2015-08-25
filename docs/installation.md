@@ -112,7 +112,6 @@ server {
 	server_name yii2-starter-kit.dev;
 
 	charset utf-8;
-	autoindex on;
 
 	# location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|pdf|ppt|txt|bmp|rtf|js)$ {
 	#	access_log off;

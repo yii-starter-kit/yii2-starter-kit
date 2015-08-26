@@ -5,6 +5,7 @@ namespace tests\codeception\common\_support;
 use tests\codeception\common\fixtures\ArticleAttachmentFixture;
 use tests\codeception\common\fixtures\ArticleCategoryFixture;
 use tests\codeception\common\fixtures\ArticleFixture;
+use tests\codeception\common\fixtures\RbacAuthAssignmentFixture;
 use tests\codeception\common\fixtures\UserFixture;
 use Codeception\Module;
 use tests\codeception\common\fixtures\UserProfileFixture;
@@ -74,6 +75,10 @@ class FixtureHelper extends Module
             'user_profile' => [
                 'class' => UserProfileFixture::className(),
                 'dataFile' => '@tests/codeception/common/fixtures/data/user_profile.php',
+            ],
+            'rbac_auth_assignment' => [
+                'class' => RbacAuthAssignmentFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/rbac_auth_assignment.php',
             ]
         ];
     }

@@ -71,6 +71,7 @@ class SignupCest
         $I->dontSee('Password cannot be blank.', '.help-block');
         $I->see('E-mail is not a valid email address.', '.help-block');
 
+
         $I->amGoingTo('submit signup form with correct email');
         $signupPage->submit([
             'username' => 'tester',

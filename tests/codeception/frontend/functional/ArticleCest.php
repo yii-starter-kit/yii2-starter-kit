@@ -18,7 +18,7 @@ class ArticleCest
         $I->amOnPage(['article/view', 'slug' => 'test-article-1']);
         $I->canSee('Test Article 1', 'h1');
         $I->canSee('Lorem ipsum');
-        $I->canSeeLink('Test File', 'http://example.org/test-file.png');
+        $I->canSeeElement("//a[contains(@href,'attachment-download')]");
         $I->amOnPage(['article/view', 'slug' => 'unknown-article']);
         $I->canSee('404');
     }

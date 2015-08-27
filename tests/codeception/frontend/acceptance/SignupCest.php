@@ -63,9 +63,12 @@ class SignupCest
             'email' => 'tester.email@example.com',
             'password' => 'tester_password',
         ]);
+        if (method_exists($I, 'wait')) {
+            $I->wait(3); // only for selenium
+        }
 
         $I->expectTo('see that user logged in');
-        $I->seeLink('Logout');
-        $I->seeLink('Logout');
+        $I->click("tester","a");
+        $I->see("Logout","a");
     }
 }

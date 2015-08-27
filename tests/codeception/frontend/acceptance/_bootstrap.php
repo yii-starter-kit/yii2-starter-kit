@@ -1,2 +1,3 @@
 <?php
-// Here you can initialize variables that will be available to your tests
+$config = require(dirname(dirname(__DIR__)) . '/config/frontend/acceptance.php');
+new yii\web\Application($config);

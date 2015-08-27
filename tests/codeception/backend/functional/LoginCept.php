@@ -24,7 +24,10 @@ $I->see('Incorrect username or password.', '.help-block');
 
 $I->amGoingTo('try to login with "user" account');
 $loginPage->login('user', 'user');
-$I->see('Incorrect username or password.', '.help-block');
+$I->expectTo('see that user is logged, and gets an unauthorized error');
+$I->canSeeResponseCodeIs(403);
+
+$loginPage = LoginPage::openBy($I);
 
 $I->amGoingTo('try to login with correct credentials');
 $loginPage->login('webmaster', 'webmaster');

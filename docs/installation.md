@@ -166,7 +166,7 @@ upstream php-fpm {
 
 ### Installation
 1. Copy ``.env.docker.dist`` to `.env` in the project root
-2. Copy ``vhost.conf.dist`` to `vhost.conf` in the project root
+2. Copy ``vhost.conf.docker.dist`` to `vhost.conf` in the project root
 3. Run ``docker-compose build``
 4. Run ``docker-compose up -d``
 5. Setup application with ``docker-compose run cli app/setup``

@@ -96,7 +96,7 @@ server {
 
 ## PHP-FPM Servers ##
 upstream php-fpm {
-    server unix:/var/run/php5-fpm.sock;
+    server fpm:9000;
 }
 
 ## MISC ##

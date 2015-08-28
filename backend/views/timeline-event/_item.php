@@ -3,7 +3,6 @@
  * @author Eugene Terentev <eugene@terentev.net>
  * @var $model common\models\TimelineEvent
  */
-date_default_timezone_set('Europe/London');
 ?>
 <div class="timeline-item">
     <span class="time">

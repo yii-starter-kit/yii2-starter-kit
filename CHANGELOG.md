@@ -13,6 +13,7 @@ Yii Starter Kit Change Log
 - Enh #176: Added ability to set custom view for static pages and articles
 - Enh #160: LocaleBehavior::enablePreferredLanguage
 - fixes and improvements
+- Simplified vagrant installation
 
 2.0.0 
 -----

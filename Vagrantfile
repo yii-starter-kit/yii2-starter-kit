@@ -3,7 +3,7 @@
 
 # OPTIONS
 require 'yaml'
-options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant.yaml')
+options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant/vagrant.yaml')
 domains = [
     "yii2-starter-kit.dev",
     "backend.yii2-starter-kit.dev",
@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
   config.hostmanager.include_offline    = true
   config.hostmanager.aliases            = domains
 
-  config.vm.provision "shell", path: "./vagrant.sh", args: [
+  config.vm.provision "shell", path: "./vagrant/vagrant.sh", args: [
     packages.join(" "),
     options['github']['token'],
     options['system']['swapsize']

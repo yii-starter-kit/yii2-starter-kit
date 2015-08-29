@@ -36,3 +36,7 @@ ENV COMPOSER_HOME /root/.composer
 ENV PATH /root/.composer/vendor/bin:$PATH
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     /usr/local/bin/composer global require "fxp/composer-asset-plugin"
+
+COPY . /app
+RUN chown www-data:www-data -R /app
+USER www-data

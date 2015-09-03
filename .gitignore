@@ -25,4 +25,4 @@ phpunit.phar
 
 # Vagrant
 /.vagrant
-/vagrant.yaml
+/vagrant/vagrant.yaml

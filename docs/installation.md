@@ -32,7 +32,8 @@ git clone https://github.com/trntv/yii2-starter-kit.git
 #### Install composer dependencies
 ```
 composer install
-``
+```
+
 ### Get source code via Composer
 You can install this application template with `composer` using the following command:
 
@@ -85,7 +86,7 @@ Or configure your web server with three different web roots:
 - backend.yii2-starter-kit.dev => /path/to/yii2-starter-kit/backend/web
 - storage.yii2-starter-kit.dev => /path/to/yii2-starter-kit/storage/web
 
-```
+
 
 ### Single domain installation
 #### Setup application
@@ -152,8 +153,9 @@ server {
 		# or fastcgi_cache_valid any 10s; # use it if you want to cache any responses
 	}
 }
-
+```
 ## PHP-FPM Servers ##
+```
 upstream php-fpm {
     server fpm:9000;
 }

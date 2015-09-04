@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/asofter/yii2-imperavi-redactor.git",
-                "reference": "087ab0ea30f175a4affe523ad1f43219195d242d"
+                "reference": "df09dc2911fa965d320dcae11ac08f85847d44c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/087ab0ea30f175a4affe523ad1f43219195d242d",
-                "reference": "087ab0ea30f175a4affe523ad1f43219195d242d",
+                "url": "https://api.github.com/repos/asofter/yii2-imperavi-redactor/zipball/df09dc2911fa965d320dcae11ac08f85847d44c7",
+                "reference": "df09dc2911fa965d320dcae11ac08f85847d44c7",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
                 "imperavi redactor",
                 "yii"
             ],
-            "time": "2015-07-28 15:27:26"
+            "time": "2015-09-04 10:52:12"
         },
         {
             "name": "bower-asset/ace-builds",
@@ -231,16 +231,16 @@
         },
         {
             "name": "bower-asset/blueimp-load-image",
-            "version": "1.13.1",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blueimp/JavaScript-Load-Image.git",
-                "reference": "32808581869db984cddb6a974fb3394d898428e6"
+                "reference": "464fa505204e2a6592805e799a4b5f63578bea09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/32808581869db984cddb6a974fb3394d898428e6",
-                "reference": "32808581869db984cddb6a974fb3394d898428e6",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/464fa505204e2a6592805e799a4b5f63578bea09",
+                "reference": "464fa505204e2a6592805e799a4b5f63578bea09",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -1821,16 +1821,16 @@
         },
         {
             "name": "trntv/yii2-file-kit",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-file-kit.git",
-                "reference": "123c470e13fedfe54818b27b44f9a5522b6dd7a5"
+                "reference": "1fa0d3d0cd93bd6b0cdd3a3bb482e43d78dcaec0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/123c470e13fedfe54818b27b44f9a5522b6dd7a5",
-                "reference": "123c470e13fedfe54818b27b44f9a5522b6dd7a5",
+                "url": "https://api.github.com/repos/trntv/yii2-file-kit/zipball/1fa0d3d0cd93bd6b0cdd3a3bb482e43d78dcaec0",
+                "reference": "1fa0d3d0cd93bd6b0cdd3a3bb482e43d78dcaec0",
                 "shasum": ""
             },
             "require": {
@@ -1867,7 +1867,7 @@
                 }
             ],
             "description": "Yii2 file upload and storage kit",
-            "time": "2015-06-01 09:37:48"
+            "time": "2015-09-04 16:15:33"
         },
         {
             "name": "trntv/yii2-glide",
@@ -1959,16 +1959,16 @@
         },
         {
             "name": "true/punycode",
-            "version": "2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/true/php-punycode.git",
-                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e"
+                "reference": "b672918d992b84f8016bbe353a42516928393c63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/true/php-punycode/zipball/13d3aada7d7d5d1812316031d8d85f5d97178c4e",
-                "reference": "13d3aada7d7d5d1812316031d8d85f5d97178c4e",
+                "url": "https://api.github.com/repos/true/php-punycode/zipball/b672918d992b84f8016bbe353a42516928393c63",
+                "reference": "b672918d992b84f8016bbe353a42516928393c63",
                 "shasum": ""
             },
             "require": {
@@ -2001,7 +2001,7 @@
                 "idna",
                 "punycode"
             ],
-            "time": "2015-06-24 09:36:39"
+            "time": "2015-09-01 14:53:31"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -2055,12 +2055,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "1edb13cb7b86dceb1c26fac5ea3150338248d334"
+                "reference": "140505acd532961ba94c67ccde583454103a943d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/1edb13cb7b86dceb1c26fac5ea3150338248d334",
-                "reference": "1edb13cb7b86dceb1c26fac5ea3150338248d334",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/140505acd532961ba94c67ccde583454103a943d",
+                "reference": "140505acd532961ba94c67ccde583454103a943d",
                 "shasum": ""
             },
             "require": {
@@ -2135,7 +2135,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-08-17 09:42:06"
+            "time": "2015-08-28 13:36:29"
         },
         {
             "name": "yiisoft/yii2-authclient",
@@ -3138,16 +3138,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.4",
+            "version": "4.8.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7"
+                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7",
-                "reference": "55bf1d6092b0e13a1f26bd5eaffeef3d8ad85ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2246830f4a1a551c67933e4171bf2126dc29d357",
+                "reference": "2246830f4a1a551c67933e4171bf2126dc29d357",
                 "shasum": ""
             },
             "require": {
@@ -3206,24 +3206,24 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-08-15 04:21:23"
+            "time": "2015-08-24 04:09:38"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.3.6",
+            "version": "2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42"
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
-                "reference": "18dfbcb81d05e2296c0bcddd4db96cade75e6f42",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/5e2645ad49d196e020b85598d7c97e482725786a",
+                "reference": "5e2645ad49d196e020b85598d7c97e482725786a",
                 "shasum": ""
             },
             "require": {
-                "doctrine/instantiator": "~1.0,>=1.0.2",
+                "doctrine/instantiator": "^1.0.2",
                 "php": ">=5.3.3",
                 "phpunit/php-text-template": "~1.2",
                 "sebastian/exporter": "~1.2"
@@ -3262,7 +3262,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-07-10 06:54:24"
+            "time": "2015-08-19 09:14:08"
         },
         {
             "name": "sebastian/comparator",

@@ -57,6 +57,7 @@ Yii Starter Kit Change Log
 - Enh: FileCache now uses same path for all applications
 - Enh: common\components\behaviors\CacheInvalidateBehavior
 - ... Fixes ...
+- Added ability to configure timezone and name of vagrant box
 
 1.4.1
 -----

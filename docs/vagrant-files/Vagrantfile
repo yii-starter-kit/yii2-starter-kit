@@ -30,8 +30,10 @@ Vagrant.configure(2) do |config|
     vb.gui = false
     vb.memory = options['vm']['memory']
     vb.cpus = options['vm']['cpus']
+    vb.name = options['vm']['name']
   end
 
+  config.vm.define options['vm']['name'] {}
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = domains[0]
@@ -48,7 +50,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", path: "./vagrant.sh", args: [
     packages.join(" "),
     options['github']['token'],
-    options['system']['swapsize']
+    options['system']['swapsize'],
+    options['system']['timezone']
   ]
 
   config.vm.provision "shell", inline: "service nginx restart", run: "always"

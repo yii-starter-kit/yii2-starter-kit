@@ -3,6 +3,7 @@
 packages=$(echo "$1")
 github_token=$(echo "$2")
 swapsize=$(echo "$3")
+timezone=$(echo "$4")
 # Helpers
 composer="hhvm /usr/local/bin/composer"
 
@@ -14,6 +15,10 @@ if ! grep --quiet "swapfile" /etc/fstab; then
   swapon /swapfile
   echo '/swapfile none swap defaults 0 0' >> /etc/fstab
 fi
+
+# Configuring timezone
+echo ${timezone} | sudo tee /etc/timezone
+sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 # Additional repositories
 if [ ! -f /etc/apt/sources.list.d/hhvm.list ]; then

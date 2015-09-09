@@ -1,5 +1,7 @@
 <?php
 
+use trntv\filekit\widget\Upload;
+use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -41,7 +43,7 @@ use yii\bootstrap\ActiveForm;
     ) ?>
 
     <?php echo $form->field($model, 'thumbnail')->widget(
-        \trntv\filekit\widget\Upload::className(),
+        Upload::className(),
         [
             'url' => ['/file-storage/upload'],
             'maxFileSize' => 5000000, // 5 MiB
@@ -49,7 +51,7 @@ use yii\bootstrap\ActiveForm;
     ?>
 
     <?php echo $form->field($model, 'attachments')->widget(
-        \trntv\filekit\widget\Upload::className(),
+        Upload::className(),
         [
             'url' => ['/file-storage/upload'],
             'sortable' => true,
@@ -63,7 +65,7 @@ use yii\bootstrap\ActiveForm;
     <?php echo $form->field($model, 'status')->checkbox() ?>
 
     <?php echo $form->field($model, 'published_at')->widget(
-        'trntv\yii\datetimepicker\DatetimepickerWidget',
+        DateTimeWidget::className(),
         [
             'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ'
         ]

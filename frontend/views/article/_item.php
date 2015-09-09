@@ -35,7 +35,7 @@ use yii\helpers\Html;
                 ) ?>
             <?php endif; ?>
             <div class="article-text">
-                <?php echo \yii\helpers\StringHelper::truncate($model->body, 150)?>
+                <?php echo \yii\helpers\StringHelper::truncate($model->body, 150, '...', null, true) ?>
             </div>
         </div>
     </div>

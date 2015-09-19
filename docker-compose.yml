@@ -1,24 +1,31 @@
-cli:
-  build: .
+data:
+  image: busybox:latest
   volumes:
     - ./:/app
-  working_dir: /app
-  entrypoint: /app/console/yii
-  expose:
-    - 9000
-  links:
-    - db
 
 fpm:
-  build: docker/fpm
+  build: docker/php
   volumes_from:
-    - cli
+    - data
+  volumes_from:
+    - data
   expose:
     - 9000
   links:
     - db
   environment:
     XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_host=172.17.42.1"
+
+cli:
+  build: docker/php
+  volumes_from:
+    - data
+  user: www-data
+  working_dir: /app
+  entrypoint: /app/console/yii
+  tty: true
+  links:
+    - db
 
 nginx:
   image: nginx:latest

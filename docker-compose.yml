@@ -20,7 +20,6 @@ cli:
   build: docker/php
   volumes_from:
     - data
-  user: www-data
   working_dir: /app
   entrypoint: /app/console/yii
   tty: true

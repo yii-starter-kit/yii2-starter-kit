@@ -89,6 +89,7 @@ class Article extends \yii\db\ActiveRecord
                 'uploadRelation' => 'articleAttachments',
                 'pathAttribute' => 'path',
                 'baseUrlAttribute' => 'base_url',
+                'orderAttribute' => 'order',
                 'typeAttribute' => 'type',
                 'sizeAttribute' => 'size',
                 'nameAttribute' => 'name',

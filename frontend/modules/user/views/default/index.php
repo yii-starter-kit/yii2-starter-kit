@@ -35,7 +35,7 @@ $this->title = Yii::t('frontend', 'User Settings')
     <?php echo $form->field($model->getModel('profile'), 'gender')->dropDownlist([
         \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
         \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
-    ]) ?>
+    ], ['prompt' => '']) ?>
 
     <h2><?php echo Yii::t('frontend', 'Account Settings') ?></h2>
 

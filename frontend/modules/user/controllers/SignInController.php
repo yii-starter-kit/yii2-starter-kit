@@ -194,7 +194,7 @@ class SignInController extends \yii\web\Controller
 
             } else {
                 // We already have a user with this email. Do what you want in such case
-                if (User::find()->where(['email'=>$user->email])->count()) {
+                if ($user->email && User::find()->where(['email'=>$user->email])->count()) {
                     Yii::$app->session->setFlash(
                         'alert',
                         [

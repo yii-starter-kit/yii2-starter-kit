@@ -2,6 +2,7 @@
 
 namespace common\base;
 
+use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
@@ -118,11 +119,11 @@ class MultiModel extends Model
         $success = true;
         $transaction = $this->getDb()->beginTransaction();
         foreach ($this->models as $model) {
+            $success = $model->save(false);
             if (!$success) {
                 $transaction->rollBack();
                 return false;
             }
-            $success = $model->save(false);
         }
         $transaction->commit();
         return $success;
@@ -133,6 +134,6 @@ class MultiModel extends Model
      */
     public function getDb()
     {
-        return \Yii::$app->get($this->db);
+        return Yii::$app->get($this->db);
     }
 }

@@ -11,7 +11,7 @@ class Module extends \frontend\modules\api\Module
     public function init()
     {
         parent::init();
-        Yii::$app->user->identityClass = 'frontend\api\v1\models\ApiUserIdentity';
+        Yii::$app->user->identityClass = 'frontend\modules\api\v1\models\ApiUserIdentity';
         Yii::$app->user->enableSession = false;
         Yii::$app->user->loginUrl = null;
     }

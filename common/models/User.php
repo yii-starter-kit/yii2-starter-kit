@@ -20,12 +20,15 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $auth_key
  * @property string $access_token
+ * @property string $oauth_client
+ * @property string $oauth_client_user_id
  * @property string $publicIdentity
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
  * @property integer $logged_at
  * @property string $password write-only password
+ *
  * @property \common\models\UserProfile $userProfile
  */
 class User extends ActiveRecord implements IdentityInterface
@@ -270,6 +273,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public function afterSignup(array $profileData = [])
     {
+        $this->refresh();
         Yii::$app->commandBus->handle(new AddToTimelineCommand([
             'category' => 'user',
             'event' => 'signup',

@@ -173,7 +173,12 @@ class SignInController extends \yii\web\Controller
             $password = Yii::$app->security->generateRandomString(8);
             $user->setPassword($password);
             if ($user->save()) {
-                $user->afterSignup();
+                $profileData = [];
+                if ($client->getName() === 'facebook') {
+                    $profileData['firstname'] = ArrayHelper::getValue($attributes, 'first_name');
+                    $profileData['lastname'] = ArrayHelper::getValue($attributes, 'last_name');
+                }
+                $user->afterSignup($profileData);
                 $sentSuccess = Yii::$app->commandBus->handle(new SendEmailCommand([
                     'view' => 'oauth_welcome',
                     'params' => ['user'=>$user, 'password'=>$password],

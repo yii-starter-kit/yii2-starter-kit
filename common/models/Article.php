@@ -112,8 +112,10 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'body', 'category_id'], 'required'],
             [['slug'], 'unique'],
             [['body'], 'string'],
-            [['published_at'], 'default', 'value' => time()],
-            [['published_at'], 'filter', 'filter' => 'strtotime'],
+            [['published_at'], 'default', 'value' => function() {
+                return date(DATE_ISO8601);
+            }],
+            [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute'=>'id'],
             [['author_id', 'updater_id', 'status'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],

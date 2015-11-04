@@ -107,11 +107,12 @@ class KeyStorage extends Component
 
     /**
      * @param $key
+     * @param bool $cache
      * @return bool
      */
-    public function has($key)
+    public function has($key, $cache = true)
     {
-        return $this->get($key) !== null;
+        return $this->get($key, null, $cache) !== null;
     }
 
     /**

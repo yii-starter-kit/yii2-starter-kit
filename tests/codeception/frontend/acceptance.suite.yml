@@ -14,6 +14,6 @@ modules:
         PhpBrowser:
           url: 'http://localhost:8080'
         REST:
-          url: 'http://localhost:8080/frontend/web/index-text.php/api/v1/'
+          url: 'http://localhost:8080/frontend/web/index-test.php/api/v1/'
         Yii2:
           configFile: '../config/frontend/functional.php'

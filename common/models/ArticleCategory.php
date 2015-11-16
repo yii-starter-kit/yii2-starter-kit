@@ -45,7 +45,8 @@ class ArticleCategory extends \yii\db\ActiveRecord
             TimestampBehavior::className(),
             [
                 'class'=>SluggableBehavior::className(),
-                'attribute'=>'title'
+                'attribute'=>'title',
+                'immutable' => true
             ]
         ];
     }

@@ -33,7 +33,7 @@ return [
     'Email' => 'Email',
     'Error while oauth process.' => 'Error en el proceso de OAuth.',
     'Female' => 'Mujer',
-    'Home' => 'Hombre',
+    'Home' => 'Inicio',
     'If you forgot your password you can reset it <a href="{link}">here</a>' => 'Si has olvidado tu contraseña puedes cambiarla <a href="{link}">aquí</a>',
     'Incorrect username or password.' => 'Nombre de usuario o contraseña incorrectos',
     'Language' => 'Idioma',

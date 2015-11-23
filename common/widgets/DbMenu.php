@@ -5,7 +5,7 @@
 
 namespace common\widgets;
 
-use \common\models\WidgetMenu;
+use common\models\WidgetMenu;
 use yii\base\InvalidConfigException;
 use Yii;
 use yii\widgets\Menu;

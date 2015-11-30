@@ -1,7 +1,7 @@
 ## FRONTEND ##
 server {
     listen 80;
-    
+
     root /var/www/frontend/web;
     index index.php index.html;
 
@@ -19,6 +19,10 @@ server {
     }
 
     client_max_body_size 32m;
+
+    # There is a VirtualBox bug related to sendfile that can lead to
+    # corrupted files, if not turned-off
+    # sendfile off;
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -53,6 +57,10 @@ server {
 
     client_max_body_size 16m;
 
+    # There is a VirtualBox bug related to sendfile that can lead to
+    # corrupted files, if not turned-off
+    # sendfile off;
+
     location / {
         try_files $uri $uri/ /index.php?$args;
     }
@@ -80,6 +88,10 @@ server {
     root /var/www/storage/web;
     index index.html;
     # expires max;
+
+    # There is a VirtualBox bug related to sendfile that can lead to
+    # corrupted files, if not turned-off
+    # sendfile off;
 
     location / {
         try_files $uri $uri/ /index.php?$args;

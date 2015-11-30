@@ -11,6 +11,7 @@
 - [Docker installation](#docker)
 - [Vagrant installation](vagrant.md)
 - [Demo users](#demo-users)
+- [Important-notes](#important-notes)
 
 ## Before you begin
 1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
@@ -211,3 +212,10 @@ Password: manager
 
 Login: user
 Password: user
+```
+
+## Important notes
+- There is a VirtualBox bug related to sendfile that can lead to
+corrupted files, if not turned-off
+Uncomment this in your nginx config:
+```sendfile off;```

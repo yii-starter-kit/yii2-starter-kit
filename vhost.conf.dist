@@ -22,7 +22,7 @@ server {
 
     # There is a VirtualBox bug related to sendfile that can lead to
     # corrupted files, if not turned-off
-    sendfile off;
+    # sendfile off;
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
@@ -59,7 +59,7 @@ server {
 
     # There is a VirtualBox bug related to sendfile that can lead to
     # corrupted files, if not turned-off
-    sendfile off;
+    # sendfile off;
 
     location / {
         try_files $uri $uri/ /index.php?$args;
@@ -91,7 +91,7 @@ server {
 
     # There is a VirtualBox bug related to sendfile that can lead to
     # corrupted files, if not turned-off
-    sendfile off;
+    # sendfile off;
 
     location / {
         try_files $uri $uri/ /index.php?$args;

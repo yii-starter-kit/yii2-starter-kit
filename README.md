@@ -15,6 +15,16 @@ It was created and developing as a fast start for building an advanced sites bas
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
+# Before you start
+Hi everyone, I have spent a lot of time developing and helping you to implement Starter Kit, it was exciting and very useful experience, but as you probably know, work on open source projects are not paid by anyone, but takes away a lot of time that you could spend on earning money :-)
+So I went up to a situation where I need your help to continue working on this project. This assistance can be expressed in three ways:
+- [Contributing](https://github.com/trntv/yii2-ecommerce-kit/issues)
+- Donations - [Paypal] (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8), [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
+- Sponsorship (^_^)
+
+BTW, helping me in this project, you will help me in creating [yii2-ecommerce-kit][(https://github.com/trntv/yii2-ecommerce-kit).
+Thanks in advance, happy coding!
+
 ## TABLE OF CONTENTS
 - [Demo](#demo)
 - [Features](#features)

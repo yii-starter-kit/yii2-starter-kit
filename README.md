@@ -15,15 +15,8 @@ It was created and developing as a fast start for building an advanced sites bas
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
-# Before you start
-Hi everyone, I have spent a lot of time developing and helping you to implement Starter Kit, it was exciting and very useful experience, but as you probably know, work on open source projects are not paid by anyone, but takes away a lot of time that you could spend on earning money :-)
-So I went up to a situation where I need your help to continue working on this project. This assistance can be expressed in three ways:
-- [Contributing](https://github.com/trntv/yii2-ecommerce-kit/issues)
-- Donations - [Paypal] (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8), [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
-- Sponsorship (^_^)
-
-BTW, helping me in this project, you will help me in creating [yii2-ecommerce-kit][(https://github.com/trntv/yii2-ecommerce-kit).
-Thanks in advance, happy coding!
+## Before you start
+Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or (donations)[#donations]. 
 
 ## TABLE OF CONTENTS
 - [Demo](#demo)
@@ -37,6 +30,7 @@ Thanks in advance, happy coding!
 - [Testing](docs/testing.md)
 - [FAQ](#faq)
 - [How to contribute?](#how-to-contribute)
+- [Donations](#donations)
 - [Have any questions](#have-any-questions)
 
 ##DEMO
@@ -305,6 +299,12 @@ Gii is available on:
 ##How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
+##Donations
+- [Paypal] (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8)
+- [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
+- [WebMoney] (Z110052695454)
+- Other way: [eugene@terentev.net](mailto:eugene@terentev.net)
+
 ##Have any questions?
 mail to [eugene@terentev.net](mailto:eugene@terentev.net)
 
@@ -316,3 +316,4 @@ https://github.com/yiisoft/yii2/tree/master/docs
 This template was created mostly for developers NOT for end users.
 This is a point where you can begin your application, rather than creating it from scratch.
 Good luck!
+

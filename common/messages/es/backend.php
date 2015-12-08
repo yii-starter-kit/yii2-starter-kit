@@ -47,7 +47,7 @@ return [
     'Article Categories' => 'Categorías de Artículo',
     'Articles' => 'Artículos',
     'CPU Usage' => 'Uso de la CPU',
-    'Carousel Widgets' => 'Articugios del carrusel',
+    'Carousel Widgets' => 'Elementos del carrusel',
     'Carousel slide was successfully saved' => 'La diapositiva del carrusel ha sido guardado con éxito',
     'Category' => 'Categoría',
     'Clear' => 'Limpiar',

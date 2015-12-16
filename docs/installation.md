@@ -98,7 +98,14 @@ FRONTEND_URL    = http://yii2-starter-kit.dev
 BACKEND_URL     = http://yii2-starter-kit.dev/backend
 STORAGE_URL     = http://yii2-starter-kit.dev/storage/web
 ```
-	
+Adjust settings in `.env` file
+
+```
+FRONTEND_URL    = http://yii2-starter-kit.dev
+BACKEND_URL     = http://yii2-starter-kit.dev/backend
+STORAGE_URL     = http://yii2-starter-kit.dev/storage/web
+GLIDE_SIGN_KEY  = false
+```	
 
 #### Configure your web server
 ##### Nginx

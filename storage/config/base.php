@@ -16,7 +16,7 @@ return [
             'sourcePath' => '@storage/web/source',
             'cachePath' => '@storage/cache',
             'maxImageSize' => getenv('GLIDE_MAX_IMAGE_SIZE'),
-            'signKey' => getenv('GLIDE_SIGN_KEY')
+            'signKey' => getenv('GLIDE_SIGN_KEY') === 'false' ? false : getenv('GLIDE_SIGN_KEY')
         ]
     ]
 ];

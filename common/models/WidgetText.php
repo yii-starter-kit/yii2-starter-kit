@@ -35,9 +35,10 @@ class WidgetText extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
-            'cacheInvalidate'=>[
-                'class'=>CacheInvalidateBehavior::className(),
-                'keys'=>[
+            'cacheInvalidate' => [
+                'class' => CacheInvalidateBehavior::className(),
+                'cacheComponent' => 'frontendCache',
+                'keys' => [
                     function ($model) {
                         return [
                             self::className(),

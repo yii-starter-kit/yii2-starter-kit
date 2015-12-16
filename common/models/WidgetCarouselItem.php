@@ -61,6 +61,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
             ],
             'cacheInvalidate'=>[
                 'class' => CacheInvalidateBehavior::className(),
+                'cacheComponent' => 'frontendCache',
                 'keys' => [
                     function ($model) {
                         return [

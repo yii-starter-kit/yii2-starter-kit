@@ -31,9 +31,10 @@ class WidgetMenu extends \yii\db\ActiveRecord
     public function behaviors()
     {
         return [
-            'cacheInvalidate'=>[
-                'class'=>CacheInvalidateBehavior::className(),
-                'keys'=>[
+            'cacheInvalidate' => [
+                'class' => CacheInvalidateBehavior::className(),
+                'cacheComponent' => 'frontendCache',
+                'keys' => [
                     function ($model) {
                         return [
                             get_class($model),

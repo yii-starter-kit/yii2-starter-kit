@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 2.1.0 under development
 -----------------------
+- Fixed #326
 - API Fixes
 - Fixed: password_confirm not validated
 - Enh: Shortcuts file added

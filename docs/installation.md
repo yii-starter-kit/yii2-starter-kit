@@ -75,7 +75,7 @@ Required PHP extensions:
 	STORAGE_URL     = http://storage.yii2-starter-kit.dev
 	```
 
-3. Run
+3. Run in command line
 ```
 php console/yii app/setup
 ```

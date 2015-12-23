@@ -57,8 +57,8 @@ class I18nMessageSearch extends I18nMessage
             '{{%i18n_source_message}}.id' => $this->id
         ]);
 
-        $query->andFilterWhere(['like', '{{%i18n_source_message}}.language', $this->language])
-            ->andFilterWhere(['like', '{{%i18n_source_message}}.translation', $this->translation])
+        $query->andFilterWhere(['like', '{{%i18n_message}}.language', $this->language])
+            ->andFilterWhere(['like', '{{%i18n_message}}.translation', $this->translation])
             ->andFilterWhere(['like', '{{%i18n_source_message}}.message', $this->sourceMessage])
             ->andFilterWhere(['like', '{{%i18n_source_message}}.category', $this->category]);
 

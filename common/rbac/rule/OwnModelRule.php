@@ -8,7 +8,7 @@ namespace common\rbac\rule;
 use yii\rbac\Item;
 use yii\rbac\Rule;
 
-class OwnModel extends Rule
+class OwnModelRule extends Rule
 {
     /** @var string */
     public $name = 'ownModelRule';

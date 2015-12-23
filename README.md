@@ -288,7 +288,10 @@ In view:
 - ``common\behaviors\LocaleBehavior`` - discover user locale from browser or account settings and set it
 - ``common\behaviors\LoginTimestampBehavior`` - logs user login time
 - ``common\validators\JsonValidator`` - validates a value to be a valid json
-- ``common\rbac\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
+- ``common\rbac\rule\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
+```php
+Yii::$app->user->can('editOwnModel', ['model' => $model]);
+```
 
 ##FAQ
 ### 1. Where is Gii?

@@ -4,7 +4,8 @@
  * @var $model common\models\Article
  */
 use yii\helpers\Html;
-
+use Symfony\Component\DomCrawler\Crawler;
+use common\helpers\StringHelper;
 ?>
 <hr/>
 <div class="article-item row">
@@ -35,7 +36,10 @@ use yii\helpers\Html;
                 ) ?>
             <?php endif; ?>
             <div class="article-text">
-                <?php echo \yii\helpers\StringHelper::truncate($model->body, 150, '...', null, true) ?>
+                <?php
+                	//excerpt 5 lines and filter img
+                	echo StringHelper::Excerpt($model->body, 5, '...', 90, Yii::$app->charset);
+                ?>
             </div>
         </div>
     </div>

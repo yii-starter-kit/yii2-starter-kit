@@ -7,7 +7,7 @@ use common\models\ArticleAttachment;
 use frontend\models\search\ArticleSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-
+use yii\helpers\Json;
 /**
  * @author Eugene Terentev <eugene@terentev.net>
  */
@@ -25,7 +25,7 @@ class ArticleController extends Controller
         ];
         return $this->render('index', ['dataProvider'=>$dataProvider]);
     }
-
+    
     /**
      * @param $slug
      * @return string
@@ -54,4 +54,20 @@ class ArticleController extends Controller
             $model->name
         );
     }
+    
+    public function actionSearchList($q = null) {
+
+    	$out = [];
+    	if($q){
+    		$query = Article::find()->where(['LIKE', 'title', $q])->orWhere(['LIKE', 'body', $q]);
+    		$data=$query->limit(10)->all();
+    	}
+
+    	foreach ($data as $d) {
+    		$out[] = ['value' => $d['title']];
+    	}
+    	echo Json::encode($out);
+    }
+    
+    
 }

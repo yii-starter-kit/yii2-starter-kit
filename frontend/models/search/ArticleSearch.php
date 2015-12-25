@@ -42,6 +42,19 @@ class ArticleSearch extends Article
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        
+        //q=word
+        if(!empty($params['q']))
+        {
+        	$q=$params['q'];
+        	//$q="·¢";
+        	//$query2=Article::find();
+        	//$query2->andWhere(['LIKE', 'title', $q]);
+        	//$t=$query2->all();
+        	
+        	$query->andWhere(['LIKE', 'title', $q])->orWhere(['LIKE', 'body', $q]);
+        	return $dataProvider;
+        }
 
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;

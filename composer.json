@@ -47,7 +47,9 @@
     "bower-asset/font-awesome": "^4.0",
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
-    "bower-asset/flot": "^0.8"
+    "bower-asset/flot": "^0.8",
+    
+    "kartik-v/yii2-widgets": "*",
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

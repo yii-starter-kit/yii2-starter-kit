@@ -16,7 +16,7 @@ It was created and developing as a fast start for building an advanced sites bas
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 ## Before you start
-Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or (donations)[#donations]. 
+Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or [donations](#donations). 
 
 ## TABLE OF CONTENTS
 - [Demo](#demo)

@@ -2,7 +2,7 @@
 namespace common\models;
 
 use cheatsheet\Time;
-use common\commands\command\AddToTimelineCommand;
+use common\commands\AddToTimelineCommand;
 use Yii;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;

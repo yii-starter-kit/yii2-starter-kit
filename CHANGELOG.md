@@ -1,8 +1,9 @@
 Yii Starter Kit Change Log
 ==========================
 
-2.1.0 under development
+2.1.0
 -----------------------
+- Enh #354: Command Bus implemented with yii2-command-bus extension
 - Enh #321: editOwnModel permission
 - Fixed #326
 - API Fixes

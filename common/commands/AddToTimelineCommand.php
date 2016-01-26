@@ -1,17 +1,30 @@
 <?php
 
-namespace common\commands\handler;
+namespace common\commands;
 
-use common\commands\command\AddToTimelineCommand;
-use common\models\TimelineEvent;
-use trntv\tactician\base\BaseHandler;
 use Yii;
+use yii\base\Object;
+use common\models\TimelineEvent;
+use trntv\bus\interfaces\SelfHandlingCommand;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
  */
-class AddToTimelineHandler extends BaseHandler
+class AddToTimelineCommand extends Object implements SelfHandlingCommand
 {
+    /**
+     * @var string
+     */
+    public $category;
+    /**
+     * @var string
+     */
+    public $event;
+    /**
+     * @var mixed
+     */
+    public $data;
+
     /**
      * @param AddToTimelineCommand $command
      * @return bool

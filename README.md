@@ -74,6 +74,7 @@ Password: user
 - Ready-to-go RESTful API module
 - [File storage component + file upload widget](https://github.com/trntv/yii2-file-kit)
 - On-demand thumbnail creation [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
+- Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
 - Yii2 log web interface
 - Application timeline component
@@ -90,8 +91,7 @@ Password: user
 - Extended IDE autocompletion
 - Nginx config example
 - Test-ready
-- Docker support
-- Vagrant support
+- Docker support and Vagrant support
 - Assets compression and concatenation
 - [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/shortcuts.php)
 - many other features i'm lazy to write about :-)
@@ -219,6 +219,9 @@ Add in your application config:
     ]
 ```
 It will allow access to you application only for authentificated users. 
+
+### Command Bus
+Read more about command bus on in [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
 
 ### Widgets configurable from backend
 #### Carousel

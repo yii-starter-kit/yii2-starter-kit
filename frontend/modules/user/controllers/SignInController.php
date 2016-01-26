@@ -2,7 +2,7 @@
 
 namespace frontend\modules\user\controllers;
 
-use common\commands\command\SendEmailCommand;
+use common\commands\SendEmailCommand;
 use common\models\User;
 use frontend\modules\user\models\LoginForm;
 use frontend\modules\user\models\PasswordResetRequestForm;

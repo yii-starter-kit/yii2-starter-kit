@@ -22,12 +22,13 @@ $config = [
         ],
 
         'commandBus' => [
-            'class' => '\trntv\tactician\Tactician',
-            'commandNameExtractor' => '\League\Tactician\Handler\CommandNameExtractor\ClassNameExtractor',
-            'methodNameInflector' => '\League\Tactician\Handler\MethodNameInflector\HandleInflector',
-            'commandToHandlerMap' => [
-                'common\commands\command\SendEmailCommand' => '\common\commands\handler\SendEmailHandler',
-                'common\commands\command\AddToTimelineCommand' => '\common\commands\handler\AddToTimelineHandler',
+            'class' => 'trntv\bus\CommandBus',
+            'middlewares' => [
+                [
+                    'class' => '\trntv\bus\middlewares\BackgroundCommandMiddleware',
+                    'backgroundHandlerPath' => '@console/yii',
+                    'backgroundHandlerRoute' => 'command-bus/handle',
+                ]
             ]
         ],
 

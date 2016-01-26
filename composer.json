@@ -38,8 +38,8 @@
     "trntv/yii2-file-kit": "^1.0.0",
     "trntv/yii2-glide": "^1.0.0",
     "trntv/yii2-datetime-widget": "^1.0.0",
-    "trntv/yii2-tactician": "^0.1.0",
     "trntv/cheatsheet": "^0.1@dev",
+    "trntv/yii2-command-bus": "^1.0",
     "intervention/image": "^2.1",
     "vlucas/phpdotenv": "^2.0",
     "league/glide": "^0.3",
@@ -47,7 +47,8 @@
     "bower-asset/font-awesome": "^4.0",
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
-    "bower-asset/flot": "^0.8"
+    "bower-asset/flot": "^0.8",
+    "symfony/process": "^3.0"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",
@@ -57,7 +58,6 @@
     "codeception/codeception": "^2.0"
   },
   "suggest": {
-    "trntv/yii2-deploy": "dev-master@dev",
     "trntv/yii2-debug-xhprof": "dev-master@dev"
   },
   "config": {

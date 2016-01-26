@@ -1,7 +1,7 @@
 <?php
 namespace frontend\modules\user\models;
 
-use common\commands\command\SendEmailCommand;
+use common\commands\SendEmailCommand;
 use Yii;
 use common\models\User;
 use yii\base\Model;

@@ -23,7 +23,7 @@ class Yii extends \yii\BaseYii
  * @property yii\web\UrlManager $urlManagerBackend UrlManager for backend application.
  * @property yii\web\UrlManager $urlManagerStorage UrlManager for storage application.
  * @property trntv\glide\components\Glide $glide
- * @property trntv\tactician\Tactician $commandBus
+ * @property trntv\bus\CommandBus $commandBus
  */
 abstract class BaseApplication extends yii\base\Application
 {

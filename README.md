@@ -34,6 +34,8 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [Have any questions](#have-any-questions)
 
 ##DEMO
+Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
+
 Frontend:
 http://yii2-starter-kit.terentev.net
 

@@ -73,4 +73,21 @@ class DbCarousel extends Carousel
         $this->items = $items;
         parent::init();
     }
+
+    /**
+     * Renders the widget.
+     */
+    public function run()
+    {
+        $this->registerPlugin('carousel');
+        $content = '';
+        if (!empty($this->items)) {
+            $content = implode("\n", [
+                $this->renderIndicators(),
+                $this->renderItems(),
+                $this->renderControls()
+            ]);
+        }
+        return Html::tag('div', $content, $this->options);
+    }
 }

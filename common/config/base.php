@@ -47,7 +47,7 @@ $config = [
 
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            'useFileTransport' => YII_ENV_DEV,
+            //'useFileTransport' => true,
             'messageConfig' => [
                 'charset' => 'UTF-8',
                 'from' => getenv('ADMIN_EMAIL')
@@ -176,6 +176,11 @@ if (YII_ENV_DEV) {
 
     $config['components']['cache'] = [
         'class' => 'yii\caching\DummyCache'
+    ];
+    $config['components']['mailer']['transport'] = [
+        'class' => 'Swift_SmtpTransport',
+        'host' => getenv('SMTP_HOST'),
+        'port' => getenv('SMTP_PORT'),
     ];
 }
 

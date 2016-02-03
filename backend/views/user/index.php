@@ -34,6 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'enum' => User::getStatuses(),
                 'filter' => User::getStatuses()
             ],
+            'is_activated',
             'created_at:datetime',
             'logged_at:datetime',
             // 'updated_at',

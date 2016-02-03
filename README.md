@@ -28,7 +28,7 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [Application components](#application-components)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)
-- [FAQ](#faq)
+- [FAQ](docs/faq.md)
 - [How to contribute?](#how-to-contribute)
 - [Donations](#donations)
 - [Have any questions](#have-any-questions)
@@ -65,7 +65,7 @@ Password: user
 - Translations: English, Spanish, Russian, Ukrainian, Chinese
 - Translations Editor
 - Language change action + behavior to choose locale based on browser preferred language 
-- Sign in, Sign up, profile(avatar, locale, personal data) etc
+- Sign in, Sign up, profile(avatar, locale, personal data), email activation etc
 - OAuth authorization
 - User management
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
@@ -94,6 +94,7 @@ Password: user
 - Nginx config example
 - Test-ready
 - Docker support and Vagrant support
+- Built-in [mailcatcher](http://mailcatcher.me/)
 - Assets compression and concatenation
 - [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/shortcuts.php)
 - many other features i'm lazy to write about :-)
@@ -315,12 +316,6 @@ public function behaviors()
         ];
     }
 ```
-
-##FAQ
-### 1. Where is Gii?
-Gii is available on:
-- http://yii2-starter-kit.dev/gii
-- http://backend.yii2-starter-kit.dev/gii
 
 ##How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)

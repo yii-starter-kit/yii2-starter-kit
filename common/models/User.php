@@ -3,6 +3,7 @@ namespace common\models;
 
 use cheatsheet\Time;
 use common\commands\AddToTimelineCommand;
+use common\models\query\UserQuery;
 use Yii;
 use yii\behaviors\AttributeBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -16,7 +17,6 @@ use yii\web\IdentityInterface;
  * @property integer $id
  * @property string $username
  * @property string $password_hash
- * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
  * @property string $access_token
@@ -27,6 +27,7 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property integer $logged_at
+ * @property integer $is_activated
  * @property string $password write-only password
  *
  * @property \common\models\UserProfile $userProfile
@@ -49,6 +50,14 @@ class User extends ActiveRecord implements IdentityInterface
     public static function tableName()
     {
         return '{{%user}}';
+    }
+
+    /**
+     * @return UserQuery
+     */
+    public static function find()
+    {
+        return new UserQuery(get_called_class());
     }
 
     /**
@@ -117,6 +126,7 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at' => Yii::t('common', 'Created at'),
             'updated_at' => Yii::t('common', 'Updated at'),
             'logged_at' => Yii::t('common', 'Last login'),
+            'is_activated' => Yii::t('common', 'Is Activated'),
         ];
     }
 
@@ -133,7 +143,11 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne($id);
+        return static::find()
+            ->notDeleted()
+            ->activated()
+            ->andWhere(['id' => $id])
+            ->one();
     }
 
     /**
@@ -141,7 +155,11 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        return static::findOne(['access_token' => $token, 'status' => self::STATUS_ACTIVE]);
+        return static::find()
+            ->notDeleted()
+            ->activated()
+            ->andWhere(['access_token' => $token, 'status' => self::STATUS_ACTIVE])
+            ->one();
     }
 
     /**
@@ -152,7 +170,11 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::find()
+            ->notDeleted()
+            ->activated()
+            ->andWhere(['username' => $username, 'status' => self::STATUS_ACTIVE])
+            ->one();
     }
 
     /**
@@ -163,33 +185,15 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByLogin($login)
     {
-        return static::findOne([
-            'and',
-            ['or', ['username' => $login], ['email' => $login]],
-            'status' => self::STATUS_ACTIVE
-        ]);
-    }
-
-    /**
-     * Finds user by password reset token
-     *
-     * @param string $token password reset token
-     * @return static|null
-     */
-    public static function findByPasswordResetToken($token)
-    {
-        $expire = Time::SECONDS_IN_A_DAY;
-        $parts = explode('_', $token);
-        $timestamp = (int) end($parts);
-        if ($timestamp + $expire < time()) {
-            // token expired
-            return null;
-        }
-
-        return static::findOne([
-            'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE
-        ]);
+        return static::find()
+            ->notDeleted()
+            ->activated()
+            ->andWhere([
+                'and',
+                ['or', ['username' => $login], ['email' => $login]],
+                'status' => self::STATUS_ACTIVE
+            ])
+            ->one();
     }
 
     /**
@@ -235,22 +239,6 @@ class User extends ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
-    }
-
-    /**
-     * Generates new password reset token
-     */
-    public function generatePasswordResetToken()
-    {
-        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomString() . '_' . time();
-    }
-
-    /**
-     * Removes password reset token
-     */
-    public function removePasswordResetToken()
-    {
-        $this->password_reset_token = null;
     }
 
     /**

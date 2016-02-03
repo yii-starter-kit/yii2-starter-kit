@@ -4,6 +4,7 @@ namespace frontend\modules\user\controllers;
 
 use common\commands\SendEmailCommand;
 use common\models\User;
+use common\models\UserToken;
 use frontend\modules\user\models\LoginForm;
 use frontend\modules\user\models\PasswordResetRequestForm;
 use frontend\modules\user\models\ResetPasswordForm;
@@ -18,9 +19,17 @@ use yii\web\BadRequestHttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
+/**
+ * Class SignInController
+ * @package frontend\modules\user\controllers
+ * @author Eugene Terentev <eugene@terentev.net>
+ */
 class SignInController extends \yii\web\Controller
 {
 
+    /**
+     * @return array
+     */
     public function actions()
     {
         return [
@@ -31,6 +40,9 @@ class SignInController extends \yii\web\Controller
         ];
     }
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -38,12 +50,16 @@ class SignInController extends \yii\web\Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
+                        'actions' => [
+                            'signup', 'login', 'request-password-reset', 'reset-password', 'oauth', 'activation'
+                        ],
                         'allow' => true,
                         'roles' => ['?']
                     ],
                     [
-                        'actions' => ['signup', 'login', 'request-password-reset', 'reset-password', 'oauth'],
+                        'actions' => [
+                            'signup', 'login', 'request-password-reset', 'reset-password', 'oauth', 'activation'
+                        ],
                         'allow' => false,
                         'roles' => ['@'],
                         'denyCallback' => function () {
@@ -66,6 +82,9 @@ class SignInController extends \yii\web\Controller
         ];
     }
 
+    /**
+     * @return array|string|Response
+     */
     public function actionLogin()
     {
         $model = new LoginForm();
@@ -83,18 +102,35 @@ class SignInController extends \yii\web\Controller
         }
     }
 
+    /**
+     * @return Response
+     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
         return $this->goHome();
     }
 
+    /**
+     * @return string|Response
+     */
     public function actionSignup()
     {
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             $user = $model->signup();
-            if ($user && Yii::$app->getUser()->login($user)) {
+            if ($user) {
+                if ($model->shouldBeActivated()) {
+                    Yii::$app->getSession()->setFlash('alert', [
+                        'body' => Yii::t(
+                            'frontend',
+                            'Your account has been successfully created. Check your email for further instructions.'
+                        ),
+                        'options' => ['class'=>'alert-success']
+                    ]);
+                } else {
+                    Yii::$app->getUser()->login($user);
+                }
                 return $this->goHome();
             }
         }
@@ -104,6 +140,35 @@ class SignInController extends \yii\web\Controller
         ]);
     }
 
+    public function actionActivation($token)
+    {
+        $token = UserToken::find()
+            ->byType(UserToken::TYPE_ACTIVATION)
+            ->byToken($token)
+            ->notExpired()
+            ->one();
+
+        if (!$token) {
+            throw new BadRequestHttpException;
+        }
+
+        $user = $token->user;
+        $user->updateAttributes([
+            'is_activated' => true
+        ]);
+        $token->delete();
+        Yii::$app->getUser()->login($user);
+        Yii::$app->getSession()->setFlash('alert', [
+            'body' => Yii::t('frontend', 'Your account has been successfully activated.'),
+            'options' => ['class'=>'alert-success']
+        ]);
+
+        return $this->goHome();
+    }
+
+    /**
+     * @return string|Response
+     */
     public function actionRequestPasswordReset()
     {
         $model = new PasswordResetRequestForm();
@@ -128,6 +193,11 @@ class SignInController extends \yii\web\Controller
         ]);
     }
 
+    /**
+     * @param $token
+     * @return string|Response
+     * @throws BadRequestHttpException
+     */
     public function actionResetPassword($token)
     {
         try {

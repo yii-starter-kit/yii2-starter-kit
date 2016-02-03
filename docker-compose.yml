@@ -13,6 +13,7 @@ fpm:
     - 9000
   links:
     - db
+    - mailcatcher
   environment:
     XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_host=172.17.42.1"
 
@@ -21,10 +22,13 @@ cli:
   volumes_from:
     - data
   working_dir: /app
-  entrypoint: /app/console/yii
+  tty: true
+  stdin_open: true
+  command: '/bin/bash'
   tty: true
   links:
     - db
+    - mailcatcher
 
 nginx:
   image: nginx:latest
@@ -35,6 +39,11 @@ nginx:
     - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
     - fpm
+
+mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+      - "127.0.0.1:1080:1080"
 
 db:
   image: mysql:5.6

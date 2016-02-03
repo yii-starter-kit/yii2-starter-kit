@@ -17,11 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Article View' => 'Шаблон статті',
-    'Page View' => 'Шаблон сторінки',
+    'API access token' => '',
+    'Expire At' => '',
+    'Is Activated' => '',
+    'Token' => '',
     '"{attribute}" must be a valid JSON' => '"{attribute}" повинен містити валідний JSON',
     'Active' => 'Активно',
     'Article ID' => 'ID Статті',
+    'Article View' => 'Шаблон статті',
     'Author' => 'Автор',
     'Base URL' => 'Базовий URL',
     'Base Url' => 'Базовий Url',
@@ -49,6 +52,7 @@ return [
     'Middlename' => 'По батькові',
     'Name' => 'Им\'я',
     'Order' => 'Порядок',
+    'Page View' => 'Шаблон сторінки',
     'Parent Category' => 'Батьківська категорія',
     'Path' => 'Шлях',
     'Picture' => 'Аватар',

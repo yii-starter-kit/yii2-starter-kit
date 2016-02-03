@@ -17,11 +17,14 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Article View' => '文章浏览',
-    'Page View' => '页面浏览',
+    'API access token' => '',
+    'Expire At' => '',
+    'Is Activated' => '',
+    'Token' => '',
     '"{attribute}" must be a valid JSON' => '"{attribute}" 必须是一个有效的JSON格式',
     'Active' => '活动',
     'Article ID' => '文章ID',
+    'Article View' => '文章浏览',
     'Author' => '作者',
     'Base URL' => 'Base URL',
     'Base Url' => 'Base Url',
@@ -49,6 +52,7 @@ return [
     'Middlename' => '中间名',
     'Name' => '名字',
     'Order' => 'Order',
+    'Page View' => '页面浏览',
     'Parent Category' => 'Parent Category',
     'Path' => 'Path',
     'Picture' => '照片',

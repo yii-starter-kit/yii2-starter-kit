@@ -17,8 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Settings' => 'Настройки',
-    'User Settings' => 'Настройки пользователя',
+    'Activation email' => '',
+    'This email has already been taken.' => '',
+    'Your account has been successfully activated.' => '',
+    'Your account has been successfully created. Check your email for further instructions.' => '',
+    'Your activation link: {url}' => '',
     'About' => 'О нас',
     'Account Settings' => 'Настройки аккаунта',
     'Articles' => 'Статьи',
@@ -50,6 +53,7 @@ return [
     'Remember Me' => 'Запомнить меня',
     'Request password reset' => 'Запрос сброса пароля',
     'Reset password' => 'Сброс пароля',
+    'Settings' => 'Настройки',
     'Sign up with' => 'Создать аккаунт с помощью',
     'Signup' => 'Регистрация',
     'Sorry, we are unable to reset password for email provided.' => 'Извините, мы не можем сбросить пароль для этого e-mail.',
@@ -60,6 +64,7 @@ return [
     'This email address has already been taken.' => 'Этот e-mail уже занят',
     'This username has already been taken.' => 'Это имя пользователя уже занято',
     'Update' => 'Редактировать',
+    'User Settings' => 'Настройки пользователя',
     'Username' => 'Имя пользователя',
     'Username or email' => 'Имя пользователя или e-mail',
     'Verification Code' => 'Проверочный код',

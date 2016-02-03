@@ -1,8 +1,12 @@
 Yii Starter Kit Change Log
 ==========================
+2.1.1
+-----
+- Mailcathcer support
+- Optional user email activation
 
 2.1.0
------------------------
+-----
 - Enh #354: Command Bus implemented with yii2-command-bus extension
 - Enh #321: editOwnModel permission
 - Fixed #326

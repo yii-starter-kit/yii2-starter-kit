@@ -288,12 +288,30 @@ In view:
 ```
 ### Other
 - ``common\behaviors\GlobalAccessBehavior`` - allows to set access rules for your application in application config
+
 - ``common\behaviors\LocaleBehavior`` - discover user locale from browser or account settings and set it
+
 - ``common\behaviors\LoginTimestampBehavior`` - logs user login time
+
 - ``common\validators\JsonValidator`` - validates a value to be a valid json
+
 - ``common\rbac\rule\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
 ```php
 Yii::$app->user->can('editOwnModel', ['model' => $model]);
+```
+
+- ``common\filters\OwnModelAccessFilter`` - action filter to check if user is allowed to manage this model
+```php
+public function behaviors()
+    {
+        return [
+            'modelAccess' => [
+                'class' => OwnModelAccessFilter::className(),
+                'only' => ['view', 'update', 'delete'],
+                'modelClass' => Article::className()
+            ],
+        ];
+    }
 ```
 
 ##FAQ

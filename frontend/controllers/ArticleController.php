@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use common\models\Article;
 use common\models\ArticleAttachment;
 use frontend\models\search\ArticleSearch;
+use Yii;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -19,7 +20,7 @@ class ArticleController extends Controller
     public function actionIndex()
     {
         $searchModel = new ArticleSearch();
-        $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
@@ -42,6 +43,12 @@ class ArticleController extends Controller
         return $this->render($viewFile, ['model'=>$model]);
     }
 
+    /**
+     * @param $id
+     * @return $this
+     * @throws NotFoundHttpException
+     * @throws \yii\web\HttpException
+     */
     public function actionAttachmentDownload($id)
     {
         $model = ArticleAttachment::findOne($id);
@@ -49,8 +56,8 @@ class ArticleController extends Controller
             throw new NotFoundHttpException;
         }
 
-        return \Yii::$app->response->sendStreamAsFile(
-            \Yii::$app->fileStorage->getFilesystem()->readStream($model->path),
+        return Yii::$app->response->sendStreamAsFile(
+            Yii::$app->fileStorage->getFilesystem()->readStream($model->path),
             $model->name
         );
     }

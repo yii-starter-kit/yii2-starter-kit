@@ -11,7 +11,6 @@ return [
     'email' => $faker->email,
     'auth_key' => $security->generateRandomString(),
     'password_hash' => $security->generatePasswordHash('password_' . $index),
-    'password_reset_token' => $security->generateRandomString() . '_' . time(),
     'created_at' => time(),
     'updated_at' => time(),
 ];

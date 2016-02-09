@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%article_attachment}}".
@@ -20,7 +21,7 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property Article $article
  */
-class ArticleAttachment extends \yii\db\ActiveRecord
+class ArticleAttachment extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -82,6 +83,6 @@ class ArticleAttachment extends \yii\db\ActiveRecord
 
     public function getUrl()
     {
-        return $this->base_url .'/'. $this->path;
+        return $this->base_url . '/' . $this->path;
     }
 }

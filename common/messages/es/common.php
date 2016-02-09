@@ -18,8 +18,11 @@
  */
 return [
     'API access token' => '',
+    'Email' => '',
     'Expire At' => '',
-    'Is Activated' => '',
+    'Not Active' => '',
+    'Password' => '',
+    'Roles' => '',
     'Token' => '',
     '"{attribute}" must be a valid JSON' => '"{attribute}" debe de ser JSON válido',
     'Active' => 'Activo',

@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use common\models\User;
+use yii\base\Exception;
 use yii\base\Model;
 use Yii;
 use yii\helpers\ArrayHelper;
@@ -100,8 +101,8 @@ class UserForm extends Model
 
     /**
      * Signs user up.
-     *
      * @return User|null the saved model or null if saving fails
+     * @throws Exception
      */
     public function save()
     {
@@ -114,7 +115,10 @@ class UserForm extends Model
             if ($this->password) {
                 $model->setPassword($this->password);
             }
-            if ($model->save() && $isNewRecord) {
+            if (!$model->save()) {
+                throw new Exception('Model not saved');
+            }
+            if ($isNewRecord) {
                 $model->afterSignup();
             }
             $auth = Yii::$app->authManager;

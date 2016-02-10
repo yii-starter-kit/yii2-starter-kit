@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 2.1.2
 -----
+- Fixed: Invalid user status validation
 - Fixed: #363 Remove references to password_reset_token
 
 2.1.1

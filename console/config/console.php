@@ -5,7 +5,7 @@ return [
     'controllerNamespace' => 'console\controllers',
     'controllerMap' => [
         'command-bus' => [
-            'class' => 'trnv\bus\console\BackgroundBusController',
+            'class' => 'trntv\bus\console\BackgroundBusController',
         ],
         'message' => [
             'class' => 'console\controllers\ExtendedMessageController'

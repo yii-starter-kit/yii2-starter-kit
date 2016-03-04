@@ -28,7 +28,7 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass'=>'\common\models\User', 'filter' => function ($query) {
+            ['username', 'unique', 'targetClass' => User::className(), 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
@@ -38,13 +38,13 @@ class UserForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter' => function ($query) {
+            ['email', 'unique', 'targetClass'=> User::className(), 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
                     $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
                 }
             }],
 
-            ['password', 'required', 'on'=>'create'],
+            ['password', 'required', 'on' => 'create'],
             ['password', 'string', 'min' => 6],
 
             [['status'], 'integer'],

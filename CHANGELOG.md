@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 under development
 -----------------
+- Fixed #368: User form fixes
 - Fixed #369: missing field from user table in application tests
 
 2.1.2

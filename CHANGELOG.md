@@ -1,10 +1,14 @@
 Yii Starter Kit Change Log
 ==========================
 
+under development
+-----------------
+- Fixed #369: missing field from user table in application tests
+
 2.1.2
 -----
 - Fixed: Invalid user status validation
-- Fixed: #363 Remove references to password_reset_token
+- Fixed #363: Remove references to password_reset_token
 
 2.1.1
 -----

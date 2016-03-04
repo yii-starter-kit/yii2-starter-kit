@@ -79,7 +79,9 @@ class User extends ActiveRecord implements IdentityInterface
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => 'access_token'
                 ],
-                'value' => Yii::$app->getSecurity()->generateRandomString(40)
+                'value' => function() {
+                    return Yii::$app->getSecurity()->generateRandomString(40);
+                }
             ]
         ];
     }
@@ -109,7 +111,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'email'], 'unique'],
             ['status', 'default', 'value' => self::STATUS_NOT_ACTIVE],
             ['status', 'in', 'range' => array_keys(self::statuses())],
-            [['username'],'filter','filter'=>'\yii\helpers\Html::encode']
+            [['username'],'filter','filter' => '\yii\helpers\Html::encode']
         ];
     }
 

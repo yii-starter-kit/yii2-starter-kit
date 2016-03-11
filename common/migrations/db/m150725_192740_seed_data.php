@@ -112,7 +112,8 @@ class m150725_192740_seed_data extends Migration
         $this->insert('{{%widget_text}}', [
             'key'=>'ads-example',
             'title'=>'Google Ads Example Block',
-            'body'=>'<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            'body'=>'<div class="lead">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <ins class="adsbygoogle"
                      style="display:block"
                      data-ad-client="ca-pub-9505937224921657"
@@ -120,7 +121,8 @@ class m150725_192740_seed_data extends Migration
                      data-ad-format="auto"></ins>
                 <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>',
+                </script>
+            </div>',
             'status'=>1,
             'created_at'=> time(),
             'updated_at'=> time(),

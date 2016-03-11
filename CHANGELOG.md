@@ -1,8 +1,10 @@
 Yii Starter Kit Change Log
 ==========================
 
-under development
------------------
+2.1.3
+-----
+- Ads placing example
+- DbText widget changes
 - Fixed #368: User form fixes
 - Fixed #369: missing field from user table in application tests
 

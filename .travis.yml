@@ -26,7 +26,6 @@ install:
     cp .env.dist .env
     cp vhost.conf.dist vhost.conf
 
-    sed -i s/root/travis/ .env
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
     php console/yii app/setup --interactive=0

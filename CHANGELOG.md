@@ -1,6 +1,10 @@
 Yii Starter Kit Change Log
 ==========================
 
+under development
+-----------------
+- Travis CI integration
+
 2.1.3
 -----
 - Ads placing example

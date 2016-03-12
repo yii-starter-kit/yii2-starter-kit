@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 under development
 -----------------
+- Dockerfile based on PHP7
 - Travis CI integration
 
 2.1.3

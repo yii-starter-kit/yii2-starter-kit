@@ -19,7 +19,7 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - travis_retry composer install --dev --prefer-dist --no-interaction
 # codeception
-  - travis_retry composer global require "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*"
+  - travis_retry composer global require "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
 # setup application:
   - |
 

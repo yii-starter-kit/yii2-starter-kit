@@ -1,4 +1,4 @@
-FROM php:5.6-cli
+FROM php:7-cli
 MAINTAINER Eugene Terentev <eugene@terentev.net>
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get --yes install \

@@ -64,7 +64,10 @@ else
     cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
 fi
 
-cp /var/www/.env.dist /var/www/.env
+# create .env file
+if [ ! -f /var/www/.env ]; then
+    cp /var/www/.env.dist /var/www/.env
+fi
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then

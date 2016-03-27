@@ -154,7 +154,7 @@ class SignInController extends \yii\web\Controller
 
         $user = $token->user;
         $user->updateAttributes([
-            'is_activated' => true
+            'status' => User::STATUS_ACTIVE
         ]);
         $token->delete();
         Yii::$app->getUser()->login($user);

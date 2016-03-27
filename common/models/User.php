@@ -27,15 +27,15 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property integer $logged_at
- * @property integer $is_activated
  * @property string $password write-only password
  *
  * @property \common\models\UserProfile $userProfile
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 1;
+    const STATUS_NOT_ACTIVE = 1;
+    const STATUS_ACTIVE = 2;
+    const STATUS_DELETED = 3;
 
     const ROLE_USER = 'user';
     const ROLE_MANAGER = 'manager';
@@ -79,7 +79,9 @@ class User extends ActiveRecord implements IdentityInterface
                 'attributes' => [
                     ActiveRecord::EVENT_BEFORE_INSERT => 'access_token'
                 ],
-                'value' => Yii::$app->getSecurity()->generateRandomString(40)
+                'value' => function() {
+                    return Yii::$app->getSecurity()->generateRandomString(40);
+                }
             ]
         ];
     }
@@ -107,9 +109,9 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'email'], 'unique'],
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
-            [['username'],'filter','filter'=>'\yii\helpers\Html::encode']
+            ['status', 'default', 'value' => self::STATUS_NOT_ACTIVE],
+            ['status', 'in', 'range' => array_keys(self::statuses())],
+            [['username'],'filter','filter' => '\yii\helpers\Html::encode']
         ];
     }
 
@@ -126,7 +128,6 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at' => Yii::t('common', 'Created at'),
             'updated_at' => Yii::t('common', 'Updated at'),
             'logged_at' => Yii::t('common', 'Last login'),
-            'is_activated' => Yii::t('common', 'Is Activated'),
         ];
     }
 
@@ -144,8 +145,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findIdentity($id)
     {
         return static::find()
-            ->notDeleted()
-            ->activated()
+            ->active()
             ->andWhere(['id' => $id])
             ->one();
     }
@@ -156,8 +156,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findIdentityByAccessToken($token, $type = null)
     {
         return static::find()
-            ->notDeleted()
-            ->activated()
+            ->active()
             ->andWhere(['access_token' => $token, 'status' => self::STATUS_ACTIVE])
             ->one();
     }
@@ -171,8 +170,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::find()
-            ->notDeleted()
-            ->activated()
+            ->active()
             ->andWhere(['username' => $username, 'status' => self::STATUS_ACTIVE])
             ->one();
     }
@@ -186,8 +184,7 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByLogin($login)
     {
         return static::find()
-            ->notDeleted()
-            ->activated()
+            ->active()
             ->andWhere([
                 'and',
                 ['or', ['username' => $login], ['email' => $login]],
@@ -243,16 +240,15 @@ class User extends ActiveRecord implements IdentityInterface
 
     /**
      * Returns user statuses list
-     * @param mixed $status
      * @return array|mixed
      */
-    public static function getStatuses($status = false)
+    public static function statuses()
     {
-        $statuses = [
+        return [
+            self::STATUS_NOT_ACTIVE => Yii::t('common', 'Not Active'),
             self::STATUS_ACTIVE => Yii::t('common', 'Active'),
             self::STATUS_DELETED => Yii::t('common', 'Deleted')
         ];
-        return $status !== false ? ArrayHelper::getValue($statuses, $status) : $statuses;
     }
 
     /**

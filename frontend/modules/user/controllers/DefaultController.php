@@ -58,20 +58,22 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $accountModel = new AccountForm();
-        $accountModel->setUser(Yii::$app->user->identity);
+        $accountForm = new AccountForm();
+        $accountForm->setUser(Yii::$app->user->identity);
 
         $model = new MultiModel([
             'models' => [
-                'account' => $accountModel,
+                'account' => $accountForm,
                 'profile' => Yii::$app->user->identity->userProfile
             ]
         ]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $locale = $model->getModel('profile')->locale;
+            Yii::$app->session->setFlash('forceUpdateLocale');
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class'=>'alert-success'],
-                'body' => Yii::t('frontend', 'Your account has been successfully saved')
+                'body' => Yii::t('frontend', 'Your account has been successfully saved', [], $locale)
             ]);
             return $this->refresh();
         }

@@ -3,6 +3,7 @@ namespace frontend\modules\user\models;
 
 use yii\base\Model;
 use Yii;
+use yii\web\JsExpression;
 
 /**
  * Account form
@@ -50,9 +51,16 @@ class AccountForm extends Model
                 }
             ],
             ['password', 'string'],
-            ['password_confirm', 'required', 'when' => function($model) {
-                return !empty($model->password);
-            }],
+            [
+                'password_confirm',
+                'required',
+                'when' => function($model) {
+                    return !empty($model->password);
+                },
+                'whenClient' => new JsExpression("function (attribute, value) {
+                    return $('#caccountform-password').val().length > 0;
+                }")
+            ],
             ['password_confirm', 'compare', 'compareAttribute' => 'password', 'skipOnEmpty' => false],
 
         ];

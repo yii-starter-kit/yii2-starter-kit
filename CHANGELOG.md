@@ -1,5 +1,23 @@
 Yii Starter Kit Change Log
 ==========================
+
+under development
+-----------------
+- Dockerfile based on PHP7
+- Travis CI integration
+
+2.1.3
+-----
+- Ads placing example
+- DbText widget changes
+- Fixed #368: User form fixes
+- Fixed #369: missing field from user table in application tests
+
+2.1.2
+-----
+- Fixed: Invalid user status validation
+- Fixed #363: Remove references to password_reset_token
+
 2.1.1
 -----
 - Mailcathcer support

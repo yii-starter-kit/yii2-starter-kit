@@ -19,7 +19,6 @@ class m140703_123000_user extends Migration
             'auth_key' => $this->string(32)->notNull(),
             'access_token' => $this->string(40)->notNull(),
             'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string(),
             'oauth_client' => $this->string(),
             'oauth_client_user_id' => $this->string(),
             'email' => $this->string()->notNull(),

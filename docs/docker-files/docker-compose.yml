@@ -15,7 +15,7 @@ fpm:
     - db
     - mailcatcher
   environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_host=172.17.42.1"
+    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
 cli:
   build: docker/php

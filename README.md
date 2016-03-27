@@ -6,6 +6,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
 [![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8 "Donate once-off to this project using Paypal")
 [![Dependency Status](https://www.versioneye.com/php/trntv:yii2-starter-kit/badge.svg)](https://www.versioneye.com/php/trntv:yii2-starter-kit)
+[![Build Status](https://travis-ci.org/trntv/yii2-starter-kit.svg?branch=master)](https://travis-ci.org/trntv/yii2-starter-kit)
 
 <!-- /BADGES -->
 

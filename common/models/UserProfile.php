@@ -2,8 +2,8 @@
 
 namespace common\models;
 
-use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
+use trntv\filekit\behaviors\UploadBehavior;
 
 /**
  * This is the model class for table "user_profile".
@@ -26,8 +26,14 @@ class UserProfile extends \yii\db\ActiveRecord
     const GENDER_MALE = 1;
     const GENDER_FEMALE = 2;
 
+    /**
+     * @var
+     */
     public $picture;
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -57,7 +63,7 @@ class UserProfile extends \yii\db\ActiveRecord
         return [
             [['user_id'], 'required'],
             [['user_id', 'gender'], 'integer'],
-            [['gender'], 'in', 'range'=>[NULL, self::GENDER_FEMALE, self::GENDER_MALE]],
+            [['gender'], 'in', 'range' => [NULL, self::GENDER_FEMALE, self::GENDER_MALE]],
             [['firstname', 'middlename', 'lastname', 'avatar_path', 'avatar_base_url'], 'string', 'max' => 255],
             ['locale', 'default', 'value' => Yii::$app->language],
             ['locale', 'in', 'range' => array_keys(Yii::$app->params['availableLocales'])],
@@ -81,12 +87,6 @@ class UserProfile extends \yii\db\ActiveRecord
         ];
     }
 
-    public function afterSave($insert, $changedAttributes)
-    {
-        parent::afterSave($insert, $changedAttributes);
-        Yii::$app->session->setFlash('forceUpdateLocale');
-    }
-
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -95,6 +95,9 @@ class UserProfile extends \yii\db\ActiveRecord
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
 
+    /**
+     * @return null|string
+     */
     public function getFullName()
     {
         if ($this->firstname || $this->lastname) {
@@ -103,6 +106,10 @@ class UserProfile extends \yii\db\ActiveRecord
         return null;
     }
 
+    /**
+     * @param null $default
+     * @return bool|null|string
+     */
     public function getAvatar($default = null)
     {
         return $this->avatar_path

@@ -49,7 +49,7 @@ class m140703_123803_article extends Migration
             'size' => $this->integer(),
             'name' => $this->string(),
             'created_at' => $this->integer()
-        ]);
+        ], $tableOptions);
 
         $this->addForeignKey('fk_article_attachment_article', '{{%article_attachment}}', 'article_id', '{{%article}}', 'id', 'cascade', 'cascade');
         $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id', 'cascade', 'cascade');

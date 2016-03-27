@@ -74,7 +74,7 @@ class WidgetText extends \yii\db\ActiveRecord
             'key' => Yii::t('common', 'Key'),
             'title' => Yii::t('common', 'Title'),
             'body' => Yii::t('common', 'Body'),
-            'status' => Yii::t('common', 'Status'),
+            'status' => Yii::t('common', 'Active'),
         ];
     }
 }

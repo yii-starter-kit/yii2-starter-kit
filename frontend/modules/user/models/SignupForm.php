@@ -6,6 +6,7 @@ use common\commands\SendEmailCommand;
 use common\models\User;
 use common\models\UserToken;
 use frontend\modules\user\Module;
+use yii\base\Exception;
 use yii\base\Model;
 use Yii;
 use yii\helpers\Url;
@@ -79,9 +80,11 @@ class SignupForm extends Model
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->is_activated = !$shouldBeActivated;
+            $user->status = $shouldBeActivated ? User::STATUS_NOT_ACTIVE : User::STATUS_ACTIVE;
             $user->setPassword($this->password);
-            $user->save();
+            if(!$user->save()) {
+                throw new Exception("User couldn't be  saved");
+            };
             $user->afterSignup();
             if ($shouldBeActivated) {
                 $token = UserToken::create(

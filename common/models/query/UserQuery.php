@@ -24,9 +24,9 @@ class UserQuery extends ActiveQuery
     /**
      * @return $this
      */
-    public function activated()
+    public function active()
     {
-        $this->andWhere(['is_activated' => true]);
+        $this->andWhere(['status' => User::STATUS_ACTIVE]);
         return $this;
     }
 }

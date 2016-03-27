@@ -35,8 +35,8 @@ class UserTest extends Yii2TestCase
         $user =  new \common\models\User();
         $user->email= "12345677713@test.com";
         $user->password_hash="1234";
-        $user->username="<script>alert('xss');</script>";
-        $saved=$user->save();
-        $this->assertTrue($user->username==='&lt;script&gt;alert(&#039;xss&#039;);&lt;/script&gt;');
+        $user->username="<p>xss;</p>";
+        $this->assertTrue($user->save());
+        $this->assertTrue($user->username==='&lt;p&gt;xss;&lt;/p&gt;');
     }
 }

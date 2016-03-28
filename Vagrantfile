@@ -3,11 +3,11 @@
 
 # OPTIONS
 require 'yaml'
-options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant.yaml')
+options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant/vagrant.yaml')
 domains = [
-    "yii2-starter-kit.dev",
-    "backend.yii2-starter-kit.dev",
-    "storage.yii2-starter-kit.dev"
+    "carspending-v2.dev",
+    "backend.carspending-v2.dev",
+    "storage.carspending-v2.dev"
 ]
 packages = [
     "php7.0",
@@ -25,25 +25,30 @@ packages = [
     "php-xdebug",
     "nginx",
     "mysql-server-5.6",
-    "hhvm",
     "git"
 ]
 
 Vagrant.configure(2) do |config|
-  config.vm.post_up_message = "Done! Now you can access site at http://yii2-starter-kit.dev"
+  config.vm.post_up_message = "Done! Now you can access site at http://carspending-v2.dev"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = options['vm']['memory']
     vb.cpus = options['vm']['cpus']
-    vb.name = options['vm']['name']
   end
-
-  config.vm.define options['vm']['name'] {}
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = domains[0]
   config.vm.network "private_network", ip: options['network']['ip']
-  config.vm.synced_folder "./", "/var/www", id: "vagrant-root", :nfs => false, owner: "www-data", group: "www-data"
+  config.vm.synced_folder "./", "/var/www",
+    id: "vagrant-root",
+    :nfs => false,
+    owner: "www-data",
+    group: "www-data",
+    :mount_options => ['dmode=775', 'fmode=775']
+
+  # Port Forwardings
+  config.vm.network :forwarded_port, host: 80, guest: 80
+  config.vm.network :forwarded_port, host: 3306, guest: 3306
 
   config.vm.provision :hostmanager
   config.hostmanager.enabled            = true
@@ -52,11 +57,10 @@ Vagrant.configure(2) do |config|
   config.hostmanager.include_offline    = true
   config.hostmanager.aliases            = domains
 
-  config.vm.provision "shell", path: "./vagrant.sh", args: [
+  config.vm.provision "shell", path: "./vagrant/vagrant.sh", args: [
     packages.join(" "),
     options['github']['token'],
-    options['system']['swapsize'],
-    options['system']['timezone']
+    options['system']['swapsize']
   ]
 
   config.vm.provision "shell", inline: "service nginx restart", run: "always"

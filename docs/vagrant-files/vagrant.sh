@@ -80,5 +80,5 @@ echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLL
 php /var/www/console/yii app/setup --interactive=0
 
 sudo service mysql restart
-sudo service php5-fpm restart
+sudo service php7.0-fpm restart
 sudo service nginx restart

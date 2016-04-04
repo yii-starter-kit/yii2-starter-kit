@@ -17,9 +17,9 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Main' => '',
-    'Other' => '',
-    'This email has already been taken.' => '',
+    'Main' => 'Principal',
+    'Other' => 'Otros',
+    'This email has already been taken.' => 'Este correo está siendo utilizado',
     'Account' => 'Cuenta',
     'Application' => 'Aplicación',
     'Application settings' => 'Configuración de la aplicación',

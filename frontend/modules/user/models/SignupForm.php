@@ -95,6 +95,7 @@ class SignupForm extends Model
                 Yii::$app->commandBus->handle(new SendEmailCommand([
                     'subject' => Yii::t('frontend', 'Activation email'),
                     'view' => 'activation',
+                    'to' => $this->email,
                     'params' => [
                         'url' => Url::to(['/user/sign-in/activation', 'token' => $token->token], true)
                     ]

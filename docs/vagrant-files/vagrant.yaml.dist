@@ -4,7 +4,7 @@ vm:
   name: yii2-starter-kit
 system:
   swapsize: 1024
-  timezone: Europe/London
+  timezone: UTC
 network:
   ip: 192.168.33.10
 github:

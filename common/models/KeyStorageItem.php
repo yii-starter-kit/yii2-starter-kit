@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "key_storage_item".
@@ -11,7 +12,7 @@ use yii\behaviors\TimestampBehavior;
  * @property integer $key
  * @property integer $value
  */
-class KeyStorageItem extends \yii\db\ActiveRecord
+class KeyStorageItem extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -25,7 +26,7 @@ class KeyStorageItem extends \yii\db\ActiveRecord
     {
         return [
             [
-              'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::className(),
             ],
         ];
     }
@@ -37,7 +38,7 @@ class KeyStorageItem extends \yii\db\ActiveRecord
     {
         return [
             [['key', 'value'], 'required'],
-            [['key'], 'string', 'max'=>128],
+            [['key'], 'string', 'max' => 128],
             [['value', 'comment'], 'safe'],
             [['key'], 'unique']
         ];

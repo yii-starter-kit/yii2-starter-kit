@@ -58,7 +58,7 @@ server {
     client_max_body_size 16m;
 
     # There is a VirtualBox bug related to sendfile that can lead to
-    # corrupted files, if not turned-off
+    # corrupted files, if not turned-off on Vagrant based setup
     # sendfile off;
 
     location / {

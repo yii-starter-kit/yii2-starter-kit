@@ -5,7 +5,7 @@ github_token=$(echo "$2")
 swapsize=$(echo "$3")
 timezone=$(echo "$4")
 # Helpers
-composer="hhvm /usr/local/bin/composer"
+composer="php /usr/local/bin/composer"
 
 # System configuration
 if ! grep --quiet "swapfile" /etc/fstab; then
@@ -26,6 +26,8 @@ if [ ! -f /etc/apt/sources.list.d/hhvm.list ]; then
     sudo echo 'deb http://dl.hhvm.com/ubuntu trusty main' >> /etc/apt/sources.list.d/hhvm.list
 fi
 
+sudo add-apt-repository -y ppa:ondrej/php
+
 # Configuring server software
 sudo update-locale LC_ALL="C"
 sudo dpkg-reconfigure locales
@@ -36,16 +38,17 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y ${packages}
 
-sudo php5enmod mcrypt
 sudo sed -i 's/bind-address.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf;
-if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php5/mods-available/xdebug.ini; then
+if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php/7.0/mods-available/xdebug.ini; then
     (
      echo "xdebug.remote_enable = on";
      echo "xdebug.remote_connect_back = on";
      echo "xdebug.remote_host = 10.0.2.2";
      echo "xdebug.idekey = \"vagrant\""
-    ) >> /etc/php5/mods-available/xdebug.ini
+    ) >> /etc/php/7.0/mods-available/xdebug.ini
 fi
+sudo phpenmod mcrypt
+sudo phpenmod xdebug
 
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
@@ -80,5 +83,5 @@ echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLL
 php /var/www/console/yii app/setup --interactive=0
 
 sudo service mysql restart
-sudo service php5-fpm restart
+sudo service php7.0-fpm restart
 sudo service nginx restart

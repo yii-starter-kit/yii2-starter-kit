@@ -6,6 +6,7 @@ use common\models\query\ArticleCategoryQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "article_category".
@@ -18,7 +19,7 @@ use yii\behaviors\TimestampBehavior;
  * @property Article[] $articles
  * @property ArticleCategory $parent
  */
-class ArticleCategory extends \yii\db\ActiveRecord
+class ArticleCategory extends ActiveRecord
 {
     const STATUS_ACTIVE = 1;
     const STATUS_DRAFT = 0;
@@ -44,8 +45,8 @@ class ArticleCategory extends \yii\db\ActiveRecord
         return [
             TimestampBehavior::className(),
             [
-                'class'=>SluggableBehavior::className(),
-                'attribute'=>'title',
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
                 'immutable' => true
             ]
         ];

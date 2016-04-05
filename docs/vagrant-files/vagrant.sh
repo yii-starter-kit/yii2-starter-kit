@@ -48,9 +48,8 @@ if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php/7.0/mods-available/xdeb
     ) >> /etc/php/7.0/mods-available/xdebug.ini
 fi
 sudo phpenmod mcrypt
-sudo phpenmod xdebug
 
-# disable xdebug to avoid composer performance issues
+# disable xdebug temporarily to avoid composer performance issues
 sudo php5dismod xdebug
 
 # install composer

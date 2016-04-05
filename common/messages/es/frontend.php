@@ -17,11 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Activation email' => '',
-    'This email has already been taken.' => '',
-    'Your account has been successfully activated.' => '',
-    'Your account has been successfully created. Check your email for further instructions.' => '',
-    'Your activation link: {url}' => '',
+    'Activation email' => 'Correo de activación',
+    'This email has already been taken.' => 'Este correo está siendo utilizado',
+    'Your account has been successfully activated.' => 'Tu cuenta ha sido activada correctamente.',
+    'Your account has been successfully created. Check your email for further instructions.' => 'Tu cuenta ha sido creada correctamente. Revisa tu correo para más instrucciones.',
+    'Your activation link: {url}' => 'Tu link de activación: {url}',
     'About' => 'Acerca de',
     'Account Settings' => 'Configuración de la cuenta',
     'Articles' => 'Artículos',

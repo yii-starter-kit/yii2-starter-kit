@@ -17,13 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'API access token' => '',
-    'Email' => '',
-    'Expire At' => '',
-    'Not Active' => '',
-    'Password' => '',
-    'Roles' => '',
-    'Token' => '',
+    'API access token' => 'Token de acceso de la API',
+    'Email' => 'Correo',
+    'Expire At' => 'Expira el',
+    'Not Active' => 'Inactivo',
+    'Password' => 'Contraseña',
+    'Roles' => 'Roles',
+    'Token' => 'Token',
     '"{attribute}" must be a valid JSON' => '"{attribute}" debe de ser JSON válido',
     'Active' => 'Activo',
     'Article ID' => 'ID Artículo',

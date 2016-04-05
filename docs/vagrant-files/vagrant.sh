@@ -47,6 +47,9 @@ if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php5/mods-available/xdebug.
     ) >> /etc/php5/mods-available/xdebug.ini
 fi
 
+# disable xdebug to avoid composer performance issues
+sudo php5dismod xdebug
+
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
 	sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -64,7 +67,13 @@ else
     cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
 fi
 
-cp /var/www/.env.dist /var/www/.env
+# enable xdebug again
+sudo php5enmod xdebug
+
+# copy only if not exists
+if [ ! -f /var/www/.env ]; then
+    cp /var/www/.env.dist /var/www/.env
+fi
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then

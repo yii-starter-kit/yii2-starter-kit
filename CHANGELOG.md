@@ -3,6 +3,8 @@ Yii Starter Kit Change Log
 
 dev-master
 ----------
+- Spanish translations was updated
+- Fixed #392: The destinator of the mail was missing
 - Maintenance mode works equally on all environments (#348)
 
 2.2.0

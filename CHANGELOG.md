@@ -1,6 +1,10 @@
 Yii Starter Kit Change Log
 ==========================
 
+dev-master
+----------
+- Maintenance mode works equally on all environments (#348)
+
 2.2.0
 -----
 - Dockerfile based on PHP7

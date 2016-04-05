@@ -3,6 +3,7 @@ $config = [
     'homeUrl'=>Yii::getAlias('@frontendUrl'),
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
+    'bootstrap' => ['maintenance'],
     'modules' => [
         'user' => [
             'class' => 'frontend\modules\user\Module',
@@ -41,6 +42,12 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error'
         ],
+        'maintenance' => [
+            'class' => 'common\components\maintenance\Maintenance',
+            'enabled' => function ($app) {
+                return $app->keyStorage->get('frontend.maintenance') === 'enabled';
+            }
+        ],
         'request' => [
             'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
@@ -64,22 +71,6 @@ if (YII_ENV_DEV) {
             ]
         ]
     ];
-}
-
-if (YII_ENV_PROD) {
-    // Maintenance mode
-    $config['bootstrap'] = ['maintenance'];
-    $config['components']['maintenance'] = [
-        'class' => 'common\components\maintenance\Maintenance',
-        'enabled' => function ($app) {
-            return $app->keyStorage->get('frontend.maintenance') === 'enabled';
-        }
-    ];
-
-    // Compressed assets
-    //$config['components']['assetManager'] = [
-    //   'bundles' => require(__DIR__ . '/assets/_bundles.php')
-    //];
 }
 
 return $config;

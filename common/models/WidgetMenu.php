@@ -5,6 +5,7 @@ namespace common\models;
 use common\behaviors\CacheInvalidateBehavior;
 use common\validators\JsonValidator;
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "widget_menu".
@@ -15,7 +16,7 @@ use Yii;
  * @property string $items
  * @property integer $status
  */
-class WidgetMenu extends \yii\db\ActiveRecord
+class WidgetMenu extends ActiveRecord
 {
     const STATUS_ACTIVE = 1;
     const STATUS_DRAFT = 0;

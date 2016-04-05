@@ -8,8 +8,8 @@
     - [Configure your web server](#configure-your-web-server)
     - [Single domain installtion](#single-domain-installation)
 
-- [Docker installation](#docker)
-- [Vagrant installation](vagrant.md)
+- [Docker installation](#docker-installation)
+- [Vagrant installation](#vagrant-installation)
 - [Demo users](#demo-users)
 - [Important-notes](#important-notes)
 
@@ -86,8 +86,6 @@ Or configure your web server with three different web roots:
 - yii2-starter-kit.dev => /path/to/yii2-starter-kit/frontend/web
 - backend.yii2-starter-kit.dev => /path/to/yii2-starter-kit/backend/web
 - storage.yii2-starter-kit.dev => /path/to/yii2-starter-kit/storage/web
-
-
 
 ### Single domain installation
 #### Setup application
@@ -304,7 +302,6 @@ Password: user
 ```
 
 ## Important notes
-- There is a VirtualBox bug related to sendfile that can lead to
-corrupted files, if not turned-off
-Uncomment this in your nginx config:
+- There is a VirtualBox bug related to sendfile that can lead to corrupted files, if not turned-off
+Uncomment this in your nginx config if you are using Vagrant:
 ```sendfile off;```

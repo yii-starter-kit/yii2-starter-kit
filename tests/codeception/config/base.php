@@ -11,6 +11,7 @@ return [
             'namespace' => 'tests\common\fixtures',
         ],
     ],
+    
     'components' => [
         'db' => [
             'dsn' => env('TEST_DB_DSN'),

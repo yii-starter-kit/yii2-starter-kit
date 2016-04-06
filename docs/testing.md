@@ -1,17 +1,19 @@
 # Testing
 
 To run tests:
-1. Rename ``tests/.env.dist`` to ``tests/.env`` and edit it to set your local settings
-2. Create ``yii2-starter-kit-test`` database
-3. Setup application
+
+- Create `yii2-starter-kit-test` database
+- Adjust `.env` file to set `TEST_DB_DSN`, `TEST_DB_USER` and `TEST_DB_PASSWORD` params
+- Setup application
 ```
 php tests/codeception/bin/yii app/setup
 ```
-4. Start web server
+- Start web server
 ```
 php -S localhost:8080
 ```
-5. Run tests:
+- Run tests:
 ```
-codecept run
+cd tests
+./../vendor/bin/codecept run
 ```

@@ -5,5 +5,12 @@
 // Composer
 require_once( dirname(__DIR__) . '/vendor/autoload.php');
 
+// Set environment
+defined('YII_ENV') or define('YII_ENV', 'test');
+
 // Environment
-(new \Dotenv\Dotenv( dirname(__DIR__) ))->load();
+$dotenv = new \Dotenv\Dotenv( dirname(__DIR__) );
+$dotenv->load();
+$dotenv->required('TEST_DB_DSN');
+$dotenv->required('TEST_DB_USERNAME');
+$dotenv->required('TEST_DB_PASSWORD');

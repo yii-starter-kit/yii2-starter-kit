@@ -14,3 +14,6 @@ $dotenv->load();
 $dotenv->required('TEST_DB_DSN');
 $dotenv->required('TEST_DB_USERNAME');
 $dotenv->required('TEST_DB_PASSWORD');
+
+// Debug info
+codecept_debug($_ENV);

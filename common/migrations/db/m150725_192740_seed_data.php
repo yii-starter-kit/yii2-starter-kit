@@ -123,7 +123,7 @@ class m150725_192740_seed_data extends Migration
                 (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </div>',
-            'status'=>1,
+            'status'=>0,
             'created_at'=> time(),
             'updated_at'=> time(),
         ]);

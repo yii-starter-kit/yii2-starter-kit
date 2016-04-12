@@ -11,11 +11,12 @@ return [
             'namespace' => 'tests\common\fixtures',
         ],
     ],
+    
     'components' => [
         'db' => [
-            'dsn' => getenv('DB_DSN'),
-            'username' => getenv('DB_USERNAME'),
-            'password' => getenv('DB_PASSWORD')
+            'dsn' => env('TEST_DB_DSN'),
+            'username' => env('TEST_DB_USERNAME'),
+            'password' => env('TEST_DB_PASSWORD')
         ],
         'mailer' => [
             'useFileTransport' => true,

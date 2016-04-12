@@ -22,13 +22,13 @@ $config = [
             'clients' => [
                 'github' => [
                     'class' => 'yii\authclient\clients\GitHub',
-                    'clientId' => getenv('GITHUB_CLIENT_ID'),
-                    'clientSecret' => getenv('GITHUB_CLIENT_SECRET')
+                    'clientId' => env('GITHUB_CLIENT_ID'),
+                    'clientSecret' => env('GITHUB_CLIENT_SECRET')
                 ],
                 'facebook' => [
                     'class' => 'yii\authclient\clients\Facebook',
-                    'clientId' => getenv('FACEBOOK_CLIENT_ID'),
-                    'clientSecret' => getenv('FACEBOOK_CLIENT_SECRET'),
+                    'clientId' => env('FACEBOOK_CLIENT_ID'),
+                    'clientSecret' => env('FACEBOOK_CLIENT_SECRET'),
                     'scope' => 'email,public_profile',
                     'attributeNames' => [
                         'name',
@@ -49,7 +49,7 @@ $config = [
             }
         ],
         'request' => [
-            'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
+            'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [
             'class'=>'yii\web\User',

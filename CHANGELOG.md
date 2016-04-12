@@ -3,6 +3,9 @@ Yii Starter Kit Change Log
 
 dev-master
 ----------
+- env() helper function added
+- trntv/yii2-glide and trntv/yii2-command-bus versions updated
+- Testing improvements
 - PHP7 is now default for Vagrant
 - Models are reformatted consistently as per conventions. #365
 - Spanish translations was updated

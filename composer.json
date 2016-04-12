@@ -39,10 +39,9 @@
     "trntv/yii2-glide": "^1.0.0",
     "trntv/yii2-datetime-widget": "^1.0.0",
     "trntv/cheatsheet": "^0.1@dev",
-    "trntv/yii2-command-bus": "^1.0",
+    "trntv/yii2-command-bus": "^2.0",
     "intervention/image": "^2.1",
     "vlucas/phpdotenv": "^2.0",
-    "league/glide": "^0.3",
     "bower-asset/admin-lte": "^2.0",
     "bower-asset/font-awesome": "^4.0",
     "bower-asset/html5shiv": "^3.0",
@@ -55,7 +54,9 @@
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-codeception": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
-    "codeception/codeception": "^2.0"
+    "codeception/codeception": "^2.0",
+    "codeception/specify": "^0.4.3",
+    "codeception/verify": "^0.3.0"
   },
   "suggest": {
     "trntv/yii2-debug-xhprof": "dev-master@dev"

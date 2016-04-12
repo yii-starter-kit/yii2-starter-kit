@@ -9,6 +9,9 @@ php:
 # faster builds on new travis setup not using sudo
 sudo: false
 
+services:
+  - mysql
+
 # cache vendor dirs
 cache:
   directories:
@@ -23,14 +26,11 @@ install:
   - travis_retry composer global require "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
 # setup application:
   - |
-
     cp .env.dist .env
     cp vhost.conf.dist vhost.conf
-
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
-    php console/yii app/setup --interactive=0
-
+  - |
     cd tests/codeception/backend && codecept build
     cd ../common && codecept build
     cd ../console && codecept build
@@ -39,10 +39,10 @@ install:
 
 before_script:
   - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
-  - cd tests/codeception/bin && php yii migrate --interactive=0 && php yii rbac-migrate --interactive=0 && cd ../../..
+  - php tests/codeception/bin/yii app/setup --interactive=0
 
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
     cd tests
-    codecept run
+    ./../vendor/bin/codecept run --debug

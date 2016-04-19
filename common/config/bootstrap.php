@@ -1,10 +1,6 @@
 <?php
 // Require core files
-require(__DIR__ . '/../helpers.php');
-
-// Init application constants
-defined('YII_DEBUG') or define('YII_DEBUG', env('YII_DEBUG'));
-defined('YII_ENV') or define('YII_ENV', env('YII_ENV', 'prod'));
+require_once(__DIR__ . '/../helpers.php');
 
 // Path aliases
 Yii::setAlias('@base', realpath(__DIR__.'/../../'));

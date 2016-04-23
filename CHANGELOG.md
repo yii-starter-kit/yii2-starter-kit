@@ -3,6 +3,8 @@ Yii Starter Kit Change Log
 
 dev-master
 ----------
+- Fixed #407: Vagrant provisioning problems 
+- Fixed #400: Application initialization bug
 - Added some sanitizing in ContactForm (#339)
 - env() helper function added
 - trntv/yii2-glide and trntv/yii2-command-bus versions updated

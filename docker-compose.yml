@@ -2,6 +2,7 @@ data:
   image: busybox:latest
   volumes:
     - ./:/app
+  entrypoint: tail -f /dev/null
 
 fpm:
   build: docker/php

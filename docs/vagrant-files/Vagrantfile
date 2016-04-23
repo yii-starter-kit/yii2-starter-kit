@@ -23,6 +23,8 @@ packages = [
     "php7.0-opcache",
     "php7.0-readline",
     "php-xdebug",
+    "php7.0-mbstring",
+    "php7.0-dom",
     "nginx",
     "mysql-server-5.6",
     "hhvm",

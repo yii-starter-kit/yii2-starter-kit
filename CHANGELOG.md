@@ -3,6 +3,9 @@ Yii Starter Kit Change Log
 
 dev-master
 ----------
+
+2.2.1
+-----
 - Fixed #407: Vagrant provisioning problems 
 - Fixed #400: Application initialization bug
 - Added some sanitizing in ContactForm (#339)

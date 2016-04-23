@@ -3,6 +3,7 @@
 namespace frontend\modules\api\v1\models;
 
 use common\models\User;
+use Yii;
 use yii\filters\RateLimitInterface;
 
 /**
@@ -37,8 +38,9 @@ class ApiUserIdentity extends User implements RateLimitInterface
      */
     public function loadAllowance($request, $action)
     {
-        \Yii::$app->cache->get($this->getCacheKey('api_rate_allowance'));
-        \Yii::$app->cache->get($this->getCacheKey('api_rate_timestamp'));
+        $allowance = Yii::$app->cache->get($this->getCacheKey('api_rate_allowance'));
+        $timestamp = Yii::$app->cache->get($this->getCacheKey('api_rate_timestamp'));
+        return [$allowance, $timestamp];
     }
 
     /**
@@ -50,8 +52,8 @@ class ApiUserIdentity extends User implements RateLimitInterface
      */
     public function saveAllowance($request, $action, $allowance, $timestamp)
     {
-        \Yii::$app->cache->set($this->getCacheKey('api_rate_allowance'), $allowance, $this->rateWindowSize);
-        \Yii::$app->cache->set($this->getCacheKey('api_rate_timestamp'), $timestamp, $this->rateWindowSize);
+        Yii::$app->cache->set($this->getCacheKey('api_rate_allowance'), $allowance, $this->rateWindowSize);
+        Yii::$app->cache->set($this->getCacheKey('api_rate_timestamp'), $timestamp, $this->rateWindowSize);
     }
 
     /**

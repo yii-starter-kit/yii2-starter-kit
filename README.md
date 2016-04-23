@@ -97,7 +97,7 @@ Password: user
 - Docker support and Vagrant support
 - Built-in [mailcatcher](http://mailcatcher.me/)
 - Assets compression and concatenation
-- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/shortcuts.php)
+- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
 - many other features i'm lazy to write about :-)
 
 

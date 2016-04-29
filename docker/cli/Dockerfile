@@ -1,7 +1,9 @@
 FROM php:7-cli
 MAINTAINER Eugene Terentev <eugene@terentev.net>
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get --yes install \
+RUN apt-get clean && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install \
         git \
         openssl \
         curl \
@@ -19,7 +21,9 @@ RUN docker-php-ext-install zip mcrypt intl mbstring pdo_mysql \
 
 RUN curl -sL https://deb.nodesource.com/setup_0.12 | bash -
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get --yes install \
+RUN apt-get clean && \
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y install \
         nodejs \
         build-essential \
         default-jre

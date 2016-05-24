@@ -250,16 +250,16 @@ upstream php-fpm {
  use the Vagrant way to install `yii2-starter-kit`.
 
 ### Installation
-1. Copy everything under `docs/docker-files` to application root.
-2. Copy `.env.docker.dist` to `.env` in the project root
-3. Copy `vhost.conf.docker.dist` to `vhost.conf` in the project root
-4. *Linux users can ignore this step.* Under OSX or Windows you need a VM to run docker.
+1. Copy `.env.docker.dist` to `.env` in the project root
+2. Copy `vhost.conf.docker.dist` to `vhost.conf` in the project root
+3. *Linux users can ignore this step.* Under OSX or Windows you need a VM to run docker.
     1. Install [VirtualBox](https://www.virtualbox.org/).
     2. Run `docker-machine create -d virtualbox default` to create the VM.
     3. Run `eval $(docker-machine env default)` to configure docker to use it.
-5. Run `docker-compose build`
-6. Run `docker-compose up -d`
-7. Setup application with `docker-compose run cli app/setup`
+4. Run `docker-compose build`
+5. Run `docker-compose up -d`
+6. Run locally `composer install --prefer-dist --optimize-autoloader`
+7. Setup application with `docker-compose run cli console/yii app/setup`
 8. That's all - your application is accessible on http://yii2-starter-kit.dev:8000
 
 ### Docker FAQ

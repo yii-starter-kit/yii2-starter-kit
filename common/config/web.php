@@ -3,7 +3,7 @@ $config = [
     'components' => [
         'assetManager' => [
             'class' => 'yii\web\AssetManager',
-            'linkAssets' => true,
+            'linkAssets' => env('LINK_ASSETS'),
             'appendTimestamp' => YII_ENV_DEV
         ]
     ],

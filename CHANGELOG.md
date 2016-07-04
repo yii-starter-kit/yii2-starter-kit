@@ -3,6 +3,7 @@ Yii Starter Kit Change Log
 
 dev-master
 ----------
+- Fixed #428: Update for article categories didn't work on Yii 2.0.8 
 
 2.2.1
 -----

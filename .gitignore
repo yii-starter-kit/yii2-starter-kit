@@ -1,6 +1,5 @@
 # Env
 /.env
-/vhost.conf
 
 # composer
 /vendor

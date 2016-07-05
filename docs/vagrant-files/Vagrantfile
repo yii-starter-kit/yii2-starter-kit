@@ -3,7 +3,7 @@
 
 # OPTIONS
 require 'yaml'
-options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant.yaml')
+options = YAML.load_file File.join(File.dirname(__FILE__), '/vagrant/vagrant.yaml')
 domains = [
     "yii2-starter-kit.dev",
     "backend.yii2-starter-kit.dev",
@@ -28,7 +28,8 @@ packages = [
     "nginx",
     "mysql-server-5.6",
     "hhvm",
-    "git"
+    "git",
+    "zip"
 ]
 
 Vagrant.configure(2) do |config|
@@ -54,7 +55,13 @@ Vagrant.configure(2) do |config|
   config.hostmanager.include_offline    = true
   config.hostmanager.aliases            = domains
 
-  config.vm.provision "shell", path: "./vagrant.sh", args: [
+  # fix "stdin: is not a tty"
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
+
+  config.vm.provision "shell", path: "./vagrant/vagrant.sh", args: [
     packages.join(" "),
     options['github']['token'],
     options['system']['swapsize'],

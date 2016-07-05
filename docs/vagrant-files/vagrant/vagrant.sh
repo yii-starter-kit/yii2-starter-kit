@@ -48,31 +48,38 @@ if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php/7.0/mods-available/xdeb
     ) >> /etc/php/7.0/mods-available/xdebug.ini
 fi
 sudo phpenmod mcrypt
-sudo phpenmod xdebug
+
+# disable xdebug temporarily to avoid composer performance issues
+sudo phpdismod xdebug
 
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
 	sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    ${composer} global require fxp/composer-asset-plugin --prefer-dist
+    ${composer} global require fxp/composer-asset-plugin --no-progress --prefer-dist
 else
 	${composer} self-update
-	${composer} global update --prefer-dist
+	${composer} global update --no-progress --prefer-dist
 fi
 ${composer} config --global github-oauth.github.com ${github_token}
 
 # init application
 if [ ! -d /var/www/vendor ]; then
-    cd /var/www && ${composer} install --prefer-dist --optimize-autoloader
+    cd /var/www && ${composer} install --no-progress --prefer-dist --optimize-autoloader
 else
-    cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
+    cd /var/www && ${composer} update --no-progress --prefer-dist --optimize-autoloader
 fi
 
-cp /var/www/.env.dist /var/www/.env
+# enable xdebug again
+sudo phpenmod xdebug
+
+# copy only if not exists
+if [ ! -f /var/www/.env ]; then
+    cp /var/www/.env.dist /var/www/.env
+fi
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
-    cp /var/www/vhost.conf.dist /var/www/vhost.conf
-    sudo ln -s /var/www/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
+    sudo ln -s /var/www/vagrant/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
 fi
 
 # Configuring application

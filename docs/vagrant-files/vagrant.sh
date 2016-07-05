@@ -48,7 +48,9 @@ if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php/7.0/mods-available/xdeb
     ) >> /etc/php/7.0/mods-available/xdebug.ini
 fi
 sudo phpenmod mcrypt
-sudo phpenmod xdebug
+
+# disable xdebug temporarily to avoid composer performance issues
+sudo php5dismod xdebug
 
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
@@ -67,7 +69,13 @@ else
     cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
 fi
 
-cp /var/www/.env.dist /var/www/.env
+# enable xdebug again
+sudo php5enmod xdebug
+
+# copy only if not exists
+if [ ! -f /var/www/.env ]; then
+    cp /var/www/.env.dist /var/www/.env
+fi
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then

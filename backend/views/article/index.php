@@ -15,15 +15,17 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?php echo Html::a(
+        <?= Html::a(
             Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Article']),
             ['create'],
             ['class' => 'btn btn-success']) ?>
     </p>
-
-    <?php echo GridView::widget([
+    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'options' => [
+            'class' => 'grid-view table-responsive'
+        ],
         'columns' => [
 
             'id',
@@ -61,5 +63,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ]
         ]
     ]); ?>
-
 </div>

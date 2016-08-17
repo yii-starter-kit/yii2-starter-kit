@@ -36,7 +36,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @var string
      */
-    public $parentRightIcon = '<i class="fa fa-angle-left pull-right"></i>';
+    public $parentRightIcon = '<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>';
 
     /**
      * @inheritdoc
@@ -59,7 +59,11 @@ class Menu extends \yii\widgets\Menu
 
             return strtr($template, [
                 '{badge}'=> isset($item['badge'])
-                    ? Html::tag('small', $item['badge'], $item['badgeOptions'])
+                    ? Html::tag(
+                        'span',
+                        Html::tag('small', $item['badge'], $item['badgeOptions']),
+                        ['class' => 'pull-right-container']
+                    )
                     : '',
                 '{icon}'=>isset($item['icon']) ? $item['icon'] : '',
                 '{right-icon}'=>isset($item['right-icon']) ? $item['right-icon'] : '',

@@ -279,9 +279,8 @@ If you want, you can use bundled Vagrant instead of installing app to your local
 
 1. Install [Vagrant](https://www.vagrantup.com/)
 2. Copy files from `docs/vagrant-files` to application root
-3. Copy `vagrant.yaml.dist` to `vagrant.yaml` and edit it with your settings
-4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and add it in `vagrant.yml`
-5. Run:
+3. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and add it in `vagrant.yml`
+4. Run:
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant up

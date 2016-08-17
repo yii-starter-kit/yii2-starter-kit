@@ -252,27 +252,20 @@ upstream php-fpm {
 ### Installation
 1. Copy `.env.docker.dist` to `.env` in the project root
 2. Copy `vhost.conf.docker.dist` to `vhost.conf` in the project root
-3. *Linux users can ignore this step.* Under OSX or Windows you need a VM to run docker.
-    1. Install [VirtualBox](https://www.virtualbox.org/).
-    2. Run `docker-machine create -d virtualbox default` to create the VM.
-    3. Run `eval $(docker-machine env default)` to configure docker to use it.
+3. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
 4. Run `docker-compose build`
 5. Run `docker-compose up -d`
-6. Run locally `composer install --prefer-dist --optimize-autoloader`
-7. Setup application with `docker-compose run cli console/yii app/setup`
-8. That's all - your application is accessible on http://yii2-starter-kit.dev:8000
+6. Run locally `composer install -o` or `composer install -o --prefer-dist`
+7. Setup application with `docker exec -it fpm console/yii app/setup`
+8. That's all - your application is accessible on http://192.168.99.100
 
 ### Docker FAQ
 1. How do i run yii console command?
 
-`docker-compose run cli help`
-
-`docker-compose run cli migrate`
-
-`docker-compose run cli rbac-migrate`
+`docker exec -it fpm console/yii help`
 
 2. How to connect to the application database with my workbench, navicat etc?
-MySQL is available on `127.0.0.1`, port `33060`. User - `root`, password - `root`
+MySQL is available on `192.168.99.100`, port `3306`. User - `root`, password - ``
 
 ## Vagrant installation
 If you want, you can use bundled Vagrant instead of installing app to your local machine.

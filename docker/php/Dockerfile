@@ -11,11 +11,14 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install mcrypt intl mbstring pdo_mysql exif \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install gd
-
-
-RUN pecl install -o -f xdebug \
+    && docker-php-ext-install gd \
+    && pecl install -o -f xdebug \
     && rm -rf /tmp/pear
+
+# Assets auto compression
+#RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+#    && apt-get install -y nodejs \
+#    && npm install -g uglifyjs yuicompressor
 
 COPY ./php.ini /usr/local/etc/php/
 COPY ./www.conf /usr/local/etc/php/

@@ -4,10 +4,9 @@ data:
     - ./:/app
   entrypoint: tail -f /dev/null
 
-fpm:
+app:
   build: docker/php
-  volumes_from:
-    - data
+  working_dir: /app
   volumes_from:
     - data
   expose:
@@ -18,28 +17,15 @@ fpm:
   environment:
     XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
-cli:
-  build: docker/php
-  volumes_from:
-    - data
-  working_dir: /app
-  tty: true
-  stdin_open: true
-  command: '/bin/bash'
-  tty: true
-  links:
-    - db
-    - mailcatcher
-
 nginx:
   image: nginx:latest
   ports:
-    - "127.0.0.1:8000:80"
+    - "127.0.0.1:80:80"
   volumes:
     - ./:/app
     - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
-    - fpm
+    - app
 
 mailcatcher:
     image: schickling/mailcatcher:latest
@@ -51,7 +37,7 @@ db:
   volumes:
     - /var/lib/mysql
   ports:
-    - "127.0.0.1:33060:3306"
+    - "127.0.0.1:3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit

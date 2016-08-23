@@ -259,20 +259,20 @@ upstream php-fpm {
 4. Run `docker-compose build`
 5. Run `docker-compose up -d`
 6. Run locally `composer install --prefer-dist --optimize-autoloader`
-7. Setup application with `docker-compose run cli console/yii app/setup`
+7. Setup application with `docker exec -it $(docker-compose ps -q app) console/yii app/setup`
 8. That's all - your application is accessible on http://yii2-starter-kit.dev:8000
 
 ### Docker FAQ
 1. How do i run yii console command?
 
-`docker-compose run cli help`
+`docker exec -it $(docker-compose ps -q app) console/yii help`
 
-`docker-compose run cli migrate`
+`docker exec -it $(docker-compose ps -q app) console/yii migrate`
 
-`docker-compose run cli rbac-migrate`
+`docker exec -it $(docker-compose ps -q app) console/yii rbac-migrate`
 
 2. How to connect to the application database with my workbench, navicat etc?
-MySQL is available on `127.0.0.1`, port `33060`. User - `root`, password - `root`
+MySQL is available on `127.0.0.1`, port `3306`. User - `root`, password - `root`
 
 ## Vagrant installation
 If you want, you can use bundled Vagrant instead of installing app to your local machine.

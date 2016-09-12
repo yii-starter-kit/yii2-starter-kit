@@ -32,8 +32,9 @@ class ResetPasswordForm extends Model
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidParamException('Password reset token cannot be blank.');
+            throw new InvalidParamException('Incorrect password reset token.');
         }
+        
         /** @var UserToken $tokenModel */
         $this->token = UserToken::find()
             ->notExpired()
@@ -41,9 +42,6 @@ class ResetPasswordForm extends Model
             ->byToken($token)
             ->one();
 
-        if (!$this->token) {
-            throw new InvalidParamException('Wrong password reset token.');
-        }
         parent::__construct($config);
     }
 

@@ -185,53 +185,59 @@ This is an example single domain config for nginx
 
 ```
 server {
-	listen 80;
+    listen 80;
 
-	root /app;
-	index index.php index.html;
+    root /var/www;
+    index index.php index.html;
 
-	server_name yii2-starter-kit.dev;
+    server_name yii2-starter-kit.dev;
 
-	charset utf-8;
+    charset utf-8;
 
-	# location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|pdf|ppt|txt|bmp|rtf|js)$ {
-	#	access_log off;
-	#	expires max;
-	# }
+    # location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|pdf|ppt|txt|bmp|rtf|js)$ {
+    #   access_log off;
+    #   expires max;
+    # }
 
-	location / {
-		try_files $uri /frontend/web/index.php?$args;
-	}
+    location / {
+        root /var/www/frontend/web;
+        try_files $uri /frontend/web/index.php?$args;
+    }
 
-	location /backend {
-		try_files  $uri /backend/web/index.php?$args;
-	}
+    location /admin {
+        try_files  $uri /admin/index.php?$args;
+    }
 
-	# storage access
-	location /storage {
-		try_files  $uri /storage/web/index.php?$args;
-	}
+    # storage access
+    location /storage {
+        try_files  $uri /storage/web/index.php?$args;
+    }
 
     client_max_body_size 32m;
 
-	location ~ \.php$ {
-		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-		fastcgi_pass php-fpm;
-		fastcgi_index index.php;
-		include fastcgi_params;
+    location ~ \.php$ {
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_pass php-fpm;
+        fastcgi_index index.php;
+        include fastcgi_params;
 
-		## Cache
-		# fastcgi_pass_header Cookie; # fill cookie valiables, $cookie_phpsessid for exmaple
-		# fastcgi_ignore_headers Cache-Control Expires Set-Cookie; # Use it with caution because it is cause SEO problems
-		# fastcgi_cache_key "$request_method|$server_addr:$server_port$request_uri|$cookie_phpsessid"; # generating unique key
-		# fastcgi_cache fastcgi_cache; # use fastcgi_cache keys_zone
-		# fastcgi_cache_path /tmp/nginx/ levels=1:2 keys_zone=fastcgi_cache:16m max_size=256m inactive=1d;
-		# fastcgi_temp_path  /tmp/nginx/temp 1 2; # temp files folder
-		# fastcgi_cache_use_stale updating error timeout invalid_header http_500; # show cached page if error (even if it is outdated)
-		# fastcgi_cache_valid 200 404 10s; # cache lifetime for 200 404;
-		# or fastcgi_cache_valid any 10s; # use it if you want to cache any responses
-	}
+        ## Cache
+        # fastcgi_pass_header Cookie; # fill cookie valiables, $cookie_phpsessid for exmaple
+        # fastcgi_ignore_headers Cache-Control Expires Set-Cookie; # Use it with caution because it is cause SEO problems
+        # fastcgi_cache_key "$request_method|$server_addr:$server_port$request_uri|$cookie_phpsessid"; # generating unique key
+        # fastcgi_cache fastcgi_cache; # use fastcgi_cache keys_zone
+        # fastcgi_cache_path /tmp/nginx/ levels=1:2 keys_zone=fastcgi_cache:16m max_size=256m inactive=1d;
+        # fastcgi_temp_path  /tmp/nginx/temp 1 2; # temp files folder
+        # fastcgi_cache_use_stale updating error timeout invalid_header http_500; # show cached page if error (even if it is outdated)
+        # fastcgi_cache_valid 200 404 10s; # cache lifetime for 200 404;
+        # or fastcgi_cache_valid any 10s; # use it if you want to cache any responses
+    }
+}
+
+## PHP-FPM Servers ##
+upstream php-fpm {
+    server unix:/var/run/php/php7.0-fpm.sock;
 }
 ```
 ## PHP-FPM Servers ##
@@ -281,8 +287,10 @@ If you want, you can use bundled Vagrant instead of installing app to your local
 
 1. Install [Vagrant](https://www.vagrantup.com/)
 2. Copy files from `docs/vagrant-files` to application root
-3. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens) and add it in `vagrant.yml`
-4. Run:
+3. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
+4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
+5. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
+5. Run:
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant up

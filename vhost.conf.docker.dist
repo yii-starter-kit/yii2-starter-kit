@@ -1,6 +1,6 @@
 ## FRONTEND ##
 server {
-	listen 80;
+	listen 80 default;
 	
 	root /app/frontend/web;
 	index index.php index.html;
@@ -96,7 +96,7 @@ server {
 
 ## PHP-FPM Servers ##
 upstream php-fpm {
-    server fpm:9000;
+    server app:9000;
 }
 
 ## MISC ##

@@ -245,22 +245,19 @@ upstream php-fpm {
 ### Before installation
  - Read about [docker](https://www.docker.com)
  - Install it
- - If you are not working on Linux (but OSX, Windows) instead, you will need a VM to run docker. 
+ - If you are not working on Linux (but OSX, Windows) instead, you will need a VM to run docker.
+ - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev`` to your `hosts` file
  If you don't intend to use Docker containers for application deployment, it might be better to 
  use the Vagrant way to install `yii2-starter-kit`.
 
 ### Installation
 1. Copy `.env.docker.dist` to `.env` in the project root
 2. Copy `vhost.conf.docker.dist` to `vhost.conf` in the project root
-3. *Linux users can ignore this step.* Under OSX or Windows you need a VM to run docker.
-    1. Install [VirtualBox](https://www.virtualbox.org/).
-    2. Run `docker-machine create -d virtualbox default` to create the VM.
-    3. Run `eval $(docker-machine env default)` to configure docker to use it.
-4. Run `docker-compose build`
-5. Run `docker-compose up -d`
-6. Run locally `composer install --prefer-dist --optimize-autoloader`
-7. Setup application with `docker exec -it $(docker-compose ps -q app) console/yii app/setup`
-8. That's all - your application is accessible on http://yii2-starter-kit.dev:8000
+3. Run `docker-compose build`
+4. Run `docker-compose up -d`
+5. Run locally `composer install --prefer-dist --optimize-autoloader`
+6. Setup application with `docker exec -it $(docker-compose ps -q app) console/yii app/setup`
+7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 ### Docker FAQ
 1. How do i run yii console command?

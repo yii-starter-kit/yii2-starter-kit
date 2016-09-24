@@ -23,7 +23,7 @@ nginx:
     - "80:80"
   volumes:
     - ./:/app
-    - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
+    - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
     - app
 

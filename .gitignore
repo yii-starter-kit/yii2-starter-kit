@@ -1,6 +1,6 @@
 # Env
 /.env
-/vhost.conf
+/docker/nginx/vhost.conf
 
 # composer
 /vendor

@@ -20,7 +20,7 @@ app:
 nginx:
   image: nginx:latest
   ports:
-    - "127.0.0.1:80:80"
+    - "80:80"
   volumes:
     - ./:/app
     - ./vhost.conf:/etc/nginx/conf.d/vhost.conf
@@ -30,14 +30,14 @@ nginx:
 mailcatcher:
     image: schickling/mailcatcher:latest
     ports:
-      - "127.0.0.1:1080:1080"
+      - "1080:1080"
 
 db:
   image: mysql:5.7
   volumes:
     - /var/lib/mysql
   ports:
-    - "127.0.0.1:3306:3306"
+    - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit

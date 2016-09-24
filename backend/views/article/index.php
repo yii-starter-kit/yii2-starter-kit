@@ -1,5 +1,8 @@
 <?php
 
+use common\grid\EnumColumn;
+use common\models\ArticleCategory;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -32,22 +35,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'slug',
             'title',
             [
-                'attribute'=>'category_id',
-                'value'=>function ($model) {
+                'attribute' => 'category_id',
+                'value' => function ($model) {
                     return $model->category ? $model->category->title : null;
                 },
-                'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
+                'filter' => ArrayHelper::map(ArticleCategory::find()->all(), 'id', 'title')
             ],
             [
-                'attribute'=>'author_id',
-                'value'=>function ($model) {
+                'attribute' => 'created_by',
+                'value' => function ($model) {
                     return $model->author->username;
                 }
             ],
             [
-                'class'=>\common\grid\EnumColumn::className(),
-                'attribute'=>'status',
-                'enum'=>[
+                'class' => EnumColumn::className(),
+                'attribute' => 'status',
+                'enum' => [
                     Yii::t('backend', 'Not Published'),
                     Yii::t('backend', 'Published')
                 ]
@@ -59,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
+                'template' => '{update} {delete}'
             ]
         ]
     ]); ?>

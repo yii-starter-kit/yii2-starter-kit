@@ -32,9 +32,9 @@ class m140703_123803_article extends Migration
             'category_id' => $this->integer(),
             'thumbnail_base_url' => $this->string(1024),
             'thumbnail_path' => $this->string(1024),
-            'author_id' => $this->integer(),
-            'updater_id' => $this->integer(),
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
+            'created_by' => $this->integer(),
+            'updated_by' => $this->integer(),
             'published_at' => $this->integer(),
             'created_at' => $this->integer(),
             'updated_at' => $this->integer(),
@@ -52,8 +52,8 @@ class m140703_123803_article extends Migration
         ], $tableOptions);
 
         $this->addForeignKey('fk_article_attachment_article', '{{%article_attachment}}', 'article_id', '{{%article}}', 'id', 'cascade', 'cascade');
-        $this->addForeignKey('fk_article_author', '{{%article}}', 'author_id', '{{%user}}', 'id', 'cascade', 'cascade');
-        $this->addForeignKey('fk_article_updater', '{{%article}}', 'updater_id', '{{%user}}', 'id', 'set null', 'cascade');
+        $this->addForeignKey('fk_article_author', '{{%article}}', 'created_by', '{{%user}}', 'id', 'cascade', 'cascade');
+        $this->addForeignKey('fk_article_updater', '{{%article}}', 'updated_by', '{{%user}}', 'id', 'set null', 'cascade');
         $this->addForeignKey('fk_article_category', '{{%article}}', 'category_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
         $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
 

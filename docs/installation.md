@@ -125,7 +125,7 @@ This is an example single domain config for apache
 
     RewriteEngine on
     # the main rewrite rule for the frontend application
-    RewriteCond %{HTTP_HOST} ^yii2-starter-kit.dev$ [NC] 
+    RewriteCond %{HTTP_HOST} ^yii2-starter-kit.dev$ [NC]
     RewriteCond %{REQUEST_URI} !^/(backend/web|admin|storage/web)
     RewriteRule !^/frontend/web /frontend/web%{REQUEST_URI} [L]
     # redirect to the page without a trailing slash (uncomment if necessary)
@@ -253,31 +253,30 @@ upstream php-fpm {
  - Install it
  - If you are not working on Linux (but OSX, Windows) instead, you will need a VM to run docker.
  - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `hosts` file
- If you don't intend to use Docker containers for application deployment, it might be better to 
+ If you don't intend to use Docker containers for application deployment, it might be better to
  use the Vagrant way to install `yii2-starter-kit`.
- 
+
  * - docker host IP address may vary on Windows and MacOS systems
 
 ### Installation
 1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
 2. Copy `.env.dist` to `.env` in the project root
-3. Copy `docker/nginx/vhost.conf.dist` to `docker/nginx/vhost.conf`
-4. Run `docker-compose build`
-5. Run `docker-compose up -d`
-6. Run locally `composer install --prefer-dist --optimize-autoloader`
-7. Setup application with `docker exec -it $(docker-compose ps -q app) console/yii app/setup`
-8. That's all - your application is accessible on http://yii2-starter-kit.dev
+3. Run `docker-compose build`
+4. Run `docker-compose up -d`
+5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
+6. Setup application with `docker-compose run app console/yii app/setup`
+7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose run app bash`
 
 ### Docker FAQ
 1. How do i run yii console command?
 
-`docker exec -it $(docker-compose ps -q app) console/yii help`
+`docker-compose run app console/yii help`
 
-`docker exec -it $(docker-compose ps -q app) console/yii migrate`
+`docker-compose run app console/yii migrate`
 
-`docker exec -it $(docker-compose ps -q app) console/yii rbac-migrate`
+`docker-compose run app console/yii rbac-migrate`
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`

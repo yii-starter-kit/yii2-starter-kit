@@ -272,11 +272,11 @@ upstream php-fpm {
 ### Docker FAQ
 1. How do i run yii console command?
 
-`docker-compose run app console/yii help`
+`docker-compose exec app console/yii help`
 
-`docker-compose run app console/yii migrate`
+`docker-compose exec app console/yii migrate`
 
-`docker-compose run app console/yii rbac-migrate`
+`docker-compose exec app console/yii rbac-migrate`
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`

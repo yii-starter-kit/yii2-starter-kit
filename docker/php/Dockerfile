@@ -17,7 +17,6 @@ RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif \
 RUN pecl install -o -f xdebug \
     && rm -rf /tmp/pear
 
-COPY ./php.ini /usr/local/etc/php/
 COPY ./www.conf /usr/local/etc/php/
 
 RUN apt-get purge -y g++ \

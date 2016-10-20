@@ -91,6 +91,7 @@ Or configure your web server with three different web roots:
 #### Setup application
 Adjust settings in `.env` file
 
+ - If using containers + nginx DO NOT HAVE A a '/' in the FRONTEND_URL
 ```
 FRONTEND_URL    = /
 BACKEND_URL     = /admin

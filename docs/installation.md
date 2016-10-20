@@ -255,8 +255,7 @@ upstream php-fpm {
  - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `hosts` file
  If you don't intend to use Docker containers for application deployment, it might be better to
  use the Vagrant way to install `yii2-starter-kit`.
-
- * - docker host IP address may vary on Windows and MacOS systems
+ - docker host IP address may vary on Windows and MacOS systems
 
 ### Installation
 1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
@@ -265,7 +264,7 @@ upstream php-fpm {
 3. Run `docker-compose build`
 4. Run `docker-compose up -d`
 5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
-6. Setup application with `docker exec -it yii2starterkitdev_app_1 console/yii app/setup`
+6. Setup application with `docker exec -it yii2starterkitdev_app_1 console/yii app/setup --interactive=0`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`

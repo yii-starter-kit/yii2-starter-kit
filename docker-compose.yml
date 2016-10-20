@@ -9,13 +9,11 @@ app:
   working_dir: /app
   volumes_from:
     - data
-  expose:
-    - 9000
+  volumes:
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
   links:
     - db
     - mailcatcher
-  environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
 nginx:
   image: nginx:latest

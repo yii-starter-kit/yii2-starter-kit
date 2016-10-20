@@ -23,7 +23,8 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'request' => [
-            'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY')
+            'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY'),
+            'baseUrl' => env('BACKEND_URL')
         ],
         'user' => [
             'class'=>'yii\web\User',

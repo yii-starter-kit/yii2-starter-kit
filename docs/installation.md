@@ -282,6 +282,12 @@ upstream php-fpm {
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`
 
+3. To enable xDebug with docker:
+ - `cp docker-compose.override.yml.dist docker-compose.override.yml`
+ - `docker-compose up --build`
+This will cause docker to load the override config on up, thus using ./docs/php/php.dev.ini
+to load the xdebug module.
+
 ## Vagrant installation
 If you want, you can use bundled Vagrant instead of installing app to your local machine.
 

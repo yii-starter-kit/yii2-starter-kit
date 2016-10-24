@@ -101,31 +101,29 @@ Password: user
 - 许多其他功能我懒得写:-)
 
 
-# Application Components
+# 应用组件
 
 ### I18N
-If you want to store application messages in DB and to have ability to edit them from backend, run:
+如果要将应用程序信息存储在DB中并且能够从后端编辑，请运行：
 ```
 php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
 ```
-it will copy all existing messages to database
+其会将现有语言包中的所有信息复制到数据库
 
-Then uncomment config for `DbMessageSource` in
+然后在配置中取消对于 `DbMessageSource` 的注释
 ```php
 common/config/base.php
 ```
 
 ### KeyStorage
-Key storage is a key-value storage to store different information. Application settings for example.
-Values can be stored both via api or by backend CRUD component.
+Key storage是用于存储不同信息的键值存储。以应用程序设置为例。其值可以通过api或后端CRUD组件存储。
 ```
 Yii::$app->keyStorage->set('articles-per-page', 20);
 Yii::$app->keyStorage->get('articles-per-page'); // 20
 ```
 
-### Maintenance mode
-Starter kit has built-in component to provide a maintenance functionality. All you have to do is to configure ``maintenance``
-component in your config
+### 维护模式
+Starter Kit 具有内置组件以提供维护功能。因此你需要做的只是在配置中配置 ``maintenance`` 组件
 ```php
 'bootstrap' => ['maintenance'],
 ...
@@ -138,26 +136,24 @@ component in your config
     ...
 ]
 ```
-This component will catch all incoming requests, set proper response HTTP headers (503, "Retry After") and show a maintenance message.
-Additional configuration options can be found in a corresponding class.
+此组件将捕获所有传入的请求，并设置正确的响应HTTP头（503, "Retry After"）与显示维护消息。其他配置选项可以在相应的类中找到。
 
-Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true``
+如果 ``frontend.maintenance`` 在 KeyStorage 中被设置为 ``true``，则开启维护模式
 
-### Command Bus
-- [What is command bus?](http://shawnmc.cool/command-bus)
+### 命令总线
+- [什么是命令总线？](http://shawnmc.cool/command-bus)
 
-In Starter Kit Command Bus pattern is implemented with [tactician](https://github.com/thephpleague/tactician) package and 
-it's yii2 connector - [yii2-tactician](https://github.com/trntv/yii2-tactician)
+在 Starter Kit 中，其命令总线模式的实现，基于 [tactician](https://github.com/thephpleague/tactician) 软件包 及 其在yii2上的扩展 - [yii2-tactician](https://github.com/trntv/yii2-tactician)
 
-Command are stored in ``common/commands/command`` directory, handlers in ``common/commands/handler``
+命令存储在 ``common/commands/command`` 目录中, 处理程序在 ``common/commands/handler`` 目录中
 
-To execute command run
+执行命令运行
 ```php
 $sendEmailCommand = new SendEmailCommand(['to' => 'user@example.org', 'body' => 'Hello User!']);
 Yii::$app->commandBus->handle($sendEmailCommand);
 ```
 
-### Timeline (Activity)
+### 时间轴（活动）
 ```php
 $addToTimelineCommand = new AddToTimelineCommand([
     'category' => 'user', 
@@ -167,7 +163,7 @@ $addToTimelineCommand = new AddToTimelineCommand([
 Yii::$app->commandBus->handle($addToTimelineCommand);
 ```
 
-### Behaviors
+### 行为
 #### CacheInvalidateBehavior
 ```php
  public function behaviors()
@@ -192,7 +188,7 @@ Yii::$app->commandBus->handle($addToTimelineCommand);
  }
 ```
 #### GlobalAccessBehavior
-Add in your application config:
+在应用程序配置中添加：
 ```php
 'as globalAccess'=>[
         'class'=>'\common\behaviors\GlobalAccessBehavior',
@@ -222,34 +218,34 @@ Add in your application config:
         ]
     ]
 ```
-It will allow access to you application only for authentificated users. 
+它将允许仅对经过身份验证的用户访问您的应用程序。
 
-### Command Bus
-Read more about command bus on in [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
+### 命令总线
+阅读更多关于命令总线的信息 [官方库](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
 
-### Widgets configurable from backend
-#### Carousel
-1. Create carousel in backend
-2. Use it:
+### 在后端配置小部件
+#### 轮播
+1. 在后端创建轮播
+2. 使用：
 ```php
 <?php echo DbCarousel::widget(['key' => 'key-from-backend']) ?>
 ```
 
 #### DbText
-1. Create text block in backend
-2. Use it:
+1. 在后端创建文本块
+2. 使用：
 ```php
 <?php echo DbText::widget(['key' => 'key-from-backend']) ?>
 ```
 
 #### DbMenu
-1. Create text block in backend
-2. Use it:
+1. 在后端创建文本块
+2. 使用：
 ```php
 <?php echo DbMenu::widget(['key' => 'key-from-backend']) ?>
 ```
 
-### Widgets
+### 窗口小部件
 - [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor)  
 - [DateTime picker](https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - [Ace Editor](https://github.com/trntv/yii2-aceeditor)
@@ -267,12 +263,11 @@ Read more about command bus on in [official repository](https://github.com/trntv
  ]
 ```
 ### API
-Starter Kit has fully configured and ready-to-go REST API module. You can access it on http://yii2-starter-kit.dev/api/v1
-For some endpoints you should authenticate your requests with one of available methods - https://github.com/yiisoft/yii2/blob/master/docs/guide/rest-authentication.md#authentication
+Starter Kit 具有可全面配置和随时可用的REST API模块。您可以在 http://yii2-starter-kit.dev/api/v1 上访问它。
+对于某些端点，您应该使用一种可用的方法来验证请求 - https://github.com/yiisoft/yii2/blob/master/docs/guide/rest-authentication.md#authentication
 
-### MultiModel
-``common\base\MultiModel`` - class for handling multiple models in one
-In controller:
+### 多模型
+``common\base\MultiModel`` - 在一个控制器中处理多个模型的类：
 ```php
 $model = new MultiModel([
     'models' => [
@@ -285,27 +280,27 @@ if ($model->load(Yii::$app->request->post()) && $model->save()) {
     ...
 }
 ```
-In view:
+视图：
 ```php
 <?php echo $form->field($model->getModel('account'), 'username') ?>
 
 <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>    
 ```
-### Other
-- ``common\behaviors\GlobalAccessBehavior`` - allows to set access rules for your application in application config
+### 其他
+- ``common\behaviors\GlobalAccessBehavior`` - 允许在应用程序配置中为您的应用程序设置访问规则
 
-- ``common\behaviors\LocaleBehavior`` - discover user locale from browser or account settings and set it
+- ``common\behaviors\LocaleBehavior`` - 从浏览器或帐户设置中发现用户区域设置并进行相应设置
 
-- ``common\behaviors\LoginTimestampBehavior`` - logs user login time
+- ``common\behaviors\LoginTimestampBehavior`` - 用户登录日志
 
-- ``common\validators\JsonValidator`` - validates a value to be a valid json
+- ``common\validators\JsonValidator`` - 验证数据是否为有效的json
 
-- ``common\rbac\rule\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
+- ``common\rbac\rule\OwnModelRule`` - 基于RBAC检查当前用户是否是模型所有者的简单规则
 ```php
 Yii::$app->user->can('editOwnModel', ['model' => $model]);
 ```
 
-- ``common\filters\OwnModelAccessFilter`` - action filter to check if user is allowed to manage this model
+- ``common\filters\OwnModelAccessFilter`` - 检查用户是否被允许管理某模型的动作过滤器
 ```php
 public function behaviors()
     {
@@ -320,24 +315,24 @@ public function behaviors()
     }
 ```
 
-##How to contribute?
-You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
+##如何贡献？
+你可以采用你所能够想像到的任何方式、任何帮助与赞赏，但我最需要的应该是文档方面的 (^_^)
 
-##Donations
+##捐款
 - [Paypal] (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8)
 - [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
 - [WebMoney] (Z110052695454)
-- Other way: [eugene@terentev.net](mailto:eugene@terentev.net)
+- 其他方式： [eugene@terentev.net](mailto:eugene@terentev.net)
 
-##Have any questions?
-mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+##有任何问题？
+发送邮件至 [eugene@terentev.net](mailto:eugene@terentev.net)
 
-##READ MORE
+##阅读更多
 https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
 https://github.com/yiisoft/yii2/tree/master/docs
 
-###NOTE
-This template was created mostly for developers NOT for end users.
-This is a point where you can begin your application, rather than creating it from scratch.
-Good luck!
+###备注
+此模板主要是为开发人员创建的，而不是最终用户。
+这是一个节点，你可以开始你的应用，而不是从头开始创建它。
+祝你好运！
 

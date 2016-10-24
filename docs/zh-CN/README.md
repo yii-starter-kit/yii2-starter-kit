@@ -1,4 +1,4 @@
-# Yii 2 Starter Kit
+# Yii 2 入门套件
 
 <!-- BADGES/ -->
 
@@ -10,52 +10,52 @@
 
 <!-- /BADGES -->
 
-This is Yii2 start application template.
+这是一个基于Yii2启动应用程序开发的模板。
 
-It was created and developing as a fast start for building an advanced sites based on Yii2. 
+可在构建和开发一个基于Yii2的高级网站时，做到快速开始。
 
-It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
+它涵盖了一个新项目的典型用例，并且将帮助您节省在每个项目中执行相同工作的时间
 
-## Before you start
-Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or [donations](#donations). 
+## 在你开始之前
+请考虑通过[捐款](https://github.com/trntv/yii2-starter-kit/issues)或[捐赠](#donations)帮助该项目。 
 
-## TABLE OF CONTENTS
-- [Demo](#demo)
-- [Features](#features)
-- [Installation](docs/installation.md)
-    - [Manual installation](docs/installation.md#manual-installation)
-    - [Docker installation](docs/installation.md#docker-installation)
-    - [Vagrant installation](docs/installation.md#vagrant-installation)
-- [Application components](#application-components)
-- [Console commands](docs/console.md)
-- [Testing](docs/testing.md)
-- [FAQ](docs/faq.md)
-- [How to contribute?](#how-to-contribute)
-- [Donations](#donations)
-- [Have any questions](#have-any-questions)
+## 目录
+- [演示](#demo)
+- [特征](#features)
+- [安装](docs/zh-CN/installation.md)
+    - [手动安装](docs/zh-CN/installation.md#manual-installation)
+    - [Docker安装](docs/zh-CN/installation.md#docker-installation)
+    - [Vagrant安装](docs/zh-CN/installation.md#vagrant-installation)
+- [应用组件](#application-components)
+- [控制台命令](docs/console.md)
+- [测试](docs/testing.md)
+- [常问问题](docs/faq.md)
+- [如何贡献？](#how-to-contribute)
+- [捐款](#donations)
+- [有任何问题](#have-any-questions)
 
-##DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
+##演示
+演示由 awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)提供支持
 
-Frontend:
+前端:
 http://yii2-starter-kit.terentev.net
 
-Backend:
+后端:
 http://backend.yii2-starter-kit.terentev.net
 
-`administrator` role account
+`administrator` 帐户角色
 ```
 Login: webmaster
 Password: webmaster
 ```
 
-`manager` role account
+`manager` 帐户角色
 ```
 Login: manager
 Password: manager
 ```
 
-`user` role account
+`user` 帐户角色
 ```
 Login: user
 Password: user

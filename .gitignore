@@ -26,3 +26,4 @@ phpunit.phar
 
 # Vagrant
 /.vagrant
+vhost.conf

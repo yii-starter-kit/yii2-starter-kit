@@ -20,19 +20,19 @@
 请考虑通过[捐款](https://github.com/trntv/yii2-starter-kit/issues)或[捐赠](#donations)帮助该项目。 
 
 ## 目录
-- [演示](#demo)
-- [特征](#features)
+- [演示](#演示)
+- [特征](#特征)
 - [安装](docs/zh-CN/installation.md)
-    - [手动安装](docs/zh-CN/installation.md#manual-installation)
-    - [Docker安装](docs/zh-CN/installation.md#docker-installation)
-    - [Vagrant安装](docs/zh-CN/installation.md#vagrant-installation)
-- [应用组件](#application-components)
-- [控制台命令](docs/console.md)
-- [测试](docs/testing.md)
-- [常问问题](docs/faq.md)
-- [如何贡献？](#how-to-contribute)
-- [捐款](#donations)
-- [有任何问题](#have-any-questions)
+    - [手动安装](docs/zh-CN/installation.md#手动安装)
+    - [Docker安装](docs/zh-CN/installation.md#Docker安装)
+    - [Vagrant安装](docs/zh-CN/installation.md#Vagrant安装)
+- [应用组件](#应用组件)
+- [控制台命令](docs/zh-CN/console.md)
+- [测试](docs/zh-CN/testing.md)
+- [常问问题](docs/zh-CN/faq.md)
+- [如何贡献？](#如何贡献？)
+- [捐款](#捐款)
+- [有任何问题](#有任何问题)
 
 ##演示
 演示由 awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)提供支持
@@ -61,44 +61,44 @@ Login: user
 Password: user
 ```
 
-## FEATURES
-- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
-- Translations: English, Spanish, Russian, Ukrainian, Chinese
-- Translations Editor
-- Language change action + behavior to choose locale based on browser preferred language 
-- Sign in, Sign up, profile(avatar, locale, personal data), email activation etc
-- OAuth authorization
-- User management
-- RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
-- RBAC migrations support
-- Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
-- Key-value storage component
-- Application settings form (based on KeyStorage component)
-- Ready-to-go RESTful API module
-- [File storage component + file upload widget](https://github.com/trntv/yii2-file-kit)
-- On-demand thumbnail creation [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
-- Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
-- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
-- Yii2 log web interface
-- Application timeline component
-- Cache web controller
-- Maintenance mode component ([more](#maintenance-mode))
-- System information web interface
-- dotenv support
-- `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
-- [Aceeditor widget](https://github.com/trntv/yii2-aceeditor)
-- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
-- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor), 
-- [Elfinder Extension](https://github.com/MihailDev/yii2-elfinder)
-- [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
-- Extended IDE autocompletion
-- Nginx config example
-- Test-ready
-- Docker support and Vagrant support
-- Built-in [mailcatcher](http://mailcatcher.me/)
-- Assets compression and concatenation
-- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
-- many other features i'm lazy to write about :-)
+## 特征
+- 漂亮和开源的后端仪表板主题 [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
+- 翻译：英语，西班牙语，俄语，乌克兰语，中文
+- 支持翻译的编辑器
+- 语言更改操作+基于浏览器首选语言选择语言环境的行为
+- 登录，注册，个人资料（头像，区域设置，个人数据），电子邮件激活等
+- OAuth授权
+- 用户管理
+- RBAC具有预定义的 `guest`, `user`, `manager` and `administrator` 角色
+- RBAC迁移支持
+- 内容管理组件：文章，类别，静态页面，可编辑菜单，可编辑轮播，文本块
+- Key-value 存储组件
+- 应用程序设置表单（基于 KeyStorage 组件）
+- 准备好的RESTful API模块
+- [文件存储组件+文件上传部件](https://github.com/trntv/yii2-file-kit)
+- 按需创建缩略图 [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
+- 具有队列和异步任务的命令总线支持 [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
+- 有用的行为 (GlobalAccessBehavior, CacheInvalidateBehavior, MaintenanceBehavior)
+- Yii2日志的Web界面支持
+- 应用程序时间轴组件
+- 缓存web控制器
+- 维护模式组件（[更多](#维护模式组件)）
+- 系统信息的Web界面
+- dotenv支持
+- `ExtendedMessageController` 能够替换源语言并在消息源之间迁移消息
+- [Aceeditor 小部件](https://github.com/trntv/yii2-aceeditor)
+- [Datetimepicker 小部件](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
+- [Imperavi Reactor 小部件](https://github.com/asofter/yii2-imperavi-redactor), 
+- [Elfinder 扩展](https://github.com/MihailDev/yii2-elfinder)
+- [Xhprof 调试面板](https://github.com/trntv/yii2-debug-xhprof)
+- IDE自动完成功能的扩展
+- Nginx配置示例
+- 测试就绪
+- Docker支持与Vagrant支持
+- 内置 [mailcatcher](http://mailcatcher.me/)
+- 资源压缩和连接
+- [一些有用的快捷函数(https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
+- 许多其他功能我懒得写:-)
 
 
 # Application Components

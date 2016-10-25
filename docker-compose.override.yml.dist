@@ -18,5 +18,3 @@ db_test:
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit-test
-    MYSQL_USER: root
-    MYSQL_PASSWORD: root

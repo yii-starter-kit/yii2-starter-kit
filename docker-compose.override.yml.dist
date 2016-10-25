@@ -4,6 +4,10 @@ app:
     - ./docker/php/php.dev.ini:/usr/local/etc/php/php.ini
   environment:
     PHP_IDE_CONFIG: "serverName=docker"
+  links:
+    - db
+    - mailcatcher
+    - db_test
 
 db_test:
   image: mysql:5.7
@@ -13,6 +17,6 @@ db_test:
     - "3307:3306"
   environment:
     MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: yii2-starter-kit
-    MYSQL_USER: ysk_dbu
-    MYSQL_PASSWORD: ysk_pass
+    MYSQL_DATABASE: yii2-starter-kit-test
+    MYSQL_USER: root
+    MYSQL_PASSWORD: root

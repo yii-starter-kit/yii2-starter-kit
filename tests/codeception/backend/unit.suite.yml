@@ -3,4 +3,4 @@
 # suite for unit (internal) tests.
 class_name: UnitTester
 modules:
-    enabled: [Asserts,  tests\codeception\backend\UnitHelper]
+  enabled: [Asserts,  tests\codeception\backend\UnitHelper]

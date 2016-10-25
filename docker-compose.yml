@@ -14,6 +14,8 @@ app:
   links:
     - db
     - mailcatcher
+  env_file:
+    - .env
 
 nginx:
   image: nginx:latest
@@ -39,5 +41,3 @@ db:
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit
-    MYSQL_USER: root
-    MYSQL_PASSWORD: root

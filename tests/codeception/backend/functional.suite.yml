@@ -10,14 +10,6 @@ modules:
     - Filesystem
     - Yii2
     - tests\codeception\common\_support\FixtureHelper
-    - Db
   config:
     Yii2:
       configFile: '../config/backend/functional.php'
-    Db:
-      dsn: %TEST_DB_DSN%
-      user: %TEST_DB_USER%
-      password: %TEST_DB_PASS%
-      populate: true
-      cleanup: true
-      dump: ../common/_data/data.sql

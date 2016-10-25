@@ -15,6 +15,7 @@ php -S localhost:8080
 - Run tests:
 ```
 cd tests
+./../vendor/bin/codecept build
 ./../vendor/bin/codecept run
 ```
 

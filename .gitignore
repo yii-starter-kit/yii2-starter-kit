@@ -27,3 +27,4 @@ phpunit.phar
 # Vagrant
 /.vagrant
 vhost.conf
+docker-compose.override.yml

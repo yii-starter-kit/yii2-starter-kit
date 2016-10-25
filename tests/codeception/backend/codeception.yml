@@ -2,9 +2,9 @@ namespace: tests\codeception\backend
 actor: Tester
 paths:
     tests: .
-    log: _output
-    data: _data
-    helpers: _support
+    log: ./_output
+    data: ./_data
+    helpers: ./_support
 settings:
     bootstrap: _bootstrap.php
     suite_class: \PHPUnit_Framework_TestSuite
@@ -14,7 +14,7 @@ settings:
 config:
     # the entry script URL (with host info) for functional and acceptance tests
     # PLEASE ADJUST IT TO THE ACTUAL ENTRY SCRIPT URL
-    test_entry_url: http://localhost:8080/backend/web/index-test.php
+    test_entry_url: http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php
 extensions:
     enabled:
         - Codeception\Extension\RunFailed

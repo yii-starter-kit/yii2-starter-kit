@@ -20,8 +20,8 @@ modules:
       configFile: '../config/backend/functional.php'
     Db:
       dsn: %TEST_DB_DSN%
-      user: %TEST_DB_USER%
-      password: %TEST_DB_PASS%
+      user: %TEST_DB_USERNAME%
+      password: %TEST_DB_PASSWORD%
       populate: true
       cleanup: true
       dump: ../common/_data/data.sql

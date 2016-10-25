@@ -9,3 +9,5 @@ paths:
 
 settings:
   colors: true
+
+params: [env]

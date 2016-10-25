@@ -20,4 +20,8 @@ cd tests
 ```
 
 # container env
+Run the following from the hosting machine:
+`docker-compose exec app php -S localhost:8080 > /dev/null 2>&1 &`
 `docker-compose exec app tests/codeception/bin/yii app/setup --interactive=0`
+`docker-compose exec app ./vendor/bin/codecept build`
+`docker-compose exec app ./vendor/bin/codecept run`

@@ -39,5 +39,3 @@ db:
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit
-    MYSQL_USER: root
-    MYSQL_PASSWORD: root

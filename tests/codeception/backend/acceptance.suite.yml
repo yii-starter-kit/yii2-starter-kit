@@ -6,14 +6,21 @@
 
 class_name: AcceptanceTester
 modules:
-    enabled:
-        - PhpBrowser
-        - tests\codeception\backend\AcceptanceHelper
-        - tests\codeception\common\_support\FixtureHelper
-    config:
-        PhpBrowser:
-          url: 'http://localhost:%TEST_HTTP_PORT%'
-        # REST:
-        #  url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
-        Yii2:
-          configFile: '../config/backend/functional.php'
+  enabled:
+    - PhpBrowser
+    - tests\codeception\backend\AcceptanceHelper
+    - tests\codeception\common\_support\FixtureHelper
+  config:
+    PhpBrowser:
+      url: 'http://localhost:%TEST_HTTP_PORT%'
+    # REST:
+    #  url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
+    Yii2:
+      configFile: '../config/backend/functional.php'
+    Db:
+      dsn: %TEST_DB_DSN%
+      user: %TEST_DB_USER%
+      password: %TEST_DB_PASS%
+      populate: true
+      cleanup: true
+      dump: ../common/_data/data.sql

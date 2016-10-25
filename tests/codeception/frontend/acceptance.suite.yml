@@ -13,7 +13,7 @@ modules:
     config:
         PhpBrowser:
           url: 'http://localhost:%TEST_HTTP_PORT%'
-        # REST:
-        #  url: 'http://localhost:%TEST_HTTP_PORT%/frontend/web/index-test.php/api/v1/'
+        REST:
+         url: 'http://localhost:%TEST_HTTP_PORT%/frontend/web/index-test.php/api/v1/'
         Yii2:
           configFile: '../config/frontend/functional.php'

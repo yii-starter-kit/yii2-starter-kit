@@ -10,6 +10,7 @@ modules:
     - PhpBrowser
     - tests\codeception\frontend\AcceptanceHelper
     - tests\codeception\common\_support\FixtureHelper
+    - Db
   config:
     PhpBrowser:
       url: 'http://localhost:%TEST_HTTP_PORT%'

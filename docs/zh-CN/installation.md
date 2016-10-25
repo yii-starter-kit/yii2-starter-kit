@@ -1,95 +1,94 @@
-# INSTALLATION
+# 安装
 
-## TABLE OF CONTENTS
-- [Before you begin](#before-you-begin)
-- [Manual installation](#manual-installation)
-    - [Requirements](#requirements)
-    - [Setup application](#setup-application)
-    - [Configure your web server](#configure-your-web-server)
-    - [Single domain installtion](#single-domain-installation)
+## 目录
+- [在你开始之前](#在你开始之前)
+- [手动安装](#手动安装)
+    - [要求](#要求)
+    - [安装应用程序](#安装应用程序)
+    - [配置Web服务器](#配置Web服务器)
+    - [单域名安装](#单域名安装)
 
-- [Docker installation](#docker-installation)
-- [Vagrant installation](#vagrant-installation)
-- [Demo users](#demo-users)
-- [Important-notes](#important-notes)
+- [Docker安装](#Docker安装)
+- [Vagrant安装](#Vagrant安装)
+- [演示用户](#演示用户)
+- [重要提示](#重要提示)
 
-## Before you begin
-1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+## 在你开始之前
+1. 如果您还没有安装 [Composer](http://getcomposer.org/)，您可以按照 [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix) 中的说明进行安装。
 
-2. Install composer-asset-plugin needed for yii assets management
+2. 安装用于Yii前端资源管理所需的 Composer asset 插件
 ```bash
 composer global require "fxp/composer-asset-plugin"
 ```
 
-### Get source code
-#### Download sources
+### 获取源代码
+#### 下载地址
 https://github.com/trntv/yii2-starter-kit/archive/master.zip
 
-#### Or clone repository manually
+#### 或手动克隆Git仓库
 ```
 git clone https://github.com/trntv/yii2-starter-kit.git
 ```
-#### Install composer dependencies
+#### 安装 Composer 依赖项
 ```
 composer install
 ```
 
-### Get source code via Composer
-You can install this application template with `composer` using the following command:
+### 通过 Composer 获取源代码
+您可以使用 `composer` 的以下命令来安装此应用程序模板：
 
 ```
 composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ```
 
-## Manual installation
+## 手动安装
 
-### REQUIREMENTS
-The minimum requirement by this application template that your Web server supports PHP 5.5.0.
-Required PHP extensions:
+### 要求
+此应用程序模板的最低要求是您的Web服务器支持PHP 5.5.0。
+必需的PHP扩展：
 - intl
 - gd
 - mcrypt
 
 
 
-### Setup application
-1. Copy `.env.dist` to `.env` in the project root.
-2. Adjust settings in `.env` file
-	- Set debug mode and your current environment
+### 安装应用程序
+1. 在项目根目录中，将 `.env.dist` 复制为 `.env` 。
+2. 调整 `.env` 文件中的配置
+	- 设置调试模式和您当前的环境
 	```
 	YII_DEBUG   = true
 	YII_ENV     = dev
 	```
-	- Set DB configuration
+	- 设置数据库配置
 	```
 	DB_DSN           = mysql:host=127.0.0.1;port=3306;dbname=yii2-starter-kit
 	DB_USERNAME      = user
 	DB_PASSWORD      = password
 	```
 
-	- Set application canonical urls
+	- 设置应用程序的应用网址
 	```
 	FRONTEND_URL    = http://yii2-starter-kit.dev
 	BACKEND_URL     = http://backend.yii2-starter-kit.dev
 	STORAGE_URL     = http://storage.yii2-starter-kit.dev
 	```
 
-3. Run in command line
+3. 在命令行中运行
 ```
 php console/yii app/setup
 ```
 
-### Configure your web server
-Copy `vhost.conf.dist` to `vhost.conf`, change it with your local settings and copy (symlink) it to nginx `sites-enabled` directory.
-Or configure your web server with three different web roots:
+### 配置Web服务器
+复制 `vhost.conf.dist` 为 `vhost.conf`，更改为您的本机设置，并将其复制（符号链接）到 nginx 的 `sites-enabled` 目录。
+或者使用三个不同的Web主机名来配置Web服务器：
 - yii2-starter-kit.dev => /path/to/yii2-starter-kit/frontend/web
 - backend.yii2-starter-kit.dev => /path/to/yii2-starter-kit/backend/web
 - storage.yii2-starter-kit.dev => /path/to/yii2-starter-kit/storage/web
 
-### Single domain installation
-#### Setup application
-Adjust settings in `.env` file
+### 单域名安装
+#### 安装应用程序
+调整 `.env` 文件中的配置
 
 ```
 FRONTEND_URL    = /
@@ -97,7 +96,7 @@ BACKEND_URL     = /admin
 STORAGE_URL     = /storage/web
 ```
 
-Adjust settings in `backend/config/web.php` file
+调整 `backend/config/web.php` 文件中的配置
 ```
     ...
     'components'=>[
@@ -106,7 +105,7 @@ Adjust settings in `backend/config/web.php` file
             'baseUrl' => '/admin',
         ...
 ```
-Adjust settings in `frontend/config/web.php` file
+调整 `frontend/config/web.php` 文件中的配置
 ```
     ...
     'components'=>[
@@ -116,9 +115,9 @@ Adjust settings in `frontend/config/web.php` file
         ...
 ```
 
-#### Configure your web server
+#### 配置Web服务器
 ##### Apache
-This is an example single domain config for apache
+这是一个单个域名下的Apache配置示例
 ```
 <VirtualHost *:80>
     ServerName yii2-starter-kit.dev
@@ -181,7 +180,7 @@ This is an example single domain config for apache
 ```
 
 ##### Nginx
-This is an example single domain config for nginx
+这是一个单个域名下的Nginx配置示例
 
 ```
 server {
@@ -247,30 +246,29 @@ upstream php-fpm {
 }
 ```
 
-## Docker installation
-### Before installation
- - Read about [docker](https://www.docker.com)
- - Install it
- - If you are not working on Linux (but OSX, Windows) instead, you will need a VM to run docker.
- - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `hosts` file
- If you don't intend to use Docker containers for application deployment, it might be better to
- use the Vagrant way to install `yii2-starter-kit`.
+## Docker安装
+### 在安装之前
+ - 阅读 [docker](https://www.docker.com) 相关
+ - 安装它
+ - 如果你不是在Linux（非 OSX, Windows）上工作，你将需要一个VM来运行docker。
+ - 将 ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* 添加到您的 `hosts` 文件。
+ 如果您不打算使用Docker容器进行应用程序部署，使用 Vagrant 方式安装 `yii2-starter-kit` 可能会更好。
 
- * - docker host IP address may vary on Windows and MacOS systems
+ * - docker 主机IP地址在  Windows 和 MacOS 系统上可能有所不同
 
-### Installation
-1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
-2. Copy `.env.dist` to `.env` in the project root
-3. Run `docker-compose build`
-4. Run `docker-compose up -d`
-5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
-6. Setup application with `docker-compose run app console/yii app/setup`
-7. That's all - your application is accessible on http://yii2-starter-kit.dev
+### 安装
+1. 遵循 [docker 安装](https://docs.docker.com/engine/installation/) 指令
+2. 在项目根目录中，将 `.env.dist` 复制为 `.env` 。
+3. 运行 `docker-compose build`
+4. 运行 `docker-compose up -d`
+5. 本地运行 `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
+6. 运行 `docker-compose run app console/yii app/setup` 安装应用程序
+7. 安装就绪 - 打开 http://yii2-starter-kit.dev 可以访问了
 
-*PS* Also you can use bash inside application container. To do so run `docker-compose run app bash`
+*PS* 也可以在应用程序容器中使用 bash。需要运行 `docker-compose run app bash`
 
-### Docker FAQ
-1. How do i run yii console command?
+### Docker常见问题
+1. 如何运行 yii 控制台命令？
 
 `docker-compose exec app console/yii help`
 
@@ -278,26 +276,26 @@ upstream php-fpm {
 
 `docker-compose exec app console/yii rbac-migrate`
 
-2. How to connect to the application database with my workbench, navicat etc?
-MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`
+2. 如何使 workbench, navicat 等连接到应用程序数据库？
+MySQL 可用配置为 `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`
 
-## Vagrant installation
-If you want, you can use bundled Vagrant instead of installing app to your local machine.
+## Vagrant安装
+如果需要，您可以使用打包好的 Vagrant ，而不是安装应用程序到本地计算机。
 
-1. Install [Vagrant](https://www.vagrantup.com/)
-2. Copy files from `docs/vagrant-files` to application root
-3. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
-4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
-5. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
-5. Run:
+1. 安装 [Vagrant](https://www.vagrantup.com/)
+2. 将目录 `docs/vagrant-files` 下的文件复制到应用程序根目录
+3. 复制 `./vagrant/vagrant.yml.dist` 为 `./vagrant/vagrant.yml`
+4. 创建 GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
+5. 根据需要编辑 `./vagrant/vagrant.yml` 文件，包括添加GitHub personal API token
+5. 运行：
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant up
 ```
-That`s all. After provision application will be accessible on http://yii2-starter-kit.dev
+安装就绪。打开 http://yii2-starter-kit.dev 可以访问了
 
-## Demo data
-### Demo Users
+## 演示数据
+### 演示用户
 ```
 Login: webmaster
 Password: webmaster
@@ -309,7 +307,6 @@ Login: user
 Password: user
 ```
 
-## Important notes
-- There is a VirtualBox bug related to sendfile that can lead to corrupted files, if not turned-off
-Uncomment this in your nginx config if you are using Vagrant:
+## 重要提示
+- 有一个与sendfile相关的VirtualBox bug，可能导致文件损坏，如果你使用Vagrant，在你的nginx配置中设置：
 ```sendfile off;```

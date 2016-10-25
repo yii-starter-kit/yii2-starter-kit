@@ -30,3 +30,7 @@ Run the following from the hosting machine:
 `docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/console`
  - Sadly running all tests at once doe snot work when using global ENV's as part of codeception configuration
 
+To use phatomJs (visual browser emulation) the following MUST be run INSIDE
+the application container (phantomJs build is platform dependant)
+`php composer.phar update`
+Wait for install to finish

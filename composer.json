@@ -65,7 +65,7 @@
   },
   "config": {
     "process-timeout": 1800,
-    "bin-dir": "bin"
+    "bin-dir": "vendor/bin"
   },
   "extra": {
     "asset-installer-paths": {

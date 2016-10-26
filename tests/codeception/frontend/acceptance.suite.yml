@@ -25,7 +25,7 @@ modules:
     REST:
      url: 'http://localhost:%TEST_HTTP_PORT%/frontend/web/index-test.php/api/v1/'
     WebDriver:
-      url: 'http://localhost:%HTTP_PORT%' # our url base
+      url: 'http://localhost:%TEST_HTTP_PORT%' # our url base
       browser: phantomjs
       window_size: 1280x720
       capabilities:

@@ -262,10 +262,9 @@ upstream php-fpm {
 1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
 2. Copy `.env.dist` to `.env` in the project root
 3. Copy appropriate *.conf in `./docker/nginx/` to `./docker/nginx/vhost.conf`
-3. Run `docker-compose build`
-4. Run `docker-compose up -d`
-5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs  --no-dev`
-6. Setup application with `docker-compose exec app console/yii app/setup --interactive=0`
+4. Build containers: Run locally `docker-compose up -d --build`
+5. Install dependencies: Run locally `docker-compose exec app php composer.phar install --ignore-platform-reqs -o -vvv`
+6. Setup application with: Run locally `docker-compose exec app console/yii app/setup --interactive=0`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose run app bash`

@@ -7,17 +7,11 @@
 class_name: AcceptanceTester
 modules:
   enabled:
-    - PhpBrowser
+    - Db
     - tests\codeception\backend\AcceptanceHelper
     - tests\codeception\common\_support\FixtureHelper
-    - Db
+    - Yii2
   config:
-    PhpBrowser:
-      url: 'http://localhost:%TEST_HTTP_PORT%'
-    # REST:
-    #  url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
-    Yii2:
-      configFile: '../config/backend/acceptance.php'
     Db:
       dsn: %TEST_DB_DSN%
       user: %TEST_DB_USERNAME%
@@ -25,3 +19,13 @@ modules:
       populate: true
       cleanup: true
       dump: ../common/_data/data.sql
+    REST:
+     url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
+    Yii2:
+      configFile: '../config/backend/acceptance.php'
+      cleanup: true
+      browser: phantomjs
+      window_size: 1280x720
+      capabilities:
+        unexpectedAlertBehaviour: 'accept'
+      port: %TEST_PHANTOM_PORT%

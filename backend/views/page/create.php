@@ -3,7 +3,7 @@
 /* @var $model common\models\Page */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Page',
+    'modelClass' => '页面',
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Pages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

@@ -133,7 +133,7 @@ return [
     'System Time' => '系统时间',
     'Tag' => '标签',
     'TagDependency was invalidated' => '标签分割',
-    'Text Blocks' => 'Text Blocks',
+    'Text Blocks' => '文本块',
     'Text Widgets' => '文本组件',
     'This username has already been taken.' => '用户名被占用',
     'Time' => '时间',

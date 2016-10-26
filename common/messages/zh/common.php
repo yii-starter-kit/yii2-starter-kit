@@ -27,7 +27,7 @@ return [
     '"{attribute}" must be a valid JSON' => '"{attribute}" 必须是一个有效的JSON格式',
     'Active' => '活动',
     'Article ID' => '文章ID',
-    'Article View' => '文章浏览',
+    'Article View' => '文章视图',
     'Author' => '作者',
     'Base URL' => 'Base URL',
     'Base Url' => 'Base Url',
@@ -64,7 +64,7 @@ return [
     'Size' => 'Size',
     'Slug' => '别名',
     'Status' => '状态',
-    'Thumbnail' => '缩率图',
+    'Thumbnail' => '缩略图',
     'Title' => '标题',
     'Type' => 'Type',
     'Updated At' => '更新时间',
@@ -75,4 +75,5 @@ return [
     'User ID' => '用户 ID',
     'Username' => '用户名',
     'Value' => '值',
+    'Attachments' => '附件',
 ];

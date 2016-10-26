@@ -1,6 +1,5 @@
 FROM php:7-fpm
 
-# Install modules
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
@@ -8,6 +7,7 @@ RUN apt-get update && apt-get install -y \
         libpng12-dev \
         libicu-dev \
         libbz2-dev \
+        libfontconfig \
                 --no-install-recommends
 
 RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif \

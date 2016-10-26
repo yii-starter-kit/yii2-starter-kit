@@ -56,7 +56,7 @@ return [
     'Name' => '名字',
     'Order' => 'Order',
     'Page View' => '页面浏览',
-    'Parent Category' => 'Parent Category',
+    'Parent Category' => '父节点',
     'Path' => 'Path',
     'Picture' => '照片',
     'Published' => '发布',

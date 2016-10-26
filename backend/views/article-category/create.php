@@ -4,7 +4,7 @@
 /* @var $categories common\models\ArticleCategory[] */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Article Category',
+    'modelClass' => '文章分类',
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

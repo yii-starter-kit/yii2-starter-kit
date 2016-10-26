@@ -16,6 +16,14 @@ config:
   # PLEASE ADJUST IT TO THE ACTUAL ENTRY SCRIPT URL
   test_entry_url: http://localhost:%TEST_HTTP_PORT%/frontend/web/index-test.php
 extensions:
-  enabled:
-    - Codeception\Extension\RunFailed
+    enabled:
+        - Codeception\Extension\Phantoman
+        - Codeception\Extension\RunFailed
+        - Codeception\Extension\Recorder
+    config:
+        Codeception\Extension\Recorder:
+            delete_successful: true
+        Codeception\Extension\Phantoman:
+            debug: true
+            port: %TEST_PHANTOM_PORT%
 params: [env]

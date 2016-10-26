@@ -15,18 +15,31 @@ php -S localhost:8080
 - Run tests:
 ```
 cd tests
-./../vendor/bin/codecept build
-./../vendor/bin/codecept run
+./tests/vendor/bin/codecept build
+./tests/vendor/bin/codecept run
 ```
 
 # container env
 Run the following from the hosting machine:
-`docker-compose exec app php -S localhost:8080 > /dev/null 2>&1 &`
-`docker-compose exec app tests/codeception/bin/yii app/setup --interactive=0`
-`docker-compose exec app ./vendor/bin/codecept build`
-`docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/common`
-`docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/backend`
-`docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/frontend`
-`docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/console`
- - Sadly running all tests at once doe snot work when using global ENV's as part of codeception configuration
+Log into the app container and update dependencies
 
+```
+docker-compose exec app bash
+php composer.phar update -o -vvv
+exit
+```
+
+Setup the testing requirements
+```
+docker-compose exec app tests/codeception/bin/yii app/setup --interactive=0
+docker-compose exec app php -S localhost:8080 > /tmp/php.localhost 2>&1 &
+docker-compose exec app ./vendor/bin/codecept build
+```
+
+- Sadly running all tests at once doe snot work when using global ENV's as part of codeception configuration
+```
+docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/backend
+docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/common
+docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/console
+docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/frontend
+```

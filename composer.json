@@ -56,18 +56,30 @@
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "^2.0",
     "codeception/specify": "^0.4.3",
-    "codeception/verify": "^0.3.0"
+    "codeception/verify": "^0.3.0",
+
+    "jonnyw/php-phantomjs": "^3",
+    "site5/phantoman": "^1"
   },
   "suggest": {
     "trntv/yii2-debug-xhprof": "dev-master@dev"
   },
   "config": {
-    "process-timeout": 1800
+    "process-timeout": 1800,
+    "bin-dir": "vendor/bin"
   },
   "extra": {
     "asset-installer-paths": {
       "npm-asset-library": "vendor/npm",
       "bower-asset-library": "vendor/bower"
     }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ],
+    "post-update-cmd": [
+      "PhantomInstaller\\Installer::installPhantomJS"
+    ]
   }
 }

@@ -17,7 +17,7 @@ modules:
     # REST:
     #  url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
     Yii2:
-      configFile: '../config/backend/functional.php'
+      configFile: '../config/backend/acceptance.php'
     Db:
       dsn: %TEST_DB_DSN%
       user: %TEST_DB_USERNAME%

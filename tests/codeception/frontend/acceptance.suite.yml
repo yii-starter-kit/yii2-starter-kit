@@ -32,4 +32,5 @@ modules:
         unexpectedAlertBehaviour: 'accept'
       port: %TEST_PHANTOM_PORT%
     Yii2:
-      configFile: '../config/frontend/functional.php'
+      configFile: '../config/frontend/acceptance.php'
+      cleanup: true

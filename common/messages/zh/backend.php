@@ -78,7 +78,7 @@ return [
     'Invalidate tag' => '无效的标签',
     'Kernel version' => '内核版本',
     'Key' => '键',
-    'Key Storage Items' => '键存储',
+    'Key Storage Items' => '键值存储',
     'Key-Value Storage' => '键值存储',
     'Language' => '语言',
     'Level' => '等级',
@@ -174,4 +174,5 @@ return [
     'User' => '用户',
     'I18n Source Message' => '国际化源信息',
     'I18n Message' => '国际化信息',
+    'Key Storage Item' => '键值存储',
 ];

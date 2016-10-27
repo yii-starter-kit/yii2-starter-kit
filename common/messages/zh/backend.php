@@ -155,7 +155,7 @@ return [
     'Web Server' => 'Web 服务',
     'Widget Carousel Items' => 'Widget Carousel Items',
     'Widget Carousels' => 'Widget Carousels',
-    'Widget Menus' => 'Widget Menus',
+    'Widget Menus' => '菜单组件',
     'You have new event' => '你有新的事件',
     'You have new user!' => '你有新的用户',
     'You have {num} log items' => '你有 {num} 条日志',
@@ -164,4 +164,8 @@ return [
     'i18n' => '国际化',
     'i18n Message' => '国际化信息',
     'i18n Source Message' => '国际化源信息',
+    'Page' => '页面',
+    'Article' => '文章',
+    'Article Category' => '文章分类',
+    'Text Block' => '文本块',
 ];

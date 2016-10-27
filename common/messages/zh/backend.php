@@ -51,7 +51,7 @@ return [
     'Disabled' => '无效',
     'Edit account' => '编辑帐号',
     'Edit profile' => '编辑个人信息',
-    'Email' => 'Email',
+    'Email' => '邮箱',
     'Enabled' => '有效',
     'Error #{id}' => 'Error #{id}',
     'Error {code}' => '错误 {code}',
@@ -171,4 +171,5 @@ return [
     'Widget Menu' => '菜单组件',
     'Widget Carousel' => '轮播组件',
     'Widget Carousel Item' => '轮播组件项目',
+    'User' => '用户',
 ];

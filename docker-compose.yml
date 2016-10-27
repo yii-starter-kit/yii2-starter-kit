@@ -1,15 +1,8 @@
-data:
-  image: busybox:latest
-  volumes:
-    - ./:/app
-  entrypoint: tail -f /dev/null
-
 app:
   build: docker/php
   working_dir: /app
-  volumes_from:
-    - data
   volumes:
+    - ./:/app
     - ./docker/php/php.ini:/usr/local/etc/php/php.ini
   links:
     - db

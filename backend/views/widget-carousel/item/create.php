@@ -5,7 +5,7 @@
  */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Widget Carousel Item',
+    'modelClass' => Yii::t('backend', 'Widget Carousel Item'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Widget Carousel Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $carousel->key, 'url' => ['update', 'id' => $carousel->id]];

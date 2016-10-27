@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model common\models\WidgetCarouselItem */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
-    'modelClass' => 'Widget Carousel Item',
+    'modelClass' => Yii::t('backend', 'Widget Carousel Item'),
 ]) . ' ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Widget Carousel Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->carousel->key, 'url' => ['update', 'id' => $model->carousel->id]];

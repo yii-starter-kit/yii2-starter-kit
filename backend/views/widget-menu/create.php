@@ -3,7 +3,7 @@
 /* @var $model common\models\WidgetMenu */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => '菜单组件',
+    'modelClass' => Yii::t('backend', 'Widget Menu'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Widget Menus'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

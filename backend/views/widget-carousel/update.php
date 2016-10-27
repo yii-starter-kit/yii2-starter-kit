@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model common\models\WidgetCarousel */
 
 $this->title = Yii::t('backend', 'Update {modelClass}: ', [
-    'modelClass' => 'Widget Carousel',
+    'modelClass' => Yii::t('backend', 'Widget Carousel'),
 ]) . ' ' . $model->key;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Widget Carousels'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 
     <p>
         <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
-            'modelClass' => 'Widget Carousel Item',
+            'modelClass' => Yii::t('backend', 'Widget Carousel Item'),
         ]), ['/widget-carousel-item/create', 'carousel_id'=>$model->id], ['class' => 'btn btn-success']) ?>
     </p>
 

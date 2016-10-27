@@ -18,7 +18,7 @@
  */
 return [
     'Main' => '',
-    'Other' => '',
+    'Other' => '其他',
     'This email has already been taken.' => '',
     'Account' => '账号',
     'Application' => '应用程序',
@@ -91,7 +91,7 @@ return [
     'Memory' => '内存',
     'Memory Usage' => '内存使用率',
     'Menu Widgets' => '菜单组件',
-    'Message' => 'Message',
+    'Message' => '信息',
     'More info' => '更多信息',
     'Network' => 'Network',
     'New user ({identity}) was registered at {created_at}' => '新用户 ({identity}) 注册时间 {created_at}',
@@ -172,4 +172,6 @@ return [
     'Widget Carousel' => '轮播组件',
     'Widget Carousel Item' => '轮播组件项目',
     'User' => '用户',
+    'I18n Source Message' => '国际化源信息',
+    'I18n Message' => '国际化信息',
 ];

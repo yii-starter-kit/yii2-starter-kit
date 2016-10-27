@@ -3,7 +3,7 @@
 /* @var $model backend\modules\i18n\models\I18nMessage */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'I18n Message',
+    'modelClass' => Yii::t('backend', 'I18n Message'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'I18n Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

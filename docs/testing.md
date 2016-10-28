@@ -25,7 +25,7 @@ Log into the app container and update dependencies
 
 ```
 docker-compose exec app bash
-php composer.phar update -o -vvv
+php composer.phar install -o -vvv
 exit
 ```
 

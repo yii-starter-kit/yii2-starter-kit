@@ -57,7 +57,6 @@
     "codeception/codeception": "^2.0",
     "codeception/specify": "^0.4.3",
     "codeception/verify": "^0.3.0",
-
     "jonnyw/php-phantomjs": "^3",
     "site5/phantoman": "^1"
   },

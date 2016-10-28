@@ -20,7 +20,7 @@ modules:
       cleanup: true
       dump: ../common/_data/data.sql
     REST:
-     url: 'http://localhost:%TEST_HTTP_PORT%/backend/web/index-test.php/api/v1/'
+     url: 'http://localhost:%HTTP_PORT%/backend/web/index-test.php/api/v1/'
     Yii2:
       configFile: '../config/backend/acceptance.php'
       cleanup: true
@@ -28,4 +28,4 @@ modules:
       window_size: 1280x720
       capabilities:
         unexpectedAlertBehaviour: 'accept'
-      port: %TEST_PHANTOM_PORT%
+      port: %PHANTOM_PORT%

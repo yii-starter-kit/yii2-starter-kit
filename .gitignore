@@ -28,3 +28,4 @@ phpunit.phar
 /.vagrant
 vhost.conf
 docker-compose.override.yml
+tests/codeception/frontend/_output

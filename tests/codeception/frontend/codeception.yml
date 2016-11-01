@@ -12,7 +12,7 @@ settings:
     memory_limit: 2048M
     log: true
 config:
-    test_entry_url: http://localhost:%HTTP_PORT%/frontend/web/index-test.php
+    test_entry_url: http://localhost:%HTTP_PORT%/index-test.php
 extensions:
     enabled:
         - Codeception\Extension\Phantoman

@@ -20,10 +20,11 @@ modules:
       cleanup: true
       dump: ../common/_data/data.sql
     REST:
-     url: 'http://localhost:%HTTP_PORT%/frontend/web/index-test.php/api/v1/'
+     url: 'http://localhost:%HTTP_PORT%/api/v1/'
     Yii2:
       configFile: '../config/frontend/acceptance.php'
     WebDriver:
+      url: 'http://localhost:%HTTP_PORT%/'
       cleanup: true
       browser: phantomjs
       window_size: 1280x720

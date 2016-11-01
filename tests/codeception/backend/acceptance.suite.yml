@@ -10,7 +10,7 @@ modules:
     - Db
     - tests\codeception\backend\AcceptanceHelper
     - tests\codeception\common\_support\FixtureHelper
-    - Yii2
+    - WebDriver
   config:
     Db:
       dsn: %TEST_DB_DSN%
@@ -19,10 +19,12 @@ modules:
       populate: true
       cleanup: true
       dump: ../common/_data/data.sql
-    REST:
-     url: 'http://localhost:%HTTP_PORT%/backend/web/index-test.php/api/v1/'
+    #REST:
+    # url: 'http://localhost:%HTTP_PORT%/api/v1/'
     Yii2:
       configFile: '../config/backend/acceptance.php'
+    WebDriver:
+      url: 'http://localhost:%HTTP_PORT%/admin/'
       cleanup: true
       browser: phantomjs
       window_size: 1280x720

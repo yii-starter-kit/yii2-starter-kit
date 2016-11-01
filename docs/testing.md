@@ -26,17 +26,21 @@ Log into the app container and update dependencies
 ```
 docker-compose exec app bash
 php composer.phar install -o -vvv
-exit
 ```
 
 Setup the testing requirements
 ```
-docker-compose exec app tests/codeception/bin/yii app/setup --interactive=0
-docker-compose exec app php -S localhost:8080 > /tmp/php.localhost 2>&1 &
-docker-compose exec app ./vendor/bin/codecept build
+docker-compose exec app bash
+tests/codeception/bin/yii app/setup --interactive=0
+php -S localhost:${HTTP_PORT} 2>&1 &
+./vendor/bin/codecept build
 ```
 
-- Sadly running all tests at once doe snot work when using global ENV's as part of codeception configuration
+- Sadly running all tests at once does not work when using global ENV's as part of codeception configuration
+
+Frontend:
+php -S localhost:$HTTP_PORT -t ./frontend/web/
+
 ```
 docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/backend
 docker-compose exec app ./vendor/bin/codecept run -c ./tests/codeception/common

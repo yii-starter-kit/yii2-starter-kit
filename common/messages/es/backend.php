@@ -162,6 +162,6 @@ return [
     'Your account has been successfully saved' => 'Su cuenta ha sido guardada con éxito',
     'Your profile has been successfully saved' => 'Su perfil ha sido guardado con éxito',
     'i18n' => 'Traducciones',
-    'i18n Message' => 'Texto de Traducción',
-    'i18n Source Message' => 'Texto Original de Traducción',
+    'i18n Message' => 'Texto Traducido',
+    'i18n Source Message' => 'Texto Original',
 ];

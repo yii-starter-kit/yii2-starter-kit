@@ -27,7 +27,6 @@ install:
 # setup application:
   - |
     cp .env.dist .env
-    cp vhost.conf.dist vhost.conf
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
   - |

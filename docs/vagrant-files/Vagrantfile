@@ -3,25 +3,33 @@
 
 # OPTIONS
 require 'yaml'
-options = YAML.load_file File.join(File.dirname(__FILE__), 'vagrant.yaml')
+options = YAML.load_file File.join(File.dirname(__FILE__), '/vagrant/vagrant.yaml')
 domains = [
     "yii2-starter-kit.dev",
     "backend.yii2-starter-kit.dev",
     "storage.yii2-starter-kit.dev"
 ]
 packages = [
-    "php5-cli",
-    "php5-fpm",
-    "php5-intl",
-    "php5-gd",
-    "php5-mysqlnd",
-    "php5-curl",
-    "php5-mcrypt",
-    "php5-xdebug",
+    "php7.0",
+    "php7.0-cli",
+    "php7.0-common",
+    "php7.0-curl",
+    "php7.0-fpm",
+    "php7.0-gd",
+    "php7.0-intl",
+    "php7.0-json",
+    "php7.0-mcrypt",
+    "php7.0-mysql",
+    "php7.0-opcache",
+    "php7.0-readline",
+    "php7.0-mbstring",
+    "php7.0-dom",
+    "php-xdebug",
     "nginx",
     "mysql-server-5.6",
     "hhvm",
-    "git"
+    "git",
+    "zip"
 ]
 
 Vagrant.configure(2) do |config|
@@ -47,7 +55,13 @@ Vagrant.configure(2) do |config|
   config.hostmanager.include_offline    = true
   config.hostmanager.aliases            = domains
 
-  config.vm.provision "shell", path: "./vagrant.sh", args: [
+  # fix "stdin: is not a tty"
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
+
+  config.vm.provision "shell", path: "./vagrant/vagrant.sh", args: [
     packages.join(" "),
     options['github']['token'],
     options['system']['swapsize'],

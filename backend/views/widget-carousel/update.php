@@ -26,6 +26,9 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 
     <?php echo GridView::widget([
         'dataProvider' => $carouselItemsProvider,
+        'options' => [
+            'class' => 'grid-view table-responsive'
+        ],
         'columns' => [
             'order',
             [

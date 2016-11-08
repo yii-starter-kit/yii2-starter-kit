@@ -109,6 +109,25 @@ class m150725_192740_seed_data extends Migration
             'updated_at'=> time(),
         ]);
 
+        $this->insert('{{%widget_text}}', [
+            'key'=>'ads-example',
+            'title'=>'Google Ads Example Block',
+            'body'=>'<div class="lead">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-9505937224921657"
+                     data-ad-slot="2264361777"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>',
+            'status'=>0,
+            'created_at'=> time(),
+            'updated_at'=> time(),
+        ]);
+
         $this->insert('{{%widget_carousel}}', [
             'id'=>1,
             'key'=>'index',

@@ -6,6 +6,7 @@ use common\models\query\UserTokenQuery;
 use Yii;
 use yii\base\InvalidCallException;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%user_token}}".
@@ -20,7 +21,7 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property User $user
  */
-class UserToken extends \yii\db\ActiveRecord
+class UserToken extends ActiveRecord
 {
     const TOKEN_LENGTH = 40;
     const TYPE_ACTIVATION = 'activation';
@@ -130,5 +131,13 @@ class UserToken extends \yii\db\ActiveRecord
         $this->updateAttributes([
             'expire_at' => $duration ? time() + $duration : null
         ]);
+    }
+    
+    /**
+     * @return UsertokenQuery
+     */
+    public static function find()
+    {
+        return new UserTokenQuery(get_called_class());
     }
 }

@@ -6,6 +6,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
 [![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8 "Donate once-off to this project using Paypal")
 [![Dependency Status](https://www.versioneye.com/php/trntv:yii2-starter-kit/badge.svg)](https://www.versioneye.com/php/trntv:yii2-starter-kit)
+[![Build Status](https://travis-ci.org/trntv/yii2-starter-kit.svg?branch=master)](https://travis-ci.org/trntv/yii2-starter-kit)
 
 <!-- /BADGES -->
 
@@ -96,7 +97,7 @@ Password: user
 - Docker support and Vagrant support
 - Built-in [mailcatcher](http://mailcatcher.me/)
 - Assets compression and concatenation
-- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/shortcuts.php)
+- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
 - many other features i'm lazy to write about :-)
 
 
@@ -267,6 +268,7 @@ Read more about command bus on in [official repository](https://github.com/trntv
 ```
 ### API
 Starter Kit has fully configured and ready-to-go REST API module. You can access it on http://yii2-starter-kit.dev/api/v1
+For some endpoints you should authenticate your requests with one of available methods - https://github.com/yiisoft/yii2/blob/master/docs/guide/rest-authentication.md#authentication
 
 ### MultiModel
 ``common\base\MultiModel`` - class for handling multiple models in one
@@ -311,6 +313,7 @@ public function behaviors()
             'modelAccess' => [
                 'class' => OwnModelAccessFilter::className(),
                 'only' => ['view', 'update', 'delete'],
+                'modelCreatedByAttribute' => 'created_by',
                 'modelClass' => Article::className()
             ],
         ];

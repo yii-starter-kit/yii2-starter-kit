@@ -6,6 +6,7 @@ use common\behaviors\CacheInvalidateBehavior;
 use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "widget_carousel_item".
@@ -24,7 +25,7 @@ use yii\behaviors\TimestampBehavior;
  *
  * @property WidgetCarousel $carousel
  */
-class WidgetCarouselItem extends \yii\db\ActiveRecord
+class WidgetCarouselItem extends ActiveRecord
 {
 
     /**
@@ -59,7 +60,7 @@ class WidgetCarouselItem extends \yii\db\ActiveRecord
                 'baseUrlAttribute' => 'base_url',
                 'typeAttribute' => 'type'
             ],
-            'cacheInvalidate'=>[
+            'cacheInvalidate' => [
                 'class' => CacheInvalidateBehavior::className(),
                 'cacheComponent' => 'frontendCache',
                 'keys' => [

@@ -1,8 +1,34 @@
 Yii Starter Kit Change Log
 ==========================
 
-under development
------------------
+dev-master
+----------
+- Enh #434: Added ability to control assets linking with env variable
+- Fixed #428: Update for article categories didn't work on Yii 2.0.8 
+
+2.2.1
+-----
+- Fixed #407: Vagrant provisioning problems 
+- Fixed #400: Application initialization bug
+- Added some sanitizing in ContactForm (#339)
+- env() helper function added
+- trntv/yii2-glide and trntv/yii2-command-bus versions updated
+- Testing improvements
+- PHP7 is now default for Vagrant
+- Models are reformatted consistently as per conventions. #365
+- Spanish translations was updated
+- Fixed #392: The destinator of the mail was missing
+- Maintenance mode works equally on all environments (#348)
+
+2.2.0
+-----
+- Dockerfile based on PHP7
+- Travis CI integration
+
+2.1.3
+-----
+- Ads placing example
+- DbText widget changes
 - Fixed #368: User form fixes
 - Fixed #369: missing field from user table in application tests
 

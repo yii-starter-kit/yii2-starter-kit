@@ -86,7 +86,7 @@ class ArticleCategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        $categories = ArticleCategory::find()->noParents()->andWhere(['not in', 'id', $id])->all();
+        $categories = ArticleCategory::find()->noParents()->andWhere(['not', ['id' => $id]])->all();
         $categories = ArrayHelper::map($categories, 'id', 'title');
 
 

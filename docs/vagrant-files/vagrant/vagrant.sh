@@ -5,7 +5,7 @@ github_token=$(echo "$2")
 swapsize=$(echo "$3")
 timezone=$(echo "$4")
 # Helpers
-composer="hhvm /usr/local/bin/composer"
+composer="php /usr/local/bin/composer"
 
 # System configuration
 if ! grep --quiet "swapfile" /etc/fstab; then
@@ -26,6 +26,8 @@ if [ ! -f /etc/apt/sources.list.d/hhvm.list ]; then
     sudo echo 'deb http://dl.hhvm.com/ubuntu trusty main' >> /etc/apt/sources.list.d/hhvm.list
 fi
 
+sudo add-apt-repository -y ppa:ondrej/php
+
 # Configuring server software
 sudo update-locale LC_ALL="C"
 sudo dpkg-reconfigure locales
@@ -36,40 +38,48 @@ sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get install -y ${packages}
 
-sudo php5enmod mcrypt
 sudo sed -i 's/bind-address.*/bind-address = 0.0.0.0/g' /etc/mysql/my.cnf;
-if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php5/mods-available/xdebug.ini; then
+if ! grep --quiet '^xdebug.remote_enable = on$' /etc/php/7.0/mods-available/xdebug.ini; then
     (
      echo "xdebug.remote_enable = on";
      echo "xdebug.remote_connect_back = on";
      echo "xdebug.remote_host = 10.0.2.2";
      echo "xdebug.idekey = \"vagrant\""
-    ) >> /etc/php5/mods-available/xdebug.ini
+    ) >> /etc/php/7.0/mods-available/xdebug.ini
 fi
+sudo phpenmod mcrypt
+
+# disable xdebug temporarily to avoid composer performance issues
+sudo phpdismod xdebug
 
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
 	sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    ${composer} global require fxp/composer-asset-plugin --prefer-dist
+    ${composer} global require fxp/composer-asset-plugin --no-progress --prefer-dist
 else
 	${composer} self-update
-	${composer} global update --prefer-dist
+	${composer} global update --no-progress --prefer-dist
 fi
 ${composer} config --global github-oauth.github.com ${github_token}
 
 # init application
 if [ ! -d /var/www/vendor ]; then
-    cd /var/www && ${composer} install --prefer-dist --optimize-autoloader
+    cd /var/www && ${composer} install --no-progress --prefer-dist --optimize-autoloader
 else
-    cd /var/www && ${composer} update --prefer-dist --optimize-autoloader
+    cd /var/www && ${composer} update --no-progress --prefer-dist --optimize-autoloader
 fi
 
-cp /var/www/.env.dist /var/www/.env
+# enable xdebug again
+sudo phpenmod xdebug
+
+# copy only if not exists
+if [ ! -f /var/www/.env ]; then
+    cp /var/www/.env.dist /var/www/.env
+fi
 
 # create nginx config
 if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
-    cp /var/www/vhost.conf.dist /var/www/vhost.conf
-    sudo ln -s /var/www/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
+    sudo ln -s /var/www/vagrant/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
 fi
 
 # Configuring application
@@ -80,5 +90,5 @@ echo "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit\` CHARACTER SET utf8 COLL
 php /var/www/console/yii app/setup --interactive=0
 
 sudo service mysql restart
-sudo service php5-fpm restart
+sudo service php7.0-fpm restart
 sudo service nginx restart

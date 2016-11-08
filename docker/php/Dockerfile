@@ -1,4 +1,4 @@
-FROM php:5.6-fpm
+FROM php:7-fpm
 
 # Install modules
 RUN apt-get update && apt-get install -y \
@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         libicu-dev \
                 --no-install-recommends
 
-RUN docker-php-ext-install mcrypt intl mbstring pdo_mysql exif \
+RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 

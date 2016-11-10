@@ -77,7 +77,7 @@ Required PHP extensions:
 
 3. Run in command line
 ```
-php console/yii app/setup
+php console/yii app/setup --interactive=0
 ```
 
 ### Configure your web server

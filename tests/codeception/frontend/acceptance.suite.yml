@@ -22,9 +22,11 @@ modules:
     REST:
      url: 'http://localhost:%HTTP_PORT%/api/v1/'
     Yii2:
-      configFile: '../config/frontend/acceptance.php'
+      configFile: 'codeception/config/acceptance.php'
+      entryScript: 'index-test.php'
+      part: [email, fixtures, init, orm]
     WebDriver:
-      url: 'http://localhost:%HTTP_PORT%/'
+      url: 'http://localhost:%HTTP_PORT%'
       cleanup: true
       browser: phantomjs
       window_size: 1280x720

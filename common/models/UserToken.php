@@ -132,12 +132,4 @@ class UserToken extends ActiveRecord
             'expire_at' => $duration ? time() + $duration : null
         ]);
     }
-    
-    /**
-     * @return UsertokenQuery
-     */
-    public static function find()
-    {
-        return new UserTokenQuery(get_called_class());
-    }
 }

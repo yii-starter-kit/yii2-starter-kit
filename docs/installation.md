@@ -267,7 +267,7 @@ upstream php-fpm {
 6. Setup application with `docker-compose run app console/yii app/setup`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
-*PS* Also you can use bash inside application container. To do so run `docker-compose run app bash`
+*PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
 
 ### Docker FAQ
 1. How do i run yii console command?

@@ -22,7 +22,7 @@ use yii\web\Cookie;
  *           'set-locale'=>[
  *               'class'=>'common\actions\SetLocaleAction',
  *               'locales'=>[
- *                   'en-US', 'ru-RU', 'ua-UA'
+ *                   'en-US', 'ru-RU', 'uk-UA'
  *               ],
  *               'localeCookieName'=>'_locale',
  *               'callback'=>function($action){

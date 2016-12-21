@@ -23,6 +23,12 @@
     "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
     "source": "https://github.com/trntv/yii2-starter-kit"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@bitbucket.org:lstw/portal-dbx-videos.git"
+    }
+  ],
   "require": {
     "php": ">=5.5.0",
     "ext-intl": "*",
@@ -47,7 +53,10 @@
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
-    "symfony/process": "^3.0"
+    "symfony/process": "^3.0",
+    "mdmsoft/yii2-admin": "~2.0",
+    "lstw/portal-dbx-videos": "dev-master"
+
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

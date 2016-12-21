@@ -34,12 +34,28 @@ $config = [
         ],
     ],
     'modules'=>[
-        'i18n' => [
+
+      'admin' => [
+        'class' => 'mdm\admin\Module',
+        'layout' => 'left-menu',
+        'mainLayout' => '@backend/views/layouts/main.php',
+      ],
+        /*'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute'=>'i18n-message/index'
-        ]
+        ]*/
     ],
-    'as globalAccess'=>[
+  'as access' => [
+    'class' => 'mdm\admin\components\AccessControl',
+    'allowActions' => [
+      'sign-in/logout',
+      'sign-in/login',
+      'admin/*',
+      'debug/*',
+      'site/error'
+    ]
+  ]
+   /* 'as globalAccess'=>[
         'class'=>'\common\behaviors\GlobalAccessBehavior',
         'rules'=>[
             [
@@ -79,7 +95,7 @@ $config = [
                 'roles' => ['manager'],
             ]
         ]
-    ]
+    ]*/
 ];
 
 if (YII_ENV_DEV) {

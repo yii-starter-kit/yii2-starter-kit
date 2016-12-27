@@ -64,7 +64,11 @@ class SignInController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+          if(!Yii::$app->user->can("loginToBackend")){
+            $this->actionLogout();
+          }else{
             return $this->goBack();
+          }
         } else {
             return $this->render('login', [
                 'model' => $model

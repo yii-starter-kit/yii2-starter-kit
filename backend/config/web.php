@@ -6,14 +6,14 @@ $config = [
     'controllerMap'=>[
         'file-manager-elfinder' => [
             'class' => 'mihaildev\elfinder\Controller',
-            'access' => ['manager'],
+            'access' => ['/file-manager-elfinder/*'],
             'disabledCommands' => ['netmount'],
             'roots' => [
                 [
                     'baseUrl' => '@storageUrl',
                     'basePath' => '@storage',
                     'path'   => '/',
-                    'access' => ['read' => 'manager', 'write' => 'manager']
+                    'access' => ['read' => '/file-manager-elfinder/*', 'write' => '/file-manager-elfinder/*']
                 ]
             ]
         ]
@@ -40,17 +40,16 @@ $config = [
         'layout' => 'left-menu',
         'mainLayout' => '@backend/views/layouts/main.php',
       ],
-        /*'i18n' => [
+        'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute'=>'i18n-message/index'
-        ]*/
+        ]
     ],
   'as access' => [
     'class' => 'mdm\admin\components\AccessControl',
     'allowActions' => [
       'sign-in/logout',
       'sign-in/login',
-      'admin/*',
       'debug/*',
       'site/error'
     ]

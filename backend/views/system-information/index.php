@@ -129,16 +129,16 @@ $this->registerJsFile('@backendUrl/js/system-information/index.js',
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?php echo Yii::t('backend', 'Total memory') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getTotalMem()) ?></dd>
+                        <dd><?php echo $provider->getTotalMem()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getTotalMem()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Free memory') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getFreeMem()) ?></dd>
+                        <dd><?php echo $provider->getFreeMem()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getFreeMem()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Total Swap') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getTotalSwap()) ?></dd>
+                        <dd><?php echo $provider->getTotalSwap()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getTotalSwap()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Free Swap') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getFreeSwap()) ?></dd>
+                        <dd><?php echo $provider->getFreeSwap()/(1024*1024)//Yii::$app->formatter->asSize($provider->getFreeSwap()) ?> megabyte</dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>

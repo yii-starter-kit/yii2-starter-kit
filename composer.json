@@ -55,13 +55,12 @@
     "bower-asset/flot": "^0.8",
     "symfony/process": "^3.0",
     "mdmsoft/yii2-admin": "~2.0",
-    "lstw/portal-dbx-videos": "dev-master"
+    "lstw/portal-dbx-videos": "dev-upgrade-dropboax-api-2"
 
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",
     "yiisoft/yii2-gii": "^2.0.0",
-    "yiisoft/yii2-codeception": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "^2.0",
     "codeception/specify": "^0.4.3",

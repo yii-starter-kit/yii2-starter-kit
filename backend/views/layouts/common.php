@@ -70,13 +70,13 @@ $bundle = BackendAsset::register($this);
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="user-image">
+                                <img src="<?php echo Yii::$app->user->identity->username //profile->getAvatarUrl(24) ?>" class="user-image">
                                 <span><?php echo Yii::$app->user->identity->username ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header light-blue">
-                                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?php echo Yii::$app->user->identity->username //profile->getAvatarUrl(50) ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         <?php echo Yii::$app->user->identity->username ?>
                                         <small>
@@ -86,13 +86,13 @@ $bundle = BackendAsset::register($this);
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <?php echo Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class'=>'btn btn-default btn-flat']) ?>
+                                        <?php echo Html::a(Yii::t('backend', 'Profile'), ['/user/settings/profile'], ['class'=>'btn btn-default btn-flat']) ?>
                                     </div>
                                     <div class="pull-left">
-                                        <?php echo Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class'=>'btn btn-default btn-flat']) ?>
+                                        <?php echo Html::a(Yii::t('backend', 'Account'), ['/user/settings/account'], ['class'=>'btn btn-default btn-flat']) ?>
                                     </div>
                                     <div class="pull-right">
-                                        <?php echo Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class'=>'btn btn-default btn-flat', 'data-method' => 'post']) ?>
+                                        <?php echo Html::a(Yii::t('backend', 'Logout'), ['/user/security/logout'], ['class'=>'btn btn-default btn-flat', 'data-method' => 'post']) ?>
                                     </div>
                                 </li>
                             </ul>
@@ -111,11 +111,11 @@ $bundle = BackendAsset::register($this);
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" />
+                        <img src="<?php echo Yii::$app->user->identity->username //profile->getAvatarUrl(40) ?>" class="img-circle" />
                     </div>
                     <div class="pull-left info">
                         <p><?php echo Yii::t('backend', 'Hello, {username}', ['username'=>Yii::$app->user->identity->getPublicIdentity()]) ?></p>
-                        <a href="<?php echo Url::to(['/sign-in/profile']) ?>">
+                        <a href="<?php echo Url::to(['/user/settings/profile']) ?>">
                             <i class="fa fa-circle text-success"></i>
                             <?php echo Yii::$app->formatter->asDatetime(time()) ?>
                         </a>
@@ -160,7 +160,7 @@ $bundle = BackendAsset::register($this);
                         [
                             'label'=>Yii::t('backend', 'Users'),
                             'icon'=>'<i class="fa fa-users"></i>',
-                            'url'=>['/user/index'],
+                            'url'=>['/user/admin/index'],
                             'visible'=>Yii::$app->user->can('administrator')
                         ],
                         [

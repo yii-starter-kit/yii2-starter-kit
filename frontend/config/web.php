@@ -6,7 +6,7 @@ $config = [
     'bootstrap' => ['maintenance'],
     'modules' => [
         'user' => [
-            'class' => 'frontend\modules\user\Module',
+            'as frontend' => 'dektrium\user\filters\FrontendFilter',
             //'shouldBeActivated' => true
         ],
         'api' => [
@@ -52,12 +52,24 @@ $config = [
             'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [
-            'class'=>'yii\web\User',
-            'identityClass' => 'common\models\User',
-            'loginUrl'=>['/user/sign-in/login'],
-            'enableAutoLogin' => true,
-            'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
-        ]
+//            'class'=>'yii\web\User',
+//            'identityClass' => 'common\models\User',
+//            'loginUrl'=>['/user/sign-in/login'],
+//            'enableAutoLogin' => true,
+//            'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
+            'identityCookie' => [
+                'name' => '_frontendIdentity',
+                'path' => '/',
+                'httpOnly' => true,
+            ],
+        ],
+        'session' => [
+            'name' => 'FRONTENDSESSID',
+            'cookieParams' => [
+                'httpOnly' => true,
+                'path' => '/'
+            ],
+        ],
     ]
 ];
 

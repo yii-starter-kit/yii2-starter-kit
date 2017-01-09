@@ -6,6 +6,15 @@ $config = [
     'sourceLanguage'=>'en-US',
     'language'=>'en-US',
     'bootstrap' => ['log'],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            'adminPermission' => 'administrator',
+            'modelMap' => [
+                'User' => 'common\models\User',
+            ],
+        ],
+    ],
     'components' => [
 
         'authManager' => [

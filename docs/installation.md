@@ -267,7 +267,7 @@ upstream php-fpm {
 6. Setup application with `docker-compose run app console/yii app/setup`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
-*PS* Also you can use bash inside application container. To do so run `docker-compose run app bash`
+*PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
 
 ### Docker FAQ
 1. How do i run yii console command?
@@ -289,7 +289,7 @@ If you want, you can use bundled Vagrant instead of installing app to your local
 3. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
 4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
 5. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
-5. Run:
+6. Run:
 ```
 vagrant plugin install vagrant-hostmanager
 vagrant up

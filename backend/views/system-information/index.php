@@ -9,8 +9,7 @@ use common\models\User;
 
 $this->title = Yii::t('backend', 'System Information');
 $this->registerJs("window.paceOptions = { ajax: false }", \yii\web\View::POS_HEAD);
-$this->registerJsFile(
-    Yii::$app->request->baseUrl . 'js/system-information/index.js',
+$this->registerJsFile('@backendUrl/js/system-information/index.js',
     ['depends' => ['\yii\web\JqueryAsset', '\common\assets\Flot', '\yii\bootstrap\BootstrapPluginAsset']]
 ) ?>
 <div id="system-information-index">
@@ -130,16 +129,16 @@ $this->registerJsFile(
                 <div class="box-body">
                     <dl class="dl-horizontal">
                         <dt><?php echo Yii::t('backend', 'Total memory') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getTotalMem()) ?></dd>
+                        <dd><?php echo $provider->getTotalMem()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getTotalMem()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Free memory') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getFreeMem()) ?></dd>
+                        <dd><?php echo $provider->getFreeMem()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getFreeMem()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Total Swap') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getTotalSwap()) ?></dd>
+                        <dd><?php echo $provider->getTotalSwap()/(1024*1024*1024)//Yii::$app->formatter->asSize($provider->getTotalSwap()) ?> gigabytes</dd>
 
                         <dt><?php echo Yii::t('backend', 'Free Swap') ?></dt>
-                        <dd><?php echo Yii::$app->formatter->asSize($provider->getFreeSwap()) ?></dd>
+                        <dd><?php echo $provider->getFreeSwap()/(1024*1024)//Yii::$app->formatter->asSize($provider->getFreeSwap()) ?> megabyte</dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>

@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <?php echo Yii::t('backend', 'Used size') ?>:
                     </dt>
                     <dd>
-                        <?php echo Yii::$app->formatter->asSize($totalSize); ?>
+                        <?php echo  $totalSize//Yii::$app->formatter->asSize($totalSize); ?>
                     </dd>
                 </dl>
             </div>
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'path',
             'type',
-            'size:size',
+            'size',
             'name',
             'upload_ip',
             'created_at:datetime',

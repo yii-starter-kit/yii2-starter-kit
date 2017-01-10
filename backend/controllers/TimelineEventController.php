@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\search\TimelineEventSearch;
 use yii\web\Controller;
+use yii\filters\AccessControl;
 
 /**
  * Application timeline controller
@@ -12,6 +13,20 @@ use yii\web\Controller;
 class TimelineEventController extends Controller
 {
     public $layout = 'common';
+    
+    /** @inheritdoc */
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    ['allow' => true, 'roles' => ['manager']],  
+                ],
+            ],
+        ];
+    }
+    
     /**
      * Lists all TimelineEvent models.
      * @return mixed

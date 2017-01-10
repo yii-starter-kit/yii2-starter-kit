@@ -26,60 +26,41 @@ $config = [
             'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [
-            'class'=>'yii\web\User',
-            'identityClass' => 'common\models\User',
-            'loginUrl'=>['sign-in/login'],
-            'enableAutoLogin' => true,
-            'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
+            'loginUrl' => ['user/security/login'],
+            'identityCookie' => [
+                'name' => '_backendIdentity',
+                'path' => '/',
+                'httpOnly' => true,
+            ],
+         ],
+        'session' => [
+            'name' => 'BACKENDSESSID',
+            'cookieParams' => [
+                'httpOnly' => true,
+                'path' => '/'
+            ],
+        ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@backend/views/user'
+                ],
+            ],
         ],
     ],
     'modules'=>[
+        'user' => [
+            // following line will restrict access to profile, recovery, registration and settings controllers from backend
+            'as backend' => 'dektrium\user\filters\BackendFilter',
+            'controllerMap' => [
+                'security' => 'backend\controllers\user\SecurityController'
+            ]
+         ],
         'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute'=>'i18n-message/index'
         ]
     ],
-    'as globalAccess'=>[
-        'class'=>'\common\behaviors\GlobalAccessBehavior',
-        'rules'=>[
-            [
-                'controllers'=>['sign-in'],
-                'allow' => true,
-                'roles' => ['?'],
-                'actions'=>['login']
-            ],
-            [
-                'controllers'=>['sign-in'],
-                'allow' => true,
-                'roles' => ['@'],
-                'actions'=>['logout']
-            ],
-            [
-                'controllers'=>['site'],
-                'allow' => true,
-                'roles' => ['?', '@'],
-                'actions'=>['error']
-            ],
-            [
-                'controllers'=>['debug/default'],
-                'allow' => true,
-                'roles' => ['?'],
-            ],
-            [
-                'controllers'=>['user'],
-                'allow' => true,
-                'roles' => ['administrator'],
-            ],
-            [
-                'controllers'=>['user'],
-                'allow' => false,
-            ],
-            [
-                'allow' => true,
-                'roles' => ['manager'],
-            ]
-        ]
-    ]
 ];
 
 if (YII_ENV_DEV) {

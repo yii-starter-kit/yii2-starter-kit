@@ -51,9 +51,10 @@ class LocaleBehavior extends Behavior
     {
         $locale = Yii::$app->language;
 
-        if (!Yii::$app->user->isGuest && Yii::$app->user->identity->userProfile->locale) {
-            $locale = Yii::$app->user->getIdentity()->userProfile->locale;
-        } elseif ($this->enablePreferredLanguage) {
+//        if (!Yii::$app->user->isGuest && Yii::$app->user->identity->userProfile->locale) {
+//            $locale = Yii::$app->user->getIdentity()->userProfile->locale;
+//        } else
+        if ($this->enablePreferredLanguage) {
             $locale = Yii::$app->request->getPreferredLanguage($this->getAvailableLocales());
         }
 

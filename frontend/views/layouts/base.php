@@ -24,15 +24,15 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug'=>'about']],
             ['label' => Yii::t('frontend', 'Articles'), 'url' => ['/article/index']],
             ['label' => Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],
-            ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest],
-            ['label' => Yii::t('frontend', 'Login'), 'url' => ['/user/sign-in/login'], 'visible'=>Yii::$app->user->isGuest],
+            ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/registration/register'], 'visible'=>Yii::$app->user->isGuest],
+            ['label' => Yii::t('frontend', 'Login'), 'url' => ['/user/security/login'], 'visible'=>Yii::$app->user->isGuest],
             [
                 'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
                 'visible'=>!Yii::$app->user->isGuest,
                 'items'=>[
                     [
                         'label' => Yii::t('frontend', 'Settings'),
-                        'url' => ['/user/default/index']
+                        'url' => ['/user/settings/account']
                     ],
                     [
                         'label' => Yii::t('frontend', 'Backend'),
@@ -41,7 +41,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                     ],
                     [
                         'label' => Yii::t('frontend', 'Logout'),
-                        'url' => ['/user/sign-in/logout'],
+                        'url' => ['/user/security/logout'],
                         'linkOptions' => ['data-method' => 'post']
                     ]
                 ]

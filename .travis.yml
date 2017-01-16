@@ -29,10 +29,10 @@ install:
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
   - |
-    cd tests/codeception/backend && codecept build
-    cd ../common && codecept build
-    cd ../console && codecept build
-    cd ../frontend && codecept build
+    cd tests/codeception/backend && composer exec codecept build
+    cd ../common && composer exec codecept build
+    cd ../console && composer exec codecept build
+    cd ../frontend && composer exec codecept build
     cd ../../../
 
 before_script:
@@ -43,4 +43,4 @@ script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
     cd tests
-    ./../vendor/bin/codecept run --debug
+    composer exec codecept run --debug

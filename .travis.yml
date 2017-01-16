@@ -29,11 +29,10 @@ install:
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
   - |
-    cd tests/codeception/backend && composer exec codecept build
-    cd ../common && composer exec codecept build
-    cd ../console && composer exec codecept build
-    cd ../frontend && composer exec codecept build
-    cd ../../../
+    composer exec codecept build -c tests/codeception/common
+    composer exec codecept build -c tests/codeception/backend
+    composer exec codecept build -c tests/codeception/backend
+    composer exec codecept build -c tests/codeception/console
 
 before_script:
   - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
@@ -42,5 +41,4 @@ before_script:
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
-    cd tests
-    composer exec codecept run
+    composer exec codecept run -c tests

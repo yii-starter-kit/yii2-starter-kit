@@ -206,7 +206,8 @@ server {
     }
 
     location /admin {
-        try_files  $uri /admin/index.php?$args;
+    	alias /var/www/backend/web;
+        try_files $uri /backend/web/index.php?$args;
     }
 
     # storage access

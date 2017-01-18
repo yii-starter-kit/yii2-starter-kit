@@ -6,30 +6,10 @@
 
 class_name: AcceptanceTester
 modules:
-  enabled:
-    - Db
-    - tests\codeception\frontend\AcceptanceHelper
-    - tests\codeception\common\_support\FixtureHelper
-    - WebDriver
   config:
-    Db:
-      dsn: %TEST_DB_DSN%
-      user: %TEST_DB_USERNAME%
-      password: %TEST_DB_PASSWORD%
-      populate: true
-      cleanup: true
-      dump: ../common/_data/data.sql
     REST:
      url: 'http://localhost:%HTTP_PORT%/api/v1/'
     Yii2:
       configFile: 'codeception/config/acceptance.php'
       entryScript: 'index-test.php'
       part: [email, fixtures, init, orm]
-    WebDriver:
-      url: 'http://localhost:%HTTP_PORT%'
-      cleanup: true
-      browser: phantomjs
-      window_size: 1280x720
-      capabilities:
-        unexpectedAlertBehaviour: 'accept'
-      port: %PHANTOM_PORT%

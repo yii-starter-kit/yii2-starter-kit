@@ -34,3 +34,5 @@ db:
   environment:
     MYSQL_ROOT_PASSWORD: root
     MYSQL_DATABASE: yii2-starter-kit
+    MYSQL_USER: ysk_dbu
+    MYSQL_PASSWORD: ysk_pass

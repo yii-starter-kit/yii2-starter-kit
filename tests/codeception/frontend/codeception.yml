@@ -12,16 +12,5 @@ settings:
     memory_limit: 2048M
     log: true
 config:
-    test_entry_url: http://localhost:%HTTP_PORT%/index-test.php
-extensions:
-    enabled:
-        - Codeception\Extension\Phantoman
-        - Codeception\Extension\RunFailed
-        - Codeception\Extension\Recorder
-    config:
-        Codeception\Extension\Recorder:
-            delete_successful: true
-        Codeception\Extension\Phantoman:
-            debug: true
-            port: %PHANTOM_PORT%
+    test_entry_url: http://localhost:8080/index-test.php
 params: [env]

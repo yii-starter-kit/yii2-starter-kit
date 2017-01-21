@@ -6,14 +6,10 @@
 
 class_name: AcceptanceTester
 modules:
-    enabled:
-        - PhpBrowser
-        - tests\codeception\frontend\AcceptanceHelper
-        - tests\codeception\common\_support\FixtureHelper
-    config:
-        PhpBrowser:
-          url: 'http://localhost:8080'
-        REST:
-          url: 'http://localhost:8080/frontend/web/index-test.php/api/v1/'
-        Yii2:
-          configFile: '../config/frontend/functional.php'
+  config:
+    REST:
+     url: 'http://localhost:%HTTP_PORT%/api/v1/'
+    Yii2:
+      configFile: 'codeception/config/acceptance.php'
+      entryScript: 'index-test.php'
+      part: [email, fixtures, init, orm]

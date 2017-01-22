@@ -89,31 +89,15 @@ Or configure your web server with three different web roots:
 
 ### Single domain installation
 #### Setup application
-Adjust settings in `.env` file
+- Add ``127.0.0.1 yii2-starter-kit.dev`` to your `hosts` file
+- Uncomment `baseUrl` in `frontend/config/web.php` and `backend/config/web.php` files
 
- - If using containers + nginx DO NOT HAVE A a '/' in the FRONTEND_URL
-```
-FRONTEND_URL    = /
-BACKEND_URL     = /admin
-STORAGE_URL     = /storage/web
-```
-
-Adjust settings in `backend/config/web.php` file
 ```
     ...
     'components'=>[
         ...
         'request' => [
             'baseUrl' => '/admin',
-        ...
-```
-Adjust settings in `frontend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '',
         ...
 ```
 

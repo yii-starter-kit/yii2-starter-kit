@@ -24,7 +24,7 @@ $config = [
         ],
         'request' => [
             'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY'),
-            'baseUrl' => env('BACKEND_URL')
+            //'baseUrl' => '/admin' /* Use for single domain installation */
         ],
         'user' => [
             'class'=>'yii\web\User',

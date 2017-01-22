@@ -50,7 +50,7 @@ $config = [
         ],
         'request' => [
             'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY'),
-            'baseUrl' => env('FRONTEND_URL')
+            //'baseUrl' => '' /* Use for single domain installation */
         ],
         'user' => [
             'class'=>'yii\web\User',

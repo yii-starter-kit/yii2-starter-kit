@@ -92,6 +92,7 @@ Or configure your web server with three different web roots:
 - Add ``127.0.0.1 yii2-starter-kit.dev`` to your `hosts` file
 - Uncomment `baseUrl` in `frontend/config/web.php` and `backend/config/web.php` files
 
+ - If using containers + nginx DO NOT HAVE A a '/' in the FRONTEND_URL
 ```
     ...
     'components'=>[

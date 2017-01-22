@@ -42,7 +42,7 @@ before_script:
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
-    ./vendor/bin/codecept build -- -c tests/codeception/common
-    ./vendor/bin/codecept build -- -c tests/codeception/backend
-    ./vendor/bin/codecept build -- -c tests/codeception/frontend
-    ./vendor/bin/codecept build -- -c tests/codeception/console
+    ./vendor/bin/codecept run -- -c tests/codeception/common
+    ./vendor/bin/codecept run -- -c tests/codeception/backend
+    ./vendor/bin/codecept run -- -c tests/codeception/frontend
+    ./vendor/bin/codecept run -- -c tests/codeception/console

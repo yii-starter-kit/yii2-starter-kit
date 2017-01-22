@@ -16,12 +16,13 @@ services:
 cache:
   directories:
     - $HOME/.composer/cache
+    - vendor
 
 install:
   - travis_retry phpenv config-rm xdebug.ini
   - travis_retry composer self-update && composer --version
   - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0" "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
-  - travis_retry composer install --dev --prefer-source --no-interaction
+  - travis_retry composer install --prefer-source --no-interaction
 
 # setup application:
   - |
@@ -41,4 +42,7 @@ before_script:
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
-    composer exec codecept run -- -c tests
+    composer run codecept build -- -c tests/codeception/common
+    composer run codecept build -- -c tests/codeception/backend
+    composer run codecept build -- -c tests/codeception/frontend
+    composer run codecept build -- -c tests/codeception/console

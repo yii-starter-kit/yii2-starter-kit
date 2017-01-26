@@ -46,8 +46,17 @@ $config = [
         ],
 
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            //'useFileTransport' => true,
+            'class' => yii\swiftmailer\Mailer::className(),
+            'useFileTransport' => !empty(env('MAILER_FILE_TRANSPORT'))? true : false,
+            'transport' => [
+                'class' => Swift_SmtpTransport::class,
+                'host' => env('SMTP_HOST'),
+                'port' => env('SMTP_PORT'),
+                'encryption' => env('SMTP_ENCRIPTION'),
+                'username' => env('SMTP_USERNAME'),
+                'password' => env('SMTP_PASSWORD'),
+            ],
+
             'messageConfig' => [
                 'charset' => 'UTF-8',
                 'from' => env('ADMIN_EMAIL')
@@ -150,9 +159,9 @@ $config = [
         'adminEmail' => env('ADMIN_EMAIL'),
         'robotEmail' => env('ROBOT_EMAIL'),
         'availableLocales'=>[
-            'en-US'=>'English (US)',
-            'ru-RU'=>'Русский (РФ)',
-            'uk-UA'=>'Українська (Україна)',
+            'en-US'=>'English',
+            'ru-RU'=>'Русский',
+            'uk-UA'=>'Українська',
             'es' => 'Español',
             'vi' => 'Tiếng Việt',
             'zh-CN' => '简体中文',
@@ -177,11 +186,6 @@ if (YII_ENV_DEV) {
 
     $config['components']['cache'] = [
         'class' => 'yii\caching\DummyCache'
-    ];
-    $config['components']['mailer']['transport'] = [
-        'class' => 'Swift_SmtpTransport',
-        'host' => env('SMTP_HOST'),
-        'port' => env('SMTP_PORT'),
     ];
 }
 

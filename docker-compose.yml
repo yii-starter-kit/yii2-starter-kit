@@ -13,7 +13,6 @@ app:
     - 9000
   links:
     - db
-    - mailcatcher
   environment:
     XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
@@ -26,11 +25,6 @@ nginx:
     - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
     - app
-
-mailcatcher:
-    image: schickling/mailcatcher:latest
-    ports:
-      - "1080:1080"
 
 db:
   image: mysql:5.7

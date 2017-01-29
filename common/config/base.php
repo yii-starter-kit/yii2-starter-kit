@@ -6,8 +6,15 @@ $config = [
     'sourceLanguage'=>'en-US',
     'language'=>'en-US',
     'bootstrap' => ['log'],
+    'modules' => [
+        'user' => [
+            'class' => 'dektrium\user\Module',
+            // you will configure your module inside this file
+            // or if need different configuration for frontend and backend you may
+            // configure in needed configs
+        ],
+    ],
     'components' => [
-
         'authManager' => [
             'class' => 'yii\rbac\DbManager',
             'itemTable' => '{{%rbac_auth_item}}',
@@ -87,7 +94,7 @@ $config = [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath'=>'@common/messages',
                 ],
-                '*'=> [
+                /*'*'=> [
                     'class' => 'yii\i18n\PhpMessageSource',
                     'basePath'=>'@common/messages',
                     'fileMap'=>[
@@ -96,8 +103,8 @@ $config = [
                         'frontend'=>'frontend.php',
                     ],
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
-                ],
-                /* Uncomment this code to use DbMessageSource
+                ],*/
+                /* Uncomment this code to use DbMessageSource */
                  '*'=> [
                     'class' => 'yii\i18n\DbMessageSource',
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
@@ -106,7 +113,7 @@ $config = [
                     'cachingDuration' => 3600,
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
                 ],
-                */
+
             ],
         ],
 

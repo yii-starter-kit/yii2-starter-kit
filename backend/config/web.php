@@ -38,8 +38,22 @@ $config = [
         'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute' => 'i18n-message/index'
-        ]
+        ], 'user' => [
+            // following line will restrict access to profile, recovery, registration and settings controllers from backend
+            'as backend' => 'dektrium\user\filters\BackendFilter',
+            'class' => 'dektrium\user\Module',
+            'confirmWithin' => 21600,
+            'cost' => 12,
+            'admins' => ['admin'],
+            'enableConfirmation' => false,
+            'enableUnconfirmedLogin' => true,
+            'enableFlashMessages' => false,
+            'controllerMap' => [
+                'admin' => 'backend\controllers\user\AdminController'
+            ],
+        ],
     ],
+
     'as globalAccess' => [
         'class' => '\common\behaviors\GlobalAccessBehavior',
         'rules' => [

@@ -1,13 +1,17 @@
 <?php
 $config = [
-    'homeUrl'=>Yii::getAlias('@frontendUrl'),
+    'homeUrl' => Yii::getAlias('@frontendUrl'),
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'site/index',
     'bootstrap' => ['maintenance'],
     'modules' => [
-        'user' => [
+        /*'user' => [
             'class' => 'frontend\modules\user\Module',
             //'shouldBeActivated' => true
+        ],*/
+        'user' => [
+            // following line will restrict access to admin controller from frontend application
+            'as frontend' => 'dektrium\user\filters\FrontendFilter',
         ],
         'api' => [
             'class' => 'frontend\modules\api\Module',
@@ -53,9 +57,9 @@ $config = [
             'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [
-            'class'=>'yii\web\User',
+            'class' => 'yii\web\User',
             'identityClass' => 'common\models\User',
-            'loginUrl'=>['/user/sign-in/login'],
+            'loginUrl' => ['/user/sign-in/login'],
             'enableAutoLogin' => true,
             'as afterLogin' => 'common\behaviors\LoginTimestampBehavior'
         ]
@@ -64,11 +68,11 @@ $config = [
 
 if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module',
-        'generators'=>[
-            'crud'=>[
-                'class'=>'yii\gii\generators\crud\Generator',
-                'messageCategory'=>'frontend'
+        'class' => 'yii\gii\Module',
+        'generators' => [
+            'crud' => [
+                'class' => 'yii\gii\generators\crud\Generator',
+                'messageCategory' => 'frontend'
             ]
         ]
     ];

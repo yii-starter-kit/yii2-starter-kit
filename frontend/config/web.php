@@ -13,7 +13,7 @@ $config = [
             // following line will restrict access to admin controller from frontend application
             'as frontend' => 'dektrium\user\filters\FrontendFilter',
         ],
-        'rbac' => 'dektrium\rbac\RbacWebModule',
+        //'rbac' => 'dektrium\rbac\RbacWebModule',
         'api' => [
             'class' => 'frontend\modules\api\Module',
             'modules' => [

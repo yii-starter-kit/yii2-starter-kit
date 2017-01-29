@@ -89,32 +89,15 @@ Or configure your web server with three different web roots:
 
 ### Single domain installation
 #### Setup application
-Adjust settings in `.env` file
-
+- Add ``127.0.0.1 yii2-starter-kit.dev`` to your `hosts` file
+- Use Single Domain urls definition section instead of Sub Domains
+ ```
+    SINGLE_DOMAIN   = true
+    FRONTEND_URL    = http://yii2-starter-kit.dev
+    BACKEND_URL     = http://yii2-starter-kit.dev/admin
+    STORAGE_URL     = http://yii2-starter-kit.dev/storage
 ```
-FRONTEND_URL    = /
-BACKEND_URL     = /admin
-STORAGE_URL     = /storage/web
-```
-
-Adjust settings in `backend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '/admin',
-        ...
-```
-Adjust settings in `frontend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '',
-        ...
-```
+- Change `vhost.conf` with `vhost.single-domain.conf` content
 
 #### Configure your web server
 ##### Apache

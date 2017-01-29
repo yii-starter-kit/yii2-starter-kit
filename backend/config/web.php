@@ -52,7 +52,7 @@ $config = [
                 'admin' => 'backend\controllers\user\AdminController'
             ],
         ],
-        'rbac' => 'dektrium\rbac\RbacWebModule',
+        //'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
 
     'as globalAccess' => [

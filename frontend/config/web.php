@@ -49,6 +49,7 @@ $config = [
             }
         ],
         'request' => [
+            'baseUrl' => '',
             'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
         'user' => [

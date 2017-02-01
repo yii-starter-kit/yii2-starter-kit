@@ -1,13 +1,14 @@
 app:
-  build: docker/php
+  image: dmstr/php-yii2
   working_dir: /app
   volumes:
     - ./:/app
-    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+    - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
   links:
     - db
   env_file:
     - .env
+
 
 nginx:
   image: nginx:latest

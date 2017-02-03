@@ -50,17 +50,16 @@ $config = [
             ]
         ],
         'view' => [
+            'class' => 'yii\web\View',
             'theme' => [
-                'class' => 'yii\web\View',
-                'theme' => [
-                    'class' => 'yii\base\Theme',
-                    'pathMap' => [
-                        '@app/views' => 'themes/material',
-                        //'@dektrium/user/views' => '@frontend/views/user',
-                        //'@dektrium/rbac/views' => '@frontend/views/user'
-                    ],
-                    'baseUrl' => 'themes/material'
+                'class' => 'yii\base\Theme',
+                'pathMap' => [
+                    '@app/views' => 'themes/material',
+                    //'@dektrium/user/views' => '@frontend/views/user',
+                    //'@dektrium/rbac/views' => '@frontend/views/user'
                 ],
+                'baseUrl' => 'themes/material'
+
             ],
         ],
         'errorHandler' => [

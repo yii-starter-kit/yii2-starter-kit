@@ -39,7 +39,7 @@ class User extends BaseUser implements IdentityInterface
      */
     public function getPublicIdentity()
     {
-        if ($this->profile && $this->profile->name()) {
+        if ($this->profile && $this->profile->getFullName()) {
             return $this->profile->getFullname();
         }
         if ($this->username) {

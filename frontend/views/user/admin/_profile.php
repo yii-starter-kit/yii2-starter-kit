@@ -37,6 +37,12 @@ use yii\helpers\Html;
 <?= $form->field($profile, 'website') ?>
 <?= $form->field($profile, 'location') ?>
 <?= $form->field($profile, 'gravatar_email') ?>
+
+<?php echo $form->field($profile, 'gender')->dropDownlist([
+    \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
+    \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
+], ['prompt' => '']) ?>
+
 <?= $form->field($profile, 'bio')->textarea() ?>
 
 <div class="form-group">

@@ -3,8 +3,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /**
- * @var yii\web\View              $this
- * @var yii\widgets\ActiveForm    $form
+ * @var yii\web\View $this
+ * @var yii\widgets\ActiveForm $form
  * @var dektrium\user\models\User $user
  */
 
@@ -30,6 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'email') ?>
 
                 <?= $form->field($model, 'password')->passwordInput() ?>
+
+                <?php echo $form->field($model, 'gender')->dropDownlist([
+                    \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
+                    \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
+                ], ['prompt' => '']) ?>
 
                 <?= Html::submitButton(Yii::t('user', 'Sign up'), ['class' => 'btn btn-success btn-block']) ?>
 

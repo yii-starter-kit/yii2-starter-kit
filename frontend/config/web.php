@@ -58,7 +58,7 @@ $config = [
                     '@dektrium/user/views' => '@frontend/views/user',
                     '@dektrium/rbac/views' => '@frontend/views/user'
                 ],
-                'baseUrl' => '@frontend/web/themes/material'
+                'baseUrl' => '@web/themes/material'
 
             ],
         ],

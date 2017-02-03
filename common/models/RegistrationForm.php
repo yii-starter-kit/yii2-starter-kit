@@ -29,7 +29,6 @@ class RegistrationForm extends BaseRegistrationForm
     {
         $rules = parent::rules();
         //$rules[] = ['name', 'required'];
-        $rules[] = ['picture', 'string', 'max' => 250];
         $rules[] = ['gender', 'boolean'];
         return $rules;
     }

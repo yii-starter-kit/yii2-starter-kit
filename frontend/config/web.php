@@ -15,6 +15,7 @@ $config = [
             'modelMap' => [
                 'User' => 'common\models\User',
                 'Profile' => 'common\models\UserProfile',
+                'RegistrationForm'=>'common\models\RegistrationForm',
             ],
         ],
         //'rbac' => 'dektrium\rbac\RbacWebModule',

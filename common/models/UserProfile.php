@@ -16,8 +16,8 @@ use dektrium\user\models\Profile as BaseProfile;
  */
 class UserProfile extends BaseProfile
 {
-    const GENDER_MALE = 1;
-    const GENDER_FEMALE = 2;
+    const GENDER_MALE = 0;
+    const GENDER_FEMALE = 1;
 
     /**
      * @return null|string

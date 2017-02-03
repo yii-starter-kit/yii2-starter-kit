@@ -48,6 +48,13 @@ $config = [
                 ]
             ]
         ],
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@dektrium/user/views' => '@frontend/views/user'
+                ],
+            ],
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error'
         ],

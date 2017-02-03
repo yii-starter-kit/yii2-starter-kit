@@ -10,7 +10,7 @@ namespace common\models;
 
 use dektrium\user\models\Profile;
 use dektrium\user\models\RegistrationForm as BaseRegistrationForm;
-use common\models\User;
+use dektrium\user\models\User;
 
 class RegistrationForm extends BaseRegistrationForm
 {
@@ -40,8 +40,8 @@ class RegistrationForm extends BaseRegistrationForm
     public function attributeLabels()
     {
         $labels = parent::attributeLabels();
-        //TODO add labels for new files
-        $labels['name'] = \Yii::t('user', 'Name');
+        $labels['gender'] = \Yii::t('frontend', 'gender');
+        $labels['picture'] = \Yii::t('frontend', 'picture');
         return $labels;
     }
 
@@ -55,6 +55,7 @@ class RegistrationForm extends BaseRegistrationForm
             'email' => $this->email,
             'username' => $this->username,
             'password' => $this->password,
+            'gender'=> $this->gender,
         ]);
         /** @var Profile $profile */
         $profile = \Yii::createObject(Profile::className());

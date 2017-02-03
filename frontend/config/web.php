@@ -14,6 +14,7 @@ $config = [
             'as frontend' => 'dektrium\user\filters\FrontendFilter',
             'modelMap' => [
                 'User' => 'common\models\User',
+                'Profile' => 'common\models\Profile',
             ],
         ],
         //'rbac' => 'dektrium\rbac\RbacWebModule',

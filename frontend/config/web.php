@@ -15,7 +15,7 @@ $config = [
             'modelMap' => [
                 'User' => 'common\models\User',
                 'Profile' => 'common\models\UserProfile',
-                'RegistrationForm'=>'common\models\RegistrationForm',
+                'RegistrationForm' => 'common\models\RegistrationForm',
             ],
         ],
         //'rbac' => 'dektrium\rbac\RbacWebModule',
@@ -51,6 +51,12 @@ $config = [
         ],
         'view' => [
             'theme' => [
+                'class' => 'yii\web\View',
+                'theme' => [
+                    'class' => 'yii\base\Theme',
+                    'pathMap' => ['@frontend/views' => 'themes/material'],
+                    'baseUrl' => 'themes/material'
+                ],
                 'pathMap' => [
                     '@dektrium/user/views' => '@frontend/views/user',
                     '@dektrium/rbac/views' => '@frontend/views/user'

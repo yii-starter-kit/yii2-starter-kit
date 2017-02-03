@@ -54,12 +54,12 @@ $config = [
                 'class' => 'yii\web\View',
                 'theme' => [
                     'class' => 'yii\base\Theme',
-                    'pathMap' => ['@frontend/views' => 'themes/material'],
+                    'pathMap' => [
+                        '@frontend/views' => 'themes/material',
+                        '@dektrium/user/views' => '@frontend/views/user',
+                        '@dektrium/rbac/views' => '@frontend/views/user'
+                    ],
                     'baseUrl' => 'themes/material'
-                ],
-                'pathMap' => [
-                    '@dektrium/user/views' => '@frontend/views/user',
-                    '@dektrium/rbac/views' => '@frontend/views/user'
                 ],
             ],
         ],

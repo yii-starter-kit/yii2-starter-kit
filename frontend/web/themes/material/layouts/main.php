@@ -1,5 +1,7 @@
 <?php
 
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use yii\widgets\Breadcrumbs;
@@ -8,7 +10,7 @@ use yii\widgets\Breadcrumbs;
  * @var $this \yii\base\View
  * @var $content string
  */
-// $this->registerAssetBundle('app');
+$this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
 <?php $this->beginPage(); ?>
 
@@ -28,24 +30,56 @@ use yii\widgets\Breadcrumbs;
 </head>
 <body>
   <?php $this->beginBody() ?>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="container">
-      <div class="nav-wrapper"><a id="logo-container" href="#" class="brand-logo"><?php echo Html::encode(\Yii::$app->name); ?></a>
-	  		<?php
-						echo Menu::widget([
-						    'options' => ['id' => "nav-mobile", 'class' => 'right side-nav'],
-						    'items' => [
-						        ['label' => 'Home', 'url' => ['site/index']],
-						        ['label' => 'About', 'url' => ['site/about']],
-						        ['label' => 'Contact', 'url' => ['site/contact']],
-						        ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
-						    ],
-						]);
-					?>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      </div>
-    </div>
-  </nav>
+  <?php
+  NavBar::begin([
+      'brandLabel' => Yii::$app->name,
+      'brandUrl' => Yii::$app->homeUrl,
+      'options' => [
+          'class' => 'navbar-inverse navbar-fixed-top',
+      ],
+  ]); ?>
+  <?php echo Nav::widget([
+      'options' => ['class' => 'navbar-nav navbar-right'],
+      'items' => [
+          ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
+          ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug' => 'about']],
+          ['label' => Yii::t('frontend', 'Articles'), 'url' => ['/article/index']],
+          ['label' => Yii::t('frontend', 'Contact'), 'url' => ['/site/contact']],
+          ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/registration/register'], 'visible' => Yii::$app->user->isGuest],
+          ['label' => Yii::t('frontend', 'Login'), 'url' => ['/user/security/login'], 'visible' => Yii::$app->user->isGuest],
+          [
+              'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
+              'visible' => !Yii::$app->user->isGuest,
+              'items' => [
+                  [
+                      'label' => Yii::t('frontend', 'Settings'),
+                      'url' => ['/user/settings/profile']
+                  ],
+                  [
+                      'label' => Yii::t('frontend', 'Backend'),
+                      'url' => Yii::getAlias('@backendUrl'),
+                      'visible' => Yii::$app->user->can('manager')
+                  ],
+                  [
+                      'label' => Yii::t('frontend', 'Logout'),
+                      'url' => ['/user/security/logout'],
+                      'linkOptions' => ['data-method' => 'post']
+                  ]
+              ]
+          ],
+          [
+              'label' => Yii::t('frontend', 'Language'),
+              'items' => array_map(function ($code) {
+                  return [
+                      'label' => Yii::$app->params['availableLocales'][$code],
+                      'url' => ['/site/set-locale', 'locale' => $code],
+                      'active' => Yii::$app->language === $code
+                  ];
+              }, array_keys(Yii::$app->params['availableLocales']))
+          ]
+      ]
+  ]); ?>
+  <?php NavBar::end(); ?>
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>

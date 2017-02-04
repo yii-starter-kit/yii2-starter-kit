@@ -324,7 +324,7 @@ public function behaviors()
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ##Donations
-- [Paypal] (https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8)
+- [![Donate further development](https://d1iczxrky3cnb2.cloudfront.net/button-small-red.png)](https://donorbox.org/yii2-starter-kit)
 - [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
 - [WebMoney] (Z110052695454)
 - Other way: [eugene@terentev.net](mailto:eugene@terentev.net)

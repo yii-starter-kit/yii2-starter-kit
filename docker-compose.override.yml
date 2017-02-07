@@ -1,0 +1,3 @@
+app:
+  volumes:
+    - ./docker/php/php.dev.ini:/usr/local/etc/php/php.ini

@@ -19,9 +19,9 @@ cache:
     - vendor
 
 install:
-  - travis_retry phpenv config-rm xdebug.ini
-  - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0" "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
-  - travis_retry composer install --dev --prefer-source --no-interaction
+  - phpenv config-rm xdebug.ini
+  - composer global require "fxp/composer-asset-plugin:~1.1.0" "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
+  - COMPOSER_DISCARD_CHANGES=1 composer install --prefer-source --no-interaction
 
 # setup application:
   - |

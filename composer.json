@@ -48,7 +48,9 @@
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
     "symfony/process": "^3.0",
-    "dektrium/yii2-user": "^0.9.12"
+    "dektrium/yii2-user": "^0.9.12",
+    "newerton/yii2-fancybox": "dev-master",
+    "yii2mod/yii2-sweet-alert": "*"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

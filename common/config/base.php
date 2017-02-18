@@ -25,7 +25,11 @@ $config = [
         'treemanager' => [
             'class' => '\kartik\tree\Module',
             // see settings on http://demos.krajee.com/tree-manager#module
-        ]
+        ],
+        'gii' => [
+            'class' => 'yii\gii\Module',
+            'allowedIPs' => ['127.0.0.1', '::1', '192.168.1.*', 'XXX.XXX.XXX.XXX'] // adjust this to your needs
+        ],
     ],
     'components' => [
         'authManager' => [

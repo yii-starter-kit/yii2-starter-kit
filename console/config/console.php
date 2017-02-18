@@ -15,11 +15,12 @@ return [
             'migrationPath' => '@common/migrations/db',
             'migrationTable' => '{{%system_db_migration}}'
         ],
-        'rbac-migrate' => [
+        /*'rbac-migrate' => [
             'class' => 'console\controllers\RbacMigrateController',
             'migrationPath' => '@common/migrations/rbac/',
             'migrationTable' => '{{%system_rbac_migration}}',
             'templateFile' => '@common/rbac/views/migration.php'
-        ],
+        ],*/
+        'rbac' => 'dektrium\rbac\RbacConsoleModule',
     ],
 ];

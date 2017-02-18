@@ -20,7 +20,7 @@ include('header.php'); ?>
     <?php
     include('menu.php'); ?>
 
-    <div class="container">
+    <div class="container" style="height: auto;">
         <div class="section">
             <div class="row">
                 <div class="col s12 m12">

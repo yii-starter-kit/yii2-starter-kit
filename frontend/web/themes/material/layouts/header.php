@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Html;
+
+?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language; ?>">
 <head>

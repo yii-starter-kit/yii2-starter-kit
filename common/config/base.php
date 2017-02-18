@@ -1,10 +1,10 @@
 <?php
 $config = [
-    'name'=>'Inquid Base Web App',
-    'vendorPath'=>dirname(dirname(__DIR__)).'/vendor',
+    'name' => 'Inquid Base Web App',
+    'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'extensions' => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
-    'sourceLanguage'=>'en-US',
-    'language'=>'en-US',
+    'sourceLanguage' => 'en-US',
+    'language' => 'en-US',
     'bootstrap' => ['log'],
     'modules' => [
         'user' => [
@@ -13,6 +13,19 @@ $config = [
             // or if need different configuration for frontend and backend you may
             // configure in needed configs
         ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+            // see settings on http://demos.krajee.com/grid#module
+        ],
+        'datecontrol' => [
+            'class' => '\kartik\datecontrol\Module',
+            // see settings on http://demos.krajee.com/datecontrol#module
+        ],
+        // If you use tree table
+        'treemanager' => [
+            'class' => '\kartik\tree\Module',
+            // see settings on http://demos.krajee.com/tree-manager#module
+        ]
     ],
     'components' => [
         'authManager' => [
@@ -39,8 +52,8 @@ $config = [
             ]
         ],
 
-        'formatter'=>[
-            'class'=>'yii\i18n\Formatter'
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter'
         ],
 
         'glide' => [
@@ -61,8 +74,8 @@ $config = [
             ]
         ],
 
-        'db'=>[
-            'class'=>'yii\db\Connection',
+        'db' => [
+            'class' => 'yii\db\Connection',
             'dsn' => env('DB_DSN'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
@@ -74,25 +87,25 @@ $config = [
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
-                'db'=>[
+                'db' => [
                     'class' => 'yii\log\DbTarget',
                     'levels' => ['error', 'warning'],
-                    'except'=>['yii\web\HttpException:*', 'yii\i18n\I18N\*'],
-                    'prefix'=>function () {
+                    'except' => ['yii\web\HttpException:*', 'yii\i18n\I18N\*'],
+                    'prefix' => function () {
                         $url = !Yii::$app->request->isConsoleRequest ? Yii::$app->request->getUrl() : null;
                         return sprintf('[%s][%s]', Yii::$app->id, $url);
                     },
-                    'logVars'=>[],
-                    'logTable'=>'{{%system_log}}'
+                    'logVars' => [],
+                    'logTable' => '{{%system_log}}'
                 ]
             ],
         ],
 
         'i18n' => [
             'translations' => [
-                'app'=>[
+                'app' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath'=>'@common/messages',
+                    'basePath' => '@common/messages',
                 ],
                 /*'*'=> [
                     'class' => 'yii\i18n\PhpMessageSource',
@@ -105,10 +118,10 @@ $config = [
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
                 ],*/
                 /* Uncomment this code to use DbMessageSource */
-                 '*'=> [
+                '*' => [
                     'class' => 'yii\i18n\DbMessageSource',
-                    'sourceMessageTable'=>'{{%i18n_source_message}}',
-                    'messageTable'=>'{{%i18n_message}}',
+                    'sourceMessageTable' => '{{%i18n_source_message}}',
+                    'messageTable' => '{{%i18n_message}}',
                     'enableCaching' => YII_ENV_DEV,
                     'cachingDuration' => 3600,
                     'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
@@ -148,7 +161,7 @@ $config = [
         ),
         'urlManagerStorage' => \yii\helpers\ArrayHelper::merge(
             [
-                'hostInfo'=>Yii::getAlias('@storageUrl')
+                'hostInfo' => Yii::getAlias('@storageUrl')
             ],
             require(Yii::getAlias('@storage/config/_urlManager.php'))
         )
@@ -156,10 +169,10 @@ $config = [
     'params' => [
         'adminEmail' => env('ADMIN_EMAIL'),
         'robotEmail' => env('ROBOT_EMAIL'),
-        'availableLocales'=>[
-            'en-US'=>'English (US)',
-            'ru-RU'=>'Русский (РФ)',
-            'uk-UA'=>'Українська (Україна)',
+        'availableLocales' => [
+            'en-US' => 'English (US)',
+            'ru-RU' => 'Русский (РФ)',
+            'uk-UA' => 'Українська (Україна)',
             'es' => 'Español',
             'vi' => 'Tiếng Việt',
             'zh-CN' => '简体中文',
@@ -180,7 +193,7 @@ if (YII_ENV_PROD) {
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class'=>'yii\gii\Module'
+        'class' => 'yii\gii\Module'
     ];
 
     $config['components']['cache'] = [

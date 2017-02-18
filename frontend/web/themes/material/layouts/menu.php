@@ -2,7 +2,16 @@
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 
-echo Nav::widget([
+
+    NavBar::begin([
+        'brandLabel' => Yii::$app->name,
+        'brandUrl' => Yii::$app->homeUrl,
+        'options' => [
+            'class' => 'light-blue lighten-1',
+            'role' => 'navigation'
+        ],
+    ]); ?>
+    <?php echo Nav::widget([
     'options' => ['class' => 'navbar-nav navbar-right'],
     'items' => [
         ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
@@ -42,7 +51,5 @@ echo Nav::widget([
             }, array_keys(Yii::$app->params['availableLocales']))
         ]
     ]
-]);
-
-NavBar::end();
-
+]); ?>
+    <?php NavBar::end(); ?>

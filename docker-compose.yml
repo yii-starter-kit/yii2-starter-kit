@@ -1,21 +1,14 @@
-data:
-  image: busybox:latest
-  volumes:
-    - ./:/app
-  entrypoint: tail -f /dev/null
-
 app:
   build: docker/php
   working_dir: /app
-  volumes_from:
-    - data
-  expose:
-    - 9000
+  volumes:
+    - ./:/app
+    - ./docker/php/php.ini:/usr/local/etc/php/php.ini
   links:
     - db
     - mailcatcher
-  environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
+  env_file:
+    - .env
 
 nginx:
   image: nginx:latest

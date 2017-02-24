@@ -24,8 +24,13 @@ Thumbs.db
 phpunit.phar
 /phpunit.xml
 
-# Vagrant
+# Containers
 /.vagrant
+docker/nginx/vhost.conf
 
 # Tests
 tests/codeception/*/_support/_generated/*
+tests/codeception/*/_output
+tests/codeception/_output
+
+

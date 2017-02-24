@@ -98,4 +98,8 @@ if (YII_ENV_DEV) {
     ];
 }
 
+if (!empty(env('SINGLE_DOMAIN')) ) {
+    $config['components']['request']['baseUrl'] = substr(env('BACKEND_URL'), strlen(env('FRONTEND_URL')));
+}
+
 return $config;

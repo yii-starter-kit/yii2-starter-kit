@@ -1,21 +1,14 @@
-data:
-  image: busybox:latest
+app:
+  image: dmstr/php-yii2
+  working_dir: /app
   volumes:
     - ./:/app
-  entrypoint: tail -f /dev/null
-
-app:
-  build: docker/php
-  working_dir: /app
-  volumes_from:
-    - data
-  expose:
-    - 9000
+    - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
   links:
     - db
-    - mailcatcher
-  environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
+  env_file:
+    - .env
+
 
 nginx:
   image: nginx:latest
@@ -26,11 +19,6 @@ nginx:
     - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
   links:
     - app
-
-mailcatcher:
-    image: schickling/mailcatcher:latest
-    ports:
-      - "1080:1080"
 
 db:
   image: mysql:5.7

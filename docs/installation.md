@@ -81,7 +81,7 @@ php console/yii app/setup
 ```
 
 ### Configure your web server
-Copy `vhost.conf.dist` to `vhost.conf`, change it with your local settings and copy (symlink) it to nginx `sites-enabled` directory.
+Copy `docker/vhost.conf` to your `vhost.conf`, change it with your local settings and copy (symlink) it to nginx `sites-enabled` directory.
 Or configure your web server with three different web roots:
 - yii2-starter-kit.dev => /path/to/yii2-starter-kit/frontend/web
 - backend.yii2-starter-kit.dev => /path/to/yii2-starter-kit/backend/web
@@ -89,32 +89,15 @@ Or configure your web server with three different web roots:
 
 ### Single domain installation
 #### Setup application
-Adjust settings in `.env` file
-
+- Add ``127.0.0.1 yii2-starter-kit.dev`` to your `hosts` file
+- Use Single Domain urls definition section instead of Sub Domains
+ ```
+    SINGLE_DOMAIN   = true
+    FRONTEND_URL    = http://yii2-starter-kit.dev
+    BACKEND_URL     = http://yii2-starter-kit.dev/admin
+    STORAGE_URL     = http://yii2-starter-kit.dev/storage
 ```
-FRONTEND_URL    = /
-BACKEND_URL     = /admin
-STORAGE_URL     = /storage/web
-```
-
-Adjust settings in `backend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '/admin',
-        ...
-```
-Adjust settings in `frontend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '',
-        ...
-```
+- Change `vhost.conf` with `vhost.single-domain.conf` content
 
 #### Configure your web server
 ##### Apache
@@ -248,23 +231,12 @@ upstream php-fpm {
 ```
 
 ## Docker installation
-### Before installation
- - Read about [docker](https://www.docker.com)
- - Install it
- - If you are not working on Linux (but OSX, Windows) instead, you will need a VM to run docker.
- - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `hosts` file
- If you don't intend to use Docker containers for application deployment, it might be better to
- use the Vagrant way to install `yii2-starter-kit`.
-
- * - docker host IP address may vary on Windows and MacOS systems
-
-### Installation
 1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
-2. Copy `.env.dist` to `.env` in the project root
-3. Run `docker-compose build`
+2. Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev`` to your `hosts` file
+3. Copy `.env.dist` to `.env` in the project root
 4. Run `docker-compose up -d`
-5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
-6. Setup application with `docker-compose run app console/yii app/setup`
+5. Run `docker-compose exec app composer install --optimize-autoloader --ignore-platform-reqs`
+6. Setup application with `docker-compose exec app console/yii app/setup`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`

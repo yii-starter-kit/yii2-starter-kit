@@ -1,0 +1,5 @@
+app:
+  volumes:
+    - ./docker/php/php.dev.ini:/usr/local/etc/php/php.ini
+  environment:
+    PHP_IDE_CONFIG: "serverName=docker"

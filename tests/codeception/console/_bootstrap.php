@@ -13,6 +13,6 @@ require_once(YII_APP_BASE_PATH . '/console/config/bootstrap.php');
 
 // set correct script paths
 $_SERVER['SERVER_NAME'] = 'localhost';
-$_SERVER['SERVER_PORT'] = '80';
+$_SERVER['SERVER_PORT'] = getenv('HTTP_PORT');
 
 Yii::setAlias('@tests', dirname(dirname(__DIR__)));

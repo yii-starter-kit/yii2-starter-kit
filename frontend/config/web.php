@@ -49,7 +49,7 @@ $config = [
             }
         ],
         'request' => [
-            'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY')
+            'cookieValidationKey' => env('FRONTEND_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -71,6 +71,10 @@ if (YII_ENV_DEV) {
             ]
         ]
     ];
+}
+
+if (!empty(env('SINGLE_DOMAIN')) ) {
+    $config['components']['request']['baseUrl'] = '';
 }
 
 return $config;

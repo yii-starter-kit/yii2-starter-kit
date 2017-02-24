@@ -23,7 +23,7 @@ $config = [
             'errorAction' => 'site/error',
         ],
         'request' => [
-            'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY')
+            'cookieValidationKey' => env('BACKEND_COOKIE_VALIDATION_KEY'),
         ],
         'user' => [
             'class'=>'yii\web\User',
@@ -96,6 +96,10 @@ if (YII_ENV_DEV) {
             ]
         ]
     ];
+}
+
+if (!empty(env('SINGLE_DOMAIN')) ) {
+    $config['components']['request']['baseUrl'] = substr(env('BACKEND_URL'), strlen(env('FRONTEND_URL')));
 }
 
 return $config;

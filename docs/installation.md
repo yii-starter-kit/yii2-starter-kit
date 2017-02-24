@@ -77,7 +77,7 @@ Required PHP extensions:
 
 3. Run in command line
 ```
-php console/yii app/setup
+php console/yii app/setup --interactive=0
 ```
 
 ### Configure your web server
@@ -89,31 +89,14 @@ Or configure your web server with three different web roots:
 
 ### Single domain installation
 #### Setup application
-Adjust settings in `.env` file
+- Add ``127.0.0.1 yii2-starter-kit.dev`` to your `hosts` file
+- Uncomment Single Domain urls definition section
+ ```
+    SINGLE_DOMAIN   = true
+    FRONTEND_URL    = http://yii2-starter-kit.dev
+    BACKEND_URL     = http://yii2-starter-kit.dev/admin
+    STORAGE_URL     = http://yii2-starter-kit.dev/storage
 
-```
-FRONTEND_URL    = /
-BACKEND_URL     = /admin
-STORAGE_URL     = /storage/web
-```
-
-Adjust settings in `backend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '/admin',
-        ...
-```
-Adjust settings in `frontend/config/web.php` file
-```
-    ...
-    'components'=>[
-        ...
-        'request' => [
-            'baseUrl' => '',
-        ...
 ```
 
 #### Configure your web server
@@ -255,16 +238,15 @@ upstream php-fpm {
  - Add ``127.0.0.1 yii2-starter-kit.dev backend.yii2-starter-kit.dev storage.yii2-starter-kit.dev``* to your `hosts` file
  If you don't intend to use Docker containers for application deployment, it might be better to
  use the Vagrant way to install `yii2-starter-kit`.
-
- * - docker host IP address may vary on Windows and MacOS systems
+ - docker host IP address may vary on Windows and MacOS systems
 
 ### Installation
 1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
 2. Copy `.env.dist` to `.env` in the project root
-3. Run `docker-compose build`
-4. Run `docker-compose up -d`
-5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
-6. Setup application with `docker-compose run app console/yii app/setup`
+3. Copy appropriate *.conf in `./docker/nginx/` to `./docker/nginx/vhost.conf`
+4. Build containers: Run locally `docker-compose up -d --build`
+5. Install dependencies: Run locally `docker-compose exec app php composer.phar install --ignore-platform-reqs -o -vvv`
+6. Setup application with: Run locally `docker-compose exec app console/yii app/setup --interactive=0`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
@@ -280,6 +262,12 @@ upstream php-fpm {
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.dev`, port `3306`. User - `root`, password - `root`
+
+3. To enable xDebug with docker:
+ - `cp docker-compose.override.yml.dist docker-compose.override.yml`
+ - `docker-compose up --build`
+This will cause docker to load the override config on up, thus using ./docs/php/php.dev.ini
+to load the xdebug module.
 
 ## Vagrant installation
 If you want, you can use bundled Vagrant instead of installing app to your local machine.

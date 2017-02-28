@@ -51,6 +51,37 @@ class I18nSourceMessage extends \yii\db\ActiveRecord
      */
     public function getI18nMessages()
     {
-        return $this->hasMany(I18nMessage::className(), ['id' => 'id']);
+        return $this->hasMany(I18nMessage::className(), ['id' => 'id'])->indexBy('language');
+    }
+
+    /**
+     * Initialize messages.
+     */
+    public function initMessages()
+    {
+        $availableLocales = array_keys(Yii::$app->params['availableLocales']);
+        $messages = [];
+        foreach ($availableLocales as $language) {
+            if (!isset($this->i18nMessages[$language])) {
+                $message = new I18nMessage;
+                $message->language = $language;
+                $messages[$language] = $message;
+            } else {
+                $messages[$language] = $this->i18nMessages[$language];
+            }
+        }
+        $this->populateRelation('i18nMessages', $messages);
+    }
+
+    /**
+     * Store messages.
+     */
+    public function saveMessages()
+    {
+        /** @var I18nMessage $message */
+        foreach ($this->i18nMessages as $message) {
+            $this->link('i18nMessages', $message);
+            $message->save();
+        }
     }
 }

@@ -51,7 +51,7 @@ $config = [
         ],
         'view' => [
             'class' => 'yii\web\View',
-            'theme' => [
+            /*'theme' => [
                 'class' => 'yii\base\Theme',
                 'pathMap' => [
                     '@app/views' => '@frontend/web/themes/material',
@@ -60,7 +60,7 @@ $config = [
                 ],
                 'baseUrl' => '@web/themes/material'
 
-            ],
+            ],*/
         ],
         'errorHandler' => [
             'errorAction' => 'site/error'

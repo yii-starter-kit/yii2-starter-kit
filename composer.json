@@ -53,7 +53,8 @@
     "yii2mod/yii2-sweet-alert": "*",
     "mootensai/yii2-enhanced-gii": "dev-master",
     "kartik-v/yii2-mpdf": "dev-master",
-    "kartik-v/yii2-tree-manager": "dev-master"
+    "kartik-v/yii2-tree-manager": "dev-master",
+    "kartik-v/yii2-social": "@dev"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

@@ -141,7 +141,7 @@ $config = [
         ),
         'urlManagerStorage' => \yii\helpers\ArrayHelper::merge(
             [
-                'baseUrl'=>Yii::getAlias('@storageUrl')
+                'baseUrl' => Yii::getAlias('@storageUrl')
             ],
             require(Yii::getAlias('@storage/config/_urlManager.php'))
         )

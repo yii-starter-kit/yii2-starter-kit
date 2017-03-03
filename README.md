@@ -35,13 +35,13 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [Have any questions](#have-any-questions)
 
 ##DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
+Demo is hosted by awesome [Google Cloud](https://cloud.google.com)
 
 Frontend:
-http://yii2-starter-kit.terentev.net
+http://capirunias.com
 
 Backend:
-http://backend.yii2-starter-kit.terentev.net
+http://capirunias.com/admin
 
 `administrator` role account
 ```
@@ -100,6 +100,9 @@ Password: user
 - [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
 - many other features i'm lazy to write about :-)
 
+## Inquid - Bounus
+- Matrialize Theme
+- Dektrium User module
 
 # Application Components
 
@@ -340,4 +343,3 @@ https://github.com/yiisoft/yii2/tree/master/docs
 This template was created mostly for developers NOT for end users.
 This is a point where you can begin your application, rather than creating it from scratch.
 Good luck!
-

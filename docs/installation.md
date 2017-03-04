@@ -24,11 +24,11 @@ composer global require "fxp/composer-asset-plugin"
 
 ### Get source code
 #### Download sources
-https://github.com/trntv/yii2-starter-kit/archive/master.zip
+https://inquid.co/downloads/master.zip
 
 #### Or clone repository manually
 ```
-git clone https://github.com/trntv/yii2-starter-kit.git
+git clone https://github.com/gogl92/yii2-starter-kit.git
 ```
 #### Install composer dependencies
 ```
@@ -39,7 +39,7 @@ composer install
 You can install this application template with `composer` using the following command:
 
 ```
-composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+composer create-project --prefer-dist --stability=dev gogl92/yii2-starter-kit
 ```
 
 ## Manual installation

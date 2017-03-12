@@ -50,6 +50,7 @@ Required PHP extensions:
 - intl
 - gd
 - mcrypt
+- com_dotnet (for Windows)
 
 
 

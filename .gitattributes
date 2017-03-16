@@ -1,0 +1,36 @@
+# Autodetect text files
+* text=auto
+
+# ...Unless the name matches the following overriding patterns
+
+# Definitively text files
+*.php  text
+*.css  text
+*.js   text
+*.txt  text
+*.md   text
+*.xml  text
+*.json text
+*.bat  text
+*.sql  text
+*.xml  text
+*.yml  text
+
+# Ensure those won't be messed up with
+*.png  binary
+*.jpg  binary
+*.gif  binary
+*.ttf  binary
+
+# Ignore all test and documentation for archive
+/.dockerignore          export-ignore
+/.gitattributes         export-ignore
+/.env.docker.dist       export-ignore
+/.travis.yml            export-ignore
+/.codeception.yml       export-ignore
+/.docker-compose.yml    export-ignore
+/.Dockerfile            export-ignore
+/.vhost.conf.dist       export-ignore
+/tests                  export-ignore
+/docs                   export-ignore
+/docker                 export-ignore

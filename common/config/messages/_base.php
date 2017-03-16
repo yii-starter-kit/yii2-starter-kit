@@ -3,7 +3,7 @@ return  [
     'sourcePath'=>Yii::getAlias('@base'),
     // array, required, list of language codes that the extracted messages
     // should be translated to. For example, ['zh-CN', 'de'].
-    'languages' => ['uk','ru','es', 'zh'],
+    'languages' => ['uk','ru','es', 'vi', 'zh', 'pl'],
     // string, the name of the function for translating messages.
     // Defaults to 'Yii::t'. This is used as a mark to find the messages to be
     // translated. You may use a string for single function name or an array for

@@ -71,7 +71,7 @@ $bundle = BackendAsset::register($this);
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= \Yii::$app->user->identity->profile->getAvatarUrl() ?>" class="user-image">
-                                <span><?php //echo Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                                <span><?= Yii::$app->user->identity->username ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -80,7 +80,7 @@ $bundle = BackendAsset::register($this);
                                     <p>
                                         <?= Yii::$app->user->identity->username ?>
                                         <small>
-                                            <?php // echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                                            <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                                         </small>
                                 </li>
                                 <!-- Menu Footer-->

@@ -78,7 +78,7 @@ $bundle = BackendAsset::register($this);
                                 <li class="user-header light-blue">
                                     <img src="<?php// echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" alt="User Image" />
                                     <p>
-                                        <?php  echo Yii::$app->user->identity->username ?>
+                                        <?php  //echo Yii::$app->user->identity->username ?>
                                         <small>
                                             <?php // echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                                         </small>

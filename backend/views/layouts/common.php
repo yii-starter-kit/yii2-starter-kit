@@ -76,7 +76,7 @@ $bundle = BackendAsset::register($this);
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header light-blue">
-                                    <img src="<?php// echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?= \Yii::$app->user->identity->profile->getAvatarUrl() ?>" class="img-circle" alt="User Image" />
                                     <p>
                                         <?php  //echo Yii::$app->user->identity->username ?>
                                         <small>

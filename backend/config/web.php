@@ -38,7 +38,8 @@ $config = [
         'i18n' => [
             'class' => 'backend\modules\i18n\Module',
             'defaultRoute' => 'i18n-message/index'
-        ], 'user' => [
+        ],
+        'user' => [
             // following line will restrict access to profile, recovery, registration and settings controllers from backend
             'as backend' => 'dektrium\user\filters\BackendFilter',
             'class' => 'dektrium\user\Module',
@@ -55,7 +56,7 @@ $config = [
         //'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
 
-    'as globalAccess' => [
+    /*'as globalAccess' => [
         'class' => '\common\behaviors\GlobalAccessBehavior',
         'rules' => [
             [
@@ -95,7 +96,7 @@ $config = [
                 'roles' => ['manager'],
             ]
         ]
-    ]
+    ]*/
 ];
 
 if (YII_ENV_DEV) {

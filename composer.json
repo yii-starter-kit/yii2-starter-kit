@@ -62,7 +62,13 @@
     "trntv/yii2-debug-xhprof": "dev-master@dev"
   },
   "config": {
-    "process-timeout": 1800
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "installer-paths": {
+        "npm-asset-library": "vendor/npm",
+        "bower-asset-library": "vendor/bower"
+      }
+    }
   },
   "extra": {
     "asset-installer-paths": {

@@ -95,7 +95,7 @@ $config = [
                 'allow' => true,
                 'roles' => ['manager'],
             ]
-        ]
+         ]
     ]*/
 ];
 

@@ -35,13 +35,12 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [Have any questions](#have-any-questions)
 
 ##DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
 
 Frontend:
-http://yii2-starter-kit.terentev.net
+[http://kalpeshdesai.in/yii/kit/frontend/web](http://kalpeshdesai.in/yii/kit/frontend/web)
 
 Backend:
-http://backend.yii2-starter-kit.terentev.net
+[http://kalpeshdesai.in/yii/kit/backend/web](http://kalpeshdesai.in/yii/kit/backend/web)
 
 `administrator` role account
 ```

@@ -60,6 +60,10 @@ Password: manager
 Login: user
 Password: user
 ```
+## Donations for further development
+- [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
+- [WebMoney] (Z110052695454)
+- Other way: [eugene@terentev.net](mailto:eugene@terentev.net)
 
 ## FEATURES
 - Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
@@ -72,6 +76,7 @@ Password: user
 - RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
 - RBAC migrations support
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
+- [Webpack](https://webpack.js.org/) configuration
 - Key-value storage component
 - Application settings form (based on KeyStorage component)
 - Ready-to-go RESTful API module
@@ -320,23 +325,17 @@ public function behaviors()
     }
 ```
 
-##How to contribute?
+## How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
-##Donations
-- [![Donate further development](https://d1iczxrky3cnb2.cloudfront.net/button-small-red.png)](https://donorbox.org/yii2-starter-kit)
-- [Bitcoin] (https://www.coinbase.com/checkouts/2f1c1cb31c395e5aaafa1ba70003552e)
-- [WebMoney] (Z110052695454)
-- Other way: [eugene@terentev.net](mailto:eugene@terentev.net)
-
-##Have any questions?
+## Have any questions?
 mail to [eugene@terentev.net](mailto:eugene@terentev.net)
 
-##READ MORE
+## READ MORE
 https://github.com/yiisoft/yii2/blob/master/apps/advanced/README.md
 https://github.com/yiisoft/yii2/tree/master/docs
 
-###NOTE
+### NOTE
 This template was created mostly for developers NOT for end users.
 This is a point where you can begin your application, rather than creating it from scratch.
 Good luck!

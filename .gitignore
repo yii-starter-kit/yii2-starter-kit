@@ -1,11 +1,15 @@
 # Env
 /.env
 
-# composer
+# Composer
 /vendor
 composer.phar
-## remove in production!
-composer.lock
+
+# JS
+node_modules
+spa/npm-debug.log
+spa/yarn-error.log
+
 
 # IDE
 .idea

@@ -18,7 +18,7 @@ app:
     XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
 nginx:
-  image: nginx:latest
+  image: nginx:1.12-alpine
   ports:
     - "80:80"
   volumes:

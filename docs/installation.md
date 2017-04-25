@@ -259,18 +259,22 @@ upstream php-fpm {
  * - docker host IP address may vary on Windows and MacOS systems
 
 ### Installation
-1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction
+1. Follow [docker install](https://docs.docker.com/engine/installation/) instruction to install docker
 2. Copy `.env.dist` to `.env` in the project root
 3. Run `docker-compose build`
 4. Run `docker-compose up -d`
-5. Run locally `composer install --prefer-dist --optimize-autoloader --ignore-platform-reqs`
-6. Setup application with `docker-compose run app console/yii app/setup`
-7. That's all - your application is accessible on http://yii2-starter-kit.dev
+5. Log into the app container via `docker exec -it yii2starterkit_app_1 bash`
+6. Install composer per instuctions available at [Composer](https://getcomposer.org/download/)
+7. Run `composer global require "fxp/composer-asset-plugin"` and `composer install --profile --prefer-dist -o -v`
+ - If asked for a token aquire one from your [github account](https://github.com/settings/tokens).
+8. Setup application with `php ./console/yii app/setup --interactive=0`
+9. Exit the app container by using `exit`
+10. That's all - your application is accessible on http://yii2-starter-kit.dev
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
 
 ### Docker FAQ
-1. How do i run yii console command?
+1. How do i run yii console commands from outside a container?
 
 `docker-compose exec app console/yii help`
 

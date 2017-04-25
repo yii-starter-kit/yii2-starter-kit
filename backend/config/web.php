@@ -56,7 +56,7 @@ $config = [
         //'rbac' => 'dektrium\rbac\RbacWebModule',
     ],
 
-    'as globalAccess' => [
+    /*'as globalAccess' => [
         'class' => '\common\behaviors\GlobalAccessBehavior',
         'rules' => [
             [
@@ -96,7 +96,7 @@ $config = [
                 'roles' => ['manager'],
             ]
         ]
-    ]
+    ]*/
 ];
 
 if (YII_ENV_DEV) {

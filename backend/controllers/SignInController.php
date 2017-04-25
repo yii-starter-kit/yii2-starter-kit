@@ -35,6 +35,12 @@ class SignInController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        $this->layout = Yii::$app->user->isGuest ? 'base' : 'common';
+        return parent::beforeAction($action);
+    }
+
     public function actions()
     {
         return [

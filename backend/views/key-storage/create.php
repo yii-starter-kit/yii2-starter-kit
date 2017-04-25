@@ -3,7 +3,7 @@
 /* @var $model common\models\KeyStorageItem */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Key Storage Item',
+    'modelClass' => Yii::t('backend', 'Key Storage Item'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Key Storage Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

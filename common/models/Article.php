@@ -133,6 +133,7 @@ class Article extends ActiveRecord
             'body' => Yii::t('common', 'Body'),
             'view' => Yii::t('common', 'Article View'),
             'thumbnail' => Yii::t('common', 'Thumbnail'),
+            'attachments' => Yii::t('common', 'Attachments'),
             'category_id' => Yii::t('common', 'Category'),
             'status' => Yii::t('common', 'Published'),
             'published_at' => Yii::t('common', 'Published At'),

@@ -3,7 +3,7 @@
 /* @var $model common\models\WidgetText */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Text Block',
+    'modelClass' => Yii::t('backend', 'Text Block'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Text Blocks'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

@@ -3,7 +3,7 @@
 /* @var $model common\models\WidgetCarousel */
 
 $this->title = Yii::t('backend', 'Create {modelClass}', [
-    'modelClass' => 'Widget Carousel',
+    'modelClass' => Yii::t('backend', 'Widget Carousel'),
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Widget Carousels'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;

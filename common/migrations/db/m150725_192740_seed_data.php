@@ -43,17 +43,17 @@ class m150725_192740_seed_data extends Migration
 
         $this->insert('{{%user_profile}}', [
             'user_id'=>1,
-            'locale'=>Yii::$app->sourceLanguage,
+            'locale'=>Yii::$app->language,
             'firstname' => 'John',
             'lastname' => 'Doe'
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>2,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->language
         ]);
         $this->insert('{{%user_profile}}', [
             'user_id'=>3,
-            'locale'=>Yii::$app->sourceLanguage
+            'locale'=>Yii::$app->language
         ]);
 
         $this->insert('{{%page}}', [

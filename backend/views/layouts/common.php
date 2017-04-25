@@ -16,7 +16,7 @@ $bundle = BackendAsset::register($this);
     <div class="wrapper">
         <!-- header logo: style can be found in header.less -->
         <header class="main-header">
-            <a href="<?php echo Yii::getAlias('@frontendUrl') ?>" class="logo">
+            <a href="<?php echo Yii::$app->urlManagerFrontend->createUrl('/') /* OR Yii::$app->urlManagerFrontend->createAbsoluteUrl('/') */ ?>" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 <?php echo Yii::$app->name ?>
             </a>

@@ -54,7 +54,7 @@ function activeTextinput($form, $model, $attribute, $inputOptions = [], $fieldOp
  * @param mixed $default
  * @return mixed
  */
-function env($key, $default = false) {
+function env($key, $default = null) {
 
     $value = getenv($key);
 

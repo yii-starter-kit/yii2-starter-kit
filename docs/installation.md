@@ -73,9 +73,9 @@ Required PHP extensions:
 
 	- Set application canonical urls
 	```
-	FRONTEND_URL    = http://yii2-starter-kit.dev
-	BACKEND_URL     = http://backend.yii2-starter-kit.dev
-	STORAGE_URL     = http://storage.yii2-starter-kit.dev
+	FRONTEND_HOST_INFO    = http://yii2-starter-kit.dev
+	BACKEND_HOST_INFO     = http://backend.yii2-starter-kit.dev
+	STORAGE_HOST_INFP     = http://storage.yii2-starter-kit.dev
 	```
 
 3. Run in command line
@@ -152,9 +152,9 @@ Password: user
 Adjust settings in `.env` file
 
 ```
-FRONTEND_URL    = /
-BACKEND_URL     = /backend
-STORAGE_URL     = /storage/web
+FRONTEND_BASE_URL   = /
+BACKEND_BASE_URL    = /backend/web
+STORAGE_BASE_URL    = /storage/web
 ```
 
 Adjust settings in `backend/config/web.php` file

@@ -1,9 +1,6 @@
 <?php
 return [
-    'class'=>'yii\web\UrlManager',
-    'enablePrettyUrl'=>true,
-    'showScriptName'=>false,
-    'rules'=>[
-        // url rules
-    ]
+    'class' => yii\web\UrlManager::class,
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
 ];

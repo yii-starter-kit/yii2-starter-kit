@@ -18,9 +18,9 @@ Yii::setAlias('@tests', realpath(__DIR__.'/../../tests'));
 /**
  * Setting url aliases
  */
-Yii::setAlias('@frontendUrl', env('FRONTEND_URL'));
-Yii::setAlias('@backendUrl', env('BACKEND_URL'));
-Yii::setAlias('@storageUrl', env('STORAGE_URL'));
+Yii::setAlias('@frontendUrl', env('FRONTEND_HOST_INFO') . env('FRONTEND_BASE_URL'));
+Yii::setAlias('@backendUrl', env('BACKEND_HOST_INFO') . env('BACKEND_BASE_URL') );
+Yii::setAlias('@storageUrl', env('STORAGE_HOST_INFO') . env('STORAGE_BASE_URL'));
 
 
 

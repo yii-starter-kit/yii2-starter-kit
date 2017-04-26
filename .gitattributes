@@ -23,14 +23,6 @@
 *.ttf  binary
 
 # Ignore all test and documentation for archive
-/.dockerignore          export-ignore
 /.gitattributes         export-ignore
-/.env.docker.dist       export-ignore
 /.travis.yml            export-ignore
-/.codeception.yml       export-ignore
-/.docker-compose.yml    export-ignore
-/.Dockerfile            export-ignore
-/.vhost.conf.dist       export-ignore
-/tests                  export-ignore
 /docs                   export-ignore
-/docker                 export-ignore

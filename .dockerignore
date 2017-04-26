@@ -1,12 +1,6 @@
 # Git
 .git
 
-# Environment settings
-.env
-
-# Composers
-vendor
-
 # Runtime
 backend/runtime
 common/runtime

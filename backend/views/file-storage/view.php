@@ -13,7 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="file-storage-item-view">
 
     <p>
-        <?php echo Html::a(Yii::t('backend', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?php echo Html::a(Yii::t('backend', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -34,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'size',
             'name',
             'upload_ip',
-            'created_at',
+            'created_at:datetime',
         ],
     ]) ?>
 

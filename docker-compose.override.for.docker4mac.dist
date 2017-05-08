@@ -1,0 +1,7 @@
+app:
+  volumes:
+    - ./:/mnt/yii2-starter-kit.dev
+
+nginx:
+  volumes:
+    - ./:/mnt/yii2-starter-kit.dev

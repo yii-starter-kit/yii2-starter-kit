@@ -11,6 +11,6 @@ settings:
   colors: true
 
 db:
-  dsn:
-  username:
-  password:
+  dsn: mysql:host=localhost;port=3306;dbname=yii2-starter-kit-test
+  username: ysk_dbu
+  password: ysk_pass

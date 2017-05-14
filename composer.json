@@ -47,7 +47,11 @@
     "bower-asset/html5shiv": "^3.0",
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
-    "symfony/process": "^3.0"
+    "symfony/process": "^3.0",
+
+    "davidjeddy/yii2-poll": "dev-master",
+    "davidjeddy/yii2-rss-reader": "dev-master",
+    "davidjeddy/yii2-stripe": "dev-master"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

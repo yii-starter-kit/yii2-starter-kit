@@ -170,6 +170,12 @@ $bundle = BackendAsset::register($this);
                         'visible' => Yii::$app->user->can('administrator')
                     ],
                     [
+                        'label' => Yii::t('backend', 'Free Radius'),
+                        'icon' => '<i class="fa fa-id-card-o"></i>',
+                        'url' => ['/free-radius/default/index'],
+                        'visible' => Yii::$app->user->can('administrator')
+                    ],
+                    [
                         'label' => Yii::t('backend', 'Other'),
                         'url' => '#',
                         'icon' => '<i class="fa fa-cogs"></i>',

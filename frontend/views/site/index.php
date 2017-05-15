@@ -62,3 +62,10 @@ $this->title = Yii::$app->name;
 
     </div>
 </div>
+
+<?php
+echo \davidjeddy\yii2poll\Poll::widget([
+    'pollName'      => 'Do you like PHP?',
+    'answerOptions' => ['Yes', 'No'],
+]);
+?>

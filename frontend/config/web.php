@@ -14,7 +14,11 @@ $config = [
             'modules' => [
                 'v1' => 'frontend\modules\api\v1\Module'
             ]
-        ]
+        ],
+
+        'poll' => [
+            'class' => davidjeddy\yii2poll\Module::class,
+        ],
     ],
     'components' => [
         'authClientCollection' => [

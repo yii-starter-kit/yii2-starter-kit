@@ -38,7 +38,11 @@ $config = [
         'i18n' => [
             'class' => backend\modules\i18n\Module::class,
             'defaultRoute' => 'i18n-message/index'
-        ]
+        ],
+
+        'free-radius' => [
+            'class' => davidjeddy\freeradius\Module::class,
+        ],
     ],
     'as globalAccess' => [
         'class' => common\behaviors\GlobalAccessBehavior::class,

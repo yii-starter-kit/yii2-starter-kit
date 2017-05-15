@@ -49,9 +49,8 @@
     "bower-asset/flot": "^0.8",
     "symfony/process": "^3.0",
 
-    "davidjeddy/yii2-poll": "dev-master",
-    "davidjeddy/yii2-rss-reader": "dev-master",
-    "davidjeddy/yii2-stripe": "dev-master"
+    "davidjeddy/yii2-freeradius-module": "dev-master@dev",
+    "davidjeddy/yii2-poll": "dev-master@dev"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

@@ -8,16 +8,10 @@ class_name: FunctionalTester
 modules:
     enabled:
         - Filesystem
-        - Yii2
         - tests\codeception\common\_support\FixtureHelper
-        - Db
+        - Yii2
     config:
+        REST:
+            url: http://localhost:8080/frontend/web/index-test.php/api/v1/
         Yii2:
           configFile: '../config/frontend/functional.php'
-        Db:
-            dsn: 'mysql:host=db;port=3306;dbname=yii2-starter-kit-test'
-            user: 'root'
-            password: 'root'
-            populate: true
-            cleanup: true
-            dump: ../_data/dump.sql

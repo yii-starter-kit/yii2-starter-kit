@@ -1,10 +1,10 @@
 namespace: tests\codeception\frontend
 actor: Tester
 paths:
-    tests: .
-    log: ./_output
-    data: ./_data
+    data: ../_data
     helpers: ./_support
+    log: ../_output
+    tests: .
 settings:
     bootstrap: _bootstrap.php
     suite_class: \PHPUnit_Framework_TestSuite

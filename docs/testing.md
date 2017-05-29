@@ -1,6 +1,10 @@
 # Testing
 
-## Docker style application setup
+##Assumptions:
+ - Single domain
+ - Docker style application setup
+
+## Execution
 
 1. cd to project root `cd /{path_to_project_root}`
 

@@ -12,6 +12,14 @@ modules:
       - Filesystem
       - Yii2
       - tests\codeception\common\_support\FixtureHelper
+      - Db
     config:
         Yii2:
             configFile: '../config/backend/functional.php'
+      Db:
+        dsn: 'mysql:host=db;port=3306;dbname=yii2-starter-kit-test'
+        user: 'root'
+        password: 'root'
+        populate: true
+        cleanup: true
+        dump: ../_data/dump.sql

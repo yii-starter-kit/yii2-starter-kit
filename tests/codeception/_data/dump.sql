@@ -104,13 +104,10 @@ CREATE TABLE `article_category` (
   `status` smallint(6) NOT NULL DEFAULT '0',
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
-  `order` int(11) DEFAULT NULL,
-  `thumbnail_base_url` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `thumbnail_path` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_article_category_section` (`parent_id`),
   CONSTRAINT `fk_article_category_section` FOREIGN KEY (`parent_id`) REFERENCES `article_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +116,7 @@ CREATE TABLE `article_category` (
 
 LOCK TABLES `article_category` WRITE;
 /*!40000 ALTER TABLE `article_category` DISABLE KEYS */;
-INSERT INTO `article_category` VALUES (1,'news','News',NULL,NULL,1,1494785396,NULL,NULL,NULL,NULL),(2,'test','test',NULL,1,1,1495143052,1495143052,NULL,NULL,NULL),(3,'qwer','qwer',NULL,1,1,1495143088,1495143088,NULL,NULL,NULL),(4,'sdfgsdfg','sdfgsdfg',NULL,2,0,1495143185,1495143185,NULL,NULL,NULL),(5,'sfdbgsvdf','sfdbgsvdf',NULL,4,1,1495143196,1495143196,NULL,NULL,NULL);
+INSERT INTO `article_category` VALUES (1,'news','News',NULL,NULL,1,1496021148,NULL);
 /*!40000 ALTER TABLE `article_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -256,87 +253,8 @@ CREATE TABLE `page` (
 
 LOCK TABLES `page` WRITE;
 /*!40000 ALTER TABLE `page` DISABLE KEYS */;
-INSERT INTO `page` VALUES (1,'about','About','Lorem ipsum dolor sit amet, consectetur adipiscing elit.',NULL,1,1494785396,1494785396);
+INSERT INTO `page` VALUES (1,'about','About','Lorem ipsum dolor sit amet, consectetur adipiscing elit.',NULL,1,1496021148,1496021148);
 /*!40000 ALTER TABLE `page` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `poll_question`
---
-
-DROP TABLE IF EXISTS `poll_question`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `poll_question` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `question_text` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `answer_options` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) DEFAULT NULL,
-  `deleted_at` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `poll_question`
---
-
-LOCK TABLES `poll_question` WRITE;
-/*!40000 ALTER TABLE `poll_question` DISABLE KEYS */;
-/*!40000 ALTER TABLE `poll_question` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `poll_response`
---
-
-DROP TABLE IF EXISTS `poll_response`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `poll_response` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `question_text` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `answers` text COLLATE utf8_unicode_ci,
-  `value` int(11) DEFAULT NULL,
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) DEFAULT NULL,
-  `deleted_at` int(11) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `poll_response`
---
-
-LOCK TABLES `poll_response` WRITE;
-/*!40000 ALTER TABLE `poll_response` DISABLE KEYS */;
-/*!40000 ALTER TABLE `poll_response` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `poll_user`
---
-
-DROP TABLE IF EXISTS `poll_user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `poll_user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `poll_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `poll_user`
---
-
-LOCK TABLES `poll_user` WRITE;
-/*!40000 ALTER TABLE `poll_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `poll_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -361,7 +279,7 @@ CREATE TABLE `rbac_auth_assignment` (
 
 LOCK TABLES `rbac_auth_assignment` WRITE;
 /*!40000 ALTER TABLE `rbac_auth_assignment` DISABLE KEYS */;
-INSERT INTO `rbac_auth_assignment` VALUES ('administrator','1',1494785457),('manager','2',1494785457),('user','3',1494785457);
+INSERT INTO `rbac_auth_assignment` VALUES ('administrator','1',1496021158),('manager','2',1496021158),('user','3',1496021158);
 /*!40000 ALTER TABLE `rbac_auth_assignment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,7 +311,7 @@ CREATE TABLE `rbac_auth_item` (
 
 LOCK TABLES `rbac_auth_item` WRITE;
 /*!40000 ALTER TABLE `rbac_auth_item` DISABLE KEYS */;
-INSERT INTO `rbac_auth_item` VALUES ('administrator',1,NULL,NULL,NULL,1494785457,1494785457),('editOwnModel',2,NULL,'ownModelRule',NULL,1494785458,1494785458),('loginToBackend',2,NULL,NULL,NULL,1494785457,1494785457),('manager',1,NULL,NULL,NULL,1494785457,1494785457),('user',1,NULL,NULL,NULL,1494785457,1494785457);
+INSERT INTO `rbac_auth_item` VALUES ('administrator',1,NULL,NULL,NULL,1496021158,1496021158),('editOwnModel',2,NULL,'ownModelRule',NULL,1496021159,1496021159),('loginToBackend',2,NULL,NULL,NULL,1496021159,1496021159),('manager',1,NULL,NULL,NULL,1496021158,1496021158),('user',1,NULL,NULL,NULL,1496021158,1496021158);
 /*!40000 ALTER TABLE `rbac_auth_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -446,7 +364,7 @@ CREATE TABLE `rbac_auth_rule` (
 
 LOCK TABLES `rbac_auth_rule` WRITE;
 /*!40000 ALTER TABLE `rbac_auth_rule` DISABLE KEYS */;
-INSERT INTO `rbac_auth_rule` VALUES ('ownModelRule','O:29:\"common\\rbac\\rule\\OwnModelRule\":3:{s:4:\"name\";s:12:\"ownModelRule\";s:9:\"createdAt\";i:1494785458;s:9:\"updatedAt\";i:1494785458;}',1494785458,1494785458);
+INSERT INTO `rbac_auth_rule` VALUES ('ownModelRule','O:29:\"common\\rbac\\rule\\OwnModelRule\":3:{s:4:\"name\";s:12:\"ownModelRule\";s:9:\"createdAt\";i:1496021159;s:9:\"updatedAt\";i:1496021159;}',1496021159,1496021159);
 /*!40000 ALTER TABLE `rbac_auth_rule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -470,7 +388,7 @@ CREATE TABLE `system_db_migration` (
 
 LOCK TABLES `system_db_migration` WRITE;
 /*!40000 ALTER TABLE `system_db_migration` DISABLE KEYS */;
-INSERT INTO `system_db_migration` VALUES ('m000000_000000_base',1494785384),('m140703_123000_user',1494785386),('m140703_123055_log',1494785387),('m140703_123104_page',1494785387),('m140703_123803_article',1494785390),('m140703_123813_rbac',1494785391),('m140709_173306_widget_menu',1494785391),('m140709_173333_widget_text',1494785391),('m140712_123329_widget_carousel',1494785392),('m140805_084745_key_storage_item',1494785393),('m141012_101932_i18n_tables',1494785394),('m150318_213934_file_storage_item',1494785394),('m150414_195800_timeline_event',1494785394),('m150725_192740_seed_data',1494785396),('m150929_074021_article_attachment_order',1494785396),('m151009_043443_article_category_update',1495139973),('M151114000000FreeRadiusInstall',1494809511),('m160203_095604_user_token',1494785397),('M170205110000Install',1495133456),('M170518152500PollNameToQuestionText',1495135765);
+INSERT INTO `system_db_migration` VALUES ('m000000_000000_base',1496021137),('m140703_123000_user',1496021138),('m140703_123055_log',1496021139),('m140703_123104_page',1496021139),('m140703_123803_article',1496021142),('m140703_123813_rbac',1496021143),('m140709_173306_widget_menu',1496021143),('m140709_173333_widget_text',1496021144),('m140712_123329_widget_carousel',1496021144),('m140805_084745_key_storage_item',1496021145),('m141012_101932_i18n_tables',1496021146),('m150318_213934_file_storage_item',1496021146),('m150414_195800_timeline_event',1496021147),('m150725_192740_seed_data',1496021148),('m150929_074021_article_attachment_order',1496021149),('m160203_095604_user_token',1496021149);
 /*!40000 ALTER TABLE `system_db_migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -491,8 +409,17 @@ CREATE TABLE `system_log` (
   PRIMARY KEY (`id`),
   KEY `idx_log_level` (`level`),
   KEY `idx_log_category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `system_log`
+--
+
+LOCK TABLES `system_log` WRITE;
+/*!40000 ALTER TABLE `system_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `system_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `system_rbac_migration`
@@ -514,7 +441,7 @@ CREATE TABLE `system_rbac_migration` (
 
 LOCK TABLES `system_rbac_migration` WRITE;
 /*!40000 ALTER TABLE `system_rbac_migration` DISABLE KEYS */;
-INSERT INTO `system_rbac_migration` VALUES ('m000000_000000_base',1494785397),('m150625_214101_roles',1494785457),('m150625_215624_init_permissions',1494785457),('m151223_074604_edit_own_model',1494785458);
+INSERT INTO `system_rbac_migration` VALUES ('m000000_000000_base',1496021157),('m150625_214101_roles',1496021159),('m150625_215624_init_permissions',1496021159),('m151223_074604_edit_own_model',1496021159);
 /*!40000 ALTER TABLE `system_rbac_migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,7 +470,7 @@ CREATE TABLE `timeline_event` (
 
 LOCK TABLES `timeline_event` WRITE;
 /*!40000 ALTER TABLE `timeline_event` DISABLE KEYS */;
-INSERT INTO `timeline_event` VALUES (1,'frontend','user','signup','{\"public_identity\":\"webmaster\",\"user_id\":1,\"created_at\":1494785394}',1494785394),(2,'frontend','user','signup','{\"public_identity\":\"manager\",\"user_id\":2,\"created_at\":1494785394}',1494785394),(3,'frontend','user','signup','{\"public_identity\":\"user\",\"user_id\":3,\"created_at\":1494785394}',1494785394);
+INSERT INTO `timeline_event` VALUES (1,'frontend','user','signup','{\"public_identity\":\"webmaster\",\"user_id\":1,\"created_at\":1496021147}',1496021147),(2,'frontend','user','signup','{\"public_identity\":\"manager\",\"user_id\":2,\"created_at\":1496021147}',1496021147),(3,'frontend','user','signup','{\"public_identity\":\"user\",\"user_id\":3,\"created_at\":1496021147}',1496021147);
 /*!40000 ALTER TABLE `timeline_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -577,7 +504,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'webmaster','ojVhAqU8RJ8FFTdxtTOM7wKjUOzECc_D','ha68d74jzCNweoDl6YA_c81qbGNxkSs8cPvh8FiQ','$2y$13$gqLwcOJJ7n90n72O./bjrOyRP1Ps0VgGjQyRO9iKZVvqm512ReEU.',NULL,NULL,'webmaster@example.com',2,1494785395,1494785395,1495140158),(2,'manager','NhDRrGkZUqZ03SXDz4kIECKa8FxX2dJ6','9Hs26hV8ttG1EpbKWm9nWbv4U0Hjave8vt3sg5VE','$2y$13$2aKEOFo.v2yStRuuq2m8rex3PXEhfq7pugjpcYZpibxEkf7MZnuiW',NULL,NULL,'manager@example.com',2,1494785395,1494785395,NULL),(3,'user','RlTpdLKTpn4n_X-stqjMs0zjsoGL-V-5','uDL0tijbOGmHnKz44NgppBUTSOUyrju6xxBRXYCA','$2y$13$8y0.e4AWE8G7et0DtrU9UOwkAAB27HN6X4hD35Ysxw2c8EdADvXEW',NULL,NULL,'user@example.com',2,1494785396,1494785396,1495140533);
+INSERT INTO `user` VALUES (1,'webmaster','M7mGraldtu0fUFqvVF8KISTDmAvvGLBw','dyw3wsFcW4oP_oMW_XN8tEga1RGwqo9_0VBK3oZr','$2y$13$35oBrT4NNyGvlYtRaopos.8SeBUup.SJlnT5oRkBD7fW.fRYIcwe2',NULL,NULL,'webmaster@example.com',2,1496021147,1496021147,NULL),(2,'manager','_oVE5EDsdgjWMhVVO2iFp8rDqT3WfARd','Z50BQVxYzvsF6N4EwgyyqVnmUF3BUbp9ORe6Xk9G','$2y$13$mcXbFivOBeGgEmQ5yKiou.0wgaHwoPyiLdG.8tUfBBWijYafjx6d2',NULL,NULL,'manager@example.com',2,1496021148,1496021148,NULL),(3,'user','P4PKnNb2mS1_wbwQ8LO8lNHagmodbKvi','ih3Kel8ay-geAmvoyQCwJgrF5HQuznDPUpLkJfGz','$2y$13$t1oe4Jx5dOEk//oITJK8xeTc3oTtArnlPDR128j8tY04ECU1pS17e',NULL,NULL,'user@example.com',2,1496021148,1496021148,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -696,7 +623,7 @@ CREATE TABLE `widget_carousel_item` (
 
 LOCK TABLES `widget_carousel_item` WRITE;
 /*!40000 ALTER TABLE `widget_carousel_item` DISABLE KEYS */;
-INSERT INTO `widget_carousel_item` VALUES (1,1,'','img/yii2-starter-kit.gif','image/gif','/',NULL,1,0,NULL,NULL);
+INSERT INTO `widget_carousel_item` VALUES (1,1,'http://yii2-starter-kit.dev','img/yii2-starter-kit.gif','image/gif','/',NULL,1,0,NULL,NULL);
 /*!40000 ALTER TABLE `widget_carousel_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -753,7 +680,7 @@ CREATE TABLE `widget_text` (
 
 LOCK TABLES `widget_text` WRITE;
 /*!40000 ALTER TABLE `widget_text` DISABLE KEYS */;
-INSERT INTO `widget_text` VALUES (1,'backend_welcome','Welcome to backend','<p>Welcome to Yii2 Starter Kit Dashboard</p>',1,1494785396,1494785396),(2,'ads-example','Google Ads Example Block','<div class=\"lead\">\n                <script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n                <ins class=\"adsbygoogle\"\n                     style=\"display:block\"\n                     data-ad-client=\"ca-pub-9505937224921657\"\n                     data-ad-slot=\"2264361777\"\n                     data-ad-format=\"auto\"></ins>\n                <script>\n                (adsbygoogle = window.adsbygoogle || []).push({});\n                </script>\n            </div>',0,1494785396,1494785396);
+INSERT INTO `widget_text` VALUES (1,'backend_welcome','Welcome to backend','<p>Welcome to Yii2 Starter Kit Dashboard</p>',1,1496021148,1496021148),(2,'ads-example','Google Ads Example Block','<div class=\"lead\">\n                <script async src=\"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js\"></script>\n                <ins class=\"adsbygoogle\"\n                     style=\"display:block\"\n                     data-ad-client=\"ca-pub-9505937224921657\"\n                     data-ad-slot=\"2264361777\"\n                     data-ad-format=\"auto\"></ins>\n                <script>\n                (adsbygoogle = window.adsbygoogle || []).push({});\n                </script>\n            </div>',0,1496021148,1496021148);
 /*!40000 ALTER TABLE `widget_text` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -774,4 +701,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-19 17:50:39
+-- Dump completed on 2017-05-28 21:26:24

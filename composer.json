@@ -68,9 +68,6 @@
         "npm-asset-library": "vendor/npm",
         "bower-asset-library": "vendor/bower"
       }
-    },
-    "github-oauth": {
-      "github.com": "6f62eb8050ecaef2acd1e748bb6e3a419ae3ba75"
     }
   }
 }

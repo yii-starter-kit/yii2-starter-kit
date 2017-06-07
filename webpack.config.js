@@ -26,15 +26,11 @@ module.exports  = {
                 test: /\.less$/,
                 use: ExtractTextPlugin.extract({
                     use: [
-                        {
-                            loader: "raw-loader",
-                            options: {
-                                sourceMap: true
-                            }
-                        },
+                        {loader: 'css-loader', options: {minimize: true, sourceMap: true}},
                         {
                             loader: "less-loader",
                             options: {
+                                minimize: true,
                                 sourceMap: true
                             }
                         }
@@ -45,7 +41,7 @@ module.exports  = {
     },
     plugins: [
         new ExtractTextPlugin({
-            filename: "style.css",
+            filename: "[name].css",
             allChunks: true
         })
     ],

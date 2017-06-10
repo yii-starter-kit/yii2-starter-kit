@@ -23,7 +23,7 @@ install:
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
   - |
-    cd codecept build
+    cd ./vendor/bin/codecept build
 
 before_script:
   - mysql -e 'CREATE DATABASE `yii2-starter-kit-test`;';
@@ -32,4 +32,4 @@ before_script:
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
-    ccodeceptin run --debug --steps
+    ./vendor/bin/odeceptin run --debug --steps

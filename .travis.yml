@@ -7,9 +7,11 @@ php:
 # faster builds on new travis setup not using sudo
 sudo: false
 
+# required services start
 services:
   - mysql
 
+# install the application dependencies
 install:
   - travis_retry phpenv config-rm xdebug.ini
   - travis_retry composer self-update
@@ -17,19 +19,19 @@ install:
   - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0"
   - travis_retry composer install --ansi --profile --dev --prefer-dist --no-interaction -o -vvv
 
-# setup application:
+# configure application:
   - |
     cp .env.dist .env
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
-  - |
-    cd ./vendor/bin/codecept build
-
+# create DB and run automated app setup
 before_script:
   - mysql -e 'CREATE DATABASE `yii2-starter-kit-test`;';
   - php tests/codeception/bin/yii app/setup --interactive=0
+  - php -S localhost:8080 > /dev/null 2>&1 &
 
+# execute test commands
 script:
   - |
-    php -S localhost:8080 > /dev/null 2>&1 &
+    ./vendor/bin/codecept build
     ./vendor/bin/odeceptin run --debug --steps

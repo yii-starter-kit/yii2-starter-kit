@@ -21,7 +21,7 @@ install:
   - travis_retry composer self-update
   - travis_retry composer --version
   - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0"
-  - travis_retry composer install --ansi --profile --dev --prefer-source --no-interaction -o -vvv
+  - travis_retry composer install --ansi --profile --dev --prefer-dist --no-interaction -o -vvv
 
 # setup application:
   - |

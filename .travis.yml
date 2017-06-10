@@ -32,6 +32,5 @@ before_script:
 
 # execute test commands
 script:
-  - |
-    ./vendor/bin/codecept build
-    ./vendor/bin/odeceptin run --debug --steps
+  - ./vendor/bin/codecept build
+  - ./vendor/bin/codecept run --debug --steps

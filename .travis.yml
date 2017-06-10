@@ -18,9 +18,10 @@ cache:
 
 install:
   - travis_retry phpenv config-rm xdebug.ini
-  - travis_retry composer self-update && composer --version
-  - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0" "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
-  - travis_retry composer install --dev --prefer-source --no-interaction
+  - travis_retry composer self-update
+  - travis_retry composer --version
+  - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0"
+  - travis_retry composer install --ansi --profile --dev --prefer-source --no-interaction -o -vvv
 
 # setup application:
   - |
@@ -28,18 +29,13 @@ install:
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
   - |
-    cd tests/codeception/backend && codecept build
-    cd ../common && codecept build
-    cd ../console && codecept build
-    cd ../frontend && codecept build
-    cd ../../../
+    cd codecept build
 
 before_script:
-  - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
+  - mysql -e 'CREATE DATABASE `yii2-starter-kit-test`;';
   - php tests/codeception/bin/yii app/setup --interactive=0
 
 script:
   - |
     php -S localhost:8080 > /dev/null 2>&1 &
-    cd tests
-    ./../vendor/bin/codecept run --debug
+    ccodeceptin run --debug --steps

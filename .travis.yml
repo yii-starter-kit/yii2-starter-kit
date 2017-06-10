@@ -10,12 +10,6 @@ sudo: false
 services:
   - mysql
 
-# cache vendor dirs
-cache:
-  directories:
-    - $HOME/.composer/cache
-    - vendor
-
 install:
   - travis_retry phpenv config-rm xdebug.ini
   - travis_retry composer self-update

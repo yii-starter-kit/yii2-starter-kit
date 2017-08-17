@@ -7,6 +7,6 @@ return [
     'enablePrettyUrl'=>true,
     'showScriptName'=>false,
     'rules'=> [
-        ['pattern'=>'cache/<path:(.*)>', 'route'=>'glide/index', 'encodeParams' => false]
+        ['pattern'=>'cache/<path:(.*)>/<q:(.*)>', 'route'=>'glide/index', 'encodeParams' => false]
     ]
 ];

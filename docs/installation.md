@@ -97,7 +97,7 @@ npm run build
 4. Run `docker-compose up -d`
 5. Log into the app container via `docker-compose exec app bash`
 6. Install composer per instuctions available at [Composer](https://getcomposer.org/download/)
-7. Run `php composer.phar global require "fxp/composer-asset-plugin"` and `composer install --profile --prefer-dist -o -v`
+7. Run `php composer.phar global require "fxp/composer-asset-plugin"` and `php composer.phar install --profile --prefer-dist -o -v`
 - If asked for a token aquire one from your [github account](https://github.com/settings/tokens).
 8. Setup application with `php ./console/yii app/setup --interactive=0`
 9. Exit the app container by using `exit`

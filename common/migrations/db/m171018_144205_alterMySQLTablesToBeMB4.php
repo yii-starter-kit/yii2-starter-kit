@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  *
  */
-class m171018_141344_alterMySQLToBeMB4 extends Migration
+class m171018_144205_alterMySQLTablesToBeMB4 extends Migration
 {
     /**
      *
@@ -21,29 +21,7 @@ class m171018_141344_alterMySQLToBeMB4 extends Migration
             # Yii2 does not have a way to alter the database schema nor an `alterTable` AR method
             # As such AFAIK we have to do this migration using the SQL syntax
 
-            # If this command fails, do not fail the migration, but report a warning
-            $schemaName = explode(';', getenv('DB_DSN'));
-            $schemaName = end(explode('=', end($schemaName)));
-
-            $schemaQuery = "
-ALTER DATABASE
-`" . $schemaName . "``
-CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_unicode_ci;";
-
-            try {
-                $this->execute($schemaQuery, $tableOptions);
-            } catch (\Exception $e) {
-                echo 'WARNING: Schema would not be altered please run $schemaQuery manually.';
-            }
-
-
-            $this->execute("
-            # For each database:
-ALTER DATABASE
-    `yii2-starter-kit`
-    CHARACTER SET = utf8mb4
-    COLLATE = utf8mb4_unicode_ci;
+            return $this->execute("
 # Category tables
 ALTER TABLE
     article
@@ -167,6 +145,8 @@ ALTER TABLE rbac_auth_item_child
     ADD FOREIGN KEY (child) REFERENCES rbac_auth_item(name);
             ", $tableOptions);
         }
+
+        return false;
     }
 
     /*

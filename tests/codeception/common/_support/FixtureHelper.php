@@ -5,10 +5,18 @@ namespace tests\codeception\common\_support;
 use tests\codeception\common\fixtures\ArticleAttachmentFixture;
 use tests\codeception\common\fixtures\ArticleCategoryFixture;
 use tests\codeception\common\fixtures\ArticleFixture;
+use tests\codeception\common\fixtures\PageFixture;
 use tests\codeception\common\fixtures\RbacAuthAssignmentFixture;
+use tests\codeception\common\fixtures\RbacAuthItemChildFixture;
+use tests\codeception\common\fixtures\RbacAuthItemFixture;
+use tests\codeception\common\fixtures\RbacAuthRuleFixture;
 use tests\codeception\common\fixtures\UserFixture;
 use Codeception\Module;
 use tests\codeception\common\fixtures\UserProfileFixture;
+use tests\codeception\common\fixtures\WidgetCarouselFixture;
+use tests\codeception\common\fixtures\WidgetCarouselItemFixture;
+use tests\codeception\common\fixtures\WidgetMenuFixture;
+use tests\codeception\common\fixtures\WidgetTextFixture;
 use yii\test\FixtureTrait;
 
 /**
@@ -76,9 +84,41 @@ class FixtureHelper extends Module
                 'class' => UserProfileFixture::className(),
                 'dataFile' => '@tests/codeception/common/fixtures/data/user_profile.php',
             ],
+            'rbac_auth_rule' => [
+                'class' => RbacAuthRuleFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/rbac_auth_rule.php',
+            ],
+            'rbac_auth_item' => [
+                'class' => RbacAuthItemFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/rbac_auth_item.php',
+            ],
+            'rbac_auth_item_child' => [
+                'class' => RbacAuthItemChildFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/rbac_auth_item_child.php',
+            ],
             'rbac_auth_assignment' => [
                 'class' => RbacAuthAssignmentFixture::className(),
                 'dataFile' => '@tests/codeception/common/fixtures/data/rbac_auth_assignment.php',
+            ],
+            'page' => [
+                'class' => PageFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/page.php',
+            ],
+            'widget_carousel' => [
+                'class' => WidgetCarouselFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/widget_carousel.php',
+            ],
+            'widget_carousel_item' => [
+                'class' => WidgetCarouselItemFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/widget_carousel_item.php',
+            ],
+            'widget_text' => [
+                'class' => WidgetTextFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/widget_text.php',
+            ],
+            'widget_menu' => [
+                'class' => WidgetMenuFixture::className(),
+                'dataFile' => '@tests/codeception/common/fixtures/data/widget_menu.php',
             ]
         ];
     }

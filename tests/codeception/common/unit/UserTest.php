@@ -38,5 +38,6 @@ class UserTest extends Yii2TestCase
         $user->username="<p>xss;</p>";
         $this->assertTrue($user->save());
         $this->assertTrue($user->username==='&lt;p&gt;xss;&lt;/p&gt;');
+        $this->assertTrue((boolean)$user->delete()); // testing user deletion and cleaning db.
     }
 }

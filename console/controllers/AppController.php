@@ -40,6 +40,30 @@ class AppController extends Controller
         \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
     }
 
+    public function actionTruncate()
+    {
+        $db = \Yii::$app->db;
+        $dbName = $this->getDsnAttribute('dbname', $db->dsn);
+        echo "This will truncate all tables of current database [$dbName].";
+        $command = $db->createCommand('SET FOREIGN_KEY_CHECKS=0')->execute();
+        $command = $db->createCommand("SHOW FULL TABLES WHERE TABLE_TYPE LIKE '%TABLE'");
+        $res = $command->queryAll();
+        foreach ($res as $row) {
+            $rowName = 'Tables_in_' . $dbName;
+            $command = $db->createCommand('TRUNCATE TABLE `' . $row[$rowName] . '`')->execute();
+        }
+        $command = $db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
+    }
+
+    private function getDsnAttribute($name, $dsn)
+    {
+        if (preg_match('/' . $name . '=([^;]*)/', $dsn, $match)) {
+            return $match[1];
+        } else {
+            return null;
+        }
+    }
+
     public function actionSetWritable()
     {
         $this->setWritable($this->writablePaths);

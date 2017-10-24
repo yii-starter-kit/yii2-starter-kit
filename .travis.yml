@@ -37,6 +37,7 @@ install:
 before_script:
   - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
   - php tests/codeception/bin/yii app/setup --interactive=0
+  - php tests/codeception/bin/yii app/truncate --interactive=0
 
 script:
   - |

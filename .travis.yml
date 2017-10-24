@@ -35,8 +35,7 @@ install:
     cd ../../../
 
 before_script:
-  - mysql -e 'CREATE DATABASE `yii2-starter-kit-test`;';
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('root') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
   - php tests/codeception/bin/yii app/setup --interactive=0
   - php tests/codeception/bin/yii app/truncate --interactive=0
 

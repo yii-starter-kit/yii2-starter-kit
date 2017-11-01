@@ -8,7 +8,7 @@ use yii\db\Migration;
 class m171018_144205_alterMySQLTablesToBeMB4 extends Migration
 {
     /**
-     *
+     * @return bool|void
      */
     public function safeUp()
     {
@@ -149,8 +149,8 @@ ALTER TABLE rbac_auth_item_child
         return false;
     }
 
-    /*
-     *
+    /**
+     * @return bool
      */
     public function safeDown()
     {

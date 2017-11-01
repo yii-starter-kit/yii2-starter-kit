@@ -8,7 +8,7 @@ use yii\db\Migration;
 class m171018_141344_alterMySQLSchemaToBeMB4 extends Migration
 {
     /**
-     *
+     * @return bool|void
      */
     public function safeUp()
     {
@@ -51,8 +51,8 @@ AND SCHEMA_NAME = '$schemaName';";
         return false;
     }
 
-    /*
-     *
+    /**
+     * @return bool
      */
     public function safeDown()
     {

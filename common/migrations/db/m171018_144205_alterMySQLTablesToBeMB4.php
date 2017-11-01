@@ -14,14 +14,8 @@ class m171018_144205_alterMySQLTablesToBeMB4 extends Migration
     {
         echo __CLASS__ . ' ' . __METHOD__ . ' executing.\n';
 
-        $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
-
-            # Yii2 does not have a way to alter the database schema nor an `alterTable` AR method
-            # As such AFAIK we have to do this migration using the SQL syntax
-
-            $this->execute("
+            $command ="
 # Category tables
 ALTER TABLE
     article
@@ -142,8 +136,9 @@ ALTER TABLE rbac_auth_item_child
     ADD FOREIGN KEY (parent) REFERENCES rbac_auth_item(name);
 
 ALTER TABLE rbac_auth_item_child
-    ADD FOREIGN KEY (child) REFERENCES rbac_auth_item(name);
-            ", $tableOptions);
+    ADD FOREIGN KEY (child) REFERENCES rbac_auth_item(name);";
+
+            $this->execute($command);
 
             return true;
         }

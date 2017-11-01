@@ -3,12 +3,12 @@
 use yii\db\Migration;
 
 /**
- *
+ * Class m171018_141344_alterMySQLSchemaToBeMB4
  */
 class m171018_141344_alterMySQLSchemaToBeMB4 extends Migration
 {
     /**
-     * @return bool|void
+     * @return bool
      */
     public function safeUp()
     {
@@ -36,16 +36,11 @@ AND SCHEMA_NAME = '$schemaName';";
             }
 
             # Yii2 does not have a way to alter the database schema nor an `alterTable` AR method
-            # As such AFAIK we have to do this migration using the MySQL syntax
-            try {
-                return $this->execute(
-                    "ALTER DATABASE '" . $schemaName . "' CHARACTER SET = $newCharSet COLLATE = $newCollate;",
-                    "CHARACTER SET utf8 COLLATE $newCollate ENGINE=InnoDB"
-                );
-            } catch (\Exception $e) {
-                echo "\nWARNING: Schema could not be altered automatically. Please run the above query manually, then re-attempt migration(s).\n";
-            }
+            # As such AFAIK we have to do this migration using the SQL syntax
+            $command = "ALTER DATABASE `" . $schemaName . "` CHARACTER SET = $newCharSet COLLATE = $newCollate;";
+            $this->execute($command);
 
+            return true;
         }
 
         return false;

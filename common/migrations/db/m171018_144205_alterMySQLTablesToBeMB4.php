@@ -3,7 +3,7 @@
 use yii\db\Migration;
 
 /**
- *
+ * Class m171018_144205_alterMySQLTablesToBeMB4
  */
 class m171018_144205_alterMySQLTablesToBeMB4 extends Migration
 {
@@ -21,7 +21,7 @@ class m171018_144205_alterMySQLTablesToBeMB4 extends Migration
             # Yii2 does not have a way to alter the database schema nor an `alterTable` AR method
             # As such AFAIK we have to do this migration using the SQL syntax
 
-            return $this->execute("
+            $this->execute("
 # Category tables
 ALTER TABLE
     article
@@ -144,6 +144,8 @@ ALTER TABLE rbac_auth_item_child
 ALTER TABLE rbac_auth_item_child
     ADD FOREIGN KEY (child) REFERENCES rbac_auth_item(name);
             ", $tableOptions);
+
+            return true;
         }
 
         return false;

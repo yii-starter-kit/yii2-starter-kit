@@ -36,17 +36,10 @@ AND SCHEMA_NAME = '$schemaName';";
             }
 
             # Yii2 does not have a way to alter the database schema nor an `alterTable` AR method
-            # As such AFAIK we have to do this migration using the SQL syntax
-
-            $schemaQuery = "
-ALTER DATABASE
-`" . $schemaName . "`
-CHARACTER SET = $newCharSet
-COLLATE = $newCollate;";
-
+            # As such AFAIK we have to do this migration using the MySQL syntax
             try {
                 return $this->execute(
-                    $schemaQuery,
+                    "ALTER DATABASE '" . $schemaName . "' CHARACTER SET = $newCharSet COLLATE = $newCollate;",
                     "CHARACTER SET utf8 COLLATE $newCollate ENGINE=InnoDB"
                 );
             } catch (\Exception $e) {

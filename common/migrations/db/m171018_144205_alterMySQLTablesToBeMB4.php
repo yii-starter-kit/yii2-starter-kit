@@ -158,19 +158,4 @@ ALTER TABLE rbac_auth_item_child
 
         return false;
     }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m171018_141344_alterMySQLToBeMB4 cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

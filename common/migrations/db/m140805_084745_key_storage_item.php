@@ -9,7 +9,7 @@ class m140805_084745_key_storage_item extends Migration
     {
         $tableOptions = null;
         if ($this->db->driverName === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci';
+            $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci';
         }
 
         $this->createTable('{{%key_storage_item}}', [

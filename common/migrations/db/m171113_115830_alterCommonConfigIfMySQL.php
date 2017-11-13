@@ -23,21 +23,18 @@ class m171113_115830_alterCommonConfigIfMySQL extends Migration
         }
 
         // do not proceed if specific migrations did not yet run
-        $migrationCount = \Yii::$app->db->createCommand('
-            SELECT count(*)
-            FROM `systen_migrations`
-            WHERE `value` = `m171018_141344_alterMySQLSchemaToBeMB4`
-              AND `value` = `m171018_144205_alterMySQLTablesToBeMB4`
-        ')->execute();
-        if ($migrationCount !== '2') {
+        $migrationCount = \Yii::$app->db->createCommand("
+            SELECT *
+            FROM `yii2-starter-kit`.`system_db_migration`
+            WHERE `version` = 'm171018_141344_alterMySQLSchemaToBeMB4'
+              OR `version`  = 'm171018_144205_alterMySQLTablesToBeMB4'
+        ")->queryAll();
+        if (count($migrationCount) !== 2) {
             return false;
         }
 
-        // change and save the .env value
-        $dotenv = new Dotenv\Dotenv(__DIR__);
-        $dotenv->overload();
-        $dotenv['DB_CHARSET'] = 'utf8mb4';
-        $dotenv->save();
+        // change value in .env and reload valuesgit
+
 
         return true;
     }

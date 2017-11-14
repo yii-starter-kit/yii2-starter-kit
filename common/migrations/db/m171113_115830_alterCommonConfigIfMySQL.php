@@ -33,8 +33,14 @@ class m171113_115830_alterCommonConfigIfMySQL extends Migration
             return false;
         }
 
-        // change value in .env and reload valuesgit
-
+        // change value in .env and reload values
+        // TODO probably a better way to do this as it is not limiting changes to the DB_CHAR key
+        $path = './.env';
+        if (file_exists($path)) {
+            $file_contents = file_get_contents($path);
+            $file_contents = str_replace("utf8","utf8mb4", $file_contents);
+            file_put_contents($path, $file_contents);
+        }
 
         return true;
     }

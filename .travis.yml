@@ -7,39 +7,30 @@ php:
 # faster builds on new travis setup not using sudo
 sudo: false
 
+# required services start
 services:
   - mysql
 
-# cache vendor dirs
-cache:
-  directories:
-    - $HOME/.composer/cache
-    - vendor
-
+# install the application dependencies
 install:
   - travis_retry phpenv config-rm xdebug.ini
-  - travis_retry composer self-update && composer --version
-  - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0" "codeception/codeception:^2.0" "codeception/specify" "codeception/verify"
-  - travis_retry composer install --dev --prefer-source --no-interaction
+  - travis_retry composer self-update
+  - travis_retry composer --version
+  - travis_retry composer global require "fxp/composer-asset-plugin:~1.1.0"
+  - travis_retry composer install --ansi --profile --dev --prefer-dist --no-interaction -o -vvv
 
-# setup application:
+# configure application:
   - |
     cp .env.dist .env
     sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
 
-  - |
-    cd tests/codeception/backend && codecept build
-    cd ../common && codecept build
-    cd ../console && codecept build
-    cd ../frontend && codecept build
-    cd ../../../
-
+# create DB and run automated app setup
 before_script:
-  - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
+  - mysql -e 'CREATE DATABASE `yii2-starter-kit-test`;';
   - php tests/codeception/bin/yii app/setup --interactive=0
+  - php -S localhost:8080 > /dev/null 2>&1 &
 
+# execute test commands
 script:
-  - |
-    php -S localhost:8080 > /dev/null 2>&1 &
-    cd tests
-    ./../vendor/bin/codecept run --debug
+  - ./vendor/bin/codecept build
+  - ./vendor/bin/codecept run --debug --steps

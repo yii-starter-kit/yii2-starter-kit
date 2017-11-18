@@ -33,3 +33,4 @@ phpunit.phar
 
 # Tests
 tests/codeception/*/_support/_generated/*
+docker-compose.override.yml

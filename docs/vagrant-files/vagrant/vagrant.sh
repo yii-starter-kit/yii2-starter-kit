@@ -55,7 +55,6 @@ sudo phpdismod xdebug
 # install composer
 if [ ! -f /usr/local/bin/composer ]; then
 	sudo curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    ${composer} global require fxp/composer-asset-plugin --no-progress --prefer-dist
 else
 	${composer} self-update
 	${composer} global update --no-progress --prefer-dist

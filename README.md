@@ -67,7 +67,15 @@ Password: user
 
 ## FEATURES
 - Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
-- Translations: English, Spanish, Russian, Ukrainian, Chinese, Vietnamese
+- Built-in translations:
+    - English
+    - Spanish
+    - Russian
+    - Ukrainian
+    - Chinese
+    - Vietnamese
+    - Polish
+    - Portuguese (Brazil)
 - Translations Editor
 - Language change action + behavior to choose locale based on browser preferred language 
 - Sign in, Sign up, profile(avatar, locale, personal data), email activation etc

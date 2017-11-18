@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
         libmcrypt-dev \
         libpng12-dev \
         libicu-dev \
+        wget \
+        git \
             --no-install-recommends
 
 RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif \
@@ -16,13 +18,16 @@ RUN docker-php-ext-install mcrypt zip intl mbstring pdo_mysql exif \
 RUN pecl install -o -f xdebug \
     && rm -rf /tmp/pear
 
+COPY ./install-composer.sh /
 COPY ./php.ini /usr/local/etc/php/
 COPY ./www.conf /usr/local/etc/php/
 
 RUN apt-get purge -y g++ \
     && apt-get autoremove -y \
     && rm -r /var/lib/apt/lists/* \
-    && rm -rf /tmp/*
+    && rm -rf /tmp/* \
+    && sh /install-composer.sh \
+    && rm /install-composer.sh
 
 RUN usermod -u 1000 www-data
 

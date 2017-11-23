@@ -10,6 +10,6 @@ class ArticleAttachmentFixture extends ActiveFixture
 {
     public $modelClass = 'common\models\ArticleAttachment';
     public $depends = [
-        'tests\codeception\common\fixtures\ArticleFixture'
+        ArticleFixture::class
     ];
 }

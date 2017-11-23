@@ -11,7 +11,7 @@ class RbacAuthAssignmentFixture extends ActiveFixture
 {
     public $tableName = 'rbac_auth_assignment';
     public $depends = [
-        'tests\codeception\common\fixtures\UserFixture',
-        'tests\codeception\common\fixtures\RbacAuthItemFixture',
+        UserFixture::class,
+        RbacAuthItemFixture::class,
     ];
 }

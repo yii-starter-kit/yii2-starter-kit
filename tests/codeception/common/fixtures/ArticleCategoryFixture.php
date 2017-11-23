@@ -1,6 +1,7 @@
 <?php
 
 namespace tests\codeception\common\fixtures;
+use common\models\ArticleCategory;
 use yii\test\ActiveFixture;
 
 /**
@@ -8,5 +9,5 @@ use yii\test\ActiveFixture;
  */
 class ArticleCategoryFixture extends ActiveFixture
 {
-    public $modelClass = 'common\models\ArticleCategory';
+    public $modelClass = ArticleCategory::class;
 }

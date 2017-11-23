@@ -63,14 +63,13 @@ class AppController extends Controller
      */
     public function actionTruncate()
     {
-        if ($this->confirm('This will drop all tables of current database [' . self::$dbName . '].')) {
-            echo 'This will truncate all tables of current database [' . self::$dbName . '].';
+        if ($this->confirm('This will truncate all tables of current database [' . self::$dbName . '].')) {
             self::$db->createCommand('SET FOREIGN_KEY_CHECKS=0')->execute();
             $command = self::$db->createCommand("SHOW FULL TABLES WHERE TABLE_TYPE LIKE '%TABLE'");
             $res = $command->queryAll();
             foreach ($res as $row) {
                 $rowName = 'Tables_in_' . self::$dbName;
-                echo 'Truncating table ' . $row[$rowName] . PHP_EOL;
+                $this->stdout('Truncating table ' . $row[$rowName] . PHP_EOL, Console::FG_RED);
                 self::$db->createCommand()->truncateTable($row[$rowName])->execute();
             }
             self::$db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
@@ -103,7 +102,7 @@ class AppController extends Controller
             self::$db->createCommand("SET foreign_key_checks = 0")->execute();
             $tables = self::$db->schema->getTableNames();
             foreach ($tables as $table) {
-                echo 'Dropping table ' . $table . PHP_EOL;
+                $this->stdout('Dropping table ' . $table . PHP_EOL, Console::FG_RED);
                 self::$db->createCommand()->dropTable($table)->execute();
             }
             self::$db->createCommand("SET foreign_key_checks = 1")->execute();

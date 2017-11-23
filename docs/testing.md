@@ -7,13 +7,13 @@ docker-compose up -d
 ```
 2. Create `tests` database:
 ```
-docker-compose exec db mysql -uroot -proot -e 'CREATE DATABASE test'
+docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`yii2-starter-kit-test\`" 
 ```
 
 3. Adjust `.env` file to set `TEST_DB_DSN`, `TEST_DB_USER` and `TEST_DB_PASSWORD` params
 4. Setup application:
 ```
-docker-compose exec app php tests/codeception/bin/yii app/setup
+docker-compose exec app php tests/codeception/bin/yii app/setup --interactive=0
 ```
 5. Truncate tables before run, so we have fresh database without records.
 ```

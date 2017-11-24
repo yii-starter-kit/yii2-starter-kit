@@ -12,6 +12,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Console;
 use yii\helpers\FileHelper;
 use yii\helpers\VarDumper;
+use yii\i18n\GettextPoFile;
 
 /**
  * Class ExtendedMessageController
@@ -20,9 +21,8 @@ use yii\helpers\VarDumper;
 class ExtendedMessageController extends \yii\console\controllers\MessageController
 {
     /**
-     * @param $path
-     * @param bool $newSourceLanguage
      * @param bool $configFile
+     * @param bool $newSourceLanguage
      * @throws Exception
      */
     public function actionReplaceSourceLanguage($configFile, $newSourceLanguage = false)
@@ -91,7 +91,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
             Console::output('Messages with params, can`t be removed by this tool. Remove it manually');
             foreach ($unremoved as $fileName => $messages) {
                 $messages = implode(PHP_EOL, $messages);
-                Console::output("$fileName:".PHP_EOL.$messages);
+                Console::output("$fileName:" . PHP_EOL . $messages);
             }
         }
     }
@@ -117,7 +117,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
             'format' => 'php',
         ], require($inputConfigFile));
 
-        switch($inputConfig['format']){
+        switch ($inputConfig['format']) {
             case 'php':
                 $messages = $this->readFromPhpInput($inputConfig);
                 break;
@@ -128,7 +128,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 $messages = $this->readFromPoInput($inputConfig);
                 break;
             default:
-                throw new InvalidConfigException('Unknown input format '.$inputConfig['format']);
+                throw new InvalidConfigException('Unknown input format ' . $inputConfig['format']);
         }
 
         if ($this->confirm('All existing messages in the output source will be removed. Proceed?')) {
@@ -145,7 +145,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                 'format' => 'php',
             ], require($outputConfigFile));
 
-            switch($outputConfig['format']){
+            switch ($outputConfig['format']) {
                 case 'php':
                     $this->saveToPhpOutput($messages, $outputConfig);
                     break;
@@ -199,7 +199,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
         Console::output('Reading messages from database');
         $sourceMessages = $q->select(['*'])->from($sourceMessageTable)->all();
         foreach ($config['languages'] as $language) {
-            $translations = $q->select(['*'])->from($messageTable)->where(['language'=>$language])->indexBy('id')->all();
+            $translations = $q->select(['*'])->from($messageTable)->where(['language' => $language])->indexBy('id')->all();
             foreach ($sourceMessages as $row) {
                 $translation = ArrayHelper::getValue($translations, $row['id']);
                 $messages[$language][$row['category']][$row['message']] = $translation ? $translation['translation'] : null;
@@ -212,11 +212,44 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
 
     /**
      * @param $config
-     * @throws \Exception
+     * @return array
      */
     protected function readFromPoInput($config)
     {
-        throw new \Exception("PO migration didn't implemented yet");
+        $poFile = new GettextPoFile();
+        $pattern = '/(msgctxt\s+"(.*?(?<!\\\\))")?\s+' // context
+            . 'msgid\s+((?:".*(?<!\\\\)"\s*)+)\s+' // message ID, i.e. original string
+            . 'msgstr\s+((?:".*(?<!\\\\)"\s*)+)/'; // translated string
+        $messages = [];
+        foreach ($config['languages'] as $language) {
+            $filePath = Yii::getAlias("$config[messagePath]/$language/$config[catalog].po");
+
+            $content = file_get_contents($filePath);
+            $matches = [];
+            $matchCount = preg_match_all($pattern, $content, $matches);
+
+            $messages[$language] = [];
+            for ($i = 0; $i < $matchCount; ++$i) {
+                $messages[$language][$matches[2][$i]][$this->decode($matches[3][$i])] = $this->decode($matches[4][$i]);
+            }
+        }
+        return $messages;
+    }
+
+    /**
+     * Decodes special characters in a message.
+     * @param string $string message to be decoded
+     * @return string the decoded message
+     */
+    protected function decode($string)
+    {
+        $string = preg_replace(
+            ['/"\s+"/', '/\\\\n/', '/\\\\r/', '/\\\\t/', '/\\\\"/'],
+            ['', "\n", "\r", "\t", '"'],
+            $string
+        );
+
+        return substr(rtrim($string), 1, -1);
     }
 
     /**
@@ -256,7 +289,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
                         $insertedSourceMessages[$category][$lastId] = $m;
                     }
                     $db->createCommand()
-                        ->insert($messageTable, ['id' => $lastId, 'language' => $language, 'translation'=>$translation])->execute();
+                        ->insert($messageTable, ['id' => $lastId, 'language' => $language, 'translation' => $translation])->execute();
                 }
                 Console::endProgress();
             }
@@ -270,7 +303,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
     protected function saveToPhpOutput($messages, $config)
     {
         foreach ($messages as $language => $categories) {
-            $dirName = FileHelper::normalizePath(Yii::getAlias($config['messagePath'].'/'.$language));
+            $dirName = FileHelper::normalizePath(Yii::getAlias($config['messagePath'] . '/' . $language));
             FileHelper::createDirectory($dirName);
             Console::output("Language: $language");
             foreach ($categories as $category => $msgs) {
@@ -287,10 +320,24 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
     /**
      * @param $messages
      * @param $config
-     * @throws \Exception
      */
     protected function saveToPoOutput($messages, $config)
     {
-        throw new \Exception("PO migration didn't implemented yet");
+        foreach ($messages as $language => $categories) {
+            $poFile = new GettextPoFile();
+            $merged = [];
+            Console::output("Language: $language");
+            foreach ($categories as $category => $msgs) {
+                ksort($msgs);
+                foreach ($msgs as $message => $translation) {
+                    $merged[$category . chr(4) . $message] = $translation;
+                }
+                ksort($merged);
+            }
+            $poFile->save(
+                FileHelper::normalizePath($config['messagePath'] . DIRECTORY_SEPARATOR . $language . DIRECTORY_SEPARATOR . (isset($config['catalog']) ? $config['catalog'] : $this->catalog) . '.po'),
+                $merged
+            );
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace tests\codeception\common\fixtures;
 
+use common\models\KeyStorageItem;
 use yii\test\ActiveFixture;
 
 /**
@@ -9,5 +10,5 @@ use yii\test\ActiveFixture;
  */
 class UserFixture extends ActiveFixture
 {
-    public $modelClass = 'common\models\KeyStorageItem';
+    public $modelClass = KeyStorageItem::class;
 }

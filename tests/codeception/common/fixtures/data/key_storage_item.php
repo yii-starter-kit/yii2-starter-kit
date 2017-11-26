@@ -5,6 +5,6 @@
 return [
     [
         'key' => 'frontend.maintenance',
-        'value' => 'disable'
+        'value' => 'disabled'
     ]
 ];

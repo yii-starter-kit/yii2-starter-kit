@@ -11,6 +11,6 @@ class UserProfileFixture extends ActiveFixture
 {
     public $modelClass = 'common\models\UserProfile';
     public $depends = [
-        'tests\codeception\common\fixtures\UserFixture'
+        UserFixture::class
     ];
 }

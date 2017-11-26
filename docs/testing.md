@@ -15,11 +15,15 @@ docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`yii2-starter-ki
 ```
 docker-compose exec app php tests/codeception/bin/yii app/setup --interactive=0
 ```
-5. Start web server (do not close bash session):
+5. Truncate tables before run, so we have fresh database without records.
+```
+docker-compose exec app php tests/codeception/bin/yii app/truncate
+```
+6. Start web server (do not close bash session):
 ```
 docker-compose exec app php -S localhost:8080
 ```
-6. Run tests in separate window:
+7. Run tests in separate window:
 ```
 docker-compose exec app vendor/bin/codecept run
 ```

@@ -39,7 +39,13 @@ class m171113_115830_alterCommonConfigIfMySQL extends Migration
         if (file_exists($path)) {
             $file_contents = file_get_contents($path);
             $file_contents = str_replace("utf8","utf8mb4", $file_contents);
-            file_put_contents($path, $file_contents);
+
+            if (!$file_contents) {
+                $file_contents = 'DB_CHARSET = utf8mb4';
+                return file_put_contents($path, $file_contents, FILE_APPEND);
+            }
+
+            return file_put_contents($path, $file_contents);
         }
 
         return true;

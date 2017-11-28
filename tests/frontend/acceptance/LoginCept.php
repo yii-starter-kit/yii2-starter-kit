@@ -1,4 +1,5 @@
 <?php
+
 use tests\frontend\_pages\LoginPage;
 use tests\frontend\AcceptanceTester;
 

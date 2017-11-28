@@ -1,6 +1,6 @@
 <?php
+
 namespace tests\frontend;
-use tests\frontend\FunctionalTester;
 
 class ArticleCest
 {

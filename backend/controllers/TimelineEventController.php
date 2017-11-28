@@ -2,8 +2,8 @@
 
 namespace backend\controllers;
 
-use Yii;
 use backend\models\search\TimelineEventSearch;
+use Yii;
 use yii\web\Controller;
 
 /**
@@ -12,6 +12,7 @@ use yii\web\Controller;
 class TimelineEventController extends Controller
 {
     public $layout = 'common';
+
     /**
      * Lists all TimelineEvent models.
      * @return mixed
@@ -21,7 +22,7 @@ class TimelineEventController extends Controller
         $searchModel = new TimelineEventSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder'=>['created_at'=>SORT_DESC]
+            'defaultOrder' => ['created_at' => SORT_DESC]
         ];
 
         return $this->render('index', [

@@ -68,7 +68,7 @@ class SignupCest
         }
 
         $I->expectTo('see that user logged in');
-        $I->click("tester","a");
-        $I->see("Logout","a");
+        $I->click("tester", "a");
+        $I->see("Logout", "a");
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 use tests\frontend\AcceptanceTester;
 
 /* @var $scenario Codeception\Scenario */

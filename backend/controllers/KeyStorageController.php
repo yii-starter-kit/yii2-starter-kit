@@ -2,12 +2,12 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\KeyStorageItem;
 use backend\models\search\KeyStorageItemSearch;
+use common\models\KeyStorageItem;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * KeyStorageController implements the CRUD actions for KeyStorageItem model.
@@ -35,7 +35,7 @@ class KeyStorageController extends Controller
         $searchModel = new KeyStorageItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder'=>['key'=>SORT_DESC]
+            'defaultOrder' => ['key' => SORT_DESC]
         ];
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -81,19 +81,6 @@ class KeyStorageController extends Controller
     }
 
     /**
-     * Deletes an existing KeyStorageItem model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the KeyStorageItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -107,5 +94,18 @@ class KeyStorageController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing KeyStorageItem model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 }

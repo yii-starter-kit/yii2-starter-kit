@@ -29,7 +29,8 @@ class SignupPage
      * @param $actor
      * @return SignupPage
      */
-    public static function openBy($actor) {
+    public static function openBy($actor)
+    {
         return new self($actor);
     }
 

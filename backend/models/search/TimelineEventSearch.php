@@ -3,7 +3,6 @@
 namespace backend\models\search;
 
 use common\models\TimelineEvent;
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 

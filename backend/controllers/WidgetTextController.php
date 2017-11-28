@@ -3,11 +3,11 @@
 namespace backend\controllers;
 
 use backend\models\search\WidgetTextSearch;
-use Yii;
 use common\models\WidgetText;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * WidgetTextController implements the CRUD actions for WidgetText model.
@@ -79,19 +79,6 @@ class WidgetTextController extends Controller
     }
 
     /**
-     * Deletes an existing WidgetText model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the WidgetText model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -105,5 +92,18 @@ class WidgetTextController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing WidgetText model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 }

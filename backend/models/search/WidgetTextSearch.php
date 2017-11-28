@@ -2,10 +2,9 @@
 
 namespace backend\models\search;
 
-use Yii;
+use common\models\WidgetText;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\WidgetText;
 
 class WidgetTextSearch extends WidgetText
 {

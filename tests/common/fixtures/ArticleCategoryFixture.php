@@ -1,6 +1,7 @@
 <?php
 
 namespace tests\common\fixtures;
+
 use common\models\ArticleCategory;
 use yii\test\ActiveFixture;
 

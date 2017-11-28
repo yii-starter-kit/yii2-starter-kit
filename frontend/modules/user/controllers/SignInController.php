@@ -2,6 +2,13 @@
 
 namespace frontend\modules\user\controllers;
 
+use common\commands\SendEmailCommand;
+use common\models\User;
+use common\models\UserToken;
+use frontend\modules\user\models\LoginForm;
+use frontend\modules\user\models\PasswordResetRequestForm;
+use frontend\modules\user\models\ResetPasswordForm;
+use frontend\modules\user\models\SignupForm;
 use Yii;
 use yii\authclient\AuthAction;
 use yii\base\Exception;
@@ -12,13 +19,6 @@ use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
-use common\commands\SendEmailCommand;
-use common\models\User;
-use common\models\UserToken;
-use frontend\modules\user\models\LoginForm;
-use frontend\modules\user\models\PasswordResetRequestForm;
-use frontend\modules\user\models\ResetPasswordForm;
-use frontend\modules\user\models\SignupForm;
 
 /**
  * Class SignInController

@@ -58,21 +58,6 @@ class LoginForm extends Model
     }
 
     /**
-     * Logs in a user using the provided username and password.
-     *
-     * @return boolean whether the user is logged in successfully
-     */
-    public function login()
-    {
-        if ($this->validate()) {
-            if (Yii::$app->user->login($this->getUser(), $this->rememberMe ? Time::SECONDS_IN_A_MONTH : 0)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
      * Finds user by [[username]]
      *
      * @return User|null
@@ -87,5 +72,20 @@ class LoginForm extends Model
         }
 
         return $this->user;
+    }
+
+    /**
+     * Logs in a user using the provided username and password.
+     *
+     * @return boolean whether the user is logged in successfully
+     */
+    public function login()
+    {
+        if ($this->validate()) {
+            if (Yii::$app->user->login($this->getUser(), $this->rememberMe ? Time::SECONDS_IN_A_MONTH : 0)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

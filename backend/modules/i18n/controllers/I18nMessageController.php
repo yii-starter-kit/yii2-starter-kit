@@ -2,15 +2,15 @@
 
 namespace backend\modules\i18n\controllers;
 
-use backend\modules\i18n\models\I18nSourceMessage;
-use Yii;
 use backend\modules\i18n\models\I18nMessage;
+use backend\modules\i18n\models\I18nSourceMessage;
 use backend\modules\i18n\models\search\I18nMessageSearch;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * I18nMessageController implements the CRUD actions for I18nMessage model.
@@ -97,20 +97,6 @@ class I18nMessageController extends Controller
     }
 
     /**
-     * Deletes an existing I18nMessage model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @param string $language
-     * @return mixed
-     */
-    public function actionDelete($id, $language)
-    {
-        $this->findModel($id, $language)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the I18nMessage model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -125,5 +111,19 @@ class I18nMessageController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing I18nMessage model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @param string $language
+     * @return mixed
+     */
+    public function actionDelete($id, $language)
+    {
+        $this->findModel($id, $language)->delete();
+
+        return $this->redirect(['index']);
     }
 }

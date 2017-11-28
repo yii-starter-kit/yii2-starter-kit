@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m141012_101932_i18n_tables extends Migration
@@ -13,15 +12,15 @@ class m141012_101932_i18n_tables extends Migration
         }
 
         $this->createTable('{{%i18n_source_message}}', [
-            'id'=>$this->primaryKey(),
-            'category'=>$this->string(32),
-            'message'=>$this->text()
+            'id' => $this->primaryKey(),
+            'category' => $this->string(32),
+            'message' => $this->text()
         ], $tableOptions);
 
         $this->createTable('{{%i18n_message}}', [
-            'id'=>$this->integer(),
-            'language'=>$this->string(16),
-            'translation'=>$this->text()
+            'id' => $this->integer(),
+            'language' => $this->string(16),
+            'translation' => $this->text()
         ], $tableOptions);
 
         $this->addPrimaryKey('i18n_message_pk', '{{%i18n_message}}', ['id', 'language']);

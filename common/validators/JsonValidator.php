@@ -2,8 +2,8 @@
 
 namespace common\validators;
 
-use yii\validators\Validator;
 use Yii;
+use yii\validators\Validator;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
@@ -20,6 +20,7 @@ class JsonValidator extends Validator
             $this->message = Yii::t('common', '"{attribute}" must be a valid JSON');
         }
     }
+
     /**
      * @inheritdoc
      */

@@ -8,8 +8,8 @@
 
 namespace backend\controllers;
 
-use backend\models\LoginForm;
 use backend\models\AccountForm;
+use backend\models\LoginForm;
 use Intervention\Image\ImageManagerStatic;
 use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
@@ -83,12 +83,12 @@ class SignInController extends Controller
         $model = Yii::$app->user->identity->userProfile;
         if ($model->load($_POST) && $model->save()) {
             Yii::$app->session->setFlash('alert', [
-                'options'=>['class'=>'alert-success'],
-                'body'=>Yii::t('backend', 'Your profile has been successfully saved', [], $model->locale)
+                'options' => ['class' => 'alert-success'],
+                'body' => Yii::t('backend', 'Your profile has been successfully saved', [], $model->locale)
             ]);
             return $this->refresh();
         }
-        return $this->render('profile', ['model'=>$model]);
+        return $this->render('profile', ['model' => $model]);
     }
 
     public function actionAccount()
@@ -105,11 +105,11 @@ class SignInController extends Controller
             }
             $user->save();
             Yii::$app->session->setFlash('alert', [
-                'options'=>['class'=>'alert-success'],
-                'body'=>Yii::t('backend', 'Your account has been successfully saved')
+                'options' => ['class' => 'alert-success'],
+                'body' => Yii::t('backend', 'Your account has been successfully saved')
             ]);
             return $this->refresh();
         }
-        return $this->render('account', ['model'=>$model]);
+        return $this->render('account', ['model' => $model]);
     }
 }

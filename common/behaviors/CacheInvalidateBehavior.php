@@ -98,6 +98,14 @@ class CacheInvalidateBehavior extends Behavior
     }
 
     /**
+     * @return \yii\caching\Cache
+     */
+    protected function getCache()
+    {
+        return $this->cache ?: Yii::$app->{$this->cacheComponent};
+    }
+
+    /**
      *
      */
     protected function invalidateTags()
@@ -111,13 +119,5 @@ class CacheInvalidateBehavior extends Behavior
                 return $tag;
             }, $this->tags)
         );
-    }
-
-    /**
-     * @return \yii\caching\Cache
-     */
-    protected function getCache()
-    {
-        return $this->cache ?: Yii::$app->{$this->cacheComponent};
     }
 }

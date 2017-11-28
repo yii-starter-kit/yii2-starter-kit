@@ -29,7 +29,8 @@ class LoginPage
      * @param $actor
      * @return LoginPage
      */
-    public static function openBy($actor) {
+    public static function openBy($actor)
+    {
         return new self($actor);
     }
 

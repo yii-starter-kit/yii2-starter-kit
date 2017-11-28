@@ -5,9 +5,9 @@
 
 namespace common\actions;
 
+use Yii;
 use yii\base\Action;
 use yii\base\InvalidParamException;
-use Yii;
 use yii\web\Cookie;
 
 /**
@@ -31,8 +31,7 @@ use yii\web\Cookie;
  *           ]
  *       ];
  *   }
-*/
-
+ */
 class SetLocaleAction extends Action
 {
     /**

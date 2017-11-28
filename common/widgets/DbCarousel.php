@@ -61,14 +61,14 @@ class DbCarousel extends Carousel
                 }
 
                 if ($item->url) {
-                    $items[$k]['content'] = Html::a($items[$k]['content'], $item->url, ['target'=>'_blank']);
+                    $items[$k]['content'] = Html::a($items[$k]['content'], $item->url, ['target' => '_blank']);
                 }
 
                 if ($item->caption) {
                     $items[$k]['caption'] = $item->caption;
                 }
             }
-            Yii::$app->cache->set($cacheKey, $items, 60*60*24*365);
+            Yii::$app->cache->set($cacheKey, $items, 60 * 60 * 24 * 365);
         }
         $this->items = $items;
         parent::init();

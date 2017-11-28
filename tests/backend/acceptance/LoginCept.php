@@ -1,7 +1,7 @@
 <?php
 
-use tests\backend\AcceptanceTester;
 use tests\backend\_pages\LoginPage;
+use tests\backend\AcceptanceTester;
 
 /* @var $scenario Codeception\Scenario */
 

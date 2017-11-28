@@ -1,4 +1,5 @@
 <?php
+
 use tests\frontend\FunctionalTester;
 
 /* @var $scenario Codeception\Scenario */

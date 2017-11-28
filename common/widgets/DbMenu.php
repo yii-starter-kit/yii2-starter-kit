@@ -6,8 +6,8 @@
 namespace common\widgets;
 
 use common\models\WidgetMenu;
-use yii\base\InvalidConfigException;
 use Yii;
+use yii\base\InvalidConfigException;
 use yii\widgets\Menu;
 
 /**
@@ -35,11 +35,11 @@ class DbMenu extends Menu
         ];
         $this->items = Yii::$app->cache->get($cacheKey);
         if ($this->items === false) {
-            if (!($model = WidgetMenu::findOne(['key'=>$this->key, 'status' => WidgetMenu::STATUS_ACTIVE]))) {
+            if (!($model = WidgetMenu::findOne(['key' => $this->key, 'status' => WidgetMenu::STATUS_ACTIVE]))) {
                 throw new InvalidConfigException;
             }
-            $this->items =json_decode($model->items, true);
-            Yii::$app->cache->set($cacheKey, $this->items, 60*60*24);
+            $this->items = json_decode($model->items, true);
+            Yii::$app->cache->set($cacheKey, $this->items, 60 * 60 * 24);
         }
     }
 }

@@ -14,6 +14,23 @@ class AppController extends Controller
 {
     private static $dbName;
     private static $db;
+    public $writablePaths = [
+        '@common/runtime',
+        '@frontend/runtime',
+        '@frontend/web/assets',
+        '@backend/runtime',
+        '@backend/web/assets',
+        '@storage/cache',
+        '@storage/web/source'
+    ];
+    public $executablePaths = [
+        '@backend/yii',
+        '@frontend/yii',
+        '@console/yii',
+    ];
+    public $generateKeysPaths = [
+        '@base/.env'
+    ];
 
     /**
      * AppController constructor.
@@ -28,25 +45,20 @@ class AppController extends Controller
         parent::__construct($id, $module, $config);
     }
 
-    public $writablePaths = [
-        '@common/runtime',
-        '@frontend/runtime',
-        '@frontend/web/assets',
-        '@backend/runtime',
-        '@backend/web/assets',
-        '@storage/cache',
-        '@storage/web/source'
-    ];
-
-    public $executablePaths = [
-        '@backend/yii',
-        '@frontend/yii',
-        '@console/yii',
-    ];
-
-    public $generateKeysPaths = [
-        '@base/.env'
-    ];
+    /**
+     * Parses DNS string to find name of database
+     * @param $name string, string to find
+     * @param $dsn string, DNS string
+     * @return null|string
+     */
+    private function getDsnAttribute($dsn, $name = 'dbname')
+    {
+        if (preg_match('/' . $name . '=([^;]*)/', $dsn, $match)) {
+            return $match[1];
+        } else {
+            return null;
+        }
+    }
 
     public function actionSetup()
     {
@@ -56,7 +68,6 @@ class AppController extends Controller
         \Yii::$app->runAction('migrate/up', ['interactive' => $this->interactive]);
         \Yii::$app->runAction('rbac-migrate/up', ['interactive' => $this->interactive]);
     }
-
 
     /**
      * Truncates all tables in the database.
@@ -75,23 +86,6 @@ class AppController extends Controller
             self::$db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
         }
     }
-
-
-    /**
-     * Parses DNS string to find name of database
-     * @param $name string, string to find
-     * @param $dsn string, DNS string
-     * @return null|string
-     */
-    private function getDsnAttribute($dsn, $name = 'dbname')
-    {
-        if (preg_match('/' . $name . '=([^;]*)/', $dsn, $match)) {
-            return $match[1];
-        } else {
-            return null;
-        }
-    }
-
 
     /**
      * Drops all tables in the database.
@@ -115,16 +109,6 @@ class AppController extends Controller
         $this->setWritable($this->writablePaths);
     }
 
-    public function actionSetExecutable()
-    {
-        $this->setExecutable($this->executablePaths);
-    }
-
-    public function actionSetKeys()
-    {
-        $this->setKeys($this->generateKeysPaths);
-    }
-
     public function setWritable($paths)
     {
         foreach ($paths as $writable) {
@@ -134,6 +118,11 @@ class AppController extends Controller
         }
     }
 
+    public function actionSetExecutable()
+    {
+        $this->setExecutable($this->executablePaths);
+    }
+
     public function setExecutable($paths)
     {
         foreach ($paths as $executable) {
@@ -141,6 +130,11 @@ class AppController extends Controller
             Console::output("Setting executable: {$executable}");
             @chmod($executable, 0755);
         }
+    }
+
+    public function actionSetKeys()
+    {
+        $this->setKeys($this->generateKeysPaths);
     }
 
     public function setKeys($paths)

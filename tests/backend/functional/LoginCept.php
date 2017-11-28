@@ -1,7 +1,7 @@
 <?php
 
-use tests\backend\FunctionalTester;
 use tests\backend\_pages\LoginPage;
+use tests\backend\FunctionalTester;
 
 /* @var $scenario Codeception\Scenario */
 

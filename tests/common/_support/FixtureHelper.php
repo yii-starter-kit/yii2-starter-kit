@@ -2,6 +2,7 @@
 
 namespace tests\common\_support;
 
+use Codeception\Module;
 use tests\common\fixtures\ArticleAttachmentFixture;
 use tests\common\fixtures\ArticleCategoryFixture;
 use tests\common\fixtures\ArticleFixture;
@@ -11,7 +12,6 @@ use tests\common\fixtures\RbacAuthItemChildFixture;
 use tests\common\fixtures\RbacAuthItemFixture;
 use tests\common\fixtures\RbacAuthRuleFixture;
 use tests\common\fixtures\UserFixture;
-use Codeception\Module;
 use tests\common\fixtures\UserProfileFixture;
 use tests\common\fixtures\WidgetCarouselFixture;
 use tests\common\fixtures\WidgetCarouselItemFixture;

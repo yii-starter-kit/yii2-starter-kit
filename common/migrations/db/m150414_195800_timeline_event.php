@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150414_195800_timeline_event extends Migration

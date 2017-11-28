@@ -2,12 +2,12 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\Page;
 use backend\models\search\PageSearch;
+use common\models\Page;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * PageController implements the CRUD actions for Page model.
@@ -79,19 +79,6 @@ class PageController extends Controller
     }
 
     /**
-     * Deletes an existing Page model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the Page model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -105,5 +92,18 @@ class PageController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing Page model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 }

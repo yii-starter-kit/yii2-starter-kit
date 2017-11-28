@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\modules\user\models;
 
 use cheatsheet\Time;
@@ -6,9 +7,9 @@ use common\commands\SendEmailCommand;
 use common\models\User;
 use common\models\UserToken;
 use frontend\modules\user\Module;
+use Yii;
 use yii\base\Exception;
 use yii\base\Model;
-use Yii;
 use yii\helpers\Url;
 
 /**
@@ -38,7 +39,7 @@ class SignupForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'unique',
-                'targetClass'=>'\common\models\User',
+                'targetClass' => '\common\models\User',
                 'message' => Yii::t('frontend', 'This username has already been taken.')
             ],
             ['username', 'string', 'min' => 2, 'max' => 255],
@@ -47,7 +48,7 @@ class SignupForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'unique',
-                'targetClass'=> '\common\models\User',
+                'targetClass' => '\common\models\User',
                 'message' => Yii::t('frontend', 'This email address has already been taken.')
             ],
 
@@ -62,9 +63,9 @@ class SignupForm extends Model
     public function attributeLabels()
     {
         return [
-            'username'=>Yii::t('frontend', 'Username'),
-            'email'=>Yii::t('frontend', 'E-mail'),
-            'password'=>Yii::t('frontend', 'Password'),
+            'username' => Yii::t('frontend', 'Username'),
+            'email' => Yii::t('frontend', 'E-mail'),
+            'password' => Yii::t('frontend', 'Password'),
         ];
     }
 
@@ -83,7 +84,7 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->status = $shouldBeActivated ? User::STATUS_NOT_ACTIVE : User::STATUS_ACTIVE;
             $user->setPassword($this->password);
-            if(!$user->save()) {
+            if (!$user->save()) {
                 throw new Exception("User couldn't be  saved");
             };
             $user->afterSignup();

@@ -1,8 +1,9 @@
 <?php
+
 namespace backend\models;
 
-use yii\base\Model;
 use Yii;
+use yii\base\Model;
 
 /**
  * Account form
@@ -23,7 +24,7 @@ class AccountForm extends Model
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
             ['username', 'unique',
-                'targetClass'=>'\common\models\User',
+                'targetClass' => '\common\models\User',
                 'message' => Yii::t('backend', 'This username has already been taken.'),
                 'filter' => function ($query) {
                     $query->andWhere(['not', ['id' => Yii::$app->user->id]]);
@@ -34,7 +35,7 @@ class AccountForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'unique',
-                'targetClass'=>'\common\models\User',
+                'targetClass' => '\common\models\User',
                 'message' => Yii::t('backend', 'This email has already been taken.'),
                 'filter' => function ($query) {
                     $query->andWhere(['not', ['id' => Yii::$app->user->getId()]]);

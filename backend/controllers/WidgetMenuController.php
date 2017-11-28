@@ -2,12 +2,12 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\WidgetMenu;
 use backend\models\search\WidgetMenuSearch;
+use common\models\WidgetMenu;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * WidgetMenuController implements the CRUD actions for WidgetMenu model.
@@ -79,19 +79,6 @@ class WidgetMenuController extends Controller
     }
 
     /**
-     * Deletes an existing WidgetMenu model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the WidgetMenu model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -105,5 +92,18 @@ class WidgetMenuController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing WidgetMenu model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 }

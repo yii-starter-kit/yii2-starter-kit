@@ -4,6 +4,7 @@
  * @var $this \yii\web\View
  * @var $content string
  */
+
 use yii\helpers\Html;
 
 \yii\bootstrap\BootstrapAsset::register($this)
@@ -18,9 +19,9 @@ use yii\helpers\Html;
     </head>
     <body class="maintenance-body">
     <?php $this->beginBody() ?>
-        <div class="container">
-            <?php echo $content; ?>
-        </div>
+    <div class="container">
+        <?php echo $content; ?>
+    </div>
     <?php $this->endBody() ?>
     </body>
     </html>

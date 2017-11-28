@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\modules\user\models;
 
 use cheatsheet\Time;
@@ -35,9 +36,9 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'identity'=>Yii::t('frontend', 'Username or email'),
-            'password'=>Yii::t('frontend', 'Password'),
-            'rememberMe'=>Yii::t('frontend', 'Remember Me'),
+            'identity' => Yii::t('frontend', 'Username or email'),
+            'password' => Yii::t('frontend', 'Password'),
+            'rememberMe' => Yii::t('frontend', 'Remember Me'),
         ];
     }
 
@@ -81,7 +82,7 @@ class LoginForm extends Model
         if ($this->user === false) {
             $this->user = User::find()
                 ->active()
-                ->andWhere(['or', ['username'=>$this->identity], ['email'=>$this->identity]])
+                ->andWhere(['or', ['username' => $this->identity], ['email' => $this->identity]])
                 ->one();
         }
 

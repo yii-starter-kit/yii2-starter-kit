@@ -147,7 +147,12 @@ $config = [
                 'baseUrl' => env('STORAGE_BASE_URL'),
             ],
             require(Yii::getAlias('@storage/config/_urlManager.php'))
-        )
+        ),
+
+        'queue' => [
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
+        ],
     ],
     'params' => [
         'adminEmail' => env('ADMIN_EMAIL'),

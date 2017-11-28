@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+/**
+ * @author Eugene Terentev <eugene@terentev.net>
+ */
+// Composer
+require __DIR__ . '/../../vendor/autoload.php';
+
+// Set environment
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_ENV') or define('YII_ENV', 'test');
+defined('YII_APP_BASE_PATH') or define('YII_APP_BASE_PATH', dirname(__DIR__, 2));
+
+// Environment
+$dotenv = new \Dotenv\Dotenv(YII_APP_BASE_PATH);
+$dotenv->load();
+$dotenv->required('TEST_DB_DSN');
+$dotenv->required('TEST_DB_USERNAME');
+$dotenv->required('TEST_DB_PASSWORD');
+
+// fcgi doesn't have STDIN and STDOUT defined by default
+defined('STDIN') or define('STDIN', fopen('php://stdin', 'rb'));
+defined('STDOUT') or define('STDOUT', fopen('php://stdout', 'wb'));
+
+require_once YII_APP_BASE_PATH . '/vendor/yiisoft/yii2/Yii.php';
+require_once YII_APP_BASE_PATH . '/common/config/bootstrap.php';
+Yii::setAlias('@tests', dirname(__DIR__));
+
+// Environment
+require  YII_APP_BASE_PATH . '/common/env.php';
+// Bootstrap application
+require  YII_APP_BASE_PATH . '/console/config/bootstrap.php';
+$config = \yii\helpers\ArrayHelper::merge(
+    require  YII_APP_BASE_PATH . '/common/config/base.php',
+    require  YII_APP_BASE_PATH . '/common/config/console.php',
+    require  YII_APP_BASE_PATH . '/console/config/console.php',
+    require  __DIR__ . '/../config/base.php',
+    require  __DIR__ . '/../config/console.php'
+);
+
+$exitCode = (new yii\console\Application($config))->run();
+exit($exitCode);

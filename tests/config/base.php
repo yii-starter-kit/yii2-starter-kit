@@ -3,16 +3,6 @@
  * Application configuration shared by all applications and test types
  */
 return [
-    'homeUrl' => null,
-//    'controllerMap' => [
-//        'fixture' => [
-//            'class' => 'yii\faker\FixtureController',
-//            'fixtureDataPath' => '@tests/common/fixtures/data',
-//            'templatePath' => '@tests/common/templates/fixtures',
-//            'namespace' => 'tests\common\fixtures',
-//        ],
-//    ],
-
     'components' => [
         'db' => [
             'dsn' => env('TEST_DB_DSN'),

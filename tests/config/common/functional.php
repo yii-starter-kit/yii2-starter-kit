@@ -1,8 +1,6 @@
 <?php
-/**
- * Application configuration shared by all applications functional tests
- */
 return [
+    'homeUrl' => '/',
     'components' => [
         'request' => [
             'enableCsrfValidation' => false,

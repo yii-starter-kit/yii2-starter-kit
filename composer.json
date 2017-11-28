@@ -24,7 +24,7 @@
     "source": "https://github.com/trntv/yii2-starter-kit"
   },
   "require": {
-    "php": ">=7.0.0",
+    "php": ">=7.1.0",
     "ext-intl": "*",
     "yiisoft/yii2": "^2.0.13",
     "yiisoft/yii2-bootstrap": "^2.0.0",

@@ -22,7 +22,6 @@ class LoginPage
     public function __construct($actor)
     {
         $this->actor = $actor;
-        \codecept_debug(Url::to($this->route));
         $this->actor->amOnPage(Url::toRoute($this->route));
     }
 
@@ -42,7 +41,6 @@ class LoginPage
      */
     public function login($username, $password)
     {
-        \codecept_debug($this->actor->grabPageSource());
         $this->actor->fillField('input[name="LoginForm[identity]"]', $username);
         $this->actor->fillField('input[name="LoginForm[password]"]', $password);
         $this->actor->click('login-button');

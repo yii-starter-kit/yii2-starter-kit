@@ -17,6 +17,14 @@ require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/bootstrap.php');
 require(__DIR__ . '/../config/bootstrap.php');
 
-$config = require(__DIR__ . '/../../tests/config/backend/acceptance.php');
+$config = yii\helpers\ArrayHelper::merge(
+    require(__DIR__ . '/../../common/config/base.php'),
+    require(__DIR__ . '/../../common/config/web.php'),
+    require(__DIR__ . '/../config/base.php'),
+    require(__DIR__ . '/../config/web.php'),
+    require(__DIR__ . '/../../tests/config/base.php'),
+    require(__DIR__ . '/../../tests/config/common/acceptance.php'),
+    require(__DIR__ . '/../../tests/config/backend/acceptance.php')
+);
 
 (new yii\web\Application($config))->run();

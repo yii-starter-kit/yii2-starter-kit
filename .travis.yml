@@ -1,44 +1,31 @@
-language: php
+sudo: true
+dist: trusty
 
-php:
-  - 7.0
-
-# faster builds on new travis setup not using sudo
-sudo: false
+env:
+  - COMPOSE_FILE=docker/travis.yml
 
 services:
-  - mysql
+  - docker
 
 # cache vendor dirs
 cache:
   directories:
-    - $HOME/.composer/cache
     - vendor
 
+before_install:
+  - docker-compose up --force-recreate -d
+
 install:
-  - travis_retry phpenv config-rm xdebug.ini
-  - travis_retry composer self-update && composer --version
-  - travis_retry composer install --dev --prefer-source --no-interaction
-
-# setup application:
-  - |
-    cp .env.dist .env
-    sed -i s/yii2-starter-kit\.dev/localhost:8080/ .env
-
-  - |
-    cd tests/codeception/backend && codecept build
-    cd ../common && codecept build
-    cd ../console && codecept build
-    cd ../frontend && codecept build
-    cd ../../../
+  - cp .env.dist .env
+  - sed -i s/yii2-starter-kit-test/yii2-starter-kit/ .env
+  - docker-compose exec -T app composer install --dev --prefer-source --no-interaction
+  - docker-compose exec -T app ./vendor/bin/codecept build
+  - sleep 10 # waiting for mysql to start accepting connections
 
 before_script:
-  - mysql -e 'CREATE DATABASE `yii2-starter-kit`;';
-  - php tests/codeception/bin/yii app/setup --interactive=0
-  - php tests/codeception/bin/yii app/truncate --interactive=0
+  - docker-compose exec -T app php console/yii app/setup --interactive=0
+  - docker-compose exec -T app php console/yii app/truncate --interactive=0
 
 script:
-  - |
-    php -S localhost:8080 > /dev/null 2>&1 &
-    cd tests
-    ./../vendor/bin/codecept run --debug
+  - docker-compose exec -T app php -S 127.0.0.1:8080 > /dev/null 2>&1 &
+  - docker-compose exec -T app ./vendor/bin/codecept run --debug

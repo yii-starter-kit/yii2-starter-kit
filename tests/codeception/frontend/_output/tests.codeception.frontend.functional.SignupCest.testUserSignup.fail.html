@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Signup</title>
+    <link href="/frontend/web/assets/333b0f24/authchoice.css" rel="stylesheet">
+<link href="/frontend/web/assets/ebf14657/css/bootstrap.css" rel="stylesheet">
+<link href="/frontend/web/css/style.css" rel="stylesheet">    </head>
+<body>
+    <div class="wrap">
+    <nav id="w43" class="navbar-inverse navbar-fixed-top navbar" role="navigation"><div class="container"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w43-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="/frontend/web/index-test.php">Yii2 Starter Kit</a></div><div id="w43-collapse" class="collapse navbar-collapse">    <ul id="w44" class="navbar-nav navbar-right nav"><li><a href="/frontend/web/index-test.php/site/index">Home</a></li>
+<li><a href="/frontend/web/index-test.php/page/about">About</a></li>
+<li><a href="/frontend/web/index-test.php/article/index">Articles</a></li>
+<li><a href="/frontend/web/index-test.php/site/contact">Contact</a></li>
+<li class="active"><a href="/frontend/web/index-test.php/user/sign-in/signup">Signup</a></li>
+<li><a href="/frontend/web/index-test.php/user/sign-in/login">Login</a></li>
+<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Language <b class="caret"></b></a><ul id="w45" class="dropdown-menu"><li class="active"><a href="/frontend/web/index-test.php/site/set-locale?locale=en-US" tabindex="-1">English (US)</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=ru-RU" tabindex="-1">Русский (РФ)</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=uk-UA" tabindex="-1">Українська (Україна)</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=es" tabindex="-1">Español</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=vi" tabindex="-1">Tiếng Việt</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=zh-CN" tabindex="-1">简体中文</a></li>
+<li><a href="/frontend/web/index-test.php/site/set-locale?locale=pl-PL" tabindex="-1">Polski (PL)</a></li></ul></li></ul>    </div></div></nav>
+        <div class="container">
+
+        <ul class="breadcrumb"><li><a href="/frontend/web/index-test.php">Home</a></li>
+<li class="active">Signup</li>
+</ul>
+        
+        <!-- Example of your ads placing -->
+        
+        <div class="site-signup">
+    <h1>Signup</h1>
+
+    <div class="row">
+        <div class="col-lg-5">
+            <form id="form-signup" action="/frontend/web/index-test.php/user/sign-in/signup" method="post">                <div class="form-group field-signupform-username required">
+<label class="control-label" for="signupform-username">Username</label>
+<input type="text" id="signupform-username" class="form-control" name="SignupForm[username]" value="tester" aria-required="true">
+
+<div class="help-block"></div>
+</div>                <div class="form-group field-signupform-email required has-error">
+<label class="control-label" for="signupform-email">E-mail</label>
+<input type="text" id="signupform-email" class="form-control" name="SignupForm[email]" value="tester.email" aria-required="true" aria-invalid="true">
+
+<div class="help-block">E-mail is not a valid email address.</div>
+</div>                <div class="form-group field-signupform-password required">
+<label class="control-label" for="signupform-password">Password</label>
+<input type="password" id="signupform-password" class="form-control" name="SignupForm[password]" value="tester_password" aria-required="true">
+
+<div class="help-block"></div>
+</div>                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" name="signup-button">Signup</button>                </div>
+                <h2>Sign up with:</h2>
+                <div class="form-group">
+                    <div id="w42"><ul class="auth-clients"><li><a class="github auth-link" href="/frontend/web/index-test.php/user/sign-in/oauth?authclient=github" title="GitHub"><span class="auth-icon github"></span></a></li><li><a class="facebook auth-link" href="/frontend/web/index-test.php/user/sign-in/oauth?authclient=facebook" title="Facebook" data-popup-width="860" data-popup-height="480"><span class="auth-icon facebook"></span></a></li></ul></div>                </div>
+            </form>        </div>
+    </div>
+</div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-left">&copy; My Company 2017</p>
+        <p class="pull-right">Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></p>
+    </div>
+</footer>
+<script src="/frontend/web/assets/20aee556/jquery.js"></script>
+<script src="/frontend/web/assets/5936a055/yii.js"></script>
+<script src="/frontend/web/assets/5936a055/yii.validation.js"></script>
+<script src="/frontend/web/assets/333b0f24/authchoice.js"></script>
+<script src="/frontend/web/assets/5936a055/yii.activeForm.js"></script>
+<script src="/frontend/web/assets/ebf14657/js/bootstrap.js"></script>
+<!--[if lt IE 9]>
+<script src="/frontend/web/assets/e00b1c93/dist/html5shiv.min.js"></script>
+<![endif]-->
+<script src="/frontend/web/js/app.js"></script>
+<script type="text/javascript">jQuery(document).ready(function () {
+jQuery('#w42').authchoice();
+jQuery('#form-signup').yiiActiveForm([{"id":"signupform-username","name":"username","container":".field-signupform-username","input":"#signupform-username","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.required(value, messages, {"message":"Username cannot be blank."});yii.validation.string(value, messages, {"message":"Username must be a string.","min":2,"tooShort":"Username should contain at least 2 characters.","max":255,"tooLong":"Username should contain at most 255 characters.","skipOnEmpty":1});}},{"id":"signupform-email","name":"email","container":".field-signupform-email","input":"#signupform-email","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, []);yii.validation.required(value, messages, {"message":"E-mail cannot be blank."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"E-mail is not a valid email address.","enableIDN":false,"skipOnEmpty":1});}},{"id":"signupform-password","name":"password","container":".field-signupform-password","input":"#signupform-password","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Password cannot be blank."});yii.validation.string(value, messages, {"message":"Password must be a string.","min":6,"tooShort":"Password should contain at least 6 characters.","skipOnEmpty":1});}}], []);
+});</script></body>
+</html>

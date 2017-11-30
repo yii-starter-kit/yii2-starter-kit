@@ -36,7 +36,7 @@ use yii\bootstrap\ActiveForm;
                 'maxHeight' => 400,
                 'buttonSource' => true,
                 'convertDivs' => false,
-                'removeEmptyTags' => false,
+                'removeEmptyTags' => true,
                 'imageUpload' => Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
             ]
         ]

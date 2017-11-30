@@ -29,14 +29,15 @@ use yii\helpers\Html;
         \yii\imperavi\Widget::className(),
         [
             'plugins' => ['fullscreen', 'fontcolor', 'video'],
-            'options'=>[
-                'minHeight'=>400,
-                'maxHeight'=>400,
-                'buttonSource'=>true,
-                'convertDivs'=>false,
-                'removeEmptyTags'=>false
+            'options' => [
+                'minHeight' => 400,
+                'maxHeight' => 400,
+                'buttonSource' => true,
+                'convertDivs' => false,
+                'removeEmptyTags' => true,
             ]
-        ]) ?>
+        ]
+    ) ?>
 
     <?php echo $form->field($model, 'status')->checkbox() ?>
 

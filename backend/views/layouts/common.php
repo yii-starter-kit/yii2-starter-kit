@@ -205,8 +205,41 @@ $bundle = BackendAsset::register($this);
                                 'badge' => SystemLog::find()->count(),
                                 'badgeBgClass' => 'label-danger',
                             ],
+                            [
+                                'label' => \Yii::t('backend', 'RBAC Rules'),
+                                'url' => '#',
+                                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'active' => in_array(\Yii::$app->controller->id,['Auth Assignment','Auth Items', 'Auth Item Child', 'Auth Rules']),
+                                'items' => [
+                                    ['label' => \Yii::t('backend',
+                                        'Auth Assignment'),
+                                        'url' => '',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (\Yii::$app->controller->id == '')
+                                    ],
+                                    ['label' => \Yii::t('backend',
+                                        'Auth Items'),
+                                        'url' => '',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (\Yii::$app->controller->id == '')
+                                    ],
+                                    ['label' => \Yii::t('backend',
+                                        'Auth Item Child'),
+                                        'url' => '',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (\Yii::$app->controller->id == '')
+                                    ],
+                                    ['label' => \Yii::t('backend',
+                                        'Auth Rules'),
+                                        'url' => '',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (\Yii::$app->controller->id == '')
+                                    ],
+                                ]
+                            ],
                         ]
-                    ]
+                    ],
                 ]
             ]) ?>
         </section>

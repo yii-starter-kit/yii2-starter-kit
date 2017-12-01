@@ -1,4 +1,5 @@
 <?php
+
 namespace frontend\modules\user\models;
 
 use cheatsheet\Time;
@@ -35,9 +36,9 @@ class LoginForm extends Model
     public function attributeLabels()
     {
         return [
-            'identity'=>Yii::t('frontend', 'Username or email'),
-            'password'=>Yii::t('frontend', 'Password'),
-            'rememberMe'=>Yii::t('frontend', 'Remember Me'),
+            'identity' => Yii::t('frontend', 'Username or email'),
+            'password' => Yii::t('frontend', 'Password'),
+            'rememberMe' => Yii::t('frontend', 'Remember Me'),
         ];
     }
 
@@ -57,6 +58,23 @@ class LoginForm extends Model
     }
 
     /**
+     * Finds user by [[username]]
+     *
+     * @return User|null
+     */
+    public function getUser()
+    {
+        if ($this->user === false) {
+            $this->user = User::find()
+                ->active()
+                ->andWhere(['or', ['username' => $this->identity], ['email' => $this->identity]])
+                ->one();
+        }
+
+        return $this->user;
+    }
+
+    /**
      * Logs in a user using the provided username and password.
      *
      * @return boolean whether the user is logged in successfully
@@ -69,22 +87,5 @@ class LoginForm extends Model
             }
         }
         return false;
-    }
-
-    /**
-     * Finds user by [[username]]
-     *
-     * @return User|null
-     */
-    public function getUser()
-    {
-        if ($this->user === false) {
-            $this->user = User::find()
-                ->active()
-                ->andWhere(['or', ['username'=>$this->identity], ['email'=>$this->identity]])
-                ->one();
-        }
-
-        return $this->user;
     }
 }

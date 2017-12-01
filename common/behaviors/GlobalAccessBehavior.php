@@ -2,9 +2,9 @@
 
 namespace common\behaviors;
 
+use Yii;
 use yii\base\Behavior;
 use yii\base\Controller;
-use Yii;
 use yii\filters\AccessControl;
 
 /**
@@ -58,7 +58,7 @@ class GlobalAccessBehavior extends Behavior
         Yii::$app->controller->attachBehavior('access', [
             'class' => $this->accessControlFilter,
             'denyCallback' => $this->denyCallback,
-            'rules'=> $this->rules
+            'rules' => $this->rules
         ]);
     }
 }

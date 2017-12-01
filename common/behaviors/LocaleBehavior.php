@@ -2,8 +2,8 @@
 
 namespace common\behaviors;
 
-use yii\base\Behavior;
 use Yii;
+use yii\base\Behavior;
 use yii\web\Application;
 
 /**
@@ -21,6 +21,7 @@ class LocaleBehavior extends Behavior
      * @var bool
      */
     public $enablePreferredLanguage = true;
+
     /**
      * @return array
      */
@@ -38,8 +39,7 @@ class LocaleBehavior extends Behavior
     {
         $hasCookie = Yii::$app->getRequest()->getCookies()->has($this->cookieName);
         $forceUpdate = Yii::$app->session->hasFlash('forceUpdateLocale');
-        if ($hasCookie && !$forceUpdate)
-        {
+        if ($hasCookie && !$forceUpdate) {
             $locale = Yii::$app->getRequest()->getCookies()->getValue($this->cookieName);
         } else {
             $locale = $this->resolveLocale();

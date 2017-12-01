@@ -2,12 +2,12 @@
 
 namespace backend\controllers;
 
-use Yii;
-use common\models\FileStorageItem;
 use backend\models\search\FileStorageItemSearch;
+use common\models\FileStorageItem;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * FileStorageController implements the CRUD actions for FileStorageItem model.
@@ -41,7 +41,7 @@ class FileStorageController extends Controller
             'upload-imperavi' => [
                 'class' => 'trntv\filekit\actions\UploadAction',
                 'fileparam' => 'file',
-                'responseUrlParam'=> 'filelink',
+                'responseUrlParam' => 'filelink',
                 'multiple' => false,
                 'disableCsrf' => true
             ]
@@ -57,7 +57,7 @@ class FileStorageController extends Controller
         $searchModel = new FileStorageItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder'=>['created_at'=>SORT_DESC]
+            'defaultOrder' => ['created_at' => SORT_DESC]
         ];
         $components = \yii\helpers\ArrayHelper::map(
             FileStorageItem::find()->select('component')->distinct()->all(),
@@ -87,19 +87,6 @@ class FileStorageController extends Controller
     }
 
     /**
-     * Deletes an existing FileStorageItem model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
      * Finds the FileStorageItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
@@ -113,5 +100,18 @@ class FileStorageController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing FileStorageItem model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
     }
 }

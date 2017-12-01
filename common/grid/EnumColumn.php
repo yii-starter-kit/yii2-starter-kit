@@ -1,4 +1,5 @@
 <?php
+
 namespace common\grid;
 
 use yii\grid\DataColumn;

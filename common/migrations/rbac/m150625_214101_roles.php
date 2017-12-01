@@ -1,7 +1,7 @@
 <?php
 
-use common\rbac\Migration;
 use common\models\User;
+use common\rbac\Migration;
 
 class m150625_214101_roles extends Migration
 {

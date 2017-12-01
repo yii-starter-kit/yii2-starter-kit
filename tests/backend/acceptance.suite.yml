@@ -1,0 +1,12 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://127.0.0.1:8080/backend/web/index-test.php
+            browser: firefox
+        - Yii2:
+            part: orm
+            entryScript: index-test.php
+            cleanup: false
+            configFile: '../config/backend/acceptance.php'
+        - tests\common\_support\FixtureHelper

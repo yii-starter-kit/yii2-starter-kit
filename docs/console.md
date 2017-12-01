@@ -23,16 +23,3 @@ Provides migrate functionality for RBAC.
 ``php console/yii rbac-migrate/up``
 
 ``php console/yii rbac-migrate/down all``
-
-### Compress assets
-You need to have yuicompressor and uglifyjs installed.
-
-```php console/yii asset/compress frontend/config/assets/compress.php frontend/config/assets/_bundles.php```
-
-then uncomment these lines in the ``frontend/config/web.php``
-```
-// Compressed assets
-//$config['components']['assetManager'] = [
-//   'bundles' => require(__DIR__ . '/assets/_bundles.php')
-//];
-```

@@ -1,11 +1,11 @@
 include:
-  - tests/codeception/common
-  - tests/codeception/console
-  - tests/codeception/backend
-  - tests/codeception/frontend
+  - tests/common
+  - tests/console
+  - tests/backend
+  - tests/frontend
 
 paths:
-  log: tests/codeception/_output
+  log: tests/_output
 
 settings:
   colors: true

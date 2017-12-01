@@ -36,6 +36,38 @@ class UserToken extends ActiveRecord
     }
 
     /**
+     * @return UserTokenQuery
+     */
+    public static function find()
+    {
+        return new UserTokenQuery(get_called_class());
+    }
+
+    /**
+     * @param mixed $user_id
+     * @param string $type
+     * @param int|null $duration
+     * @return bool|UserToken
+     */
+    public static function create($user_id, $type, $duration = null)
+    {
+        $model = new self;
+        $model->setAttributes([
+            'user_id' => $user_id,
+            'type' => $type,
+            'token' => Yii::$app->security->generateRandomString(self::TOKEN_LENGTH),
+            'expire_at' => $duration ? time() + $duration : null
+        ]);
+
+        if (!$model->save()) {
+            throw new InvalidCallException;
+        };
+
+        return $model;
+
+    }
+
+    /**
      * @return array
      */
     public function behaviors()
@@ -44,15 +76,6 @@ class UserToken extends ActiveRecord
             TimestampBehavior::className()
         ];
     }
-
-    /**
-     * @return UserTokenQuery
-     */
-    public static function find()
-    {
-        return new UserTokenQuery(get_called_class());
-    }
-
 
     /**
      * @inheritdoc
@@ -89,30 +112,6 @@ class UserToken extends ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
-    }
-
-    /**
-     * @param mixed $user_id
-     * @param string $type
-     * @param int|null $duration
-     * @return bool|UserToken
-     */
-    public static function create($user_id, $type, $duration = null)
-    {
-        $model = new self;
-        $model->setAttributes([
-            'user_id' => $user_id,
-            'type' => $type,
-            'token' => Yii::$app->security->generateRandomString(self::TOKEN_LENGTH),
-            'expire_at' => $duration ? time() + $duration : null
-        ]);
-
-        if (!$model->save()) {
-            throw new InvalidCallException;
-        };
-
-        return $model;
-
     }
 
     /**

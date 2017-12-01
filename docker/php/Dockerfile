@@ -31,5 +31,7 @@ RUN apt-get purge -y g++ \
 
 RUN usermod -u 1000 www-data
 
+VOLUME /root/.composer
+
 EXPOSE 9000
 CMD ["php-fpm"]

@@ -3,13 +3,12 @@
 namespace backend\controllers;
 
 use common\models\WidgetCarousel;
-use Yii;
 use common\models\WidgetCarouselItem;
-use backend\models\search\WidgetCarouselItemSearch;
+use Yii;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * WidgetCarouselItemController implements the CRUD actions for WidgetCarouselItem model.
@@ -47,10 +46,10 @@ class WidgetCarouselItemController extends Controller
             throw new HttpException(400);
         }
 
-        $model->carousel_id =  $carousel->id;
+        $model->carousel_id = $carousel->id;
         if ($model->load(Yii::$app->request->post())) {
             if ($model->save()) {
-                Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
+                Yii::$app->getSession()->setFlash('alert', ['options' => ['class' => 'alert-success'], 'body' => Yii::t('backend', 'Carousel slide was successfully saved')]);
                 return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
             }
         }
@@ -71,26 +70,12 @@ class WidgetCarouselItemController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->getSession()->setFlash('alert', ['options'=>['class'=>'alert-success'], 'body'=>Yii::t('backend', 'Carousel slide was successfully saved')]);
+            Yii::$app->getSession()->setFlash('alert', ['options' => ['class' => 'alert-success'], 'body' => Yii::t('backend', 'Carousel slide was successfully saved')]);
             return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
         }
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Deletes an existing WidgetCarouselItem model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $model = $this->findModel($id);
-        if ($model->delete()) {
-            return $this->redirect(['/widget-carousel/update', 'id'=>$model->carousel_id]);
-        };
     }
 
     /**
@@ -107,5 +92,19 @@ class WidgetCarouselItemController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    /**
+     * Deletes an existing WidgetCarouselItem model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDelete($id)
+    {
+        $model = $this->findModel($id);
+        if ($model->delete()) {
+            return $this->redirect(['/widget-carousel/update', 'id' => $model->carousel_id]);
+        };
     }
 }

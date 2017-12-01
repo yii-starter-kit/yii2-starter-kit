@@ -7,10 +7,10 @@
 
 namespace frontend\assets;
 
+use common\assets\Html5shiv;
 use yii\bootstrap\BootstrapAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
-use common\assets\Html5shiv;
 
 /**
  * Frontend application asset

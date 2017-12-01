@@ -1,6 +1,5 @@
 <?php
 
-use yii\db\Schema;
 use yii\db\Migration;
 
 class m150318_213934_file_storage_item extends Migration
@@ -24,6 +23,7 @@ class m150318_213934_file_storage_item extends Migration
             'created_at' => $this->integer()->notNull()
         ], $tableOptions);
     }
+
     public function down()
     {
         $this->dropTable('{{%file_storage_item}}');

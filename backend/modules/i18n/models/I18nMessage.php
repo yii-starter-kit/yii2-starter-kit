@@ -35,7 +35,7 @@ class I18nMessage extends \yii\db\ActiveRecord
     {
         return [
             [['id', 'language'], 'required'],
-            [['id'], 'exist', 'targetClass'=>I18nSourceMessage::className(), 'targetAttribute'=>'id'],
+            [['id'], 'exist', 'targetClass' => I18nSourceMessage::className(), 'targetAttribute' => 'id'],
             [['translation'], 'string'],
             [['language'], 'string', 'max' => 16],
             [['language'], 'unique', 'targetAttribute' => ['id', 'language']]

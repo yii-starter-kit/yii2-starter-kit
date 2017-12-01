@@ -2,14 +2,14 @@
 
 namespace common\commands;
 
-use yii\base\Object;
-use yii\swiftmailer\Message;
 use trntv\bus\interfaces\SelfHandlingCommand;
+use yii\base\BaseObject;
+use yii\swiftmailer\Message;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
  */
-class SendEmailCommand extends Object implements SelfHandlingCommand
+class SendEmailCommand extends BaseObject implements SelfHandlingCommand
 {
     /**
      * @var mixed
@@ -49,14 +49,6 @@ class SendEmailCommand extends Object implements SelfHandlingCommand
     }
 
     /**
-     * @return bool
-     */
-    public function isHtml()
-    {
-        return (bool) $this->html;
-    }
-
-    /**
      * @param \common\commands\SendEmailCommand $command
      * @return bool
      */
@@ -76,5 +68,13 @@ class SendEmailCommand extends Object implements SelfHandlingCommand
         $message->setTo($command->to ?: \Yii::$app->params['robotEmail']);
         $message->setSubject($command->subject);
         return $message->send();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHtml()
+    {
+        return (bool)$this->html;
     }
 }

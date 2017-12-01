@@ -1,7 +1,7 @@
 <?php
 
 return \yii\helpers\ArrayHelper::merge(
-    require(__DIR__.'/_base.php'),
+    require(__DIR__ . '/_base.php'),
     [
         // 'php' output format is for saving messages to php files.
         'format' => 'php',

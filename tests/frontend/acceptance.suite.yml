@@ -1,0 +1,18 @@
+# Codeception Test Suite Configuration
+
+# suite for acceptance tests.
+# perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://127.0.0.1:8080/frontend/web/index-test.php
+            browser: firefox
+        - Yii2:
+            part: orm
+            entryScript: index-test.php
+            cleanup: false
+            configFile: '../config/frontend/acceptance.php'
+        - tests\common\_support\FixtureHelper

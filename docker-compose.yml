@@ -1,45 +1,41 @@
-data:
-  image: busybox:latest
-  volumes:
-    - ./:/app
-  entrypoint: tail -f /dev/null
+version: "3"
 
-app:
-  build: docker/php
-  working_dir: /app
-  volumes_from:
-    - data
-  expose:
-    - 9000
-  links:
-    - db
-    - mailcatcher
-  environment:
-    XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
-
-nginx:
-  image: nginx:1.12-alpine
-  ports:
-    - "80:80"
-  volumes:
-    - ./:/app
-    - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
-  links:
-    - app
-
-mailcatcher:
-    image: schickling/mailcatcher:latest
+services:
+  app:
+    build: docker/php
+    working_dir: /app
+    volumes:
+      - ./:/app
     ports:
-      - "1080:1080"
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 
-db:
-  image: mysql:5.7
-  volumes:
-    - /var/lib/mysql
-  ports:
-    - "3306:3306"
-  environment:
-    MYSQL_ROOT_PASSWORD: root
-    MYSQL_DATABASE: yii2-starter-kit
-    MYSQL_USER: ysk_dbu
-    MYSQL_PASSWORD: ysk_pass
+  nginx:
+    image: nginx:1.12-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./:/app
+      - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    depends_on:
+      - app
+
+  mailcatcher:
+      image: schickling/mailcatcher:latest
+      ports:
+        - 1080:1080
+
+  db:
+    image: mysql:8
+    volumes:
+      - /var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yii2-starter-kit
+      MYSQL_USER: ysk_dbu
+      MYSQL_PASSWORD: ysk_pass

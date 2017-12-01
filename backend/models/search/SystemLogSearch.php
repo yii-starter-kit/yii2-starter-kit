@@ -2,10 +2,9 @@
 
 namespace backend\models\search;
 
-use Yii;
+use backend\models\SystemLog;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\SystemLog;
 
 /**
  * SystemLogSearch represents the model behind the search form about `backend\models\SystemLog`.

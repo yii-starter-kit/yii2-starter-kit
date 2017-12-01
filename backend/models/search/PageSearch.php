@@ -2,10 +2,9 @@
 
 namespace backend\models\search;
 
-use Yii;
+use common\models\Page;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Page;
 
 /**
  * PageSearch represents the model behind the search form about `common\models\Page`.

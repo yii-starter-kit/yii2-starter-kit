@@ -1,10 +1,11 @@
 <?php
+
 namespace backend\models;
 
 use common\models\User;
+use Yii;
 use yii\base\Exception;
 use yii\base\Model;
-use Yii;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -30,7 +31,7 @@ class UserForm extends Model
             ['username', 'required'],
             ['username', 'unique', 'targetClass' => User::className(), 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
-                    $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
+                    $query->andWhere(['not', ['id' => $this->getModel()->id]]);
                 }
             }],
             ['username', 'string', 'min' => 2, 'max' => 255],
@@ -38,9 +39,9 @@ class UserForm extends Model
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass'=> User::className(), 'filter' => function ($query) {
+            ['email', 'unique', 'targetClass' => User::className(), 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
-                    $query->andWhere(['not', ['id'=>$this->getModel()->id]]);
+                    $query->andWhere(['not', ['id' => $this->getModel()->id]]);
                 }
             }],
 
@@ -58,17 +59,14 @@ class UserForm extends Model
     }
 
     /**
-     * @inheritdoc
+     * @return User
      */
-    public function attributeLabels()
+    public function getModel()
     {
-        return [
-            'username' => Yii::t('common', 'Username'),
-            'email' => Yii::t('common', 'Email'),
-            'status' => Yii::t('common', 'Status'),
-            'password' => Yii::t('common', 'Password'),
-            'roles' => Yii::t('common', 'Roles')
-        ];
+        if (!$this->model) {
+            $this->model = new User();
+        }
+        return $this->model;
     }
 
     /**
@@ -89,14 +87,17 @@ class UserForm extends Model
     }
 
     /**
-     * @return User
+     * @inheritdoc
      */
-    public function getModel()
+    public function attributeLabels()
     {
-        if (!$this->model) {
-            $this->model = new User();
-        }
-        return $this->model;
+        return [
+            'username' => Yii::t('common', 'Username'),
+            'email' => Yii::t('common', 'Email'),
+            'status' => Yii::t('common', 'Status'),
+            'password' => Yii::t('common', 'Password'),
+            'roles' => Yii::t('common', 'Roles')
+        ];
     }
 
     /**

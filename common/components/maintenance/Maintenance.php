@@ -1,9 +1,10 @@
 <?php
+
 namespace common\components\maintenance;
 
 use Yii;
-use yii\base\Component;
 use yii\base\BootstrapInterface;
+use yii\base\Component;
 
 /**
  * Class Maintenance

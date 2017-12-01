@@ -39,8 +39,9 @@ $config = [
             'class' => backend\modules\i18n\Module::class,
             'defaultRoute' => 'i18n-message/index'
         ],
-        'rbac-crud' => [
+        'yii2-starter-kit-rbac-crud' => [
             'class' => 'backend\modules\yii2starterkitrbaccrud\Module',
+            'defaultRoute' => 'rbac-auth-item/index'
         ],
     ],
     'as globalAccess' => [

@@ -212,27 +212,27 @@ $bundle = BackendAsset::register($this);
                                 'options' => ['class' => 'treeview'],
                                 'active' => in_array(\Yii::$app->controller->id,['Auth Assignment','Auth Items', 'Auth Item Child', 'Auth Rules']),
                                 'items' => [
-                                    ['label' => \Yii::t('backend',
-                                        'Auth Assignment'),
-                                        'url' => '',
+                                    [
+                                        'label' => \Yii::t('backend', 'Auth Assignment'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-assignment/index',
                                         'icon' => '<i class="fa fa-cog"></i>',
                                         'active' => (\Yii::$app->controller->id == '')
                                     ],
-                                    ['label' => \Yii::t('backend',
-                                        'Auth Items'),
-                                        'url' => '',
+                                    [
+                                        'label' => \Yii::t('backend', 'Auth Items'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-item/index',
                                         'icon' => '<i class="fa fa-cog"></i>',
                                         'active' => (\Yii::$app->controller->id == '')
                                     ],
-                                    ['label' => \Yii::t('backend',
-                                        'Auth Item Child'),
-                                        'url' => '',
+                                    [
+                                        'label' => \Yii::t('backend', 'Auth Item Child'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-item-child/index',
                                         'icon' => '<i class="fa fa-cog"></i>',
                                         'active' => (\Yii::$app->controller->id == '')
                                     ],
-                                    ['label' => \Yii::t('backend',
-                                        'Auth Rules'),
-                                        'url' => '',
+                                    [
+                                        'label' => \Yii::t('backend', 'Auth Rules'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-rules/index',
                                         'icon' => '<i class="fa fa-cog"></i>',
                                         'active' => (\Yii::$app->controller->id == '')
                                     ],

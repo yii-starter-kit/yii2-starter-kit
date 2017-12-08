@@ -5,7 +5,7 @@
 
 namespace backend\controllers;
 
-use probe\Factory;
+use Probe\ProviderFactory;
 use Yii;
 use yii\web\Controller;
 use yii\web\Response;
@@ -16,7 +16,7 @@ class SystemInformationController extends Controller
 
     public function actionIndex()
     {
-        $provider = Factory::create();
+        $provider = ProviderFactory::create();
         if ($provider) {
             if (Yii::$app->request->isAjax) {
                 Yii::$app->response->format = Response::FORMAT_JSON;

@@ -170,7 +170,7 @@ class ExtendedMessageController extends \yii\console\controllers\MessageControll
         $messages = [];
         foreach ($config['languages'] as $language) {
             $messagePath = Yii::getAlias("$config[messagePath]/$language");
-            $files = FileHelper::findFiles(FileHelper::normalizePath($messagePath));
+            $files = FileHelper::findFiles(FileHelper::normalizePath($messagePath), ['only' => ['*.php']]);
             foreach ($files as $file) {
                 $category = pathinfo($file, PATHINFO_FILENAME);
                 $messages[$language][$category] = require($file);

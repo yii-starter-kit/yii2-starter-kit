@@ -39,7 +39,7 @@ VOLUME /root/.composer
 WORKDIR ~/
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
-WORKDIR /ass
+WORKDIR /app
 RUN npm install
 RUN npm run build
 

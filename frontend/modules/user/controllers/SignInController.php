@@ -242,7 +242,12 @@ class SignInController extends \yii\web\Controller
             $user = new User();
             $user->scenario = 'oauth_create';
             $user->username = ArrayHelper::getValue($attributes, 'login');
-            $user->email = ArrayHelper::getValue($attributes, 'email');
+            // check default location of email, if not found as in google plus dig inside the array of emails
+            $email = ArrayHelper::getValue($attributes, 'email');
+            if($email === null){
+                $email = ArrayHelper::getValue($attributes, ['emails', 0, 'value']);
+            }
+            $user->email = $email;
             $user->oauth_client = $client->getName();
             $user->oauth_client_user_id = ArrayHelper::getValue($attributes, 'id');
             $user->status = User::STATUS_ACTIVE;

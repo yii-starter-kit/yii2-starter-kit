@@ -17,9 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Main' => '',
-    'Other' => '',
-    'This email has already been taken.' => '',
     'Account' => 'Аккаунт',
     'Application' => 'Програма',
     'Application settings' => 'Налаштування програми',
@@ -86,6 +83,7 @@ return [
     'Log Time' => 'Час',
     'Logout' => 'Вихід',
     'Logs' => 'Журнал',
+    'Main' => 'Головна',
     'Male' => 'Чоловіча',
     'Member since {0, date, short}' => 'Учасник з {0, date, short}',
     'Memory' => 'Пам’ять',
@@ -103,6 +101,7 @@ return [
     'Off' => 'Викл',
     'On' => 'Вкл',
     'Operating System' => 'Операційна система',
+    'Other' => 'Інші',
     'PHP Version' => 'Версія PHP',
     'Pages' => 'Сторінки',
     'Password' => 'Пароль',
@@ -135,6 +134,7 @@ return [
     'TagDependency was invalidated' => 'TagDependency було інвалідовано',
     'Text Blocks' => 'Текстові блоки',
     'Text Widgets' => 'Текстові віджети',
+    'This email has already been taken.' => 'Цей email вже кимось використовується',
     'This username has already been taken.' => 'Це им’я користувача вже зайняте',
     'Time' => 'Час',
     'Timeline' => 'Хроніка',

@@ -63,7 +63,7 @@ $config = [
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
             'tablePrefix' => env('DB_TABLE_PREFIX'),
-            'charset' => 'utf8',
+            'charset' => (env('DB_CHARSET') ? env('DB_CHARSET') : 'utf8'),
             'enableSchemaCache' => YII_ENV_PROD,
         ],
 

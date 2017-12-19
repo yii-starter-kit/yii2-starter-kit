@@ -31,7 +31,7 @@
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
     "yiisoft/yii2-jui": "^2.0.0",
-    "asofter/yii2-imperavi-redactor": "^0.0.3",
+    "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "mihaildev/yii2-elfinder": "^1.0",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",

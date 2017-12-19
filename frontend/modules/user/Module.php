@@ -13,6 +13,10 @@ class Module extends \yii\base\Module
      * @var bool Is users should be activated by email
      */
     public $shouldBeActivated = false;
+    /**
+     * @var bool Enables login by pass from backend
+     */
+    public $enableLoginByPass = false;
 
     /**
      * @inheritdoc
@@ -20,7 +24,5 @@ class Module extends \yii\base\Module
     public function init()
     {
         parent::init();
-
-        // custom initialization code goes here
     }
 }

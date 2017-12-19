@@ -17,6 +17,8 @@ use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\web\BadRequestHttpException;
+use yii\web\ForbiddenHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
 
@@ -52,7 +54,7 @@ class SignInController extends \yii\web\Controller
                 'rules' => [
                     [
                         'actions' => [
-                            'signup', 'login', 'request-password-reset', 'reset-password', 'oauth', 'activation'
+                            'signup', 'login', 'login-by-pass', 'request-password-reset', 'reset-password', 'oauth', 'activation'
                         ],
                         'allow' => true,
                         'roles' => ['?']
@@ -101,6 +103,30 @@ class SignInController extends \yii\web\Controller
         return $this->render('login', [
             'model' => $model
         ]);
+    }
+
+    /**
+     * @param $token
+     * @return array|string|Response
+     * @throws ForbiddenHttpException
+     * @throws \Exception
+     * @throws \Throwable
+     * @throws \yii\db\StaleObjectException
+     */
+    public function actionLoginByPass($token)
+    {
+        if (!$this->module->enableLoginByPass) {
+            throw new NotFoundHttpException();
+        }
+
+        $user = UserToken::use($token, UserToken::TYPE_LOGIN_PASS);
+
+        if ($user === null) {
+            throw new ForbiddenHttpException();
+        }
+
+        Yii::$app->user->login($user);
+        return $this->goHome();
     }
 
     /**

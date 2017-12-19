@@ -40,7 +40,7 @@ $config = [
             'defaultRoute' => 'i18n-message/index'
         ],
         'yii2-starter-kit-rbac-crud' => [
-            'class' => 'backend\modules\yii2starterkitrbaccrud\Module',
+            'class' => backend\modules\rbac\Module::class,
             'defaultRoute' => 'rbac-auth-item/index'
         ],
     ],

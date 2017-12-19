@@ -24,7 +24,7 @@ class ArticleController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
-        return $this->render('index', ['dataProvider' => $dataProvider]);
+        return $this->render('index', ['searchModel' => $searchModel, 'dataProvider' => $dataProvider]);
     }
 
     /**

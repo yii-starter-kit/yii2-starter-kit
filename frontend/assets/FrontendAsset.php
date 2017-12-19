@@ -30,14 +30,14 @@ class FrontendAsset extends AssetBundle
      * @var array
      */
     public $css = [
-        'css/style.css',
+        'bundle/style.css',
     ];
 
     /**
      * @var array
      */
     public $js = [
-        'js/app.js',
+        'bundle/app.js',
     ];
 
     /**

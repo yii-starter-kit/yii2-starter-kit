@@ -150,14 +150,14 @@ $bundle = BackendAsset::register($this);
                         'url' => '#',
                         'icon' => '<i class="fa fa-edit"></i>',
                         'options' => ['class' => 'treeview'],
-                        'active' => in_array(\Yii::$app->controller->id,['page','article','article-category','widget-text','widget-menu','widget-carousel']),
+                        'active' => in_array(Yii::$app->controller->id,['page','article','article-category','widget-text','widget-menu','widget-carousel']),
                         'items' => [
-                            ['label' => Yii::t('backend', 'Static pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'page')],
-                            ['label' => Yii::t('backend', 'Articles'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'article')],
-                            ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'article-category')],
-                            ['label' => Yii::t('backend', 'Text Widgets'), 'url' => ['/widget-text/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'widget-text')],
-                            ['label' => Yii::t('backend', 'Menu Widgets'), 'url' => ['/widget-menu/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'widget-menu')],
-                            ['label' => Yii::t('backend', 'Carousel Widgets'), 'url' => ['/widget-carousel/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'widget-carousel')],
+                            ['label' => Yii::t('backend', 'Static pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'page')],
+                            ['label' => Yii::t('backend', 'Articles'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'article')],
+                            ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'article-category')],
+                            ['label' => Yii::t('backend', 'Text Widgets'), 'url' => ['/widget-text/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'widget-text')],
+                            ['label' => Yii::t('backend', 'Menu Widgets'), 'url' => ['/widget-menu/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'widget-menu')],
+                            ['label' => Yii::t('backend', 'Carousel Widgets'), 'url' => ['/widget-carousel/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'widget-carousel')],
                         ]
                     ],
                     [
@@ -168,7 +168,7 @@ $bundle = BackendAsset::register($this);
                         'label' => Yii::t('backend', 'Users'),
                         'icon' => '<i class="fa fa-users"></i>',
                         'url' => ['/user/index'],
-                        'active' => (\Yii::$app->controller->id == 'user'),
+                        'active' => (Yii::$app->controller->id == 'user'),
                         'visible' => Yii::$app->user->can('administrator')
                     ],
                     [
@@ -176,21 +176,31 @@ $bundle = BackendAsset::register($this);
                         'url' => '#',
                         'icon' => '<i class="fa fa-cogs"></i>',
                         'options' => ['class' => 'treeview'],
-                        'active' => in_array(\Yii::$app->controller->id,['i18n-source-message','i18n-message','key-storage','file-storage','cache','file-manager','system-information', 'log']),
+                        'active' => in_array(Yii::$app->controller->id,['i18n-source-message','i18n-message','key-storage','file-storage','cache','file-manager','system-information', 'log', 'rbac-auth-assignment','rbac-auth-item', 'rbac-auth-item-child', 'rbac-auth-rules']),
                         'items' => [
                             [
                                 'label' => Yii::t('backend', 'i18n'),
                                 'url' => '#',
                                 'icon' => '<i class="fa fa-flag"></i>',
                                 'options' => ['class' => 'treeview'],
-                                'active' => in_array(\Yii::$app->controller->id,['i18n-source-message','i18n-message']),
+                                'active' => in_array(Yii::$app->controller->id,['i18n-source-message','i18n-message']),
                                 'items' => [
-                                    ['label' => Yii::t('backend', 'i18n Source Message'), 'url' => ['/i18n/i18n-source-message/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'i18n-source-message')],
-                                    ['label' => Yii::t('backend', 'i18n Message'), 'url' => ['/i18n/i18n-message/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'i18n-message')],
+                                    [
+                                        'label' => Yii::t('backend', 'i18n Source Message'),
+                                        'url' => ['/i18n/i18n-source-message/index'],
+                                        'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                        'active' => (Yii::$app->controller->id == 'i18n-source-message')
+                                    ],
+                                    [
+                                        'label' => Yii::t('backend', 'i18n Message'),
+                                        'url' => ['/i18n/i18n-message/index'],
+                                        'icon' => '<i class="fa fa-angle-double-right"></i>',
+                                        'active' => (Yii::$app->controller->id == 'i18n-message')
+                                    ],
                                 ]
                             ],
-                            ['label' => Yii::t('backend', 'Key-Value Storage'), 'url' => ['/key-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'key-storage')],
-                            ['label' => Yii::t('backend', 'File Storage'), 'url' => ['/file-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (\Yii::$app->controller->id == 'file-storage')],
+                            ['label' => Yii::t('backend', 'Key-Value Storage'), 'url' => ['/key-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'key-storage')],
+                            ['label' => Yii::t('backend', 'File Storage'), 'url' => ['/file-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'file-storage')],
                             ['label' => Yii::t('backend', 'Cache'), 'url' => ['/cache/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'File Manager'), 'url' => ['/file-manager/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
@@ -205,8 +215,41 @@ $bundle = BackendAsset::register($this);
                                 'badge' => SystemLog::find()->count(),
                                 'badgeBgClass' => 'label-danger',
                             ],
-                        ]
-                    ]
+                            [
+                                'label' => Yii::t('backend', 'RBAC Rules'),
+                                'url' => '#',
+                                'icon' => '<i class="fa fa-flag"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'active' => in_array(Yii::$app->controller->id, ['rbac-auth-assignment','rbac-auth-item', 'rbac-auth-item-child', 'rbac-auth-rules']),
+                                'items' => [
+                                    [
+                                        'label' => Yii::t('backend', 'Auth Assignment'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-assignment/index',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (Yii::$app->controller->id == '')
+                                    ],
+                                    [
+                                        'label' => Yii::t('backend', 'Auth Items'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-item/index',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (Yii::$app->controller->id == '')
+                                    ],
+                                    [
+                                        'label' => Yii::t('backend', 'Auth Item Child'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-item-child/index',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (Yii::$app->controller->id == '')
+                                    ],
+                                    [
+                                        'label' => Yii::t('backend', 'Auth Rules'),
+                                        'url' => '/yii2-starter-kit-rbac-crud/rbac-auth-rules/index',
+                                        'icon' => '<i class="fa fa-cog"></i>',
+                                        'active' => (Yii::$app->controller->id == '')
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
                 ]
             ]) ?>
         </section>

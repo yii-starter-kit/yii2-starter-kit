@@ -32,6 +32,7 @@ services:
     image: mysql:8
     volumes:
       - /var/lib/mysql
+      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
     ports:
       - 3306:3306
     environment:

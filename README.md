@@ -345,6 +345,18 @@ Yii::$app->queue->delay(5 * 60)->push(new DownloadJob([
 ]));
 ```
 
+Command that obtains and executes tasks in a loop until queue is empty:
+
+```
+php ./console/yii  queue/run
+```
+Command launches a daemon which infinitely queries the queue:
+
+```
+php ./console/yii queue/listen
+```
+[See additional documentation](https://github.com/yiisoft/yii2-queue/blob/master/README.md) for more details about driver console commands and their options.
+
 ### Other
 - ``common\behaviors\GlobalAccessBehavior`` - allows to set access rules for your application in application config
 

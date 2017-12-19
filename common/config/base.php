@@ -151,7 +151,7 @@ $config = [
 
         'queue' => [
             'class' => \yii\queue\file\Queue::class,
-            'path' => '@runtime/queue',
+            'path' => '@common/runtime/queue',
         ],
     ],
     'params' => [

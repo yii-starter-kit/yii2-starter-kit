@@ -45,6 +45,9 @@ $config = [
         'maintenance' => [
             'class' => 'common\components\maintenance\Maintenance',
             'enabled' => function ($app) {
+                if (env('APP_MAINTENANCE') === '1') {
+                    return true;
+                }
                 return $app->keyStorage->get('frontend.maintenance') === 'enabled';
             }
         ],

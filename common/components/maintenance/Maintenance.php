@@ -2,6 +2,7 @@
 
 namespace common\components\maintenance;
 
+use common\components\maintenance\controllers\MaintenanceController;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Component;
@@ -44,11 +45,12 @@ class Maintenance extends Component implements BootstrapInterface
     /**
      * Bootstrap method to be called during application bootstrap stage.
      * @param \yii\web\Application $app the application currently running
+     * @throws \yii\base\InvalidConfigException
      */
     public function bootstrap($app)
     {
         if ($this->enabled instanceof \Closure) {
-            $enabled = call_user_func($this->enabled, $app);
+            $enabled = \call_user_func($this->enabled, $app);
         } else {
             $enabled = $this->enabled;
         }
@@ -56,14 +58,14 @@ class Maintenance extends Component implements BootstrapInterface
             $this->maintenanceText = $this->maintenanceText ?: Yii::t('common', 'Down to maintenance.');
             if ($this->catchAllRoute === null) {
                 $app->controllerMap['maintenance'] = [
-                    'class' => 'common\components\maintenance\controllers\MaintenanceController',
+                    'class' => MaintenanceController::class,
                     'retryAfter' => $this->retryAfter,
                     'maintenanceLayout' => $this->maintenanceLayout,
                     'maintenanceView' => $this->maintenanceView,
                     'maintenanceText' => $this->maintenanceText
                 ];
                 $app->catchAll = ['maintenance/index'];
-                Yii::$app->view->registerAssetBundle(MaintenanceAsset::className());
+                Yii::$app->view->registerAssetBundle(MaintenanceAsset::class);
             } else {
                 $app->catchAll = [
                     $this->catchAllRoute,

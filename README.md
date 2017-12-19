@@ -154,7 +154,7 @@ component in your config
 This component will catch all incoming requests, set proper response HTTP headers (503, "Retry After") and show a maintenance message.
 Additional configuration options can be found in a corresponding class.
 
-Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true``
+Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true`` or ``APP_MAINTENANCE`` environment variable set ot ``1``
 
 ### Command Bus
 - [What is command bus?](http://shawnmc.cool/command-bus)

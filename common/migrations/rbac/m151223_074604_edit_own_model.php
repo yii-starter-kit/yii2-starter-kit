@@ -1,5 +1,6 @@
 <?php
 
+use common\models\User;
 use common\rbac\Migration;
 use common\rbac\rule\OwnModelRule;
 
@@ -10,7 +11,7 @@ class m151223_074604_edit_own_model extends Migration
         $rule = new OwnModelRule();
         $this->auth->add($rule);
 
-        $role = $this->auth->getRole(\common\models\User::ROLE_USER);
+        $role = $this->auth->getRole(User::ROLE_USER);
 
         $editOwnModelPermission = $this->auth->createPermission('editOwnModel');
         $editOwnModelPermission->ruleName = $rule->name;

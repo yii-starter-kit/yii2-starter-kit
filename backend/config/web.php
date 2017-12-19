@@ -39,7 +39,7 @@ $config = [
             'class' => backend\modules\i18n\Module::class,
             'defaultRoute' => 'i18n-message/index'
         ],
-        'yii2-starter-kit-rbac-crud' => [
+        'rbac' => [
             'class' => backend\modules\rbac\Module::class,
             'defaultRoute' => 'rbac-auth-item/index'
         ],
@@ -81,7 +81,7 @@ $config = [
             ],
             [
                 'allow' => true,
-                'roles' => ['manager'],
+                'roles' => ['manager', 'administrator'],
             ]
         ]
     ]

@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'item_name',
             'user_id',
-            'created_at',
+            'created_at:datetime',
         ],
     ]) ?>
 

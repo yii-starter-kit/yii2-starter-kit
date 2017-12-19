@@ -1,7 +1,9 @@
 <?php
 
+use common\grid\EnumColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\rbac\Item;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,7 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'name',
-            'type',
+            [
+                'class' => EnumColumn::class,
+                'attribute' => 'type',
+                'enum' => [
+                        Item::TYPE_ROLE => 'role',
+                        Item::TYPE_PERMISSION => 'permission',
+                ]
+            ],
             'description:ntext',
             'rule_name',
             'data',

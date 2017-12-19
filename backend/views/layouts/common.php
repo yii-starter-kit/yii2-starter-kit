@@ -221,7 +221,7 @@ $bundle = BackendAsset::register($this);
                                 'url' => '#',
                                 'icon' => '<i class="fa fa-flag"></i>',
                                 'options' => ['class' => 'treeview'],
-                                'active' => in_array(Yii::$app->controller->id, ['rbac-auth-assignment', 'rbac-auth-item', 'rbac-auth-item-child', 'rbac-auth-rules']),
+                                'active' => in_array(Yii::$app->controller->id, ['rbac-auth-assignment', 'rbac-auth-item', 'rbac-auth-item-child', 'rbac-auth-rule']),
                                 'items' => [
                                     [
                                         'label' => Yii::t('backend', 'Auth Assignment'),
@@ -240,7 +240,7 @@ $bundle = BackendAsset::register($this);
                                     ],
                                     [
                                         'label' => Yii::t('backend', 'Auth Rules'),
-                                        'url' => ['/rbac/rbac-auth-rules/index'],
+                                        'url' => ['/rbac/rbac-auth-rule/index'],
                                         'icon' => '<i class="fa fa-angle-double-right"></i>',
                                     ],
                                 ],

@@ -10,7 +10,9 @@ use common\models\WidgetCarouselItem;
 use Yii;
 use yii\base\InvalidConfigException;
 use yii\bootstrap\Carousel;
+use yii\di\Instance;
 use yii\helpers\Html;
+use yii\web\AssetManager;
 
 /**
  * Class DbCarousel
@@ -22,6 +24,11 @@ class DbCarousel extends Carousel
      * @var
      */
     public $key;
+
+    /**
+     * @var string|array|callable|AssetManager
+     */
+    public $assetManager;
 
     /**
      * @var array
@@ -39,6 +46,7 @@ class DbCarousel extends Carousel
         if (!$this->key) {
             throw new InvalidConfigException;
         }
+        $this->assetManager = Instance::ensure($this->assetManager, AssetManager::class);
         $cacheKey = [
             WidgetCarousel::className(),
             $this->key
@@ -57,7 +65,8 @@ class DbCarousel extends Carousel
             foreach ($query->all() as $k => $item) {
                 /** @var $item \common\models\WidgetCarouselItem */
                 if ($item->path) {
-                    $items[$k]['content'] = Html::img($item->getImageUrl());
+                    $url = $this->publishItem($item);
+                    $items[$k]['content'] = Html::img($url);
                 }
 
                 if ($item->url) {
@@ -89,5 +98,22 @@ class DbCarousel extends Carousel
             ]);
         }
         return Html::tag('div', $content, $this->options);
+    }
+
+    /**
+     * @param WidgetCarouselItem $item
+     *
+     * @return string
+     */
+    protected function publishItem($item)
+    {
+        if (!$item->asset_url) {
+            $url = Yii::$app->assetManager->publish($item->path);
+            $item->updateAttributes([
+                'asset_url' => $url[1]
+            ]);
+        }
+
+        return $item->asset_url;
     }
 }

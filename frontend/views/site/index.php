@@ -5,7 +5,8 @@ $this->title = Yii::$app->name;
 <div class="site-index">
 
     <?php echo \common\widgets\DbCarousel::widget([
-        'key'=>'index',
+        'key' => 'index',
+        'assetManager' => Yii::$app->getAssetManager(),
         'options' => [
             'class' => 'slide', // enables slide effect
         ],

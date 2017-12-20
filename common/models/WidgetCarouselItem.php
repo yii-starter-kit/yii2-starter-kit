@@ -7,6 +7,7 @@ use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\web\AssetManager;
 
 /**
  * This is the model class for table "widget_carousel_item".
@@ -15,19 +16,19 @@ use yii\db\ActiveRecord;
  * @property integer $carousel_id
  * @property string $base_url
  * @property string $path
+ * @property string $asset_url
  * @property string $type
  * @property string $image
- * @property string $imageUrl
  * @property string $url
  * @property string $caption
  * @property integer $status
  * @property integer $order
  *
  * @property WidgetCarousel $carousel
+ * @property string $assetUrl
  */
 class WidgetCarouselItem extends ActiveRecord
 {
-
     /**
      * @var array|null
      */
@@ -41,6 +42,9 @@ class WidgetCarouselItem extends ActiveRecord
         return '{{%widget_carousel_item}}';
     }
 
+    /**
+     * @return array
+     */
     public function scenarios()
     {
         $scenarios = parent::scenarios();
@@ -49,6 +53,9 @@ class WidgetCarouselItem extends ActiveRecord
         return $scenarios;
     }
 
+    /**
+     * @return array
+     */
     public function behaviors()
     {
         return [
@@ -114,13 +121,5 @@ class WidgetCarouselItem extends ActiveRecord
     public function getCarousel()
     {
         return $this->hasOne(WidgetCarousel::className(), ['id' => 'carousel_id']);
-    }
-
-    /**
-     * @return string
-     */
-    public function getImageUrl()
-    {
-        return rtrim($this->base_url, '/') . '/' . ltrim($this->path, '/');
     }
 }

@@ -13,5 +13,9 @@ In docker installation mailcatcher is running on [yii2-starter-kit.dev:1080](yii
 ## 4. How do i open application cli when run application in docker?
 Run this command in project directory:
 ```
-docker exec -it $(docker-compose ps -q cli) bash
+docker-compose exec app console <command> [arguments]
+```
+## 5. How do i change charset in existing database?
+```
+docker-compose exec app console app/alter-charset <charset> <collation>
 ```

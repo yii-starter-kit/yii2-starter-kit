@@ -11,16 +11,35 @@ use yii\web\Controller;
  */
 class MaintenanceController extends Controller
 {
+    /**
+     * @var int
+     */
+    public $statusCode = 503;
+    /**
+     * @var int
+     */
     public $retryAfter;
+    /**
+     * @var string|null
+     */
     public $maintenanceLayout;
+    /**
+     * @var string|null
+     */
     public $maintenanceView;
+    /**
+     * @var string|null
+     */
     public $maintenanceText;
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
         $this->layout = $this->maintenanceLayout;
 
-        Yii::$app->response->statusCode = 503;
+        Yii::$app->response->statusCode = $this->statusCode;
         Yii::$app->response->headers->set('Retry-After', $this->retryAfter);
 
         return $this->render($this->maintenanceView, [

@@ -23,7 +23,10 @@ class Maintenance extends Component implements BootstrapInterface
      * @see \yii\web\Application::catchAll
      */
     public $catchAllRoute;
-
+    /**
+     * @var int
+     */
+    public $statusCode = 503;
     /**
      * @var mixed
      * @link http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.37
@@ -59,6 +62,7 @@ class Maintenance extends Component implements BootstrapInterface
             if ($this->catchAllRoute === null) {
                 $app->controllerMap['maintenance'] = [
                     'class' => MaintenanceController::class,
+                    'statusCode' => $this->statusCode,
                     'retryAfter' => $this->retryAfter,
                     'maintenanceLayout' => $this->maintenanceLayout,
                     'maintenanceView' => $this->maintenanceView,

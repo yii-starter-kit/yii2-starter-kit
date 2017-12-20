@@ -60,12 +60,10 @@ class AppController extends Controller
         $dbName = Yii::$app->db->createCommand('SELECT DATABASE()')->queryScalar();
         if ($this->confirm('This will truncate all tables of current database [' . $dbName . '].')) {
             Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=0')->execute();
-            $command = Yii::$app->db->createCommand("SHOW FULL TABLES WHERE TABLE_TYPE LIKE '%TABLE'");
-            $res = $command->queryAll();
-            foreach ($res as $row) {
-                $rowName = sprintf('Tables_in_%s', $dbName);
-                $this->stdout('Truncating table ' . $row[$rowName] . PHP_EOL, Console::FG_RED);
-                Yii::$app->db->createCommand()->truncateTable($row[$rowName])->execute();
+            $tables = Yii::$app->db->schema->getTableNames();
+            foreach ($tables as $table) {
+                $this->stdout('Truncating table ' . $table . PHP_EOL, Console::FG_RED);
+                Yii::$app->db->createCommand()->truncateTable($table)->execute();
             }
             Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
         }
@@ -87,6 +85,37 @@ class AppController extends Controller
             }
             Yii::$app->db->createCommand("SET foreign_key_checks = 1")->execute();
         }
+    }
+
+    /**
+     * @param string $charset
+     * @param string $collation
+     * @throws \yii\base\ExitException
+     * @throws \yii\base\NotSupportedException
+     * @throws \yii\db\Exception
+     */
+    public function actionAlterCharset($charset = 'utf8mb4', $collation = 'utf8mb4_unicode_ci')
+    {
+        if (Yii::$app->db->getDriverName() !== 'mysql') {
+           Console::error('Only mysql is supported');
+           Yii::$app->end(1);
+        }
+
+        if (!$this->confirm("Convert tables to character set {$charset}?")) {
+            Yii::$app->end();
+        }
+
+        $tables = Yii::$app->db->getSchema()->getTableNames();
+        Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS = 0')->execute();
+        foreach ($tables as $table) {
+            $command = Yii::$app->db->createCommand("ALTER TABLE {$table} CONVERT TO CHARACTER SET :charset COLLATE :collation")->bindValues([
+                ':charset' => $charset,
+                ':collation' => $collation
+            ]);
+            $command->execute();
+        }
+        Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS = 1')->execute();
+        Console::output('All ok!');
     }
 
 

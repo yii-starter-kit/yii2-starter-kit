@@ -12,7 +12,7 @@ $config = [
     ],
     'components' => [
         'authManager' => [
-            'class' => 'yii\rbac\DbManager',
+            'class' => yii\rbac\DbManager::class,
             'itemTable' => '{{%rbac_auth_item}}',
             'itemChildTable' => '{{%rbac_auth_item_child}}',
             'assignmentTable' => '{{%rbac_auth_assignment}}',
@@ -20,15 +20,15 @@ $config = [
         ],
 
         'cache' => [
-            'class' => 'yii\caching\FileCache',
+            'class' => yii\caching\FileCache::class,
             'cachePath' => '@common/runtime/cache'
         ],
 
         'commandBus' => [
-            'class' => 'trntv\bus\CommandBus',
+            'class' => trntv\bus\CommandBus::class,
             'middlewares' => [
                 [
-                    'class' => '\trntv\bus\middlewares\BackgroundCommandMiddleware',
+                    'class' => trntv\bus\middlewares\BackgroundCommandMiddleware::class,
                     'backgroundHandlerPath' => '@console/yii',
                     'backgroundHandlerRoute' => 'command-bus/handle',
                 ]
@@ -36,11 +36,11 @@ $config = [
         ],
 
         'formatter' => [
-            'class' => 'yii\i18n\Formatter'
+            'class' => yii\i18n\Formatter::class
         ],
 
         'glide' => [
-            'class' => 'trntv\glide\components\Glide',
+            'class' => trntv\glide\components\Glide::class,
             'sourcePath' => '@storage/web/source',
             'cachePath' => '@storage/cache',
             'urlManager' => 'urlManagerStorage',
@@ -49,8 +49,7 @@ $config = [
         ],
 
         'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            //'useFileTransport' => true,
+            'class' => yii\swiftmailer\Mailer::class,
             'messageConfig' => [
                 'charset' => 'UTF-8',
                 'from' => env('ADMIN_EMAIL')
@@ -58,12 +57,12 @@ $config = [
         ],
 
         'db' => [
-            'class' => 'yii\db\Connection',
+            'class' => yii\db\Connection::class,
             'dsn' => env('DB_DSN'),
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
             'tablePrefix' => env('DB_TABLE_PREFIX'),
-            'charset' => 'utf8',
+            'charset' => env('DB_CHARSET', 'utf8'),
             'enableSchemaCache' => YII_ENV_PROD,
         ],
 
@@ -87,18 +86,18 @@ $config = [
         'i18n' => [
             'translations' => [
                 'app' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => yii\i18n\PhpMessageSource::class,
                     'basePath' => '@common/messages',
                 ],
                 '*' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
+                    'class' => yii\i18n\PhpMessageSource::class,
                     'basePath' => '@common/messages',
                     'fileMap' => [
                         'common' => 'common.php',
                         'backend' => 'backend.php',
                         'frontend' => 'frontend.php',
                     ],
-                    'on missingTranslation' => ['\backend\modules\i18n\Module', 'missingTranslation']
+                    'on missingTranslation' => [backend\modules\i18n\Module::class, 'missingTranslation']
                 ],
                 /* Uncomment this code to use DbMessageSource
                  '*'=> [
@@ -114,20 +113,20 @@ $config = [
         ],
 
         'fileStorage' => [
-            'class' => '\trntv\filekit\Storage',
+            'class' => trntv\filekit\Storage::class,
             'baseUrl' => '@storageUrl/source',
             'filesystem' => [
-                'class' => 'common\components\filesystem\LocalFlysystemBuilder',
+                'class' => common\components\filesystem\LocalFlysystemBuilder::class,
                 'path' => '@storage/web/source'
             ],
             'as log' => [
-                'class' => 'common\behaviors\FileStorageLogBehavior',
+                'class' => common\behaviors\FileStorageLogBehavior::class,
                 'component' => 'fileStorage'
             ]
         ],
 
         'keyStorage' => [
-            'class' => 'common\components\keyStorage\KeyStorage'
+            'class' => common\components\keyStorage\KeyStorage::class
         ],
 
         'urlManagerBackend' => \yii\helpers\ArrayHelper::merge(
@@ -169,7 +168,7 @@ $config = [
 
 if (YII_ENV_PROD) {
     $config['components']['log']['targets']['email'] = [
-        'class' => 'yii\log\EmailTarget',
+        'class' => yii\log\EmailTarget::class,
         'except' => ['yii\web\HttpException:*'],
         'levels' => ['error', 'warning'],
         'message' => ['from' => env('ROBOT_EMAIL'), 'to' => env('ADMIN_EMAIL')]
@@ -179,11 +178,11 @@ if (YII_ENV_PROD) {
 if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module'
+        'class' => yii\gii\Module::class
     ];
 
     $config['components']['cache'] = [
-        'class' => 'yii\caching\DummyCache'
+        'class' => yii\caching\DummyCache::class
     ];
     $config['components']['mailer']['transport'] = [
         'class' => 'Swift_SmtpTransport',

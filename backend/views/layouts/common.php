@@ -152,6 +152,7 @@ $bundle = BackendAsset::register($this);
                         'icon' => '<i class="fa fa-edit"></i>',
                         'options' => ['class' => 'treeview'],
                         'active' => in_array(Yii::$app->controller->id, ['page', 'article', 'article-category', 'widget-text', 'widget-menu', 'widget-carousel']),
+                        'active' => in_array(Yii::$app->controller->id,['page','article','article-category','widget-text','widget-menu','widget-carousel']),
                         'items' => [
                             ['label' => Yii::t('backend', 'Static pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'page')],
                             ['label' => Yii::t('backend', 'Articles'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => (Yii::$app->controller->id == 'article')],

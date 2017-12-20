@@ -21,7 +21,7 @@ class RbacAuthRule extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'rbac_auth_rule';
+        return '{{%rbac_auth_rule}}';
     }
 
     /**
@@ -56,14 +56,5 @@ class RbacAuthRule extends \yii\db\ActiveRecord
     public function getRbacAuthItems()
     {
         return $this->hasMany(RbacAuthItem::className(), ['rule_name' => 'name']);
-    }
-
-    /**
-     * @inheritdoc
-     * @return RbacAuthRuleQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new RbacAuthRuleQuery(get_called_class());
     }
 }

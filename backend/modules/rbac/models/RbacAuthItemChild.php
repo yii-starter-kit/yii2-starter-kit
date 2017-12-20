@@ -20,7 +20,7 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'rbac_auth_item_child';
+        return '{{%rbac_auth_item_child}}';
     }
 
     /**
@@ -61,14 +61,5 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
     public function getChild0()
     {
         return $this->hasOne(RbacAuthItem::className(), ['name' => 'child']);
-    }
-
-    /**
-     * @inheritdoc
-     * @return RbacAuthItemChildQuery the active query used by this AR class.
-     */
-    public static function find()
-    {
-        return new RbacAuthItemChildQuery(get_called_class());
     }
 }

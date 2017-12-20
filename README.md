@@ -304,6 +304,59 @@ In view:
 
 <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>    
 ```
+
+### Queue
+
+Basic [Queueing](https://github.com/yiisoft/yii2-queue) component
+implementation a file based  queueing service.
+
+Additional module [readme](https://github.com/yiisoft/yii2-queue/blob/master/README.md).
+
+Implement Queue class
+
+```php
+class DownloadJob extends BaseObject implements \yii\queue\JobInterface
+{
+    public $url;
+    public $file;
+
+    public function execute($queue)
+    {
+        file_put_contents($this->file, file_get_contents($this->url));
+    }
+}
+```
+
+Here's how to send a task into queue:
+
+```php
+Yii::$app->queue->push(new DownloadJob([
+    'url' => 'http://example.com/image.jpg',
+    'file' => '/tmp/image.jpg',
+]));
+```
+
+Pushes job into queue that run after 5 min:
+
+```php
+Yii::$app->queue->delay(5 * 60)->push(new DownloadJob([
+    'url' => 'http://example.com/image.jpg',
+    'file' => '/tmp/image.jpg',
+]));
+```
+
+Command that obtains and executes tasks in a loop until queue is empty:
+
+```
+php ./console/yii  queue/run
+```
+Command launches a daemon which infinitely queries the queue:
+
+```
+php ./console/yii queue/listen
+```
+[See additional documentation](https://github.com/yiisoft/yii2-queue/blob/master/README.md) for more details about driver console commands and their options.
+
 ### Other
 - ``common\behaviors\GlobalAccessBehavior`` - allows to set access rules for your application in application config
 

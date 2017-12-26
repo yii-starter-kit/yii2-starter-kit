@@ -1,0 +1,2 @@
+[Tue Jul 11 21:17:04 2017] Failed to listen on localhost:8080 (reason: Address already in use)
+[Tue Jul 11 21:22:48 2017] Failed to listen on localhost:8080 (reason: Address already in use)

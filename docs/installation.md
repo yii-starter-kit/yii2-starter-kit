@@ -49,6 +49,9 @@ Required PHP extensions:
 - intl
 - gd
 - mcrypt
+- node
+- nvm
+- npm
 - com_dotnet (for Windows)
 
 ### Setup application
@@ -75,7 +78,9 @@ Required PHP extensions:
 
 3. Run in command line
 ```
+composer update
 php console/yii app/setup
+nvm install v4
 npm install
 npm run build
 ```

@@ -88,10 +88,10 @@ npm run build
 1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) to your system
 2. Add ``127.0.0.1 yii2-starter-kit.localhost backend.yii2-starter-kit.localhost storage.yii2-starter-kit.localhost``* to your `/etc/hosts` file
 3. Copy `.env.dist` to `.env` in the project root
-4. Run `docker-compose up -d`
-5. Install composer dependencies `docker-compose exec app composer install`
-6. Setup application with `docker-compose exec app php console/yii app/setup --interactive=0`
-7. That's all - your application is accessible on http://yii2-starter-kit.localhost
+4. Run `docker-compose up --build --force-recreate`
+5. Install composer dependencies `docker exec yii2starterkit_app_1 composer install --profile --prefer-source -o`
+6. Setup application with `docker exec yii2starterkit_app_1 php console/yii app/setup --interactive=0`
+7. That's all - your application should be accessible at http://yii2-starter-kit.localhost
 
  * - docker host IP address may vary on Windows and MacOS systems
  
@@ -100,11 +100,11 @@ npm run build
 ### Docker FAQ
 1. How do i run yii console commands from outside a container?
 
-`docker-compose exec app console/yii help`
+`docker exec yii2starterkit_app_1 console/yii help`
 
-`docker-compose exec app console/yii migrate`
+`docker exec yii2starterkit_app_1 console/yii migrate`
 
-`docker-compose exec app console/yii rbac-migrate`
+`docker exec yii2starterkit_app_1 console/yii rbac-migrate`
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, password - `root`

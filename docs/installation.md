@@ -89,8 +89,8 @@ npm run build
 2. Add ``127.0.0.1 yii2-starter-kit.localhost backend.yii2-starter-kit.localhost storage.yii2-starter-kit.localhost``* to your `/etc/hosts` file
 3. Copy `.env.dist` to `.env` in the project root
 4. Run `docker-compose up -d`
-5. Install composer dependencies `docker-compose exec app composer install`
-6. Setup application with `docker-compose exec app php console/yii app/setup --interactive=0`
+5. Install composer dependencies `docker exec app composer install`
+6. Setup application with `docker exec app php console/yii app/setup --interactive=0`
 7. That's all - your application is accessible on http://yii2-starter-kit.localhost
 
  * - docker host IP address may vary on Windows and MacOS systems

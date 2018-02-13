@@ -34,5 +34,15 @@ RUN usermod -u 1000 www-data
 VOLUME /root/.composer
 WORKDIR /app
 
+# install nodejs/npm for client asset building
+# build client assets on initial image build
+# TODO Move to a `client-asset` service later on?
+WORKDIR ~/
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN apt-get install -y nodejs
+WORKDIR /app
+RUN npm install
+RUN npm run build
+
 EXPOSE 9000
 CMD ["php-fpm"]

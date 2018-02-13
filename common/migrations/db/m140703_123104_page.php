@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140703_123104_page extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function up()
     {
         $this->createTable('{{%page}}', [
@@ -18,6 +21,9 @@ class m140703_123104_page extends Migration
         ]);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%page}}');

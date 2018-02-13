@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140712_123329_widget_carousel extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%widget_carousel}}', [
@@ -31,7 +34,9 @@ class m140712_123329_widget_carousel extends Migration
 
     }
 
-
+    /**
+     * @return bool|void
+     */
     public function safeDown()
     {
         $this->dropForeignKey('fk_item_carousel', '{{%widget_carousel_item}}');

@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140709_173333_widget_text extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%widget_text}}', [
@@ -19,6 +22,9 @@ class m140709_173333_widget_text extends Migration
         $this->createIndex('idx_widget_text_key', '{{%widget_text}}', 'key');
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%widget_text}}');

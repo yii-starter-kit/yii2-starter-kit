@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140703_123803_article extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%article_category}}', [
@@ -52,6 +55,9 @@ class m140703_123803_article extends Migration
         $this->addForeignKey('fk_article_category_section', '{{%article_category}}', 'parent_id', '{{%article_category}}', 'id', 'cascade', 'cascade');
     }
 
+    /**
+     * @return bool|void
+     */
     public function safeDown()
     {
         $this->dropForeignKey('fk_article_attachment_article', '{{%article_attachment}}');

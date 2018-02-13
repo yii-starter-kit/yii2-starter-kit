@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140709_173306_widget_menu extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function up()
     {
         $this->createTable('{{%widget_menu}}', [
@@ -15,6 +18,9 @@ class m140709_173306_widget_menu extends Migration
         ]);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%widget_menu}}');

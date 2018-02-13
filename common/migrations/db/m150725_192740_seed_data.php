@@ -5,6 +5,10 @@ use yii\db\Migration;
 
 class m150725_192740_seed_data extends Migration
 {
+    /**
+     * @return bool|void
+     * @throws \yii\base\Exception
+     */
     public function safeUp()
     {
         $this->insert('{{%user}}', [
@@ -172,6 +176,9 @@ class m150725_192740_seed_data extends Migration
 
     }
 
+    /**
+     * @return bool|void
+     */
     public function safeDown()
     {
         $this->delete('{{%key_storage_item}}', [

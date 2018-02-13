@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m140805_084745_key_storage_item extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%key_storage_item}}', [
@@ -18,6 +21,9 @@ class m140805_084745_key_storage_item extends Migration
         $this->createIndex('idx_key_storage_item_key', '{{%key_storage_item}}', 'key', true);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%key_storage_item}}');

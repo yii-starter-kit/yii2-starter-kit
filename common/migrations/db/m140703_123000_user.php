@@ -5,6 +5,9 @@ use yii\db\Migration;
 
 class m140703_123000_user extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%user}}', [
@@ -37,6 +40,9 @@ class m140703_123000_user extends Migration
 
     }
 
+    /**
+     * @return bool|void
+     */
     public function safeDown()
     {
         $this->dropForeignKey('fk_user', '{{%user_profile}}');

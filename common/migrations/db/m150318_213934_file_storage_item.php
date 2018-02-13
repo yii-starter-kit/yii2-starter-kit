@@ -4,6 +4,9 @@ use yii\db\Migration;
 
 class m150318_213934_file_storage_item extends Migration
 {
+    /**
+     * @return bool|void
+     */
     public function safeUp()
     {
         $this->createTable('{{%file_storage_item}}', [
@@ -19,6 +22,9 @@ class m150318_213934_file_storage_item extends Migration
         ]);
     }
 
+    /**
+     * @return bool|void
+     */
     public function down()
     {
         $this->dropTable('{{%file_storage_item}}');

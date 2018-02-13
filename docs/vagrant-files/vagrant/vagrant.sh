@@ -77,8 +77,8 @@ if [ ! -f /var/www/.env ]; then
 fi
 
 # create nginx config
-if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.dev ]; then
-    sudo ln -s /var/www/vagrant/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.dev
+if [ ! -f /etc/nginx/sites-enabled/yii2-starter-kit.localhost ]; then
+    sudo ln -s /var/www/vagrant/vhost.conf /etc/nginx/sites-enabled/yii2-starter-kit.localhost
 fi
 
 # Configuring application

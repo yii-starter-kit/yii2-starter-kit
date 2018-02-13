@@ -90,6 +90,8 @@ npm run build
 3. Copy `.env.dist` to `.env` in the project root
 4. Run `docker-compose up -d`
 5. Install composer dependencies `docker-compose exec app composer install`
+6. Install npm dependencies `docker-compose run --rm webpacker npm install`
+7. Build assets `docker-compose run --rm webpacker npm run build`
 6. Setup application with `docker-compose exec app php console/yii app/setup --interactive=0`
 7. That's all - your application is accessible on http://yii2-starter-kit.dev
 

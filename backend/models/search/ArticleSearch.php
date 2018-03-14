@@ -17,7 +17,9 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['id', 'category_id', 'created_by', 'updated_by', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'category_id', 'created_by', 'updated_by', 'status'], 'integer'],
+            [['published_at', 'created_at', 'updated_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
+            [['published_at', 'created_at', 'updated_at'], 'default', 'value' => null],
             [['slug', 'title', 'body'], 'safe'],
         ];
     }
@@ -54,10 +56,19 @@ class ArticleSearch extends Article
             'category_id' => $this->category_id,
             'updated_by' => $this->updated_by,
             'status' => $this->status,
-            'published_at' => $this->published_at,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
+
+        if ($this->published_at !== null) {
+            $query->andFilterWhere(['between', 'published_at', $this->published_at, $this->published_at + 3600 * 24]);
+        }
+
+        if ($this->created_at !== null) {
+            $query->andFilterWhere(['between', 'created_at', $this->created_at, $this->created_at + 3600 * 24]);
+        }
+
+        if ($this->updated_at !== null) {
+            $query->andFilterWhere(['between', 'updated_at', $this->updated_at, $this->updated_at + 3600 * 24]);
+        }
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title])

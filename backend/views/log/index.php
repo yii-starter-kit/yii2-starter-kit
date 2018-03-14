@@ -1,5 +1,6 @@
 <?php
 
+use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -47,7 +48,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'datetime',
                 'value' => function ($model) {
                     return (int) $model->log_time;
-                }
+                },
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'log_time',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
             ],
 
             [

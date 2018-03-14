@@ -2,6 +2,7 @@
 
 use common\grid\EnumColumn;
 use common\models\ArticleCategory;
+use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -55,8 +56,26 @@ $this->params['breadcrumbs'][] = $this->title;
                     Yii::t('backend', 'Published')
                 ]
             ],
-            'published_at:datetime',
-            'created_at:datetime',
+            [
+                'attribute' => 'published_at',
+                'format' => 'datetime',
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'published_at',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
+            ],
+            [
+                'attribute' => 'created_at',
+                'format' => 'datetime',
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'created_at',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
+            ],
 
             // 'updated_at',
 

@@ -31,8 +31,8 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
         return [
             [['parent', 'child'], 'required'],
             [['parent', 'child'], 'string', 'max' => 64],
-            [['parent'], 'exist', 'skipOnError' => true, 'targetClass' => RbacAuthItem::className(), 'targetAttribute' => ['parent' => 'name']],
-            [['child'], 'exist', 'skipOnError' => true, 'targetClass' => RbacAuthItem::className(), 'targetAttribute' => ['child' => 'name']],
+            [['parent'], 'exist', 'skipOnError' => true, 'targetClass' => RbacAuthItem::class, 'targetAttribute' => ['parent' => 'name']],
+            [['child'], 'exist', 'skipOnError' => true, 'targetClass' => RbacAuthItem::class, 'targetAttribute' => ['child' => 'name']],
         ];
     }
 
@@ -52,7 +52,7 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
      */
     public function getParent0()
     {
-        return $this->hasOne(RbacAuthItem::className(), ['name' => 'parent']);
+        return $this->hasOne(RbacAuthItem::class, ['name' => 'parent']);
     }
 
     /**
@@ -60,6 +60,6 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
      */
     public function getChild0()
     {
-        return $this->hasOne(RbacAuthItem::className(), ['name' => 'child']);
+        return $this->hasOne(RbacAuthItem::class, ['name' => 'child']);
     }
 }

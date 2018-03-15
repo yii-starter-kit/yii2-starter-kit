@@ -7,7 +7,7 @@ namespace common\actions;
 
 use Yii;
 use yii\base\Action;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\web\Cookie;
 
 /**
@@ -67,7 +67,7 @@ class SetLocaleAction extends Action
     public function run($locale)
     {
         if (!is_array($this->locales) || !in_array($locale, $this->locales, true)) {
-            throw new InvalidParamException('Unacceptable locale');
+            throw new InvalidArgumentException('Unacceptable locale');
         }
         $cookie = new Cookie([
             'name' => $this->localeCookieName,

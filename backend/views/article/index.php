@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'class' => EnumColumn::className(),
+                'class' => EnumColumn::class,
                 'attribute' => 'status',
                 'enum' => [
                     Yii::t('backend', 'Not Published'),

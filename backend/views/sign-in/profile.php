@@ -15,7 +15,7 @@ $this->title = Yii::t('backend', 'Edit profile')
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::classname(), [
+    <?php echo $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::class, [
         'url'=>['avatar-upload']
     ]) ?>
 

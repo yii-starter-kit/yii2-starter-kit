@@ -18,7 +18,7 @@ $this->title = Yii::t('frontend', 'User Settings')
     <h2><?php echo Yii::t('frontend', 'Profile settings') ?></h2>
 
     <?php echo $form->field($model->getModel('profile'), 'picture')->widget(
-        Upload::classname(),
+        Upload::class,
         [
             'url' => ['avatar-upload']
         ]

@@ -65,59 +65,59 @@ class FixtureHelper extends Module
     {
         return [
             'article' => [
-                'class' => ArticleFixture::className(),
+                'class' => ArticleFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/article.php',
             ],
             'article_category' => [
-                'class' => ArticleCategoryFixture::className(),
+                'class' => ArticleCategoryFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/article_category.php',
             ],
             'article_attachment' => [
-                'class' => ArticleAttachmentFixture::className(),
+                'class' => ArticleAttachmentFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/article_attachment.php',
             ],
             'user' => [
-                'class' => UserFixture::className(),
+                'class' => UserFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/user.php',
             ],
             'user_profile' => [
-                'class' => UserProfileFixture::className(),
+                'class' => UserProfileFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/user_profile.php',
             ],
             'rbac_auth_rule' => [
-                'class' => RbacAuthRuleFixture::className(),
+                'class' => RbacAuthRuleFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/rbac_auth_rule.php',
             ],
             'rbac_auth_item' => [
-                'class' => RbacAuthItemFixture::className(),
+                'class' => RbacAuthItemFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/rbac_auth_item.php',
             ],
             'rbac_auth_item_child' => [
-                'class' => RbacAuthItemChildFixture::className(),
+                'class' => RbacAuthItemChildFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/rbac_auth_item_child.php',
             ],
             'rbac_auth_assignment' => [
-                'class' => RbacAuthAssignmentFixture::className(),
+                'class' => RbacAuthAssignmentFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/rbac_auth_assignment.php',
             ],
             'page' => [
-                'class' => PageFixture::className(),
+                'class' => PageFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/page.php',
             ],
             'widget_carousel' => [
-                'class' => WidgetCarouselFixture::className(),
+                'class' => WidgetCarouselFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/widget_carousel.php',
             ],
             'widget_carousel_item' => [
-                'class' => WidgetCarouselItemFixture::className(),
+                'class' => WidgetCarouselItemFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/widget_carousel_item.php',
             ],
             'widget_text' => [
-                'class' => WidgetTextFixture::className(),
+                'class' => WidgetTextFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/widget_text.php',
             ],
             'widget_menu' => [
-                'class' => WidgetMenuFixture::className(),
+                'class' => WidgetMenuFixture::class,
                 'dataFile' => '@tests/common/fixtures/data/widget_menu.php',
             ]
         ];

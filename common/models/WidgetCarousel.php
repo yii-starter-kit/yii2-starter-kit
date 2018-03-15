@@ -35,12 +35,12 @@ class WidgetCarousel extends ActiveRecord
     {
         return [
             'cacheInvalidate' => [
-                'class' => CacheInvalidateBehavior::className(),
+                'class' => CacheInvalidateBehavior::class,
                 'cacheComponent' => 'frontendCache',
                 'keys' => [
                     function ($model) {
                         return [
-                            self::className(),
+                            self::class,
                             $model->key
                         ];
                     }
@@ -79,6 +79,6 @@ class WidgetCarousel extends ActiveRecord
      */
     public function getItems()
     {
-        return $this->hasMany(WidgetCarouselItem::className(), ['carousel_id' => 'id']);
+        return $this->hasMany(WidgetCarouselItem::class, ['carousel_id' => 'id']);
     }
 }

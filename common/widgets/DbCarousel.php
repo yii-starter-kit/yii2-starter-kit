@@ -48,7 +48,7 @@ class DbCarousel extends Carousel
         }
         $this->assetManager = Instance::ensure($this->assetManager, AssetManager::class);
         $cacheKey = [
-            WidgetCarousel::className(),
+            WidgetCarousel::class,
             $this->key
         ];
         $items = Yii::$app->cache->get($cacheKey);

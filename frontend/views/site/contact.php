@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php echo $form->field($model, 'email') ?>
                 <?php echo $form->field($model, 'subject') ?>
                 <?php echo $form->field($model, 'body')->textArea(['rows' => 6]) ?>
-                <?php echo $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                <?php echo $form->field($model, 'verifyCode')->widget(Captcha::class, [
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
                 <div class="form-group">

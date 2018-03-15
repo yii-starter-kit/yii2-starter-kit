@@ -35,14 +35,14 @@ class WidgetText extends ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
             'cacheInvalidate' => [
-                'class' => CacheInvalidateBehavior::className(),
+                'class' => CacheInvalidateBehavior::class,
                 'cacheComponent' => 'frontendCache',
                 'keys' => [
                     function ($model) {
                         return [
-                            self::className(),
+                            self::class,
                             $model->key
                         ];
                     }

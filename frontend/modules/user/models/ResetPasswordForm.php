@@ -4,7 +4,7 @@ namespace frontend\modules\user\models;
 
 use common\models\UserToken;
 use Yii;
-use yii\base\InvalidParamException;
+use yii\base\InvalidArgumentException;
 use yii\base\Model;
 
 /**
@@ -27,12 +27,12 @@ class ResetPasswordForm extends Model
      *
      * @param  string $token
      * @param  array $config name-value pairs that will be used to initialize the object properties
-     * @throws \yii\base\InvalidParamException if token is empty or not valid
+     * @throws \yii\base\InvalidArgumentException if token is empty or not valid
      */
     public function __construct($token, $config = [])
     {
         if (empty($token) || !is_string($token)) {
-            throw new InvalidParamException('Password reset token cannot be blank.');
+            throw new InvalidArgumentException('Password reset token cannot be blank.');
         }
         /** @var UserToken $tokenModel */
         $this->token = UserToken::find()
@@ -42,7 +42,7 @@ class ResetPasswordForm extends Model
             ->one();
 
         if (!$this->token) {
-            throw new InvalidParamException('Wrong password reset token.');
+            throw new InvalidArgumentException('Wrong password reset token.');
         }
         parent::__construct($config);
     }

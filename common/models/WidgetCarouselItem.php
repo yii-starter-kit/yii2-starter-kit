@@ -59,21 +59,21 @@ class WidgetCarouselItem extends ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
             [
-                'class' => UploadBehavior::className(),
+                'class' => UploadBehavior::class,
                 'attribute' => 'image',
                 'pathAttribute' => 'path',
                 'baseUrlAttribute' => 'base_url',
                 'typeAttribute' => 'type'
             ],
             'cacheInvalidate' => [
-                'class' => CacheInvalidateBehavior::className(),
+                'class' => CacheInvalidateBehavior::class,
                 'cacheComponent' => 'frontendCache',
                 'keys' => [
                     function ($model) {
                         return [
-                            WidgetCarousel::className(),
+                            WidgetCarousel::class,
                             $model->carousel->key
                         ];
                     }
@@ -120,6 +120,6 @@ class WidgetCarouselItem extends ActiveRecord
      */
     public function getCarousel()
     {
-        return $this->hasOne(WidgetCarousel::className(), ['id' => 'carousel_id']);
+        return $this->hasOne(WidgetCarousel::class, ['id' => 'carousel_id']);
     }
 }

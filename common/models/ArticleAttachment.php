@@ -38,7 +38,7 @@ class ArticleAttachment extends ActiveRecord
     {
         return [
             [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false
             ]
         ];
@@ -78,7 +78,7 @@ class ArticleAttachment extends ActiveRecord
      */
     public function getArticle()
     {
-        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+        return $this->hasOne(Article::class, ['id' => 'article_id']);
     }
 
     public function getUrl()

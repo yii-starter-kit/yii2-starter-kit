@@ -49,7 +49,7 @@ class <?php echo $controllerClass ?> extends <?php echo StringHelper::basename($
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
                 ],

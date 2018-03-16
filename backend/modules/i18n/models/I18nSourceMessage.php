@@ -51,6 +51,6 @@ class I18nSourceMessage extends \yii\db\ActiveRecord
      */
     public function getI18nMessages()
     {
-        return $this->hasMany(I18nMessage::className(), ['id' => 'id']);
+        return $this->hasMany(I18nMessage::class, ['id' => 'id']);
     }
 }

@@ -19,7 +19,7 @@ use yii\bootstrap\ActiveForm;
     <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
     <?php echo $form->field($model, 'items')->widget(
-        trntv\aceeditor\AceEditor::className(),
+        trntv\aceeditor\AceEditor::class,
         [
             'mode' => 'json'
         ]

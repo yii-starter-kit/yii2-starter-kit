@@ -15,7 +15,7 @@ use yii\helpers\Html;
     <?php echo $form->errorSummary($model) ?>
 
     <?php echo $form->field($model, 'image')->widget(
-        \trntv\filekit\widget\Upload::className(),
+        \trntv\filekit\widget\Upload::class,
         [
             'url'=>['/file-storage/upload'],
         ]
@@ -26,7 +26,7 @@ use yii\helpers\Html;
     <?php echo $form->field($model, 'url')->textInput(['maxlength' => 1024]) ?>
 
     <?php echo $form->field($model, 'caption')->widget(
-        \yii\imperavi\Widget::className(),
+        \yii\imperavi\Widget::class,
         [
             'plugins' => ['fullscreen', 'fontcolor', 'video'],
             'options' => [

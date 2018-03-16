@@ -24,7 +24,7 @@ class DbText extends Widget
     public function run()
     {
         $cacheKey = [
-            WidgetText::className(),
+            WidgetText::class,
             $this->key
         ];
         $content = Yii::$app->cache->get($cacheKey);

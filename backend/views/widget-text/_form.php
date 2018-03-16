@@ -17,7 +17,7 @@ use yii\bootstrap\ActiveForm;
     <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
     <?php echo $form->field($model, 'body')->widget(
-        trntv\aceeditor\AceEditor::className(),
+        trntv\aceeditor\AceEditor::class,
         [
             'mode' => 'html'
         ]

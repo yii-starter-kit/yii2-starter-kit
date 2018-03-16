@@ -16,7 +16,7 @@ use yii\db\ActiveRecord;
  * {
  *     return [
  *         [
- *             'class' => CacheInvalidateBehavior::className(),
+ *             'class' => CacheInvalidateBehavior::class,
  *             'tags' => [
  *                  'awesomeTag',
  *                   function($model){

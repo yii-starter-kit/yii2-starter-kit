@@ -33,7 +33,7 @@ class WidgetMenu extends ActiveRecord
     {
         return [
             'cacheInvalidate' => [
-                'class' => CacheInvalidateBehavior::className(),
+                'class' => CacheInvalidateBehavior::class,
                 'cacheComponent' => 'frontendCache',
                 'keys' => [
                     function ($model) {
@@ -55,7 +55,7 @@ class WidgetMenu extends ActiveRecord
         return [
             [['key', 'title', 'items'], 'required'],
             [['key'], 'unique'],
-            [['items'], JsonValidator::className()],
+            [['items'], JsonValidator::class],
             [['status'], 'integer'],
             [['key'], 'string', 'max' => 32],
             [['title'], 'string', 'max' => 255]

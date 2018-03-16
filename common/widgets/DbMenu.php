@@ -30,7 +30,7 @@ class DbMenu extends Menu
     public function init()
     {
         $cacheKey = [
-            WidgetMenu::className(),
+            WidgetMenu::class,
             $this->key
         ];
         $this->items = Yii::$app->cache->get($cacheKey);

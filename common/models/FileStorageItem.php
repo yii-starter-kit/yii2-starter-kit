@@ -33,7 +33,7 @@ class FileStorageItem extends ActiveRecord
     {
         return [
             [
-                'class' => TimestampBehavior::className(),
+                'class' => TimestampBehavior::class,
                 'updatedAtAttribute' => false
             ]
         ];

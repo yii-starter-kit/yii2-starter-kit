@@ -71,15 +71,15 @@ class Article extends ActiveRecord
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            TimestampBehavior::class,
+            BlameableBehavior::class,
             [
-                'class' => SluggableBehavior::className(),
+                'class' => SluggableBehavior::class,
                 'attribute' => 'title',
                 'immutable' => true
             ],
             [
-                'class' => UploadBehavior::className(),
+                'class' => UploadBehavior::class,
                 'attribute' => 'attachments',
                 'multiple' => true,
                 'uploadRelation' => 'articleAttachments',
@@ -91,7 +91,7 @@ class Article extends ActiveRecord
                 'nameAttribute' => 'name',
             ],
             [
-                'class' => UploadBehavior::className(),
+                'class' => UploadBehavior::class,
                 'attribute' => 'thumbnail',
                 'pathAttribute' => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
@@ -112,7 +112,7 @@ class Article extends ActiveRecord
                 return date(DATE_ISO8601);
             }],
             [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
-            [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
+            [['category_id'], 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id'],
             [['status'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
@@ -148,7 +148,7 @@ class Article extends ActiveRecord
      */
     public function getAuthor()
     {
-        return $this->hasOne(User::className(), ['id' => 'created_by']);
+        return $this->hasOne(User::class, ['id' => 'created_by']);
     }
 
     /**
@@ -156,7 +156,7 @@ class Article extends ActiveRecord
      */
     public function getUpdater()
     {
-        return $this->hasOne(User::className(), ['id' => 'updated_by']);
+        return $this->hasOne(User::class, ['id' => 'updated_by']);
     }
 
     /**
@@ -164,7 +164,7 @@ class Article extends ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
+        return $this->hasOne(ArticleCategory::class, ['id' => 'category_id']);
     }
 
     /**
@@ -172,6 +172,6 @@ class Article extends ActiveRecord
      */
     public function getArticleAttachments()
     {
-        return $this->hasMany(ArticleAttachment::className(), ['article_id' => 'id']);
+        return $this->hasMany(ArticleAttachment::class, ['article_id' => 'id']);
     }
 }

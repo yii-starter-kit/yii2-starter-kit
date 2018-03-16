@@ -29,10 +29,10 @@ class UserController extends ActiveController
         $behaviors = parent::behaviors();
 
         $behaviors['authenticator'] = [
-            'class' => CompositeAuth::className(),
+            'class' => CompositeAuth::class,
             'authMethods' => [
                 [
-                    'class' => HttpBasicAuth::className(),
+                    'class' => HttpBasicAuth::class,
                     'auth' => function ($username, $password) {
                         $user = User::findByLogin($username);
                         return $user->validatePassword($password)
@@ -40,8 +40,8 @@ class UserController extends ActiveController
                             : null;
                     }
                 ],
-                HttpBearerAuth::className(),
-                QueryParamAuth::className()
+                HttpBearerAuth::class,
+                QueryParamAuth::class
             ]
         ];
 

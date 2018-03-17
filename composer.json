@@ -37,7 +37,7 @@
     "trntv/probe": "^1.0",
     "trntv/yii2-file-kit": "^1.0.0",
     "trntv/yii2-glide": "^1.0.0",
-    "trntv/yii2-datetime-widget": "^1.0.0",
+    "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^2.0",
     "intervention/image": "^2.1",

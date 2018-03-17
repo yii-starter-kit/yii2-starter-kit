@@ -6,6 +6,7 @@ use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArticleSearch */
@@ -64,6 +65,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'published_at',
                     'phpDatetimeFormat' => 'dd.MM.yyyy',
                     'momentDatetimeFormat' => 'DD.MM.YYYY',
+                    'clientEvents' => [
+                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
+                    ],
                 ])
             ],
             [
@@ -74,6 +78,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'created_at',
                     'phpDatetimeFormat' => 'dd.MM.yyyy',
                     'momentDatetimeFormat' => 'DD.MM.YYYY',
+                    'clientEvents' => [
+                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
+                    ],
                 ])
             ],
 

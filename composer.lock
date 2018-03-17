@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b1b4366d48c23a4ee1e0fdb92e6ca5a2",
+    "content-hash": "ed9491edcde2a75da2b533a263c72433",
     "packages": [
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -1797,29 +1797,24 @@
         },
         {
             "name": "trntv/yii2-datetime-widget",
-            "version": "1.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-datetime-widget.git",
-                "reference": "d064d312ff17af03df26a67846e1f772c99d5020"
+                "reference": "9f636a202494b28caeedb8a96708b57af1217b98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-datetime-widget/zipball/d064d312ff17af03df26a67846e1f772c99d5020",
-                "reference": "d064d312ff17af03df26a67846e1f772c99d5020",
+                "url": "https://api.github.com/repos/trntv/yii2-datetime-widget/zipball/9f636a202494b28caeedb8a96708b57af1217b98",
+                "reference": "9f636a202494b28caeedb8a96708b57af1217b98",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/eonasdan-bootstrap-datetimepicker": "~4.0",
-                "yiisoft/yii2": "~2.0"
+                "bower-asset/eonasdan-bootstrap-datetimepicker": "^4.17",
+                "bower-asset/moment": "^2.21",
+                "yiisoft/yii2": "^2.0"
             },
             "type": "yii2-extension",
-            "extra": {
-                "asset-installer-paths": {
-                    "npm-asset-library": "vendor/npm",
-                    "bower-asset-library": "vendor/bower"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "trntv\\yii\\datetime\\": "src/"
@@ -1843,7 +1838,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-02-12T07:10:46+00:00"
+            "time": "2018-03-17T15:18:47+00:00"
         },
         {
             "name": "trntv/yii2-file-kit",
@@ -2565,16 +2560,16 @@
         },
         {
             "name": "codeception/phpunit-wrapper",
-            "version": "7.0.4",
+            "version": "7.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/phpunit-wrapper.git",
-                "reference": "635b5b94fe1ec153dcae74f3aa6b24b02891d1c4"
+                "reference": "42c8fdbf301ee36f6b58cb154972f9148fdcb7d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/635b5b94fe1ec153dcae74f3aa6b24b02891d1c4",
-                "reference": "635b5b94fe1ec153dcae74f3aa6b24b02891d1c4",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/42c8fdbf301ee36f6b58cb154972f9148fdcb7d4",
+                "reference": "42c8fdbf301ee36f6b58cb154972f9148fdcb7d4",
                 "shasum": ""
             },
             "require": {
@@ -2604,7 +2599,7 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "time": "2018-03-13T02:44:28+00:00"
+            "time": "2018-03-16T10:18:33+00:00"
         },
         {
             "name": "codeception/stub",
@@ -4828,6 +4823,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "asofter/yii2-imperavi-redactor": 20,
+        "trntv/yii2-datetime-widget": 20,
         "trntv/cheatsheet": 20
     },
     "prefer-stable": false,

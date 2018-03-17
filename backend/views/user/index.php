@@ -5,6 +5,7 @@ use common\models\User;
 use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\web\JsExpression;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\UserSearch */
@@ -47,6 +48,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'created_at',
                     'phpDatetimeFormat' => 'dd.MM.yyyy',
                     'momentDatetimeFormat' => 'DD.MM.YYYY',
+                    'clientEvents' => [
+                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
+                    ],
                 ])
             ],
             [
@@ -57,6 +61,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'logged_at',
                     'phpDatetimeFormat' => 'dd.MM.yyyy',
                     'momentDatetimeFormat' => 'DD.MM.YYYY',
+                    'clientEvents' => [
+                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
+                    ],
                 ])
             ],
             // 'updated_at',

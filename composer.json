@@ -73,5 +73,23 @@
       "type": "composer",
       "url": "https://asset-packagist.org"
     }
-  ]
+  ],
+  "scripts": {
+    "build": [
+      "@composer install",
+      "cp .env.dist .env",
+      "docker-compose run -T --rm webpacker npm install",
+      "docker-compose run -T --rm webpacker npm run build"
+    ],
+    "docker:build": [
+      "@build",
+      "docker-compose up --force-recreate -d",
+      "sleep 5",
+      "docker-compose exec -T app console/yii app/setup --interactive=0",
+      "docker-compose exec -T app echo \"Visit ${FRONTEND_HOST_INFO}\""
+    ],
+    "docker:cleanup": [
+      "docker-compose rm -fsv"
+    ]
+  }
 }

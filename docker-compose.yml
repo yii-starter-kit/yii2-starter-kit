@@ -8,6 +8,8 @@ services:
     depends_on:
       - db
       - mailcatcher
+    env_file:
+      - .env
     environment:
       XDEBUG_CONFIG: "idekey=PHPSTORM remote_enable=On remote_connect_back=On"
 

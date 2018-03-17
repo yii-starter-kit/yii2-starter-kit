@@ -1,5 +1,6 @@
 <?php
 
+use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -62,7 +63,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'size:size',
             'name',
             'upload_ip',
-            'created_at:datetime',
+            [
+                'attribute' => 'created_at',
+                'format' => 'datetime',
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'created_at',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',

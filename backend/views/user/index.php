@@ -2,6 +2,7 @@
 
 use common\grid\EnumColumn;
 use common\models\User;
+use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -38,8 +39,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 'enum' => User::statuses(),
                 'filter' => User::statuses()
             ],
-            'created_at:datetime',
-            'logged_at:datetime',
+            [
+                'attribute' => 'created_at',
+                'format' => 'datetime',
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'created_at',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
+            ],
+            [
+                'attribute' => 'logged_at',
+                'format' => 'datetime',
+                'filter' => DateTimeWidget::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'logged_at',
+                    'phpDatetimeFormat' => 'dd.MM.yyyy',
+                    'momentDatetimeFormat' => 'DD.MM.YYYY',
+                ])
+            ],
             // 'updated_at',
 
             [

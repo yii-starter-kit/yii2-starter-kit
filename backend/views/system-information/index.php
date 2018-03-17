@@ -113,10 +113,10 @@ $this->registerJsFile(
                         <dd><?php echo $provider->getPhpVersion() ?></dd>
 
                         <dt><?php echo Yii::t('backend', 'DB Type') ?></dt>
-                        <dd><?php echo $provider->getDbType(Yii::$app->db->pdo) ?></dd>
+                        <dd><?php echo $provider->getDbType(Yii::$app->db->->getMasterPdo()) ?></dd>
 
                         <dt><?php echo Yii::t('backend', 'DB Version') ?></dt>
-                        <dd><?php echo $provider->getDbVersion(Yii::$app->db->pdo) ?></dd>
+                        <dd><?php echo $provider->getDbVersion(Yii::$app->db->->getMasterPdo()) ?></dd>
                     </dl>
                 </div><!-- /.box-body -->
             </div>

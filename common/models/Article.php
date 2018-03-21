@@ -13,31 +13,31 @@ use yii\db\ActiveRecord;
 /**
  * This is the model class for table "article".
  *
- * @property integer $id
- * @property string $slug
- * @property string $title
- * @property string $body
- * @property string $view
- * @property string $thumbnail_base_url
- * @property string $thumbnail_path
- * @property array $attachments
- * @property integer $category_id
- * @property integer $status
- * @property integer $published_at
- * @property integer $created_by
- * @property integer $updated_by
- * @property integer $created_at
- * @property integer $updated_at
+ * @property integer             $id
+ * @property string              $slug
+ * @property string              $title
+ * @property string              $body
+ * @property string              $view
+ * @property string              $thumbnail_base_url
+ * @property string              $thumbnail_path
+ * @property array               $attachments
+ * @property integer             $category_id
+ * @property integer             $status
+ * @property integer             $published_at
+ * @property integer             $created_by
+ * @property integer             $updated_by
+ * @property integer             $created_at
+ * @property integer             $updated_at
  *
- * @property User $author
- * @property User $updater
- * @property ArticleCategory $category
+ * @property User                $author
+ * @property User                $updater
+ * @property ArticleCategory     $category
  * @property ArticleAttachment[] $articleAttachments
  */
 class Article extends ActiveRecord
 {
     const STATUS_PUBLISHED = 1;
-    const STATUS_DRAFT = 0;
+    const STATUS_DRAFT     = 0;
 
     /**
      * @var array
@@ -66,6 +66,17 @@ class Article extends ActiveRecord
     }
 
     /**
+     * @return array statuses list
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+            self::STATUS_PUBLISHED => Yii::t('common', 'Published'),
+        ];
+    }
+
+    /**
      * @inheritdoc
      */
     public function behaviors()
@@ -76,7 +87,7 @@ class Article extends ActiveRecord
             [
                 'class' => SluggableBehavior::class,
                 'attribute' => 'title',
-                'immutable' => true
+                'immutable' => true,
             ],
             [
                 'class' => UploadBehavior::class,
@@ -94,8 +105,8 @@ class Article extends ActiveRecord
                 'class' => UploadBehavior::class,
                 'attribute' => 'thumbnail',
                 'pathAttribute' => 'thumbnail_path',
-                'baseUrlAttribute' => 'thumbnail_base_url'
-            ]
+                'baseUrlAttribute' => 'thumbnail_base_url',
+            ],
         ];
     }
 
@@ -117,7 +128,7 @@ class Article extends ActiveRecord
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
             [['view'], 'string', 'max' => 255],
-            [['attachments', 'thumbnail'], 'safe']
+            [['attachments', 'thumbnail'], 'safe'],
         ];
     }
 
@@ -139,7 +150,7 @@ class Article extends ActiveRecord
             'created_by' => Yii::t('common', 'Author'),
             'updated_by' => Yii::t('common', 'Updater'),
             'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At')
+            'updated_at' => Yii::t('common', 'Updated At'),
         ];
     }
 

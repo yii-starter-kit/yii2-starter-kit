@@ -15,17 +15,17 @@ use yii\bootstrap\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?php echo $form->field($model, 'id') ?>
+    <?= $form->field($model, 'id') ?>
 
-    <?php echo $form->field($model, 'application') ?>
+    <?= $form->field($model, 'application') ?>
 
-    <?php echo $form->field($model, 'event') ?>
+    <?= $form->field($model, 'event') ?>
 
     <div class="form-group">
-        <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end() ?>
 
 </div>

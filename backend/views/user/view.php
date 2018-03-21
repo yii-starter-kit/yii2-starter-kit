@@ -13,8 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="user-view">
 
     <p>
-        <?php echo Html::a(Yii::t('backend', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::a(Yii::t('backend', 'Delete'), ['delete', 'id' => $model->id], [
+        <?= Html::a(Yii::t('backend', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('backend', 'Delete'), ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('backend', 'Are you sure you want to delete this item?'),
@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?php echo DetailView::widget([
+    <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',

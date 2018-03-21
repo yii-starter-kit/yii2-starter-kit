@@ -22,17 +22,17 @@ $searchConditions = $generator->generateSearchConditions();
 echo "<?php\n";
 ?>
 
-namespace <?php echo StringHelper::dirname(ltrim($generator->searchModelClass, '\\')) ?>;
+namespace <?= StringHelper::dirname(ltrim($generator->searchModelClass, '\\')) ?>;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use <?php echo ltrim($generator->modelClass, '\\') . (isset($modelAlias) ? " as $modelAlias" : "") ?>;
+use <?= ltrim($generator->modelClass, '\\') . (isset($modelAlias) ? " as $modelAlias" : "") ?>;
 
 /**
- * <?php echo $searchModelClass ?> represents the model behind the search form about `<?php echo $generator->modelClass ?>`.
+ * <?= $searchModelClass ?> represents the model behind the search form about `<?= $generator->modelClass ?>`.
  */
-class <?php echo $searchModelClass ?> extends <?php echo isset($modelAlias) ? $modelAlias : $modelClass ?>
+class <?= $searchModelClass ?> extends <?= isset($modelAlias) ? $modelAlias : $modelClass ?>
 
 {
     /**
@@ -41,7 +41,7 @@ class <?php echo $searchModelClass ?> extends <?php echo isset($modelAlias) ? $m
     public function rules()
     {
         return [
-            <?php echo implode(",\n            ", $rules) ?>,
+            <?= implode(",\n            ", $rules) ?>,
         ];
     }
 
@@ -63,7 +63,7 @@ class <?php echo $searchModelClass ?> extends <?php echo isset($modelAlias) ? $m
      */
     public function search($params)
     {
-        $query = <?php echo isset($modelAlias) ? $modelAlias : $modelClass ?>::find();
+        $query = <?= isset($modelAlias) ? $modelAlias : $modelClass ?>::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -73,7 +73,7 @@ class <?php echo $searchModelClass ?> extends <?php echo isset($modelAlias) ? $m
             return $dataProvider;
         }
 
-        <?php echo implode("\n        ", $searchConditions) ?>
+        <?= implode("\n        ", $searchConditions) ?>
 
         return $dataProvider;
     }

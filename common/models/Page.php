@@ -33,6 +33,17 @@ class Page extends ActiveRecord
     }
 
     /**
+     * @return array statuses list
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+            self::STATUS_PUBLISHED => Yii::t('common', 'Published'),
+        ];
+    }
+
+    /**
      * @inheritdoc
      */
     public function behaviors()

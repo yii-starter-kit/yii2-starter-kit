@@ -20,25 +20,25 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model <?php echo ltrim($generator->modelClass, '\\') ?> */
+/* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
 /* @var $form yii\bootstrap\ActiveForm */
 ?>
 
-<div class="<?php echo Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
+<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-form">
 
-    <?php echo "<?php " ?>$form = ActiveForm::begin(); ?>
+    <?= "<?php " ?>$form = ActiveForm::begin(); ?>
 
-    <?php echo "<?php echo " ?>$form->errorSummary($model); ?>
+    <?= "<?= " ?>$form->errorSummary($model); ?>
 
 <?php foreach ($generator->getColumnNames() as $attribute) {
     if (in_array($attribute, $safeAttributes)) {
-        echo "    <?php echo " . $generator->generateActiveField($attribute) . " ?>\n\n";
+        echo "    <?= " . $generator->generateActiveField($attribute) . " ?>\n\n";
     }
 } ?>
     <div class="form-group">
-        <?php echo "<?php echo " ?>Html::submitButton($model->isNewRecord ? <?php echo $generator->generateString('Create') ?> : <?php echo $generator->generateString('Update') ?>, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= "<?= " ?>Html::submitButton($model->isNewRecord ? <?= $generator->generateString('Create') ?> : <?= $generator->generateString('Update') ?>, ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
-    <?php echo "<?php " ?>ActiveForm::end(); ?>
+    <?= "<?php " ?>ActiveForm::end(); ?>
 
 </div>

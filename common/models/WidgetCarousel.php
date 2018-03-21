@@ -29,6 +29,17 @@ class WidgetCarousel extends ActiveRecord
     }
 
     /**
+     * @return array statuses list
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+            self::STATUS_ACTIVE => Yii::t('common', 'Active'),
+        ];
+    }
+
+    /**
      * @inheritdoc
      */
     public function behaviors()

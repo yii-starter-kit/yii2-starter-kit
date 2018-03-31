@@ -11,18 +11,18 @@ use yii\db\ActiveRecord;
 /**
  * This is the model class for table "article_category".
  *
- * @property integer $id
- * @property string $slug
- * @property string $title
- * @property integer $status
+ * @property integer         $id
+ * @property string          $slug
+ * @property string          $title
+ * @property integer         $status
  *
- * @property Article[] $articles
+ * @property Article[]       $articles
  * @property ArticleCategory $parent
  */
 class ArticleCategory extends ActiveRecord
 {
     const STATUS_ACTIVE = 1;
-    const STATUS_DRAFT = 0;
+    const STATUS_DRAFT  = 0;
 
     /**
      * @inheritdoc
@@ -40,6 +40,18 @@ class ArticleCategory extends ActiveRecord
         return new ArticleCategoryQuery(get_called_class());
     }
 
+    /**
+     * @return array statuses list
+     */
+    public static function statuses()
+    {
+        return [
+            self::STATUS_DRAFT => Yii::t('common', 'Draft'),
+            self::STATUS_ACTIVE => Yii::t('common', 'Active'),
+        ];
+    }
+
+    /** @inheritdoc */
     public function behaviors()
     {
         return [
@@ -47,8 +59,8 @@ class ArticleCategory extends ActiveRecord
             [
                 'class' => SluggableBehavior::class,
                 'attribute' => 'title',
-                'immutable' => true
-            ]
+                'immutable' => true,
+            ],
         ];
     }
 
@@ -64,7 +76,7 @@ class ArticleCategory extends ActiveRecord
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
             ['status', 'integer'],
-            ['parent_id', 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id']
+            ['parent_id', 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id'],
         ];
     }
 
@@ -78,7 +90,7 @@ class ArticleCategory extends ActiveRecord
             'slug' => Yii::t('common', 'Slug'),
             'title' => Yii::t('common', 'Title'),
             'parent_id' => Yii::t('common', 'Parent Category'),
-            'status' => Yii::t('common', 'Active')
+            'status' => Yii::t('common', 'Active'),
         ];
     }
 

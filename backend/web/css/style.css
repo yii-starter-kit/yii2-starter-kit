@@ -1,0 +1,68 @@
+body {
+  /* add sorting icons to gridview sort links */
+}
+body > .header .logo {
+  font-family: inherit;
+}
+body > .header .navbar .nav > li > a > .badge {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  font-size: 75%;
+}
+body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon,
+body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa,
+body .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion {
+  background: none;
+  color: inherit;
+}
+body .user-panel > .info {
+  padding-left: 10px;
+}
+body a.asc:after,
+body a.desc:after {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  padding-left: 5px;
+}
+body a.asc:after {
+  content: "\e151";
+}
+body a.desc:after {
+  content: "\e152";
+}
+body .sort-numerical a.asc:after {
+  content: "\e153";
+}
+body .sort-numerical a.desc:after {
+  content: "\e154";
+}
+body .sort-ordinal a.asc:after {
+  content: "\e155";
+}
+body .sort-ordinal a.desc:after {
+  content: "\e156";
+}
+body .grid-view th {
+  white-space: nowrap;
+}
+body .hint-block {
+  display: block;
+  margin-top: 5px;
+  color: #999;
+}
+body .error-summary {
+  color: #a94442;
+  background: #fdf7f7;
+  border-left: 3px solid #eed3d7;
+  padding: 10px 20px;
+  margin: 0 0 15px 0;
+}
+body .table .bootstrap-datetimepicker-widget {
+  z-index: 9999;
+}

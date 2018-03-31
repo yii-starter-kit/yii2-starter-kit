@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-assignment-create">
 
-    <?= $this->render('_form', [
+    <?php echo $this->render('_form', [
         'model' => $model,
     ]) ?>
 

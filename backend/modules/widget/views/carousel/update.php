@@ -21,19 +21,19 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <?= $this->render('_form', [
+        <?php echo $this->render('_form', [
             'model' => $model,
         ]) ?>
     </div>
 </div>
 
 <p>
-    <?= Html::a(Yii::t('backend', 'Create {modelClass}', [
+    <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
         'modelClass' => 'Widget Carousel Item',
     ]), ['/widget-carousel-item/create', 'carousel_id' => $model->id], ['class' => 'btn btn-success']) ?>
 </p>
 
-<?= GridView::widget([
+<?php echo GridView::widget([
     'dataProvider' => $carouselItemsProvider,
     'options' => [
         'class' => 'grid-view table-responsive',

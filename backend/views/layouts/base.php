@@ -15,17 +15,17 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
 
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?php echo Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?php echo Yii::$app->charset ?>">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?php echo Html::csrfMetaTags() ?>
+    <title><?php echo Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
 </head>
-<?= Html::beginTag('body', [
+<?php echo Html::beginTag('body', [
     'class' => implode(' ', [
         ArrayHelper::getValue($this->params, 'body-class'),
         Yii::$app->keyStorage->get('backend.theme-skin', 'skin-blue'),
@@ -35,8 +35,8 @@ $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     ])
 ])?>
     <?php $this->beginBody() ?>
-        <?= $content ?>
+        <?php echo $content ?>
     <?php $this->endBody() ?>
-<?= Html::endTag('body') ?>
+<?php echo Html::endTag('body') ?>
 </html>
 <?php $this->endPage() ?>

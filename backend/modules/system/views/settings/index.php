@@ -13,7 +13,7 @@ $this->title = Yii::t('backend', 'Application settings');
 
 ?>
 
-<?= FormWidget::widget([
+<?php echo FormWidget::widget([
     'model' => $model,
     'formClass' => '\yii\bootstrap\ActiveForm',
     'submitText' => Yii::t('backend', 'Save'),

@@ -15,26 +15,26 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model <?= ltrim($generator->modelClass, '\\') ?> */
+/* @var $model <?php echo ltrim($generator->modelClass, '\\') ?> */
 
-$this->title = $model-><?= $generator->getNameAttribute() ?>;
-$this->params['breadcrumbs'][] = ['label' => <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
+$this->title = $model-><?php echo $generator->getNameAttribute() ?>;
+$this->params['breadcrumbs'][] = ['label' => <?php echo $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="<?= Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
+<div class="<?php echo Inflector::camel2id(StringHelper::basename($generator->modelClass)) ?>-view">
 
     <p>
-        <?= "<?= " ?>Html::a(<?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary']) ?>
-        <?= "<?= " ?>Html::a(<?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
+        <?php echo "<?php echo " ?>Html::a(<?php echo $generator->generateString('Update') ?>, ['update', <?php echo $urlParams ?>], ['class' => 'btn btn-primary']) ?>
+        <?php echo "<?php echo " ?>Html::a(<?php echo $generator->generateString('Delete') ?>, ['delete', <?php echo $urlParams ?>], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => <?= $generator->generateString('Are you sure you want to delete this item?') ?>,
+                'confirm' => <?php echo $generator->generateString('Are you sure you want to delete this item?') ?>,
                 'method' => 'post',
             ],
         ]) ?>
     </p>
 
-    <?= "<?= " ?>DetailView::widget([
+    <?php echo "<?php echo " ?>DetailView::widget([
         'model' => $model,
         'attributes' => [
 <?php

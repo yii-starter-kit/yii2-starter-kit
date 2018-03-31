@@ -12,18 +12,18 @@ $this->params['body-class'] = 'login-page';
 ?>
 <div class="login-box">
     <div class="login-logo">
-        <?= Html::encode($this->title) ?>
+        <?php echo Html::encode($this->title) ?>
     </div><!-- /.login-logo -->
     <div class="header"></div>
     <div class="login-box-body">
         <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
         <div class="body">
-            <?= $form->field($model, 'username') ?>
-            <?= $form->field($model, 'password')->passwordInput() ?>
-            <?= $form->field($model, 'rememberMe')->checkbox(['class'=>'simple']) ?>
+            <?php echo $form->field($model, 'username') ?>
+            <?php echo $form->field($model, 'password')->passwordInput() ?>
+            <?php echo $form->field($model, 'rememberMe')->checkbox(['class'=>'simple']) ?>
         </div>
         <div class="footer">
-            <?= Html::submitButton(Yii::t('backend', 'Sign me in'), [
+            <?php echo Html::submitButton(Yii::t('backend', 'Sign me in'), [
                 'class' => 'btn btn-primary btn-flat btn-block',
                 'name' => 'login-button'
             ]) ?>

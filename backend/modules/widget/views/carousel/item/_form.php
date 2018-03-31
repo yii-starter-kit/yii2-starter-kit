@@ -13,20 +13,20 @@ use yii\helpers\Html;
 
 <?php $form = ActiveForm::begin() ?>
 
-<?= $form->errorSummary($model) ?>
+<?php echo $form->errorSummary($model) ?>
 
-<?= $form->field($model, 'image')->widget(
+<?php echo $form->field($model, 'image')->widget(
     \trntv\filekit\widget\Upload::class,
     [
         'url' => ['/file/storage/upload'],
     ]
 ) ?>
 
-<?= $form->field($model, 'order')->textInput() ?>
+<?php echo $form->field($model, 'order')->textInput() ?>
 
-<?= $form->field($model, 'url')->textInput(['maxlength' => 1024]) ?>
+<?php echo $form->field($model, 'url')->textInput(['maxlength' => 1024]) ?>
 
-<?= $form->field($model, 'caption')->widget(
+<?php echo $form->field($model, 'caption')->widget(
     \yii\imperavi\Widget::class,
     [
         'plugins' => ['fullscreen', 'fontcolor', 'video'],
@@ -40,10 +40,10 @@ use yii\helpers\Html;
     ]
 ) ?>
 
-<?= $form->field($model, 'status')->checkbox() ?>
+<?php echo $form->field($model, 'status')->checkbox() ?>
 
 <div class="form-group">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 </div>
 
 <?php ActiveForm::end() ?>

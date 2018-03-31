@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="rbac-auth-assignment-update">
 
-    <?= $this->render('_form', [
+    <?php echo $this->render('_form', [
         'model' => $model,
     ]) ?>
 

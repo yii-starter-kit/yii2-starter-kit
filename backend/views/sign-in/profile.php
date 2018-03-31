@@ -15,25 +15,25 @@ $this->title = Yii::t('backend', 'Edit profile')
 
     <?php $form = ActiveForm::begin() ?>
 
-    <?= $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::class, [
+    <?php echo $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::class, [
         'url'=>['avatar-upload']
     ]) ?>
 
-    <?= $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
+    <?php echo $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'middlename')->textInput(['maxlength' => 255]) ?>
+    <?php echo $form->field($model, 'middlename')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'lastname')->textInput(['maxlength' => 255]) ?>
+    <?php echo $form->field($model, 'lastname')->textInput(['maxlength' => 255]) ?>
 
-    <?= $form->field($model, 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
+    <?php echo $form->field($model, 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
 
-    <?= $form->field($model, 'gender')->dropDownlist([
+    <?php echo $form->field($model, 'gender')->dropDownlist([
         UserProfile::GENDER_FEMALE => Yii::t('backend', 'Female'),
         UserProfile::GENDER_MALE => Yii::t('backend', 'Male')
     ]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end() ?>

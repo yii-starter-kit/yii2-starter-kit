@@ -18,19 +18,19 @@ use yii\helpers\Html;
     'enableAjaxValidation' => true,
 ]) ?>
 
-<?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+<?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'slug')
+<?php echo $form->field($model, 'slug')
     ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
     ->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
+<?php echo $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(
     $categories,
     'id',
     'title'
 ), ['prompt' => '']) ?>
 
-<?= $form->field($model, 'body')->widget(
+<?php echo $form->field($model, 'body')->widget(
     \yii\imperavi\Widget::class,
     [
         'plugins' => ['fullscreen', 'fontcolor', 'video'],
@@ -45,7 +45,7 @@ use yii\helpers\Html;
     ]
 ) ?>
 
-<?= $form->field($model, 'thumbnail')->widget(
+<?php echo $form->field($model, 'thumbnail')->widget(
     Upload::class,
     [
         'url' => ['/file/storage/upload'],
@@ -53,7 +53,7 @@ use yii\helpers\Html;
     ]);
 ?>
 
-<?= $form->field($model, 'attachments')->widget(
+<?php echo $form->field($model, 'attachments')->widget(
     Upload::class,
     [
         'url' => ['/file/storage/upload'],
@@ -63,11 +63,11 @@ use yii\helpers\Html;
     ]);
 ?>
 
-<?= $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
+<?php echo $form->field($model, 'view')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'status')->checkbox() ?>
+<?php echo $form->field($model, 'status')->checkbox() ?>
 
-<?= $form->field($model, 'published_at')->widget(
+<?php echo $form->field($model, 'published_at')->widget(
     DateTimeWidget::class,
     [
         'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ',
@@ -75,7 +75,7 @@ use yii\helpers\Html;
 ) ?>
 
 <div class="form-group">
-    <?= Html::submitButton(
+    <?php echo Html::submitButton(
         $model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'),
         ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
 </div>

@@ -15,7 +15,7 @@ $this->title = $name;
             <div class="error-content text-center">
                 <h3 class="headline">
                     <i class="fa fa-warning text-yellow"></i>
-                    <?= Yii::t(
+                    <?php echo Yii::t(
                         'backend',
                         'Error {code}',
                         [
@@ -24,7 +24,7 @@ $this->title = $name;
                     ?>
                 </h3>
                 <p>
-                    <?= nl2br(Html::encode($message)) ?>
+                    <?php echo nl2br(Html::encode($message)) ?>
                 </p>
             </div>
         </div>

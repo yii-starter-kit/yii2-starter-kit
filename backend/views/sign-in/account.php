@@ -13,16 +13,16 @@ $this->title = Yii::t('backend', 'Edit account')
 
     <?php $form = ActiveForm::begin() ?>
 
-    <?= $form->field($model, 'username') ?>
+    <?php echo $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'email') ?>
+    <?php echo $form->field($model, 'email') ?>
 
-    <?= $form->field($model, 'password')->passwordInput() ?>
+    <?php echo $form->field($model, 'password')->passwordInput() ?>
 
-    <?= $form->field($model, 'password_confirm')->passwordInput() ?>
+    <?php echo $form->field($model, 'password_confirm')->passwordInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end() ?>

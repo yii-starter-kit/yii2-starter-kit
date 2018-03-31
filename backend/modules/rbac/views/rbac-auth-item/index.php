@@ -13,12 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-item-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php echo Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('frontend', 'Create Rbac Auth Item'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::a(Yii::t('frontend', 'Create Rbac Auth Item'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+    <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],

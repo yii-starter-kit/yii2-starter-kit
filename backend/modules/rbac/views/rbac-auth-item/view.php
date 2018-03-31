@@ -12,11 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-item-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php echo Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a(Yii::t('frontend', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('frontend', 'Delete'), ['delete', 'id' => $model->name], [
+        <?php echo Html::a(Yii::t('frontend', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>
+        <?php echo Html::a(Yii::t('frontend', 'Delete'), ['delete', 'id' => $model->name], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('frontend', 'Are you sure you want to delete this item?'),
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?php echo DetailView::widget([
         'model' => $model,
         'attributes' => [
             'name',

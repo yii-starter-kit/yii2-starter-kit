@@ -24,15 +24,15 @@ $bundle = BackendAsset::register($this);
 <div class="wrapper">
     <!-- header logo: style can be found in header.less -->
     <header class="main-header">
-        <a href="<?= Yii::$app->urlManagerFrontend->createAbsoluteUrl('/') ?>" class="logo">
+        <a href="<?php echo Yii::$app->urlManagerFrontend->createAbsoluteUrl('/') ?>" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
-            <?= Yii::$app->name ?>
+            <?php echo Yii::$app->name ?>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only"><?= Yii::t('backend', 'Toggle navigation') ?></span>
+                <span class="sr-only"><?php echo Yii::t('backend', 'Toggle navigation') ?></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -40,10 +40,10 @@ $bundle = BackendAsset::register($this);
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <li id="timeline-notifications" class="notifications-menu">
-                        <a href="<?= Url::to(['/timeline-event/index']) ?>">
+                        <a href="<?php echo Url::to(['/timeline-event/index']) ?>">
                             <i class="fa fa-bell"></i>
                             <span class="label label-success">
-                                    <?= TimelineEvent::find()->today()->count() ?>
+                                    <?php echo TimelineEvent::find()->today()->count() ?>
                                 </span>
                         </a>
                     </li>
@@ -52,63 +52,63 @@ $bundle = BackendAsset::register($this);
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-warning"></i>
                             <span class="label label-danger">
-                                <?= SystemLog::find()->count() ?>
+                                <?php echo SystemLog::find()->count() ?>
                             </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li class="header"><?= Yii::t('backend', 'You have {num} log items', ['num' => SystemLog::find()->count()]) ?></li>
+                            <li class="header"><?php echo Yii::t('backend', 'You have {num} log items', ['num' => SystemLog::find()->count()]) ?></li>
                             <li>
                                 <!-- inner menu: contains the actual data -->
                                 <ul class="menu">
                                     <?php foreach (SystemLog::find()->orderBy(['log_time' => SORT_DESC])->limit(5)->all() as $logEntry): ?>
                                         <li>
-                                            <a href="<?= Yii::$app->urlManager->createUrl(['/log/view', 'id' => $logEntry->id]) ?>">
-                                                <i class="fa fa-warning <?= $logEntry->level === Logger::LEVEL_ERROR ? 'text-red' : 'text-yellow' ?>"></i>
-                                                <?= $logEntry->category ?>
+                                            <a href="<?php echo Yii::$app->urlManager->createUrl(['/log/view', 'id' => $logEntry->id]) ?>">
+                                                <i class="fa fa-warning <?php echo $logEntry->level === Logger::LEVEL_ERROR ? 'text-red' : 'text-yellow' ?>"></i>
+                                                <?php echo $logEntry->category ?>
                                             </a>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
                             </li>
                             <li class="footer">
-                                <?= Html::a(Yii::t('backend', 'View all'), ['/log/index']) ?>
+                                <?php echo Html::a(Yii::t('backend', 'View all'), ['/log/index']) ?>
                             </li>
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?= Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
+                            <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
                                  class="user-image">
-                            <span><?= Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                            <span><?php echo Yii::$app->user->identity->username ?> <i class="caret"></i></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header light-blue">
-                                <img src="<?= Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
+                                <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
                                      class="img-circle" alt="User Image"/>
                                 <p>
-                                    <?= Yii::$app->user->identity->username ?>
+                                    <?php echo Yii::$app->user->identity->username ?>
                                     <small>
-                                        <?= Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
+                                        <?php echo Yii::t('backend', 'Member since {0, date, short}', Yii::$app->user->identity->created_at) ?>
                                     </small>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <?= Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class' => 'btn btn-default btn-flat']) ?>
+                                    <?php echo Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class' => 'btn btn-default btn-flat']) ?>
                                 </div>
                                 <div class="pull-left">
-                                    <?= Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class' => 'btn btn-default btn-flat']) ?>
+                                    <?php echo Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class' => 'btn btn-default btn-flat']) ?>
                                 </div>
                                 <div class="pull-right">
-                                    <?= Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class' => 'btn btn-default btn-flat', 'data-method' => 'post']) ?>
+                                    <?php echo Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class' => 'btn btn-default btn-flat', 'data-method' => 'post']) ?>
                                 </div>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <?= Html::a('<i class="fa fa-cogs"></i>', ['/system/settings']) ?>
+                        <?php echo Html::a('<i class="fa fa-cogs"></i>', ['/system/settings']) ?>
                     </li>
                 </ul>
             </div>
@@ -121,19 +121,19 @@ $bundle = BackendAsset::register($this);
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
+                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
                          class="img-circle"/>
                 </div>
                 <div class="pull-left info">
-                    <p><?= Yii::t('backend', 'Hello, {username}', ['username' => Yii::$app->user->identity->getPublicIdentity()]) ?></p>
-                    <a href="<?= Url::to(['/sign-in/profile']) ?>">
+                    <p><?php echo Yii::t('backend', 'Hello, {username}', ['username' => Yii::$app->user->identity->getPublicIdentity()]) ?></p>
+                    <a href="<?php echo Url::to(['/sign-in/profile']) ?>">
                         <i class="fa fa-circle text-success"></i>
-                        <?= Yii::$app->formatter->asDatetime(time()) ?>
+                        <?php echo Yii::$app->formatter->asDatetime(time()) ?>
                     </a>
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
-            <?= Menu::widget([
+            <?php echo Menu::widget([
                 'options' => ['class' => 'sidebar-menu'],
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'submenuTemplate' => "\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
@@ -309,13 +309,13 @@ $bundle = BackendAsset::register($this);
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?= $this->title ?>
+                <?php echo $this->title ?>
                 <?php if (isset($this->params['subtitle'])): ?>
-                    <small><?= $this->params['subtitle'] ?></small>
+                    <small><?php echo $this->params['subtitle'] ?></small>
                 <?php endif; ?>
             </h1>
 
-            <?= Breadcrumbs::widget([
+            <?php echo Breadcrumbs::widget([
                 'tag' => 'ol',
                 'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
             ]) ?>
@@ -324,12 +324,12 @@ $bundle = BackendAsset::register($this);
         <!-- Main content -->
         <section class="content">
             <?php if (Yii::$app->session->hasFlash('alert')): ?>
-                <?= Alert::widget([
+                <?php echo Alert::widget([
                     'body' => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),
                     'options' => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
                 ]) ?>
             <?php endif; ?>
-            <?= $content ?>
+            <?php echo $content ?>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
 </div><!-- ./wrapper -->

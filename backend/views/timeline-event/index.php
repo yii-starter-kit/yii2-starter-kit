@@ -20,7 +20,7 @@ $icons = [
                         <!-- timeline time label -->
                         <li class="time-label">
                             <span class="bg-blue">
-                                <?= Yii::$app->formatter->asDate($model->created_at) ?>
+                                <?php echo Yii::$app->formatter->asDate($model->created_at) ?>
                             </span>
                         </li>
                         <?php $date = Yii::$app->formatter->asDate($model->created_at) ?>
@@ -42,11 +42,11 @@ $icons = [
                 </li>
             </ul>
         <?php else: ?>
-            <?= Yii::t('backend', 'No events found') ?>
+            <?php echo Yii::t('backend', 'No events found') ?>
         <?php endif; ?>
     </div>
     <div class="col-md-12 text-center">
-        <?= \yii\widgets\LinkPager::widget([
+        <?php echo \yii\widgets\LinkPager::widget([
             'pagination'=>$dataProvider->pagination,
             'options' => ['class' => 'pagination']
         ]) ?>

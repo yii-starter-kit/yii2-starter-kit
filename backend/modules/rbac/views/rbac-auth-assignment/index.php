@@ -13,12 +13,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
     <p>
-        <?= Html::a(Yii::t('app', 'Create {modelClass}', [
+        <?php echo Html::a(Yii::t('app', 'Create {modelClass}', [
     'modelClass' => 'Rbac Auth Assignment',
 ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
+    <?php echo GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],

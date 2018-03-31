@@ -22,13 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <p>
-    <?= Html::a(
+    <?php echo Html::a(
         Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Article']),
         ['create'],
         ['class' => 'btn btn-success']) ?>
 </p>
 
-<?= GridView::widget([
+<?php echo GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'options' => [

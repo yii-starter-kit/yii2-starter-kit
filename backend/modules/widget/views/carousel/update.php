@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 <p>
     <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
         'modelClass' => 'Widget Carousel Item',
-    ]), ['/widget-carousel-item/create', 'carousel_id' => $model->id], ['class' => 'btn btn-success']) ?>
+    ]), ['carousel-item/create', 'carousel_id' => $model->id], ['class' => 'btn btn-success']) ?>
 </p>
 
 <?php echo GridView::widget([

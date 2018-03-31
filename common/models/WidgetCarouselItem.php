@@ -92,6 +92,7 @@ class WidgetCarouselItem extends ActiveRecord
             [['carousel_id', 'status', 'order'], 'integer'],
             [['url', 'caption', 'base_url', 'path'], 'string', 'max' => 1024],
             [['type'], 'string', 'max' => 255],
+            ['image', 'required', 'when' => function($model) { return $model->getIsNewRecord(); }],
             ['image', 'safe']
         ];
     }

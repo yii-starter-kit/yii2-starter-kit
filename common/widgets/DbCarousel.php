@@ -5,6 +5,7 @@
 
 namespace common\widgets;
 
+use cheatsheet\Time;
 use common\models\WidgetCarousel;
 use common\models\WidgetCarouselItem;
 use Yii;
@@ -44,7 +45,7 @@ class DbCarousel extends Carousel
     public function init()
     {
         if (!$this->key) {
-            throw new InvalidConfigException;
+            throw new InvalidConfigException("key should be set");
         }
         $this->assetManager = Instance::ensure($this->assetManager, AssetManager::class);
         $cacheKey = [
@@ -77,7 +78,7 @@ class DbCarousel extends Carousel
                     $items[$k]['caption'] = $item->caption;
                 }
             }
-            Yii::$app->cache->set($cacheKey, $items, 60 * 60 * 24 * 365);
+            Yii::$app->cache->set($cacheKey, $items, Time::SECONDS_IN_A_YEAR);
         }
         $this->items = $items;
         parent::init();

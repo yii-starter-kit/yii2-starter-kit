@@ -75,18 +75,21 @@
     }
   ],
   "scripts": {
+    "build-env": [
+      "cp .env.dist .env"
+    ],
     "build": [
+      "@build-env",
       "@composer install",
-      "cp .env.dist .env",
-      "docker-compose run -T --rm webpacker npm install",
-      "docker-compose run -T --rm webpacker npm run build"
+      "console/yii app/setup --interactive=0"
     ],
     "docker:build": [
-      "@build",
+      "@build-env",
       "docker-compose up --force-recreate -d",
       "sleep 5",
-      "docker-compose exec -T app console/yii app/setup --interactive=0",
-      "docker-compose exec -T app echo \"Visit ${FRONTEND_HOST_INFO}\""
+      "docker-compose exec -T app composer run-script build",
+      "docker-compose run -T --rm webpacker npm run build",
+      "echo \"All ok!\""
     ],
     "docker:cleanup": [
       "docker-compose rm -fsv"

@@ -21,6 +21,8 @@ services:
 
   db:
     image: mysql:8
+    volumes:
+      - ./mysql/config.cnf:/etc/mysql/conf.d/config.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: yii2-starter-kit

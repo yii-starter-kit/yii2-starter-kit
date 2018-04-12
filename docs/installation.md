@@ -38,13 +38,13 @@ composer install
 You can install this application template with `composer` using the following command:
 
 ```
-composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
+composer create-project trntv/yii2-starter-kit myproject.com
 ```
 
 ## Docker installation
 1. Install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/) to your system
 2. Run ``composer run-script docker:build``
-3. That's all - your application is accessible on http://yii2-starter-kit.localhost
+3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
  * - docker host IP address may vary on Windows and MacOS systems
  
@@ -53,11 +53,11 @@ composer create-project --prefer-dist --stability=dev trntv/yii2-starter-kit
 ### Docker FAQ
 1. How do i run yii console commands from outside a container?
 
-`docker-compose exec app console/yii help`
+``docker-compose exec app console/yii help``
 
-`docker-compose exec app console/yii migrate`
+``docker-compose exec app console/yii migrate``
 
-`docker-compose exec app console/yii rbac-migrate`
+``docker-compose exec app console/yii rbac-migrate``
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, password - `root`
@@ -65,11 +65,10 @@ MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, 
 ## Manual installation
 
 ### REQUIREMENTS
-The minimum requirement by this application template that your Web server supports PHP 5.6.0.
+The minimum requirement by this application template that your Web server supports PHP 7.
 Required PHP extensions:
 - intl
 - gd
-- mcrypt
 - com_dotnet (for Windows)
 
 ### Setup application

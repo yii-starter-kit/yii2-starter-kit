@@ -43,8 +43,8 @@ $bundle = BackendAsset::register($this);
                         <a href="<?php echo Url::to(['/timeline-event/index']) ?>">
                             <i class="fa fa-bell"></i>
                             <span class="label label-success">
-                                    <?php echo TimelineEvent::find()->today()->count() ?>
-                                </span>
+                                <?php echo TimelineEvent::find()->today()->count() ?>
+                            </span>
                         </a>
                     </li>
                     <!-- Notifications: style can be found in dropdown.less -->
@@ -216,7 +216,7 @@ $bundle = BackendAsset::register($this);
                         ],
                     ],
                     [
-                        'label' => Yii::t('backend', 'System'),
+                        'label' => Yii::t('backend', 'Translation'),
                         'options' => ['class' => 'header'],
                     ],
                     [
@@ -224,6 +224,10 @@ $bundle = BackendAsset::register($this);
                         'url' => ['/translation/default/index'],
                         'icon' => '<i class="fa fa-language"></i>',
                         'active' => (Yii::$app->controller->module->id == 'translation'),
+                    ],
+                    [
+                        'label' => Yii::t('backend', 'System'),
+                        'options' => ['class' => 'header'],
                     ],
                     [
                         'label' => Yii::t('backend', 'RBAC Rules'),

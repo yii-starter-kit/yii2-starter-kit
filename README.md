@@ -33,6 +33,18 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [How to contribute?](#how-to-contribute)
 - [Have any questions?](#have-any-questions)
 
+## Quickstart
+1. [Install composer](https://getcomposer.org)
+2. [Install docker](https://docs.docker.com/install/)
+3. [Install docker-compose](https://docs.docker.com/compose/install/)
+4. Run 
+    ```bash
+    composer create-project trntv/yii2-starter-kit myproject.com --ignore-platform-reqs
+    cd myproject.com
+    composer run-script docker:build
+    ```
+5. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
+
 ## FEATURES
 ### Admin backend
 - Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)

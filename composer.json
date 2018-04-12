@@ -86,8 +86,9 @@
     "docker:build": [
       "@build-env",
       "docker-compose up --force-recreate -d",
-      "sleep 5",
+      "sleep 10",
       "docker-compose exec -T app composer run-script build",
+      "docker-compose run -T --rm webpacker npm install",
       "docker-compose run -T --rm webpacker npm run build",
       "echo \"All ok!\""
     ],

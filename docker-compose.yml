@@ -36,7 +36,7 @@ services:
       - 1080:1080
 
   db:
-    image: mysql:8
+    image: mysql:5.7
     volumes:
       - /var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf

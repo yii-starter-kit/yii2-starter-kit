@@ -3,21 +3,6 @@ $config = [
     'homeUrl' => Yii::getAlias('@backendUrl'),
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'timeline-event/index',
-    'controllerMap' => [
-        'file-manager-elfinder' => [
-            'class' => mihaildev\elfinder\Controller::class,
-            'access' => ['manager'],
-            'disabledCommands' => ['netmount'],
-            'roots' => [
-                [
-                    'baseUrl' => '@storageUrl',
-                    'basePath' => '@storage',
-                    'path' => '/',
-                    'access' => ['read' => 'manager', 'write' => 'manager'],
-                ],
-            ],
-        ],
-    ],
     'components' => [
         'errorHandler' => [
             'errorAction' => 'site/error',

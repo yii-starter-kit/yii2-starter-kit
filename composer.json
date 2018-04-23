@@ -32,7 +32,6 @@
     "yiisoft/yii2-authclient": "^2.0.0",
     "yiisoft/yii2-jui": "^2.0.0",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
-    "mihaildev/yii2-elfinder": "^1.0",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
     "trntv/yii2-file-kit": "^1.0.0",
@@ -48,7 +47,8 @@
     "bower-asset/jquery-slimscroll": "^1.3",
     "bower-asset/flot": "^0.8",
     "symfony/process": "^4.0",
-    "guzzlehttp/guzzle": "^6.0"
+    "guzzlehttp/guzzle": "^6.0",
+    "alexantr/yii2-elfinder": "^1.3"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3202ccfc82fe79957799409b4c17b4d",
+    "content-hash": "5439654c1a4748ec93b37d97f5bb1579",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -1739,32 +1739,31 @@
         },
         {
             "name": "trntv/yii2-command-bus",
-            "version": "2.1.3",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/yii2-command-bus.git",
-                "reference": "f7565f31c666b5c663a95796e5cb2b17561f6103"
+                "reference": "582f8f29c14fb612426acf931f6a2ce6ed396d09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-command-bus/zipball/f7565f31c666b5c663a95796e5cb2b17561f6103",
-                "reference": "f7565f31c666b5c663a95796e5cb2b17561f6103",
+                "url": "https://api.github.com/repos/trntv/yii2-command-bus/zipball/582f8f29c14fb612426acf931f6a2ce6ed396d09",
+                "reference": "582f8f29c14fb612426acf931f6a2ce6ed396d09",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "^2.0"
+                "yiisoft/yii2": "^2.0",
+                "yiisoft/yii2-queue": "^2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.8",
                 "predis/predis": "^1.0",
                 "symfony/process": "^3.0",
-                "yiisoft/yii2-dev": "^2.0",
-                "yiisoft/yii2-queue": "dev-master@dev"
+                "yiisoft/yii2-dev": "^2.0"
             },
             "suggest": {
-                "ext-pcntl": "*",
                 "symfony/process": "^3.0",
-                "yiisoft/yii2-queue": "dev-master@dev"
+                "yiisoft/yii2-queue": "^2.0"
             },
             "type": "yii2-extension",
             "autoload": {
@@ -1784,13 +1783,12 @@
             ],
             "description": "Yii2 Command Bus extension",
             "keywords": [
-                "active-record",
-                "cache",
-                "redis",
-                "session",
+                "command bus",
+                "extension",
+                "queue",
                 "yii2"
             ],
-            "time": "2017-01-20T11:43:28+00:00"
+            "time": "2018-04-23T11:50:30+00:00"
         },
         {
             "name": "trntv/yii2-datetime-widget",
@@ -2337,6 +2335,86 @@
                 "yii2"
             ],
             "time": "2017-11-25T15:32:29+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-queue",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-queue.git",
+                "reference": "8c2b337f7d9ea934c2affdfc21c9fb387d0a0773"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-queue/zipball/8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
+                "reference": "8c2b337f7d9ea934c2affdfc21c9fb387d0a0773",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "symfony/process": "*",
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "require-dev": {
+                "enqueue/amqp-lib": "^0.8",
+                "jeremeamia/superclosure": "*",
+                "pda/pheanstalk": "*",
+                "php-amqplib/php-amqplib": "*",
+                "phpunit/phpunit": "~4.4",
+                "yiisoft/yii2-debug": "*",
+                "yiisoft/yii2-gii": "*",
+                "yiisoft/yii2-redis": "*"
+            },
+            "suggest": {
+                "enqueue/amqp-lib": "Need for AMQP interop queue.",
+                "ext-gearman": "Need for Gearman queue.",
+                "ext-pcntl": "Need for process signals.",
+                "pda/pheanstalk": "Need for Beanstalk queue.",
+                "php-amqplib/php-amqplib": "Need for AMQP queue.",
+                "yiisoft/yii2-redis": "Need for Redis queue."
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\queue\\": "src",
+                    "yii\\queue\\amqp\\": "src/drivers/amqp",
+                    "yii\\queue\\amqp_interop\\": "src/drivers/amqp_interop",
+                    "yii\\queue\\beanstalk\\": "src/drivers/beanstalk",
+                    "yii\\queue\\db\\": "src/drivers/db",
+                    "yii\\queue\\file\\": "src/drivers/file",
+                    "yii\\queue\\gearman\\": "src/drivers/gearman",
+                    "yii\\queue\\redis\\": "src/drivers/redis",
+                    "yii\\queue\\sync\\": "src/drivers/sync"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Zhuravlev",
+                    "email": "zhuravljov@gmail.com"
+                }
+            ],
+            "description": "Yii2 Queue Extension which supported DB, Redis, RabbitMQ, Beanstalk and Gearman",
+            "keywords": [
+                "async",
+                "beanstalk",
+                "db",
+                "gearman",
+                "gii",
+                "queue",
+                "rabbitmq",
+                "redis",
+                "yii"
+            ],
+            "time": "2017-12-26T17:16:14+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",

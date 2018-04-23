@@ -78,19 +78,17 @@
     "build-env": [
       "cp .env.dist .env"
     ],
-    "build": [
-      "@build-env",
-      "@composer install",
-      "console/yii app/setup --interactive=0"
-    ],
     "docker:build": [
       "@build-env",
-      "docker-compose up --force-recreate -d",
-      "sleep 10",
-      "docker-compose exec -T app composer run-script build",
+      "@docker:start",
+      "docker-compose exec -T app composer install",
+      "docker-compose exec -T app console/yii app/setup --interactive=0",
       "docker-compose run -T --rm webpacker npm install",
       "docker-compose run -T --rm webpacker npm run build",
       "echo \"All ok!\""
+    ],
+    "docker:start": [
+      "docker-compose up --force-recreate -d"
     ],
     "docker:cleanup": [
       "docker-compose rm -fsv"

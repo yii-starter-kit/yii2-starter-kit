@@ -9,8 +9,10 @@ docker-compose up -d
 ```
 docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci" 
 ```
-
-3. Adjust `.env` file to set `TEST_DB_DSN`, `TEST_DB_USER` and `TEST_DB_PASSWORD` params
+3. Build needed files
+```
+docker-compose exec app ./vendor/bin/codecept build
+```
 4. Setup application:
 ```
 docker-compose exec app php tests/bin/yii app/setup --interactive=0

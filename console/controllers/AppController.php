@@ -12,6 +12,7 @@ use yii\helpers\Console;
  */
 class AppController extends Controller
 {
+    /** @var array */
     public $writablePaths = [
         '@common/runtime',
         '@frontend/runtime',
@@ -19,13 +20,19 @@ class AppController extends Controller
         '@backend/runtime',
         '@backend/web/assets',
         '@storage/cache',
-        '@storage/web/source'
+        '@storage/web/source',
+        '@api/runtime',
     ];
+
+    /** @var array */
     public $executablePaths = [
         '@backend/yii',
         '@frontend/yii',
         '@console/yii',
+        '@api/yii',
     ];
+
+    /** @var array */
     public $generateKeysPaths = [
         '@base/.env'
     ];

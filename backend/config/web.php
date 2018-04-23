@@ -36,7 +36,7 @@ $config = [
     ],
     'modules' => [
         'article' => [
-            'class' => backend\modules\article\Module::class,
+            'class' => backend\modules\content\Module::class,
         ],
         'widget' => [
             'class' => backend\modules\widget\Module::class,

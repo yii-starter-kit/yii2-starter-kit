@@ -25,6 +25,7 @@ install:
 before_script:
   - docker-compose exec -T app php console/yii app/setup --interactive=0
   - docker-compose exec -T app php console/yii app/truncate --interactive=0
+  - docker-compose exec -T app ./vendor/bin/codecept build
 
 script:
   - docker-compose exec -T app php -S 127.0.0.1:8080 > /dev/null 2>&1 &

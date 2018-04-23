@@ -62,7 +62,7 @@ $bundle = BackendAsset::register($this);
                                 <ul class="menu">
                                     <?php foreach (SystemLog::find()->orderBy(['log_time' => SORT_DESC])->limit(5)->all() as $logEntry): ?>
                                         <li>
-                                            <a href="<?php echo Yii::$app->urlManager->createUrl(['/log/view', 'id' => $logEntry->id]) ?>">
+                                            <a href="<?php echo Yii::$app->urlManager->createUrl(['/system/log/view', 'id' => $logEntry->id]) ?>">
                                                 <i class="fa fa-warning <?php echo $logEntry->level === Logger::LEVEL_ERROR ? 'text-red' : 'text-yellow' ?>"></i>
                                                 <?php echo $logEntry->category ?>
                                             </a>
@@ -71,7 +71,7 @@ $bundle = BackendAsset::register($this);
                                 </ul>
                             </li>
                             <li class="footer">
-                                <?php echo Html::a(Yii::t('backend', 'View all'), ['/log/index']) ?>
+                                <?php echo Html::a(Yii::t('backend', 'View all'), ['/system/log/index']) ?>
                             </li>
                         </ul>
                     </li>

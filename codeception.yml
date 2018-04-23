@@ -3,6 +3,7 @@ include:
   - tests/console
   - tests/backend
   - tests/frontend
+  - tests/api
 
 paths:
   log: tests/_output

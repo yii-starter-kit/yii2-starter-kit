@@ -1,0 +1,9 @@
+class_name: FunctionalTester
+modules:
+    enabled:
+      - Filesystem
+      - Yii2
+      - tests\common\_support\FixtureHelper
+    config:
+      Yii2:
+         configFile: '../config/api/functional.php'

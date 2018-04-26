@@ -20,7 +20,7 @@ $config = [
         ],
     ],
     'modules' => [
-        'article' => [
+        'content' => [
             'class' => backend\modules\content\Module::class,
         ],
         'widget' => [

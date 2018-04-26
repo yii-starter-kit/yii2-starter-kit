@@ -35,7 +35,7 @@
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
     "trntv/yii2-file-kit": "^1.0.0",
-    "trntv/yii2-glide": "^1.0.0",
+    "trntv/yii2-glide": "^1.2",
     "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
@@ -75,14 +75,17 @@
     }
   ],
   "scripts": {
-    "build-env": [
+    "build:env": [
       "cp .env.dist .env"
     ],
+    "build:app": [
+      "@composer install",
+      "console/yii app/setup --interactive=0"
+    ],
     "docker:build": [
-      "@build-env",
+      "@build:env",
       "@docker:start",
-      "docker-compose exec -T app composer install",
-      "docker-compose exec -T app console/yii app/setup --interactive=0",
+      "docker-compose exec -T app composer run-script build:app",
       "docker-compose run -T --rm webpacker npm install",
       "docker-compose run -T --rm webpacker npm run build",
       "echo \"All ok!\""

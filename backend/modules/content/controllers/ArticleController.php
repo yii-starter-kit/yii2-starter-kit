@@ -2,7 +2,7 @@
 
 namespace backend\modules\content\controllers;
 
-use backend\modules\article\models\search\ArticleSearch;
+use backend\modules\content\models\search\ArticleSearch;
 use common\models\Article;
 use common\models\ArticleCategory;
 use common\traits\FormAjaxValidationTrait;

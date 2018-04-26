@@ -11,7 +11,7 @@ use yii\web\JsExpression;
 
 /**
  * @var $this         yii\web\View
- * @var $searchModel  backend\modules\article\models\search\ArticleSearch
+ * @var $searchModel  backend\modules\content\models\search\ArticleSearch
  * @var $dataProvider yii\data\ActiveDataProvider
  */
 

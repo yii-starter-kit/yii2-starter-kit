@@ -2,7 +2,7 @@
 
 namespace backend\modules\content\controllers;
 
-use backend\modules\article\models\search\ArticleCategorySearch;
+use backend\modules\content\models\search\ArticleCategorySearch;
 use common\models\ArticleCategory;
 use common\traits\FormAjaxValidationTrait;
 use Yii;

@@ -163,7 +163,7 @@ $bundle = BackendAsset::register($this);
                     ],
                     [
                         'label' => Yii::t('backend', 'Static pages'),
-                        'url' => ['/page/index'],
+                        'url' => ['/content/page/index'],
                         'icon' => '<i class="fa fa-thumb-tack"></i>',
                         'active' => (Yii::$app->controller->id == 'page'),
                     ],
@@ -176,13 +176,13 @@ $bundle = BackendAsset::register($this);
                         'items' => [
                             [
                                 'label' => Yii::t('backend', 'Articles'),
-                                'url' => ['/article/default/index'],
+                                'url' => ['/content/article/index'],
                                 'icon' => '<i class="fa fa-file-o"></i>',
                                 'active' => (Yii::$app->controller->id == 'default'),
                             ],
                             [
                                 'label' => Yii::t('backend', 'Categories'),
-                                'url' => ['/article/category/index'],
+                                'url' => ['/content/category/index'],
                                 'icon' => '<i class="fa fa-folder-open-o"></i>',
                                 'active' => (Yii::$app->controller->id == 'category'),
                             ],

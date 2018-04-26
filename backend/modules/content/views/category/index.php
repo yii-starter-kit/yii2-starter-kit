@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 /**
  * @var $this         yii\web\View
- * @var $searchModel  backend\modules\article\models\search\ArticleCategorySearch
+ * @var $searchModel  backend\modules\content\models\search\ArticleCategorySearch
  * @var $dataProvider yii\data\ActiveDataProvider
  * @var $model        ArticleCategory
  * @var $categories   common\models\ArticleCategory[]

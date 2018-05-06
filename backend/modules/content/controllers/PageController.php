@@ -2,7 +2,7 @@
 
 namespace backend\modules\content\controllers;
 
-use backend\models\search\PageSearch;
+use backend\modules\content\models\search\PageSearch;
 use common\models\Page;
 use common\traits\FormAjaxValidationTrait;
 use Yii;

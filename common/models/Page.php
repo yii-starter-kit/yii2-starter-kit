@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\models\query\PageQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -30,6 +31,14 @@ class Page extends ActiveRecord
     public static function tableName()
     {
         return '{{%page}}';
+    }
+
+    /**
+     * @return PageQuery
+     */
+    public static function find()
+    {
+        return new PageQuery(get_called_class());
     }
 
     /**

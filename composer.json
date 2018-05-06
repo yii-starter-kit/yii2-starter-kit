@@ -48,7 +48,8 @@
     "bower-asset/flot": "^0.8",
     "symfony/process": "^4.0",
     "guzzlehttp/guzzle": "^6.0",
-    "alexantr/yii2-elfinder": "^1.3"
+    "alexantr/yii2-elfinder": "^1.3",
+    "trntv/sitemaped": "^0.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",

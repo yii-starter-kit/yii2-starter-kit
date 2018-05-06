@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3739caeb5270f21647b973f6a43ae366",
+    "content-hash": "bbf5d72df9a3644a68ef747bdb2b76db",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -1687,16 +1687,16 @@
         },
         {
             "name": "studio-42/elfinder",
-            "version": "2.1.37",
+            "version": "2.1.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Studio-42/elFinder.git",
-                "reference": "a2f2bc903ccd9e60e6c4a237f92ddc813adef179"
+                "reference": "e5d1221cd876e8cca146886c590a08d721e00b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/a2f2bc903ccd9e60e6c4a237f92ddc813adef179",
-                "reference": "a2f2bc903ccd9e60e6c4a237f92ddc813adef179",
+                "url": "https://api.github.com/repos/Studio-42/elFinder/zipball/e5d1221cd876e8cca146886c590a08d721e00b4f",
+                "reference": "e5d1221cd876e8cca146886c590a08d721e00b4f",
                 "shasum": ""
             },
             "require": {
@@ -1741,7 +1741,7 @@
             ],
             "description": "File manager for web",
             "homepage": "http://elfinder.org",
-            "time": "2018-03-28T05:39:24+00:00"
+            "time": "2018-05-05T04:45:26+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -1800,16 +1800,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v3.4.8",
+            "version": "v3.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "b11e6d165ff4cbf5685d185ab19a90f2f3bb7d1e"
+                "reference": "edc43b1a50402bb06b5111eb86b275c87a93e373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/b11e6d165ff4cbf5685d185ab19a90f2f3bb7d1e",
-                "reference": "b11e6d165ff4cbf5685d185ab19a90f2f3bb7d1e",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/edc43b1a50402bb06b5111eb86b275c87a93e373",
+                "reference": "edc43b1a50402bb06b5111eb86b275c87a93e373",
                 "shasum": ""
             },
             "require": {
@@ -1850,20 +1850,20 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:22:50+00:00"
+            "time": "2018-04-30T01:05:13+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
+                "reference": "3296adf6a6454a050679cde90f95350ad604b171"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
-                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/3296adf6a6454a050679cde90f95350ad604b171",
+                "reference": "3296adf6a6454a050679cde90f95350ad604b171",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1875,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1909,20 +1909,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T19:27:44+00:00"
+            "time": "2018-04-26T10:06:28+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f"
+                "reference": "77454693d8f10dd23bb24955cffd2d82db1007a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/3532bfcd8f933a7816f3a0a59682fc404776600f",
-                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/77454693d8f10dd23bb24955cffd2d82db1007a6",
+                "reference": "77454693d8f10dd23bb24955cffd2d82db1007a6",
                 "shasum": ""
             },
             "require": {
@@ -1932,7 +1932,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7-dev"
+                    "dev-master": "1.8-dev"
                 }
             },
             "autoload": {
@@ -1968,11 +1968,11 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T19:27:44+00:00"
+            "time": "2018-04-26T10:06:28+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -2054,16 +2054,16 @@
         },
         {
             "name": "trntv/probe",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/trntv/probe.git",
-                "reference": "8a5d6352af261f7d614d23064f474ece7095f370"
+                "reference": "286cb379ef6e4da67fe03ef118415dcd3ee2d439"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/probe/zipball/8a5d6352af261f7d614d23064f474ece7095f370",
-                "reference": "8a5d6352af261f7d614d23064f474ece7095f370",
+                "url": "https://api.github.com/repos/trntv/probe/zipball/286cb379ef6e4da67fe03ef118415dcd3ee2d439",
+                "reference": "286cb379ef6e4da67fe03ef118415dcd3ee2d439",
                 "shasum": ""
             },
             "require-dev": {
@@ -2086,20 +2086,62 @@
                 }
             ],
             "description": "System information provider",
-            "time": "2017-02-23T07:47:00+00:00"
+            "time": "2018-05-04T09:06:42+00:00"
         },
         {
-            "name": "trntv/yii2-aceeditor",
-            "version": "2.1.1",
+            "name": "trntv/sitemaped",
+            "version": "0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/trntv/yii2-aceeditor.git",
-                "reference": "f40618ad5a31e811cfce166bff9fc3f1e4de666a"
+                "url": "https://github.com/trntv/sitemaped.git",
+                "reference": "e27164d58d56c27c53415d680089e762b90b125f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/trntv/yii2-aceeditor/zipball/f40618ad5a31e811cfce166bff9fc3f1e4de666a",
-                "reference": "f40618ad5a31e811cfce166bff9fc3f1e4de666a",
+                "url": "https://api.github.com/repos/trntv/sitemaped/zipball/e27164d58d56c27c53415d680089e762b90b125f",
+                "reference": "e27164d58d56c27c53415d680089e762b90b125f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.1"
+            },
+            "suggest": {
+                "ext-zlib": "@stable"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sitemaped\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Terentev",
+                    "email": "eugene@terentev.net"
+                }
+            ],
+            "description": "PHP Sitemap abstraction library",
+            "time": "2018-05-06T20:11:40+00:00"
+        },
+        {
+            "name": "trntv/yii2-aceeditor",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/trntv/yii2-aceeditor.git",
+                "reference": "807ce92d46375308b9ca55d4ceeda12ba632dfae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/trntv/yii2-aceeditor/zipball/807ce92d46375308b9ca55d4ceeda12ba632dfae",
+                "reference": "807ce92d46375308b9ca55d4ceeda12ba632dfae",
                 "shasum": ""
             },
             "require": {
@@ -2128,7 +2170,7 @@
                 "code editor",
                 "yii"
             ],
-            "time": "2018-03-20T08:18:52+00:00"
+            "time": "2018-04-04T06:42:50+00:00"
         },
         {
             "name": "trntv/yii2-command-bus",
@@ -3703,16 +3745,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "6.0.3",
+            "version": "6.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "774a82c0c5da4c1c7701790c262035d235ab7856"
+                "reference": "52187754b0eed0b8159f62a6fa30073327e8c2ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/774a82c0c5da4c1c7701790c262035d235ab7856",
-                "reference": "774a82c0c5da4c1c7701790c262035d235ab7856",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/52187754b0eed0b8159f62a6fa30073327e8c2ca",
+                "reference": "52187754b0eed0b8159f62a6fa30073327e8c2ca",
                 "shasum": ""
             },
             "require": {
@@ -3762,7 +3804,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-04-06T15:39:20+00:00"
+            "time": "2018-04-29T14:59:09+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4651,7 +4693,7 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -4708,16 +4750,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "aad9a6fe47319f22748fd764f52d3a7ca6fa6b64"
+                "reference": "3e820bc2c520a87ca209ad8fa961c97f42e0b4ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/aad9a6fe47319f22748fd764f52d3a7ca6fa6b64",
-                "reference": "aad9a6fe47319f22748fd764f52d3a7ca6fa6b64",
+                "url": "https://api.github.com/repos/symfony/console/zipball/3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
+                "reference": "3e820bc2c520a87ca209ad8fa961c97f42e0b4ae",
                 "shasum": ""
             },
             "require": {
@@ -4737,7 +4779,7 @@
                 "symfony/process": "~3.4|~4.0"
             },
             "suggest": {
-                "psr/log": "For using the console logger",
+                "psr/log-implementation": "For using the console logger",
                 "symfony/event-dispatcher": "",
                 "symfony/lock": "",
                 "symfony/process": ""
@@ -4772,11 +4814,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:24:00+00:00"
+            "time": "2018-04-30T01:23:47+00:00"
         },
         {
             "name": "symfony/css-selector",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/css-selector.git",
@@ -4829,7 +4871,7 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
@@ -4885,7 +4927,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -4948,7 +4990,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -4997,16 +5039,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v4.0.8",
+            "version": "v4.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "8b34ebb5989df61cbd77eff29a02c4db9ac1069c"
+                "reference": "275ad099e4cbe612a2acbca14a16dd1c5311324d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/8b34ebb5989df61cbd77eff29a02c4db9ac1069c",
-                "reference": "8b34ebb5989df61cbd77eff29a02c4db9ac1069c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/275ad099e4cbe612a2acbca14a16dd1c5311324d",
+                "reference": "275ad099e4cbe612a2acbca14a16dd1c5311324d",
                 "shasum": ""
             },
             "require": {
@@ -5051,7 +5093,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-03T05:24:00+00:00"
+            "time": "2018-04-08T08:49:08+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -5239,22 +5281,22 @@
         },
         {
             "name": "yiisoft/yii2-gii",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42"
+                "reference": "9ec1374d0844f448d2af29c707f77c9f8d1375c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/db41f647d9b73702ceb6864fdfce827a72b5ce42",
-                "reference": "db41f647d9b73702ceb6864fdfce827a72b5ce42",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/9ec1374d0844f448d2af29c707f77c9f8d1375c8",
+                "reference": "9ec1374d0844f448d2af29c707f77c9f8d1375c8",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/typeahead.js": "0.10.* | ~0.11.0",
                 "phpspec/php-diff": ">=1.0.2",
-                "yiisoft/yii2": "~2.0.13",
+                "yiisoft/yii2": "~2.0.14",
                 "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
@@ -5269,7 +5311,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\gii\\": ""
+                    "yii\\gii\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5288,7 +5330,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2017-12-22T23:53:06+00:00"
+            "time": "2018-05-02T22:05:25+00:00"
         }
     ],
     "aliases": [],

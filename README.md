@@ -98,6 +98,7 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
 - [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor), 
 - [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
+- Sitemap generator
 - Extended IDE autocompletion
 - Test-ready
 - Docker support and Vagrant support

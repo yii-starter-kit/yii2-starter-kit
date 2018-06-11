@@ -87,6 +87,7 @@
       "@build:env",
       "@docker:start",
       "docker-compose exec -T app composer run-script build:app",
+      "docker-compose run -T --rm webpacker npm i npm@latest -g",
       "docker-compose run -T --rm webpacker npm install",
       "docker-compose run -T --rm webpacker npm run build",
       "echo \"All ok!\""

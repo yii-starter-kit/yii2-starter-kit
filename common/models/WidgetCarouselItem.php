@@ -7,7 +7,6 @@ use trntv\filekit\behaviors\UploadBehavior;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
-use yii\web\AssetManager;
 
 /**
  * This is the model class for table "widget_carousel_item".
@@ -111,7 +110,7 @@ class WidgetCarouselItem extends ActiveRecord
             'type' => Yii::t('common', 'File Type'),
             'url' => Yii::t('common', 'Url'),
             'caption' => Yii::t('common', 'Caption'),
-            'status' => Yii::t('common', 'Status'),
+            'status' => Yii::t('common', 'Active'),
             'order' => Yii::t('common', 'Order')
         ];
     }

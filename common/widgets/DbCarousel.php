@@ -109,9 +109,9 @@ class DbCarousel extends Carousel
     protected function publishItem($item)
     {
         if (!$item->asset_url) {
-            $url = Yii::$app->assetManager->publish($item->path);
+            $url = \sprintf('%s/%s', $item->base_url,  $item->path);
             $item->updateAttributes([
-                'asset_url' => $url[1]
+                'asset_url' => $url
             ]);
         }
 

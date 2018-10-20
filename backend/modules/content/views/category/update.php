@@ -11,7 +11,6 @@ $this->title = Yii::t('backend', 'Update {modelClass}: ', [
     ]) . ' ' . $model->title;
 
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Article Categories'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 
 ?>

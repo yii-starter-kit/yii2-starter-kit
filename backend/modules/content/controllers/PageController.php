@@ -38,16 +38,15 @@ class PageController extends Controller
 
         if ($page->load(Yii::$app->request->post()) && $page->save()) {
             return $this->redirect(['index']);
-        } else {
-            $searchModel = new PageSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-                'model' => $page,
-            ]);
         }
+        $searchModel = new PageSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'model' => $page,
+        ]);
     }
 
     /**
@@ -61,11 +60,10 @@ class PageController extends Controller
 
         if ($page->load(Yii::$app->request->post()) && $page->save()) {
             return $this->redirect(['index']);
-        } else {
-            return $this->render('create', [
-                'model' => $page,
-            ]);
         }
+        return $this->render('create', [
+            'model' => $page,
+        ]);
     }
 
     /**
@@ -110,8 +108,7 @@ class PageController extends Controller
     {
         if (($model = Page::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -39,20 +39,19 @@ class CategoryController extends Controller
 
         if ($category->load(Yii::$app->request->post()) && $category->save()) {
             return $this->redirect(['index']);
-        } else {
-            $searchModel = new ArticleCategorySearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-            $categories = ArticleCategory::find()->noParents()->all();
-            $categories = ArrayHelper::map($categories, 'id', 'title');
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-                'model' => $category,
-                'categories' => $categories,
-            ]);
         }
+        $searchModel = new ArticleCategorySearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        $categories = ArticleCategory::find()->noParents()->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'model' => $category,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -68,15 +67,14 @@ class CategoryController extends Controller
 
         if ($category->load(Yii::$app->request->post()) && $category->save()) {
             return $this->redirect(['index']);
-        } else {
-            $categories = ArticleCategory::find()->noParents()->andWhere(['not', ['id' => $id]])->all();
-            $categories = ArrayHelper::map($categories, 'id', 'title');
-
-            return $this->render('update', [
-                'model' => $category,
-                'categories' => $categories,
-            ]);
         }
+        $categories = ArticleCategory::find()->noParents()->andWhere(['not', ['id' => $id]])->all();
+        $categories = ArrayHelper::map($categories, 'id', 'title');
+
+        return $this->render('update', [
+            'model' => $category,
+            'categories' => $categories,
+        ]);
     }
 
     /**
@@ -101,8 +99,7 @@ class CategoryController extends Controller
     {
         if (($model = ArticleCategory::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -8,9 +8,7 @@ use yii\helpers\ArrayHelper;
 
 $bundle = BackendAsset::register($this);
 
-$this->params['body-class'] = array_key_exists('body-class', $this->params) ?
-    $this->params['body-class']
-    : null;
+$this->params['body-class'] = $this->params['body-class'] ?? null;
 ?>
 
 <?php $this->beginPage() ?>

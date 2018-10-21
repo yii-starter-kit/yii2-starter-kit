@@ -107,11 +107,10 @@ class <?php echo $controllerClass ?> extends <?php echo StringHelper::basename($
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', <?php echo $urlParams ?>]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
         }
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -126,11 +125,10 @@ class <?php echo $controllerClass ?> extends <?php echo StringHelper::basename($
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', <?php echo $urlParams ?>]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -168,8 +166,7 @@ if (count($pks) === 1) {
 ?>
         if (($model = <?php echo $modelClass ?>::findOne(<?php echo $condition ?>)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

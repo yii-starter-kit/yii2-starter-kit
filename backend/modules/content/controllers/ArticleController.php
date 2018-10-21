@@ -77,12 +77,11 @@ class ArticleController extends Controller
 
         if ($article->load(Yii::$app->request->post()) && $article->save()) {
             return $this->redirect(['index']);
-        } else {
-            return $this->render('update', [
-                'model' => $article,
-                'categories' => ArticleCategory::find()->active()->all(),
-            ]);
         }
+        return $this->render('update', [
+            'model' => $article,
+            'categories' => ArticleCategory::find()->active()->all(),
+        ]);
     }
 
     /**
@@ -107,9 +106,9 @@ class ArticleController extends Controller
     {
         if (($model = Article::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+        throw new NotFoundHttpException('The requested page does not exist.');
+
     }
 
 }

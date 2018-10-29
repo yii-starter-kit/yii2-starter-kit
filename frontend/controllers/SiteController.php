@@ -3,8 +3,6 @@
 namespace frontend\controllers;
 
 use cheatsheet\Time;
-use common\sitemap\ArticleUrlGenerator;
-use common\sitemap\PageUrlGenerator;
 use common\sitemap\UrlsIterator;
 use frontend\models\ContactForm;
 use Sitemaped\Element\Urlset\Urlset;
@@ -75,12 +73,12 @@ class SiteController extends Controller
                     'options' => ['class' => 'alert-success']
                 ]);
                 return $this->refresh();
-            } else {
-                Yii::$app->getSession()->setFlash('alert', [
-                    'body' => \Yii::t('frontend', 'There was an error sending email.'),
-                    'options' => ['class' => 'alert-danger']
-                ]);
             }
+
+            Yii::$app->getSession()->setFlash('alert', [
+                'body' => \Yii::t('frontend', 'There was an error sending email.'),
+                'options' => ['class' => 'alert-danger']
+            ]);
         }
 
         return $this->render('contact', [
@@ -92,6 +90,7 @@ class SiteController extends Controller
      * @param string $format
      * @param bool $gzip
      * @return string
+     * @throws BadRequestHttpException
      */
     public function actionSitemap($format = Sitemap::FORMAT_XML, $gzip = false)
     {

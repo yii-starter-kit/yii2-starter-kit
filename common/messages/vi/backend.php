@@ -72,7 +72,7 @@ return [
     'I18n Messages' => 'I18N Messages',
     'I18n Source Messages' => 'I18n Source Messages',
     'ID' => 'ID',
-    'If you\'ll leave this field empty, slug will be generated automatically' => 'Nếu bạn để trống, slug sẽ được tạo tự động',
+    'If you leave this field empty, the slug will be generated automatically' => 'Nếu bạn để trống, slug sẽ được tạo tự động',
     'Incorrect username or password.' => 'Sai tên đăng nhập hoặc mật khẩu',
     'Internal IP' => 'Internal IP',
     'Invalidate tag' => 'Invalidate tag',

@@ -69,7 +69,7 @@ return [
     'I18n Messages' => 'I18N переклади',
     'I18n Source Messages' => 'Тексти',
     'ID' => 'ID',
-    'If you\'ll leave this field empty, slug will be generated automatically' => 'Якщо ви залишете це поле пустим, ЧПУ буде сгенеровано автоматично',
+    'If you leave this field empty, the slug will be generated automatically' => 'Якщо ви залишете це поле пустим, ЧПУ буде сгенеровано автоматично',
     'Incorrect username or password.' => 'Неправильні им’я користувача або пароль',
     'Internal IP' => 'Внутрішній IP',
     'Invalidate tag' => 'Скинути тег',

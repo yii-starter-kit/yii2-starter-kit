@@ -69,7 +69,7 @@ return array(
     'I18n Messages' => 'I18n Tłumaczenia',
     'I18n Source Messages' => 'I18n Teksty',
     'ID' => 'ID',
-    'If you\'ll leave this field empty, slug will be generated automatically' => 'Jeżeli zostawisz te pole puste slug zostanie utworzony automatycznie',
+    'If you leave this field empty, the slug will be generated automatically' => 'Jeżeli zostawisz te pole puste slug zostanie utworzony automatycznie',
     'Incorrect username or password.' => 'Nieprawidłowa nazwa użytkownika lub hasło',
     'Internal IP' => 'Wewnętrzne IP',
     'Invalidate tag' => 'Unieważnij tag',

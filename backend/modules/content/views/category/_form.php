@@ -19,7 +19,7 @@ use yii\helpers\Html;
 <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
 <?php echo $form->field($model, 'slug')
-    ->hint(Yii::t('backend', 'If you\'ll leave this field empty, slug will be generated automatically'))
+    ->hint(Yii::t('backend', 'If you leave this field empty, the slug will be generated automatically'))
     ->textInput(['maxlength' => 1024]) ?>
 
 <?php echo $form->field($model, 'parent_id')->dropDownList($categories, ['prompt' => '']) ?>

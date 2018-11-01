@@ -72,7 +72,7 @@ return [
     'I18n Messages' => '国际化信息',
     'I18n Source Messages' => '国际化源信息',
     'ID' => 'ID',
-    'If you\'ll leave this field empty, slug will be generated automatically' => '如果该字段留空的话，系统将自动生成一个slug',
+    'If you leave this field empty, the slug will be generated automatically' => '如果该字段留空的话，系统将自动生成一个slug',
     'Incorrect username or password.' => '用户名或密码错误',
     'Internal IP' => '内网IP',
     'Invalidate tag' => '无效的标签',

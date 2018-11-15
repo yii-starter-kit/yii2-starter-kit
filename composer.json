@@ -41,11 +41,11 @@
     "trntv/yii2-command-bus": "^3.0",
     "intervention/image": "^2.1",
     "vlucas/phpdotenv": "^2.0",
-    "bower-asset/admin-lte": "^2.0",
-    "bower-asset/font-awesome": "^4.0",
-    "bower-asset/html5shiv": "^3.0",
-    "bower-asset/jquery-slimscroll": "^1.3",
-    "bower-asset/flot": "^0.8",
+    "npm-asset/admin-lte": "^2.0",
+    "npm-asset/font-awesome": "^4.0",
+    "npm-asset/html5shiv": "^3.0",
+    "npm-asset/jquery-slimscroll": "^1.3",
+    "npm-asset/flot": "^0.8@alpha",
     "symfony/process": "^4.0",
     "guzzlehttp/guzzle": "^6.0",
     "alexantr/yii2-elfinder": "^1.3",
@@ -67,7 +67,8 @@
     "trntv/yii2-debug-xhprof": "dev-master@dev"
   },
   "config": {
-    "process-timeout": 1800
+    "process-timeout": 1800,
+    "optimize-autoloader": true
   },
   "repositories": [
     {
@@ -75,6 +76,9 @@
       "url": "https://asset-packagist.org"
     }
   ],
+  "archive": {
+    "exclude": ["docs"]
+  },
   "scripts": {
     "build:env": [
       "cp .env.dist .env"

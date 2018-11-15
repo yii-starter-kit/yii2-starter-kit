@@ -3,6 +3,7 @@
 namespace common\assets;
 
 use yii\web\AssetBundle;
+use yii\web\JqueryAsset;
 
 /**
  * Class JquerySlimScroll
@@ -11,11 +12,20 @@ use yii\web\AssetBundle;
  */
 class JquerySlimScroll extends AssetBundle
 {
-    public $sourcePath = '@bower/jquery-slimscroll';
+    /**
+     * @var string
+     */
+    public $sourcePath = '@npm/jquery-slimscroll';
+    /**
+     * @var array
+     */
     public $js = [
         'jquery.slimscroll.min.js'
     ];
+    /**
+     * @var array
+     */
     public $depends = [
-        'yii\web\JqueryAsset'
+        JqueryAsset::class
     ];
 }

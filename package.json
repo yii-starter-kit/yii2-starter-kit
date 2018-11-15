@@ -6,16 +6,14 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-preset-latest": "^6.24.0",
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^3.0.2",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "less-plugin-clean-css": "^1.5.1",
-    "webpack": "^4.8.3"
-  },
-  "dependencies": {
-    "npm": "^6.0.1"
+    "webpack": "^4.25.1",
+    "npm": "^6.0"
   }
 }

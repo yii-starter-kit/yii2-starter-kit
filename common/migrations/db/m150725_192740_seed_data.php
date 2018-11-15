@@ -89,13 +89,13 @@ class m150725_192740_seed_data extends Migration
                 ],
                 [
                     'label' => 'Yii2 Starter Kit on GitHub',
-                    'url' => 'https://github.com/trntv/yii2-starter-kit',
+                    'url' => 'https://github.com/yii2-starter-kit/yii2-starter-kit',
                     'options' => ['tag' => 'span'],
                     'template' => '<a href="{url}" class="btn btn-lg btn-primary">{label}</a>'
                 ],
                 [
                     'label' => 'Find a bug?',
-                    'url' => 'https://github.com/trntv/yii2-starter-kit/issues',
+                    'url' => 'https://github.com/yii2-starter-kit/yii2-starter-kit/issues',
                     'options' => ['tag' => 'span'],
                     'template' => '<a href="{url}" class="btn btn-lg btn-danger">{label}</a>'
                 ]

@@ -1,5 +1,5 @@
 {
-  "name": "trntv/yii2-starter-kit",
+  "name": "yii2-starter-kit/yii2-starter-kit",
   "description": "Yii2 Starter Kit Application Template",
   "keywords": [
     "yii2",
@@ -13,15 +13,14 @@
     {
       "name": "Eugene Terentev",
       "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net",
-      "role": "Developer"
+      "homepage": "http://terentev.net"
     }
   ],
   "type": "project",
   "license": "BSD-3-Clause",
   "support": {
-    "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
-    "source": "https://github.com/trntv/yii2-starter-kit"
+    "issues": "https://github.com/yii2-starter-kit/yii2-starter-kit/issues?state=open",
+    "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
     "php": ">=7.1.0",
@@ -31,10 +30,10 @@
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
     "yiisoft/yii2-jui": "^2.0.0",
+    "yii2-starter-kit/yii2-file-kit": "^2.0.0",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
-    "trntv/yii2-file-kit": "^1.0.0",
     "trntv/yii2-glide": "^1.2",
     "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",

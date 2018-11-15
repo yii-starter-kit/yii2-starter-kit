@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64a5b590f172c83ae504f69d50dde293",
+    "content-hash": "a6ff806b1fb4bd8042710f5e3b149082",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -4894,49 +4894,6 @@
             "time": "2018-03-17T15:18:47+00:00"
         },
         {
-            "name": "trntv/yii2-file-kit",
-            "version": "1.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/yii2-starter-kit/yii2-file-kit.git",
-                "reference": "806f3c25a81199c9d7399c6aed7086c00bd9182a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/yii2-starter-kit/yii2-file-kit/zipball/806f3c25a81199c9d7399c6aed7086c00bd9182a",
-                "reference": "806f3c25a81199c9d7399c6aed7086c00bd9182a",
-                "shasum": ""
-            },
-            "require": {
-                "bower-asset/blueimp-file-upload": "^9.7.0",
-                "league/flysystem": "^1.0",
-                "yiisoft/yii2": "^2.0.13",
-                "yiisoft/yii2-jui": "^2.0.0"
-            },
-            "require-dev": {
-                "creocoder/yii2-flysystem": "~0.8",
-                "phpunit/phpunit": "~4.5.0"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "trntv\\filekit\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Eugene Terentev",
-                    "email": "eugene@terentev.net"
-                }
-            ],
-            "description": "Yii2 file upload and storage kit",
-            "time": "2018-05-18T13:21:58+00:00"
-        },
-        {
             "name": "trntv/yii2-glide",
             "version": "1.2.2",
             "source": {
@@ -5034,6 +4991,49 @@
                 "environment"
             ],
             "time": "2018-07-29T20:33:41+00:00"
+        },
+        {
+            "name": "yii2-starter-kit/yii2-file-kit",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yii2-starter-kit/yii2-file-kit.git",
+                "reference": "d202686a8b83542ad664db0668bb60693e8a35ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yii2-starter-kit/yii2-file-kit/zipball/d202686a8b83542ad664db0668bb60693e8a35ac",
+                "reference": "d202686a8b83542ad664db0668bb60693e8a35ac",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/blueimp-file-upload": "^9.7.0",
+                "league/flysystem": "^1.0",
+                "yiisoft/yii2": "^2.0.13",
+                "yiisoft/yii2-jui": "^2.0.0"
+            },
+            "require-dev": {
+                "creocoder/yii2-flysystem": "~0.8",
+                "phpunit/phpunit": "~4.5.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "trntv\\filekit\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Eugene Terentev",
+                    "email": "eugene@terentev.net"
+                }
+            ],
+            "description": "Yii2 file upload and storage kit",
+            "time": "2018-11-15T08:43:57+00:00"
         },
         {
             "name": "yiisoft/yii2",

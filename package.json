@@ -9,7 +9,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-latest": "^6.24.0",
     "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "less": "^2.7.2",
     "less-loader": "^3.0.0",
     "less-plugin-clean-css": "^1.5.1",

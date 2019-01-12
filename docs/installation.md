@@ -153,7 +153,7 @@ STORAGE_BASE_URL    = /storage/web
     'components'=>[
         ...
         'request' => [
-            'baseUrl' => '/admin',
+            'baseUrl' => '/backend',
         ...
 ```
 3. Adjust settings in `frontend/config/web.php` file

@@ -3,6 +3,8 @@
  * @author Eugene Terentev <eugene@terentev.net>
  */
 
+require __DIR__ . '/../vendor/autoload.php';
+
 // Environment
 $dotenv = new \Dotenv\Dotenv(dirname(__DIR__));
 $dotenv->load();

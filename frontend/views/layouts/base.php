@@ -2,19 +2,23 @@
 
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Html;
+
+$userImg = Yii::$app->user->identity->userProfile->getAvatar('/img/anonymous.jpg');
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
-<div class="wrap">
+<header class="main-header">
+    <!-- Navigation Links -->
     <?php
     NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-static-top',
         ],
     ]); ?>
     <?php echo Nav::widget([
@@ -27,8 +31,10 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
             ['label' => Yii::t('frontend', 'Signup'), 'url' => ['/user/sign-in/signup'], 'visible'=>Yii::$app->user->isGuest],
             ['label' => Yii::t('frontend', 'Login'), 'url' => ['/user/sign-in/login'], 'visible'=>Yii::$app->user->isGuest],
             [
-                'label' => Yii::$app->user->isGuest ? '' : Yii::$app->user->identity->getPublicIdentity(),
+                'label' => Yii::$app->user->isGuest ? '' : Html::img($userImg, ['class' => 'user-image']).' '.Html::encode(Yii::$app->user->identity->getPublicIdentity()),
+                'encode' => false,
                 'visible'=>!Yii::$app->user->isGuest,
+                'options' => ['class' => 'user user-menu'],
                 'items'=>[
                     [
                         'label' => Yii::t('frontend', 'Settings'),
@@ -47,7 +53,8 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
                 ]
             ],
             [
-                'label'=>Yii::t('frontend', 'Language'),
+                'encode' => false,
+                'label' => '<i class="fa fa-flag-o"></i><span class="label label-info">'.count(Yii::$app->params['availableLocales']).'</span>',
                 'items'=>array_map(function ($code) {
                     return [
                         'label' => Yii::$app->params['availableLocales'][$code],
@@ -59,15 +66,17 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         ]
     ]); ?>
     <?php NavBar::end(); ?>
+    <!-- End Navigation Links -->
+</header>
 
+<div class="content-wrapper">
     <?php echo $content ?>
-
 </div>
 
-<footer class="footer">
+<footer class="main-footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?php echo date('Y') ?></p>
-        <p class="pull-right"><?php echo Yii::powered() ?></p>
+        <div class="pull-left"><strong>Copyright &copy; My Company <?php echo date('Y') ?></strong></div>
+        <div class="pull-right"><?php echo Yii::powered() ?></div>
     </div>
 </footer>
 <?php $this->endContent() ?>

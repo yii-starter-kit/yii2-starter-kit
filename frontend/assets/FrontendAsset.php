@@ -8,7 +8,7 @@
 namespace frontend\assets;
 
 use common\assets\Html5shiv;
-use yii\bootstrap\BootstrapAsset;
+use common\assets\AdminLte;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
@@ -41,7 +41,7 @@ class FrontendAsset extends AssetBundle
      */
     public $depends = [
         YiiAsset::class,
-        BootstrapAsset::class,
+        AdminLte::class,
         Html5shiv::class,
     ];
 }

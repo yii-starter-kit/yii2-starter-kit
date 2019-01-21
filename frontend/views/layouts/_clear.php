@@ -15,10 +15,12 @@ use yii\helpers\Html;
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
 </head>
-<body>
+<body class="hold-transition skin-green layout-top-nav">
+<div class="wrapper">
 <?php $this->beginBody() ?>
     <?php echo $content ?>
 <?php $this->endBody() ?>
+</div>
 </body>
 </html>
 <?php $this->endPage() ?>

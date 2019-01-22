@@ -31,7 +31,7 @@ $bundle = BackendAsset::register($this);
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only"><?php echo Yii::t('backend', 'Toggle navigation') ?></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -133,7 +133,7 @@ $bundle = BackendAsset::register($this);
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <?php echo Menu::widget([
-                'options' => ['class' => 'sidebar-menu'],
+                'options' => ['class' => 'sidebar-menu tree', 'data' => ['widget' => 'tree']],
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'submenuTemplate' => "\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
                 'activateParents' => true,
@@ -309,7 +309,7 @@ $bundle = BackendAsset::register($this);
     </aside>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -335,10 +335,10 @@ $bundle = BackendAsset::register($this);
             <?php endif; ?>
             <?php echo $content ?>
         </section><!-- /.content -->
-    </aside><!-- /.right-side -->
+    </div><!-- /.right-side -->
 
     <footer class="main-footer">
-        <div class="pull-left">&copy; My Company <?php echo date('Y') ?></div>
+        <strong>&copy; My Company <?php echo date('Y') ?></strong>
         <div class="pull-right"><?php echo Yii::powered() ?></div>
   </footer>
 </div><!-- ./wrapper -->

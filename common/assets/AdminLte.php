@@ -31,8 +31,9 @@ class AdminLte extends AssetBundle
      * @var array
      */
     public $css = [
+        '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic',
         'css/AdminLTE.min.css',
-        'css/skins/_all-skins.min.css'
+        'css/skins/_all-skins.min.css',
     ];
     /**
      * @var array

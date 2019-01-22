@@ -46,6 +46,10 @@ class SettingsController extends Controller
                     'label' => Yii::t('backend', 'Backend sidebar collapsed'),
                     'type' => FormModel::TYPE_CHECKBOX,
                 ],
+                'backend.sidebar-mini' => [
+                    'label' => Yii::t('backend', 'Mini Backend Sidebar on Collapse'),
+                    'type' => FormModel::TYPE_CHECKBOX,
+                ],
             ],
         ]);
 

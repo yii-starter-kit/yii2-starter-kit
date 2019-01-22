@@ -39,7 +39,6 @@ class AdminLte extends AssetBundle
      */
     public $depends = [
         JqueryAsset::class,
-        JuiAsset::class,
         BootstrapPluginAsset::class,
         FontAwesome::class,
         JquerySlimScroll::class

@@ -30,6 +30,7 @@ $this->params['body-class'] = $this->params['body-class'] ?? null;
         Yii::$app->keyStorage->get('backend.layout-fixed') ? 'fixed' : null,
         Yii::$app->keyStorage->get('backend.layout-boxed') ? 'layout-boxed' : null,
         Yii::$app->keyStorage->get('backend.layout-collapsed-sidebar') ? 'sidebar-collapse' : null,
+        Yii::$app->keyStorage->get('backend.sidebar-mini') ? 'sidebar-mini' : null,
     ])
 ])?>
     <?php $this->beginBody() ?>

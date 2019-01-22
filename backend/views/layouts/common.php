@@ -121,8 +121,7 @@ $bundle = BackendAsset::register($this);
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
-                         class="img-circle"/>
+                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" />
                 </div>
                 <div class="pull-left info">
                     <p><?php echo Yii::t('backend', 'Hello, {username}', ['username' => Yii::$app->user->identity->getPublicIdentity()]) ?></p>
@@ -337,6 +336,11 @@ $bundle = BackendAsset::register($this);
             <?php echo $content ?>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
+
+    <footer class="main-footer">
+        <div class="pull-left">&copy; My Company <?php echo date('Y') ?></div>
+        <div class="pull-right"><?php echo Yii::powered() ?></div>
+  </footer>
 </div><!-- ./wrapper -->
 
 <?php $this->endContent(); ?>

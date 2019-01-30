@@ -74,7 +74,7 @@ class ArticleCategory extends ActiveRecord
             [['title'], 'required'],
             [['title'], 'string', 'max' => 512],
             [['slug'], 'unique'],
-            [['slug'], 'string', 'max' => 1024],
+            [['slug'], 'string', 'max' => 255],
             ['status', 'integer'],
             ['parent_id', 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id'],
         ];

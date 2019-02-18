@@ -9,7 +9,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-latest": "^6.24.0",
     "css-loader": "^0.28.11",
-    "less": "^2.7.2",
+    "less": "^3.9.0",
     "less-loader": "^3.0.0",
     "less-plugin-clean-css": "^1.5.1",
     "mini-css-extract-plugin": "^0.4.5",

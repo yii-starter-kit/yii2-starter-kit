@@ -1,10 +1,15 @@
 version: "3"
 
+volumes:
+  starter_kit_app: {}
+  mysql_config: {}
+  nginx_config: {}
+
 services:
   app:
     build: docker/php
     volumes:
-      - ./:/app
+      - starter_kit_app:/app
     depends_on:
       - db
       - mailcatcher
@@ -15,7 +20,7 @@ services:
     image: node:9-alpine
     working_dir: /app
     volumes:
-      - ./:/app
+      - starter_kit_app:/app
     command: /bin/true
 
   nginx:
@@ -23,8 +28,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./:/app
-      - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+      - starter_kit_app:/app
+      - nginx_config:/etc/nginx/conf.d/vhost.conf
     depends_on:
       - app
 
@@ -37,7 +42,7 @@ services:
     image: mysql:5.7
     volumes:
       - /var/lib/mysql
-      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
+      - mysql_config:/etc/mysql/conf.d/config.cnf
     ports:
       - 3306:3306
     environment:
@@ -45,3 +50,15 @@ services:
       MYSQL_DATABASE: yii2-starter-kit
       MYSQL_USER: ysk_dbu
       MYSQL_PASSWORD: ysk_pass
+
+  source:
+    image: containerize/git
+    environment:
+      - REPO_LOCAL=/data/git/repos/yii2-starter-kit
+      - REPO_BRANCH=master
+      - REPO_REMOTE=https://github.com/yii2-starter-kit/yii2-starter-kit.git
+    tty: true
+    volumes:
+      - starter_kit_app:/data/git/repos/yii2-starter-kit
+      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql/config.cnf
+      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx/vhost.conf

@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  app:
+    build: docker/php
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+      - mailcatcher
+    env_file:
+      - .env
+
+  webpacker:
+    image: node:9-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: /bin/true
+
+  nginx:
+    image: nginx:1.12-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./:/app
+      - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+    depends_on:
+      - app
+
+  mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+      - 1080:1080
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+      - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yii2-starter-kit
+      MYSQL_USER: ysk_dbu
+      MYSQL_PASSWORD: ysk_pass

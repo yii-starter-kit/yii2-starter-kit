@@ -1,0 +1,63 @@
+version: "3"
+
+volumes:
+  starter_kit_app: {}
+  mysql_config: {}
+
+services:
+  source:
+    image: containerize/git
+    environment:
+      - REPO_LOCAL=/data/git/repos/yii2-starter-kit
+      - REPO_BRANCH=master
+      - REPO_REMOTE=https://github.com/yii2-starter-kit/yii2-starter-kit.git
+    tty: true
+    volumes:
+      - starter_kit_app:/data/git/repos/yii2-starter-kit
+      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
+
+  app:
+    image: alfredleo/starter_kit_app:secondtry
+    volumes:
+      - starter_kit_app:/app
+    command: bash -c "cp .env.dist .env && composer install && console/yii app/setup --interactive=0 && php-fpm"
+    depends_on:
+      - source
+      - db
+      - mailcatcher
+
+  webpacker:
+    image: node:9-alpine
+    working_dir: /app
+    volumes:
+      - starter_kit_app:/app
+    command: /bin/true
+
+  nginx:
+    image: nginx:1.12-alpine
+    ports:
+      - 80:80
+    volumes:
+      - starter_kit_app:/app
+    command: sh -c "cp /app/docker/nginx/vhost.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    depends_on:
+      - app
+      - source
+
+  mailcatcher:
+    image: schickling/mailcatcher:latest
+    ports:
+      - 1080:1080
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+      - mysql_config:/etc/mysql/conf.d
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: yii2-starter-kit
+      MYSQL_USER: ysk_dbu
+      MYSQL_PASSWORD: ysk_pass

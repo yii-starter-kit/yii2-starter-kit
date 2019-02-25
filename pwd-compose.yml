@@ -82,7 +82,7 @@ services:
     image: containerize/git
     environment:
       - REPO_LOCAL=/data/git/repos/yii2-starter-kit
-      - REPO_BRANCH=master
+      - REPO_BRANCH=pwd_rework
       - REPO_REMOTE=https://github.com/alfredleo/yii2-starter-kit.git
     tty: true
     volumes:

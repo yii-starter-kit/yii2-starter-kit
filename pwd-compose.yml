@@ -7,14 +7,15 @@ volumes:
 
 services:
   app:
-    build: docker/php
+    image: alfredleo/starter_kit_app:secondtry
     volumes:
       - starter_kit_app:/app
+    command:
+      - '--env.file=/app/.env.dist'
     depends_on:
+      - source
       - db
       - mailcatcher
-    env_file:
-      - .env
 
   webpacker:
     image: node:9-alpine

@@ -10,8 +10,34 @@ services:
     image: alfredleo/starter_kit_app:secondtry
     volumes:
       - starter_kit_app:/app
-    command:
-      - '--env.file=/app/.env.dist'
+    environment:
+      - YII_DEBUG       = true
+      - YII_ENV         = dev
+      - APP_MAINTENANCE = 0
+      - LINK_ASSETS=true
+      - DB_DSN           = mysql:host=db;port=3306;dbname=yii2-starter-kit
+      - DB_USERNAME      = ysk_dbu
+      - DB_PASSWORD      = ysk_pass
+      - DB_TABLE_PREFIX  =
+      - DB_CHARSET       = utf8mb4
+      - TEST_DB_DSN           = mysql:host=db;port=3306;dbname=yii2-starter-kit-test
+      - TEST_DB_USERNAME      = root
+      - TEST_DB_PASSWORD      = root
+      - API_HOST_INFO         = http://api.yii2-starter-kit.localhost
+      - FRONTEND_HOST_INFO    = http://yii2-starter-kit.localhost
+      - BACKEND_HOST_INFO     = http://backend.yii2-starter-kit.localhost
+      - STORAGE_HOST_INFO     = http://storage.yii2-starter-kit.localhost
+      - SMTP_HOST = mailcatcher
+      - SMTP_PORT = 1025
+      - FRONTEND_COOKIE_VALIDATION_KEY = xVLgMMktRpRa3xS-jeTITuqnqILulB_W
+      - BACKEND_COOKIE_VALIDATION_KEY = loub3h7NsMzj3EqxjuF0YN3zz0-xpC6r
+      - ADMIN_EMAIL    = admin@yii2-starter-kit.localhost
+      - ROBOT_EMAIL    = robot@yii2-starter-kit.localhost
+      - GITHUB_CLIENT_ID = your-client-id
+      - GITHUB_CLIENT_SECRET = your-client-secret
+      - GLIDE_SIGN_KEY = UTozT23Hqa2gZylnbBgfszZXYCARMpK7
+      - GLIDE_MAX_IMAGE_SIZE = 4000000
+      - COMPOSE_CONVERT_WINDOWS_PATHS=1
     depends_on:
       - source
       - db
@@ -30,7 +56,7 @@ services:
       - 80:80
     volumes:
       - starter_kit_app:/app
-      - nginx_config:/etc/nginx/conf.d/vhost.conf
+      - nginx_config:/etc/nginx/conf.d
     depends_on:
       - app
 
@@ -43,7 +69,7 @@ services:
     image: mysql:5.7
     volumes:
       - /var/lib/mysql
-      - mysql_config:/etc/mysql/conf.d/config.cnf
+      - mysql_config:/etc/mysql/conf.d
     ports:
       - 3306:3306
     environment:
@@ -57,9 +83,9 @@ services:
     environment:
       - REPO_LOCAL=/data/git/repos/yii2-starter-kit
       - REPO_BRANCH=master
-      - REPO_REMOTE=https://github.com/yii2-starter-kit/yii2-starter-kit.git
+      - REPO_REMOTE=https://github.com/alfredleo/yii2-starter-kit.git
     tty: true
     volumes:
       - starter_kit_app:/data/git/repos/yii2-starter-kit
-      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql/config.cnf
-      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx/vhost.conf
+      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
+      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx

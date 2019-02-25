@@ -6,6 +6,18 @@ volumes:
   nginx_config: {}
 
 services:
+  source:
+    image: containerize/git
+    environment:
+      - REPO_LOCAL=/data/git/repos/yii2-starter-kit
+      - REPO_BRANCH=pwd_rework
+      - REPO_REMOTE=https://github.com/alfredleo/yii2-starter-kit.git
+    tty: true
+    volumes:
+      - starter_kit_app:/data/git/repos/yii2-starter-kit
+      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
+      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx
+
   app:
     image: alfredleo/starter_kit_app:secondtry
     volumes:
@@ -77,15 +89,3 @@ services:
       MYSQL_DATABASE: yii2-starter-kit
       MYSQL_USER: ysk_dbu
       MYSQL_PASSWORD: ysk_pass
-
-  source:
-    image: containerize/git
-    environment:
-      - REPO_LOCAL=/data/git/repos/yii2-starter-kit
-      - REPO_BRANCH=pwd_rework
-      - REPO_REMOTE=https://github.com/alfredleo/yii2-starter-kit.git
-    tty: true
-    volumes:
-      - starter_kit_app:/data/git/repos/yii2-starter-kit
-      - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
-      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx

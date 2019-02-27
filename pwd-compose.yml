@@ -44,6 +44,7 @@ services:
       - nginx_config:/etc/nginx/conf.d
     depends_on:
       - app
+      - source
 
   mailcatcher:
     image: schickling/mailcatcher:latest

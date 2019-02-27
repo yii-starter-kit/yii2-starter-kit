@@ -22,8 +22,8 @@ services:
     image: alfredleo/starter_kit_app:secondtry
     volumes:
       - starter_kit_app:/app
-    command:
-      - ./install.sh
+    entrypoint: /app/install.sh
+    command: php-fpm
     depends_on:
       - source
       - db

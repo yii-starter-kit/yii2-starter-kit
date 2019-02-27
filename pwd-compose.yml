@@ -3,7 +3,6 @@ version: "3"
 volumes:
   starter_kit_app: {}
   mysql_config: {}
-  nginx_config: {}
 
 services:
   source:
@@ -16,7 +15,6 @@ services:
     volumes:
       - starter_kit_app:/data/git/repos/yii2-starter-kit
       - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
-      - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx
 
   app:
     image: alfredleo/starter_kit_app:secondtry
@@ -41,7 +39,7 @@ services:
       - 80:80
     volumes:
       - starter_kit_app:/app
-      - nginx_config:/etc/nginx/conf.d
+    command: sh -c "cp /app/docker/nginx/default.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;' "
     depends_on:
       - app
       - source

@@ -17,8 +17,6 @@ services:
       - starter_kit_app:/data/git/repos/yii2-starter-kit
       - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
       - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx
-    command:
-      - cp .env.dist .env
 
   app:
     image: alfredleo/starter_kit_app:secondtry
@@ -26,34 +24,6 @@ services:
       - starter_kit_app:/app
     command:
       - ./install.sh
-    environment:
-      - YII_DEBUG       = true
-      - YII_ENV         = dev
-      - APP_MAINTENANCE = 0
-      - LINK_ASSETS=true
-      - DB_DSN           = mysql:host=db;port=3306;dbname=yii2-starter-kit
-      - DB_USERNAME      = ysk_dbu
-      - DB_PASSWORD      = ysk_pass
-      - DB_TABLE_PREFIX  =
-      - DB_CHARSET       = utf8mb4
-      - TEST_DB_DSN           = mysql:host=db;port=3306;dbname=yii2-starter-kit-test
-      - TEST_DB_USERNAME      = root
-      - TEST_DB_PASSWORD      = root
-      - API_HOST_INFO         = http://api.yii2-starter-kit.localhost
-      - FRONTEND_HOST_INFO    = http://yii2-starter-kit.localhost
-      - BACKEND_HOST_INFO     = http://backend.yii2-starter-kit.localhost
-      - STORAGE_HOST_INFO     = http://storage.yii2-starter-kit.localhost
-      - SMTP_HOST = mailcatcher
-      - SMTP_PORT = 1025
-      - FRONTEND_COOKIE_VALIDATION_KEY = xVLgMMktRpRa3xS-jeTITuqnqILulB_W
-      - BACKEND_COOKIE_VALIDATION_KEY = loub3h7NsMzj3EqxjuF0YN3zz0-xpC6r
-      - ADMIN_EMAIL    = admin@yii2-starter-kit.localhost
-      - ROBOT_EMAIL    = robot@yii2-starter-kit.localhost
-      - GITHUB_CLIENT_ID = your-client-id
-      - GITHUB_CLIENT_SECRET = your-client-secret
-      - GLIDE_SIGN_KEY = UTozT23Hqa2gZylnbBgfszZXYCARMpK7
-      - GLIDE_MAX_IMAGE_SIZE = 4000000
-      - COMPOSE_CONVERT_WINDOWS_PATHS=1
     depends_on:
       - source
       - db

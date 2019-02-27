@@ -17,11 +17,15 @@ services:
       - starter_kit_app:/data/git/repos/yii2-starter-kit
       - mysql_config:/data/git/repos/yii2-starter-kit/docker/mysql
       - nginx_config:/data/git/repos/yii2-starter-kit/docker/nginx
+    command:
+      - cp .env.dist .env
 
   app:
     image: alfredleo/starter_kit_app:secondtry
     volumes:
       - starter_kit_app:/app
+    command:
+      - ./install.sh
     environment:
       - YII_DEBUG       = true
       - YII_ENV         = dev

@@ -14,6 +14,8 @@ It was created and developing as a fast start for building an advanced sites bas
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
+[![Try in PWD](https://github.com/play-with-docker/stacks/raw/master/assets/images/button.png)](https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/yii2-starter-kit/yii2-starter-kit/master/pwd-compose.yml)
+
 ## Before you start
 Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations). 
 

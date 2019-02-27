@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cp .env.dist .env && composer install && console/yii app/setup --interactive=0
+cp .env.dist .env && composer install && console/yii app/setup --interactive=0 && php -a

@@ -22,7 +22,7 @@ services:
     image: alfredleo/starter_kit_app:secondtry
     volumes:
       - starter_kit_app:/app
-    command: bash -c "/app/install.sh && php-fpm"
+    command: bash -c "cp .env.dist .env && composer install && console/yii app/setup --interactive=0 && php-fpm"
     depends_on:
       - source
       - db

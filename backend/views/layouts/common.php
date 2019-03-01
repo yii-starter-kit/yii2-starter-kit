@@ -16,7 +16,7 @@ use yii\log\Logger;
 use yii\widgets\Breadcrumbs;
 
 $bundle = BackendAsset::register($this);
-
+Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
 ?>
 
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
@@ -218,12 +218,14 @@ $bundle = BackendAsset::register($this);
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'options' => ['class' => 'header'],
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'url' => ['/translation/default/index'],
                         'icon' => '<i class="fa fa-language"></i>',
                         'active' => (Yii::$app->controller->module->id == 'translation'),
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'System'),

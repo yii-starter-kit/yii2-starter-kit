@@ -9,6 +9,7 @@ use frontend\modules\user\models\LoginForm;
 use frontend\modules\user\models\PasswordResetRequestForm;
 use frontend\modules\user\models\ResetPasswordForm;
 use frontend\modules\user\models\SignupForm;
+use frontend\modules\user\models\ResendEmailForm;
 use Yii;
 use yii\authclient\AuthAction;
 use yii\base\Exception;
@@ -54,14 +55,14 @@ class SignInController extends \yii\web\Controller
                 'rules' => [
                     [
                         'actions' => [
-                            'signup', 'login', 'login-by-pass', 'request-password-reset', 'reset-password', 'oauth', 'activation'
+                            'signup', 'login', 'login-by-pass', 'request-password-reset', 'reset-password', 'oauth', 'activation', 'resend-email'
                         ],
                         'allow' => true,
                         'roles' => ['?']
                     ],
                     [
                         'actions' => [
-                            'signup', 'login', 'request-password-reset', 'reset-password', 'oauth', 'activation'
+                            'signup', 'login', 'request-password-reset', 'reset-password', 'oauth', 'activation', 'resend-email'
                         ],
                         'allow' => false,
                         'roles' => ['@'],
@@ -247,6 +248,30 @@ class SignInController extends \yii\web\Controller
         }
 
         return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionResendEmail()
+    {
+        $model = new ResendEmailForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('alert', [
+                    'body' => Yii::t('frontend', 'Check your email for further instructions.'),
+                    'options' => ['class' => 'alert-success']
+                ]);
+
+                return $this->goHome();
+            } else {
+                Yii::$app->getSession()->setFlash('alert', [
+                    'body' => Yii::t('frontend', 'Sorry, we are unable to resend activation link for email provided.'),
+                    'options' => ['class' => 'alert-danger']
+                ]);
+            }
+        }
+
+        return $this->render('resend-email', [
             'model' => $model,
         ]);
     }

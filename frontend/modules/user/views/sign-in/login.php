@@ -22,6 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php echo Yii::t('frontend', 'If you forgot your password you can reset it <a href="{link}">here</a>', [
                         'link'=>yii\helpers\Url::to(['sign-in/request-password-reset'])
                     ]) ?>
+                    <?php if (Yii::$app->getModule('user')->shouldBeActivated) : ?>
+                        <br>
+                        <?php echo Yii::t('frontend', 'Resend your activation email <a href="{link}">here</a>', [
+                            'link'=>yii\helpers\Url::to(['sign-in/resend-email'])
+                        ]) ?>
+                    <?php endif; ?>
+
                 </div>
                 <div class="form-group">
                     <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

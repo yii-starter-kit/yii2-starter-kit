@@ -22,4 +22,24 @@ trait ModuleTrait
         return $languages;
     }
 
+    /**
+     * @return array
+     */
+    public function getPrefixedLanguages()
+    {
+        $languages = [];
+        foreach ($this->getLanguages() as $lang => $name) {
+            $languages['lang_'.$lang] = $name;
+        }
+
+        return $languages;
+    }
+
+    /**
+     * @return string
+     */
+    public function stripLanguagePrefix($name)
+    {
+        return substr($name, 5);
+    }
 }

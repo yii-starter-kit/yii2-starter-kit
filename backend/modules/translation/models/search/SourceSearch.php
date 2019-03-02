@@ -22,7 +22,7 @@ class SourceSearch extends Source
         return [
             [['id'], 'integer'],
             [['category', 'message'], 'safe'],
-            [array_keys($this->getLanguages()), 'safe'],
+            [array_keys($this->getPrefixedLanguages()), 'safe'],
         ];
     }
 
@@ -38,7 +38,7 @@ class SourceSearch extends Source
     /** @inheritdoc */
     public function __get($name)
     {
-        if (in_array($name, array_keys($this->getLanguages()))) {
+        if (in_array($name, array_keys($this->getPrefixedLanguages()))) {
             if (!isset($this->_translationSearch[$name])) {
                 return null;
             } else {
@@ -52,7 +52,7 @@ class SourceSearch extends Source
     /** @inheritdoc */
     public function __set($name, $value)
     {
-        if (in_array($name, array_keys($this->getLanguages()))) {
+        if (in_array($name, array_keys($this->getPrefixedLanguages()))) {
             $this->_translationSearch[$name] = $value;
         } else {
             BaseActiveRecord::__set($name, $value);
@@ -88,7 +88,7 @@ class SourceSearch extends Source
         foreach ($this->_translationSearch as $lang => $translationSearch) {
             if (!empty($translationSearch))
                 $query->innerJoin("{{%i18n_message}} $lang", "{{%i18n_source_message}}.id = $lang.id")
-                    ->andFilterWhere(["$lang.language" => $lang])
+                    ->andFilterWhere(["$lang.language" => $this->stripLanguagePrefix($lang)])
                     ->andFilterWhere(['like', "$lang.translation", $translationSearch]);
         }
 

@@ -12,7 +12,20 @@ use yii\rest\ViewAction;
 use yii\web\HttpException;
 
 /**
- * Class ArticleController
+ * @SWG\Swagger(
+ *     schemes={"http","https"},
+ *     basePath="/",
+ *     @SWG\Info(
+ *         version="1.0.0",
+ *         title="Yii2-Starter-Kit API Documentation",
+ *         description="Api description...",
+ *         termsOfService="",
+ *         @SWG\License(
+ *             name="BSD License",
+ *             url="https://raw.githubusercontent.com/yii2-starter-kit/yii2-starter-kit/master/LICENSE.md"
+ *         )
+ *     ),
+ * )
  * @author Eugene Terentev <eugene@terentev.net>
  */
 class ArticleController extends ActiveController
@@ -30,7 +43,15 @@ class ArticleController extends ActiveController
     ];
 
     /**
-     * @inheritdoc
+     * @SWG\Get(path="/v1/article",
+     *     tags={"Article"},
+     *     summary="Retrieves the collection of Articles.",
+     *     @SWG\Response(
+     *         response = 200,
+     *         description = "Article collection response",
+     *         @SWG\Schema(ref = "#/definitions/Article")
+     *     ),
+     * )
      */
     public function actions()
     {

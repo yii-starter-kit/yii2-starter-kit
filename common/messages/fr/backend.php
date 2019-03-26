@@ -101,7 +101,7 @@ return [
 'Profile' => 'Profil',
 'Published' => 'Publié',
 'Real time' => 'Temps réél',
-'Remember Me' => 'Souviens-toi de moi',
+'Remember Me' => 'Se souvenir de moi',
 'Reset' => 'Réinitialiser',
 'Save' => 'sauvegarder',
 'Search' => 'Chercher',

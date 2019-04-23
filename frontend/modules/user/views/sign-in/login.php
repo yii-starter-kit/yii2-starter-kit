@@ -38,9 +38,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <h2><?php echo Yii::t('frontend', 'Log in with')  ?>:</h2>
                 <div class="form-group">
-                    <?php echo yii\authclient\widgets\AuthChoice::widget([
-                        'baseAuthUrl' => ['/user/sign-in/oauth']
-                    ]) ?>
+                    <?php $authAuthChoice = yii\authclient\widgets\AuthChoice::begin([
+                                    'baseAuthUrl' => ['site/auth']
+                                ]); ?>
+                        <ul class="list-unstyle list-inline">
+                            <?php foreach ($authAuthChoice->getClients() as $client): ?>
+                                <li><?= $authAuthChoice->clientLink($client) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php yii\authclient\widgets\AuthChoice::end(); ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

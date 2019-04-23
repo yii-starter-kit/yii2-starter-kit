@@ -85,10 +85,6 @@ $config = [
 
         'i18n' => [
             'translations' => [
-                'app' => [
-                    'class' => yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@common/messages',
-                ],
                 '*' => [
                     'class' => yii\i18n\PhpMessageSource::class,
                     'basePath' => '@common/messages',
@@ -101,7 +97,7 @@ $config = [
                 ],
                 /* Uncomment this code to use DbMessageSource
                  '*'=> [
-                    'class' => 'yii\i18n\DbMessageSource',
+                    'class' => yii\i18n\DbMessageSource::class,
                     'sourceMessageTable'=>'{{%i18n_source_message}}',
                     'messageTable'=>'{{%i18n_message}}',
                     'enableCaching' => YII_ENV_DEV,
@@ -164,6 +160,7 @@ $config = [
             'ru-RU' => 'Русский (РФ)',
             'uk-UA' => 'Українська (Україна)',
             'es' => 'Español',
+            'fr' => 'Français'
             'vi' => 'Tiếng Việt',
             'zh-CN' => '简体中文',
             'pl-PL' => 'Polski (PL)',

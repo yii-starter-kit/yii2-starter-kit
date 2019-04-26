@@ -10,12 +10,12 @@
 
 This is Yii2 start application template.
 
-It was created and developing as a fast start for building an advanced sites based on Yii2. 
+It was created and developing as a fast start for building an advanced sites based on Yii2.
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 ## Before you start
-Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations). 
+Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
 
 ## TABLE OF CONTENTS
 - [Demo](#demo)
@@ -35,7 +35,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 1. [Install composer](https://getcomposer.org)
 2. [Install docker](https://docs.docker.com/install/)
 3. [Install docker-compose](https://docs.docker.com/compose/install/)
-4. Run 
+4. Run
     ```bash
     composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
     cd myproject.com
@@ -93,15 +93,15 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
 - Maintenance mode support ([more](#maintenance-mode))
 - [Aceeditor widget](https://github.com/trntv/yii2-aceeditor)
-- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
-- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor), 
+- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker),
+- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor),
 - [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
 - Sitemap generator
 - Extended IDE autocompletion
 - Test-ready
 - Docker support and Vagrant support
 - Built-in [mailcatcher](http://mailcatcher.me/)
-- many other features i'm lazy to write about :-)
+- [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO
 Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)

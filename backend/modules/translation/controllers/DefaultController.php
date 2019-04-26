@@ -45,6 +45,8 @@ class DefaultController extends Controller
             return false;
         }
 
+        $translationComponent = Yii::$app->components["i18n"]["translations"]['*']['class'];
+
         // check if component is enabled
         if ($translationComponent !== \yii\i18n\DbMessageSource::class) {
             throw new ConflictHttpException('The translation module cannot be displayed since the translation
@@ -75,7 +77,7 @@ class DefaultController extends Controller
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
                 'model' => $model,
-                'languages' => $this->getLanguages(),
+                'languages' => $this->getPrefixedLanguages(),
             ]);
         }
     }

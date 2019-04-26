@@ -75,7 +75,7 @@ class DefaultController extends Controller
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
                 'model' => $model,
-                'languages' => $this->getLanguages(),
+                'languages' => $this->getPrefixedLanguages(),
             ]);
         }
     }

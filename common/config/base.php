@@ -102,7 +102,7 @@ $config = [
                     'messageTable'=>'{{%i18n_message}}',
                     'enableCaching' => YII_ENV_DEV,
                     'cachingDuration' => 3600,
-                    'on missingTranslation' => ['\backend\modules\translation\Module', 'missingTranslation']
+                    'on missingTranslation' => [backend\modules\translation\Module::class, 'missingTranslation']
                 ],
                 */
             ],

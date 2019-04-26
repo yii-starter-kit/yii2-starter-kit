@@ -1,5 +1,5 @@
 sudo: true
-dist: trusty
+dist: bionic
 
 env:
   - COMPOSE_FILE=docker/travis.yml

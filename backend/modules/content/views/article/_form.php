@@ -50,7 +50,7 @@ use yii\helpers\Html;
     [
         'url' => ['/file/storage/upload'],
         'maxFileSize' => 5000000, // 5 MiB,
-        'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
+        'acceptFileTypes' => new \yii\web\JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
     ]);
 ?>
 

@@ -45,7 +45,7 @@ class ArticleController extends Controller
 
     /**
      * @param $id
-     * @return $this
+     * @return string
      * @throws NotFoundHttpException
      * @throws \yii\web\HttpException
      */

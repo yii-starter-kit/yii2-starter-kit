@@ -1,5 +1,5 @@
 {
-  "name": "trntv/yii2-starter-kit",
+  "name": "yii2-starter-kit/yii2-starter-kit",
   "description": "Yii2 Starter Kit Application Template",
   "keywords": [
     "yii2",
@@ -13,15 +13,14 @@
     {
       "name": "Eugene Terentev",
       "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net",
-      "role": "Developer"
+      "homepage": "http://terentev.net"
     }
   ],
   "type": "project",
   "license": "BSD-3-Clause",
   "support": {
-    "issues": "https://github.com/trntv/yii2-starter-kit/issues?state=open",
-    "source": "https://github.com/trntv/yii2-starter-kit"
+    "issues": "https://github.com/yii2-starter-kit/yii2-starter-kit/issues?state=open",
+    "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
     "php": ">=7.1.0",
@@ -31,31 +30,32 @@
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
     "yiisoft/yii2-jui": "^2.0.0",
+    "yii2-starter-kit/yii2-file-kit": "^2.0.0",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
-    "trntv/yii2-file-kit": "^1.0.0",
     "trntv/yii2-glide": "^1.2",
     "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
     "intervention/image": "^2.1",
     "vlucas/phpdotenv": "^2.0",
-    "bower-asset/admin-lte": "^2.0",
-    "bower-asset/font-awesome": "^4.0",
-    "bower-asset/html5shiv": "^3.0",
-    "bower-asset/jquery-slimscroll": "^1.3",
-    "bower-asset/flot": "^0.8",
+    "npm-asset/admin-lte": "^2.0",
+    "npm-asset/font-awesome": "^4.0",
+    "npm-asset/html5shiv": "^3.0",
+    "npm-asset/jquery-slimscroll": "^1.3",
+    "npm-asset/flot": "^0.8@alpha",
     "symfony/process": "^4.0",
     "guzzlehttp/guzzle": "^6.0",
     "alexantr/yii2-elfinder": "^1.3",
-    "trntv/sitemaped": "^0.1"
+    "trntv/sitemaped": "^0.1",
+    "yii2mod/yii2-swagger": "^1.1"
   },
   "require-dev": {
     "yiisoft/yii2-debug": "^2.0.0",
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
-    "codeception/codeception": "^2.3.0",
+    "codeception/codeception": "2.4.0",
     "codeception/verify": "^0.3.1"
   },
   "autoload-dev": {
@@ -67,7 +67,8 @@
     "trntv/yii2-debug-xhprof": "dev-master@dev"
   },
   "config": {
-    "process-timeout": 1800
+    "process-timeout": 1800,
+    "optimize-autoloader": true
   },
   "repositories": [
     {
@@ -75,12 +76,16 @@
       "url": "https://asset-packagist.org"
     }
   ],
+  "archive": {
+    "exclude": ["docs"]
+  },
   "scripts": {
     "build:env": [
       "cp .env.dist .env"
     ],
     "build:app": [
       "@composer install",
+      "echo 'waiting for mysql' && sleep 10",
       "console/yii app/setup --interactive=0"
     ],
     "docker:build": [

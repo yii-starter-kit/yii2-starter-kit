@@ -1,5 +1,7 @@
 const path = require('path');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports  = {
     entry: {
@@ -24,26 +26,29 @@ module.exports  = {
             },
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                    use: [
-                        {loader: 'css-loader', options: {minimize: true, sourceMap: true}},
-                        {
-                            loader: "less-loader",
-                            options: {
-                                minimize: true,
-                                sourceMap: true
-                            }
-                        }
-                    ]
-                })
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'less-loader'
+                ]
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
             filename: "[name].css",
             allChunks: true
         })
     ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            }),
+            new OptimizeCSSAssetsPlugin({})
+        ]
+    },
     devtool: 'source-map'
 };

@@ -16,7 +16,7 @@ use yii\log\Logger;
 use yii\widgets\Breadcrumbs;
 
 $bundle = BackendAsset::register($this);
-
+Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
 ?>
 
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
@@ -31,7 +31,7 @@ $bundle = BackendAsset::register($this);
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
             <!-- Sidebar toggle button-->
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only"><?php echo Yii::t('backend', 'Toggle navigation') ?></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -121,8 +121,7 @@ $bundle = BackendAsset::register($this);
             <!-- Sidebar user panel -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>"
-                         class="img-circle"/>
+                    <img src="<?php echo Yii::$app->user->identity->userProfile->getAvatar($this->assetManager->getAssetUrl($bundle, 'img/anonymous.jpg')) ?>" class="img-circle" />
                 </div>
                 <div class="pull-left info">
                     <p><?php echo Yii::t('backend', 'Hello, {username}', ['username' => Yii::$app->user->identity->getPublicIdentity()]) ?></p>
@@ -134,7 +133,7 @@ $bundle = BackendAsset::register($this);
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <?php echo Menu::widget([
-                'options' => ['class' => 'sidebar-menu'],
+                'options' => ['class' => 'sidebar-menu tree', 'data' => ['widget' => 'tree']],
                 'linkTemplate' => '<a href="{url}">{icon}<span>{label}</span>{right-icon}{badge}</a>',
                 'submenuTemplate' => "\n<ul class=\"treeview-menu\">\n{items}\n</ul>\n",
                 'activateParents' => true,
@@ -219,12 +218,14 @@ $bundle = BackendAsset::register($this);
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'options' => ['class' => 'header'],
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'Translation'),
                         'url' => ['/translation/default/index'],
                         'icon' => '<i class="fa fa-language"></i>',
                         'active' => (Yii::$app->controller->module->id == 'translation'),
+                        'visible' => Yii::$app->components["i18n"]["translations"]['*']['class'] === \yii\i18n\DbMessageSource::class,
                     ],
                     [
                         'label' => Yii::t('backend', 'System'),
@@ -310,7 +311,7 @@ $bundle = BackendAsset::register($this);
     </aside>
 
     <!-- Right side column. Contains the navbar and content of the page -->
-    <aside class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
@@ -336,7 +337,12 @@ $bundle = BackendAsset::register($this);
             <?php endif; ?>
             <?php echo $content ?>
         </section><!-- /.content -->
-    </aside><!-- /.right-side -->
+    </div><!-- /.right-side -->
+
+    <footer class="main-footer">
+        <strong>&copy; My Company <?php echo date('Y') ?></strong>
+        <div class="pull-right"><?php echo Yii::powered() ?></div>
+  </footer>
 </div><!-- ./wrapper -->
 
 <?php $this->endContent(); ?>

@@ -23,11 +23,11 @@ at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
 ### Get source code
 #### Download sources
-https://github.com/trntv/yii2-starter-kit/archive/master.zip
+https://github.com/yii2-starter-kit/yii2-starter-kit/archive/master.zip
 
 #### Or clone repository manually
 ```
-git clone https://github.com/trntv/yii2-starter-kit.git
+git clone https://github.com/yii2-starter-kit/yii2-starter-kit.git
 ```
 #### Install composer dependencies
 ```
@@ -38,7 +38,7 @@ composer install
 You can install this application template with `composer` using the following command:
 
 ```
-composer create-project trntv/yii2-starter-kit myproject.com
+composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
 ```
 
 ## Docker installation
@@ -162,7 +162,7 @@ STORAGE_BASE_URL    = /storage/web
 ```
 
 4. Configure your web server
-Example of single domain config for nginx can be found [here](https://github.com/trntv/yii2-starter-kit/blob/master/docker/nginx/vhost_single_domain.conf)
+Example of single domain config for nginx can be found [here](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/master/docker/nginx/vhost_single_domain.conf)
 
 ## Important notes
 - There is a VirtualBox bug related to sendfile that can lead to corrupted files, if not turned-off

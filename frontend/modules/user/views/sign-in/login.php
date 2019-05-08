@@ -22,6 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?php echo Yii::t('frontend', 'If you forgot your password you can reset it <a href="{link}">here</a>', [
                         'link'=>yii\helpers\Url::to(['sign-in/request-password-reset'])
                     ]) ?>
+                    <?php if (Yii::$app->getModule('user')->shouldBeActivated) : ?>
+                        <br>
+                        <?php echo Yii::t('frontend', 'Resend your activation email <a href="{link}">here</a>', [
+                            'link'=>yii\helpers\Url::to(['sign-in/resend-email'])
+                        ]) ?>
+                    <?php endif; ?>
+
                 </div>
                 <div class="form-group">
                     <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
@@ -31,9 +38,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
                 <h2><?php echo Yii::t('frontend', 'Log in with')  ?>:</h2>
                 <div class="form-group">
-                    <?php echo yii\authclient\widgets\AuthChoice::widget([
-                        'baseAuthUrl' => ['/user/sign-in/oauth']
-                    ]) ?>
+                    <?php $authAuthChoice = yii\authclient\widgets\AuthChoice::begin([
+                                    'baseAuthUrl' => ['site/auth']
+                                ]); ?>
+                        <ul class="list-unstyle list-inline">
+                            <?php foreach ($authAuthChoice->getClients() as $client): ?>
+                                <li><?= $authAuthChoice->clientLink($client) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php yii\authclient\widgets\AuthChoice::end(); ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

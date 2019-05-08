@@ -2,7 +2,6 @@
 
 namespace backend\modules\translation\controllers;
 
-
 use backend\modules\translation\models\search\SourceSearch;
 use backend\modules\translation\models\Source;
 use backend\modules\translation\models\Translation;
@@ -14,6 +13,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ConflictHttpException;
 
 class DefaultController extends Controller
 {
@@ -30,6 +30,30 @@ class DefaultController extends Controller
                 ],
             ],
         ];
+    }
+
+    /**
+     * Check if the DbMessageSource component is enabled.
+     *
+     * @param string $action The action to be executed.
+     * @return bool Whether the action should continue to run.
+     */
+    public function beforeAction($action)
+    {
+        // inherited for overriding
+        if (!parent::beforeAction($action)) {
+            return false;
+        }
+
+        $translationComponent = Yii::$app->components["i18n"]["translations"]['*']['class'];
+
+        // check if component is enabled
+        if ($translationComponent !== \yii\i18n\DbMessageSource::class) {
+            throw new ConflictHttpException('The translation module cannot be displayed since the translation
+            component is not using the "DbMessageSource" component.');
+        }
+
+        return true;
     }
 
     /**
@@ -53,7 +77,7 @@ class DefaultController extends Controller
                 'searchModel' => $searchModel,
                 'dataProvider' => $dataProvider,
                 'model' => $model,
-                'languages' => $this->getLanguages(),
+                'languages' => $this->getPrefixedLanguages(),
             ]);
         }
     }

@@ -12,7 +12,13 @@ use yii\web\AssetBundle;
 
 class FontAwesome extends AssetBundle
 {
-    public $sourcePath = '@bower/font-awesome';
+    /**
+     * @var string
+     */
+    public $sourcePath = '@npm/font-awesome';
+    /**
+     * @var array
+     */
     public $css = [
         'css/font-awesome.min.css'
     ];

@@ -2,22 +2,20 @@
 
 <!-- BADGES/ -->
 
-[![Packagist](https://img.shields.io/packagist/v/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
-[![Packagist](https://img.shields.io/packagist/dt/trntv/yii2-starter-kit.svg)](https://packagist.org/packages/trntv/yii2-starter-kit)
-[![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X7UFA3F3ALPM8 "Donate once-off to this project using Paypal")
-[![Dependency Status](https://www.versioneye.com/php/trntv:yii2-starter-kit/badge.svg)](https://www.versioneye.com/php/trntv:yii2-starter-kit)
-[![Build Status](https://travis-ci.org/trntv/yii2-starter-kit.svg?branch=master)](https://travis-ci.org/trntv/yii2-starter-kit)
+[![Packagist](https://img.shields.io/packagist/v/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
+[![Packagist](https://img.shields.io/packagist/dt/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
+[![Build Status](https://travis-ci.org/yii2-starter-kit/yii2-starter-kit.svg?branch=master)](https://travis-ci.org/yii2-starter-kit/yii2-starter-kit)
 
 <!-- /BADGES -->
 
 This is Yii2 start application template.
 
-It was created and developing as a fast start for building an advanced sites based on Yii2. 
+It was created and developing as a fast start for building an advanced sites based on Yii2.
 
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 ## Before you start
-Please, consider helping project via [contributions](https://github.com/trntv/yii2-starter-kit/issues) or [donations](#donations). 
+Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
 
 ## TABLE OF CONTENTS
 - [Demo](#demo)
@@ -37,9 +35,9 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 1. [Install composer](https://getcomposer.org)
 2. [Install docker](https://docs.docker.com/install/)
 3. [Install docker-compose](https://docs.docker.com/compose/install/)
-4. Run 
+4. Run
     ```bash
-    composer create-project trntv/yii2-starter-kit myproject.com --ignore-platform-reqs
+    composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
     cd myproject.com
     composer run-script docker:build
     ```
@@ -89,21 +87,21 @@ Please, consider helping project via [contributions](https://github.com/trntv/yi
 - Built-in queue component [yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue)
 - Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
-- [Some useful shortcuts](https://github.com/trntv/yii2-starter-kit/blob/master/common/helpers.php)
+- [Some useful shortcuts](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/master/common/helpers.php)
 
 ### Other
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
 - Maintenance mode support ([more](#maintenance-mode))
 - [Aceeditor widget](https://github.com/trntv/yii2-aceeditor)
-- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker), 
-- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor), 
+- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker),
+- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor),
 - [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
 - Sitemap generator
 - Extended IDE autocompletion
 - Test-ready
 - Docker support and Vagrant support
 - Built-in [mailcatcher](http://mailcatcher.me/)
-- many other features i'm lazy to write about :-)
+- [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO
 Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)

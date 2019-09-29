@@ -27,9 +27,13 @@ RUN apt-get purge -y g++ \
     && sh /install-composer.sh \
     && rm /install-composer.sh
 
-RUN usermod -u 1000 www-data
+RUN mkdir /var/www/.composer \
+    && chown -R www-data:www-data /var/www/.composer
 
-VOLUME /root/.composer
+RUN usermod -u 1000 www-data
+USER www-data
+
+VOLUME /var/www/.composer
 WORKDIR /app
 
 EXPOSE 9000

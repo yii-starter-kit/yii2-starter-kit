@@ -45,7 +45,7 @@ return [
     'E-mail' => 'E-mail',
     'File Type' => '文件类型',
     'Firstname' => '名字',
-    'Gender' => '姓名',
+    'Gender' => '性别',
     'ID' => 'ID',
     'Image' => '图片',
     'Key' => '键',

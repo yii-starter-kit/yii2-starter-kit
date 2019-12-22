@@ -15,6 +15,8 @@
 *.sql  text
 *.xml  text
 *.yml  text
+# Ensures that on windows sh files won't have CR LF that breaks docker-compose
+*.sh   text eol=lf
 
 # Ensure those won't be messed up with
 *.png  binary

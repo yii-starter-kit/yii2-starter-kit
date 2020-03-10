@@ -53,7 +53,7 @@ return [
     'Lastname' => 'Прізвище',
     'Locale' => 'Локаль',
     'Middlename' => 'По батькові',
-    'Name' => 'Им\'я',
+    'Name' => 'Ім\'я',
     'Order' => 'Порядок',
     'Page View' => 'Шаблон сторінки',
     'Parent Category' => 'Батьківська категорія',
@@ -73,6 +73,6 @@ return [
     'Upload Ip' => 'IP',
     'Url' => 'Url',
     'User ID' => 'ID Користувача',
-    'Username' => 'Им’я користувача',
+    'Username' => 'Ім’я користувача',
     'Value' => 'Значення',
 ];

@@ -54,8 +54,8 @@ class Source extends ActiveRecord
     /** @inheritdoc */
     public function __get($name)
     {
-        if (in_array($name, array_keys($this->getLanguages()))) {
-            return $this->getTranslation($name);
+        if (in_array($name, array_keys($this->getPrefixedLanguages()))) {
+            return $this->getTranslation($this->stripLanguagePrefix($name));
         }
 
         return parent::__get($name);

@@ -4,6 +4,7 @@ use trntv\filekit\widget\Upload;
 use trntv\yii\datetime\DateTimeWidget;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\web\JsExpression;
 
 /**
  * @var $this       yii\web\View
@@ -49,7 +50,8 @@ use yii\helpers\Html;
     Upload::class,
     [
         'url' => ['/file/storage/upload'],
-        'maxFileSize' => 5000000, // 5 MiB
+        'maxFileSize' => 5000000, // 5 MiB,
+        'acceptFileTypes' => new JsExpression('/(\.|\/)(gif|jpe?g|png)$/i'),
     ]);
 ?>
 

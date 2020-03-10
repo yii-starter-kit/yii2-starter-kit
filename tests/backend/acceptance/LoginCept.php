@@ -10,6 +10,7 @@ $I->wantTo('ensure login page works');
 
 $loginPage = LoginPage::openBy($I);
 
+sleep(5); // let's wait for the browser to fire-up
 $I->amGoingTo('submit login form with no data');
 $loginPage->login('', '');
 if (method_exists($I, 'wait')) {

@@ -85,10 +85,6 @@ $config = [
 
         'i18n' => [
             'translations' => [
-                'app' => [
-                    'class' => yii\i18n\PhpMessageSource::class,
-                    'basePath' => '@common/messages',
-                ],
                 '*' => [
                     'class' => yii\i18n\PhpMessageSource::class,
                     'basePath' => '@common/messages',
@@ -164,6 +160,7 @@ $config = [
             'ru-RU' => 'Русский (РФ)',
             'uk-UA' => 'Українська (Україна)',
             'es' => 'Español',
+            'fr' => 'Français',
             'vi' => 'Tiếng Việt',
             'zh-CN' => '简体中文',
             'pl-PL' => 'Polski (PL)',

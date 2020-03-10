@@ -17,7 +17,7 @@ class m150318_213934_file_storage_item extends Migration
             'type' => $this->string(),
             'size' => $this->integer(),
             'name' => $this->string(),
-            'upload_ip' => $this->string(15),
+            'upload_ip' => $this->string(45),
             'created_at' => $this->integer()->notNull()
         ]);
     }

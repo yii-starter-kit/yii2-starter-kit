@@ -239,22 +239,22 @@ Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
                         'active' => in_array(Yii::$app->controller->id, ['rbac-auth-assignment', 'rbac-auth-item', 'rbac-auth-item-child', 'rbac-auth-rule']),
                         'items' => [
                             [
-                                'label' => Yii::t('backend', 'Auth Assignment'),
+                                'label' => Yii::t('backend', 'Assignments'),
                                 'url' => ['/rbac/rbac-auth-assignment/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
                             ],
                             [
-                                'label' => Yii::t('backend', 'Auth Items'),
+                                'label' => Yii::t('backend', 'Items'),
                                 'url' => ['/rbac/rbac-auth-item/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
                             ],
                             [
-                                'label' => Yii::t('backend', 'Auth Item Child'),
+                                'label' => Yii::t('backend', 'Child Items'),
                                 'url' => ['/rbac/rbac-auth-item-child/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
                             ],
                             [
-                                'label' => Yii::t('backend', 'Auth Rules'),
+                                'label' => Yii::t('backend', 'Rules'),
                                 'url' => ['/rbac/rbac-auth-rule/index'],
                                 'icon' => '<i class="fa fa-circle-o"></i>',
                             ],

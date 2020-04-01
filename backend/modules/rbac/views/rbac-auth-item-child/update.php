@@ -5,12 +5,12 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\modules\rbac\models\RbacAuthItemChild */
 
-$this->title = Yii::t('frontend', 'Update {modelClass}: ', [
-    'modelClass' => 'Rbac Auth Item Child',
+$this->title = Yii::t('backend', 'Update {modelClass}: ', [
+    'modelClass' => 'Child Item',
 ]) . $model->parent;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('frontend', 'Rbac Auth Item Children'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Child Items'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->parent, 'url' => ['view', 'parent' => $model->parent, 'child' => $model->child]];
-$this->params['breadcrumbs'][] = Yii::t('frontend', 'Update');
+$this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 ?>
 <div class="rbac-auth-item-child-update">
 

@@ -1,7 +1,7 @@
 <?php
 /* @var $this \yii\web\View */
 use yii\helpers\ArrayHelper;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap4\Breadcrumbs;
 
 /* @var $content string */
 

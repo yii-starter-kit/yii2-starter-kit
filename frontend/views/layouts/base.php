@@ -9,16 +9,15 @@ use yii\bootstrap4\NavBar;
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
 <div class="wrap">
-    <?php
-    NavBar::begin([
+    <?php NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => ['navbar-dark', 'bg-dark', 'fixed-top', 'navbar-expand-md'],
         ],
     ]); ?>
     <?php echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ml-auto']],
         'items' => [
             ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug'=>'about']],

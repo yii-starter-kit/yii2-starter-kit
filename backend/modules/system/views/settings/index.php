@@ -15,7 +15,7 @@ $this->title = Yii::t('backend', 'Application settings');
 
 <?php echo FormWidget::widget([
     'model' => $model,
-    'formClass' => '\yii\bootstrap\ActiveForm',
+    'formClass' => '\yii\bootstrap4\ActiveForm',
     'submitText' => Yii::t('backend', 'Save'),
     'submitOptions' => ['class' => 'btn btn-primary'],
 ]) ?>

@@ -2,7 +2,7 @@
 
 use trntv\filekit\widget\Upload;
 use trntv\yii\datetime\DateTimeWidget;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 use yii\web\JsExpression;
 

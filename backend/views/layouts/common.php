@@ -8,7 +8,7 @@ use backend\assets\BackendAsset;
 use backend\modules\system\models\SystemLog;
 use backend\widgets\Menu;
 use common\models\TimelineEvent;
-use yii\bootstrap\Alert;
+use yii\bootstrap4\Alert;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;

@@ -2,13 +2,13 @@
 
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use common\models\User;
 use backend\modules\rbac\models\RbacAuthItem;
 
 /* @var $this yii\web\View */
 /* @var $model backend\modules\rbac\models\RbacAuthAssignment */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 ?>
 
 <div class="rbac-auth-assignment-form">

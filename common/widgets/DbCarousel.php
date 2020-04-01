@@ -10,7 +10,7 @@ use common\models\WidgetCarousel;
 use common\models\WidgetCarouselItem;
 use Yii;
 use yii\base\InvalidConfigException;
-use yii\bootstrap\Carousel;
+use yii\bootstrap4\Carousel;
 use yii\di\Instance;
 use yii\helpers\Html;
 use yii\web\AssetManager;

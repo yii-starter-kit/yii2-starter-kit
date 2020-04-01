@@ -1,12 +1,12 @@
 <?php
 
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 use yii\helpers\Html;
 
 /**
  * @var $this  yii\web\View
  * @var $model common\models\WidgetCarouselItem
- * @var $form  yii\bootstrap\ActiveForm
+ * @var $form  yii\bootstrap4\ActiveForm
  */
 
 ?>

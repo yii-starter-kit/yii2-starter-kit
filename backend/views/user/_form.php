@@ -2,11 +2,11 @@
 
 use common\models\User;
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\UserForm */
-/* @var $form yii\bootstrap\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 /* @var $roles yii\rbac\Role[] */
 /* @var $permissions yii\rbac\Permission[] */
 ?>

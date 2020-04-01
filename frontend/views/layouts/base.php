@@ -1,7 +1,7 @@
 <?php
 
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 
 /* @var $this \yii\web\View */
 /* @var $content string */

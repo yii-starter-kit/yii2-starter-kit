@@ -14,8 +14,6 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 ?>
 <div class="rbac-auth-rule-update">
 
-    <h1><?php echo Html::encode($this->title) ?></h1>
-
     <?php echo $this->render('_form', [
         'model' => $model,
     ]) ?>

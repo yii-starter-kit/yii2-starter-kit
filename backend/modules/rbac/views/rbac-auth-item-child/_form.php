@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\modules\rbac\models\RbacAuthItem;
 
 /* @var $this yii\web\View */
 /* @var $model backend\modules\rbac\models\RbacAuthItemChild */
@@ -12,9 +14,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin() ?>
 
-    <?php echo $form->field($model, 'parent')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'parent')->dropDownList(ArrayHelper::map(RbacAuthItem::find()->all(), 'name', 'name'), ['prompt' => Yii::t('backend', 'Please select a parent item...')]) ?>
 
-    <?php echo $form->field($model, 'child')->textInput(['maxlength' => true]) ?>
+    <?php echo $form->field($model, 'child')->dropDownList(ArrayHelper::map(RbacAuthItem::find()->all(), 'name', 'name'), ['prompt' => Yii::t('backend', 'Please select a child item...')]) ?>
 
     <div class="form-group">
         <?php echo Html::submitButton($model->isNewRecord ? Yii::t('frontend', 'Create') : Yii::t('frontend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

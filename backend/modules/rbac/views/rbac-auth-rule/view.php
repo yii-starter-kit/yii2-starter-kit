@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Rules'), 'url' =
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-rule-view">
-
-    <h1><?php echo Html::encode($this->title) ?></h1>
-
     <p>
         <?php echo Html::a(Yii::t('backend', 'Update'), ['update', 'id' => $model->name], ['class' => 'btn btn-primary']) ?>
         <?php echo Html::a(Yii::t('backend', 'Delete'), ['delete', 'id' => $model->name], [

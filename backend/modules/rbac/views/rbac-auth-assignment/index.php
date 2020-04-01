@@ -1,7 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
+use common\grid\EnumColumn;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -23,7 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'item_name',
-            'user_id',
+            [
+                'class' => EnumColumn::class,
+                'attribute' => 'user_id',
+                'label' => Yii::t('backend', 'User'),
+                'enum' => ArrayHelper::map(User::find()->all(), 'id', 'publicIdentity'),
+            ],
             'created_at:datetime',
 
             ['class' => 'yii\grid\ActionColumn'],

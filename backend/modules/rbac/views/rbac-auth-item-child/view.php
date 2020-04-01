@@ -11,9 +11,6 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Child Items'), '
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-item-child-view">
-
-    <h1><?php echo Html::encode($this->title) ?></h1>
-
     <p>
         <?php echo Html::a(Yii::t('backend', 'Update'), ['update', 'parent' => $model->parent, 'child' => $model->child], ['class' => 'btn btn-primary']) ?>
         <?php echo Html::a(Yii::t('backend', 'Delete'), ['delete', 'parent' => $model->parent, 'child' => $model->child], [

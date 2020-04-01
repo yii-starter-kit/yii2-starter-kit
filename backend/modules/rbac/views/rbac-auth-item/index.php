@@ -13,7 +13,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rbac-auth-item-index">
     <p>
-        <?php echo Html::a(Yii::t('backend', 'Item'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+            'modelClass' => 'Item',
+        ]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?php echo GridView::widget([
         'dataProvider' => $dataProvider,

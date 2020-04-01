@@ -3,6 +3,7 @@
 namespace backend\modules\rbac\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "rbac_auth_rule".
@@ -22,6 +23,16 @@ class RbacAuthRule extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return '{{%rbac_auth_rule}}';
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
     }
 
     /**

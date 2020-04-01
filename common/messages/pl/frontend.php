@@ -72,4 +72,11 @@ return [
     'Your account has been successfully saved' => 'Twoje konto zostało pomyślnie zapisane',
     'Your activation link: {url}' => 'Twój link aktywacyjny {url}',
     '{app-name} | Your login information' => '{app-name} | Twoje dane logowania',
+    'Create' => '',
+    'Create Rule' => '',
+    'Resend activation email' => '',
+    'Resend your activation email <a href="{link}">here</a>' => '',
+    'Rules' => '',
+    'Search' => '',
+    'Sorry, we are unable to resend activation link for email provided.' => '',
 ];

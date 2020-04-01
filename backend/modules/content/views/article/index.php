@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'attribute' => 'title',
             'value' => function ($model) {
-                return Html::a($model->title, ['update', 'id' => $model->id]);
+                return Html::a(Html::encode($model->title), ['update', 'id' => $model->id]);
             },
             'format' => 'raw',
         ],

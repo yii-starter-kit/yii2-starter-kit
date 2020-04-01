@@ -43,7 +43,7 @@ composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
 
 ## Docker installation
 1. Install [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) and [composer](https://getcomposer.org/) to your system
-2. Run ``composer run-script docker:start``
+2. Run ``composer run-script docker:build``
 3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
  * - docker host IP address may vary on Windows and MacOS systems

@@ -75,5 +75,5 @@ return [
     'User ID' => 'ID de Usuario',
     'Username' => 'Nombre de Usuario',
     'Value' => 'Valor',
-    'Draft' => '',
+    'Draft' => 'Borrador',
 ];

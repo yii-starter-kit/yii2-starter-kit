@@ -187,7 +187,7 @@ class AppController extends Controller
             }
 
             $category = new ArticleCategory([
-                'title' => $factory->word(),
+                'title' => $factory->word.' '.$factory->word,
                 'status' => array_rand(ArticleCategory::statuses()),
                 'parent_id' => $parent_id
             ]);

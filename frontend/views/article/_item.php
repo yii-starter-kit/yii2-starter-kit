@@ -7,8 +7,8 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 ?>
 <hr/>
-<div class="article-item row">
-    <div class="col-xs-12">
+<div class="card mb-4">
+    <div class="card-body">
         <h2 class="article-title">
             <?php echo Html::a(Html::encode($model->title), ['view', 'slug'=>$model->slug]) ?>
         </h2>

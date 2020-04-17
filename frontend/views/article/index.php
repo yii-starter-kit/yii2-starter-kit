@@ -8,11 +8,11 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('frontend', 'Articles')
 ?>
-<div id="article-index">
-    <h1>
+<div class="container">
+    <h1 class="mt-4">
         <?php echo Yii::t('frontend', 'Articles') ?>
     </h1>
-    <span class="glyphicon glyphicon-search" data-toggle="collapse" data-target="#search-form"></span>
+    <span class="fas fa-search" data-toggle="collapse" data-target="#search-form"></span>
     <div class="collapse" id="search-form">
         <?php $form = ActiveForm::begin([
                 'method' => 'GET',
@@ -20,7 +20,7 @@ $this->title = Yii::t('frontend', 'Articles')
         ]) ?>
             <div>
                 <?php echo $form->field($searchModel, 'title')->label(false)->error(false) ?>
-                <?php echo Html::submitButton(Yii::t('frontend', 'Search'), ['class' => 'btn btn-default']) ?>
+                <?php echo Html::submitButton(Yii::t('frontend', 'Search'), ['class' => 'btn btn-secondary']) ?>
             </div>
         <?php ActiveForm::end() ?>
     </div>

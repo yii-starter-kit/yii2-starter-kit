@@ -26,7 +26,7 @@ $this->title = Yii::$app->name;
 
     </div>
 
-    <div class="body-content">
+    <div class="container">
 
         <div class="row">
             <div class="col-lg-4">

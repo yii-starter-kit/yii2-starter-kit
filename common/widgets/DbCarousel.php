@@ -27,17 +27,16 @@ class DbCarousel extends Carousel
     public $key;
 
     /**
+     * The options passed to all the carousel images.
+     *
+     * @var array
+     */
+    public $imageOptions = ['class' => ['d-block', 'w-100']];
+
+    /**
      * @var string|array|callable|AssetManager
      */
     public $assetManager;
-
-    /**
-     * @var array
-     */
-    public $controls = [
-        '<span class="glyphicon glyphicon-chevron-left"></span>',
-        '<span class="glyphicon glyphicon-chevron-right"></span>',
-    ];
 
     /**
      * @throws InvalidConfigException
@@ -67,7 +66,7 @@ class DbCarousel extends Carousel
                 /** @var $item \common\models\WidgetCarouselItem */
                 if ($item->path) {
                     $url = $this->publishItem($item);
-                    $items[$k]['content'] = Html::img($url);
+                    $items[$k]['content'] = Html::img($url, $this->imageOptions);
                 }
 
                 if ($item->url) {

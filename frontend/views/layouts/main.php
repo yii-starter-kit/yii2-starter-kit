@@ -24,8 +24,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
         <?php echo \common\widgets\DbText::widget([
             'key' => 'ads-example'
         ]) ?>
-
-        <?php echo $content ?>
-
     </div>
+
+    <?php echo $content ?>
 <?php $this->endContent() ?>

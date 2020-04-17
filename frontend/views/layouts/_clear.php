@@ -15,7 +15,7 @@ use yii\helpers\Html;
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
     <?php echo $content ?>
 <?php $this->endBody() ?>

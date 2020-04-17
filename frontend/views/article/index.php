@@ -4,6 +4,8 @@
  * @var \yii\web\View $this
  * @var \yii\data\ActiveDataProvider $dataProvider
  * @var \frontend\models\search\ArticleSearch $searchModel
+ * @var array $categories
+ * @var array $archive
  */
 
 $this->title = Yii::t('frontend', 'Articles')

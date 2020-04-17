@@ -18,17 +18,21 @@ use yii\helpers\Url;
 class SignupForm extends Model
 {
     /**
-     * @var
+     * @var string
      */
     public $username;
     /**
-     * @var
+     * @var string
      */
     public $email;
     /**
-     * @var
+     * @var string
      */
     public $password;
+    /**
+     * @var string
+     */
+    public $password_confirm;
 
     /**
      * @inheritdoc
@@ -36,8 +40,8 @@ class SignupForm extends Model
     public function rules()
     {
         return [
+            [['username', 'email', 'password', 'password_confirm'], 'required'],
             ['username', 'filter', 'filter' => 'trim'],
-            ['username', 'required'],
             ['username', 'unique',
                 'targetClass' => '\common\models\User',
                 'message' => Yii::t('frontend', 'This username has already been taken.')
@@ -45,15 +49,14 @@ class SignupForm extends Model
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
             ['email', 'email'],
             ['email', 'unique',
                 'targetClass' => '\common\models\User',
                 'message' => Yii::t('frontend', 'This email address has already been taken.')
             ],
 
-            ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['password_confirm', 'compare', 'compareAttribute' => 'password', 'skipOnEmpty' => false],
         ];
     }
 
@@ -66,6 +69,7 @@ class SignupForm extends Model
             'username' => Yii::t('frontend', 'Username'),
             'email' => Yii::t('frontend', 'E-mail'),
             'password' => Yii::t('frontend', 'Password'),
+            'password_confirm' => Yii::t('frontend', 'Confirm Password')
         ];
     }
 

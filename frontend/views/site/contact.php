@@ -3,9 +3,11 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use yii\captcha\Captcha;
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model \frontend\models\ContactForm */
+/**
+ * @var \yii\web\View $this
+ * @var \yii\bootstrap\ActiveForm $form
+ * @var \frontend\models\ContactForm $model
+ */
 
 $this->title = Yii::t('frontend', 'Contact us');
 ?>

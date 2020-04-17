@@ -1,5 +1,7 @@
 <?php
-/* @var $this yii\web\View */
+/**
+ * @var \yii\web\View $this
+ */
 $this->title = Yii::$app->name;
 ?>
 <div class="site-index">
@@ -17,7 +19,7 @@ $this->title = Yii::$app->name;
 
             <p class="lead">You have successfully created your Yii-powered application.</p>
 
-            <?php echo common\widgets\DbMenu::widget([
+            <?php echo \common\widgets\DbMenu::widget([
                 'key'=>'frontend-index',
                 'options'=>[
                     'tag'=>'p'

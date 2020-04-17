@@ -1,9 +1,11 @@
 <?php
-/* @var $this \yii\web\View */
+/**
+ * @var \yii\web\View $this
+ * @var string $content
+ */
+
 use yii\helpers\ArrayHelper;
 use yii\bootstrap4\Breadcrumbs;
-
-/* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>

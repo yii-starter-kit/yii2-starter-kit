@@ -1,6 +1,10 @@
 <?php
-/* @var $this yii\web\View */
-/* @var $model common\models\Article */
+/**
+ * @var \yii\web\View $this
+ * @var \common\models\Article $model
+ * @var array $categories
+ * @var array $archive
+ */
 
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
@@ -35,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </p>
         <hr>
 
-        <?php if ($model->thumbnail_path): ?>
+        <?php if ($model->thumbnail_path) : ?>
             <?php echo \yii\helpers\Html::img(
                 Yii::$app->glide->createSignedUrl([
                     'glide/index',

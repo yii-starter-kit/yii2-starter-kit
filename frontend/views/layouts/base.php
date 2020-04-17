@@ -1,10 +1,11 @@
 <?php
+/**
+ * @var \yii\web\View $this
+ * @var string $content
+ */
 
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
-
-/* @var $this \yii\web\View */
-/* @var $content string */
 
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>

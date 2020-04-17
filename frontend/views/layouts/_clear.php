@@ -1,7 +1,10 @@
 <?php
+/**
+ * @var \yii\web\View $this
+ * @var string $content
+ */
+
 use yii\helpers\Html;
-/* @var $this \yii\web\View */
-/* @var $content string */
 
 \frontend\assets\FrontendAsset::register($this);
 ?>

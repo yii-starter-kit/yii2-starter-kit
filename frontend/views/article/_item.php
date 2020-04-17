@@ -45,7 +45,7 @@ use yii\helpers\StringHelper;
     <!-- card footer-->
     <div class="card-footer d-flex d-flex-row justify-content-between">
         <div class="text-muted">
-            <?php echo Yii::t('frontend', 'Posted on {published_at} by {author}', [
+            <?php echo Yii::t('frontend', 'Posted by {author} on {published_at}', [
                 'published_at' => Yii::$app->formatter->asDate($model->published_at),
                 'author' => $model->author->getPublicIdentity(),
             ]) ?>

@@ -2,11 +2,11 @@
 
 use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\base\MultiModel */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 
 $this->title = Yii::t('frontend', 'User Settings')
 ?>
@@ -41,7 +41,7 @@ $this->title = Yii::t('frontend', 'User Settings')
 
     <?php echo $form->field($model->getModel('account'), 'username') ?>
 
-    <?php echo $form->field($model->getModel('account'), 'email') ?>
+    <?php echo $form->field($model->getModel('account'), 'email')->input('email') ?>
 
     <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
 

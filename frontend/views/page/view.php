@@ -9,7 +9,6 @@ use yii\helpers\HtmlPurifier;
 
 $this->title = $model->title;
 ?>
-<div class="container">
-    <h1 class="mt-4"><?php echo Html::encode($model->title) ?></h1>
-    <?php echo HtmlPurifier::process($model->body) ?>
-</div>
+
+<h1 class="mt-4"><?php echo Html::encode($model->title) ?></h1>
+<?php echo HtmlPurifier::process($model->body) ?>

@@ -55,7 +55,7 @@ class ArticleController extends Controller
         $viewFile = $model->view ?: 'view';
         return $this->render($viewFile, [
             'model' => $model,
-            'archive' => Article::find()->getFullArchive()->limit(self::ARCHIVE_MONTHS_COUNT)->all(),
+            'archive' => Article::find()->getFullArchive()->limit(self::ARCHIVE_MONTHS_COUNT)->asArray()->all(),
             'categories' => ArticleCategory::find()->getCategoriesUsage()->asArray()->all(),
         ]);
     }

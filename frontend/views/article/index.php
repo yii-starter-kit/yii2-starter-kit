@@ -20,7 +20,8 @@ $this->title = Yii::t('frontend', 'Articles')
                 'pager' => [
                     'hideOnSinglePage' => true,
                 ],
-                'itemView' => '_item'
+                'itemView' => '_item',
+                'summaryOptions' => ['class' => ['text-muted mb-3']],
             ])?>
         </div>
 

@@ -228,6 +228,7 @@ class AppController extends Controller
                 'updated_at' => time(),
                 'status' => array_rand(Article::statuses())
             ]);
+            $article->detachBehaviors();
             $article->slug = Inflector::slug($article->title);
             $article->save(false);
         }

@@ -5,13 +5,28 @@ namespace backend\widgets;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\base\InvalidConfigException;
 
 /**
- * Class Menu
+ * @inheritdoc
  * @package backend\components\widget
  */
-class Menu extends \yii\widgets\Menu
+class Menu extends \yii\bootstrap4\Nav
 {
+    /**
+     * @inheritdoc
+     */
+    public $activateParents = true;
+
+    /**
+     * @inheritdoc
+     */
+    public $options = [
+        'class' => ['nav', 'nav-pills', 'nav-sidebar', 'flex-column'],
+        'data' => ['widget' => 'treeview', 'accordion' => 'false'],
+        'role' => 'menu',
+    ];
+
     /**
      * @var string
      */
@@ -42,46 +57,45 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    protected function renderItem($item)
+    public function renderItem($item)
     {
-        $item['badgeOptions'] = isset($item['badgeOptions']) ? $item['badgeOptions'] : [];
-
-        if (!ArrayHelper::getValue($item, 'badgeOptions.class')) {
-            $bg = isset($item['badgeBgClass']) ? $item['badgeBgClass'] : $this->badgeBgClass;
-            $item['badgeOptions']['class'] = $this->badgeClass . ' ' . $bg;
+        if (is_string($item)) {
+            return $item;
         }
-
-        if (isset($item['items']) && !isset($item['right-icon'])) {
-            $item['right-icon'] = $this->parentRightIcon;
+        if (!isset($item['label'])) {
+            throw new InvalidConfigException("The 'label' option is required.");
         }
+        $encodeLabel = isset($item['encode']) ? $item['encode'] : $this->encodeLabels;
+        $label = $encodeLabel ? Html::encode($item['label']) : $item['label'];
+        $options = ArrayHelper::getValue($item, 'options', []);
+        $items = ArrayHelper::getValue($item, 'items');
+        $url = ArrayHelper::getValue($item, 'url', '#');
+        $linkOptions = ArrayHelper::getValue($item, 'linkOptions', []);
+        $disabled = ArrayHelper::getValue($item, 'disabled', false);
+        $active = $this->isItemActive($item);
 
-        if (isset($item['url'])) {
-            $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
-
-            return strtr($template, [
-                '{badge}' => isset($item['badge'])
-                    ? Html::tag(
-                        'span',
-                        Html::tag('small', $item['badge'], $item['badgeOptions']),
-                        ['class' => 'pull-right-container']
-                    )
-                    : '',
-                '{icon}' => isset($item['icon']) ? $item['icon'] : '',
-                '{right-icon}' => isset($item['right-icon']) ? $item['right-icon'] : '',
-                '{url}' => Url::to($item['url']),
-                '{label}' => $item['label'],
-            ]);
+        if (empty($items)) {
+            $items = '';
         } else {
-            $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
-
-            return strtr($template, [
-                '{badge}' => isset($item['badge'])
-                    ? Html::tag('small', $item['badge'], $item['badgeOptions'])
-                    : '',
-                '{icon}' => isset($item['icon']) ? $item['icon'] : '',
-                '{right-icon}' => isset($item['right-icon']) ? $item['right-icon'] : '',
-                '{label}' => $item['label'],
-            ]);
+            Html::addCssClass($options, ['widget' => 'dropdown']);
+            Html::addCssClass($linkOptions, ['widget' => 'dropdown-toggle']);
+            if (is_array($items)) {
+                $items = $this->isChildActive($items, $active);
+                $items = $this->renderDropdown($items, $item);
+            }
         }
+
+        Html::addCssClass($options, 'nav-item');
+        Html::addCssClass($linkOptions, 'nav-link');
+
+        if ($disabled) {
+            ArrayHelper::setValue($linkOptions, 'tabindex', '-1');
+            ArrayHelper::setValue($linkOptions, 'aria-disabled', 'true');
+            Html::addCssClass($linkOptions, 'disabled');
+        } elseif ($this->activateItems && $active) {
+            Html::addCssClass($linkOptions, 'active');
+        }
+
+        return Html::tag('li', Html::a($label, $url, $linkOptions) . $items, $options);
     }
 }

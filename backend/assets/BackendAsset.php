@@ -33,6 +33,15 @@ class BackendAsset extends AssetBundle
         'app.js'
     ];
 
+    public $publishOptions = [
+        'only' => [
+            '*.css',
+            '*.js',
+            '../img/*'
+        ],
+        "forceCopy" => YII_ENV_DEV,
+    ];
+
     /**
      * @var array
      */

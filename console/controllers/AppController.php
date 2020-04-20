@@ -217,6 +217,7 @@ class AppController extends Controller
         for ($i=0; $i < $count; $i++) {
             $postUser = $users[array_rand($users)];
             $category = $categories[array_rand($categories)];
+            $factory-
             $article = new Article([
                 'category_id' => $category->id,
                 'title' => $factory->text(64),

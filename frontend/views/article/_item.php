@@ -43,7 +43,7 @@ use yii\helpers\StringHelper;
     <!-- /card body -->
 
     <!-- card footer-->
-    <div class="card-footer d-flex d-flex-row justify-content-between">
+    <div class="card-footer d-flex d-flex-row align-items-center justify-content-between">
         <div class="text-muted">
             <?php echo Yii::t('frontend', 'Posted by {author} on {published_at}', [
                 'published_at' => Yii::$app->formatter->asDate($model->published_at),

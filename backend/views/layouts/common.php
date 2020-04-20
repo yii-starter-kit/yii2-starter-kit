@@ -91,7 +91,17 @@ $logEntries[] = [
                         'class' => ['dropdown-menu', 'dropdown-menu-lg', 'dropdown-menu-right'],
                     ],
                     'items' => $logEntries,
-                ]
+                ],
+                [
+                    // control sidebar button
+                    'label' => FAS::icon('th-large'),
+                    'url'  => '#',
+                    'linkOptions' => [
+                        'data' => ['widget' => 'control-sidebar', 'slide' => 'true'],
+                        'role' => 'button'
+                    ],
+                    'visible' => isset($this->params['control-sidebar']),
+                ],
             ]
         ]); ?>
         <!-- /right navbar links -->
@@ -342,7 +352,14 @@ $logEntries[] = [
     </footer>
     <!-- /footer -->
 
+    <?php if (isset($this->params['control-sidebar'])) : ?>
     <!-- control sidebar -->
+    <div class="control-sidebar control-sidebar-dark">
+        <div class="control-sidebar-content p-3">
+            <?php echo $this->params['control-sidebar'] ?>
+        </div>
+    </div>
     <!-- /control sidebar -->
+    <?php endif; ?>
 </div>
 <?php $this->endContent(); ?>

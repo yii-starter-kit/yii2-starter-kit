@@ -2,7 +2,7 @@
 
 use common\grid\EnumColumn;
 use common\models\User;
-use trntv\yii\datetime\DateTimeWidget;
+use kartik\date\DatePicker;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\web\JsExpression;
@@ -44,10 +44,32 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_at',
                 'format' => 'datetime',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'created_at',
+                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                    'pluginOptions' => [
+                        'format' => 'dd-mm-yyyy',
+                        'showMeridian' => true,
+                        'todayBtn' => true,
+                        'endDate' => '0d',
+                    ]
+                ]),
             ],
             [
                 'attribute' => 'logged_at',
                 'format' => 'datetime',
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'logged_at',
+                    'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                    'pluginOptions' => [
+                        'format' => 'dd-mm-yyyy',
+                        'showMeridian' => true,
+                        'todayBtn' => true,
+                        'endDate' => '0d',
+                    ]
+                ]),
             ],
             // 'updated_at',
 

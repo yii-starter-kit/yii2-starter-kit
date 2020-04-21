@@ -23,6 +23,9 @@ var config = {
                     'css-loader',
                     'less-loader'
                 ]
+            }, {
+                test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                loader: 'url-loader?limit=100000'
             }
         ]
     },

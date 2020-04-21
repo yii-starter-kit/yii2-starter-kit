@@ -3,7 +3,7 @@
 use common\grid\EnumColumn;
 use common\models\Article;
 use common\models\ArticleCategory;
-use trntv\yii\datetime\DateTimeWidget;
+use kartik\date\DatePicker;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -76,28 +76,32 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'published_at',
             'options' => ['style' => 'width: 10%'],
             'format' => 'datetime',
-            'filter' => DateTimeWidget::widget([
+            'filter' => DatePicker::widget([
                 'model' => $searchModel,
                 'attribute' => 'published_at',
-                'phpDatetimeFormat' => 'dd.MM.yyyy',
-                'momentDatetimeFormat' => 'DD.MM.YYYY',
-                'clientEvents' => [
-                    'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")'),
-                ],
+                'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                'pluginOptions' => [
+                    'format' => 'dd-mm-yyyy',
+                    'showMeridian' => true,
+                    'todayBtn' => true,
+                    'endDate' => '0d',
+                ]
             ]),
         ],
         [
             'attribute' => 'created_at',
             'options' => ['style' => 'width: 10%'],
             'format' => 'datetime',
-            'filter' => DateTimeWidget::widget([
+            'filter' => DatePicker::widget([
                 'model' => $searchModel,
                 'attribute' => 'created_at',
-                'phpDatetimeFormat' => 'dd.MM.yyyy',
-                'momentDatetimeFormat' => 'DD.MM.YYYY',
-                'clientEvents' => [
-                    'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")'),
-                ],
+                'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                'pluginOptions' => [
+                    'format' => 'dd-mm-yyyy',
+                    'showMeridian' => true,
+                    'todayBtn' => true,
+                    'endDate' => '0d',
+                ]
             ]),
         ],
         [

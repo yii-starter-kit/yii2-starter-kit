@@ -165,6 +165,7 @@ $config = [
             'zh-CN' => '简体中文',
             'pl-PL' => 'Polski (PL)',
         ],
+        'bsVersion' => '4.x', // bootstrap version
     ],
 ];
 

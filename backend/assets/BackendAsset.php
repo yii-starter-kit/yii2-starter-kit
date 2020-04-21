@@ -12,6 +12,7 @@ use common\assets\AdminLte;
 use common\assets\Html5shiv;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
+use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
 
 class BackendAsset extends AssetBundle
 {
@@ -48,6 +49,6 @@ class BackendAsset extends AssetBundle
     public $depends = [
         YiiAsset::class,
         AdminLte::class,
-        Html5shiv::class
+        Html5shiv::class,
     ];
 }

@@ -1,6 +1,6 @@
 <?php
 
-use trntv\yii\datetime\DateTimeWidget;
+use kartik\date\DatePicker;
 use yii\grid\GridView;
 use yii\web\JsExpression;
 
@@ -68,14 +68,16 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'attribute' => 'created_at',
             'format' => 'datetime',
-            'filter' => DateTimeWidget::widget([
+            'filter' => DatePicker::widget([
                 'model' => $searchModel,
                 'attribute' => 'created_at',
-                'phpDatetimeFormat' => 'dd.MM.yyyy',
-                'momentDatetimeFormat' => 'DD.MM.YYYY',
-                'clientEvents' => [
-                    'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")'),
-                ],
+                'type' => DatePicker::TYPE_COMPONENT_APPEND,
+                'pluginOptions' => [
+                    'format' => 'dd-mm-yyyy',
+                    'showMeridian' => true,
+                    'todayBtn' => true,
+                    'endDate' => '0d',
+                ]
             ]),
         ],
 

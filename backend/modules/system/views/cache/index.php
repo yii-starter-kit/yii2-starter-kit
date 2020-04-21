@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'name',
         'class',
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'template' => '{flush-cache}',
             'buttons' => [
                 'flush-cache' => function ($url, $model) {

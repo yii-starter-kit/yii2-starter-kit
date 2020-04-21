@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'parent',
             'child',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => \common\widgets\ActionColumn::class],
         ],
     ]); ?>
 </div>

@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
 
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'template' => '{view} {delete}',
         ],
     ],

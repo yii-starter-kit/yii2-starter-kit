@@ -6,6 +6,7 @@ use trntv\yii\datetime\DateTimeWidget;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\web\JsExpression;
+use rmrevin\yii\fontawesome\FAS;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\UserSearch */
@@ -43,42 +44,22 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_at',
                 'format' => 'datetime',
-                'filter' => DateTimeWidget::widget([
-                    'model' => $searchModel,
-                    'attribute' => 'created_at',
-                    'phpDatetimeFormat' => 'dd.MM.yyyy',
-                    'momentDatetimeFormat' => 'DD.MM.YYYY',
-                    'clientEvents' => [
-                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
-                    ],
-                ])
             ],
             [
                 'attribute' => 'logged_at',
                 'format' => 'datetime',
-                'filter' => DateTimeWidget::widget([
-                    'model' => $searchModel,
-                    'attribute' => 'logged_at',
-                    'phpDatetimeFormat' => 'dd.MM.yyyy',
-                    'momentDatetimeFormat' => 'DD.MM.YYYY',
-                    'clientEvents' => [
-                        'dp.change' => new JsExpression('(e) => $(e.target).find("input").trigger("change.yiiGridView")')
-                    ],
-                ])
             ],
             // 'updated_at',
 
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => \common\widgets\ActionColumn::class,
                 'template' => '{login} {view} {update} {delete}',
                 'buttons' => [
                     'login' => function ($url) {
                         return Html::a(
-                                '<i class="fa fa-sign-in" aria-hidden="true"></i>',
-                                $url,
-                                [
-                                    'title' => Yii::t('backend', 'Login')
-                                ]
+                            FAS::icon('sign-in-alt'),
+                            $url,
+                            ['title' => Yii::t('backend', 'Login')]
                         );
                     },
                 ],

@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
             ],
         ],
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'options' => ['style' => 'width: 5%'],
             'controller' => '/widget/carousel-item',
             'template' => '{update} {delete}',

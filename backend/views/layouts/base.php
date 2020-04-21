@@ -3,8 +3,10 @@ use backend\assets\BackendAsset;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+/**
+ * @var \yii\web\View $this
+ * @var string $content
+ */
 
 $bundle = BackendAsset::register($this);
 

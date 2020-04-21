@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'filter' => WidgetCarousel::statuses(),
         ],
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'options' => ['style' => 'width: 5%'],
             'template' => '{update} {delete}',
         ],

@@ -1,12 +1,14 @@
 <?php
 /**
- * @var $this yii\web\View
- * @var $content string
+ * @author Eugine Terentev <eugine@terentev.net>
+ * @author Victor Gonzalez <victor@vgr.cl>
+ * @var \yii\web\View $this
+ * @var string $content
  */
 
 use backend\assets\BackendAsset;
 use backend\modules\system\models\SystemLog;
-use backend\widgets\Menu;
+use backend\widgets\MainSidebarMenu;
 use common\models\TimelineEvent;
 use yii\bootstrap4\Alert;
 use yii\helpers\ArrayHelper;
@@ -137,7 +139,7 @@ $logEntries[] = [
 
             <!-- sidebar menu -->
             <nav class="mt-2">
-                <?php echo Menu::widget([
+                <?php echo MainSidebarMenu::widget([
                     'items' => [
                         [
                             'label' => Yii::t('backend', 'Main'),
@@ -338,6 +340,12 @@ $logEntries[] = [
         <!-- main content -->
         <section class="content">
             <div class="container-fluid">
+                <?php if (Yii::$app->session->hasFlash('alert')) : ?>
+                    <?php echo Alert::widget([
+                        'body' => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),
+                        'options' => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
+                    ]) ?>
+                <?php endif; ?>
                 <?php echo $content ?>
             </div>
         </section>

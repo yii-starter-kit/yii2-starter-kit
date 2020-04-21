@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'filter' => WidgetMenu::statuses(),
         ],
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'options' => ['style' => 'width: 5%'],
             'template' => '{update} {delete}',
         ],

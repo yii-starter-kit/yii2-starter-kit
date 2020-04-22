@@ -32,7 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'class' => 'grid-view table-responsive'
         ],
         'columns' => [
-            'id',
+            [
+                'attribute' => 'id',
+                'options' => ['style' => 'width: 5%'],
+            ],
             'username',
             'email:email',
             [
@@ -76,12 +79,16 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => \common\widgets\ActionColumn::class,
                 'template' => '{login} {view} {update} {delete}',
+                'options' => ['style' => 'width: 140px'],
                 'buttons' => [
                     'login' => function ($url) {
                         return Html::a(
-                            FAS::icon('sign-in-alt'),
+                            FAS::icon('sign-in-alt', ['aria' => ['hidden' => true], 'class' => ['fa-fw']]),
                             $url,
-                            ['title' => Yii::t('backend', 'Login')]
+                            [
+                                'title' => Yii::t('backend', 'Login'),
+                                'class' => ['btn', 'btn-xs', 'btn-secondary']
+                            ]
                         );
                     },
                 ],

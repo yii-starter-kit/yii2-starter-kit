@@ -33,23 +33,17 @@ body {
     .fas;
     margin-left: 5px;
   }
-  a.asc:after {
-    content: @fa-var-sort-alpha-down;
+  a.asc:after, .sort-ordinal a.asc:after {
+    content: @fa-var-sort-amount-down-alt;
   }
-  a.desc:after {
-    content: @fa-var-sort-alpha-down-alt;
+  a.desc:after, .sort-ordinal a.desc:after {
+    content: @fa-var-sort-amount-down;
   }
   .sort-numerical a.asc:after {
     content: @fa-var-sort-numeric-down;
   }
   .sort-numerical a.desc:after {
     content: @fa-var-sort-numeric-down-alt;
-  }
-  .sort-ordinal a.asc:after {
-    content: @fa-var-sort-amount-down-alt;
-  }
-  .sort-ordinal a.desc:after {
-    content: @fa-var-sort-amount-down;
   }
   .grid-view th {
     white-space: nowrap;

@@ -4,9 +4,12 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 use rmrevin\yii\fontawesome\FAS;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\UserProfile */
-/* @var $form yii\bootstrap4\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var common\models\UserProfile $model
+ * @var yii\bootstrap4\ActiveForm $form
+ */
+
 $this->title = Yii::t('backend', 'Edit account')
 ?>
 

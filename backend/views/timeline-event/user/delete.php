@@ -2,7 +2,7 @@
 /**
  * @author Eugene Terentev <eugene@terentev.net>
  * @author Victor Gonzalez <victor@vgr.cl>
- * @var \common\models\TimelineEvent $model
+ * @var common\models\TimelineEvent $model
  */
 
 use rmrevin\yii\fontawesome\FAS;

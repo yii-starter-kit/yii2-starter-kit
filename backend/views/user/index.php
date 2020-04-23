@@ -8,9 +8,9 @@ use yii\grid\GridView;
 use rmrevin\yii\fontawesome\FAS;
 
 /**
- * @var \yii\web\View $this
- * @var \backend\models\search\UserSearch $searchModel
- * @var \yii\data\ActiveDataProvider $dataProvider
+ * @var yii\web\View $this
+ * @var backend\models\search\UserSearch $searchModel
+ * @var yii\data\ActiveDataProvider $dataProvider
  */
 $this->title = Yii::t('backend', 'Users');
 $this->params['breadcrumbs'][] = $this->title;

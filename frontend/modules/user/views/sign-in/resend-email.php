@@ -3,9 +3,9 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 
 /**
- * @var \yii\web\View $this
- * @var \yii\bootstrap4\ActiveForm $form
- * @var \frontend\modules\user\models\ResendEmailForm $model
+ * @var yii\web\View $this
+ * @var yii\bootstrap4\ActiveForm $form
+ * @var frontend\modules\user\models\ResendEmailForm $model
  */
 
 $this->title =  Yii::t('frontend', 'Resend activation email');

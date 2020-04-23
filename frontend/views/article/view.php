@@ -1,7 +1,7 @@
 <?php
 /**
- * @var \yii\web\View $this
- * @var \common\models\Article $model
+ * @var yii\web\View $this
+ * @var common\models\Article $model
  * @var array $categories
  * @var array $archive
  */

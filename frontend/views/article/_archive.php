@@ -1,7 +1,7 @@
 <?php
 /**
- * @var \common\models\Article[] $archive
- * @var \yii\web\View $this
+ * @var common\models\Article[] $archive
+ * @var yii\web\View $this
  */
 
 use yii\helpers\Html;

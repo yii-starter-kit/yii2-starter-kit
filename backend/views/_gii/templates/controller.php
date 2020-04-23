@@ -8,8 +8,8 @@ use yii\helpers\StringHelper;
 
 
 /**
- * @var \yii\web\View $this
- * @var \yii\gii\generators\crud\Generator $generator
+ * @var yii\web\View $this
+ * @var yii\gii\generators\crud\Generator $generator
  */
 
 $controllerClass = StringHelper::basename($generator->controllerClass);

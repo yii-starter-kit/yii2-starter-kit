@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
 /**
- * @var \yii\web\View $this
+ * @var yii\web\View $this
  * @var string $content
  */
 

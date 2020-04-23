@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @var \yii\web\View $this
- * @var \yii\data\ActiveDataProvider $dataProvider
- * @var \frontend\models\search\ArticleSearch $searchModel
+ * @var yii\web\View $this
+ * @var yii\data\ActiveDataProvider $dataProvider
+ * @var frontend\models\search\ArticleSearch $searchModel
  * @var array $categories
  * @var array $archive
  */

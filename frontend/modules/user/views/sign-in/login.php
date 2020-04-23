@@ -3,9 +3,9 @@ use yii\helpers\Html;
 use yii\bootstrap4\ActiveForm;
 
 /**
- * @var \yii\web\View $this
- * @var \yii\bootstrap4\ActiveForm $form
- * @var \frontend\modules\user\models\LoginForm $model
+ * @var yii\web\View $this
+ * @var yii\bootstrap4\ActiveForm $form
+ * @var frontend\modules\user\models\LoginForm $model
  */
 
 $this->title = Yii::t('frontend', 'Login');

@@ -2,7 +2,7 @@
 /**
  * Eugine Terentev <eugine@terentev.net>
  *
- * @var \yii\data\ArrayDataProvider $dataProvider
+ * @var yii\data\ArrayDataProvider $dataProvider
  */
 
 use yii\grid\GridView;

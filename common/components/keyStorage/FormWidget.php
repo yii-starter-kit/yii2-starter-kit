@@ -13,7 +13,7 @@ use yii\helpers\Html;
 class FormWidget extends Widget
 {
     /**
-     * @var \common\components\keyStorage\FormModel
+     * @var common\components\keyStorage\FormModel
      */
     public $model;
     /**

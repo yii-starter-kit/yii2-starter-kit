@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use yii\grid\GridView;
 use common\grid\EnumColumn;
 use common\models\User;
+use rmrevin\yii\fontawesome\FAS;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -12,30 +13,46 @@ use common\models\User;
 $this->title = Yii::t('backend', 'Assignments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="rbac-auth-assignment-index">
 
-    <p>
-        <?php echo Html::a(Yii::t('backend', 'Create {modelClass}', [
+<div class="card">
+    <div class="card-header">
+        <?php echo Html::a(FAS::icon('user-plus').' '.Yii::t('backend', 'Add New {modelClass}', [
             'modelClass' => 'Assignment',
         ]), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    </div>
 
-    <?php echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'item_name',
-            [
-                'class' => EnumColumn::class,
-                'attribute' => 'user_id',
-                'label' => Yii::t('backend', 'User'),
-                'enum' => ArrayHelper::map(User::find()->all(), 'id', 'publicIdentity'),
+    <div class="card-body p-0">
+        <?php echo GridView::widget([
+            'dataProvider' => $dataProvider,
+            'layout' => "{items}\n{pager}",
+            'options' => [
+                'class' => ['gridview', 'table-responsive'],
             ],
-            'created_at:datetime',
+            'tableOptions' => [
+                'class' => ['table', 'text-nowrap', 'table-striped', 'table-bordered', 'mb-0'],
+            ],
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
 
-            ['class' => \common\widgets\ActionColumn::class],
-        ],
-    ]); ?>
+                'item_name',
+                [
+                    'class' => EnumColumn::class,
+                    'attribute' => 'user_id',
+                    'label' => Yii::t('backend', 'User'),
+                    'enum' => ArrayHelper::map(User::find()->all(), 'id', 'publicIdentity'),
+                ],
+                'created_at:datetime',
 
+                ['class' => \common\widgets\ActionColumn::class],
+            ],
+        ]); ?>
+
+    </div>
+
+    <div class="card-footer">
+        <?php echo getDataProviderSummary($dataProvider) ?>
+    </div>
 </div>
+
+
+

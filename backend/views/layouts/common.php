@@ -86,7 +86,7 @@ $logEntries[] = [
                 ],
                 [
                     // log events
-                    'label' => FAR::icon('flag').' <span class="badge badge-warning navbar-badge">'.SystemLog::find()->count().'</span>',
+                    'label' => FAS::icon('clipboard-list').' <span class="badge badge-warning navbar-badge">'.SystemLog::find()->count().'</span>',
                     'url' => '#',
                     'linkOptions' => ['class' => ['no-caret']],
                     'dropdownOptions' => [
@@ -303,7 +303,7 @@ $logEntries[] = [
                         [
                             'label' => Yii::t('backend', 'Logs'),
                             'url' => ['/system/log/index'],
-                            'icon' => FAS::icon('exclamation-triangle', ['class' => ['nav-icon']]),
+                            'icon' => FAS::icon('clipboard-list', ['class' => ['nav-icon']]),
                             'badge' => SystemLog::find()->count(),
                             'badgeBgClass' => 'badge-danger',
                         ],

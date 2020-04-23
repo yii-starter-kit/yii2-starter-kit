@@ -16,11 +16,13 @@ use rmrevin\yii\fontawesome\FAS;
     'enableAjaxValidation' => true,
 ]) ?>
     <div class="card card-success">
+        <?php if ($model->isNewRecord) : ?>
         <div class="card-header">
             <h3 class="card-title">
                 <?php echo Yii::t('backend', 'Create a new carousel') ?>
             </h3>
         </div>
+        <?php endif; ?>
         <div class="card-body">
             <?php echo $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 

@@ -20,9 +20,13 @@ use yii\bootstrap4\NavBar;
 use yii\bootstrap4\Html;
 use rmrevin\yii\fontawesome\FAR;
 use rmrevin\yii\fontawesome\FAS;
+use common\components\keyStorage\FormModel;
+use common\components\keyStorage\FormWidget;
 
 $bundle = BackendAsset::register($this);
 Yii::info(Yii::$app->components["i18n"]["translations"]['*']['class'], 'test');
+
+$keyStorage = Yii::$app->keyStorage;
 
 $logEntries = [
     [
@@ -52,7 +56,14 @@ $logEntries[] = [
     <?php NavBar::begin([
         'renderInnerContainer' => false,
         'options' => [
-            'class' => ['main-header', 'navbar', 'navbar-expand', 'navbar-dark'],
+            'class' => [
+                'main-header',
+                'navbar',
+                'navbar-expand',
+                'navbar-dark',
+                $keyStorage->get('adminlte.navbar-no-border') ? 'border-bottom-0' : null,
+                $keyStorage->get('adminlte.navbar-small-text') ? 'text-sm' : null,
+            ],
         ],
     ]); ?>
 
@@ -131,7 +142,7 @@ $logEntries[] = [
                         'data' => ['widget' => 'control-sidebar', 'slide' => 'true'],
                         'role' => 'button'
                     ],
-                    'visible' => isset($this->params['control-sidebar']),
+                    'visible' => Yii::$app->user->can('administrator'),
                 ],
             ]
         ]); ?>
@@ -141,9 +152,9 @@ $logEntries[] = [
     <!-- /navbar -->
 
     <!-- main sidebar -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 <?php echo $keyStorage->get('adminlte.sidebar-no-expand') ? 'sidebar-no-expand' : null ?>">
         <!-- brand logo -->
-        <a href="/" class="brand-link text-center">
+        <a href="/" class="brand-link text-center <?php echo $keyStorage->get('adminlte.brand-text-small') ? 'text-sm' : null ?>">
             <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                 style="opacity: .8"> -->
             <span class="brand-text font-weight-bold"><?php echo Yii::$app->name ?></span>
@@ -169,6 +180,24 @@ $logEntries[] = [
             <!-- sidebar menu -->
             <nav class="mt-2">
                 <?php echo MainSidebarMenu::widget([
+                    'options' => [
+                        'class' => [
+                            'nav',
+                            'nav-pills',
+                            'nav-sidebar',
+                            'flex-column',
+                            $keyStorage->get('adminlte.sidebar-small-text') ? 'text-sm' : null,
+                            $keyStorage->get('adminlte.sidebar-flat') ? 'nav-flat' : null,
+                            $keyStorage->get('adminlte.sidebar-legacy') ? 'nav-legacy' : null,
+                            $keyStorage->get('adminlte.sidebar-compact') ? 'nav-compact' : null,
+                            $keyStorage->get('adminlte.sidebar-child-indent') ? 'nav-child-indent' : null,
+                        ],
+                        'data' => [
+                            'widget' => 'treeview',
+                            'accordion' => 'false'
+                        ],
+                        'role' => 'menu',
+                    ],
                     'items' => [
                         [
                             'label' => Yii::t('backend', 'Main'),
@@ -379,21 +408,118 @@ $logEntries[] = [
             </div>
         </section>
         <!-- /main content -->
+
+        <?php echo Html::a(FAS::icon('chevron-up'), '#', [
+            'class' => ['btn', 'btn-primary', 'back-to-top'],
+            'role' => 'button',
+            'aria-label' => 'Scroll to top',
+        ]) ?>
     </div>
     <!-- /content wrapper -->
 
     <!-- footer -->
-    <footer class="main-footer">
+    <footer class="main-footer <?php echo $keyStorage->get('adminlte.footer-small-text') ? 'text-sm' : null ?>">
         <strong>&copy; My Company <?php echo date('Y') ?></strong>
         <div class="float-right d-none d-sm-inline-block"><?php echo Yii::powered() ?></div>
     </footer>
     <!-- /footer -->
 
-    <?php if (isset($this->params['control-sidebar'])) : ?>
+    <?php if (Yii::$app->user->can('administrator')) : ?>
     <!-- control sidebar -->
-    <div class="control-sidebar control-sidebar-dark">
+    <div class="control-sidebar control-sidebar-dark overflow-auto">
         <div class="control-sidebar-content p-3">
-            <?php echo $this->params['control-sidebar'] ?>
+            <?php echo FormWidget::widget([
+                'model' => new FormModel([
+                    'keys' => [
+                        'frontend.options' => [
+                            'type' => FormModel::TYPE_HEADER,
+                            'content' => 'Frontend Options'
+                        ],
+                        'frontend.maintenance' => [
+                            'label' => Yii::t('backend', 'Maintenance mode'),
+                            'type' => FormModel::TYPE_DROPDOWN,
+                            'items' => [
+                                'disabled' => Yii::t('backend', 'Disabled'),
+                                'enabled' => Yii::t('backend', 'Enabled'),
+                            ],
+                        ],
+                        'backend.options' => [
+                            'type' => FormModel::TYPE_HEADER,
+                            'content' => 'Backend Options'
+                        ],
+                        'adminlte.body-small-text' => [
+                            'label' => Yii::t('backend', 'Body small text'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.no-navbar-border' => [
+                            'label' => Yii::t('backend', 'No navbar border'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.navbar-small-text' => [
+                            'label' => Yii::t('backend', 'Navbar small text'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.navbar-fixed' => [
+                            'label' => Yii::t('backend', 'Fixed navbar'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.footer-small-text' => [
+                            'label' => Yii::t('backend', 'Footer small text'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.footer-fixed' => [
+                            'label' => Yii::t('backend', 'Fixed footer'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-small-text' => [
+                            'label' => Yii::t('backend', 'Sidebar small text'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-flat' => [
+                            'label' => Yii::t('backend', 'Sidebar flat style'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-legacy' => [
+                            'label' => Yii::t('backend', 'Sidebar legacy style'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-compact' => [
+                            'label' => Yii::t('backend', 'Sidebar compact style'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-fixed' => [
+                            'label' => Yii::t('backend', 'Fixed sidebar'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-collapsed' => [
+                            'label' => Yii::t('backend', 'Collapsed sidebar'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-mini' => [
+                            'label' => Yii::t('backend', 'Mini sidebar'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-child-indent' => [
+                            'label' => Yii::t('backend', 'Indent sidebar child menu items'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.sidebar-no-expand' => [
+                            'label' => Yii::t('backend', 'Disable sidebar hover/focus auto expand'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                        'adminlte.brand-small-text' => [
+                            'label' => Yii::t('backend', 'Brand small text'),
+                            'type' => FormModel::TYPE_CHECKBOX,
+                        ],
+                    ],
+                ]),
+                'submitText' => FAS::icon('save').' '.Yii::t('backend', 'Save'),
+                'submitOptions' => ['class' => 'btn btn-primary'],
+                'formOptions' => [
+                    'action' => ['/system/settings/index'],
+                    'method' => 'post'
+                ],
+            ]) ?>
         </div>
     </div>
     <!-- /control sidebar -->

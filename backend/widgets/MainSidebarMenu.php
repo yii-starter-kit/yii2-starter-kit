@@ -93,11 +93,9 @@ class MainSidebarMenu extends \yii\widgets\Menu
     public $dropdownCaret = '<i class="fas fa-angle-left right"></i>';
 
     /**
-     * @var array array list of the HTML attributes for the menu's container tag.
-     *
-     * Defaults to AdminLTE 3 classes.
+     * @var array array list of the HTML attributes for the menu's container tag..
      */
-    public $options = ['class' => ['nav', 'nav-pills', 'nav-sidebar', 'flex-column', 'nav-child-indent'], 'data' => ['widget' => 'treeview', 'accordion' => 'false'], 'role' => 'menu'];
+    public $options;
 
     /**
      * @var array list of HTML attributes shared by all menu [[items]]. If any individual menu item

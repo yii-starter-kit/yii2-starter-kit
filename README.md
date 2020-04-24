@@ -64,6 +64,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
     - Vietnamese
     - Polish
     - Portuguese (Brazil)
+    - Indonesian (Bahasa)
 - Language switcher, built-in behavior to choose locale based on browser preferred language
 - Backend translations manager
 

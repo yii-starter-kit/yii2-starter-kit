@@ -164,6 +164,7 @@ $config = [
             'vi' => 'Tiếng Việt',
             'zh-CN' => '简体中文',
             'pl-PL' => 'Polski (PL)',
+            'id-ID' => 'Indonesian (Bahasa)',
         ],
         'bsVersion' => '4.x', // bootstrap version
     ],

@@ -88,7 +88,7 @@
     "build:app": [
       "@composer install",
       "echo 'waiting for mysql' && sleep 10",
-      "console/yii app/setup --interactive=0"
+      "php console/yii app/setup --interactive=0"
     ],
     "docker:build": [
       "@build:env",

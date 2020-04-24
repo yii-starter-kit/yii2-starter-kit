@@ -9,8 +9,8 @@ class ArticleCest
     {
         $I->amOnPage(['article/index']);
         $I->canSee('Articles', 'h1');
-        $I->canSee('Test Article 1', 'h2');
-        $I->dontSee('Test Article 2', 'h2');
+        $I->canSee('Test Article 1', '.h3.card-title');
+        $I->dontSee('Test Article 2', '.h3.card-title');
     }
 
     public function testArticleView(FunctionalTester $I)

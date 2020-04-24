@@ -45,7 +45,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 
 ## FEATURES
 ### Admin backend
-- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend [AdminLTE 3](https://adminlte.io/themes/v3/)
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - Settings editor. Application settings form (based on KeyStorage component)
 - [File manager](https://github.com/MihailDev/yii2-elfinder)

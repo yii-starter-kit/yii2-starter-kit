@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'filter' => Page::statuses(),
         ],
         [
-            'class' => 'yii\grid\ActionColumn',
+            'class' => \common\widgets\ActionColumn::class,
             'template' => '{delete}',
         ],
     ],

@@ -6,6 +6,7 @@ use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
+use yii\helpers\Inflector;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
@@ -13,13 +14,13 @@ use yii\helpers\Html;
 class FormWidget extends Widget
 {
     /**
-     * @var \common\components\keyStorage\FormModel
+     * @var common\components\keyStorage\FormModel
      */
     public $model;
     /**
      * @var string
      */
-    public $formClass = '\yii\widgets\ActiveForm';
+    public $formClass = \yii\bootstrap4\ActiveForm::class;
     /**
      * @var array
      */
@@ -70,6 +71,13 @@ class FormWidget extends Widget
                         throw new InvalidConfigException('Widget class must be set');
                     }
                     $input = $field->widget($widget, $options);
+                    break;
+                case FormModel::TYPE_HEADER:
+                    $input = Html::tag(
+                        ArrayHelper::getValue($config, 'tag', 'h5'),
+                        ArrayHelper::getValue($config, 'content', Inflector::humanize($key)),
+                        $options
+                    );
                     break;
                 default:
                     $input = $field->input($type, $options);

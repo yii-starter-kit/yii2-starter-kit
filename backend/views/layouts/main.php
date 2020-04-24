@@ -1,7 +1,9 @@
 <?php
 /**
- * @var $this yii\web\View
- * @var $content string
+ * @author Eugine Terentev <eugine@terentev.net>
+ * @author Victor Gonzalez <victor@vgr.cl>
+ * @var yii\web\View $this
+ * @var string $content
  */
 ?>
 <?php $this->beginContent('@backend/views/layouts/common.php'); ?>

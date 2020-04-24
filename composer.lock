@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9097569432ebbb6dde7a080fbdc90d5",
+    "content-hash": "8fbb63dfa9d701513cb68dbaf8b4f60d",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -56,6 +56,45 @@
                 "yii2"
             ],
             "time": "2019-05-14T13:11:53+00:00"
+        },
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+                "reference": "0e48302342e9c04174ed73902b08324d47d4e792"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/0e48302342e9c04174ed73902b08324d47d4e792",
+                "reference": "0e48302342e9c04174ed73902b08324d47d4e792",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Colorlib"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 4",
+            "homepage": "http://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "time": "2020-01-17T08:05:37+00:00"
         },
         {
             "name": "asofter/yii2-imperavi-redactor",
@@ -127,96 +166,6 @@
             ]
         },
         {
-            "name": "bower-asset/blueimp-canvas-to-blob",
-            "version": "v3.18.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Canvas-to-Blob.git",
-                "reference": "ae2d7c39ffd1d3178439bcafb0416838af1ccc63"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/ae2d7c39ffd1d3178439bcafb0416838af1ccc63",
-                "reference": "ae2d7c39ffd1d3178439bcafb0416838af1ccc63"
-            },
-            "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/blueimp-file-upload",
-            "version": "v9.34.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/jQuery-File-Upload.git",
-                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/bb52d3493d725175fcf5554da034a317aaaea0e2",
-                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
-            },
-            "require": {
-                "bower-asset/blueimp-canvas-to-blob": ">=2.1.1",
-                "bower-asset/blueimp-load-image": ">=1.13.0",
-                "bower-asset/blueimp-tmpl": ">=2.5.4",
-                "bower-asset/jquery": ">=1.6"
-            },
-            "type": "bower-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "bower-asset/blueimp-load-image",
-            "version": "v2.28.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Load-Image.git",
-                "reference": "452adbfc9f4980e0bed0d97d19fc2343475c447f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/452adbfc9f4980e0bed0d97d19fc2343475c447f",
-                "reference": "452adbfc9f4980e0bed0d97d19fc2343475c447f"
-            },
-            "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/blueimp-tmpl",
-            "version": "v3.14.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:blueimp/JavaScript-Templates.git",
-                "reference": "883bdd0d4f2cd8f17822ab352e7e25ac435e14a4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/883bdd0d4f2cd8f17822ab352e7e25ac435e14a4",
-                "reference": "883bdd0d4f2cd8f17822ab352e7e25ac435e14a4"
-            },
-            "type": "bower-asset"
-        },
-        {
-            "name": "bower-asset/bootstrap",
-            "version": "v3.4.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:twbs/bootstrap.git",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
-            },
-            "require": {
-                "bower-asset/jquery": ">=1.9.1,<4.0"
-            },
-            "type": "bower-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "bower-asset/eonasdan-bootstrap-datetimepicker",
             "version": "4.17.47",
             "source": {
@@ -243,7 +192,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -264,7 +213,7 @@
             "version": "3.4.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jquery/jquery-dist.git",
+                "url": "https://github.com/jquery/jquery-dist.git",
                 "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
@@ -336,12 +285,12 @@
             "version": "v3.25.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:wordnik/swagger-ui.git",
+                "url": "https://github.com/swagger-api/swagger-ui.git",
                 "reference": "e8a451a4cb1d774c62492ef44211f7589649e529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wordnik/swagger-ui/zipball/e8a451a4cb1d774c62492ef44211f7589649e529",
+                "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/e8a451a4cb1d774c62492ef44211f7589649e529",
                 "reference": "e8a451a4cb1d774c62492ef44211f7589649e529"
             },
             "type": "bower-asset"
@@ -663,6 +612,69 @@
             "time": "2019-10-28T03:44:26+00:00"
         },
         {
+            "name": "fortawesome/font-awesome",
+            "version": "5.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/4e6402443679e0a9d12c7401ac8783ef4646657f",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-4.0",
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Chase",
+                    "homepage": "http://twitter.com/supercodepoet"
+                },
+                {
+                    "name": "Dave Gandy",
+                    "homepage": "http://twitter.com/davegandy"
+                },
+                {
+                    "name": "Rob Madole",
+                    "homepage": "http://twitter.com/robmadole"
+                },
+                {
+                    "name": "Jory Raphael",
+                    "homepage": "http://twitter.com/sensibleworld"
+                },
+                {
+                    "name": "Geremia Taglialatela",
+                    "homepage": "http://twitter.com/gtagliala"
+                },
+                {
+                    "name": "Brian Talbot",
+                    "homepage": "http://twitter.com/talbs"
+                },
+                {
+                    "name": "Mike Wilkerson",
+                    "homepage": "http://twitter.com/mw77"
+                }
+            ],
+            "description": "The iconic font, CSS, and SVG framework",
+            "homepage": "https://fontawesome.com",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon",
+                "svg"
+            ],
+            "time": "2020-03-23T18:53:09+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.5.2",
             "source": {
@@ -920,6 +932,1223 @@
                 "watermark"
             ],
             "time": "2019-11-02T09:15:47+00:00"
+        },
+        {
+            "name": "kartik-v/bootstrap-fileinput",
+            "version": "v5.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+                "reference": "5d9c09364b8bf9e7ef0238bbb84cd108199eef05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/5d9c09364b8bf9e7ef0238bbb84cd108199eef05",
+                "reference": "5d9c09364b8bf9e7ef0238bbb84cd108199eef05",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\fileinput\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, ajax uploads, and more.",
+            "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
+            "keywords": [
+                "ajax",
+                "bootstrap",
+                "delete",
+                "file",
+                "image",
+                "input",
+                "jquery",
+                "multiple",
+                "preview",
+                "progress",
+                "upload"
+            ],
+            "time": "2019-12-13T10:21:22+00:00"
+        },
+        {
+            "name": "kartik-v/bootstrap-star-rating",
+            "version": "v4.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/bootstrap-star-rating.git",
+                "reference": "cb449271f24c78ab54726232daf5b9dae3e49dbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/bootstrap-star-rating/zipball/cb449271f24c78ab54726232daf5b9dae3e49dbd",
+                "reference": "cb449271f24c78ab54726232daf5b9dae3e49dbd",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A simple yet powerful JQuery star rating plugin for Bootstrap.",
+            "homepage": "https://github.com/kartik-v/bootstrap-star-rating",
+            "keywords": [
+                "Rating",
+                "awesome",
+                "bootstrap",
+                "font",
+                "glyphicon",
+                "star",
+                "svg"
+            ],
+            "time": "2019-05-25T06:53:46+00:00"
+        },
+        {
+            "name": "kartik-v/dependent-dropdown",
+            "version": "v1.4.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/dependent-dropdown.git",
+                "reference": "54a8806002ee21b744508a2edb95ed01d35c6cf9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/dependent-dropdown/zipball/54a8806002ee21b744508a2edb95ed01d35c6cf9",
+                "reference": "54a8806002ee21b744508a2edb95ed01d35c6cf9",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\plugins\\depdrop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A multi level dependent dropdown JQuery plugin that allows nested dependencies.",
+            "homepage": "https://github.com/kartik-v/dependent-dropdown",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "jquery",
+                "option",
+                "select"
+            ],
+            "time": "2019-03-09T10:53:11+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-krajee-base",
+            "version": "v2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+                "reference": "9ddb662bdf49fdb671a90853912a40418a26a0dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/9ddb662bdf49fdb671a90853912a40418a26a0dd",
+                "reference": "9ddb662bdf49fdb671a90853912a40418a26a0dd",
+                "shasum": ""
+            },
+            "suggest": {
+                "yiisoft/yii2-bootstrap": "for Krajee extensions to work with Bootstrap 3.x version",
+                "yiisoft/yii2-bootstrap4": "for Krajee extensions to work with Bootstrap 4.x version"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\base\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+            "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+            "keywords": [
+                "base",
+                "extension",
+                "foundation",
+                "krajee",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-03-13T17:14:54+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-activeform",
+            "version": "v1.5.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-activeform.git",
+                "reference": "02baee5e06a5dfbc94b71dc8c13ca87789716b29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-activeform/zipball/02baee5e06a5dfbc94b71dc8c13ca87789716b29",
+                "reference": "02baee5e06a5dfbc94b71dc8c13ca87789716b29",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9.8"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\form\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 active-form and active-field with full bootstrap styling support (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-activeform",
+            "keywords": [
+                "activefield",
+                "activeform",
+                "extension",
+                "field",
+                "form",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-02-23T19:45:01+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-affix",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-affix.git",
+                "reference": "2184119bfa518c285406156f744769b13b861712"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-affix/zipball/2184119bfa518c285406156f744769b13b861712",
+                "reference": "2184119bfa518c285406156f744769b13b861712",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\affix\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A scrollspy and affixed enhanced navigation to highlight page sections (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-affix",
+            "keywords": [
+                "affix",
+                "bootstrap",
+                "extension",
+                "jquery",
+                "navigation",
+                "plugin",
+                "scrollspy",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-11-09T04:56:27+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-alert",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-alert.git",
+                "reference": "7348b0d047695a3e552888c481ce250cbc1f9d0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-alert/zipball/7348b0d047695a3e552888c481ce250cbc1f9d0d",
+                "reference": "7348b0d047695a3e552888c481ce250cbc1f9d0d",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\alert\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A widget to generate alert based notifications using bootstrap-alert plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-alert",
+            "keywords": [
+                "alert",
+                "block",
+                "bootstrap",
+                "extension",
+                "flash",
+                "jquery",
+                "notification",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2017-03-10T17:08:52+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-colorinput",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-colorinput.git",
+                "reference": "65f2c4b603ef0c26c3c85b0246a6a59f59045a43"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-colorinput/zipball/65f2c4b603ef0c26c3c85b0246a6a59f59045a43",
+                "reference": "65f2c4b603ef0c26c3c85b0246a6a59f59045a43",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\color\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced Yii 2 widget encapsulating the HTML 5 color input (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-colorinput",
+            "keywords": [
+                "HTML5",
+                "color",
+                "extension",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-09-12T03:12:07+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-datepicker",
+            "version": "v1.4.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-datepicker.git",
+                "reference": "aadeb08fe0199a62bb26940cdccafc2c169edc69"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datepicker/zipball/aadeb08fe0199a62bb26940cdccafc2c169edc69",
+                "reference": "aadeb08fe0199a62bb26940cdccafc2c169edc69",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\date\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the bootstrap datepicker plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-datepicker",
+            "keywords": [
+                "date",
+                "extension",
+                "form",
+                "jquery",
+                "picker",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-10-09T11:34:49+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-datetimepicker",
+            "version": "v1.4.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-datetimepicker.git",
+                "reference": "dadf042cf13cce84a877dff5f1e6893538f370cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-datetimepicker/zipball/dadf042cf13cce84a877dff5f1e6893538f370cf",
+                "reference": "dadf042cf13cce84a877dff5f1e6893538f370cf",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\datetime\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the bootstrap datetimepicker plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-datetimepicker",
+            "keywords": [
+                "datetime",
+                "extension",
+                "form",
+                "jquery",
+                "picker",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-05-29T12:28:51+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-depdrop",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-depdrop.git",
+                "reference": "ea347e3793fbd8273cc9bd1eb94c4b32bb55d318"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-depdrop/zipball/ea347e3793fbd8273cc9bd1eb94c4b32bb55d318",
+                "reference": "ea347e3793fbd8273cc9bd1eb94c4b32bb55d318",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/dependent-dropdown": "~1.4",
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\depdrop\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Widget that enables setting up dependent dropdowns with nested dependencies (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-depdrop",
+            "keywords": [
+                "dependent",
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-04-19T07:02:48+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-fileinput",
+            "version": "v1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
+                "reference": "fcf5bf41fac35363d3f24a01a34f228c2534c7b7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/fcf5bf41fac35363d3f24a01a34f228c2534c7b7",
+                "reference": "fcf5bf41fac35363d3f24a01a34f228c2534c7b7",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/bootstrap-fileinput": ">=5.0.0",
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\file\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced FileInput widget for Bootstrap 3.x & 4.x with file preview, multiple selection, and more features (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-fileinput",
+            "keywords": [
+                "extension",
+                "file",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "upload",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-04-19T11:45:08+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-growl",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-growl.git",
+                "reference": "c79abaa47e9103e93345cd1eca7bc75e17e9a92e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-growl/zipball/c79abaa47e9103e93345cd1eca7bc75e17e9a92e",
+                "reference": "c79abaa47e9103e93345cd1eca7bc75e17e9a92e",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\growl\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A widget to generate growl based notifications using bootstrap-growl plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-growl",
+            "keywords": [
+                "alert",
+                "bootstrap",
+                "extension",
+                "growl",
+                "jquery",
+                "notification",
+                "plugin",
+                "widget",
+                "yii2"
+            ],
+            "time": "2015-05-03T08:23:04+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-rangeinput",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-rangeinput.git",
+                "reference": "dd9019bab7e5bf570a02870d9e74387891bbdb32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-rangeinput/zipball/dd9019bab7e5bf570a02870d9e74387891bbdb32",
+                "reference": "dd9019bab7e5bf570a02870d9e74387891bbdb32",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\range\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced Yii 2 widget encapsulating the HTML 5 range input (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-rangeinput",
+            "keywords": [
+                "HTML5",
+                "extension",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "range",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-09-07T10:05:08+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-rating",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-rating.git",
+                "reference": "651eaa5e6a3bd19471e2a907fb17c3fd92f383e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-rating/zipball/651eaa5e6a3bd19471e2a907fb17c3fd92f383e7",
+                "reference": "651eaa5e6a3bd19471e2a907fb17c3fd92f383e7",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/bootstrap-star-rating": "~4.0",
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\rating\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A Yii2 widget for the simple yet powerful bootstrap-star-rating plugin with fractional rating support (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-rating",
+            "keywords": [
+                "Rating",
+                "bootstrap",
+                "extension",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "star",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-09-16T09:30:44+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-select2",
+            "version": "v2.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-select2.git",
+                "reference": "b8cdb76b8dcc363e1e25b8f04f69aeabe98c6be3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/b8cdb76b8dcc363e1e25b8f04f69aeabe98c6be3",
+                "reference": "b8cdb76b8dcc363e1e25b8f04f69aeabe98c6be3",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9",
+                "select2/select2": ">=4.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\select2\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Select2 jQuery plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-select2",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "select2",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-11-15T16:16:16+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-sidenav",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-sidenav.git",
+                "reference": "02ee4f142d7dfbb316f878e538cc7b946f4502d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-sidenav/zipball/02ee4f142d7dfbb316f878e538cc7b946f4502d2",
+                "reference": "02ee4f142d7dfbb316f878e538cc7b946f4502d2",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\sidenav\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "An enhanced side navigation menu styled for bootstrap (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-sidenav",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "jquery",
+                "menu",
+                "navigation",
+                "plugin",
+                "sidenav",
+                "widget",
+                "yii2"
+            ],
+            "time": "2014-11-09T08:07:23+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-spinner",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-spinner.git",
+                "reference": "eb10dad17a107bf14f173c99994770ca23c548a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-spinner/zipball/eb10dad17a107bf14f173c99994770ca23c548a6",
+                "reference": "eb10dad17a107bf14f173c99994770ca23c548a6",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\spinner\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A widget to render animated CSS3 loading spinners with VML fallback for IE (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-spinner",
+            "keywords": [
+                "CSS3",
+                "extension",
+                "jquery",
+                "loading",
+                "plugin",
+                "spinner",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-10-09T11:54:03+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-switchinput",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-switchinput.git",
+                "reference": "7d8ee999d79bcdc1601da5cd59439ac7eb1f5ea6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-switchinput/zipball/7d8ee999d79bcdc1601da5cd59439ac7eb1f5ea6",
+                "reference": "7d8ee999d79bcdc1601da5cd59439ac7eb1f5ea6",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kartik\\switchinput\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A Yii2 wrapper widget for the Bootstrap Switch plugin to use checkboxes & radios as toggle switchinputes (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-switchinput",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "switchinput",
+                "toggle",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-01-10T16:47:35+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-timepicker",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-timepicker.git",
+                "reference": "c1dacfc3712bedf4f694d878279189e440a24b21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-timepicker/zipball/c1dacfc3712bedf4f694d878279189e440a24b21",
+                "reference": "c1dacfc3712bedf4f694d878279189e440a24b21",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\time\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the bootstrap timepicker plugin (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-timepicker",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "form",
+                "jquery",
+                "picker",
+                "plugin",
+                "time",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-10-09T11:58:19+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-touchspin",
+            "version": "v1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-touchspin.git",
+                "reference": "1daca822ad11258242178155613da8e269e3df2b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-touchspin/zipball/1daca822ad11258242178155613da8e269e3df2b",
+                "reference": "1daca822ad11258242178155613da8e269e3df2b",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=1.9"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\touchspin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "A Yii2 wrapper widget for the Bootstrap Switch plugin to use checkboxes & radios as toggle touchspines (sub repo split from yii2-widgets)",
+            "homepage": "https://github.com/kartik-v/yii2-widget-touchspin",
+            "keywords": [
+                "bootstrap",
+                "extension",
+                "form",
+                "input",
+                "jquery",
+                "plugin",
+                "spinner",
+                "touch",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-09-05T11:59:34+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widget-typeahead",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widget-typeahead.git",
+                "reference": "7b7041a3cbbeb2db0a608e9f6c9b3f4f63b0069d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-typeahead/zipball/7b7041a3cbbeb2db0a608e9f6c9b3f4f63b0069d",
+                "reference": "7b7041a3cbbeb2db0a608e9f6c9b3f4f63b0069d",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": ">=2.0.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\typeahead\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Enhanced Yii2 wrapper for the Twitter Typeahead plugin (sub repo split from yii2-widgets).",
+            "homepage": "https://github.com/kartik-v/yii2-widget-typeahead",
+            "keywords": [
+                "dropdown",
+                "extension",
+                "form",
+                "jquery",
+                "plugin",
+                "typeahead",
+                "widget",
+                "yii2"
+            ],
+            "time": "2019-05-29T12:06:56+00:00"
+        },
+        {
+            "name": "kartik-v/yii2-widgets",
+            "version": "v3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartik-v/yii2-widgets.git",
+                "reference": "e5a030d700243a90eccf96a070380bd3b76e17a3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widgets/zipball/e5a030d700243a90eccf96a070380bd3b76e17a3",
+                "reference": "e5a030d700243a90eccf96a070380bd3b76e17a3",
+                "shasum": ""
+            },
+            "require": {
+                "kartik-v/yii2-krajee-base": "*",
+                "kartik-v/yii2-widget-activeform": "*",
+                "kartik-v/yii2-widget-affix": "*",
+                "kartik-v/yii2-widget-alert": "*",
+                "kartik-v/yii2-widget-colorinput": "*",
+                "kartik-v/yii2-widget-datepicker": "*",
+                "kartik-v/yii2-widget-datetimepicker": "*",
+                "kartik-v/yii2-widget-depdrop": "*",
+                "kartik-v/yii2-widget-fileinput": "*",
+                "kartik-v/yii2-widget-growl": "*",
+                "kartik-v/yii2-widget-rangeinput": "*",
+                "kartik-v/yii2-widget-rating": "*",
+                "kartik-v/yii2-widget-select2": "*",
+                "kartik-v/yii2-widget-sidenav": "*",
+                "kartik-v/yii2-widget-spinner": "*",
+                "kartik-v/yii2-widget-switchinput": "*",
+                "kartik-v/yii2-widget-timepicker": "*",
+                "kartik-v/yii2-widget-touchspin": "*",
+                "kartik-v/yii2-widget-typeahead": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "kartik\\widgets\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Kartik Visweswaran",
+                    "email": "kartikv2@gmail.com",
+                    "homepage": "http://www.krajee.com/"
+                }
+            ],
+            "description": "Collection of useful widgets for Yii Framework 2.0 extending functionalities for Bootstrap",
+            "homepage": "https://github.com/kartik-v/yii2-widgets",
+            "keywords": [
+                "extension",
+                "form",
+                "widget",
+                "yii2"
+            ],
+            "time": "2018-10-09T17:40:19+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1542,11 +2771,11 @@
             "time": "2018-11-26T08:09:30+00:00"
         },
         {
-            "name": "npm-asset/acorn",
-            "version": "4.0.13",
+            "name": "npm-asset/blueimp-canvas-to-blob",
+            "version": "3.5.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/acorn/-/acorn-4.0.13.tgz"
+                "url": "https://registry.npmjs.org/blueimp-canvas-to-blob/-/blueimp-canvas-to-blob-3.5.0.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -1554,40 +2783,16 @@
             ]
         },
         {
-            "name": "npm-asset/admin-lte",
-            "version": "2.4.18",
+            "name": "npm-asset/blueimp-file-upload",
+            "version": "9.34.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/admin-lte/-/admin-lte-2.4.18.tgz"
+                "url": "https://registry.npmjs.org/blueimp-file-upload/-/blueimp-file-upload-9.34.0.tgz"
             },
             "require": {
-                "npm-asset/bootstrap": ">=3.4.0,<4.0.0",
-                "npm-asset/bootstrap-colorpicker": ">=2.5.3,<3.0.0",
-                "npm-asset/bootstrap-datepicker": ">=1.8.0,<2.0.0",
-                "npm-asset/bootstrap-daterangepicker": ">=2.1.25,<3.0.0",
-                "npm-asset/bootstrap-slider": ">=9.10.0,<10.0.0",
-                "npm-asset/chart.js": ">=1.0.0,<2.0.0",
-                "npm-asset/ckeditor": ">=4.11.2,<5.0.0",
-                "npm-asset/datatables.net": ">=1.10.19,<2.0.0",
-                "npm-asset/datatables.net-bs": ">=1.10.19,<2.0.0",
-                "npm-asset/fastclick": ">=1.0.6,<2.0.0",
-                "npm-asset/flot": ">=0.8.3,<0.9.0",
-                "npm-asset/font-awesome": ">=4.7.0,<5.0.0",
-                "npm-asset/fullcalendar": ">=3.10.0,<4.0.0",
-                "npm-asset/inputmask": ">=3.3.7,<4.0.0",
-                "npm-asset/ion-rangeslider": ">=2.3.0,<3.0.0",
-                "npm-asset/ionicons": ">=3.0.0,<4.0.0",
-                "npm-asset/jquery": ">=3.4.1,<4.0.0",
-                "npm-asset/jquery-knob": ">=1.2.11,<2.0.0",
-                "npm-asset/jquery-sparkline": ">=2.4.0,<3.0.0",
-                "npm-asset/jquery-ui": ">=1.12.1,<2.0.0",
-                "npm-asset/jvectormap": ">=1.2.2,<2.0.0",
-                "npm-asset/moment": ">=2.24.0,<3.0.0",
-                "npm-asset/morris.js": ">=0.5.0,<0.6.0",
-                "npm-asset/pace": "0.0.4",
-                "npm-asset/raphael": ">=2.2.7,<3.0.0",
-                "npm-asset/select2": ">=4.0.3,<5.0.0",
-                "npm-asset/slimscroll": ">=0.9.1,<0.10.0"
+                "npm-asset/blueimp-canvas-to-blob": "3.5.0",
+                "npm-asset/blueimp-load-image": "2.12.2",
+                "npm-asset/blueimp-tmpl": "3.6.0"
             },
             "type": "npm-asset",
             "license": [
@@ -1595,16 +2800,11 @@
             ]
         },
         {
-            "name": "npm-asset/asn1.js",
-            "version": "4.10.1",
+            "name": "npm-asset/blueimp-load-image",
+            "version": "2.12.2",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/asn1.js/-/asn1.js-4.10.1.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.0.0,<5.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/minimalistic-assert": ">=1.0.0,<2.0.0"
+                "url": "https://registry.npmjs.org/blueimp-load-image/-/blueimp-load-image-2.12.2.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -1612,66 +2812,11 @@
             ]
         },
         {
-            "name": "npm-asset/assert",
-            "version": "1.5.0",
+            "name": "npm-asset/blueimp-tmpl",
+            "version": "3.6.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/assert/-/assert-1.5.0.tgz"
-            },
-            "require": {
-                "npm-asset/object-assign": ">=4.1.1,<5.0.0",
-                "npm-asset/util": "0.10.3"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/astw",
-            "version": "2.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/astw/-/astw-2.2.0.tgz"
-            },
-            "require": {
-                "npm-asset/acorn": ">=4.0.3,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/balanced-match",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/base64-js",
-            "version": "1.3.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/base64-js/-/base64-js-1.3.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/bn.js",
-            "version": "4.11.8",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/bn.js/-/bn.js-4.11.8.tgz"
+                "url": "https://registry.npmjs.org/blueimp-tmpl/-/blueimp-tmpl-3.6.0.tgz"
             },
             "type": "npm-asset",
             "license": [
@@ -1680,955 +2825,42 @@
         },
         {
             "name": "npm-asset/bootstrap",
-            "version": "3.4.1",
+            "version": "4.4.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.4.1.tgz"
+                "url": "https://registry.npmjs.org/bootstrap/-/bootstrap-4.4.1.tgz"
             },
             "type": "npm-asset",
             "license": [
                 "MIT"
             ]
-        },
-        {
-            "name": "npm-asset/bootstrap-colorpicker",
-            "version": "2.5.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/bootstrap-colorpicker/-/bootstrap-colorpicker-2.5.3.tgz"
-            },
-            "require": {
-                "npm-asset/jquery": ">=1.10"
-            },
-            "type": "npm-asset",
-            "license": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "name": "npm-asset/bootstrap-datepicker",
-            "version": "1.9.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/bootstrap-datepicker/-/bootstrap-datepicker-1.9.0.tgz"
-            },
-            "require": {
-                "npm-asset/jquery": ">=1.7.1,<4.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "name": "npm-asset/bootstrap-daterangepicker",
-            "version": "2.1.30",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/bootstrap-daterangepicker/-/bootstrap-daterangepicker-2.1.30.tgz"
-            },
-            "require": {
-                "npm-asset/jquery": ">=1.10",
-                "npm-asset/moment": ">=2.9.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/bootstrap-slider",
-            "version": "9.10.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/bootstrap-slider/-/bootstrap-slider-9.10.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/brace-expansion",
-            "version": "1.1.11",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz"
-            },
-            "require": {
-                "npm-asset/balanced-match": ">=1.0.0,<2.0.0",
-                "npm-asset/concat-map": "0.0.1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/brorand",
-            "version": "1.1.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/brorand/-/brorand-1.1.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browser-pack",
-            "version": "6.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browser-pack/-/browser-pack-6.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/combine-source-map": "~0.7.1",
-                "npm-asset/defined": ">=1.0.0,<2.0.0",
-                "npm-asset/jsonstream": ">=1.0.3,<2.0.0",
-                "npm-asset/through2": ">=2.0.0,<3.0.0",
-                "npm-asset/umd": ">=3.0.0,<4.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browser-resolve",
-            "version": "1.11.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browser-resolve/-/browser-resolve-1.11.3.tgz"
-            },
-            "require": {
-                "npm-asset/resolve": "1.1.7"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify",
-            "version": "14.3.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify/-/browserify-14.3.0.tgz"
-            },
-            "require": {
-                "npm-asset/assert": ">=1.4.0,<2.0.0",
-                "npm-asset/browser-pack": ">=6.0.1,<7.0.0",
-                "npm-asset/browser-resolve": ">=1.11.0,<2.0.0",
-                "npm-asset/browserify-zlib": "~0.1.2",
-                "npm-asset/buffer": ">=5.0.2,<6.0.0",
-                "npm-asset/cached-path-relative": ">=1.0.0,<2.0.0",
-                "npm-asset/concat-stream": "~1.5.1",
-                "npm-asset/console-browserify": ">=1.1.0,<2.0.0",
-                "npm-asset/constants-browserify": "~1.0.0",
-                "npm-asset/crypto-browserify": ">=3.0.0,<4.0.0",
-                "npm-asset/defined": ">=1.0.0,<2.0.0",
-                "npm-asset/deps-sort": ">=2.0.0,<3.0.0",
-                "npm-asset/domain-browser": "~1.1.0",
-                "npm-asset/duplexer2": "~0.1.2",
-                "npm-asset/events": "~1.1.0",
-                "npm-asset/glob": ">=7.1.0,<8.0.0",
-                "npm-asset/has": ">=1.0.0,<2.0.0",
-                "npm-asset/htmlescape": ">=1.1.0,<2.0.0",
-                "npm-asset/https-browserify": ">=1.0.0,<2.0.0",
-                "npm-asset/inherits": "~2.0.1",
-                "npm-asset/insert-module-globals": ">=7.0.0,<8.0.0",
-                "npm-asset/jsonstream": ">=1.0.3,<2.0.0",
-                "npm-asset/labeled-stream-splicer": ">=2.0.0,<3.0.0",
-                "npm-asset/module-deps": ">=4.0.8,<5.0.0",
-                "npm-asset/os-browserify": "~0.1.1",
-                "npm-asset/parents": ">=1.0.1,<2.0.0",
-                "npm-asset/path-browserify": "~0.0.0",
-                "npm-asset/process": "~0.11.0",
-                "npm-asset/punycode": ">=1.3.2,<2.0.0",
-                "npm-asset/querystring-es3": "~0.2.0",
-                "npm-asset/read-only-stream": ">=2.0.0,<3.0.0",
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0",
-                "npm-asset/resolve": ">=1.1.4,<2.0.0",
-                "npm-asset/shasum": ">=1.0.0,<2.0.0",
-                "npm-asset/shell-quote": ">=1.6.1,<2.0.0",
-                "npm-asset/stream-browserify": ">=2.0.0,<3.0.0",
-                "npm-asset/stream-http": ">=2.0.0,<3.0.0",
-                "npm-asset/string_decoder": "~0.10.0",
-                "npm-asset/subarg": ">=1.0.0,<2.0.0",
-                "npm-asset/syntax-error": ">=1.1.1,<2.0.0",
-                "npm-asset/through2": ">=2.0.0,<3.0.0",
-                "npm-asset/timers-browserify": ">=1.0.1,<2.0.0",
-                "npm-asset/tty-browserify": "~0.0.0",
-                "npm-asset/url": "~0.11.0",
-                "npm-asset/util": "~0.10.1",
-                "npm-asset/vm-browserify": "~0.0.1",
-                "npm-asset/xtend": ">=4.0.0,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-aes",
-            "version": "1.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-aes/-/browserify-aes-1.2.0.tgz"
-            },
-            "require": {
-                "npm-asset/buffer-xor": ">=1.0.3,<2.0.0",
-                "npm-asset/cipher-base": ">=1.0.0,<2.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/evp_bytestokey": ">=1.0.3,<2.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-cipher",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-cipher/-/browserify-cipher-1.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/browserify-aes": ">=1.0.4,<2.0.0",
-                "npm-asset/browserify-des": ">=1.0.0,<2.0.0",
-                "npm-asset/evp_bytestokey": ">=1.0.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-des",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-des/-/browserify-des-1.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/cipher-base": ">=1.0.1,<2.0.0",
-                "npm-asset/des.js": ">=1.0.0,<2.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.1.2,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-rsa",
-            "version": "4.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-rsa/-/browserify-rsa-4.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.1.0,<5.0.0",
-                "npm-asset/randombytes": ">=2.0.1,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-sign",
-            "version": "4.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-sign/-/browserify-sign-4.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.1.1,<5.0.0",
-                "npm-asset/browserify-rsa": ">=4.0.0,<5.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/create-hmac": ">=1.1.2,<2.0.0",
-                "npm-asset/elliptic": ">=6.0.0,<7.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/parse-asn1": ">=5.0.0,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/browserify-zlib",
-            "version": "0.1.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/browserify-zlib/-/browserify-zlib-0.1.4.tgz"
-            },
-            "require": {
-                "npm-asset/pako": "~0.2.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/buffer",
-            "version": "5.5.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/buffer/-/buffer-5.5.0.tgz"
-            },
-            "require": {
-                "npm-asset/base64-js": ">=1.0.2,<2.0.0",
-                "npm-asset/ieee754": ">=1.1.4,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/buffer-xor",
-            "version": "1.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/buffer-xor/-/buffer-xor-1.0.3.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/builtin-status-codes",
-            "version": "2.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/builtin-status-codes/-/builtin-status-codes-2.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/cached-path-relative",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/cached-path-relative/-/cached-path-relative-1.0.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/charm",
-            "version": "0.1.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/charm/-/charm-0.1.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT/X11"
-            ]
-        },
-        {
-            "name": "npm-asset/chart.js",
-            "version": "1.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/chart.js/-/chart.js-1.1.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/cipher-base",
-            "version": "1.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/cipher-base/-/cipher-base-1.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/ckeditor",
-            "version": "4.14.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:ckeditor/ckeditor-releases.git",
-                "reference": "998e43cd6305bca24304b9538a682da123ac5b73"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ckeditor/ckeditor-releases/zipball/998e43cd6305bca24304b9538a682da123ac5b73",
-                "reference": "998e43cd6305bca24304b9538a682da123ac5b73"
-            },
-            "type": "npm-asset",
-            "license": [
-                "(GPL-2.0 OR LGPL-2.1 OR MPL-1.1)"
-            ]
-        },
-        {
-            "name": "npm-asset/classie",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/classie/-/classie-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/combine-source-map",
-            "version": "0.7.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/combine-source-map/-/combine-source-map-0.7.2.tgz"
-            },
-            "require": {
-                "npm-asset/convert-source-map": "~1.1.0",
-                "npm-asset/inline-source-map": "~0.6.0",
-                "npm-asset/lodash.memoize": "~3.0.3",
-                "npm-asset/source-map": "~0.5.3"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/concat-map",
-            "version": "0.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/concat-stream",
-            "version": "1.5.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/concat-stream/-/concat-stream-1.5.2.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": "~2.0.1",
-                "npm-asset/readable-stream": "~2.0.0",
-                "npm-asset/typedarray": "~0.0.5"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/console-browserify",
-            "version": "1.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/console-browserify/-/console-browserify-1.2.0.tgz"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/constants-browserify",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/constants-browserify/-/constants-browserify-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/convert-source-map",
-            "version": "1.1.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.1.3.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/core-util-is",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/create-ecdh",
-            "version": "4.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/create-ecdh/-/create-ecdh-4.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.1.0,<5.0.0",
-                "npm-asset/elliptic": ">=6.0.0,<7.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/create-hash",
-            "version": "1.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/create-hash/-/create-hash-1.2.0.tgz"
-            },
-            "require": {
-                "npm-asset/cipher-base": ">=1.0.1,<2.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/md5.js": ">=1.3.4,<2.0.0",
-                "npm-asset/ripemd160": ">=2.0.1,<3.0.0",
-                "npm-asset/sha.js": ">=2.4.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/create-hmac",
-            "version": "1.1.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/create-hmac/-/create-hmac-1.1.7.tgz"
-            },
-            "require": {
-                "npm-asset/cipher-base": ">=1.0.3,<2.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/ripemd160": ">=2.0.0,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0",
-                "npm-asset/sha.js": ">=2.4.8,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/crypto-browserify",
-            "version": "3.12.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/crypto-browserify/-/crypto-browserify-3.12.0.tgz"
-            },
-            "require": {
-                "npm-asset/browserify-cipher": ">=1.0.0,<2.0.0",
-                "npm-asset/browserify-sign": ">=4.0.0,<5.0.0",
-                "npm-asset/create-ecdh": ">=4.0.0,<5.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/create-hmac": ">=1.1.0,<2.0.0",
-                "npm-asset/diffie-hellman": ">=5.0.0,<6.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/pbkdf2": ">=3.0.3,<4.0.0",
-                "npm-asset/public-encrypt": ">=4.0.0,<5.0.0",
-                "npm-asset/randombytes": ">=2.0.0,<3.0.0",
-                "npm-asset/randomfill": ">=1.0.3,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/datatables.net",
-            "version": "1.10.20",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/datatables.net/-/datatables.net-1.10.20.tgz"
-            },
-            "require": {
-                "npm-asset/jquery": ">=1.7"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/datatables.net-bs",
-            "version": "1.10.20",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/datatables.net-bs/-/datatables.net-bs-1.10.20.tgz"
-            },
-            "require": {
-                "npm-asset/datatables.net": "1.10.20",
-                "npm-asset/jquery": ">=1.7"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/defined",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/defined/-/defined-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/deps-sort",
-            "version": "2.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/deps-sort/-/deps-sort-2.0.0.tgz"
-            },
-            "require": {
-                "npm-asset/jsonstream": ">=1.0.3,<2.0.0",
-                "npm-asset/shasum": ">=1.0.0,<2.0.0",
-                "npm-asset/subarg": ">=1.0.0,<2.0.0",
-                "npm-asset/through2": ">=2.0.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/des.js",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/des.js/-/des.js-1.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/minimalistic-assert": ">=1.0.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/detective",
-            "version": "4.5.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/detective/-/detective-4.5.0.tgz"
-            },
-            "require": {
-                "npm-asset/acorn": ">=4.0.3,<5.0.0",
-                "npm-asset/defined": ">=1.0.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/diffie-hellman",
-            "version": "5.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/diffie-hellman/-/diffie-hellman-5.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.1.0,<5.0.0",
-                "npm-asset/miller-rabin": ">=4.0.0,<5.0.0",
-                "npm-asset/randombytes": ">=2.0.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/domain-browser",
-            "version": "1.1.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/domain-browser/-/domain-browser-1.1.7.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/domhelper",
-            "version": "0.9.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/domhelper/-/domhelper-0.9.1.tgz"
-            },
-            "require": {
-                "npm-asset/browserify": ">=3.46.0",
-                "npm-asset/classie": ">=0.0.1",
-                "npm-asset/util-extend": ">=1.0.1,<2.0.0"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/duplexer2",
-            "version": "0.1.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/duplexer2/-/duplexer2-0.1.4.tgz"
-            },
-            "require": {
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "BSD-3-Clause"
-            ]
-        },
-        {
-            "name": "npm-asset/elliptic",
-            "version": "6.5.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/elliptic/-/elliptic-6.5.2.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.4.0,<5.0.0",
-                "npm-asset/brorand": ">=1.0.1,<2.0.0",
-                "npm-asset/hash.js": ">=1.0.0,<2.0.0",
-                "npm-asset/hmac-drbg": ">=1.0.0,<2.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/minimalistic-assert": ">=1.0.0,<2.0.0",
-                "npm-asset/minimalistic-crypto-utils": ">=1.0.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/eve-raphael",
-            "version": "0.5.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/eve-raphael/-/eve-raphael-0.5.0.tgz"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/events",
-            "version": "1.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/events/-/events-1.1.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/evp_bytestokey",
-            "version": "1.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/evp_bytestokey/-/evp_bytestokey-1.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/md5.js": ">=1.3.4,<2.0.0",
-                "npm-asset/safe-buffer": ">=5.1.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/fastclick",
-            "version": "1.0.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/fastclick/-/fastclick-1.0.6.tgz"
-            },
-            "type": "npm-asset"
         },
         {
             "name": "npm-asset/flot",
-            "version": "0.8.3",
+            "version": "3.2.13",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/flot/-/flot-0.8.3.tgz"
+                "url": "https://registry.npmjs.org/flot/-/flot-3.2.13.tgz"
             },
-            "type": "npm-asset"
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "npm-asset/font-awesome",
-            "version": "4.7.0",
+            "version": "5.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f"
+            },
             "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/font-awesome/-/font-awesome-4.7.0.tgz"
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/4e6402443679e0a9d12c7401ac8783ef4646657f",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f"
             },
-            "type": "npm-asset",
-            "license": [
-                "(OFL-1.1 AND MIT)"
-            ]
-        },
-        {
-            "name": "npm-asset/fs.realpath",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/fs.realpath/-/fs.realpath-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/fullcalendar",
-            "version": "3.10.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/fullcalendar/-/fullcalendar-3.10.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/function-bind",
-            "version": "1.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/function-bind/-/function-bind-1.1.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/glob",
-            "version": "7.1.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/glob/-/glob-7.1.6.tgz"
-            },
-            "require": {
-                "npm-asset/fs.realpath": ">=1.0.0,<2.0.0",
-                "npm-asset/inflight": ">=1.0.4,<2.0.0",
-                "npm-asset/inherits": "~2",
-                "npm-asset/minimatch": ">=3.0.4,<4.0.0",
-                "npm-asset/once": ">=1.3.0,<2.0.0",
-                "npm-asset/path-is-absolute": ">=1.0.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/has",
-            "version": "1.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/has/-/has-1.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/function-bind": ">=1.1.1,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/hash-base",
-            "version": "3.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/hash-base/-/hash-base-3.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/hash.js",
-            "version": "1.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/hash.js/-/hash.js-1.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/hmac-drbg",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/hash.js": ">=1.0.3,<2.0.0",
-                "npm-asset/minimalistic-assert": ">=1.0.0,<2.0.0",
-                "npm-asset/minimalistic-crypto-utils": ">=1.0.1,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
+            "type": "npm-asset"
         },
         {
             "name": "npm-asset/html5shiv",
@@ -2640,199 +2872,11 @@
             "type": "npm-asset"
         },
         {
-            "name": "npm-asset/htmlescape",
-            "version": "1.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/htmlescape/-/htmlescape-1.1.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/https-browserify",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/https-browserify/-/https-browserify-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/ieee754",
-            "version": "1.1.13",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/ieee754/-/ieee754-1.1.13.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "BSD-3-Clause"
-            ]
-        },
-        {
-            "name": "npm-asset/indexof",
-            "version": "0.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/indexof/-/indexof-0.0.1.tgz"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/inflight",
-            "version": "1.0.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/inflight/-/inflight-1.0.6.tgz"
-            },
-            "require": {
-                "npm-asset/once": ">=1.3.0,<2.0.0",
-                "npm-asset/wrappy": "~1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/inherits",
-            "version": "2.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/inherits/-/inherits-2.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/inline-source-map",
-            "version": "0.6.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/inline-source-map/-/inline-source-map-0.6.2.tgz"
-            },
-            "require": {
-                "npm-asset/source-map": "~0.5.3"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/inputmask",
-            "version": "3.3.11",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/inputmask/-/inputmask-3.3.11.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/insert-module-globals",
-            "version": "7.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/insert-module-globals/-/insert-module-globals-7.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/combine-source-map": "~0.7.1",
-                "npm-asset/concat-stream": "~1.5.1",
-                "npm-asset/is-buffer": ">=1.1.0,<2.0.0",
-                "npm-asset/jsonstream": ">=1.0.3,<2.0.0",
-                "npm-asset/lexical-scope": ">=1.2.0,<2.0.0",
-                "npm-asset/process": "~0.11.0",
-                "npm-asset/through2": ">=2.0.0,<3.0.0",
-                "npm-asset/xtend": ">=4.0.0,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/ion-rangeslider",
-            "version": "2.3.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/ion-rangeslider/-/ion-rangeslider-2.3.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/ionicons",
-            "version": "3.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/ionicons/-/ionicons-3.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/is-buffer",
-            "version": "1.1.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/is-buffer/-/is-buffer-1.1.6.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/isarray",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
             "name": "npm-asset/jquery",
             "version": "3.4.1",
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/jquery/-/jquery-3.4.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/jquery-knob",
-            "version": "1.2.13",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:aterrien/jQuery-Knob.git",
-                "reference": "755309e933d326ffaa5a2d758dc377147b766515"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/aterrien/jQuery-Knob/zipball/755309e933d326ffaa5a2d758dc377147b766515",
-                "reference": "755309e933d326ffaa5a2d758dc377147b766515"
             },
             "type": "npm-asset",
             "license": [
@@ -2850,1019 +2894,6 @@
                 "npm-asset/jquery": ">=1.7"
             },
             "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/jquery-sparkline",
-            "version": "2.4.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/jquery-sparkline/-/jquery-sparkline-2.4.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "BSD-2-Clause"
-            ]
-        },
-        {
-            "name": "npm-asset/jquery-ui",
-            "version": "1.12.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.12.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/json-stable-stringify",
-            "version": "0.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/json-stable-stringify/-/json-stable-stringify-0.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/jsonify": "~0.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/jsonify",
-            "version": "0.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/jsonify/-/jsonify-0.0.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "Public Domain"
-            ]
-        },
-        {
-            "name": "npm-asset/jsonparse",
-            "version": "1.3.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/jsonparse/-/jsonparse-1.3.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/jsonstream",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:dominictarr/JSONStream.git",
-                "reference": "4aef6e50ec4f2bc84fdf2370e43b2e62cd8e534c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dominictarr/JSONStream/zipball/4aef6e50ec4f2bc84fdf2370e43b2e62cd8e534c",
-                "reference": "4aef6e50ec4f2bc84fdf2370e43b2e62cd8e534c"
-            },
-            "require": {
-                "npm-asset/jsonparse": ">=1.1.0,<2.0.0",
-                "npm-asset/through": ">=2.2.7,<3"
-            },
-            "type": "npm-asset",
-            "license": [
-                "(MIT OR Apache-2.0)"
-            ]
-        },
-        {
-            "name": "npm-asset/jvectormap",
-            "version": "1.2.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/jvectormap/-/jvectormap-1.2.2.tgz"
-            },
-            "require": {
-                "npm-asset/jquery": ">=1.5"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/labeled-stream-splicer",
-            "version": "2.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/labeled-stream-splicer/-/labeled-stream-splicer-2.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/stream-splicer": ">=2.0.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/lexical-scope",
-            "version": "1.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/lexical-scope/-/lexical-scope-1.2.0.tgz"
-            },
-            "require": {
-                "npm-asset/astw": ">=2.0.0,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/lodash.memoize",
-            "version": "3.0.9",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:lodash/lodash.git",
-                "reference": "f11f2385a63a90ab26d6e6713478994c64c634a2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lodash/lodash/zipball/f11f2385a63a90ab26d6e6713478994c64c634a2",
-                "reference": "f11f2385a63a90ab26d6e6713478994c64c634a2"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/md5.js",
-            "version": "1.3.5",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/md5.js/-/md5.js-1.3.5.tgz"
-            },
-            "require": {
-                "npm-asset/hash-base": ">=3.0.0,<4.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.1.2,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/miller-rabin",
-            "version": "4.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/miller-rabin/-/miller-rabin-4.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.0.0,<5.0.0",
-                "npm-asset/brorand": ">=1.0.1,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/minimalistic-assert",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/minimalistic-crypto-utils",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/minimatch",
-            "version": "3.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/brace-expansion": ">=1.1.7,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/minimist",
-            "version": "1.2.5",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/module-deps",
-            "version": "4.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/module-deps/-/module-deps-4.1.1.tgz"
-            },
-            "require": {
-                "npm-asset/browser-resolve": ">=1.7.0,<2.0.0",
-                "npm-asset/cached-path-relative": ">=1.0.0,<2.0.0",
-                "npm-asset/concat-stream": "~1.5.0",
-                "npm-asset/defined": ">=1.0.0,<2.0.0",
-                "npm-asset/detective": ">=4.0.0,<5.0.0",
-                "npm-asset/duplexer2": ">=0.1.2,<0.2.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/jsonstream": ">=1.0.3,<2.0.0",
-                "npm-asset/parents": ">=1.0.0,<2.0.0",
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0",
-                "npm-asset/resolve": ">=1.1.3,<2.0.0",
-                "npm-asset/stream-combiner2": ">=1.1.1,<2.0.0",
-                "npm-asset/subarg": ">=1.0.0,<2.0.0",
-                "npm-asset/through2": ">=2.0.0,<3.0.0",
-                "npm-asset/xtend": ">=4.0.0,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/moment",
-            "version": "2.24.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/moment/-/moment-2.24.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/morris.js",
-            "version": "0.5.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:morrisjs/morris.js.git",
-                "reference": "d5cf1410eda7055eaf2c7d218d4cb24ec5ed55c8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/morrisjs/morris.js/zipball/d5cf1410eda7055eaf2c7d218d4cb24ec5ed55c8",
-                "reference": "d5cf1410eda7055eaf2c7d218d4cb24ec5ed55c8"
-            },
-            "type": "npm-asset",
-            "license": [
-                "BSD-2-Clause"
-            ]
-        },
-        {
-            "name": "npm-asset/object-assign",
-            "version": "4.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/once",
-            "version": "1.4.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/once/-/once-1.4.0.tgz"
-            },
-            "require": {
-                "npm-asset/wrappy": "~1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/os-browserify",
-            "version": "0.1.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/os-browserify/-/os-browserify-0.1.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/pace",
-            "version": "0.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/pace/-/pace-0.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/charm": "~0.1.0"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/pako",
-            "version": "0.2.9",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/pako/-/pako-0.2.9.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/parents",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/parents/-/parents-1.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/path-platform": "~0.11.15"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/parse-asn1",
-            "version": "5.1.5",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/parse-asn1/-/parse-asn1-5.1.5.tgz"
-            },
-            "require": {
-                "npm-asset/asn1.js": ">=4.0.0,<5.0.0",
-                "npm-asset/browserify-aes": ">=1.0.0,<2.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/evp_bytestokey": ">=1.0.0,<2.0.0",
-                "npm-asset/pbkdf2": ">=3.0.3,<4.0.0",
-                "npm-asset/safe-buffer": ">=5.1.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/path-browserify",
-            "version": "0.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/path-browserify/-/path-browserify-0.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/path-is-absolute",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/path-is-absolute/-/path-is-absolute-1.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/path-platform",
-            "version": "0.11.15",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/path-platform/-/path-platform-0.11.15.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/pbkdf2",
-            "version": "3.0.17",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/pbkdf2/-/pbkdf2-3.0.17.tgz"
-            },
-            "require": {
-                "npm-asset/create-hash": ">=1.1.2,<2.0.0",
-                "npm-asset/create-hmac": ">=1.1.4,<2.0.0",
-                "npm-asset/ripemd160": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0",
-                "npm-asset/sha.js": ">=2.4.8,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/process",
-            "version": "0.11.10",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/process/-/process-0.11.10.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/process-nextick-args",
-            "version": "v1.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/calvinmetcalf/process-nextick-args.git",
-                "reference": "07f531b2e7b3587f1c6cbce3f83054f50aa5cc97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/calvinmetcalf/process-nextick-args/zipball/07f531b2e7b3587f1c6cbce3f83054f50aa5cc97",
-                "reference": "07f531b2e7b3587f1c6cbce3f83054f50aa5cc97"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/public-encrypt",
-            "version": "4.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/public-encrypt/-/public-encrypt-4.0.3.tgz"
-            },
-            "require": {
-                "npm-asset/bn.js": ">=4.1.0,<5.0.0",
-                "npm-asset/browserify-rsa": ">=4.0.0,<5.0.0",
-                "npm-asset/create-hash": ">=1.1.0,<2.0.0",
-                "npm-asset/parse-asn1": ">=5.0.0,<6.0.0",
-                "npm-asset/randombytes": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.1.2,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/punycode",
-            "version": "1.3.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/punycode/-/punycode-1.3.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/querystring",
-            "version": "0.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/querystring/-/querystring-0.2.0.tgz"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/querystring-es3",
-            "version": "0.2.1-patch0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/querystring-es3/-/querystring-es3-0.2.1-0.tgz"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/randombytes",
-            "version": "2.1.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"
-            },
-            "require": {
-                "npm-asset/safe-buffer": ">=5.1.0,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/randomfill",
-            "version": "1.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/randomfill/-/randomfill-1.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/randombytes": ">=2.0.5,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.1.0,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/raphael",
-            "version": "2.3.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/raphael/-/raphael-2.3.0.tgz"
-            },
-            "require": {
-                "npm-asset/eve-raphael": "0.5.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/read-only-stream",
-            "version": "2.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/read-only-stream/-/read-only-stream-2.0.0.tgz"
-            },
-            "require": {
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/readable-stream",
-            "version": "2.0.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/readable-stream/-/readable-stream-2.0.6.tgz"
-            },
-            "require": {
-                "npm-asset/core-util-is": "~1.0.0",
-                "npm-asset/inherits": "~2.0.1",
-                "npm-asset/isarray": "~1.0.0",
-                "npm-asset/process-nextick-args": "~1.0.6",
-                "npm-asset/string_decoder": "~0.10.0",
-                "npm-asset/util-deprecate": "~1.0.1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/resolve",
-            "version": "1.1.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/resolve/-/resolve-1.1.7.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/ripemd160",
-            "version": "2.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/ripemd160/-/ripemd160-2.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/hash-base": ">=3.0.0,<4.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/safe-buffer",
-            "version": "5.2.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.0.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/select2",
-            "version": "4.0.13",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/select2/-/select2-4.0.13.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/sha.js",
-            "version": "2.4.11",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/sha.js/-/sha.js-2.4.11.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/safe-buffer": ">=5.0.1,<6.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "(MIT AND BSD-3-Clause)"
-            ]
-        },
-        {
-            "name": "npm-asset/shasum",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/shasum/-/shasum-1.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/json-stable-stringify": "~0.0.0",
-                "npm-asset/sha.js": "~2.4.4"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/shell-quote",
-            "version": "1.7.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/slimscroll",
-            "version": "0.9.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/slimscroll/-/slimscroll-0.9.1.tgz"
-            },
-            "require": {
-                "npm-asset/browserify": ">=3.46.0",
-                "npm-asset/classie": ">=0.0.1",
-                "npm-asset/domhelper": "~0.9.0",
-                "npm-asset/util-extend": ">=1.0.1,<2.0.0"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/source-map",
-            "version": "0.5.7",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "BSD-3-Clause"
-            ]
-        },
-        {
-            "name": "npm-asset/stream-browserify",
-            "version": "2.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/stream-browserify/-/stream-browserify-2.0.2.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": "~2.0.1",
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/stream-combiner2",
-            "version": "1.1.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/stream-combiner2/-/stream-combiner2-1.1.1.tgz"
-            },
-            "require": {
-                "npm-asset/duplexer2": "~0.1.0",
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/stream-http",
-            "version": "2.2.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/stream-http/-/stream-http-2.2.1.tgz"
-            },
-            "require": {
-                "npm-asset/builtin-status-codes": ">=2.0.0,<3.0.0",
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/to-arraybuffer": ">=1.0.0,<2.0.0",
-                "npm-asset/xtend": ">=4.0.0,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/stream-splicer",
-            "version": "2.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/stream-splicer/-/stream-splicer-2.0.1.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": ">=2.0.1,<3.0.0",
-                "npm-asset/readable-stream": ">=2.0.2,<3.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/string_decoder",
-            "version": "0.10.31",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/subarg",
-            "version": "1.0.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/subarg/-/subarg-1.0.0.tgz"
-            },
-            "require": {
-                "npm-asset/minimist": ">=1.1.0,<2.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/syntax-error",
-            "version": "1.3.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/syntax-error/-/syntax-error-1.3.0.tgz"
-            },
-            "require": {
-                "npm-asset/acorn": ">=4.0.3,<5.0.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/through",
-            "version": "2.3.8",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/through/-/through-2.3.8.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/through2",
-            "version": "2.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/through2/-/through2-2.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/readable-stream": "~2|3",
-                "npm-asset/xtend": "~4.0.1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/timers-browserify",
-            "version": "1.4.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/timers-browserify/-/timers-browserify-1.4.2.tgz"
-            },
-            "require": {
-                "npm-asset/process": "~0.11.0"
-            },
-            "type": "npm-asset"
-        },
-        {
-            "name": "npm-asset/to-arraybuffer",
-            "version": "1.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/tty-browserify",
-            "version": "0.0.1",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/tty-browserify/-/tty-browserify-0.0.1.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/typedarray",
-            "version": "0.0.6",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/umd",
-            "version": "3.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/umd/-/umd-3.0.3.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/url",
-            "version": "0.11.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/url/-/url-0.11.0.tgz"
-            },
-            "require": {
-                "npm-asset/punycode": "1.3.2",
-                "npm-asset/querystring": "0.2.0"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/util",
-            "version": "0.10.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/util/-/util-0.10.3.tgz"
-            },
-            "require": {
-                "npm-asset/inherits": "2.0.1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/util-deprecate",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/util-extend",
-            "version": "1.0.3",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/util-extend/-/util-extend-1.0.3.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/vm-browserify",
-            "version": "0.0.4",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/vm-browserify/-/vm-browserify-0.0.4.tgz"
-            },
-            "require": {
-                "npm-asset/indexof": "0.0.1"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
-        },
-        {
-            "name": "npm-asset/wrappy",
-            "version": "1.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/wrappy/-/wrappy-1.0.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "ISC"
-            ]
-        },
-        {
-            "name": "npm-asset/xtend",
-            "version": "4.0.2",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz"
-            },
-            "type": "npm-asset",
-            "license": [
-                "MIT"
-            ]
         },
         {
             "name": "paragonie/random_compat",
@@ -4046,6 +3077,101 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "rmrevin/yii2-fontawesome",
+            "version": "3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmrevin/yii2-fontawesome.git",
+                "reference": "08277670fb96ae271a3d8484103ec0361bf41ac0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmrevin/yii2-fontawesome/zipball/08277670fb96ae271a3d8484103ec0361bf41ac0",
+                "reference": "08277670fb96ae271a3d8484103ec0361bf41ac0",
+                "shasum": ""
+            },
+            "require": {
+                "fortawesome/font-awesome": "^5.9.0",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "^2.0.0"
+            },
+            "require-dev": {
+                "doctrine/instantiator": "1.0.*",
+                "phpdocumentor/reflection-docblock": "~3.1.0",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "rmrevin\\yii\\fontawesome\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Revin Roman",
+                    "email": "roman@rmrevin.com",
+                    "homepage": "https://rmrevin.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with Font Awesome",
+            "keywords": [
+                "asset",
+                "awesome",
+                "bundle",
+                "font",
+                "yii"
+            ],
+            "time": "2019-07-07T10:11:42+00:00"
+        },
+        {
+            "name": "select2/select2",
+            "version": "4.0.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2.git",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2/zipball/45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "dist/js/select2.js"
+                    ],
+                    "styles": [
+                        "dist/css/select2.css"
+                    ],
+                    "files": [
+                        "dist/js/select2.js",
+                        "dist/js/i18n/*.js",
+                        "dist/css/select2.css"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Select2 is a jQuery based replacement for select boxes.",
+            "homepage": "https://select2.org/",
+            "time": "2020-01-28T05:01:22+00:00"
         },
         {
             "name": "studio-42/elfinder",
@@ -5030,22 +4156,22 @@
         },
         {
             "name": "yii2-starter-kit/yii2-file-kit",
-            "version": "2.0.1",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yii2-starter-kit/yii2-file-kit.git",
-                "reference": "94f0bdd241cebe1e04f788f30010107975a4df0b"
+                "reference": "0955c0257a57dcfec93c17bfa086d54447fcd18b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yii2-starter-kit/yii2-file-kit/zipball/94f0bdd241cebe1e04f788f30010107975a4df0b",
-                "reference": "94f0bdd241cebe1e04f788f30010107975a4df0b",
+                "url": "https://api.github.com/repos/yii2-starter-kit/yii2-file-kit/zipball/0955c0257a57dcfec93c17bfa086d54447fcd18b",
+                "reference": "0955c0257a57dcfec93c17bfa086d54447fcd18b",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/blueimp-file-upload": "^9.7.0",
                 "league/flysystem": "^1.0",
-                "yiisoft/yii2": "^2.0.13",
+                "npm-asset/blueimp-file-upload": "^9.7.0",
+                "rmrevin/yii2-fontawesome": "^3.4",
                 "yiisoft/yii2-jui": "^2.0.0"
             },
             "require-dev": {
@@ -5066,10 +4192,14 @@
                 {
                     "name": "Eugene Terentev",
                     "email": "eugene@terentev.net"
+                },
+                {
+                    "name": "Victor Gonzalez",
+                    "email": "victor@vgr.cl"
                 }
             ],
             "description": "Yii2 file upload and storage kit",
-            "time": "2019-02-18T13:13:55+00:00"
+            "time": "2020-04-16T23:33:40+00:00"
         },
         {
             "name": "yii2mod/yii2-swagger",
@@ -5281,35 +4411,36 @@
             "time": "2020-02-12T22:53:08+00:00"
         },
         {
-            "name": "yiisoft/yii2-bootstrap",
-            "version": "2.0.10",
+            "name": "yiisoft/yii2-bootstrap4",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "073c9ab0a4eb71f2485d84c96a1967130300d8fc"
+                "url": "https://github.com/yiisoft/yii2-bootstrap4.git",
+                "reference": "c67ae3f3624c35d977841f6b18d0d752ebed6420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/073c9ab0a4eb71f2485d84c96a1967130300d8fc",
-                "reference": "073c9ab0a4eb71f2485d84c96a1967130300d8fc",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap4/zipball/c67ae3f3624c35d977841f6b18d0d752ebed6420",
+                "reference": "c67ae3f3624c35d977841f6b18d0d752ebed6420",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap": "3.4.* | 3.3.* | 3.2.* | 3.1.*",
-                "yiisoft/yii2": "~2.0.6"
+                "npm-asset/bootstrap": "^4.3",
+                "yiisoft/yii2": "~2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "<7"
+                "phpunit/phpunit": "<7",
+                "yiisoft/yii2-coding-standards": "~2.0"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "1.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\bootstrap\\": "src"
+                    "yii\\bootstrap4\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5318,8 +4449,9 @@
             ],
             "authors": [
                 {
-                    "name": "Paul Klimov",
-                    "email": "klimov.paul@gmail.com"
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com",
+                    "homepage": "http://www.yiiframework.com/"
                 },
                 {
                     "name": "Alexander Makarov",
@@ -5331,17 +4463,21 @@
                     "email": "amigo.cobos@gmail.com"
                 },
                 {
-                    "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/"
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                },
+                {
+                    "name": "Simon Karlen",
+                    "email": "simi.albi@outlook.com"
                 }
             ],
             "description": "The Twitter Bootstrap extension for the Yii framework",
             "keywords": [
                 "bootstrap",
+                "bootstrap4",
                 "yii2"
             ],
-            "time": "2019-04-23T13:18:43+00:00"
+            "time": "2019-10-08T11:01:37+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -5753,6 +4889,75 @@
                 "parser"
             ],
             "time": "2020-03-17T14:03:26+00:00"
+        },
+        {
+            "name": "bower-asset/blueimp-canvas-to-blob",
+            "version": "v3.18.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:blueimp/JavaScript-Canvas-to-Blob.git",
+                "reference": "ae2d7c39ffd1d3178439bcafb0416838af1ccc63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Canvas-to-Blob/zipball/ae2d7c39ffd1d3178439bcafb0416838af1ccc63",
+                "reference": "ae2d7c39ffd1d3178439bcafb0416838af1ccc63"
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/blueimp-file-upload",
+            "version": "v9.34.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:blueimp/jQuery-File-Upload.git",
+                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/jQuery-File-Upload/zipball/bb52d3493d725175fcf5554da034a317aaaea0e2",
+                "reference": "bb52d3493d725175fcf5554da034a317aaaea0e2"
+            },
+            "require": {
+                "bower-asset/blueimp-canvas-to-blob": ">=2.1.1",
+                "bower-asset/blueimp-load-image": ">=1.13.0",
+                "bower-asset/blueimp-tmpl": ">=2.5.4",
+                "bower-asset/jquery": ">=1.6"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
+        },
+        {
+            "name": "bower-asset/blueimp-load-image",
+            "version": "v2.28.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:blueimp/JavaScript-Load-Image.git",
+                "reference": "452adbfc9f4980e0bed0d97d19fc2343475c447f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Load-Image/zipball/452adbfc9f4980e0bed0d97d19fc2343475c447f",
+                "reference": "452adbfc9f4980e0bed0d97d19fc2343475c447f"
+            },
+            "type": "bower-asset"
+        },
+        {
+            "name": "bower-asset/blueimp-tmpl",
+            "version": "v3.14.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:blueimp/JavaScript-Templates.git",
+                "reference": "883bdd0d4f2cd8f17822ab352e7e25ac435e14a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blueimp/JavaScript-Templates/zipball/883bdd0d4f2cd8f17822ab352e7e25ac435e14a4",
+                "reference": "883bdd0d4f2cd8f17822ab352e7e25ac435e14a4"
+            },
+            "type": "bower-asset"
         },
         {
             "name": "codeception/codeception",
@@ -6171,6 +5376,21 @@
                 "object graph"
             ],
             "time": "2020-01-17T21:11:47+00:00"
+        },
+        {
+            "name": "npm-asset/fortawesome--fontawesome",
+            "version": "5.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/4e6402443679e0a9d12c7401ac8783ef4646657f",
+                "reference": "4e6402443679e0a9d12c7401ac8783ef4646657f"
+            },
+            "type": "npm-asset"
         },
         {
             "name": "opis/closure",
@@ -6970,6 +6190,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2018-05-29T13:54:20+00:00"
         },
         {
@@ -8386,8 +7607,7 @@
     "stability-flags": {
         "asofter/yii2-imperavi-redactor": 20,
         "trntv/yii2-datetime-widget": 20,
-        "trntv/cheatsheet": 20,
-        "npm-asset/flot": 15
+        "trntv/cheatsheet": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -8395,5 +7615,6 @@
         "php": ">=7.1.0",
         "ext-intl": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

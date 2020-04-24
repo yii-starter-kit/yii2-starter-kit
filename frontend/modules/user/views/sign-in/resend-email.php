@@ -1,25 +1,30 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model \frontend\modules\user\models\PasswordResetRequestForm */
+/**
+ * @var yii\web\View $this
+ * @var yii\bootstrap4\ActiveForm $form
+ * @var frontend\modules\user\models\ResendEmailForm $model
+ */
 
 $this->title =  Yii::t('frontend', 'Resend activation email');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-request-password-reset">
-    <h1><?php echo Html::encode($this->title) ?></h1>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'resend-email-form']); ?>
-                <?php echo $form->field($model, 'email') ?>
-                <div class="form-group">
-                    <?php echo Html::submitButton('Send', ['class' => 'btn btn-primary']) ?>
+<?php $form = ActiveForm::begin(['id' => 'resend-email']); ?>
+<div class="site-resend mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h1 class="h4 text-muted text-center"><?php echo Html::encode($this->title) ?></h1>
+                    <?php echo $form->field($model, 'email')->input('email') ?>
+                    <div class="form-group">
+                        <?php echo Html::submitButton(Yii::t('frontend', 'Send Email'), ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+                    </div>
                 </div>
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
 </div>
+<?php ActiveForm::end(); ?>

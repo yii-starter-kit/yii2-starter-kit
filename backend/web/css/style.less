@@ -1,3 +1,7 @@
+@fa-font-path: "../../../vendor/fortawesome/font-awesome/webfonts";
+@import "../../../vendor/fortawesome/font-awesome/less/fontawesome.less";
+@import "../../../vendor/fortawesome/font-awesome/less/solid.less";
+
 body {
   & > .header {
     .logo {
@@ -25,32 +29,21 @@ body {
   /* add sorting icons to gridview sort links */
   a.asc:after,
   a.desc:after {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1;
-    padding-left: 5px;
+    .fa-icon;
+    .fas;
+    margin-left: 5px;
   }
-  a.asc:after {
-    content: "\e151";
+  a.asc:after, .sort-ordinal a.asc:after {
+    content: @fa-var-sort-amount-down-alt;
   }
-  a.desc:after {
-    content: "\e152";
+  a.desc:after, .sort-ordinal a.desc:after {
+    content: @fa-var-sort-amount-down;
   }
   .sort-numerical a.asc:after {
-    content: "\e153";
+    content: @fa-var-sort-numeric-down;
   }
   .sort-numerical a.desc:after {
-    content: "\e154";
-  }
-  .sort-ordinal a.asc:after {
-    content: "\e155";
-  }
-  .sort-ordinal a.desc:after {
-    content: "\e156";
+    content: @fa-var-sort-numeric-down-alt;
   }
   .grid-view th {
     white-space: nowrap;
@@ -69,5 +62,23 @@ body {
   }
   .table .bootstrap-datetimepicker-widget {
     z-index: 9999;
+  }
+}
+
+.no-caret::after {
+  display: none;
+}
+
+.control-sidebar-content {
+  .form-group {
+    margin-bottom: 0.3rem;
+
+    label, .custom-control-label {
+      font-weight: normal;
+    }
+  }
+
+  button {
+    margin-top: 1rem;
   }
 }

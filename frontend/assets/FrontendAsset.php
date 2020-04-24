@@ -8,7 +8,8 @@
 namespace frontend\assets;
 
 use common\assets\Html5shiv;
-use yii\bootstrap\BootstrapAsset;
+use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
+use yii\bootstrap4\BootstrapAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 
@@ -43,5 +44,6 @@ class FrontendAsset extends AssetBundle
         YiiAsset::class,
         BootstrapAsset::class,
         Html5shiv::class,
+        NpmFreeAssetBundle::class,
     ];
 }

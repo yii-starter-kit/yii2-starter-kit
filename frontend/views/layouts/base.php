@@ -1,24 +1,24 @@
 <?php
+/**
+ * @var yii\web\View $this
+ * @var string $content
+ */
 
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-
-/* @var $this \yii\web\View */
-/* @var $content string */
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
 
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
-<div class="wrap">
-    <?php
-    NavBar::begin([
+<header>
+    <?php NavBar::begin([
         'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => ['navbar-dark', 'bg-dark', 'navbar-expand-md'],
         ],
     ]); ?>
     <?php echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ml-auto']],
         'items' => [
             ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug'=>'about']],
@@ -59,15 +59,18 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         ]
     ]); ?>
     <?php NavBar::end(); ?>
+</header>
 
+<main class="flex-shrink-0" role="main">
     <?php echo $content ?>
+</main>
 
-</div>
-
-<footer class="footer">
+<footer class="footer mt-auto py-3">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?php echo date('Y') ?></p>
-        <p class="pull-right"><?php echo Yii::powered() ?></p>
+        <div class="d-flex flex-row justify-content-between">
+            <div>&copy; My Company <?php echo date('Y') ?></div>
+            <div><?php echo Yii::powered() ?></div>
+        </div>
     </div>
 </footer>
 <?php $this->endContent() ?>

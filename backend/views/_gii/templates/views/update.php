@@ -3,18 +3,20 @@
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 
-/* @var $this yii\web\View */
-/* @var $generator yii\gii\generators\crud\Generator */
+/**
+ * @var yii\web\View $this
+ * @var yii\gii\generators\crud\Generator $generator
+ */
 
 $urlParams = $generator->generateUrlParams();
 
 echo "<?php\n";
 ?>
 
-use yii\helpers\Html;
-
-/* @var $this yii\web\View */
-/* @var $model <?php echo ltrim($generator->modelClass, '\\') ?> */
+/**
+ * @var yii\web\View $this
+ * @var <?php echo ltrim($generator->modelClass, '\\') ?> $model
+ */
 
 $this->title = <?php echo $generator->generateString('Update {modelClass}: ', ['modelClass' => Inflector::camel2words(StringHelper::basename($generator->modelClass))]) ?> . ' ' . $model-><?php echo $generator->getNameAttribute() ?>;
 $this->params['breadcrumbs'][] = ['label' => <?php echo $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];

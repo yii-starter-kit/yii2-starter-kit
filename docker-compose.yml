@@ -24,7 +24,6 @@ services:
       - db
       - mailcatcher
 
-
   storage:
     build: storage
     ports:

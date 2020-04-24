@@ -96,14 +96,20 @@
       "docker-compose exec -T app composer run-script build:app",
       "docker-compose run -T --rm webpacker npm i npm@latest -g",
       "docker-compose run -T --rm webpacker npm install",
-      "docker-compose run -T --rm webpacker npm run build",
-      "echo \"All ok!\""
+      "docker-compose run -T --rm webpacker npm run build"
     ],
     "docker:start": [
       "docker-compose up --force-recreate -d"
     ],
     "docker:cleanup": [
       "docker-compose rm -fsv"
+    ],
+    "docker:tests": [
+      "@docker:start",
+      "docker-compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
+      "docker-compose exec -T app ./vendor/bin/codecept build",
+      "docker-compose exec -T app php tests/bin/yii app/setup --interactive=0",
+      "echo 'open a new terminal and run \"docker-compose exec -T app vendor/bin/codecept run\"' && docker-compose exec -T app php -S localhost:8080"
     ]
   }
 }

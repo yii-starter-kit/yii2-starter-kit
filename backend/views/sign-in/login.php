@@ -20,6 +20,7 @@ $this->params['body-class'] = 'login-page';
             <p class="login-box-msg"><?php echo Yii::t('backend', 'Sign in to start your session') ?></p>
 
             <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+            <?php echo $form->errorSummary($model) ?>
             <?php echo $form->field($model, 'username', [
                 'inputTemplate' => '<div class="input-group">
                     {input}

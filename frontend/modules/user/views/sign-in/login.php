@@ -18,6 +18,7 @@ $this->title = Yii::t('frontend', 'Login');
             <div class="card mb-2">
                 <div class="card-body">
                     <h1 class="text-muted text-center"><?php echo Html::encode($this->title) ?></h1>
+                    <?php echo $form->errorSummary($model) ?>
                     <?php echo $form->field($model, 'identity') ?>
                     <?php echo $form->field($model, 'password')->passwordInput() ?>
 

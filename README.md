@@ -131,7 +131,7 @@ Password: user
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ## Have any questions?
-Mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+Mail to [eugene@terentev.net](mailto:eugene@terentev.net) or [victor@vgr.cl](mailto:victor@vgr.cl)
 
 ## READ MORE
 - [Yii2](https://github.com/yiisoft/yii2/tree/master/docs)

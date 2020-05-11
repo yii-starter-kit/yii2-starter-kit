@@ -19,7 +19,7 @@ use <?php echo $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : 
 
 /**
  * @var yii\web\View $this
-<?php echo !empty($generator->searchModelClass) ? " * @var \" . $generator->searchModelClass . " \$searchModel\n" : '' ?>
+<?php echo !empty($generator->searchModelClass) ? " * @var " . $generator->searchModelClass . " \$searchModel\n" : '' ?>
  * @var yii\data\ActiveDataProvider $dataProvider
  */
 

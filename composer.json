@@ -11,9 +11,8 @@
   ],
   "authors": [
     {
-      "name": "Eugene Terentev",
-      "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net"
+      "name": "Yevhen Terentiev",
+      "email": "yevhen.terentiev@gmail.com"
     },
     {
       "name": "Victor Gonzalez",
@@ -30,11 +29,13 @@
   "require": {
     "php": ">=7.1.0",
     "ext-intl": "*",
+    "ext-gd": "*",
     "yiisoft/yii2": "^2.0.13",
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
     "yiisoft/yii2-bootstrap4": "^2.0",
     "yiisoft/yii2-jui": "^2.0.0",
+    "yiisoft/yii2-debug": "^2.0.0",
     "yii2-starter-kit/yii2-file-kit": "^2.1.0",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
@@ -59,7 +60,6 @@
     "kartik-v/yii2-widgets": "^3.4"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "^2.0.0",
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "2.4.0",
@@ -87,6 +87,11 @@
     "exclude": ["docs"]
   },
   "scripts": {
+    "compile": [
+      "cp deploy/heroku/.env .env",
+
+      "php console/yii app/setup --interactive=0"
+    ],
     "build:env": [
       "cp .env.dist .env"
     ],

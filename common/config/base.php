@@ -165,7 +165,7 @@ $config = [
             'zh-CN' => '简体中文',
             'pl-PL' => 'Polski (PL)',
             'id-ID' => 'Indonesian (Bahasa)',
-			'hu-HU' => 'Magyar',
+            'hu-HU' => 'Magyar',
         ],
         'bsVersion' => '4.x', // bootstrap version
     ],

@@ -11,9 +11,8 @@
   ],
   "authors": [
     {
-      "name": "Eugene Terentev",
-      "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net"
+      "name": "Yevhen Terentiev",
+      "email": "yevhen.terentiev@gmail.com"
     },
     {
       "name": "Victor Gonzalez",
@@ -30,6 +29,7 @@
   "require": {
     "php": ">=7.1.0",
     "ext-intl": "*",
+    "ext-gd": "*",
     "yiisoft/yii2": "^2.0.13",
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
@@ -87,6 +87,11 @@
     "exclude": ["docs"]
   },
   "scripts": {
+    "compile": [
+      "cp deploy/heroku/.env .env",
+      "YII_ENV=heroku php console/yii migrate/fresh --interactive=0",
+      "php console/yii app/setup --interactive=0"
+    ],
     "build:env": [
       "cp .env.dist .env"
     ],

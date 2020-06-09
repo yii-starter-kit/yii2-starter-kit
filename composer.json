@@ -89,7 +89,7 @@
   "scripts": {
     "compile": [
       "cp deploy/heroku/.env .env",
-
+      "YII_ENV=heroku php console/yii migrate/fresh --interactive=0",
       "php console/yii app/setup --interactive=0"
     ],
     "build:env": [

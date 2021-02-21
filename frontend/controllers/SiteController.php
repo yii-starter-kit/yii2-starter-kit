@@ -115,7 +115,7 @@ class SiteController extends Controller
 
         $linksCount = $sitemap->getCount();
         if ($linksCount > 50000) {
-            Yii::warning(\sprintf('Sitemap links count is %d'), $linksCount);
+            Yii::warning(\sprintf('Sitemap links count is %d', $linksCount));
         }
 
         return $content;

@@ -8,50 +8,51 @@
     - [Configure your web server](#configure-your-web-server)
 
 - [Docker installation](#docker-installation)
-- [Vagrant installation](#vagrant-installation)
 - [Single domain installtion](#single-domain-installation)
 - [Demo users](#demo-users)
 - [Important-notes](#important-notes)
 
 ## Before you begin
-1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
-at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions 
+   at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
+2. Install [NPM](https://docs.npmjs.com/getting-started/installing-node) to build frontend code
+3. Install [taskctl](https://github.com/taskctl/taskctl) to run tasks
 
-2. Install NPM or Yarn to build frontend scripts
-- [NPM] (https://docs.npmjs.com/getting-started/installing-node)
-- Yarn (https://yarnpkg.com/en/docs/install)
-
-### Get source code
-#### Download sources
-https://github.com/yii2-starter-kit/yii2-starter-kit/archive/master.zip
-
-#### Or clone repository manually
-```
-git clone https://github.com/yii2-starter-kit/yii2-starter-kit.git
-```
-#### Install composer dependencies
-```
-composer install
-```
-
-### Get source code via Composer
+## Get source code
+### Option 1: Get source code via Composer
 You can install this application template with `composer` using the following command:
 
 ```
 composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
 ```
 
+### Option 2: Download sources
+https://github.com/yii2-starter-kit/yii2-starter-kit/archive/master.zip
+
+#### Or clone repository manually
+```
+git clone https://github.com/yii2-starter-kit/yii2-starter-kit.git
+```
+
+## Install dependencies
+```
+taskctl install
+```
+or
+```
+composer install
+npm install
+```
+
 ## Docker installation
 1. Install [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) and [composer](https://getcomposer.org/) to your system
-2. Run ``composer run-script docker:build``
+2. Run ``taskctl start`` or ``composer run-script docker:build``
 3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
-
- * - docker host IP address may vary on Windows and MacOS systems
 
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
 
 ### Docker FAQ
-1. How do i run yii console commands from outside a container?
+1. How do I run yii console commands from outside a container?
 
 ``docker-compose exec app console/yii help``
 
@@ -72,7 +73,8 @@ Required PHP extensions:
 - com_dotnet (for Windows)
 
 ### Setup application
-1. Copy `.env.dist` to `.env` in the project root.
+1. Run ``taskctl install``
+1. Run ``taskctl build:env``
 2. Adjust settings in `.env` file
 	- Set debug mode and your current environment
 	```
@@ -93,31 +95,17 @@ Required PHP extensions:
 	STORAGE_HOST_INFP     = http://storage.yii2-starter-kit.localhost
 	```
 
-3. Run in command line
+3. Run 
+```taskctl local:build```
+or
 ```
 php console/yii app/setup
-npm install
 npm run build
 ```
 
 ### Configure your web server
 - Copy `docker/vhost.conf` to your nginx config directory
 - Change it to fit your environment
-
-## Vagrant installation
-If you want, you can use bundled Vagrant instead of installing app to your local machine.
-
-1. Install [Vagrant](https://www.vagrantup.com/)
-2. Copy files from `docs/vagrant-files` to application root
-3. Copy `./vagrant/vagrant.yml.dist` to `./vagrant/vagrant.yml`
-4. Create GitHub [personal API token](https://github.com/blog/1509-personal-api-tokens)
-5. Edit values as desired including adding the GitHub personal API token to `./vagrant/vagrant.yml`
-6. Run:
-```
-vagrant plugin install vagrant-hostmanager
-vagrant up
-```
-That`s all. After provision application will be accessible on http://yii2-starter-kit.localhost
 
 ## Demo data
 

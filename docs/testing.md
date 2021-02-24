@@ -1,7 +1,10 @@
 # Testing
 
 ## Automated
-
+```bash
+taskctl docker:tests
+```
+or
 ```
 composer run-script docker:tests
 ```

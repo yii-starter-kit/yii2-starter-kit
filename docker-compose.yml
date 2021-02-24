@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   app:
@@ -12,14 +12,14 @@ services:
       - .env
 
   webpacker:
-    image: node:9-alpine
+    image: node:14-alpine
     working_dir: /app
     volumes:
       - ./:/app
     command: /bin/true
 
   nginx:
-    image: nginx:1.12-alpine
+    image: nginx:1.19-alpine
     ports:
       - 80:80
     volumes:
@@ -34,7 +34,7 @@ services:
       - 1080:1080
 
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     volumes:
       - /var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
@@ -45,3 +45,7 @@ services:
       MYSQL_DATABASE: yii2-starter-kit
       MYSQL_USER: ysk_dbu
       MYSQL_PASSWORD: ysk_pass
+
+networks:
+  default:
+    name: yii2-starter-kit_default

@@ -14,7 +14,9 @@ pipelines:
         - build:env
         - install
     - task: docker:start
-      depends_on: build
+      depends_on: docker:build
+    - task: banner
+      depends_on: docker:start
       
   docker:tests:
     - task: docker:start
@@ -36,7 +38,7 @@ tasks:
   heroku:compile:
     command:
       - cp deploy/heroku/.env .env
-      - php console/yii migrate/fresh --interactive=0
+      - php console/yii migrate/fresh
       - php console/yii app/setup --interactive=0
     env:
       YII_ENV: heroku
@@ -48,21 +50,20 @@ tasks:
 
   docker:build:
     command:
-      - docker-compose run -T --rm app composer run-script php console/yii app/setup --interactive=0
-      - docker-compose run -T --rm webpacker npm i npm@latest -g
-      - docker-compose run -T --rm webpacker npm install
+      - docker-compose run -T --rm app php console/yii app/setup --interactive=0
       - docker-compose run -T --rm webpacker npm run build
 
   docker:tests:run:
     command:
-      - docker-compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"
+      - docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
       - docker-compose exec -T app ./vendor/bin/codecept build
       - docker-compose exec -T app php tests/bin/yii app/setup --interactive=0
       - docker-compose exec -T app vendor/bin/codecept run
+      - echo "Done!"
   
   docker:tests:server:
     command:
-      - docker-compose exec -T app php -S localhost:8080
+      - docker-compose exec -T app php -S localhost:8080 -t /app
 
   docker:start:
     command:
@@ -71,3 +72,7 @@ tasks:
   docker:cleanup:
     command:
       - docker-compose rm -fsv
+
+  banner:
+    command:
+      - echo "Started! Visit http://yii2-starter-kit.localhost"

@@ -23,7 +23,6 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
     - [Docker installation](docs/installation.md#docker-installation)
-    - [Vagrant installation](docs/installation.md#vagrant-installation)
 - [Components documentation](docs/components.md)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)
@@ -53,6 +52,11 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - Events timeline
 - Logs viewer
 - System monitoring
+
+### Development tasks
+To list all available development tasks follow these steps:
+1. Install [taskctl](https://github.com/taskctl/taskctl) task runner
+2. Run ``taskctl``
 
 ### I18N
 - Built-in translations:

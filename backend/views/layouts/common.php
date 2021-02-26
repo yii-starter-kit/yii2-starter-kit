@@ -154,7 +154,7 @@ $logEntries[] = [
     <!-- main sidebar -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4 <?php echo $keyStorage->get('adminlte.sidebar-no-expand') ? 'sidebar-no-expand' : null ?>">
         <!-- brand logo -->
-        <a href="/" class="brand-link text-center <?php echo $keyStorage->get('adminlte.brand-text-small') ? 'text-sm' : null ?>">
+        <a href="<?php echo Yii::getAlias('@backendUrl') ?>" class="brand-link text-center <?php echo $keyStorage->get('adminlte.brand-text-small') ? 'text-sm' : null ?>">
             <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                 style="opacity: .8"> -->
             <span class="brand-text font-weight-bold"><?php echo Yii::$app->name ?></span>

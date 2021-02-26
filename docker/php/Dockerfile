@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM yiisoftware/yii2-php:7.4-fpm
 
 # Install modules
 RUN apt-get update && apt-get install -y \

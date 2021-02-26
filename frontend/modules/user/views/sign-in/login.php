@@ -1,54 +1,60 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $form yii\widgets\ActiveForm */
-/* @var $model \frontend\modules\user\models\LoginForm */
+/**
+ * @var yii\web\View $this
+ * @var yii\bootstrap4\ActiveForm $form
+ * @var frontend\modules\user\models\LoginForm $model
+ */
 
 $this->title = Yii::t('frontend', 'Login');
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-login">
-    <h1><?php echo Html::encode($this->title) ?></h1>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
-                <?php echo $form->field($model, 'identity') ?>
-                <?php echo $form->field($model, 'password')->passwordInput() ?>
-                <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
-                <div style="color:#999;margin:1em 0">
-                    <?php echo Yii::t('frontend', 'If you forgot your password you can reset it <a href="{link}">here</a>', [
-                        'link'=>yii\helpers\Url::to(['sign-in/request-password-reset'])
-                    ]) ?>
-                    <?php if (Yii::$app->getModule('user')->shouldBeActivated) : ?>
-                        <br>
-                        <?php echo Yii::t('frontend', 'Resend your activation email <a href="{link}">here</a>', [
-                            'link'=>yii\helpers\Url::to(['sign-in/resend-email'])
-                        ]) ?>
-                    <?php endif; ?>
+<?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+<div class="site-login mt-5">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h1 class="text-muted text-center"><?php echo Html::encode($this->title) ?></h1>
+                    <?php echo $form->errorSummary($model) ?>
+                    <?php echo $form->field($model, 'identity') ?>
+                    <?php echo $form->field($model, 'password')->passwordInput() ?>
 
+                    <div class="d-flex justify-content-between">
+                        <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
+                        <?php echo Html::a(Yii::t('frontend', 'Forgot your password?'), ['sign-in/request-password-reset'], ['class' => ['text-sm']]) ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+                    </div>
+                    <div class="form-group">
+                        <?php if (Yii::$app->getModule('user')->shouldBeActivated) : ?>
+                            <?php echo Html::a(Yii::t('frontend', 'Resend my activation email'), ['sign-in/resend-email']) ?>
+                        <?php endif; ?>
+                        <?php echo Html::a(Yii::t('frontend', 'Need an account? Sign up.'), ['signup']) ?>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-                <div class="form-group">
-                    <?php echo Html::a(Yii::t('frontend', 'Need an account? Sign up.'), ['signup']) ?>
-                </div>
-                <h2><?php echo Yii::t('frontend', 'Log in with')  ?>:</h2>
-                <div class="form-group">
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="text-muted text-center"><?php echo Yii::t('frontend', 'Log in with')  ?></h4>
+
                     <?php $authAuthChoice = yii\authclient\widgets\AuthChoice::begin([
-                                    'baseAuthUrl' => ['site/auth']
-                                ]); ?>
-                        <ul class="list-unstyle list-inline">
-                            <?php foreach ($authAuthChoice->getClients() as $client): ?>
-                                <li><?= $authAuthChoice->clientLink($client) ?></li>
-                            <?php endforeach; ?>
-                        </ul>
+                        'baseAuthUrl' => ['site/auth']
+                    ]); ?>
+                    <ul class="list-inline d-flex justify-content-center">
+                        <?php foreach ($authAuthChoice->getClients() as $client) : ?>
+                            <li class="list-inline-item"><?= $authAuthChoice->clientLink($client) ?></li>
+                        <?php endforeach; ?>
+                    </ul>
                     <?php yii\authclient\widgets\AuthChoice::end(); ?>
                 </div>
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
     </div>
 </div>
+<?php ActiveForm::end(); ?>

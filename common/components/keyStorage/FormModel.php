@@ -35,6 +35,7 @@ class FormModel extends Model
     const TYPE_RADIOLIST = 'radioList';
     const TYPE_CHECKBOXLIST = 'checkboxList';
     const TYPE_WIDGET = 'widget';
+    const TYPE_HEADER = 'header';
     /**
      * @var string
      */

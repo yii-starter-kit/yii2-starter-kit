@@ -75,4 +75,5 @@ return [
     'User ID' => 'ID Użytkownika',
     'Username' => 'Nazwa użytkownika',
     'Value' => 'Wartość',
+    'Draft' => '',
 ];

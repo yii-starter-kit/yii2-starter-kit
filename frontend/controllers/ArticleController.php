@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Article;
+use common\models\ArticleCategory;
 use common\models\ArticleAttachment;
 use frontend\models\search\ArticleSearch;
 use Yii;
@@ -14,6 +15,9 @@ use yii\web\NotFoundHttpException;
  */
 class ArticleController extends Controller
 {
+    private const POSTS_PER_PAGE = 3;
+    private const ARCHIVE_MONTHS_COUNT = 12;
+
     /**
      * @return string
      */
@@ -22,9 +26,18 @@ class ArticleController extends Controller
         $searchModel = new ArticleSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
-            'defaultOrder' => ['created_at' => SORT_DESC]
+            'defaultOrder' => ['published_at' => SORT_DESC]
         ];
-        return $this->render('index', ['searchModel' => $searchModel, 'dataProvider' => $dataProvider]);
+        $dataProvider->pagination = [
+            'pageSize' => self::POSTS_PER_PAGE
+        ];
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'archive' => Article::find()->getFullArchive()->limit(self::ARCHIVE_MONTHS_COUNT)->asArray()->all(),
+            'categories' => ArticleCategory::find()->getCategoriesUsage()->asArray()->all(),
+        ]);
     }
 
     /**
@@ -40,7 +53,11 @@ class ArticleController extends Controller
         }
 
         $viewFile = $model->view ?: 'view';
-        return $this->render($viewFile, ['model' => $model]);
+        return $this->render($viewFile, [
+            'model' => $model,
+            'archive' => Article::find()->getFullArchive()->limit(self::ARCHIVE_MONTHS_COUNT)->asArray()->all(),
+            'categories' => ArticleCategory::find()->getCategoriesUsage()->asArray()->all(),
+        ]);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace backend\modules\rbac\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "rbac_auth_assignment".
@@ -26,6 +27,19 @@ class RbacAuthAssignment extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::class,
+                'updatedAtAttribute' => false
+            ]
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -42,9 +56,9 @@ class RbacAuthAssignment extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'item_name' => Yii::t('app', 'Item Name'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'created_at' => Yii::t('app', 'Created At'),
+            'item_name' => Yii::t('backend', 'Item Name'),
+            'user_id' => Yii::t('backend', 'User ID'),
+            'created_at' => Yii::t('backend', 'Created At'),
         ];
     }
 

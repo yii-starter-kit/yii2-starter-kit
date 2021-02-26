@@ -3,6 +3,7 @@
 namespace backend\modules\rbac\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "rbac_auth_item_child".
@@ -42,8 +43,8 @@ class RbacAuthItemChild extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'parent' => Yii::t('app', 'Parent'),
-            'child' => Yii::t('app', 'Child'),
+            'parent' => Yii::t('backend', 'Parent'),
+            'child' => Yii::t('backend', 'Child'),
         ];
     }
 

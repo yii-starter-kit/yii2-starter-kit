@@ -12,29 +12,35 @@ use common\assets\AdminLte;
 use common\assets\Html5shiv;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
+use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
 
 class BackendAsset extends AssetBundle
 {
     /**
      * @var string
      */
-    public $basePath = '@webroot';
-    /**
-     * @var string
-     */
-    public $baseUrl = '@web';
+    public $sourcePath = '@backend/web/bundle';
 
     /**
      * @var array
      */
     public $css = [
-        'css/style.css'
+        'style.css'
     ];
     /**
      * @var array
      */
     public $js = [
-        'js/app.js'
+        'app.js'
+    ];
+
+    public $publishOptions = [
+        'only' => [
+            '*.css',
+            '*.js',
+            '../img/*'
+        ],
+        "forceCopy" => YII_ENV_DEV,
     ];
 
     /**
@@ -43,6 +49,6 @@ class BackendAsset extends AssetBundle
     public $depends = [
         YiiAsset::class,
         AdminLte::class,
-        Html5shiv::class
+        Html5shiv::class,
     ];
 }

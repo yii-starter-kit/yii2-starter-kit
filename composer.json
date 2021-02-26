@@ -11,9 +11,13 @@
   ],
   "authors": [
     {
-      "name": "Eugene Terentev",
-      "email": "eugene@terentev.net",
-      "homepage": "http://terentev.net"
+      "name": "Yevhen Terentiev",
+      "email": "yevhen.terentiev@gmail.com"
+    },
+    {
+      "name": "Victor Gonzalez",
+      "email": "victor@vgr.cl",
+      "homepage": "https://vgr.cl"
     }
   ],
   "type": "project",
@@ -25,12 +29,14 @@
   "require": {
     "php": ">=7.1.0",
     "ext-intl": "*",
+    "ext-gd": "*",
     "yiisoft/yii2": "^2.0.13",
-    "yiisoft/yii2-bootstrap": "^2.0.0",
     "yiisoft/yii2-swiftmailer": "^2.0.0",
     "yiisoft/yii2-authclient": "^2.0.0",
+    "yiisoft/yii2-bootstrap4": "^2.0",
     "yiisoft/yii2-jui": "^2.0.0",
-    "yii2-starter-kit/yii2-file-kit": "^2.0.0",
+    "yiisoft/yii2-debug": "^2.0.0",
+    "yii2-starter-kit/yii2-file-kit": "^2.1.0",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
@@ -39,20 +45,21 @@
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
     "intervention/image": "^2.1",
-    "vlucas/phpdotenv": "@stable",
-    "npm-asset/admin-lte": "^2.0",
-    "npm-asset/font-awesome": "^4.0",
+    "vlucas/phpdotenv": "^5.3.0",
+    "almasaeed2010/adminlte": "^3.0",
+    "npm-asset/font-awesome": "^5.0",
     "npm-asset/html5shiv": "^3.0",
     "npm-asset/jquery-slimscroll": "^1.3",
-    "npm-asset/flot": "^0.8@alpha",
+    "npm-asset/flot": "^3.2",
     "symfony/process": "^4.0",
     "guzzlehttp/guzzle": "^6.0",
     "alexantr/yii2-elfinder": "^1.3",
     "trntv/sitemaped": "^0.1",
-    "yii2mod/yii2-swagger": "^1.1"
+    "yii2mod/yii2-swagger": "^1.1",
+    "rmrevin/yii2-fontawesome": "^3.4",
+    "kartik-v/yii2-widgets": "^3.4"
   },
   "require-dev": {
-    "yiisoft/yii2-debug": "^2.0.0",
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "2.4.0",
@@ -80,13 +87,18 @@
     "exclude": ["docs"]
   },
   "scripts": {
+    "compile": [
+      "cp deploy/heroku/.env .env",
+      "YII_ENV=heroku php console/yii migrate/fresh --interactive=0",
+      "php console/yii app/setup --interactive=0"
+    ],
     "build:env": [
       "cp .env.dist .env"
     ],
     "build:app": [
       "@composer install",
       "echo 'waiting for mysql' && sleep 10",
-      "console/yii app/setup --interactive=0"
+      "php console/yii app/setup --interactive=0"
     ],
     "docker:build": [
       "@build:env",
@@ -94,14 +106,20 @@
       "docker-compose exec -T app composer run-script build:app",
       "docker-compose run -T --rm webpacker npm i npm@latest -g",
       "docker-compose run -T --rm webpacker npm install",
-      "docker-compose run -T --rm webpacker npm run build",
-      "echo \"All ok!\""
+      "docker-compose run -T --rm webpacker npm run build"
     ],
     "docker:start": [
       "docker-compose up --force-recreate -d"
     ],
     "docker:cleanup": [
       "docker-compose rm -fsv"
+    ],
+    "docker:tests": [
+      "@docker:start",
+      "docker-compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
+      "docker-compose exec -T app ./vendor/bin/codecept build",
+      "docker-compose exec -T app php tests/bin/yii app/setup --interactive=0",
+      "echo 'open a new terminal and run \"docker-compose exec -T app vendor/bin/codecept run\"' && docker-compose exec -T app php -S localhost:8080"
     ]
   }
 }

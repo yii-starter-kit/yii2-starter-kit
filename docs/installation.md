@@ -43,11 +43,11 @@ composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
 
 ## Docker installation
 1. Install [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) and [composer](https://getcomposer.org/) to your system
-2. Run ``composer run-script docker:start``
+2. Run ``composer run-script docker:build``
 3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
  * - docker host IP address may vary on Windows and MacOS systems
- 
+
 *PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
 
 ### Docker FAQ
@@ -120,6 +120,23 @@ vagrant up
 That`s all. After provision application will be accessible on http://yii2-starter-kit.localhost
 
 ## Demo data
+
+## Add Random Articles Data
+
+You can insert random article data by running the following command:
+
+```
+console/yii app/demo-data N
+```
+
+Where `N` is the number of categories and articles to be added to the database. Defaults to `30`.
+
+In docker, please run:
+
+```
+docker-compose exec app console/yii app/demo-data
+```
+
 ### Demo Users
 ```
 Login: webmaster

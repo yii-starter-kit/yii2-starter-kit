@@ -45,7 +45,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 
 ## FEATURES
 ### Admin backend
-- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend [AdminLTE 3](https://adminlte.io/themes/v3/)
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - Settings editor. Application settings form (based on KeyStorage component)
 - [File manager](https://github.com/MihailDev/yii2-elfinder)
@@ -64,6 +64,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
     - Vietnamese
     - Polish
     - Portuguese (Brazil)
+    - Indonesian (Bahasa)
 - Language switcher, built-in behavior to choose locale based on browser preferred language
 - Backend translations manager
 
@@ -104,9 +105,8 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
-- Frontend: [http://yii2-starter-kit.terentev.net](http://yii2-starter-kit.terentev.net)
-- Backend: [http://backend.yii2-starter-kit.terentev.net](http://backend.yii2-starter-kit.terentev.net)
+- Frontend: [https://yii2-starter-kit.herokuapp.com](https://yii2-starter-kit.herokuapp.com)
+- Backend: [https://yii2-starter-kit.herokuapp.com/backend](https://yii2-starter-kit.herokuapp.com/backend)
 
 `administrator` role account
 ```
@@ -130,7 +130,7 @@ Password: user
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ## Have any questions?
-Mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+Mail to [victor@vgr.cl](mailto:victor@vgr.cl) or [yevhen.terentiev@gmail.com](mailto:yevhen.terentiev@gmai.com)
 
 ## READ MORE
 - [Yii2](https://github.com/yiisoft/yii2/tree/master/docs)

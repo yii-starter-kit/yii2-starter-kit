@@ -45,7 +45,7 @@
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
     "intervention/image": "^2.1",
-    "vlucas/phpdotenv": "^2.0",
+    "vlucas/phpdotenv": "^5.3.0",
     "almasaeed2010/adminlte": "^3.0",
     "npm-asset/font-awesome": "^5.0",
     "npm-asset/html5shiv": "^3.0",

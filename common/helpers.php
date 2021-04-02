@@ -49,7 +49,7 @@ function env($key, $default = null)
 {
 
     if (!$value = getenv($key)) {
-        $value = $_ENV[$key] ?? $_SERVER[$key];
+        $value = isset($_ENV[$key]) ? $_ENV[$key] : (isset($_SERVER[$key]) ? $_SERVER[$key] : null);
     }
 
     if ($value === false) {

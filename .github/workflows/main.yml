@@ -27,10 +27,11 @@ jobs:
 
     services:
       mysql:
-        image: mysql:${{ matrix.mysql }}
+        image: bitnami/mysql:${{ matrix.mysql }}
         env:
           MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: yii2-starter-kit
+          MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
         ports:
           - 3306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3

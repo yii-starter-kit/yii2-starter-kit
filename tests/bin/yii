@@ -12,7 +12,7 @@ defined('YII_ENV') or define('YII_ENV', 'test');
 defined('YII_APP_BASE_PATH') or define('YII_APP_BASE_PATH', dirname(__DIR__, 2));
 
 // Environment
-$dotenv = new \Dotenv\Dotenv(YII_APP_BASE_PATH);
+$dotenv = \Dotenv\Dotenv::createImmutable(YII_APP_BASE_PATH);
 $dotenv->load();
 $dotenv->required('TEST_DB_DSN');
 $dotenv->required('TEST_DB_USERNAME');

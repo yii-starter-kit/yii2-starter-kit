@@ -6,7 +6,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 // Environment
-$dotenv = new \Dotenv\Dotenv(dirname(__DIR__));
+$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 $dotenv->required('TEST_DB_DSN');
 $dotenv->required('TEST_DB_USERNAME');

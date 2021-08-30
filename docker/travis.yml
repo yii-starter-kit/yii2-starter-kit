@@ -1,23 +1,51 @@
 version: "3"
 
 services:
-  app:
-    build: php
-    working_dir: /app
+  frontend:
+    build: frontend
     volumes:
-      - ../:/app
-    depends_on:
-      - db
+      # Mount source-code for development
+      - ./:/app
+
+  backend:
+    build: backend
+    volumes:
+      # Mount source-code for development
+      - ./:/app
+
+  console:
+    build: console
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+
+  storage:
+    build: storage
+    volumes:
+      # Mount source-code for development
+      - ./:/app
+
+  api:
+    build: api
+    volumes:
+      # Mount source-code for development
+      - ./:/app
 
   nginx:
     image: nginx:1.12-alpine
     ports:
       - 80:80
     volumes:
-      - ../:/app
-      - ./nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
+      - ./:/app
+      - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
     depends_on:
-      - app
+      - api
+      - frontend
+      - backend
+      - console
+      - storage
 
   db:
     image: mysql:8

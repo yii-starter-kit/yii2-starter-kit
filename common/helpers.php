@@ -47,24 +47,14 @@ function redirect($url, $statusCode = 302)
  */
 function env($key, $default = null)
 {
-
-    $value = getenv($key) ?? $_ENV[$key] ?? $_SERVER[$key];
-
-    if ($value === false) {
-        return $default;
+    // getenv is disabled when using createImmutable with Dotenv class
+    if (isset($_ENV[$key])) {
+        return $_ENV[$key];
+    } elseif (isset($_SERVER[$key])) {
+        return $_SERVER[$key];
     }
 
-    switch (strtolower($value)) {
-        case 'true':
-        case '(true)':
-            return true;
-
-        case 'false':
-        case '(false)':
-            return false;
-    }
-
-    return $value;
+    return $default;
 }
 
 /**

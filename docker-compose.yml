@@ -1,22 +1,38 @@
 version: "3.7"
 
 services:
-  app:
-    build: docker/php
+  frontend:
+    build: frontend
     volumes:
+      # Mount source-code for development
       - ./:/app
-    depends_on:
-      - db
-      - mailcatcher
-    env_file:
-      - .env
 
-  webpacker:
-    image: node:14-alpine
-    working_dir: /app
+  backend:
+    build: backend
     volumes:
+      # Mount source-code for development
       - ./:/app
-    command: /bin/true
+
+  console:
+    build: console
+    volumes:
+      # Re-use local composer cache via host-volume
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      # Mount source-code for development
+      - ./:/app
+    working_dir: /app
+
+  storage:
+    build: storage
+    volumes:
+      # Mount source-code for development
+      - ./:/app
+
+  api:
+    build: api
+    volumes:
+      # Mount source-code for development
+      - ./:/app
 
   nginx:
     image: nginx:1.19-alpine
@@ -26,7 +42,17 @@ services:
       - ./:/app
       - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
     depends_on:
-      - app
+      - api
+      - frontend
+      - backend
+      - console
+      - storage
+
+  node:
+    image: node:16-alpine
+    volumes:
+      - ./:/app
+    working_dir: /app
 
   mailcatcher:
     image: schickling/mailcatcher:latest
@@ -34,7 +60,7 @@ services:
       - 1080:1080
 
   db:
-    image: mysql:8.0
+    image: mysql:8
     volumes:
       - /var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf

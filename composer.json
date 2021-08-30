@@ -96,17 +96,16 @@
       "cp .env.dist .env"
     ],
     "build:app": [
-      "@composer install",
+      "@composer install --prefer-dist -o",
       "echo 'waiting for mysql' && sleep 10",
       "php console/yii app/setup --interactive=0"
     ],
     "docker:build": [
       "@build:env",
       "@docker:start",
-      "docker-compose exec -T app composer run-script build:app",
-      "docker-compose run -T --rm webpacker npm i npm@latest -g",
-      "docker-compose run -T --rm webpacker npm install",
-      "docker-compose run -T --rm webpacker npm run build"
+      "docker-compose exec -T console composer run-script build:app",
+      "docker-compose run -T --rm node npm install",
+      "docker-compose run -T --rm node npm run build"
     ],
     "docker:start": [
       "docker-compose up --build -d"
@@ -117,9 +116,9 @@
     "docker:tests": [
       "@docker:start",
       "docker-compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
-      "docker-compose exec -T app ./vendor/bin/codecept build",
-      "docker-compose exec -T app php tests/bin/yii app/setup --interactive=0",
-      "echo 'open a new terminal and run \"docker-compose exec -T app vendor/bin/codecept run\"' && docker-compose exec -T app php -S localhost:8080"
+      "docker-compose exec -T console ./vendor/bin/codecept build",
+      "docker-compose exec -T console php tests/bin/yii app/setup --interactive=0",
+      "echo 'open a new terminal and run \"docker-compose exec -T console vendor/bin/codecept run\"' && docker-compose exec -T console php -S localhost:8080"
     ]
   }
 }

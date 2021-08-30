@@ -23,7 +23,7 @@ jobs:
           - "7.4"
 
         mysql:
-          - "5.7"
+          - "8"
 
     services:
       mysql:
@@ -85,7 +85,7 @@ jobs:
           sed -i s/yii2-starter-kit-test/yii2-starter-kit/ .env
           sed -i s/ysk_dbu/root/ .env
           sed -i s/ysk_pass/root/ .env
-          sed -i s/mysql:host=db/mysql:host:127.0.0.1/ .env
+          sed -i s/mysql:host=db/mysql:host=127.0.0.1/ .env
 
       - name: Apply migration
         run: |

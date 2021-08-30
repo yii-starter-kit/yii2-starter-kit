@@ -83,14 +83,15 @@ jobs:
         run: |
           cp .env.dist .env
           sed -i s/yii2-starter-kit-test/yii2-starter-kit/ .env
-          
+          sed -i s/mysql:host=db/mysql:host:127.0.0.1/ .env
+
       - name: Apply migration
         run: |
           php console/yii app/setup --interactive=0
           php console/yii app/truncate --interactive=0
           vendor/bin/codecept build
 
-      - name: Run tests with codeception 
+      - name: Run tests with codeception
         run: |
           php -S 127.0.0.1:8080 > /dev/null 2>&1 &
           vendor/bin/codecept run --debug

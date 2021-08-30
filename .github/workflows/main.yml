@@ -30,8 +30,6 @@ jobs:
         image: mysql:${{ matrix.mysql }}
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_USER: ysk_dbu
-          MYSQL_PASSWORD: ysk_pass
           MYSQL_DATABASE: yii2-starter-kit
         ports:
           - 3306:3306
@@ -82,6 +80,8 @@ jobs:
         run: |
           cp .env.dist .env
           sed -i s/yii2-starter-kit-test/yii2-starter-kit/ .env
+          sed -i s/ysk_dbu/root/ .env
+          sed -i s/ysk_pass/root/ .env
           sed -i s/mysql:host=db/mysql:host:127.0.0.1/ .env
 
       - name: Apply migration

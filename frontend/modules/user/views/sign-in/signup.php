@@ -35,7 +35,7 @@ $this->title = Yii::t('frontend', 'Sign up');
                     <h4 class="text-muted text-center"><?php echo Yii::t('frontend', 'Sign up with')  ?></h4>
 
                     <?php $authAuthChoice = yii\authclient\widgets\AuthChoice::begin([
-                        'baseAuthUrl' => ['site/auth']
+                        'baseAuthUrl' => ['sign-in/oauth']
                     ]); ?>
                     <ul class="list-inline d-flex justify-content-center">
                         <?php foreach ($authAuthChoice->getClients() as $client) : ?>

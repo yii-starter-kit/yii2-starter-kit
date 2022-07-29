@@ -77,7 +77,7 @@ use rmrevin\yii\fontawesome\FAS;
                     [
                         'type' => DateTimePicker::TYPE_INLINE,
                         'pluginOptions' => [
-                            'format' => 'yyyy-mm-dd HH:mm:ss',
+                            'format' => 'yyyy-mm-dd hh:ii',
                             'showMeridian' => true,
                             'todayBtn' => true,
                         ]

@@ -1,1 +1,1 @@
-FROM yiisoftware/yii2-php:7.4-fpm
+FROM yiisoftware/yii2-php:8.0-fpm

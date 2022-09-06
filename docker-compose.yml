@@ -35,7 +35,7 @@ services:
       - ./:/app
 
   nginx:
-    image: nginx:1.19-alpine
+    image: nginx:stable-alpine
     ports:
       - 80:80
     volumes:

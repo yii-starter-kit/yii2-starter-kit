@@ -52,7 +52,7 @@
     "npm-asset/jquery-slimscroll": "^1.3",
     "npm-asset/flot": "^3.2",
     "symfony/process": "^4.0",
-    "guzzlehttp/guzzle": "^6.0",
+    "guzzlehttp/guzzle": "^7.4",
     "alexantr/yii2-elfinder": "^1.3",
     "yii-starter-kit/sitemaped": "^2.0",
     "yii2mod/yii2-swagger": "^1.1",
@@ -63,7 +63,10 @@
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "^5.0",
-    "codeception/verify": "^2.2"
+    "codeception/verify": "^2.2",
+    "codeception/module-asserts": "^3.0",
+    "codeception/module-yii2": "^1.1",
+    "codeception/module-phpbrowser": "^3.0"
   },
   "autoload-dev": {
     "psr-4": {

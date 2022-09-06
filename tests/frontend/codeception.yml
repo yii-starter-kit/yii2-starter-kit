@@ -2,7 +2,7 @@ namespace: tests\frontend
 actor: Tester
 paths:
     tests: .
-    log: ./_output
+    output: ./_output
     data: ./_data
     helpers: ./_support
 settings:
@@ -11,6 +11,6 @@ settings:
     colors: true
     memory_limit: 1024M
 modules:
-    config:
-        Yii2:
+    enabled:
+        - Yii2:
             configFile: '../config/frontend/functional.php'

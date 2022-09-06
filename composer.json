@@ -27,7 +27,7 @@
     "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
-    "php": ">=7.1.0",
+    "php": ">=7.4 || ^8.0",
     "ext-intl": "*",
     "ext-gd": "*",
     "yiisoft/yii2": "^2.0.13",
@@ -54,7 +54,7 @@
     "symfony/process": "^4.0",
     "guzzlehttp/guzzle": "^6.0",
     "alexantr/yii2-elfinder": "^1.3",
-    "trntv/sitemaped": "^0.1",
+    "yii-starter-kit/sitemaped": "^2.0",
     "yii2mod/yii2-swagger": "^1.1",
     "rmrevin/yii2-fontawesome": "^3.4",
     "kartik-v/yii2-widgets": "^3.4"
@@ -62,8 +62,8 @@
   "require-dev": {
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
-    "codeception/codeception": "2.4.0",
-    "codeception/verify": "^0.3.1"
+    "codeception/codeception": "^5.0",
+    "codeception/verify": "^2.2"
   },
   "autoload-dev": {
     "psr-4": {
@@ -75,7 +75,10 @@
   },
   "config": {
     "process-timeout": 1800,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    }
   },
   "repositories": [
     {

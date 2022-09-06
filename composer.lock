@@ -5168,16 +5168,16 @@
         },
         {
             "name": "yii-starter-kit/sitemaped",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yii-starter-kit/sitemaped.git",
-                "reference": "fe4250ffad9ceb7a02e603dbb8d61d139e7a642f"
+                "reference": "b4fefda76ba8453bbb2208baf3f3cec766ab62dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yii-starter-kit/sitemaped/zipball/fe4250ffad9ceb7a02e603dbb8d61d139e7a642f",
-                "reference": "fe4250ffad9ceb7a02e603dbb8d61d139e7a642f",
+                "url": "https://api.github.com/repos/yii-starter-kit/sitemaped/zipball/b4fefda76ba8453bbb2208baf3f3cec766ab62dd",
+                "reference": "b4fefda76ba8453bbb2208baf3f3cec766ab62dd",
                 "shasum": ""
             },
             "require": {
@@ -5212,9 +5212,9 @@
             ],
             "description": "PHP Sitemap abstraction library",
             "support": {
-                "source": "https://github.com/yii-starter-kit/sitemaped/tree/2.0.0"
+                "source": "https://github.com/yii-starter-kit/sitemaped/tree/2.0.1"
             },
-            "time": "2022-02-23T17:42:29+00:00"
+            "time": "2022-09-06T21:01:46+00:00"
         },
         {
             "name": "yii2-starter-kit/yii2-file-kit",

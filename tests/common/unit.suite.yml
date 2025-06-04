@@ -4,4 +4,4 @@ modules:
     enabled:
         - Asserts
         - Yii2:
-            part: fixtures
+            part: [fixtures]

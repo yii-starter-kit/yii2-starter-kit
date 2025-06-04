@@ -10,13 +10,13 @@ class ArticleCest extends ApiCest
     // tests
     public function testArticlesList(FunctionalTester $I)
     {
-        $I->amOnPage('/v1/article');
+        $I->amOnPage('/v1/articles');
         $I->see('Lorem ipsum');
     }
 
     public function testArticleView(FunctionalTester $I)
     {
-        $I->amOnPage(['/v1/article', 'slug' => 'test-article-1']);
+        $I->amOnPage(['/v1/articles', 'slug' => 'test-article-1']);
         $I->see('Lorem ipsum');
     }
 }

@@ -3,17 +3,18 @@
 use yii\helpers\Inflector;
 use yii\helpers\StringHelper;
 
-/* @var $this yii\web\View */
-/* @var $generator yii\gii\generators\crud\Generator */
+/**
+ * @var yii\web\View $this
+ * @var yii\gii\generators\crud\Generator $generator
+ */
 
 echo "<?php\n";
 ?>
 
-use yii\helpers\Html;
-
-
-/* @var $this yii\web\View */
-/* @var $model <?php echo ltrim($generator->modelClass, '\\') ?> */
+/**
+ * @var yii\web\View $this
+ * @var <?php echo ltrim($generator->modelClass, '\\') ?> $model
+ */
 
 $this->title = <?php echo $generator->generateString('Create {modelClass}', ['modelClass' => Inflector::camel2words(StringHelper::basename($generator->modelClass))]) ?>;
 $this->params['breadcrumbs'][] = ['label' => <?php echo $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>, 'url' => ['index']];

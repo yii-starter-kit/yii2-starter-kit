@@ -1,0 +1,78 @@
+# This is a taskctl's tasks configuration file.
+# More information at https://github.com/taskctl/taskctl
+pipelines:
+  install:
+    - task: install:php
+    - task: install:node
+      depends_on: install:php
+      
+  start:
+    - pipeline: install
+    - task: build:env
+    - task: docker:build
+      depends_on:
+        - build:env
+        - install
+    - task: docker:start
+      depends_on: docker:build
+    - task: banner
+      depends_on: docker:start
+      
+  docker:tests:
+    - task: docker:start
+    - task: docker:tests:server
+      depends_on: docker:start
+    - task: docker:tests:run
+      depends_on: docker:start
+
+tasks:
+  install:php:
+    command: composer install
+  
+  install:node:
+    command: npm install
+
+  build:env:
+    command: cp .env.dist .env
+  
+  heroku:compile:
+    command:
+      - cp deploy/heroku/.env .env
+      - php console/yii migrate/fresh
+      - php console/yii app/setup --interactive=0
+    env:
+      YII_ENV: heroku
+
+  local:build:
+    command:
+      - php console/yii app/setup
+      - npm run build
+
+  docker:build:
+    command:
+      - docker-compose run -T --rm app php console/yii app/setup --interactive=0
+      - docker-compose run -T --rm webpacker npm run build
+
+  docker:tests:run:
+    command:
+      - docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+      - docker-compose exec -T app ./vendor/bin/codecept build
+      - docker-compose exec -T app php tests/bin/yii app/setup --interactive=0
+      - docker-compose exec -T app vendor/bin/codecept run
+      - echo "Done!"
+  
+  docker:tests:server:
+    command:
+      - docker-compose exec -T app php -S localhost:8080 -t /app
+
+  docker:start:
+    command:
+      - docker-compose up --force-recreate -d
+  
+  docker:cleanup:
+    command:
+      - docker-compose rm -fsv
+
+  banner:
+    command:
+      - echo "Started! Visit http://yii2-starter-kit.localhost"

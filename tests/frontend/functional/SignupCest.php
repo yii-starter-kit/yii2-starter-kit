@@ -48,28 +48,31 @@ class SignupCest
         $I->wantTo('ensure that signup works');
 
         $signupPage = SignupPage::openBy($I);
-        $I->see('Signup', 'h1');
+        $I->see('Sign up', 'h1');
 
         $I->amGoingTo('submit signup form with no data');
 
         $signupPage->submit([]);
 
         $I->expectTo('see validation errors');
-        $I->see('Username cannot be blank.', '.help-block');
-        $I->see('E-mail cannot be blank.', '.help-block');
-        $I->see('Password cannot be blank.', '.help-block');
+        $I->see('Username cannot be blank.', '.alert.alert-danger');
+        $I->see('E-mail cannot be blank.', '.alert.alert-danger');
+        $I->see('Password cannot be blank.', '.alert.alert-danger');
+        $I->see('Confirm Password cannot be blank.', '.alert.alert-danger');
 
         $I->amGoingTo('submit signup form with not correct email');
         $signupPage->submit([
             'username' => 'tester',
             'email' => 'tester.email',
             'password' => 'tester_password',
+            'password_confirm' => 'tester_password',
         ]);
 
         $I->expectTo('see that email address is wrong');
-        $I->dontSee('Username cannot be blank.', '.help-block');
-        $I->dontSee('Password cannot be blank.', '.help-block');
-        $I->see('E-mail is not a valid email address.', '.help-block');
+        $I->dontSee('Username cannot be blank.', '.alert.alert-danger');
+        $I->dontSee('Password cannot be blank.', '.alert.alert-danger');
+        $I->dontSee('Password Confirm cannot be blank.', '.alert.alert-danger');
+        $I->see('E-mail is not a valid email address.', '.alert.alert-danger');
 
 
         $I->amGoingTo('submit signup form with correct email');
@@ -77,6 +80,7 @@ class SignupCest
             'username' => 'tester',
             'email' => 'tester.email@example.com',
             'password' => 'tester_password',
+            'password_confirm' => 'tester_password',
         ]);
 
         $I->expectTo('see that user is created');

@@ -8,7 +8,7 @@ class UserTest extends Unit
 {
 
     /**
-     * @var \tests\common\UnitTester
+     * @var tests\common\UnitTester
      */
     protected $tester;
 

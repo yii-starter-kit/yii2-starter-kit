@@ -1,11 +1,14 @@
 <?php
 /**
- * @var $this \yii\web\View
- * @var $model \common\models\Page
+ * @var yii\web\View $this
+ * @var common\models\Page $model
  */
+
+use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
+
 $this->title = $model->title;
 ?>
-<div class="content">
-    <h1><?php echo $model->title ?></h1>
-    <?php echo $model->body ?>
-</div>
+
+<h1 class="mt-4"><?php echo Html::encode($model->title) ?></h1>
+<?php echo HtmlPurifier::process($model->body) ?>

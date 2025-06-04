@@ -124,7 +124,7 @@ class Article extends ActiveRecord
             }],
             [['published_at'], 'filter', 'filter' => 'strtotime', 'skipOnEmpty' => true],
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::class, 'targetAttribute' => 'id'],
-            [['status'], 'integer'],
+            [['status', 'created_by', 'updated_by'], 'integer'],
             [['thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
             [['view', 'slug'], 'string', 'max' => 255],

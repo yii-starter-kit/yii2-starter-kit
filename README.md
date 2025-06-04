@@ -4,10 +4,24 @@
 
 [![Packagist](https://img.shields.io/packagist/v/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
 [![Packagist](https://img.shields.io/packagist/dt/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
-[![Build Status](https://travis-ci.org/yii2-starter-kit/yii2-starter-kit.svg?branch=master)](https://travis-ci.org/yii2-starter-kit/yii2-starter-kit)
+[![build](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml)
 
 <!-- /BADGES -->
 
+# Stand with Ukraine!
+
+---
+<p align="center">
+   <img align="center" src="https://github.blog/wp-content/uploads/2022/03/1200x630-GitHub-1.png?resize=320%2C240">
+</p>
+
+While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it, 
+is prohibited from using this package.
+For others - please, pray for us, share information about war crimes Russia is conducting in Ukraine, do everything you can
+to urge your governments to be on the right side of history.
+Ukraine will prevail! Good triumph over evil! Русский военный корабль, иди нах#й!
+
+---
 This is Yii2 start application template.
 
 It was created and developing as a fast start for building an advanced sites based on Yii2.
@@ -23,7 +37,6 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
     - [Docker installation](docs/installation.md#docker-installation)
-    - [Vagrant installation](docs/installation.md#vagrant-installation)
 - [Components documentation](docs/components.md)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)
@@ -32,20 +45,20 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Have any questions?](#have-any-questions)
 
 ## Quickstart
-1. [Install composer](https://getcomposer.org)
+1. [Install taskctl](https://getcomposer.org)
 2. [Install docker](https://docs.docker.com/install/)
 3. [Install docker-compose](https://docs.docker.com/compose/install/)
 4. Run
     ```bash
     composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
     cd myproject.com
-    composer run-script docker:build
+    taskctl start
     ```
 5. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
 ## FEATURES
 ### Admin backend
-- Beautiful and open source dashboard theme for backend [AdminLTE 2](http://almsaeedstudio.com/AdminLTE)
+- Beautiful and open source dashboard theme for backend [AdminLTE 3](https://adminlte.io/themes/v3/)
 - Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
 - Settings editor. Application settings form (based on KeyStorage component)
 - [File manager](https://github.com/MihailDev/yii2-elfinder)
@@ -53,6 +66,11 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - Events timeline
 - Logs viewer
 - System monitoring
+
+### Development tasks
+To list all available development tasks follow these steps:
+1. Install [taskctl](https://github.com/taskctl/taskctl) task runner
+2. Run ``taskctl``
 
 ### I18N
 - Built-in translations:
@@ -64,6 +82,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
     - Vietnamese
     - Polish
     - Portuguese (Brazil)
+    - Indonesian (Bahasa)
 - Language switcher, built-in behavior to choose locale based on browser preferred language
 - Backend translations manager
 
@@ -104,9 +123,8 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO
-Demo is hosted by awesome [Digital Ocean](https://m.do.co/c/d7f000191ea8)
-- Frontend: [http://yii2-starter-kit.terentev.net](http://yii2-starter-kit.terentev.net)
-- Backend: [http://backend.yii2-starter-kit.terentev.net](http://backend.yii2-starter-kit.terentev.net)
+- Frontend: [https://yii2-starter-kit.herokuapp.com](https://yii2-starter-kit.herokuapp.com)
+- Backend: [https://yii2-starter-kit.herokuapp.com/backend](https://yii2-starter-kit.herokuapp.com/backend)
 
 `administrator` role account
 ```
@@ -130,7 +148,7 @@ Password: user
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
 
 ## Have any questions?
-Mail to [eugene@terentev.net](mailto:eugene@terentev.net)
+Mail to [victor@vgr.cl](mailto:victor@vgr.cl) or [yevhen.terentiev@gmail.com](mailto:yevhen.terentiev@gmai.com)
 
 ## READ MORE
 - [Yii2](https://github.com/yiisoft/yii2/tree/master/docs)

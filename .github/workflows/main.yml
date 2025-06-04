@@ -1,0 +1,99 @@
+on:
+  - pull_request
+  - push
+
+name: build
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php }}-mysql-${{ matrix.mysql }}
+
+    env:
+      extensions: dom, json, gd, imagick, pdo, pdo_mysql, intl, curl, xml, zip
+      key: cache-v1
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+
+        php:
+          - "8.0"
+
+        mysql:
+          - "8"
+
+    services:
+      mysql:
+        image: mysql:${{ matrix.mysql }}
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: yii2-starter-kit
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup cache environment
+        id: cache-env
+        uses: shivammathur/cache-extensions@v1
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ env.extensions }}
+          key: ${{ env.key }}
+
+      - name: Cache extensions
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.cache-env.outputs.dir }}
+          key: ${{ steps.cache-env.outputs.key }}
+          restore-keys: ${{ steps.cache-env.outputs.key }}
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: ${{ env.extensions }}
+          ini-values: date.timezone='UTC'
+          coverage: pcov
+
+      - name: Determine composer cache directory on Linux
+        if: matrix.os == 'ubuntu-latest'
+        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
+
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v1
+        with:
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php${{ matrix.php }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            php${{ matrix.php }}-composer-${{ matrix.dependencies }}-
+      - name: Install dependencies with composer
+        run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
+
+      - name: Setup test environment
+        run: |
+          cp .env.dist .env
+          sed -i s/yii2-starter-kit-test/yii2-starter-kit/ .env
+          sed -i s/ysk_dbu/root/ .env
+          sed -i s/ysk_pass/root/ .env
+          sed -i s/mysql:host=db/mysql:host=127.0.0.1/ .env
+
+      - name: Apply migration
+        run: |
+          php console/yii app/setup --interactive=0
+          php console/yii app/truncate --interactive=0
+          vendor/bin/codecept build
+
+      - name: Run tests with codeception
+        run: |
+          php -S 127.0.0.1:8080 > /dev/null 2>&1 &
+          vendor/bin/codecept run --debug

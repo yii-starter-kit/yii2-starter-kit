@@ -23,7 +23,7 @@ class LogController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['post'],
-                    'clear' => ['post'],
+                    'clear-logs' => ['post'],
                 ],
             ],
         ];
@@ -52,6 +52,21 @@ class LogController extends Controller
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
+    }
+
+    /**
+     * @return \yii\web\Response
+     * @throws HttpException
+     */
+    public function actionClearLogs()
+    {
+        SystemLog::deleteAll();
+        Yii::$app->session->setFlash('alert', [
+            'body' => \Yii::t('backend', 'The logs have been cleared'),
+            'options' => ['class' => 'alert-success'],
+        ]);
+
+        return $this->redirect(['index']);
     }
 
     /**

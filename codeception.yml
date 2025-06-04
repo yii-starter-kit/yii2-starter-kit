@@ -6,7 +6,7 @@ include:
   - tests/api
 
 paths:
-  log: tests/_output
+  output: tests/_output
 
 settings:
   colors: true

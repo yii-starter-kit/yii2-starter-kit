@@ -10,7 +10,12 @@ $config = [
     'as locale' => [
         'class' => common\behaviors\LocaleBehavior::class,
         'enablePreferredLanguage' => true
-    ]
+    ],
+    'container' => [
+        'definitions' => [
+           \yii\widgets\LinkPager::class => \yii\bootstrap4\LinkPager::class,
+        ],
+    ],
 ];
 
 if (YII_DEBUG) {

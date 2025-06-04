@@ -1,7 +1,10 @@
 <?php
+/**
+ * @var yii\web\View $this
+ * @var string $content
+ */
+
 use yii\helpers\Html;
-/* @var $this \yii\web\View */
-/* @var $content string */
 
 \frontend\assets\FrontendAsset::register($this);
 ?>
@@ -15,7 +18,7 @@ use yii\helpers\Html;
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
 </head>
-<body>
+<body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
     <?php echo $content ?>
 <?php $this->endBody() ?>

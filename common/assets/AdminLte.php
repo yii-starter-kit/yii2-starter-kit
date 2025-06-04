@@ -8,10 +8,9 @@
 
 namespace common\assets;
 
-use common\assets\FontAwesome;
+use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
 use common\assets\JquerySlimScroll;
-use yii\bootstrap\BootstrapPluginAsset;
-use yii\jui\JuiAsset;
+use yii\bootstrap4\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 
@@ -20,7 +19,7 @@ class AdminLte extends AssetBundle
     /**
      * @var string
      */
-    public $sourcePath = '@npm/admin-lte/dist';
+    public $sourcePath = '@vendor/almasaeed2010/adminlte/dist';
     /**
      * @var array
      */
@@ -32,8 +31,7 @@ class AdminLte extends AssetBundle
      */
     public $css = [
         '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic',
-        'css/AdminLTE.min.css',
-        'css/skins/_all-skins.min.css',
+        'css/adminlte.min.css',
     ];
     /**
      * @var array
@@ -41,7 +39,7 @@ class AdminLte extends AssetBundle
     public $depends = [
         JqueryAsset::class,
         BootstrapPluginAsset::class,
-        FontAwesome::class,
+        NpmFreeAssetBundle::class,
         JquerySlimScroll::class
     ];
 }

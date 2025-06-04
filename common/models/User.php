@@ -55,6 +55,16 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
+    public function init()
+    {
+        $this->on(self::EVENT_AFTER_INSERT, [$this, 'notifySignup']);
+        $this->on(self::EVENT_AFTER_DELETE, [$this, 'notifyDeletion']);
+        parent::init();
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function findIdentity($id)
     {
         return static::find()
@@ -245,6 +255,19 @@ class User extends ActiveRecord implements IdentityInterface
     public function afterSignup(array $profileData = [])
     {
         $this->refresh();
+        $profile = new UserProfile();
+        $profile->locale = Yii::$app->language;
+        $profile->load($profileData, '');
+        $this->link('userProfile', $profile);
+        $this->trigger(self::EVENT_AFTER_SIGNUP);
+        // Default role
+        $auth = Yii::$app->authManager;
+        $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
+    }
+
+    public function notifySignup($event)
+    {
+        $this->refresh();
         Yii::$app->commandBus->handle(new AddToTimelineCommand([
             'category' => 'user',
             'event' => 'signup',
@@ -254,14 +277,19 @@ class User extends ActiveRecord implements IdentityInterface
                 'created_at' => $this->created_at
             ]
         ]));
-        $profile = new UserProfile();
-        $profile->locale = Yii::$app->language;
-        $profile->load($profileData, '');
-        $this->link('userProfile', $profile);
-        $this->trigger(self::EVENT_AFTER_SIGNUP);
-        // Default role
-        $auth = Yii::$app->authManager;
-        $auth->assign($auth->getRole(User::ROLE_USER), $this->getId());
+    }
+
+    public function notifyDeletion($event)
+    {
+        Yii::$app->commandBus->handle(new AddToTimelineCommand([
+            'category' => 'user',
+            'event' => 'delete',
+            'data' => [
+                'public_identity' => $this->getPublicIdentity(),
+                'user_id' => $this->getId(),
+                'deleted_at' => time()
+            ]
+        ]));
     }
 
     /**

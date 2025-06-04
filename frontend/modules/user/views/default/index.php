@@ -2,11 +2,11 @@
 
 use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\base\MultiModel */
-/* @var $form yii\widgets\ActiveForm */
+/* @var $form yii\bootstrap4\ActiveForm */
 
 $this->title = Yii::t('frontend', 'User Settings')
 ?>
@@ -24,28 +24,49 @@ $this->title = Yii::t('frontend', 'User Settings')
         ]
     )?>
 
-    <?php echo $form->field($model->getModel('profile'), 'firstname')->textInput(['maxlength' => 255]) ?>
+    <div class="row">
+        <div class="col">
+            <?php echo $form->field($model->getModel('profile'), 'firstname')->textInput(['maxlength' => 255]) ?>
+        </div>
+        <div class="col">
+            <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>
+        </div>
+        <div class="col">
+            <?php echo $form->field($model->getModel('profile'), 'lastname')->textInput(['maxlength' => 255]) ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>
-
-    <?php echo $form->field($model->getModel('profile'), 'lastname')->textInput(['maxlength' => 255]) ?>
-
-    <?php echo $form->field($model->getModel('profile'), 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
-
-    <?php echo $form->field($model->getModel('profile'), 'gender')->dropDownlist([
-        \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
-        \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
-    ], ['prompt' => '']) ?>
+    <div class="row">
+        <div class="col">
+            <?php echo $form->field($model->getModel('profile'), 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
+        </div>
+        <div class="col">
+            <?php echo $form->field($model->getModel('profile'), 'gender')->dropDownlist([
+                \common\models\UserProfile::GENDER_FEMALE => Yii::t('frontend', 'Female'),
+                \common\models\UserProfile::GENDER_MALE => Yii::t('frontend', 'Male')
+            ], ['prompt' => '']) ?>
+        </div>
+    </div>
 
     <h2><?php echo Yii::t('frontend', 'Account Settings') ?></h2>
 
-    <?php echo $form->field($model->getModel('account'), 'username') ?>
+    <div class="row">
+        <div class="col">
+            <?php echo $form->field($model->getModel('account'), 'username') ?>
+        </div>
+        <div class="col">
+            <?php echo $form->field($model->getModel('account'), 'email')->input('email') ?>
+        </div>
+    </div>
 
-    <?php echo $form->field($model->getModel('account'), 'email') ?>
-
-    <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
-
-    <?php echo $form->field($model->getModel('account'), 'password_confirm')->passwordInput() ?>
+    <div class="row">
+        <div class="col">
+            <?php echo $form->field($model->getModel('account'), 'password')->passwordInput() ?>
+        </div>
+        <div class="col">
+            <?php echo $form->field($model->getModel('account'), 'password_confirm')->passwordInput() ?>
+        </div>
+    </div>
 
     <div class="form-group">
         <?php echo Html::submitButton(Yii::t('frontend', 'Update'), ['class' => 'btn btn-primary']) ?>

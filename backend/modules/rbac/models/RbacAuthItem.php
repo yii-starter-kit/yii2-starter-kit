@@ -3,6 +3,7 @@
 namespace backend\modules\rbac\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "rbac_auth_item".
@@ -35,6 +36,16 @@ class RbacAuthItem extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
@@ -42,6 +53,7 @@ class RbacAuthItem extends \yii\db\ActiveRecord
             [['type', 'created_at', 'updated_at'], 'integer'],
             [['description', 'data'], 'string'],
             [['name', 'rule_name'], 'string', 'max' => 64],
+            [['description', 'rule_name', 'data'], 'default', 'value' => null],
             [['rule_name'], 'exist', 'skipOnError' => true, 'targetClass' => RbacAuthRule::class, 'targetAttribute' => ['rule_name' => 'name']],
         ];
     }
@@ -52,13 +64,13 @@ class RbacAuthItem extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'name' => Yii::t('app', 'Name'),
-            'type' => Yii::t('app', 'Type'),
-            'description' => Yii::t('app', 'Description'),
-            'rule_name' => Yii::t('app', 'Rule Name'),
-            'data' => Yii::t('app', 'Data'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'name' => Yii::t('backend', 'Name'),
+            'type' => Yii::t('backend', 'Type'),
+            'description' => Yii::t('backend', 'Description'),
+            'rule_name' => Yii::t('backend', 'Rule Name'),
+            'data' => Yii::t('backend', 'Data'),
+            'created_at' => Yii::t('backend', 'Created At'),
+            'updated_at' => Yii::t('backend', 'Updated At'),
         ];
     }
 

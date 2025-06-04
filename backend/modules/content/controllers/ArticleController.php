@@ -78,6 +78,9 @@ class ArticleController extends Controller
         if ($article->load(Yii::$app->request->post()) && $article->save()) {
             return $this->redirect(['index']);
         }
+
+        $article->published_at = date('Y-m-d H:i:s', $article->published_at);
+
         return $this->render('update', [
             'model' => $article,
             'categories' => ArticleCategory::find()->active()->all(),

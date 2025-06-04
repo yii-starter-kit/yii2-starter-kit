@@ -1,5 +1,16 @@
 # Testing
 
+## Automated
+```bash
+taskctl docker:tests
+```
+or
+```
+composer run-script docker:tests
+```
+
+## Manual
+
 To run tests:
 1. Start containers:
 ```
@@ -7,7 +18,7 @@ docker-compose up -d
 ```
 2. Create `tests` database:
 ```
-docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci" 
+docker-compose exec db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"
 ```
 3. Build needed files
 ```

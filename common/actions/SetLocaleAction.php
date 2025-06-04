@@ -55,7 +55,7 @@ class SetLocaleAction extends Action
     public $cookieDomain;
 
     /**
-     * @var \Closure
+     * @var Closure
      */
     public $callback;
 

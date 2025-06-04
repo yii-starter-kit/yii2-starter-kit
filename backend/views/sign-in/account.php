@@ -1,30 +1,28 @@
 <?php
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
+use rmrevin\yii\fontawesome\FAS;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\UserProfile */
-/* @var $form yii\bootstrap\ActiveForm */
+/**
+ * @var yii\web\View $this
+ * @var common\models\UserProfile $model
+ * @var yii\bootstrap4\ActiveForm $form
+ */
+
 $this->title = Yii::t('backend', 'Edit account')
 ?>
 
-<div class="user-profile-form">
-
-    <?php $form = ActiveForm::begin() ?>
-
-    <?php echo $form->field($model, 'username') ?>
-
-    <?php echo $form->field($model, 'email') ?>
-
-    <?php echo $form->field($model, 'password')->passwordInput() ?>
-
-    <?php echo $form->field($model, 'password_confirm')->passwordInput() ?>
-
-    <div class="form-group">
-        <?php echo Html::submitButton(Yii::t('backend', 'Update'), ['class' => 'btn btn-primary']) ?>
+<?php $form = ActiveForm::begin() ?>
+<div class="user-profile-form card">
+    <div class="card-body">
+        <?php echo $form->field($model, 'username') ?>
+        <?php echo $form->field($model, 'email')->input('email') ?>
+        <?php echo $form->field($model, 'password')->passwordInput() ?>
+        <?php echo $form->field($model, 'password_confirm')->passwordInput() ?>
     </div>
-
-    <?php ActiveForm::end() ?>
-
+    <div class="card-footer">
+        <?php echo Html::submitButton(FAS::icon('save').' '.Yii::t('backend', 'Save Changes'), ['class' => 'btn btn-primary']) ?>
+    </div>
 </div>
+<?php ActiveForm::end() ?>

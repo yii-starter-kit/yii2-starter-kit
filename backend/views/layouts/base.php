@@ -3,12 +3,15 @@ use backend\assets\BackendAsset;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+/**
+ * @var yii\web\View $this
+ * @var string $content
+ */
 
 $bundle = BackendAsset::register($this);
 
 $this->params['body-class'] = $this->params['body-class'] ?? null;
+$keyStorage = Yii::$app->keyStorage;
 ?>
 
 <?php $this->beginPage() ?>
@@ -26,12 +29,13 @@ $this->params['body-class'] = $this->params['body-class'] ?? null;
 <?php echo Html::beginTag('body', [
     'class' => implode(' ', [
         ArrayHelper::getValue($this->params, 'body-class'),
-        Yii::$app->keyStorage->get('backend.theme-skin', 'skin-blue'),
-        Yii::$app->keyStorage->get('backend.layout-fixed') ? 'fixed' : null,
-        Yii::$app->keyStorage->get('backend.layout-boxed') ? 'layout-boxed' : null,
-        Yii::$app->keyStorage->get('backend.layout-collapsed-sidebar') ? 'sidebar-collapse' : null,
-        Yii::$app->keyStorage->get('backend.sidebar-mini') ? 'sidebar-mini' : null,
-    ])
+        $keyStorage->get('adminlte.sidebar-fixed') ? 'layout-fixed' : null,
+        $keyStorage->get('adminlte.sidebar-mini') ? 'sidebar-mini' : null,
+        $keyStorage->get('adminlte.sidebar-collapsed') ? 'sidebar-collapse' : null,
+        $keyStorage->get('adminlte.navbar-fixed') ? 'layout-navbar-fixed' : null,
+        $keyStorage->get('adminlte.body-small-text') ? 'text-sm' : null,
+        $keyStorage->get('adminlte.footer-fixed') ? 'layout-footer-fixed' : null,
+    ]),
 ])?>
     <?php $this->beginBody() ?>
         <?php echo $content ?>

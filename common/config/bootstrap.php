@@ -2,19 +2,19 @@
 /**
  * Require core files
  */
-require_once(__DIR__ . '/../helpers.php');
+require_once __DIR__ . '/../helpers.php';
 
 /**
  * Setting path aliases
  */
-Yii::setAlias('@base', realpath(__DIR__ . '/../../'));
-Yii::setAlias('@common', realpath(__DIR__ . '/../../common'));
-Yii::setAlias('@api', realpath(__DIR__ . '/../../api'));
-Yii::setAlias('@frontend', realpath(__DIR__ . '/../../frontend'));
-Yii::setAlias('@backend', realpath(__DIR__ . '/../../backend'));
-Yii::setAlias('@console', realpath(__DIR__ . '/../../console'));
-Yii::setAlias('@storage', realpath(__DIR__ . '/../../storage'));
-Yii::setAlias('@tests', realpath(__DIR__ . '/../../tests'));
+Yii::setAlias('@base', dirname(__DIR__, 2) . '/');
+Yii::setAlias('@common', dirname(__DIR__, 2) . '/common');
+Yii::setAlias('@api', dirname(__DIR__, 2) . '/api');
+Yii::setAlias('@frontend', dirname(__DIR__, 2) . '/frontend');
+Yii::setAlias('@backend', dirname(__DIR__, 2) . '/backend');
+Yii::setAlias('@console', dirname(__DIR__, 2) . '/console');
+Yii::setAlias('@storage', dirname(__DIR__, 2) . '/storage');
+Yii::setAlias('@tests', dirname(__DIR__, 2) . '/tests');
 
 /**
  * Setting url aliases

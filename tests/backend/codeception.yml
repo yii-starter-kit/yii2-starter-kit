@@ -2,7 +2,7 @@ namespace: tests\backend
 actor: Tester
 paths:
     tests: .
-    log: _output
+    output: _output
     data: _data
     helpers: _support
 settings:
@@ -12,6 +12,6 @@ settings:
     memory_limit: 1024M
     log: true
 modules:
-    config:
-        Yii2:
+    enabled:
+        - Yii2:
             configFile: '../config/backend/functional.php'

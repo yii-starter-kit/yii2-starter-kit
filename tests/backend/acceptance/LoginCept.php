@@ -17,8 +17,8 @@ if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }
 $I->expectTo('see validations errors');
-$I->see('Username cannot be blank.', '.help-block');
-$I->see('Password cannot be blank.', '.help-block');
+$I->see('Username cannot be blank.', '.alert.alert-danger');
+$I->see('Password cannot be blank.', '.alert.alert-danger');
 
 $I->amGoingTo('try to login with wrong credentials');
 $I->expectTo('see validations errors');
@@ -27,7 +27,7 @@ if (method_exists($I, 'wait')) {
     $I->wait(3); // only for selenium
 }
 $I->expectTo('see validations errors');
-$I->see('Incorrect username or password.', '.help-block');
+$I->see('Incorrect username or password.', '.alert.alert-danger');
 
 $I->amGoingTo('try to login with correct credentials');
 $loginPage->login('webmaster', 'webmaster');

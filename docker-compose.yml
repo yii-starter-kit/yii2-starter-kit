@@ -1,5 +1,3 @@
-version: "3.7"
-
 services:
   frontend:
     build: frontend
@@ -37,7 +35,7 @@ services:
   nginx:
     image: nginx:stable-alpine
     ports:
-      - 80:80
+      - "80:80"
     volumes:
       - ./:/app
       - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
@@ -49,7 +47,7 @@ services:
       - storage
 
   node:
-    image: node:16-alpine
+    image: node:18-alpine
     volumes:
       - ./:/app
     working_dir: /app
@@ -57,20 +55,23 @@ services:
   mailcatcher:
     image: schickling/mailcatcher:latest
     ports:
-      - 1080:1080
+      - "1080:1080"
 
   db:
     image: mysql:8
     volumes:
-      - /var/lib/mysql
+      - mysql_data:/var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
     ports:
-      - 3306:3306
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: yii2-starter-kit
       MYSQL_USER: ysk_dbu
       MYSQL_PASSWORD: ysk_pass
+
+volumes:
+  mysql_data:
 
 networks:
   default:

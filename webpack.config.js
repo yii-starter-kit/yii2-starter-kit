@@ -1,20 +1,20 @@
 const path = require('path');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 var config = {
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: [/node_modules/],
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: { presets: ['latest'] }
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
                     }
-                ]
+                }
             },
             {
                 test: /\.less$/,
@@ -23,26 +23,32 @@ var config = {
                     'css-loader',
                     'less-loader'
                 ]
-            }, {
-                test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-                loader: 'url-loader?limit=100000'
+            },
+            {
+                test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 100000
+                    }
+                }
             }
         ]
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            allChunks: true
+            filename: '[name].css'
         })
     ],
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
+            new TerserPlugin({
                 parallel: true,
-                sourceMap: true
+                terserOptions: {
+                    sourceMap: true
+                }
             }),
-            new OptimizeCSSAssetsPlugin({})
+            new CssMinimizerPlugin()
         ]
     },
     devtool: 'source-map'

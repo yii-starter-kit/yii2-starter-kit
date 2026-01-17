@@ -27,7 +27,7 @@
     "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
-    "php": "8.4",
+    "php": "8.3.*",
     "ext-intl": "*",
     "ext-gd": "*",
     "yiisoft/yii2": "^2.0.54",

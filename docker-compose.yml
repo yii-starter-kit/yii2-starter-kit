@@ -1,5 +1,5 @@
 x-yii: &yii
-  image: yiisoftware/yii2-php:8.1-fpm
+  image: yiisoftware/yii2-php:8.2-fpm
   environment:
     - PHP_ENABLE_XDEBUG=1
     - XDEBUG_MODE=develop,debug

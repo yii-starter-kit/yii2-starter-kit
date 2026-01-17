@@ -171,21 +171,21 @@ docker-cleanup: ## Clean up Docker containers and volumes
 docker-wait-for-services: ## Wait for Docker services to be ready
 	@echo -e "$(BLUE)Waiting for services to be ready...$(NC)"
 	@echo -e "$(YELLOW)Checking if containers are running...$(NC)"
-	@if ! docker compose ps --filter "status=running" | grep -q "db"; then \
+	@if ! docker compose ps --filter "status=running" | grep -q "mariadb"; then \
 		echo -e "$(RED)Database container is not running. Starting it...$(NC)"; \
-		docker compose up db -d; \
+		docker compose up mariadb -d; \
 		sleep 5; \
 	fi
 	@echo -e "$(YELLOW)Waiting for database to accept connections...$(NC)"
 	@timeout=60; \
 	while [ $$timeout -gt 0 ]; do \
-		if docker compose exec -T db mysqladmin ping -uroot -proot --silent 2>/dev/null; then \
+		if docker compose exec -T mariadb mariadb-admin ping -uroot -proot --silent 2>/dev/null; then \
 			echo -e "$(GREEN)Database is ready!$(NC)"; \
 			break; \
 		fi; \
-		if ! docker compose ps --filter "status=running" | grep -q "db"; then \
+		if ! docker compose ps --filter "status=running" | grep -q "mariadb"; then \
 			echo -e "$(RED)Database container stopped unexpectedly. Checking logs...$(NC)"; \
-			docker compose logs --tail=10 db; \
+			docker compose logs --tail=10 mariadb; \
 			exit 1; \
 		fi; \
 		echo -e "$(YELLOW)Database not ready, waiting... ($$timeout seconds left)$(NC)"; \
@@ -195,7 +195,7 @@ docker-wait-for-services: ## Wait for Docker services to be ready
 	if [ $$timeout -le 0 ]; then \
 		echo -e "$(RED)Timeout waiting for database to be ready$(NC)"; \
 		echo -e "$(YELLOW)Database container logs:$(NC)"; \
-		docker compose logs --tail=20 db; \
+		docker compose logs --tail=20 mariadb; \
 		exit 1; \
 	fi
 
@@ -206,7 +206,7 @@ docker-tests-server: docker-start docker-wait-for-services ## Start test server
 docker-tests-run: docker-start docker-wait-for-services ## Run test suite
 	@echo -e "$(BLUE)Running tests...$(NC)"
 	@echo -e "$(BLUE)Creating test database...$(NC)"
-	docker compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
+	docker compose exec -T mariadb mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
 	@echo -e "$(BLUE)Building test suite...$(NC)"
 	docker compose exec -T console ./vendor/bin/codecept build
 	@echo -e "$(BLUE)Setting up test environment...$(NC)"

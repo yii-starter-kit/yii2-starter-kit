@@ -27,11 +27,11 @@
     "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
-    "php": ">=7.4 || ^8.0",
+    "php": "8.4",
     "ext-intl": "*",
     "ext-gd": "*",
     "yiisoft/yii2": "^2.0.54",
-    "yiisoft/yii2-swiftmailer": "^2.0.0",
+    "yiisoft/yii2-swiftmailer": "^2.1.3",
     "yiisoft/yii2-authclient": "^2.2.17",
     "yiisoft/yii2-bootstrap4": "^2.0.12",
     "yiisoft/yii2-jui": "^2.0.7",

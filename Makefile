@@ -5,6 +5,10 @@
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 
+# Detected host user to keep correct ownership of node_modules and vendor
+UID  := $(shell id -u)
+GID  := $(shell id -g)
+
 # Colors for output
 RED := \033[0;31m
 GREEN := \033[0;32m
@@ -109,7 +113,7 @@ docker-build: build-env ## Build Docker containers with comprehensive setup
 	@echo -e "$(YELLOW)Step 3/8: Installing PHP dependencies...$(NC)"
 	docker compose exec -T console git config --global --add safe.directory /app
 	mkdir -p vendor
-	docker compose exec -T console composer install --prefer-dist -o
+	docker compose exec -T --user $(UID):$(GID) console composer install --prefer-dist -o
 	@echo -e "$(GREEN)✓ PHP dependencies installed$(NC)"
 	@echo ""
 
@@ -120,7 +124,7 @@ docker-build: build-env ## Build Docker containers with comprehensive setup
 	@echo ""
 
 	@echo -e "$(YELLOW)Step 5/8: Building frontend assets...$(NC)"
-	docker compose run -T --rm node npm run build
+	docker compose run -T --rm --user $(UID):$(GID) node npm run build
 	@echo -e "$(GREEN)✓ Frontend assets built$(NC)"
 	@echo ""
 

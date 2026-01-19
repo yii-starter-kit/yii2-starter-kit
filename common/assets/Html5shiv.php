@@ -12,7 +12,7 @@ use yii\web\AssetBundle;
 
 class Html5shiv extends AssetBundle
 {
-    public $sourcePath = '@npm/html5shiv';
+    public $sourcePath = '@nodeModules/html5shiv';
     public $js = [
         'dist/html5shiv.min.js'
     ];

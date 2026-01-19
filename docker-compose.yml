@@ -8,6 +8,7 @@ x-yii: &yii
     - ./:/app
     - ./docker/php/php.ini:/usr/local/etc/php.ini
     - ./docker/php/www.conf:/usr/local/etc/www.conf
+    - composer-cache:/root/.composer/cache
   depends_on:
     mariadb:
       condition: service_healthy
@@ -22,6 +23,10 @@ services:
 
   console:
     <<: *yii
+    volumes:
+      - composer-cache:/root/.composer/cache
+    stdin_open: true
+    tty: true
 
   storage:
     <<: *yii
@@ -91,6 +96,7 @@ services:
 
 volumes:
   mariadb_data:
+  composer-cache:
 
 networks:
   default:

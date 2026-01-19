@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a587a53fdfb9033e3d9ad3ccb0463a7f",
+    "content-hash": "9bc0aabe3404ee41a98e62335f3efe70",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -187,12 +187,12 @@
             "version": "4.17.49",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Eonasdan/tempus-dominus.git",
+                "url": "git@github.com:Eonasdan/bootstrap-datetimepicker.git",
                 "reference": "5b97d5b89e4bcbded740efed7dfb1f3ec4c745a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Eonasdan/tempus-dominus/zipball/5b97d5b89e4bcbded740efed7dfb1f3ec4c745a2",
+                "url": "https://api.github.com/repos/Eonasdan/bootstrap-datetimepicker/zipball/5b97d5b89e4bcbded740efed7dfb1f3ec4c745a2",
                 "reference": "5b97d5b89e4bcbded740efed7dfb1f3ec4c745a2"
             },
             "require": {
@@ -475,32 +475,82 @@
             "time": "2024-09-05T10:15:52+00:00"
         },
         {
-            "name": "doctrine/lexer",
-            "version": "1.2.3",
+            "name": "doctrine/deprecations",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/lexer.git",
-                "reference": "c268e882d4dbdd85e36e4ad69e02dc284f89d229"
+                "url": "https://github.com/doctrine/deprecations.git",
+                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/c268e882d4dbdd85e36e4ad69e02dc284f89d229",
-                "reference": "c268e882d4dbdd85e36e4ad69e02dc284f89d229",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
+                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
+            "conflict": {
+                "phpunit/phpunit": "<=7.5 || >=13"
+            },
             "require-dev": {
-                "doctrine/coding-standard": "^9.0",
-                "phpstan/phpstan": "^1.3",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
-                "vimeo/psalm": "^4.11"
+                "doctrine/coding-standard": "^9 || ^12 || ^13",
+                "phpstan/phpstan": "1.4.10 || 2.1.11",
+                "phpstan/phpstan-phpunit": "^1.0 || ^2",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.5 || ^12",
+                "psr/log": "^1 || ^2 || ^3"
+            },
+            "suggest": {
+                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
+                    "Doctrine\\Deprecations\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
+            "homepage": "https://www.doctrine-project.org/",
+            "support": {
+                "issues": "https://github.com/doctrine/deprecations/issues",
+                "source": "https://github.com/doctrine/deprecations/tree/1.1.5"
+            },
+            "time": "2025-04-07T20:06:18+00:00"
+        },
+        {
+            "name": "doctrine/lexer",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/lexer.git",
+                "reference": "861c870e8b75f7c8f69c146c7f89cc1c0f1b49b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/lexer/zipball/861c870e8b75f7c8f69c146c7f89cc1c0f1b49b6",
+                "reference": "861c870e8b75f7c8f69c146c7f89cc1c0f1b49b6",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/deprecations": "^1.0",
+                "php": "^7.1 || ^8.0"
+            },
+            "require-dev": {
+                "doctrine/coding-standard": "^9 || ^12",
+                "phpstan/phpstan": "^1.3",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6",
+                "psalm/plugin-phpunit": "^0.18.3",
+                "vimeo/psalm": "^4.11 || ^5.21"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Common\\Lexer\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -532,7 +582,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/lexer/issues",
-                "source": "https://github.com/doctrine/lexer/tree/1.2.3"
+                "source": "https://github.com/doctrine/lexer/tree/2.1.1"
             },
             "funding": [
                 {
@@ -548,29 +598,28 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-02-28T11:07:21+00:00"
+            "time": "2024-02-05T11:35:39+00:00"
         },
         {
             "name": "egulias/email-validator",
-            "version": "3.2.1",
+            "version": "3.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "f88dcf4b14af14a98ad96b14b2b317969eab6715"
+                "reference": "e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/f88dcf4b14af14a98ad96b14b2b317969eab6715",
-                "reference": "f88dcf4b14af14a98ad96b14b2b317969eab6715",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7",
+                "reference": "e5997fa97e8790cdae03a9cbd5e78e45e3c7bda7",
                 "shasum": ""
             },
             "require": {
-                "doctrine/lexer": "^1.2",
+                "doctrine/lexer": "^1.2|^2",
                 "php": ">=7.2",
                 "symfony/polyfill-intl-idn": "^1.15"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.2",
                 "phpunit/phpunit": "^8.5.8|^9.3.3",
                 "vimeo/psalm": "^4"
             },
@@ -608,7 +657,7 @@
             ],
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/3.2.1"
+                "source": "https://github.com/egulias/EmailValidator/tree/3.2.6"
             },
             "funding": [
                 {
@@ -616,7 +665,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-06-18T20:57:19+00:00"
+            "time": "2023-06-01T07:04:22+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -4392,20 +4441,20 @@
         },
         {
             "name": "symfony/polyfill-iconv",
-            "version": "v1.26.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "143f1881e655bebca1312722af8068de235ae5dc"
+                "reference": "5f3b930437ae03ae5dff61269024d8ea1b3774aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/143f1881e655bebca1312722af8068de235ae5dc",
-                "reference": "143f1881e655bebca1312722af8068de235ae5dc",
+                "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/5f3b930437ae03ae5dff61269024d8ea1b3774aa",
+                "reference": "5f3b930437ae03ae5dff61269024d8ea1b3774aa",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1"
+                "php": ">=7.2"
             },
             "provide": {
                 "ext-iconv": "*"
@@ -4415,12 +4464,9 @@
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.26-dev"
-                },
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -4455,7 +4501,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.33.0"
             },
             "funding": [
                 {
@@ -4467,42 +4513,42 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2024-09-17T14:58:18+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
-            "version": "v1.26.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "59a8d271f00dd0e4c2e518104cc7963f655a1aa8"
+                "reference": "9614ac4d8061dc257ecc64cba1b140873dce8ad3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/59a8d271f00dd0e4c2e518104cc7963f655a1aa8",
-                "reference": "59a8d271f00dd0e4c2e518104cc7963f655a1aa8",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/9614ac4d8061dc257ecc64cba1b140873dce8ad3",
+                "reference": "9614ac4d8061dc257ecc64cba1b140873dce8ad3",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.1",
-                "symfony/polyfill-intl-normalizer": "^1.10",
-                "symfony/polyfill-php72": "^1.10"
+                "php": ">=7.2",
+                "symfony/polyfill-intl-normalizer": "^1.10"
             },
             "suggest": {
                 "ext-intl": "For best performance"
             },
             "type": "library",
             "extra": {
-                "branch-alias": {
-                    "dev-main": "1.26-dev"
-                },
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -4542,7 +4588,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.26.0"
+                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.33.0"
             },
             "funding": [
                 {
@@ -4554,11 +4600,15 @@
                     "type": "github"
                 },
                 {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
                     "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-24T11:49:31+00:00"
+            "time": "2024-09-10T14:38:51+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
@@ -4797,71 +4847,6 @@
                 }
             ],
             "time": "2020-10-23T14:02:19+00:00"
-        },
-        {
-            "name": "symfony/polyfill-php72",
-            "version": "v1.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
-                "reference": "fa2ae56c44f03bed91a39bfc9822e31e7c5c38ce",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.2"
-            },
-            "type": "metapackage",
-            "extra": {
-                "thanks": {
-                    "url": "https://github.com/symfony/polyfill",
-                    "name": "symfony/polyfill"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Grekas",
-                    "email": "p@tchwork.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
-            "homepage": "https://symfony.com",
-            "keywords": [
-                "compatibility",
-                "polyfill",
-                "portable",
-                "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php72/tree/v1.31.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2024-09-09T11:45:10+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
@@ -6288,19 +6273,19 @@
             },
             "type": "yii2-extension",
             "extra": {
-                "branch-alias": {
-                    "dev-master": "2.1.x-dev"
-                },
-                "composer-exit-on-patch-failure": true,
                 "patches": {
-                    "phpunit/phpunit-mock-objects": {
-                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
-                    },
                     "phpunit/phpunit": {
                         "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
                         "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch"
+                    },
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
                     }
-                }
+                },
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                },
+                "composer-exit-on-patch-failure": true
             },
             "autoload": {
                 "psr-4": {
@@ -6794,22 +6779,22 @@
         },
         {
             "name": "codeception/module-asserts",
-            "version": "3.1.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/module-asserts.git",
-                "reference": "c58281f3d741599c81676bcb92996cf1e22d9ffd"
+                "reference": "8acceb7915a9645230bde14c305c5652d5b229db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/c58281f3d741599c81676bcb92996cf1e22d9ffd",
-                "reference": "c58281f3d741599c81676bcb92996cf1e22d9ffd",
+                "url": "https://api.github.com/repos/Codeception/module-asserts/zipball/8acceb7915a9645230bde14c305c5652d5b229db",
+                "reference": "8acceb7915a9645230bde14c305c5652d5b229db",
                 "shasum": ""
             },
             "require": {
                 "codeception/codeception": "*@dev",
-                "codeception/lib-asserts": "^2.0",
-                "php": "^8.1"
+                "codeception/lib-asserts": "^2.2 | ^3.0.1",
+                "php": "^8.2"
             },
             "conflict": {
                 "codeception/codeception": "<5.0"
@@ -6845,9 +6830,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Codeception/module-asserts/issues",
-                "source": "https://github.com/Codeception/module-asserts/tree/3.1.0"
+                "source": "https://github.com/Codeception/module-asserts/tree/3.2.1"
             },
-            "time": "2025-04-24T17:18:25+00:00"
+            "time": "2025-10-26T13:12:55+00:00"
         },
         {
             "name": "codeception/module-phpbrowser",
@@ -10372,7 +10357,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4 || ^8.0",
+        "php": "8.3.*",
         "ext-intl": "*",
         "ext-gd": "*"
     },

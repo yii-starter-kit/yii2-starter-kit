@@ -108,14 +108,14 @@ docker-build: build-env ## Build Docker containers with comprehensive setup
 
 	@echo -e "$(YELLOW)Step 3/8: Installing PHP dependencies...$(NC)"
 	docker compose exec -T console git config --global --add safe.directory /app
+	mkdir -p vendor
 	docker compose exec -T console composer install --prefer-dist -o
-	sudo chown -R $(id -u):$(id -g) vendor
 	@echo -e "$(GREEN)✓ PHP dependencies installed$(NC)"
 	@echo ""
 
 	@echo -e "$(YELLOW)Step 4/8: Installing Node.js dependencies...$(NC)"
-	docker compose run -T --rm node npm install
-	sudo chown -R $(id -u):$(id -g) node_modules
+	mkdir -p node_modules
+	docker compose run -T --rm --user $(UID):$(GID) node npm install
 	@echo -e "$(GREEN)✓ Node.js dependencies installed$(NC)"
 	@echo ""
 

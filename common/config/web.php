@@ -13,7 +13,7 @@ $config = [
     ],
     'container' => [
         'definitions' => [
-           \yii\widgets\LinkPager::class => \yii\bootstrap4\LinkPager::class,
+           \yii\widgets\LinkPager::class => \yii\bootstrap5\LinkPager::class,
         ],
     ],
 ];

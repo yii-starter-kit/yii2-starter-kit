@@ -2,12 +2,12 @@
 
 use common\models\UserProfile;
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use rmrevin\yii\fontawesome\FAS;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\UserProfile */
-/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $form yii\bootstrap5\ActiveForm */
 
 $this->title = Yii::t('backend', 'Edit profile')
 ?>

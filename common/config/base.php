@@ -167,7 +167,7 @@ $config = [
             'id-ID' => 'Indonesian (Bahasa)',
             'hu-HU' => 'Magyar',
         ],
-        'bsVersion' => '4.x', // bootstrap version
+        'bsVersion' => '5.x', // bootstrap version
     ],
 ];
 

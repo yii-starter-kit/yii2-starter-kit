@@ -33,7 +33,7 @@
     "yiisoft/yii2": "^2.0.54",
     "yiisoft/yii2-swiftmailer": "^2.1",
     "yiisoft/yii2-authclient": "^2.2",
-    "yiisoft/yii2-bootstrap4": "^2.0",
+    "yiisoft/yii2-bootstrap5": "^2.0",
     "yiisoft/yii2-jui": "^2.0",
     "yiisoft/yii2-debug": "^2.1",
     "yii2-starter-kit/yii2-file-kit": "^2.1",

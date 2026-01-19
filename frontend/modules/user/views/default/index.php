@@ -2,11 +2,11 @@
 
 use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\base\MultiModel */
-/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $form yii\bootstrap5\ActiveForm */
 
 $this->title = Yii::t('frontend', 'User Settings')
 ?>

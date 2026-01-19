@@ -9,7 +9,7 @@ namespace frontend\assets;
 
 use common\assets\Html5shiv;
 use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
-use yii\bootstrap4\BootstrapAsset;
+use yii\bootstrap5\BootstrapAsset;
 use yii\web\AssetBundle;
 use yii\web\YiiAsset;
 

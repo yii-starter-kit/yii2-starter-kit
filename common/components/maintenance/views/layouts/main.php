@@ -7,7 +7,7 @@
 
 use yii\helpers\Html;
 
-\yii\bootstrap4\BootstrapAsset::register($this)
+\yii\bootstrap5\BootstrapAsset::register($this)
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>

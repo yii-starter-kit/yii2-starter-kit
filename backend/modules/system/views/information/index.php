@@ -19,7 +19,7 @@ $this->registerJsFile(
         'depends' => [
             \yii\web\JqueryAsset::class,
             \common\assets\Flot::class,
-            \yii\bootstrap4\BootstrapPluginAsset::class
+            \yii\bootstrap5\BootstrapPluginAsset::class
         ]
     ]
 );

@@ -23,8 +23,6 @@ services:
 
   console:
     <<: *yii
-    volumes:
-      - composer-cache:/root/.composer/cache
     stdin_open: true
     tty: true
 
@@ -68,10 +66,10 @@ services:
     ports:
       - "127.0.0.1:3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      MYSQL_DATABASE:      ${DB_MAIN}
-      MYSQL_USER:          ${DB_USERNAME}
-      MYSQL_PASSWORD:      ${DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE:      ${DB_MAIN}
+      MARIADB_USER:          ${DB_USERNAME}
+      MARIADB_PASSWORD:      ${DB_PASSWORD}
     restart: unless-stopped
     healthcheck:
       test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]

@@ -213,7 +213,7 @@ docker-tests-server: docker-start docker-wait-for-services ## Start test server
 docker-tests-run: docker-start docker-wait-for-services ## Run test suite
 	@echo -e "$(BLUE)Running tests...$(NC)"
 	@echo -e "$(BLUE)Creating test database...$(NC)"
-	docker compose exec -T mariadb mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
+	docker compose exec -T mariadb mariadb -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
 	@echo -e "$(BLUE)Building test suite...$(NC)"
 	docker compose exec -T console ./vendor/bin/codecept build
 	@echo -e "$(BLUE)Setting up test environment...$(NC)"

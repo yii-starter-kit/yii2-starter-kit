@@ -117,7 +117,7 @@
     ],
     "docker:tests": [
       "@docker:start",
-      "docker compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
+      "docker compose exec -T mariadb mariadb -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
       "docker compose exec -T console ./vendor/bin/codecept build",
       "docker compose exec -T console php tests/bin/yii app/setup --interactive=0",
       "echo 'open a new terminal and run \"docker compose exec -T console vendor/bin/codecept run\"' && docker compose exec -T console php -S localhost:8080"

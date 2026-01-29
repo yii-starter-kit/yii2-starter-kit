@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c44405ef9d31b6da7fb15cdeba44c17",
+    "content-hash": "1f05ed0e1b702e30fa5401ac9bf3509b",
     "packages": [
         {
             "name": "alexantr/yii2-elfinder",
@@ -6795,6 +6795,58 @@
             "time": "2025-10-26T13:12:55+00:00"
         },
         {
+            "name": "codeception/module-filesystem",
+            "version": "3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Codeception/module-filesystem.git",
+                "reference": "2a81b5534a6679b4f17256f8275ca0048add6ef8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Codeception/module-filesystem/zipball/2a81b5534a6679b4f17256f8275ca0048add6ef8",
+                "reference": "2a81b5534a6679b4f17256f8275ca0048add6ef8",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "*@dev",
+                "php": "^8.2",
+                "symfony/finder": "^4.4 || ^5.4 || ^6.0 || ^7.0 || ^8.0"
+            },
+            "conflict": {
+                "codeception/codeception": "<5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Bodnarchuk"
+                },
+                {
+                    "name": "Gintautas Miselis"
+                }
+            ],
+            "description": "Codeception module for testing local filesystem",
+            "homepage": "https://codeception.com/",
+            "keywords": [
+                "codeception",
+                "filesystem"
+            ],
+            "support": {
+                "issues": "https://github.com/Codeception/module-filesystem/issues",
+                "source": "https://github.com/Codeception/module-filesystem/tree/3.0.2"
+            },
+            "time": "2025-11-28T11:47:18+00:00"
+        },
+        {
             "name": "codeception/module-phpbrowser",
             "version": "3.0.2",
             "source": {
@@ -10311,8 +10363,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "asofter/yii2-imperavi-redactor": 20,
-        "trntv/yii2-datetime-widget": 20,
-        "trntv/cheatsheet": 20
+        "trntv/cheatsheet": 20,
+        "trntv/yii2-datetime-widget": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
@@ -10321,6 +10373,6 @@
         "ext-intl": "*",
         "ext-gd": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

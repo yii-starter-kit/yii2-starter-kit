@@ -210,16 +210,16 @@ docker-tests-server: docker-start docker-wait-for-services ## Start test server
 	@echo -e "$(BLUE)Starting test server...$(NC)"
 	docker compose exec -T console php -S localhost:8080 -t /app
 
-docker-tests-run: docker-start docker-wait-for-services ## Run test suite
+docker-tests-run: ## Run test suite
 	@echo -e "$(BLUE)Running tests...$(NC)"
 	@echo -e "$(BLUE)Creating test database...$(NC)"
 	docker compose exec -T mariadb mariadb -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
 	@echo -e "$(BLUE)Building test suite...$(NC)"
-	docker compose exec -T console ./vendor/bin/codecept build
+	docker compose exec console ./vendor/bin/codecept build
 	@echo -e "$(BLUE)Setting up test environment...$(NC)"
-	docker compose exec -T console php tests/bin/yii app/setup --interactive=0
+	docker compose exec console php tests/bin/yii app/setup --interactive=0
 	@echo -e "$(BLUE)Running tests...$(NC)"
-	docker compose exec -T console vendor/bin/codecept run
+	docker compose exec console vendor/bin/codecept run -d
 	@echo -e "$(GREEN)Tests completed!$(NC)"
 
 docker-tests: docker-start docker-wait-for-services docker-tests-run ## Run complete Docker test pipeline

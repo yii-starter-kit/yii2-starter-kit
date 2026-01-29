@@ -45,7 +45,7 @@ class FixtureHelper extends Module
      * to use in acceptance and functional tests.
      * @param array $settings
      */
-    public function _beforeSuite($settings = [])
+    public function _before($test)
     {
         $this->initFixtures();
     }

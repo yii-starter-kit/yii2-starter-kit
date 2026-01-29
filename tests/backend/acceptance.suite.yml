@@ -2,7 +2,9 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://127.0.0.1:8080/backend/web/index-test.php
+            url: http://nginx/index-test.php
+#            headers:
+#              Host: backend.yii2-starter-kit.localhost
             browser: firefox
         - Yii2:
             part: orm

@@ -8,7 +8,7 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: http://127.0.0.1:8080/frontend/web/index-test.php
+            url: http://nginx/index-test.php
             browser: firefox
         - Yii2:
             part: orm

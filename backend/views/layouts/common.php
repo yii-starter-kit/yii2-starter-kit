@@ -87,30 +87,36 @@ $logEntries[] = [
 
         <!-- right navbar links -->
         <?php echo Nav::widget([
-            'options' => ['class' => ['navbar-nav', 'ml-auto']],
+            'options' => ['class' => ['navbar-nav', 'ms-auto']],
             'encodeLabels' => false,
             'items' => [
                 [
                     // timeline events
-                    'label' => FAR::icon('bell').' <span class="badge badge-success navbar-badge">'.TimelineEvent::find()->today()->count().'</span>',
+                    'label' => FAR::icon('bell').' <span class="badge rounded-pill bg-success navbar-badge">'.TimelineEvent::find()->today()->count().'</span>',
                     'url'  => ['/timeline-event/index']
                 ],
                 [
                     // log events
-                    'label' => FAS::icon('clipboard-list').' <span class="badge badge-warning navbar-badge">'.SystemLog::find()->count().'</span>',
+                    'label' => FAS::icon('clipboard-list').' <span class="badge rounded-pill bg-warning navbar-badge">'.SystemLog::find()->count().'</span>',
                     'url' => '#',
-                    'linkOptions' => ['class' => ['no-caret']],
+                    'linkOptions' => [
+                        'class' => ['no-caret'],
+                        'data' => [
+                            'bs-toggle' => 'dropdown',
+                            'bs-display' => 'static',
+                        ],
+                    ],
                     'dropdownOptions' => [
-                        'class' => ['dropdown-menu', 'dropdown-menu-lg', 'dropdown-menu-right'],
+                        'class' => ['dropdown-menu', 'dropdown-menu-lg', 'dropdown-menu-end'],
                     ],
                     'items' => $logEntries,
                 ],
                 '<li class="nav-item dropdown user-menu">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                         '.Html::img(Yii::$app->user->identity->userProfile->getAvatar('/img/anonymous.png'), ['class' => ['img-circle', 'elevation-2', 'bg-white', 'user-image'], 'alt' => 'User image']).'
                         '.Html::tag('span', Yii::$app->user->identity->publicIdentity, ['class' => ['d-none', 'd-md-inline']]).'
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                         <!-- User image -->
                         <li class="user-header bg-primary">
                             '.Html::img(Yii::$app->user->identity->userProfile->getAvatar('/img/anonymous.png'), ['class' => ['img-circle', 'elevation-2', 'bg-white'], 'alt' => 'User image']).'
@@ -121,14 +127,14 @@ $logEntries[] = [
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="float-left">
-                                '.Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class' => 'btn btn-default btn-flat']).'
+                            <div class="float-start">
+                                '.Html::a(Yii::t('backend', 'Profile'), ['/sign-in/profile'], ['class' => 'btn btn-secondary btn-flat']).'
                             </div>
-                            <div class="float-left">
-                                '.Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class' => 'btn btn-default btn-flat']).'
+                            <div class="float-start">
+                                '.Html::a(Yii::t('backend', 'Account'), ['/sign-in/account'], ['class' => 'btn btn-secondary btn-flat']).'
                             </div>
-                            <div class="float-right">
-                                '.Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class' => 'btn btn-default btn-flat', 'data-method' => 'post']).'
+                            <div class="float-end">
+                                '.Html::a(Yii::t('backend', 'Logout'), ['/sign-in/logout'], ['class' => 'btn btn-secondary btn-flat', 'data-method' => 'post']).'
                             </div>
                         </li>
                     </ul>
@@ -208,7 +214,7 @@ $logEntries[] = [
                             'icon' => FAS::icon('stream', ['class' => ['nav-icon']]),
                             'url' => ['/timeline-event/index'],
                             'badge' => TimelineEvent::find()->today()->count(),
-                            'badgeBgClass' => 'badge-success',
+                            'badgeBgClass' => 'bg-success',
                         ],
                         [
                             'label' => Yii::t('backend', 'Users'),
@@ -363,7 +369,7 @@ $logEntries[] = [
                             'url' => ['/system/log/index'],
                             'icon' => FAS::icon('clipboard-list', ['class' => ['nav-icon']]),
                             'badge' => SystemLog::find()->count(),
-                            'badgeBgClass' => 'badge-danger',
+                            'badgeBgClass' => 'bg-danger',
                         ],
                     ],
                 ]) ?>
@@ -420,7 +426,7 @@ $logEntries[] = [
     <!-- footer -->
     <footer class="main-footer <?php echo $keyStorage->get('adminlte.footer-small-text') ? 'text-sm' : null ?>">
         <strong>&copy; My Company <?php echo date('Y') ?></strong>
-        <div class="float-right d-none d-sm-inline-block"><?php echo Yii::powered() ?></div>
+        <div class="float-end d-none d-sm-inline-block"><?php echo Yii::powered() ?></div>
     </footer>
     <!-- /footer -->
 

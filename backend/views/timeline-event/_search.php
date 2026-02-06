@@ -23,7 +23,7 @@ use yii\bootstrap5\ActiveForm;
 
     <div class="form-group">
         <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
-        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>
+        <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-secondary']) ?>
     </div>
 
     <?php ActiveForm::end() ?>

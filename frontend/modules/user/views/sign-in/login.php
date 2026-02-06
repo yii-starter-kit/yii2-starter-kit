@@ -28,7 +28,7 @@ $this->title = Yii::t('frontend', 'Login');
                     </div>
 
                     <div class="form-group">
-                        <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'login-button']) ?>
+                        <?php echo Html::submitButton(Yii::t('frontend', 'Login'), ['class' => 'btn btn-primary btn-lg w-100', 'name' => 'login-button']) ?>
                     </div>
                     <div class="form-group">
                         <?php if (Yii::$app->getModule('user')->shouldBeActivated) : ?>

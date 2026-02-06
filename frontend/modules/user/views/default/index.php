@@ -68,7 +68,7 @@ $this->title = Yii::t('frontend', 'User Settings')
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?php echo Html::submitButton(Yii::t('frontend', 'Update'), ['class' => 'btn btn-primary']) ?>
     </div>
 

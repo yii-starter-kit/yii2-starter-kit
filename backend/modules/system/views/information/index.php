@@ -27,7 +27,7 @@ $this->registerJsFile(
 
 <div id="system-information-index">
     <div class="row">
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
@@ -44,7 +44,7 @@ $this->registerJsFile(
             </div>
         </div><!-- ./col -->
 
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner">
@@ -61,7 +61,7 @@ $this->registerJsFile(
             </div>
         </div><!-- ./col -->
 
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner">
@@ -80,7 +80,7 @@ $this->registerJsFile(
                 </a>
             </div>
         </div><!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
+        <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
                 <div class="inner">
@@ -236,13 +236,13 @@ $this->registerJsFile(
                     <h3 class="card-title">
                         <?php echo Yii::t('backend', 'CPU Usage') ?>
                     </h3>
-                    <div class="box-tools pull-right">
+                    <div class="box-tools float-end">
                         <?php echo Yii::t('backend', 'Real time') ?>
-                        <div class="realtime btn-group" data-toggle="btn-toggle">
-                            <button type="button" class="btn btn-default btn-xs active" data-toggle="on">
+                        <div class="realtime btn-group" data-bs-toggle="btn-toggle">
+                            <button type="button" class="btn btn-secondary btn-xs active" data-bs-toggle="on">
                                 <?php echo Yii::t('backend', 'On') ?>
                             </button>
-                            <button type="button" class="btn btn-default btn-xs" data-toggle="off">
+                            <button type="button" class="btn btn-secondary btn-xs" data-bs-toggle="off">
                                 <?php echo Yii::t('backend', 'Off') ?>
                             </button>
                         </div>
@@ -263,13 +263,13 @@ $this->registerJsFile(
                     <h3 class="card-title">
                         <?php echo Yii::t('backend', 'Memory Usage') ?>
                     </h3>
-                    <div class="box-tools pull-right">
+                    <div class="box-tools float-end">
                         <?php echo Yii::t('backend', 'Real time') ?>
-                        <div class="btn-group realtime" data-toggle="btn-toggle">
-                            <button type="button" class="btn btn-default btn-xs active" data-toggle="on">
+                        <div class="btn-group realtime" data-bs-toggle="btn-toggle">
+                            <button type="button" class="btn btn-secondary btn-xs active" data-bs-toggle="on">
                                 <?php echo Yii::t('backend', 'On') ?>
                             </button>
-                            <button type="button" class="btn btn-default btn-xs" data-toggle="off">
+                            <button type="button" class="btn btn-secondary btn-xs" data-bs-toggle="off">
                                 <?php echo Yii::t('backend', 'Off') ?>
                             </button>
                         </div>

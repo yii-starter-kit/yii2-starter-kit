@@ -32,7 +32,7 @@ use yii\helpers\Html;
                 Date('F', mktime(0, 0, 0, (int)$month, 1, (int)$year)),
                 ['article/index', 'ArticleSearch[year]' => $year, 'ArticleSearch[month]' => $month],
                 ['class' => 'text-muted']
-            ), ' ', Html::tag('span', $count, ['class' => 'badge badge-secondary badge-pill']);
+            ), ' ', Html::tag('span', $count, ['class' => 'badge bg-secondary rounded-pill']);
             echo Html::endTag('div');
             $currentYear = $year;
         }

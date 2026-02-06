@@ -27,7 +27,7 @@ use yii\helpers\Html;
                 Html::encode($label),
                 ['article/index', 'ArticleSearch[category_id]' => $category['id']],
                 ['class' => 'text-muted overflow-hidden']
-            ), ' ', Html::tag('span', $count, ['class' => 'badge badge-secondary badge-pill']);
+            ), ' ', Html::tag('span', $count, ['class' => 'badge bg-secondary rounded-pill']);
             echo Html::endTag('div');
         }
     } else {

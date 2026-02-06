@@ -1,36 +1,36 @@
+x-yii: &yii
+  image: yiisoftware/yii2-php:8.3-fpm
+  environment:
+    - PHP_ENABLE_XDEBUG=1
+    - XDEBUG_MODE=develop,debug
+  working_dir: /app
+  volumes:
+    - ./:/app
+    - ./docker/php/php.ini:/usr/local/etc/php.ini
+    - ./docker/php/www.conf:/usr/local/etc/www.conf
+    - composer-cache:/root/.composer/cache
+  depends_on:
+    mariadb:
+      condition: service_healthy
+  restart: "unless-stopped"
+
 services:
   frontend:
-    build: frontend
-    volumes:
-      # Mount source-code for development
-      - ./:/app
+    <<: *yii
 
   backend:
-    build: backend
-    volumes:
-      # Mount source-code for development
-      - ./:/app
+    <<: *yii
 
   console:
-    build: console
-    volumes:
-      # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
-      # Mount source-code for development
-      - ./:/app
-    working_dir: /app
+    <<: *yii
+    stdin_open: true
+    tty: true
 
   storage:
-    build: storage
-    volumes:
-      # Mount source-code for development
-      - ./:/app
+    <<: *yii
 
   api:
-    build: api
-    volumes:
-      # Mount source-code for development
-      - ./:/app
+    <<: *yii
 
   nginx:
     image: nginx:stable-alpine
@@ -47,7 +47,7 @@ services:
       - storage
 
   node:
-    image: node:18-alpine
+    image: node:24-alpine
     volumes:
       - ./:/app
     working_dir: /app
@@ -57,21 +57,44 @@ services:
     ports:
       - "1080:1080"
 
-  db:
-    image: mysql:8
+  mariadb:
+    image: mariadb:11.8
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
     ports:
-      - "3306:3306"
+      - "127.0.0.1:3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: yii2-starter-kit
-      MYSQL_USER: ysk_dbu
-      MYSQL_PASSWORD: ysk_pass
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE:      ${DB_MAIN}
+      MARIADB_USER:          ${DB_USERNAME}
+      MARIADB_PASSWORD:      ${DB_PASSWORD}
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "healthcheck.sh", "--connect", "--innodb_initialized" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  adminer:
+    build:
+      context: ./docker/adminer
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8081:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+      ADMINER_PLUGINS: "backward-keys config dump-alter dump-date dump-json dump-php dump-zip edit-foreign enum-option json-column pretty-json-column table-indexes-structure table-structure AdminerForeignKeysPlugin AdminerShowColumnComment display-foreign-key-name FasterTablesFilter"
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
-  mysql_data:
+  mariadb_data:
+  composer-cache:
 
 networks:
   default:

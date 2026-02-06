@@ -16,7 +16,7 @@ class Flot extends AssetBundle
     /**
      * @var string
      */
-    public $sourcePath = '@npm/flot/dist/es5';
+    public $sourcePath = '@nodeModules/flot/dist/es5';
     /**
      * @var array
      */

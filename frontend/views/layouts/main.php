@@ -5,7 +5,7 @@
  */
 
 use yii\helpers\ArrayHelper;
-use yii\bootstrap4\Breadcrumbs;
+use yii\bootstrap5\Breadcrumbs;
 
 $this->beginContent('@frontend/views/layouts/base.php')
 ?>
@@ -16,7 +16,7 @@ $this->beginContent('@frontend/views/layouts/base.php')
     ]) ?>
 
     <?php if(Yii::$app->session->hasFlash('alert')):?>
-        <?php echo \yii\bootstrap4\Alert::widget([
+        <?php echo \yii\bootstrap5\Alert::widget([
             'body'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),
             'options'=>ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'options'),
         ])?>

@@ -10,7 +10,7 @@ use common\models\WidgetCarousel;
 use common\models\WidgetCarouselItem;
 use Yii;
 use yii\base\InvalidConfigException;
-use yii\bootstrap4\Carousel;
+use yii\bootstrap5\Carousel;
 use yii\di\Instance;
 use yii\helpers\Html;
 use yii\web\AssetManager;
@@ -41,7 +41,7 @@ class DbCarousel extends Carousel
     /**
      * @throws InvalidConfigException
      */
-    public function init()
+    public function init(): void
     {
         if (!$this->key) {
             throw new InvalidConfigException("key should be set");
@@ -86,7 +86,7 @@ class DbCarousel extends Carousel
     /**
      * Renders the widget.
      */
-    public function run()
+    public function run(): string
     {
         $this->registerPlugin('carousel');
         $content = '';

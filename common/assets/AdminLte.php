@@ -10,7 +10,7 @@ namespace common\assets;
 
 use rmrevin\yii\fontawesome\NpmFreeAssetBundle;
 use common\assets\JquerySlimScroll;
-use yii\bootstrap4\BootstrapPluginAsset;
+use yii\bootstrap5\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 use yii\web\JqueryAsset;
 

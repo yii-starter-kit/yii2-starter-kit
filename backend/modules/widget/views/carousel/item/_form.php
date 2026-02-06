@@ -1,13 +1,13 @@
 <?php
 
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 use rmrevin\yii\fontawesome\FAS;
 
 /**
  * @var yii\web\View $this
  * @var common\models\WidgetCarouselItem $model
- * @var yii\bootstrap4\ActiveForm $form
+ * @var yii\bootstrap5\ActiveForm $form
  */
 
 ?>

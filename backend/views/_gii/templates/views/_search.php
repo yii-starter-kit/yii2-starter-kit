@@ -12,12 +12,12 @@ echo "<?php\n";
 ?>
 
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /**
  * @var yii\web\View $this
  * @var <?php echo ltrim($generator->modelClass, '\\') ?> $model
- * @var yii\bootstrap4\ActiveForm $form
+ * @var yii\bootstrap5\ActiveForm $form
  */
 ?>
 

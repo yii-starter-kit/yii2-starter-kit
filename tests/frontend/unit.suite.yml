@@ -1,6 +1,7 @@
-class_name: UnitTester
+actor: UnitTester
 modules:
     enabled:
         - Yii2:
+            configFile: '../config/frontend/unit.php'
             part: [orm, email, fixtures]
         - Asserts

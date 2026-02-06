@@ -4,8 +4,8 @@
  * @var string $content
  */
 
-use yii\bootstrap4\Nav;
-use yii\bootstrap4\NavBar;
+use yii\bootstrap5\Nav;
+use yii\bootstrap5\NavBar;
 
 $this->beginContent('@frontend/views/layouts/_clear.php')
 ?>
@@ -18,7 +18,7 @@ $this->beginContent('@frontend/views/layouts/_clear.php')
         ],
     ]); ?>
     <?php echo Nav::widget([
-        'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ml-auto']],
+        'options' => ['class' => ['navbar-nav', 'justify-content-end', 'ms-auto']],
         'items' => [
             ['label' => Yii::t('frontend', 'Home'), 'url' => ['/site/index']],
             ['label' => Yii::t('frontend', 'About'), 'url' => ['/page/view', 'slug'=>'about']],

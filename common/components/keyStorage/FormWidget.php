@@ -20,7 +20,7 @@ class FormWidget extends Widget
     /**
      * @var string
      */
-    public $formClass = \yii\bootstrap4\ActiveForm::class;
+    public $formClass = \yii\bootstrap5\ActiveForm::class;
     /**
      * @var array
      */

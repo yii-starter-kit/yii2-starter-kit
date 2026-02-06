@@ -4,6 +4,7 @@ namespace tests\api\functional;
 
 use tests\api\functional\base\ApiCest;
 use tests\api\FunctionalTester;
+use yii\helpers\Url;
 
 class ArticleCest extends ApiCest
 {
@@ -16,7 +17,7 @@ class ArticleCest extends ApiCest
 
     public function testArticleView(FunctionalTester $I)
     {
-        $I->amOnPage(['/v1/articles', 'slug' => 'test-article-1']);
+        $I->amOnPage(Url::to(['/v1/articles', 'slug' => 'test-article-1']));
         $I->see('Lorem ipsum');
     }
 }

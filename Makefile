@@ -5,6 +5,10 @@
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
 
+# Detected host user to keep correct ownership of node_modules and vendor
+UID  := $(shell id -u)
+GID  := $(shell id -g)
+
 # Colors for output
 RED := \033[0;31m
 GREEN := \033[0;32m
@@ -107,17 +111,20 @@ docker-build: build-env ## Build Docker containers with comprehensive setup
 	@echo ""
 
 	@echo -e "$(YELLOW)Step 3/8: Installing PHP dependencies...$(NC)"
-	docker compose exec -T console composer install --prefer-dist -o
+	docker compose exec -T console git config --global --add safe.directory /app
+	mkdir -p vendor
+	docker compose exec -T --user $(UID):$(GID) console composer install --prefer-dist -o
 	@echo -e "$(GREEN)✓ PHP dependencies installed$(NC)"
 	@echo ""
 
 	@echo -e "$(YELLOW)Step 4/8: Installing Node.js dependencies...$(NC)"
-	docker compose run -T --rm node npm install
+	mkdir -p node_modules
+	docker compose run -T --rm --user $(UID):$(GID) node npm install
 	@echo -e "$(GREEN)✓ Node.js dependencies installed$(NC)"
 	@echo ""
 
 	@echo -e "$(YELLOW)Step 5/8: Building frontend assets...$(NC)"
-	docker compose run -T --rm node npm run build
+	docker compose run -T --rm --user $(UID):$(GID) node npm run build
 	@echo -e "$(GREEN)✓ Frontend assets built$(NC)"
 	@echo ""
 
@@ -171,21 +178,21 @@ docker-cleanup: ## Clean up Docker containers and volumes
 docker-wait-for-services: ## Wait for Docker services to be ready
 	@echo -e "$(BLUE)Waiting for services to be ready...$(NC)"
 	@echo -e "$(YELLOW)Checking if containers are running...$(NC)"
-	@if ! docker compose ps --filter "status=running" | grep -q "db"; then \
+	@if ! docker compose ps --filter "status=running" | grep -q "mariadb"; then \
 		echo -e "$(RED)Database container is not running. Starting it...$(NC)"; \
-		docker compose up db -d; \
+		docker compose up mariadb -d; \
 		sleep 5; \
 	fi
 	@echo -e "$(YELLOW)Waiting for database to accept connections...$(NC)"
 	@timeout=60; \
 	while [ $$timeout -gt 0 ]; do \
-		if docker compose exec -T db mysqladmin ping -uroot -proot --silent 2>/dev/null; then \
+		if docker compose exec -T mariadb mariadb-admin ping -uroot -proot --silent 2>/dev/null; then \
 			echo -e "$(GREEN)Database is ready!$(NC)"; \
 			break; \
 		fi; \
-		if ! docker compose ps --filter "status=running" | grep -q "db"; then \
+		if ! docker compose ps --filter "status=running" | grep -q "mariadb"; then \
 			echo -e "$(RED)Database container stopped unexpectedly. Checking logs...$(NC)"; \
-			docker compose logs --tail=10 db; \
+			docker compose logs --tail=10 mariadb; \
 			exit 1; \
 		fi; \
 		echo -e "$(YELLOW)Database not ready, waiting... ($$timeout seconds left)$(NC)"; \
@@ -195,7 +202,7 @@ docker-wait-for-services: ## Wait for Docker services to be ready
 	if [ $$timeout -le 0 ]; then \
 		echo -e "$(RED)Timeout waiting for database to be ready$(NC)"; \
 		echo -e "$(YELLOW)Database container logs:$(NC)"; \
-		docker compose logs --tail=20 db; \
+		docker compose logs --tail=20 mariadb; \
 		exit 1; \
 	fi
 
@@ -203,16 +210,16 @@ docker-tests-server: docker-start docker-wait-for-services ## Start test server
 	@echo -e "$(BLUE)Starting test server...$(NC)"
 	docker compose exec -T console php -S localhost:8080 -t /app
 
-docker-tests-run: docker-start docker-wait-for-services ## Run test suite
+docker-tests-run: ## Run test suite
 	@echo -e "$(BLUE)Running tests...$(NC)"
 	@echo -e "$(BLUE)Creating test database...$(NC)"
-	docker compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
+	docker compose exec -T mariadb mariadb -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
 	@echo -e "$(BLUE)Building test suite...$(NC)"
-	docker compose exec -T console ./vendor/bin/codecept build
+	docker compose exec console ./vendor/bin/codecept build
 	@echo -e "$(BLUE)Setting up test environment...$(NC)"
-	docker compose exec -T console php tests/bin/yii app/setup --interactive=0
+	docker compose exec console php tests/bin/yii app/setup --interactive=0
 	@echo -e "$(BLUE)Running tests...$(NC)"
-	docker compose exec -T console vendor/bin/codecept run
+	docker compose exec console vendor/bin/codecept run -d
 	@echo -e "$(GREEN)Tests completed!$(NC)"
 
 docker-tests: docker-start docker-wait-for-services docker-tests-run ## Run complete Docker test pipeline

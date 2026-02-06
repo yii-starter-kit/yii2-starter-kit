@@ -7,3 +7,9 @@ require_once(YII_APP_BASE_PATH . '/common/config/bootstrap.php');
 require_once(YII_APP_BASE_PATH . '/backend/config/bootstrap.php');
 
 Yii::setAlias('@tests', dirname(__DIR__));
+
+$config = require(YII_APP_BASE_PATH . '/tests/config/api/functional.php');
+if (!isset($config['id'])) {
+    $config['id'] = 'app-tests';
+}
+new yii\web\Application($config);

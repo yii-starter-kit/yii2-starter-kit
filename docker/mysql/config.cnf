@@ -8,3 +8,16 @@ default-character-set = utf8mb4
 init-connect='SET NAMES utf8mb4'
 collation_server=utf8mb4_unicode_ci
 character_set_server=utf8mb4
+skip-character-set-client-handshake=1
+
+#default-authentication-plugin=mysql_native_password
+
+# Settings to speed up DB import. They're not enabled by default because the system would behave differently
+# than in the production environment.
+
+#innodb_buffer_pool_size = 16G
+#innodb_log_buffer_size = 256M
+#innodb_log_file_size = 1G
+#innodb_write_io_threads = 16
+#innodb_flush_log_at_trx_commit = 0
+#max_allowed_packet=1G

@@ -7,7 +7,7 @@ use yii\helpers\Html;
 use rmrevin\yii\fontawesome\FAS;
 
 /**
- * ActionColumn for Bootstrap4 with FontAwesome.
+ * ActionColumn for bootstrap5 with FontAwesome.
  *
  * @author Victor Gonzalez <victor@vgr.cl>
  */

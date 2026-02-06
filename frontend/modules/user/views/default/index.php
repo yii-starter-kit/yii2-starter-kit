@@ -2,11 +2,11 @@
 
 use trntv\filekit\widget\Upload;
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\base\MultiModel */
-/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $form yii\bootstrap5\ActiveForm */
 
 $this->title = Yii::t('frontend', 'User Settings')
 ?>
@@ -68,7 +68,7 @@ $this->title = Yii::t('frontend', 'User Settings')
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="mb-3">
         <?php echo Html::submitButton(Yii::t('frontend', 'Update'), ['class' => 'btn btn-primary']) ?>
     </div>
 

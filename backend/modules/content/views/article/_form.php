@@ -2,7 +2,7 @@
 
 use trntv\filekit\widget\Upload;
 use kartik\datetime\DateTimePicker;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
 use yii\web\JsExpression;
 use rmrevin\yii\fontawesome\FAS;

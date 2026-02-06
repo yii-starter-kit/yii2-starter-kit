@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
                 <div class="col-xs-12">
                     <h4><?php echo Yii::t('backend', 'Delete a value with the specified key from cache') ?></h4>
-                    <?php \yii\bootstrap4\ActiveForm::begin([
+                    <?php \yii\bootstrap5\ActiveForm::begin([
                         'action' => \yii\helpers\Url::to('flush-cache-key'),
                         'method' => 'get',
                         'layout' => 'inline',
@@ -67,11 +67,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php echo Html::submitButton(FAS::icon('eraser').' '.Yii::t('backend', 'Flush'), ['class' => 'btn btn-danger']) ?>
                         </div>
                     </div>
-                    <?php \yii\bootstrap4\ActiveForm::end() ?>
+                    <?php \yii\bootstrap5\ActiveForm::end() ?>
                 </div>
                 <div class="col-xs-12">
                     <h4><?php echo Yii::t('backend', 'Invalidate tag dependency') ?></h4>
-                    <?php \yii\bootstrap4\ActiveForm::begin([
+                    <?php \yii\bootstrap5\ActiveForm::begin([
                         'action' => \yii\helpers\Url::to('flush-cache-tag'),
                         'method' => 'get',
                         'layout' => 'inline',
@@ -88,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?php echo Html::submitButton(FAS::icon('eraser').' '.Yii::t('backend', 'Flush'), ['class' => 'btn btn-danger']) ?>
                         </div>
                     </div>
-                    <?php \yii\bootstrap4\ActiveForm::end() ?>
+                    <?php \yii\bootstrap5\ActiveForm::end() ?>
                 </div>
             </div>
         </div>

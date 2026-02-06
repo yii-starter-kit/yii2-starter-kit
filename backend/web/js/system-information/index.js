@@ -64,7 +64,7 @@ $(document).ready(function(){
         }
 
         $("#cpu-usage .realtime .btn").click(function() {
-            if ($(this).data("toggle") === "on") {
+            if ($(this).data("bs-toggle") === "on") {
                 realtime = "on";
                 update();
             }
@@ -135,7 +135,7 @@ $(document).ready(function(){
         }
 
         $("#memory-usage .realtime .btn").click(function() {
-            if ($(this).data("toggle") === "on") {
+            if ($(this).data("bs-toggle") === "on") {
                 realtime = "on";
                 update();
             }

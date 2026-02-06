@@ -1,9 +1,9 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $form yii\bootstrap4\ActiveForm */
+/* @var $form yii\bootstrap5\ActiveForm */
 /* @var $model \backend\models\LoginForm */
 
 $this->title = Yii::t('backend', 'Sign In');
@@ -36,7 +36,7 @@ $this->params['body-class'] = 'login-page';
             <?php echo $form->field($model, 'rememberMe')->checkbox() ?>
 
             <?php echo Html::submitButton(Yii::t('backend', 'Sign In'). ' <span class="fas fa-arrow-right fa-sm"></span>', [
-                'class' => 'btn btn-primary btn-block',
+                'class' => 'btn btn-primary w-100',
                 'name' => 'login-button'
             ]) ?>
             <?php ActiveForm::end() ?>

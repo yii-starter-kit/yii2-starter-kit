@@ -2,6 +2,9 @@
 /**
  * Application configuration shared by all applications acceptance tests
  */
-return [
-    'homeUrl' => null,
-];
+return yii\helpers\ArrayHelper::merge(
+    require(__DIR__ . '/../base.php'),
+    [
+        'homeUrl' => null,
+    ]
+);

@@ -1,10 +1,10 @@
 <?php
 use yii\helpers\Html;
-use yii\bootstrap4\ActiveForm;
+use yii\bootstrap5\ActiveForm;
 
 /**
  * @var yii\web\View $this
- * @var yii\bootstrap4\ActiveForm $form
+ * @var yii\bootstrap5\ActiveForm $form
  * @var frontend\modules\user\models\SignupForm $model
  */
 
@@ -25,7 +25,7 @@ $this->title = Yii::t('frontend', 'Sign up');
                     <?php echo $form->field($model, 'password_confirm')->passwordInput() ?>
 
                     <div class="form-group">
-                        <?php echo Html::submitButton(Yii::t('frontend', 'Sign up'), ['class' => 'btn btn-primary btn-lg btn-block', 'name' => 'signup-button']) ?>
+                        <?php echo Html::submitButton(Yii::t('frontend', 'Sign up'), ['class' => 'btn btn-primary btn-lg w-100', 'name' => 'signup-button']) ?>
                     </div>
                 </div>
             </div>

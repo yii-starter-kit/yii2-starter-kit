@@ -6,4 +6,4 @@ modules:
       - tests\common\_support\FixtureHelper
     config:
       Yii2:
-         configFile: '../config/frontend/functional.php'
+         configFile: '../../tests/config/api/functional.php'

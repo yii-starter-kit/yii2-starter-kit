@@ -1,27 +1,13 @@
 <?php
 
-namespace tests\frontend\functional;
+namespace tests\frontend\acceptance;
 
 use common\models\User;
 use tests\frontend\_pages\SignupPage;
 
 class SignupCest
 {
-
-    /**
-     * This method is called before each cest class test method
-     * @param \Codeception\Event\TestEvent $event
-     */
-    public function _before($event)
-    {
-
-    }
-
-    /**
-     * This method is called after each cest class test method, even if test failed.
-     * @param \Codeception\Event\TestEvent $event
-     */
-    public function _after($event)
+    public function _after()
     {
         User::deleteAll([
             'email' => 'tester.email@example.com',
@@ -30,20 +16,9 @@ class SignupCest
     }
 
     /**
-     * This method is called when test fails.
-     * @param \Codeception\Event\FailEvent $event
+     * @param \tests\frontend\AcceptanceTester $I
      */
-    public function _fail($event)
-    {
-
-    }
-
-    /**
-     *
-     * @param \tests\frontend\FunctionalTester $I
-     * @param \Codeception\Scenario $scenario
-     */
-    public function testUserSignup($I, $scenario)
+    public function testUserSignup($I)
     {
         $I->wantTo('ensure that signup works');
 
@@ -71,9 +46,21 @@ class SignupCest
         $I->expectTo('see that email address is wrong');
         $I->dontSee('Username cannot be blank.', '.alert.alert-danger');
         $I->dontSee('Password cannot be blank.', '.alert.alert-danger');
-        $I->dontSee('Password Confirm cannot be blank.', '.alert.alert-danger');
+        $I->dontSee('Confirm Password cannot be blank.', '.alert.alert-danger');
         $I->see('E-mail is not a valid email address.', '.alert.alert-danger');
 
+        $I->amGoingTo('submit signup form with different passwords');
+        $signupPage->submit([
+            'username' => 'tester',
+            'email' => 'tester.email@example.com',
+            'password' => 'tester_password',
+            'password_confirm' => 'wrong_password',
+        ]);
+
+        $I->expectTo('see that confirm password is wrong');
+        $I->dontSee('Confirm Password cannot be blank.', '.alert.alert-danger');
+        $I->dontSee('Password cannot be blank.', '.alert.alert-danger');
+        $I->see('Confirm Password must be equal to "Password".', '.alert.alert-danger');
 
         $I->amGoingTo('submit signup form with correct email');
         $signupPage->submit([
@@ -82,15 +69,12 @@ class SignupCest
             'password' => 'tester_password',
             'password_confirm' => 'tester_password',
         ]);
+        if (method_exists($I, 'wait')) {
+            $I->wait(3); // only for selenium
+        }
 
-        $I->expectTo('see that user is created');
-        $I->seeRecord('common\models\User', [
-            'username' => 'tester',
-            'email' => 'tester.email@example.com',
-        ]);
-
-//        $I->expectTo('see that user logged in');  // TODO: could not make these to work.
-//        $I->seeLink('tester');
-//        $I->seeLink('Logout');
+        $I->expectTo('see that user logged in');
+        $I->click("tester", "a");
+        $I->see("Logout", "a");
     }
 }

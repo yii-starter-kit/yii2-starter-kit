@@ -1,9 +1,9 @@
 include:
   - tests/common
-  - tests/console
-  - tests/backend
-  - tests/frontend
-  - tests/api
+  - backend/tests
+  - frontend/tests
+  - api/tests
+  - console/tests
 
 paths:
   output: tests/_output

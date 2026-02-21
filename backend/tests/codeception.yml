@@ -7,11 +7,10 @@ paths:
     helpers: _support
 settings:
     bootstrap: _bootstrap.php
-    suite_class: \PHPUnit_Framework_TestSuite
     colors: true
     memory_limit: 1024M
     log: true
 modules:
     enabled:
         - Yii2:
-            configFile: '../config/backend/functional.php'
+            configFile: '../../tests/config/backend/functional.php'

@@ -1,5 +1,17 @@
 # Testing
 
+## Structure
+
+Tests are now organized per application:
+- `backend/tests/` - Backend application tests (unit, functional, acceptance)
+- `frontend/tests/` - Frontend application tests (unit, functional, acceptance)
+- `api/tests/` - API tests (functional, unit)
+- `console/tests/` - Console application tests (unit)
+- `tests/common/` - Shared tests for common models and components
+- `tests/config/` - Test configuration files
+
+This structure follows Codeception 5 best practices.
+
 ## Automated
 ```bash
 taskctl docker:tests
@@ -35,4 +47,21 @@ docker-compose exec app php -S localhost:8080
 6. Run tests in separate window:
 ```
 docker-compose exec app vendor/bin/codecept run
+```
+
+## Running specific test suites
+
+To run tests for a specific application:
+```bash
+# Backend tests
+vendor/bin/codecept run -c backend/tests
+
+# Frontend tests
+vendor/bin/codecept run -c frontend/tests
+
+# API tests
+vendor/bin/codecept run -c api/tests
+
+# Console tests
+vendor/bin/codecept run -c console/tests
 ```

@@ -10,18 +10,16 @@ class SignupCest
 
     /**
      * This method is called before each cest class test method
-     * @param \Codeception\Event\TestEvent $event
      */
-    public function _before($event)
+    public function _before()
     {
 
     }
 
     /**
      * This method is called after each cest class test method, even if test failed.
-     * @param \Codeception\Event\TestEvent $event
      */
-    public function _after($event)
+    public function _after()
     {
         User::deleteAll([
             'email' => 'tester.email@example.com',
@@ -31,9 +29,8 @@ class SignupCest
 
     /**
      * This method is called when test fails.
-     * @param \Codeception\Event\FailEvent $event
      */
-    public function _fail($event)
+    public function _fail()
     {
 
     }
@@ -41,9 +38,8 @@ class SignupCest
     /**
      *
      * @param \tests\frontend\FunctionalTester $I
-     * @param \Codeception\Scenario $scenario
      */
-    public function testUserSignup($I, $scenario)
+    public function testUserSignup($I)
     {
         $I->wantTo('ensure that signup works');
 

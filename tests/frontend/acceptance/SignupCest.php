@@ -7,12 +7,12 @@ use tests\frontend\_pages\SignupPage;
 
 class SignupCest
 {
-    public function _before($event)
+    public function _before()
     {
 
     }
 
-    public function _after($event)
+    public function _after()
     {
         User::deleteAll([
             'email' => 'tester.email@example.com',
@@ -27,9 +27,8 @@ class SignupCest
 
     /**
      * @param \tests\frontend\AcceptanceTester $I
-     * @param \Codeception\Scenario $scenario
      */
-    public function testUserSignup($I, $scenario)
+    public function testUserSignup($I)
     {
         $I->wantTo('ensure that signup works');
 

@@ -7,22 +7,12 @@ use tests\frontend\_pages\SignupPage;
 
 class SignupCest
 {
-    public function _before()
-    {
-
-    }
-
     public function _after()
     {
         User::deleteAll([
             'email' => 'tester.email@example.com',
             'username' => 'tester',
         ]);
-    }
-
-    public function _fail()
-    {
-
     }
 
     /**

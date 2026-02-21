@@ -7,15 +7,6 @@ use tests\frontend\_pages\SignupPage;
 
 class SignupCest
 {
-
-    /**
-     * This method is called before each cest class test method
-     */
-    public function _before()
-    {
-
-    }
-
     /**
      * This method is called after each cest class test method, even if test failed.
      */
@@ -25,14 +16,6 @@ class SignupCest
             'email' => 'tester.email@example.com',
             'username' => 'tester',
         ]);
-    }
-
-    /**
-     * This method is called when test fails.
-     */
-    public function _fail()
-    {
-
     }
 
     /**

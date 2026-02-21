@@ -85,6 +85,13 @@
   },
   "repositories": [
     {
+      "type": "path",
+      "url": "./packages/yii2-glide",
+      "options": {
+        "symlink": false
+      }
+    },
+    {
       "type": "composer",
       "url": "https://asset-packagist.org"
     }

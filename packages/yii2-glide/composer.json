@@ -1,0 +1,28 @@
+{
+    "name": "yii-starter-kit/yii2-glide",
+    "description": "Yii2 Glide Extension (Glide v2 compatible fork)",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","glide","thumbnail"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Eugene Terentev",
+            "email": "eugene@terentev.net"
+        }
+    ],
+    "require": {
+        "php" : ">=7.4",
+        "yiisoft/yii2": "^2.0.0",
+        "league/glide": "^2.0",
+        "league/uri": "^6.0 || ^7.0",
+        "symfony/http-foundation": "^4.0 || ^5.0 || ^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "trntv\\glide\\": "src/"
+        }
+    },
+    "replace": {
+        "trntv/yii2-glide": "*"
+    }
+}

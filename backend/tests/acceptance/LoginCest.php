@@ -3,6 +3,7 @@
 namespace tests\backend\acceptance;
 
 use tests\backend\_pages\LoginPage;
+use tests\backend\AcceptanceTester;
 
 class LoginCest
 {

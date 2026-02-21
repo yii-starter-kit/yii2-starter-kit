@@ -2,6 +2,8 @@
 
 namespace tests\frontend\functional;
 
+use tests\frontend\FunctionalTester;
+
 class HomeCest
 {
     public function ensureHomePageWorks(FunctionalTester $I)

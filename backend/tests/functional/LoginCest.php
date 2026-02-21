@@ -3,6 +3,7 @@
 namespace tests\backend\functional;
 
 use tests\backend\_pages\LoginPage;
+use tests\backend\FunctionalTester;
 
 class LoginCest
 {

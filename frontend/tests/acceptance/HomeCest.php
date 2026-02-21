@@ -2,6 +2,8 @@
 
 namespace tests\frontend\acceptance;
 
+use tests\frontend\AcceptanceTester;
+
 class HomeCest
 {
     public function ensureHomePageWorks(AcceptanceTester $I)

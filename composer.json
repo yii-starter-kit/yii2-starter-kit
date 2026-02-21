@@ -36,7 +36,7 @@
     "yiisoft/yii2-bootstrap4": "^2.0",
     "yiisoft/yii2-jui": "^2.0.0",
     "yiisoft/yii2-debug": "^2.0.0",
-    "yii2-starter-kit/yii2-file-kit": "^2.1.0",
+    "yii2-starter-kit/yii2-file-kit": "*",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
@@ -86,6 +86,13 @@
     }
   },
   "repositories": [
+    {
+      "type": "path",
+      "url": "./packages/yii2-file-kit",
+      "options": {
+        "symlink": false
+      }
+    },
     {
       "type": "path",
       "url": "./packages/yii2-glide",

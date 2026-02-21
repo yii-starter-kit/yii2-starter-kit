@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\frontend;
+namespace tests\frontend\acceptance;
 
 use tests\frontend\_pages\LoginPage;
 

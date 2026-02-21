@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\frontend;
+namespace tests\frontend\functional;
 
 use tests\frontend\_pages\LoginPage;
 

@@ -92,7 +92,8 @@ class AppController extends Controller
                 $this->stdout('Truncating table ' . $table . PHP_EOL, Console::FG_RED);
                 if ($driverName === 'pgsql') {
                     // PostgreSQL requires CASCADE or RESTRICT
-                    $db->createCommand("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE")->execute();
+                    $quotedTable = $db->schema->quoteTableName($table);
+                    $db->createCommand("TRUNCATE TABLE {$quotedTable} RESTART IDENTITY CASCADE")->execute();
                 } else {
                     $db->createCommand()->truncateTable($table)->execute();
                 }
@@ -134,7 +135,8 @@ class AppController extends Controller
                 $this->stdout('Dropping table ' . $table . PHP_EOL, Console::FG_RED);
                 if ($driverName === 'pgsql') {
                     // PostgreSQL requires CASCADE or RESTRICT
-                    $db->createCommand("DROP TABLE IF EXISTS {$table} CASCADE")->execute();
+                    $quotedTable = $db->schema->quoteTableName($table);
+                    $db->createCommand("DROP TABLE IF EXISTS {$quotedTable} CASCADE")->execute();
                 } else {
                     $db->createCommand()->dropTable($table)->execute();
                 }

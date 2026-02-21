@@ -26,10 +26,23 @@ class ArticleQuery extends ActiveQuery
 
     public function getFullArchive()
     {
+        $db = \Yii::$app->db;
+        $driverName = $db->driverName;
+        
+        // Use database-specific date extraction functions
+        if ($driverName === 'pgsql') {
+            $yearExpr = "EXTRACT(YEAR FROM TO_TIMESTAMP({{%article}}.[[published_at]])) AS [[year]]";
+            $monthExpr = "EXTRACT(MONTH FROM TO_TIMESTAMP({{%article}}.[[published_at]])) AS [[month]]";
+        } else {
+            // Default to MySQL syntax
+            $yearExpr = 'YEAR(FROM_UNIXTIME({{%article}}.[[published_at]])) AS [[year]]';
+            $monthExpr = 'MONTH(FROM_UNIXTIME({{%article}}.[[published_at]])) AS [[month]]';
+        }
+        
         $this->innerJoin('{{%article_category}}', '{{%article_category}}.[[id]] = {{%article}}.[[category_id]]');
         $this->select([
-            'YEAR(FROM_UNIXTIME({{%article}}.[[published_at]])) AS [[year]]',
-            'MONTH(FROM_UNIXTIME({{%article}}.[[published_at]])) AS [[month]]',
+            $yearExpr,
+            $monthExpr,
             'COUNT(*) AS [[count]]'
         ]);
         $this->published();

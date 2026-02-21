@@ -2,7 +2,6 @@
 
 namespace common\components\filesystem;
 
-use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use trntv\filekit\filesystem\FilesystemBuilderInterface;
 
@@ -16,7 +15,17 @@ class LocalFlysystemBuilder implements FilesystemBuilderInterface
 
     public function build()
     {
-        $adapter = new Local(\Yii::getAlias($this->path));
+        $resolvedPath = \Yii::getAlias($this->path);
+        
+        // Check if we're using Flysystem 2.x or 1.x
+        if (class_exists('League\Flysystem\Local\LocalFilesystemAdapter')) {
+            // Flysystem 2.x
+            $adapter = new \League\Flysystem\Local\LocalFilesystemAdapter($resolvedPath);
+        } else {
+            // Flysystem 1.x
+            $adapter = new \League\Flysystem\Adapter\Local($resolvedPath);
+        }
+        
         return new Filesystem($adapter);
     }
 }

@@ -67,17 +67,17 @@ class ArticleSearch extends Article
         
         if ($this->year) {
             if ($driverName === 'pgsql') {
-                $query->andFilterWhere(['EXTRACT(YEAR FROM TO_TIMESTAMP({{%article}}.[[published_at]]))' => $this->year]);
+                $query->andWhere(['=', new Expression('EXTRACT(YEAR FROM TO_TIMESTAMP({{%article}}.[[published_at]]))'), $this->year]);
             } else {
-                $query->andFilterWhere(['YEAR(from_unixtime({{%article}}.[[published_at]]))' => $this->year]);
+                $query->andWhere(['=', new Expression('YEAR(FROM_UNIXTIME({{%article}}.[[published_at]]))'), $this->year]);
             }
         }
         
         if ($this->month) {
             if ($driverName === 'pgsql') {
-                $query->andFilterWhere(['EXTRACT(MONTH FROM TO_TIMESTAMP({{%article}}.[[published_at]]))' => $this->month]);
+                $query->andWhere(['=', new Expression('EXTRACT(MONTH FROM TO_TIMESTAMP({{%article}}.[[published_at]]))'), $this->month]);
             } else {
-                $query->andFilterWhere(['MONTH(from_unixtime({{%article}}.[[published_at]]))' => $this->month]);
+                $query->andWhere(['=', new Expression('MONTH(FROM_UNIXTIME({{%article}}.[[published_at]]))'), $this->month]);
             }
         }
 

@@ -10,6 +10,7 @@
     "babel-preset-latest": "^6.24.0",
     "css-loader": "^3.6.0",
     "file-loader": "^6.2.0",
+    "less": "^2.7.3",
     "less-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.4.5",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

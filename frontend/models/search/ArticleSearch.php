@@ -60,8 +60,26 @@ class ArticleSearch extends Article
             'slug' => $this->slug,
             'category_id' => $this->category_id,
         ]);
-        $query->andFilterWhere(['YEAR(from_unixtime({{%article}}.[[published_at]]))' => $this->year]);
-        $query->andFilterWhere(['MONTH(from_unixtime({{%article}}.[[published_at]]))' => $this->month]);
+        
+        // Use database-specific date extraction functions
+        $db = \Yii::$app->db;
+        $driverName = $db->driverName;
+        
+        if ($this->year) {
+            if ($driverName === 'pgsql') {
+                $query->andWhere(['=', new Expression('EXTRACT(YEAR FROM TO_TIMESTAMP({{%article}}.[[published_at]]))'), $this->year]);
+            } else {
+                $query->andWhere(['=', new Expression('YEAR(FROM_UNIXTIME({{%article}}.[[published_at]]))'), $this->year]);
+            }
+        }
+        
+        if ($this->month) {
+            if ($driverName === 'pgsql') {
+                $query->andWhere(['=', new Expression('EXTRACT(MONTH FROM TO_TIMESTAMP({{%article}}.[[published_at]]))'), $this->month]);
+            } else {
+                $query->andWhere(['=', new Expression('MONTH(FROM_UNIXTIME({{%article}}.[[published_at]]))'), $this->month]);
+            }
+        }
 
         $query->andFilterWhere(['like', 'title', $this->title]);
 

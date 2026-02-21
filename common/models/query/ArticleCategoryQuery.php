@@ -45,7 +45,7 @@ class ArticleCategoryQuery extends ActiveQuery
         $this->andWhere(['{{%article}}.[[status]]' => Article::STATUS_PUBLISHED]);
         $this->andWhere(['<', '{{%article}}.[[published_at]]', time()]);
         $this->active();
-        $this->groupBy('{{%article}}.[[category_id]]');
+        $this->groupBy('{{%article_category}}.[[id]]');
         $this->orderBy('{{%article_category}}.[[title]] ASC');
         return $this;
     }

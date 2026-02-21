@@ -69,15 +69,40 @@ class AppController extends Controller
      */
     public function actionTruncate()
     {
-        $dbName = Yii::$app->db->createCommand('SELECT DATABASE()')->queryScalar();
+        $db = Yii::$app->db;
+        $driverName = $db->driverName;
+        
+        // Get database name using driver-specific query
+        if ($driverName === 'pgsql') {
+            $dbName = $db->createCommand('SELECT current_database()')->queryScalar();
+        } else {
+            $dbName = $db->createCommand('SELECT DATABASE()')->queryScalar();
+        }
+        
         if ($this->confirm('This will truncate all tables of current database [' . $dbName . '].')) {
-            Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=0')->execute();
-            $tables = Yii::$app->db->schema->getTableNames();
+            // Disable foreign key checks using driver-specific commands
+            if ($driverName === 'pgsql') {
+                // PostgreSQL doesn't have a direct equivalent, we'll use CASCADE
+            } else {
+                $db->createCommand('SET FOREIGN_KEY_CHECKS=0')->execute();
+            }
+            
+            $tables = $db->schema->getTableNames();
             foreach ($tables as $table) {
                 $this->stdout('Truncating table ' . $table . PHP_EOL, Console::FG_RED);
-                Yii::$app->db->createCommand()->truncateTable($table)->execute();
+                if ($driverName === 'pgsql') {
+                    // PostgreSQL requires CASCADE or RESTRICT
+                    $quotedTable = $db->schema->quoteTableName($table);
+                    $db->createCommand("TRUNCATE TABLE {$quotedTable} RESTART IDENTITY CASCADE")->execute();
+                } else {
+                    $db->createCommand()->truncateTable($table)->execute();
+                }
             }
-            Yii::$app->db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
+            
+            // Re-enable foreign key checks
+            if ($driverName !== 'pgsql') {
+                $db->createCommand('SET FOREIGN_KEY_CHECKS=1')->execute();
+            }
         }
     }
 
@@ -87,15 +112,40 @@ class AppController extends Controller
      */
     public function actionDrop()
     {
-        $dbName = Yii::$app->db->createCommand('SELECT DATABASE()')->queryScalar();
+        $db = Yii::$app->db;
+        $driverName = $db->driverName;
+        
+        // Get database name using driver-specific query
+        if ($driverName === 'pgsql') {
+            $dbName = $db->createCommand('SELECT current_database()')->queryScalar();
+        } else {
+            $dbName = $db->createCommand('SELECT DATABASE()')->queryScalar();
+        }
+        
         if ($this->confirm('This will drop all tables of current database [' . $dbName . '].')) {
-            Yii::$app->db->createCommand("SET foreign_key_checks = 0")->execute();
-            $tables = Yii::$app->db->schema->getTableNames();
+            // Disable foreign key checks using driver-specific commands
+            if ($driverName === 'pgsql') {
+                // PostgreSQL doesn't have a direct equivalent, we'll use CASCADE
+            } else {
+                $db->createCommand("SET foreign_key_checks = 0")->execute();
+            }
+            
+            $tables = $db->schema->getTableNames();
             foreach ($tables as $table) {
                 $this->stdout('Dropping table ' . $table . PHP_EOL, Console::FG_RED);
-                Yii::$app->db->createCommand()->dropTable($table)->execute();
+                if ($driverName === 'pgsql') {
+                    // PostgreSQL requires CASCADE or RESTRICT
+                    $quotedTable = $db->schema->quoteTableName($table);
+                    $db->createCommand("DROP TABLE IF EXISTS {$quotedTable} CASCADE")->execute();
+                } else {
+                    $db->createCommand()->dropTable($table)->execute();
+                }
             }
-            Yii::$app->db->createCommand("SET foreign_key_checks = 1")->execute();
+            
+            // Re-enable foreign key checks
+            if ($driverName !== 'pgsql') {
+                $db->createCommand("SET foreign_key_checks = 1")->execute();
+            }
         }
     }
 

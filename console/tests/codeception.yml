@@ -1,4 +1,4 @@
-namespace: tests\backend
+namespace: tests\console
 actor: Tester
 paths:
     tests: .
@@ -13,4 +13,4 @@ settings:
 modules:
     enabled:
         - Yii2:
-            configFile: '../config/backend/functional.php'
+            configFile: '../../tests/config/console/unit.php'

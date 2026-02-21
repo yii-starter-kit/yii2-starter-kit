@@ -12,4 +12,4 @@ settings:
 modules:
     enabled:
         - Yii2:
-            configFile: '../config/frontend/functional.php'
+            configFile: '../../tests/config/frontend/functional.php'

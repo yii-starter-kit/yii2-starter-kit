@@ -8,5 +8,5 @@ modules:
             part: orm
             entryScript: index-test.php
             cleanup: false
-            configFile: '../config/backend/acceptance.php'
+            configFile: '../../tests/config/backend/acceptance.php'
         - tests\common\_support\FixtureHelper

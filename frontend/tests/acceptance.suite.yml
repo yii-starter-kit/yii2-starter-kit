@@ -14,5 +14,5 @@ modules:
             part: orm
             entryScript: index-test.php
             cleanup: false
-            configFile: '../config/frontend/acceptance.php'
+            configFile: '../../tests/config/frontend/acceptance.php'
         - tests\common\_support\FixtureHelper

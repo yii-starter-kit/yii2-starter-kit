@@ -1,0 +1,28 @@
+{
+    "name": "yii2-starter-kit/yii2-file-kit",
+    "description": "Yii2 File Upload Kit (Flysystem v2 compatible)",
+    "type": "yii2-extension",
+    "keywords": ["yii2", "extension", "file", "upload", "flysystem"],
+    "authors": [
+        {
+            "name": "Eugene Terentev",
+            "email": "eugene@terentev.net"
+        }
+    ],
+    "require": {
+        "league/flysystem": "^2.0 || ^3.0",
+        "npm-asset/blueimp-file-upload": "^9.7.0",
+        "rmrevin/yii2-fontawesome": "^3.4",
+        "yiisoft/yii2-jui": "^2.0.0"
+    },
+    "require-dev": {
+        "creocoder/yii2-flysystem": "~0.8",
+        "phpunit/phpunit": "~4.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "trntv\\filekit\\": "src/"
+        }
+    },
+    "version": "3.0.0"
+}

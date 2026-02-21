@@ -40,7 +40,7 @@
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
-    "trntv/yii2-glide": "^1.2",
+    "yii-starter-kit/yii2-glide": "*",
     "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
@@ -57,7 +57,9 @@
     "yii-starter-kit/sitemaped": "^2.0",
     "yii2mod/yii2-swagger": "^1.1",
     "rmrevin/yii2-fontawesome": "^3.4",
-    "kartik-v/yii2-widgets": "^3.4"
+    "kartik-v/yii2-widgets": "^3.4",
+    "league/glide": "^2.0",
+    "league/flysystem": "^2.0"
   },
   "require-dev": {
     "yiisoft/yii2-gii": "^2.0.0",

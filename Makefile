@@ -16,8 +16,9 @@ NC := \033[0m # No Color
 PROJECT_NAME := yii2-starter-kit
 COMPOSE_FILE := docker-compose.yml
 
-# Validation
-REQUIRED_BINS := docker composer npm
+# Validation: only docker is required for the Docker-based workflow.
+# composer and npm are only needed for the local (non-Docker) workflow.
+REQUIRED_BINS := docker
 $(foreach bin,$(REQUIRED_BINS),\
     $(if $(shell command -v $(bin) 2> /dev/null),,$(error Please install `$(bin)`)))
 
@@ -55,13 +56,17 @@ check-env: ## Check if required environment files exist
 	@test -f $(COMPOSE_FILE) || (echo -e "$(RED)Error: $(COMPOSE_FILE) not found$(NC)" && exit 1)
 	@echo -e "$(GREEN)Environment check passed!$(NC)"
 
-install-php: check-env ## Install PHP dependencies via composer
-	@echo -e "$(BLUE)Installing PHP dependencies...$(NC)"
+# NOTE: install-php and install-node run on the HOST and require local PHP/Composer and Node/npm.
+# For Docker-based development use `./console/ysk install` instead.
+install-php: check-env ## [local] Install PHP dependencies via host composer
+	@command -v composer >/dev/null 2>&1 || (echo -e "$(RED)Error: composer not found. Use './console/ysk install' for Docker-based install.$(NC)" && exit 1)
+	@echo -e "$(BLUE)Installing PHP dependencies (host)...$(NC)"
 	composer install --no-interaction
 	@echo -e "$(GREEN)PHP dependencies installed!$(NC)"
 
-install-node: install-php ## Install Node.js dependencies via npm
-	@echo -e "$(BLUE)Installing Node.js dependencies...$(NC)"
+install-node: install-php ## [local] Install Node.js dependencies via host npm
+	@command -v npm >/dev/null 2>&1 || (echo -e "$(RED)Error: npm not found. Use './console/ysk npm install' for Docker-based install.$(NC)" && exit 1)
+	@echo -e "$(BLUE)Installing Node.js dependencies (host)...$(NC)"
 	npm install
 	@echo -e "$(GREEN)Node.js dependencies installed!$(NC)"
 
@@ -74,10 +79,10 @@ build-env: check-env ## Copy .env.dist to .env
 		echo -e "$(YELLOW).env file already exists, skipping...$(NC)"; \
 	fi
 
-install: install-php install-node ## Install all dependencies (PHP + Node.js)
+install: install-php install-node ## [local] Install all dependencies on the host (PHP + Node.js)
 
 # Development
-local-build: install ## Build locally (non-Docker)
+local-build: install ## [local] Build entirely on the host (requires PHP, Composer, Node, npm)
 	@echo -e "$(BLUE)Building project locally...$(NC)"
 	php console/yii app/setup
 	npm run build
@@ -222,7 +227,7 @@ docker-tests: docker-start docker-wait-for-services docker-tests-run ## Run comp
 banner: ## Show startup banner
 	@echo -e "$(GREEN)🚀 Started! Visit http://yii2-starter-kit.localhost$(NC)"
 
-rebuild: docker-cleanup install docker-build docker-start banner ## Complete rebuild (cleanup + install + build + start)
+rebuild: docker-cleanup docker-build docker-start banner ## Complete rebuild (cleanup + build + start)
 
 # Pipeline targets
-start: install build-env docker-build docker-start banner ## Complete startup pipeline (install + build + start)
+start: build-env docker-build docker-start banner ## Complete startup pipeline (build + start)

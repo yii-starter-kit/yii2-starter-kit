@@ -1,19 +1,27 @@
 # INSTALLATION
 
 ## TABLE OF CONTENTS
-- [Before you begin](#before-you-begin)
-- [Manual installation](#manual-installation)
-    - [Requirements](#requirements)
-    - [Setup application](#setup-application)
-    - [Configure your web server](#configure-your-web-server)
-
-- [Docker installation](#docker-installation)
-- [Single domain installtion](#single-domain-installation)
-- [Demo users](#demo-users)
-- [Important-notes](#important-notes)
+- [INSTALLATION](#installation)
+	- [TABLE OF CONTENTS](#table-of-contents)
+	- [Before you begin](#before-you-begin)
+	- [Get source code](#get-source-code)
+		- [Option 1: Get source code via Composer](#option-1-get-source-code-via-composer)
+		- [Option 2: Download sources](#option-2-download-sources)
+			- [Or clone repository manually](#or-clone-repository-manually)
+	- [Install dependencies](#install-dependencies)
+	- [Docker installation](#docker-installation)
+	- [Manual installation](#manual-installation)
+		- [REQUIREMENTS](#requirements)
+		- [Setup application](#setup-application)
+		- [Configure your web server](#configure-your-web-server)
+	- [Demo data](#demo-data)
+	- [Add Random Articles Data](#add-random-articles-data)
+		- [Demo Users](#demo-users)
+	- [Single domain installation](#single-domain-installation)
+	- [Important notes](#important-notes)
 
 ## Before you begin
-1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions 
+1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
    at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 2. Install [NPM](https://docs.npmjs.com/getting-started/installing-node) to build frontend code
 3. Install [taskctl](https://github.com/taskctl/taskctl) to run tasks
@@ -45,23 +53,18 @@ npm install
 ```
 
 ## Docker installation
-1. Install [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) and [composer](https://getcomposer.org/) to your system
-2. Run ``taskctl start`` or ``composer run-script docker:build``
-3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
-*PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
+The recommended way to run the project is with Docker. All you need is Docker and `docker compose` — no local PHP or Node required.
 
-### Docker FAQ
-1. How do I run yii console commands from outside a container?
+See the full guide: **[docs/docker.md](docker.md)**
 
-``docker-compose exec app console/yii help``
-
-``docker-compose exec app console/yii migrate``
-
-``docker-compose exec app console/yii rbac-migrate``
-
-2. How to connect to the application database with my workbench, navicat etc?
-MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, password - `root`
+Quick start:
+```bash
+cp .env.dist .env
+./console/ysk up --build
+./console/ysk install
+./console/ysk setup
+```
 
 ## Manual installation
 
@@ -95,7 +98,7 @@ Required PHP extensions:
 	STORAGE_HOST_INFP     = http://storage.yii2-starter-kit.localhost
 	```
 
-3. Run 
+3. Run
 ```taskctl local:build```
 or
 ```

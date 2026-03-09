@@ -1,0 +1,335 @@
+#!/usr/bin/env bash
+# ysk — Yii2 Starter Kit Docker helper (inspired by Laravel Sail)
+#
+# Usage: ./ysk <command> [arguments]
+#   ./ysk up            Start all services
+#   ./ysk down          Stop and remove containers
+#   ./ysk yii <cmd>     Run a Yii2 console command
+#   ./ysk composer ...  Run Composer inside the console container
+#   ./ysk php ...       Run PHP inside the console container
+#   ./ysk npm ...       Run npm inside the node container
+#   ./ysk mysql         Open a MySQL shell
+#   ./ysk shell         Open a bash shell in the console container
+#   ./ysk test ...      Run the Codeception test suite
+#   ...run `./ysk` with no arguments for full help
+
+set -euo pipefail
+
+# ---------------------------------------------------------------------------
+# Locate the project root (parent of the console/ directory)
+# ---------------------------------------------------------------------------
+YSK_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+COMPOSE_FILE="${YSK_ROOT}/docker-compose.yml"
+
+# ---------------------------------------------------------------------------
+# Colour helpers
+# ---------------------------------------------------------------------------
+BOLD="\033[1m"
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+BLUE="\033[0;34m"
+RED="\033[0;31m"
+NC="\033[0m"
+
+_info()    { echo -e "${BLUE}${*}${NC}"; }
+_success() { echo -e "${GREEN}${*}${NC}"; }
+_warn()    { echo -e "${YELLOW}${*}${NC}"; }
+_error()   { echo -e "${RED}${*}${NC}" >&2; }
+
+# ---------------------------------------------------------------------------
+# Ensure docker compose is available
+# ---------------------------------------------------------------------------
+if ! docker compose version &>/dev/null; then
+    _error "Docker Compose v2 not found. Install Docker Desktop or 'docker compose' plugin."
+    exit 1
+fi
+
+DC="docker compose -f ${COMPOSE_FILE}"
+
+# The primary PHP service used for console/composer/php commands
+CONSOLE_SERVICE="console"
+NODE_SERVICE="node"
+DB_SERVICE="db"
+
+# ---------------------------------------------------------------------------
+# Guard: require running containers for exec-based commands
+# ---------------------------------------------------------------------------
+_require_running() {
+    if ! $DC ps --filter "status=running" --services 2>/dev/null | grep -q "^${CONSOLE_SERVICE}$"; then
+        _error "Containers are not running. Start them first with: ./ysk up"
+        exit 1
+    fi
+}
+
+# ---------------------------------------------------------------------------
+# Help
+# ---------------------------------------------------------------------------
+_help() {
+    echo -e "${BOLD}${BLUE}ysk — Yii2 Starter Kit Docker helper${NC}"
+    echo ""
+    echo -e "${YELLOW}Lifecycle:${NC}"
+    echo -e "  ${GREEN}up${NC}                       Start all services (detached)"
+    echo -e "  ${GREEN}up --build${NC}               Rebuild images then start"
+    echo -e "  ${GREEN}down${NC}                     Stop and remove containers"
+    echo -e "  ${GREEN}restart${NC}                  Restart all containers"
+    echo -e "  ${GREEN}build${NC}                    Build all images without starting"
+    echo -e "  ${GREEN}ps${NC}                       Show container statuses"
+    echo -e "  ${GREEN}logs [service]${NC}           Tail logs (all services or one)"
+    echo ""
+    echo -e "${YELLOW}PHP / Application:${NC}"
+    echo -e "  ${GREEN}install${NC}                  Install Composer + npm deps inside containers"
+    echo -e "  ${GREEN}php <args>${NC}               Run php in the console container"
+    echo -e "  ${GREEN}yii <cmd>${NC}                Run a Yii2 console command"
+    echo -e "  ${GREEN}composer <args>${NC}          Run Composer in the console container"
+    echo -e "  ${GREEN}migrate [--fresh]${NC}        Run DB migrations (--fresh recreates DB)"
+    echo -e "  ${GREEN}setup${NC}                    Run app/setup (migrations + keys + permissions)"
+    echo ""
+    echo -e "${YELLOW}Frontend / Assets:${NC}"
+    echo -e "  ${GREEN}npm <args>${NC}               Run npm in the node container"
+    echo -e "  ${GREEN}build-assets${NC}             Build frontend assets for production"
+    echo -e "  ${GREEN}watch-assets${NC}             Watch and rebuild frontend assets"
+    echo ""
+    echo -e "${YELLOW}Database:${NC}"
+    echo -e "  ${GREEN}mysql${NC}                    Open an interactive MySQL shell"
+    echo -e "  ${GREEN}mysql-dump [file]${NC}        Dump the database to a .sql file"
+    echo -e "  ${GREEN}mysql-import <file>${NC}      Import a .sql file into the database"
+    echo ""
+    echo -e "${YELLOW}Testing:${NC}"
+    echo -e "  ${GREEN}test [suite] [args]${NC}      Run Codeception tests"
+    echo -e "  ${GREEN}test-build${NC}               Rebuild Codeception test suite definitions"
+    echo ""
+    echo -e "${YELLOW}Shell access:${NC}"
+    echo -e "  ${GREEN}shell [service]${NC}          Open bash in a container (default: console)"
+    echo -e "  ${GREEN}root [service]${NC}           Open bash as root in a container"
+    echo ""
+    echo -e "${YELLOW}Maintenance:${NC}"
+    echo -e "  ${GREEN}xdebug on|off${NC}            Toggle Xdebug in the PHP containers"
+    echo -e "  ${GREEN}clean${NC}                    Remove containers, volumes, and orphans"
+    echo ""
+    echo -e "${BOLD}Examples:${NC}"
+    echo -e "  ./ysk up"
+    echo -e "  ./ysk install          # install Composer + npm deps"
+    echo -e "  ./ysk setup            # run migrations, generate keys"
+    echo -e "  ./ysk yii migrate/up"
+    echo -e "  ./ysk composer require yiisoft/yii2-redis"
+    echo -e "  ./ysk shell backend"
+    echo -e "  ./ysk test backend unit"
+    echo -e "  ./ysk mysql-dump backup.sql"
+    echo -e "  ./ysk xdebug on"
+}
+
+# ---------------------------------------------------------------------------
+# Command dispatch
+# ---------------------------------------------------------------------------
+COMMAND="${1:-}"
+shift || true   # shift off the command; remaining "$@" are arguments
+
+case "$COMMAND" in
+
+    # -- Lifecycle -----------------------------------------------------------
+
+    up)
+        _info "Starting services..."
+        $DC up -d "$@"
+        _success "Services started."
+        echo ""
+        echo -e "  ${BLUE}Frontend:${NC}     http://yii2-starter-kit.localhost"
+        echo -e "  ${BLUE}Backend:${NC}      http://backend.yii2-starter-kit.localhost"
+        echo -e "  ${BLUE}API:${NC}          http://api.yii2-starter-kit.localhost"
+        echo -e "  ${BLUE}Storage:${NC}      http://storage.yii2-starter-kit.localhost"
+        echo -e "  ${BLUE}Mail:${NC}         http://localhost:1080"
+        ;;
+
+    down)
+        _info "Stopping services..."
+        $DC down "$@"
+        _success "Services stopped."
+        ;;
+
+    restart)
+        _info "Restarting services..."
+        $DC restart "$@"
+        _success "Services restarted."
+        ;;
+
+    build)
+        _info "Building images..."
+        $DC build "$@"
+        _success "Images built."
+        ;;
+
+    ps)
+        $DC ps
+        ;;
+
+    logs)
+        $DC logs -f "${@:-}"
+        ;;
+
+    # -- PHP / Application ---------------------------------------------------
+
+    php)
+        _require_running
+        $DC exec "$CONSOLE_SERVICE" php "$@"
+        ;;
+
+    yii)
+        _require_running
+        $DC exec "$CONSOLE_SERVICE" php console/yii "$@"
+        ;;
+
+    composer)
+        _require_running
+        $DC exec "$CONSOLE_SERVICE" composer "$@"
+        ;;
+
+    migrate)
+        _require_running
+        if [[ "${1:-}" == "--fresh" ]]; then
+            _warn "Dropping and recreating all tables..."
+            $DC exec "$CONSOLE_SERVICE" php console/yii migrate/fresh --interactive=0
+        else
+            $DC exec "$CONSOLE_SERVICE" php console/yii migrate/up --interactive=0
+        fi
+        ;;
+
+    install)
+        _require_running
+        _info "Installing PHP dependencies (Composer)..."
+        $DC exec "$CONSOLE_SERVICE" composer install --prefer-dist -o
+        _success "PHP dependencies installed."
+        _info "Installing Node.js dependencies (npm)..."
+        $DC run --rm "$NODE_SERVICE" npm install
+        _success "Node.js dependencies installed."
+        ;;
+
+    setup)
+        _require_running
+        _info "Running application setup..."
+        $DC exec "$CONSOLE_SERVICE" php console/yii app/setup --interactive=0
+        _success "Setup complete."
+        ;;
+
+    # -- Frontend / Assets ---------------------------------------------------
+
+    npm)
+        $DC run --rm "$NODE_SERVICE" npm "$@"
+        ;;
+
+    build-assets)
+        _info "Building frontend assets..."
+        $DC run --rm "$NODE_SERVICE" npm run build
+        _success "Assets built."
+        ;;
+
+    watch-assets)
+        _info "Watching frontend assets (Ctrl-C to stop)..."
+        $DC run --rm "$NODE_SERVICE" npm run watch
+        ;;
+
+    # -- Database ------------------------------------------------------------
+
+    mysql)
+        _require_running
+        # Load env vars to get credentials
+        DB_USER="${DB_USERNAME:-ysk_dbu}"
+        DB_PASS="${DB_PASSWORD:-ysk_pass}"
+        DB_NAME="${DB_NAME:-yii2-starter-kit}"
+        $DC exec "$DB_SERVICE" mysql -u"$DB_USER" -p"$DB_PASS" "$DB_NAME"
+        ;;
+
+    mysql-dump)
+        _require_running
+        OUTPUT="${1:-dump_$(date +%Y%m%d_%H%M%S).sql}"
+        DB_USER="${DB_USERNAME:-ysk_dbu}"
+        DB_PASS="${DB_PASSWORD:-ysk_pass}"
+        DB_NAME_VAL="${DB_NAME:-yii2-starter-kit}"
+        _info "Dumping database to ${OUTPUT}..."
+        $DC exec -T "$DB_SERVICE" mysqldump -u"$DB_USER" -p"$DB_PASS" "$DB_NAME_VAL" > "${YSK_ROOT}/${OUTPUT}"
+        _success "Dump saved to ${OUTPUT}"
+        ;;
+
+    mysql-import)
+        _require_running
+        IMPORT_FILE="${1:?"Usage: ./ysk mysql-import <file.sql>"}"
+        DB_USER="${DB_USERNAME:-ysk_dbu}"
+        DB_PASS="${DB_PASSWORD:-ysk_pass}"
+        DB_NAME_VAL="${DB_NAME:-yii2-starter-kit}"
+        _info "Importing ${IMPORT_FILE}..."
+        $DC exec -T "$DB_SERVICE" mysql -u"$DB_USER" -p"$DB_PASS" "$DB_NAME_VAL" < "${IMPORT_FILE}"
+        _success "Import complete."
+        ;;
+
+    # -- Testing -------------------------------------------------------------
+
+    test)
+        _require_running
+        $DC exec "$CONSOLE_SERVICE" vendor/bin/codecept run "$@"
+        ;;
+
+    test-build)
+        _require_running
+        _info "Building Codeception suite definitions..."
+        $DC exec "$CONSOLE_SERVICE" vendor/bin/codecept build
+        ;;
+
+    # -- Shell access --------------------------------------------------------
+
+    shell)
+        _require_running
+        SERVICE="${1:-$CONSOLE_SERVICE}"
+        $DC exec "$SERVICE" bash
+        ;;
+
+    root)
+        _require_running
+        SERVICE="${1:-$CONSOLE_SERVICE}"
+        $DC exec --user root "$SERVICE" bash
+        ;;
+
+    # -- Maintenance ---------------------------------------------------------
+
+    xdebug)
+        MODE="${1:-}"
+        case "$MODE" in
+            on)
+                _info "Enabling Xdebug (XDEBUG_MODE=debug)..."
+                XDEBUG_MODE=debug $DC up -d --no-deps frontend backend api console storage
+                _success "Xdebug enabled. Restart your IDE listener."
+                ;;
+            off)
+                _info "Disabling Xdebug (XDEBUG_MODE=off)..."
+                XDEBUG_MODE=off $DC up -d --no-deps frontend backend api console storage
+                _success "Xdebug disabled."
+                ;;
+            *)
+                _error "Usage: ./ysk xdebug on|off"
+                exit 1
+                ;;
+        esac
+        ;;
+
+    clean)
+        _warn "This will remove ALL containers, volumes and orphans for this project."
+        read -rp "Are you sure? [y/N] " confirm
+        if [[ "${confirm,,}" == "y" ]]; then
+            $DC down -v --remove-orphans
+            _success "Cleaned up."
+        else
+            _info "Aborted."
+        fi
+        ;;
+
+    # -- Help / fallback -----------------------------------------------------
+
+    help|--help|-h|"")
+        _help
+        ;;
+
+    *)
+        _error "Unknown command: ${COMMAND}"
+        echo ""
+        _help
+        exit 1
+        ;;
+esac

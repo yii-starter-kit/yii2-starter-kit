@@ -11,9 +11,10 @@ RUN apt-get update && apt-get install -y \
         git \
             --no-install-recommends
 
-RUN docker-php-ext-install zip intl mbstring pdo_mysql exif gd
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install zip intl mbstring pdo_mysql exif gd
 
-RUN pecl install -o -f xdebug-2.9.8 \
+RUN pecl install -o -f xdebug-3.1.6 \
     && rm -rf /tmp/pear
 
 COPY ./install-composer.sh /

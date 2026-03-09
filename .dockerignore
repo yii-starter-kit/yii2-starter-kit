@@ -1,12 +1,33 @@
 # Git
 .git
+.gitignore
+
+# Dependencies (installed inside containers)
+vendor/
+node_modules/
 
 # Runtime
 backend/runtime
 common/runtime
 frontend/runtime
 console/runtime
+api/runtime
+storage/cache
 
-# Assets
+# Assets (compiled inside containers or via node service)
 backend/web/assets
 frontend/web/assets
+backend/web/bundle
+frontend/web/bundle
+
+# Tests & docs
+tests/
+docs/
+
+# Local env / IDE
+.env
+.env.local
+.idea/
+.vscode/
+*.swp
+*.swo

@@ -1,39 +1,67 @@
 services:
   frontend:
-    build: frontend
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
     volumes:
       # Mount source-code for development
       - ./:/app
+    depends_on:
+      db:
+        condition: service_healthy
 
   backend:
-    build: backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
     volumes:
       # Mount source-code for development
       - ./:/app
+    depends_on:
+      db:
+        condition: service_healthy
 
   console:
-    build: console
+    build:
+      context: .
+      dockerfile: console/Dockerfile
+    restart: unless-stopped
     volumes:
       # Re-use local composer cache via host-volume
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ~/.composer-docker/cache:/root/.composer/cache
       # Mount source-code for development
       - ./:/app
     working_dir: /app
+    depends_on:
+      db:
+        condition: service_healthy
 
   storage:
-    build: storage
+    build:
+      context: .
+      dockerfile: storage/Dockerfile
+    restart: unless-stopped
     volumes:
       # Mount source-code for development
       - ./:/app
 
   api:
-    build: api
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    restart: unless-stopped
     volumes:
       # Mount source-code for development
       - ./:/app
+    depends_on:
+      db:
+        condition: service_healthy
 
   nginx:
     image: nginx:stable-alpine
+    restart: unless-stopped
     ports:
       - "80:80"
     volumes:
@@ -53,22 +81,31 @@ services:
     working_dir: /app
 
   mailcatcher:
-    image: schickling/mailcatcher:latest
+    image: axllent/mailpit:latest
+    restart: unless-stopped
     ports:
-      - "1080:1080"
+      - "1025:1025"
+      - "1080:8025"
 
   db:
     image: mysql:8
+    restart: unless-stopped
     volumes:
       - mysql_data:/var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: yii2-starter-kit
-      MYSQL_USER: ysk_dbu
-      MYSQL_PASSWORD: ysk_pass
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_NAME:-yii2-starter-kit}
+      MYSQL_USER: ${DB_USERNAME:-ysk_dbu}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-ysk_pass}
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "--password=${DB_ROOT_PASSWORD:-root}", "--silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
 
 volumes:
   mysql_data:

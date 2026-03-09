@@ -176,10 +176,11 @@ docker-wait-for-services: ## Wait for Docker services to be ready
 		docker compose up db -d; \
 		sleep 5; \
 	fi
-	@echo -e "$(YELLOW)Waiting for database to accept connections...$(NC)"
+	@echo -e "$(YELLOW)Waiting for database healthcheck to pass...$(NC)"
 	@timeout=60; \
 	while [ $$timeout -gt 0 ]; do \
-		if docker compose exec -T db mysqladmin ping -uroot -proot --silent 2>/dev/null; then \
+		if docker compose ps --format json | grep -q '"Health":"healthy"' 2>/dev/null || \
+		   docker inspect --format='{{.State.Health.Status}}' $$(docker compose ps -q db) 2>/dev/null | grep -q "healthy"; then \
 			echo -e "$(GREEN)Database is ready!$(NC)"; \
 			break; \
 		fi; \
@@ -206,7 +207,7 @@ docker-tests-server: docker-start docker-wait-for-services ## Start test server
 docker-tests-run: docker-start docker-wait-for-services ## Run test suite
 	@echo -e "$(BLUE)Running tests...$(NC)"
 	@echo -e "$(BLUE)Creating test database...$(NC)"
-	docker compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
+	docker compose exec -T db mysql -uroot -p$${DB_ROOT_PASSWORD:-root} -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;" 2>/dev/null || true
 	@echo -e "$(BLUE)Building test suite...$(NC)"
 	docker compose exec -T console ./vendor/bin/codecept build
 	@echo -e "$(BLUE)Setting up test environment...$(NC)"

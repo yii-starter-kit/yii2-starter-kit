@@ -15,7 +15,7 @@
    <img align="center" src="https://github.blog/wp-content/uploads/2022/03/1200x630-GitHub-1.png?resize=320%2C240">
 </p>
 
-While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it, 
+While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it,
 is prohibited from using this package.
 For others - please, pray for us, share information about war crimes Russia is conducting in Ukraine, do everything you can
 to urge your governments to be on the right side of history.
@@ -37,6 +37,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
     - [Docker installation](docs/installation.md#docker-installation)
+- [Docker & ysk CLI](docs/docker.md)
 - [Components documentation](docs/components.md)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)
@@ -45,16 +46,39 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Have any questions?](#have-any-questions)
 
 ## Quickstart
-1. [Install taskctl](https://getcomposer.org)
-2. [Install docker](https://docs.docker.com/install/)
-3. [Install docker-compose](https://docs.docker.com/compose/install/)
-4. Run
-    ```bash
-    composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
-    cd myproject.com
-    taskctl start
-    ```
-5. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
+
+The only requirement is [Docker Desktop](https://docs.docker.com/install/) (no local PHP or Node needed).
+
+**Linux / macOS / WSL:**
+```bash
+git clone https://github.com/yii2-starter-kit/yii2-starter-kit.git myproject
+cd myproject
+cp .env.dist .env
+./console/ysk up --build
+./console/ysk install
+./console/ysk setup
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/yii2-starter-kit/yii2-starter-kit.git myproject
+cd myproject
+Copy-Item .env.dist .env
+.\console\ysk.ps1 up --build
+.\console\ysk.ps1 install
+.\console\ysk.ps1 setup
+```
+
+Then open [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost) in your browser.
+
+| Service  | URL |
+|----------|-----|
+| Frontend | http://yii2-starter-kit.localhost |
+| Backend  | http://backend.yii2-starter-kit.localhost |
+| API      | http://api.yii2-starter-kit.localhost |
+| Mail UI  | http://localhost:1080 |
+
+> See [docs/docker.md](docs/docker.md) for the full `ysk` CLI reference.
 
 ## FEATURES
 ### Admin backend
@@ -96,7 +120,7 @@ To list all available development tasks follow these steps:
 - RBAC migrations support
 
 ### Development
-- Ready-to-use Docker-based stack (php, nginx, mysql, mailcatcher)
+- Ready-to-use Docker-based stack (php, nginx, mysql, mailpit) with `ysk` CLI helper
 - .env support
 - [Webpack](https://webpack.js.org/) build configuration
 - Key-value storage service

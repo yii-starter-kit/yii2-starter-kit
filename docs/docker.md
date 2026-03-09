@@ -2,13 +2,30 @@
 
 `ysk` is a thin shell script (inspired by Laravel Sail) that wraps `docker compose` commands so you never have to remember container names, service flags, or compose file paths.
 
-The script lives at `console/ysk` and can be run from anywhere in the project:
+| Platform | Script | Interpreter |
+|----------|--------|-------------|
+| Linux / macOS / WSL | `console/ysk` | bash |
+| Windows (PowerShell) | `console/ysk.ps1` | PowerShell 5.1+ |
+| Windows (CMD) | `console/ysk.bat` | CMD → delegates to PowerShell |
 
+**Linux / macOS / WSL:**
 ```bash
 ./console/ysk <command> [arguments]
 ```
 
 > **Tip:** Add the project root to your `$PATH`, or create an alias — `alias ysk='./console/ysk'`.
+
+**Windows (PowerShell):**
+```powershell
+.\console\ysk.ps1 <command> [arguments]
+```
+
+**Windows (CMD):**
+```cmd
+console\ysk <command> [arguments]
+```
+
+> **Note:** The `.bat` wrapper calls PowerShell with `-ExecutionPolicy Bypass`, so no system-wide policy changes are needed.
 
 ---
 
@@ -37,18 +54,20 @@ The script lives at `console/ysk` and can be run from anywhere in the project:
 
 ## Quick start
 
+**Linux / macOS / WSL:**
 ```bash
-# 1. Copy environment config
-cp .env.dist .env          # adjust DB credentials, app URLs, etc.
-
-# 2. Build images and start all containers
+cp .env.dist .env
 ./console/ysk up --build
-
-# 3. Install PHP and Node dependencies (inside containers — no local PHP/Node needed)
 ./console/ysk install
-
-# 4. Run migrations, generate cookie keys, set directory permissions
 ./console/ysk setup
+```
+
+**Windows (PowerShell):**
+```powershell
+Copy-Item .env.dist .env
+.\console\ysk.ps1 up --build
+.\console\ysk.ps1 install
+.\console\ysk.ps1 setup
 ```
 
 Your app is now available at:

@@ -106,8 +106,14 @@ npm run build
 ```
 
 ### Configure your web server
-- Copy `docker/nginx/vhost.conf` to your nginx config directory
-- Change it to fit your environment
+The bundled nginx configs are written for the Docker stack: they rely on Docker's
+embedded DNS (`resolver 127.0.0.11`) and on service names such as `api` or
+`frontend` as FastCGI upstreams. For a manual install, adapt
+`docker/nginx/vhost.conf` before using it:
+- remove the `resolver` line
+- replace `fastcgi_pass $<name>_upstream;` with your PHP-FPM socket, for example
+  `fastcgi_pass 127.0.0.1:9000;` or `fastcgi_pass unix:/run/php/php8.4-fpm.sock;`
+- point `root` at your checkout instead of `/app`
 
 ## Demo data
 
@@ -169,4 +175,6 @@ STORAGE_BASE_URL    = /storage/web
 ```
 
 4. Configure your web server
-Example of single domain config for nginx can be found [here](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/main/docker/nginx/vhost_single_domain.conf)
+Example of single domain config for nginx can be found [here](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/main/docker/nginx/vhost_single_domain.conf).
+It is also Docker-oriented (`root /app`, `fastcgi_pass php-fpm`), so adjust the
+document root and upstream the same way as described above.

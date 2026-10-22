@@ -1,6 +1,10 @@
 # Git
 .git
 
+# Dependencies
+node_modules
+vendor
+
 # Runtime
 backend/runtime
 common/runtime

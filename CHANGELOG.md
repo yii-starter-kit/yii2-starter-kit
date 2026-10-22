@@ -40,6 +40,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `upload_max_filesize` and `post_max_size` are raised together so the
   CVE-2026-109618 invariant still holds: a request body stays below
   `memory_limit`.
+- nginx no longer caps request bodies at 32m (16m on the backend) while PHP
+  accepts 512m; the limit now matches `post_max_size`, which previously meant
+  large uploads were rejected before PHP ever saw them.
 - nginx no longer refuses to start with `host not found in upstream` while a
   PHP container is being recreated. Upstreams are resolved through Docker's
   embedded DNS at request time, so a missing backend answers 502 until it comes

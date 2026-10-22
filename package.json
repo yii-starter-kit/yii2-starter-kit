@@ -1,5 +1,6 @@
 {
   "private": true,
+  "packageManager": "npm@11.19.1",
   "engines": {
     "node": ">=24"
   },

@@ -5,6 +5,28 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Runtime PHP settings now actually reach the containers. The old
+  `docker/php/php.ini` was only consumed by `docker/php/Dockerfile`, which
+  `docker-compose.yml` never built, so most of its values were inert. It also
+  duplicated the base image's `conf.d/base.ini`, which already sets the
+  timezone, `expose_php`, `cgi.fix_pathinfo`, the `upload_progress` mitigation
+  for CVE-2026-109619 and a tuned OPcache block.
+- Uploads are no longer capped at the image default of 60M. `memory_limit`,
+  `upload_max_filesize` and `post_max_size` are raised together so the
+  CVE-2026-109618 invariant still holds: a request body stays below
+  `memory_limit`.
+
+### Removed
+
+- `docker/php/Dockerfile`, `docker/php/php.ini`, `docker/php/www.conf` and
+  `docker/php/install-composer.sh`. The custom image was never referenced by
+  `docker-compose.yml`, and everything it added (Composer, OPcache, Xdebug, gd,
+  intl, zip, pdo_mysql) already ships in `yiisoftware/yii2-php:8.4-fpm-latest`.
+
 ## [5.0.0] - 2026-10-22
 
 ### Security

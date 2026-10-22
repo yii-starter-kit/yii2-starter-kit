@@ -12,7 +12,7 @@
 - [Default accounts](#default-accounts)
 
 ## Before you begin
-1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions 
+1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
    at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 2. Install [NPM](https://docs.npmjs.com/getting-started/installing-node) to build frontend code
 3. Install [taskctl](https://github.com/taskctl/taskctl) to run tasks
@@ -97,7 +97,7 @@ Required PHP extensions:
 	STORAGE_HOST_INFO     = http://storage.yii2-starter-kit.localhost
 	```
 
-3. Run 
+3. Run
 ```taskctl local:build```
 or
 ```

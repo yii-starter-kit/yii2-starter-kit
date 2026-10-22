@@ -77,7 +77,7 @@
     }
   },
   "suggest": {
-    "trntv/yii2-debug-xhprof": "dev-master@dev"
+    "trntv/yii2-debug-xhprof": "Profiling panel for the Yii debug toolbar"
   },
   "config": {
     "process-timeout": 1800,
@@ -106,7 +106,6 @@
     ],
     "build:app": [
       "@composer install --prefer-dist -o",
-      "echo 'waiting for mysql' && sleep 10",
       "php console/yii app/setup --interactive=0"
     ],
     "docker:build": [

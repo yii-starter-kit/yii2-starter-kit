@@ -7,8 +7,8 @@ composer.phar
 
 # JS
 node_modules
-spa/npm-debug.log
-spa/yarn-error.log
+npm-debug.log*
+yarn-error.log
 
 # IDE
 .idea
@@ -31,4 +31,4 @@ phpunit.phar
 /.vagrant
 
 # Tests
-tests/codeception/*/_support/_generated/*
+tests/*/_support/_generated/

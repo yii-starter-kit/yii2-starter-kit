@@ -29,6 +29,7 @@ It was created and developing as a fast start for building an advanced sites bas
 It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
 
 ## Before you start
+Requires **PHP 8.4+**, **MySQL 8.4+** and **Node.js 24+** (asset builds).
 Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
 
 ## TABLE OF CONTENTS
@@ -47,7 +48,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 ## Quickstart
 1. [Install taskctl](https://getcomposer.org)
 2. [Install docker](https://docs.docker.com/install/)
-3. [Install docker-compose](https://docs.docker.com/compose/install/)
+3. [Install Docker Compose](https://docs.docker.com/compose/install/)
 4. Run
     ```bash
     composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
@@ -96,13 +97,13 @@ To list all available development tasks follow these steps:
 - RBAC migrations support
 
 ### Development
-- Ready-to-use Docker-based stack (php, nginx, mysql, mailcatcher)
+- Ready-to-use Docker-based stack (php, nginx, mysql, Mailpit)
 - .env support
 - [Webpack](https://webpack.js.org/) build configuration
 - Key-value storage service
 - Ready to use REST API module
 - [File storage component + file upload widget](https://github.com/trntv/yii2-file-kit)
-- On-demand thumbnail creation [trntv/yii2-glide](https://github.com/trntv/yii2-glide)
+- On-demand thumbnail creation [yii-starter-kit/yii2-glide](https://github.com/yii-starter-kit/yii2-glide)
 - Built-in queue component [yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue)
 - Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
@@ -119,7 +120,7 @@ To list all available development tasks follow these steps:
 - Extended IDE autocompletion
 - Test-ready
 - Docker support and Vagrant support
-- Built-in [mailcatcher](http://mailcatcher.me/)
+- Built-in [Mailpit](https://mailpit.axllent.org/)
 - [Swagger](https://swagger.io/) for API docs.
 
 ## DEMO

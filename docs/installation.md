@@ -9,8 +9,7 @@
 
 - [Docker installation](#docker-installation)
 - [Single domain installtion](#single-domain-installation)
-- [Demo users](#demo-users)
-- [Important-notes](#important-notes)
+- [Default accounts](#default-accounts)
 
 ## Before you begin
 1. If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions 
@@ -27,7 +26,7 @@ composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
 ```
 
 ### Option 2: Download sources
-https://github.com/yii2-starter-kit/yii2-starter-kit/archive/master.zip
+https://github.com/yii2-starter-kit/yii2-starter-kit/archive/main.zip
 
 #### Or clone repository manually
 ```
@@ -70,7 +69,9 @@ The minimum requirement by this application template that your Web server suppor
 Required PHP extensions:
 - intl
 - gd
-- com_dotnet (for Windows)
+- pdo_mysql
+- fileinfo
+- zip
 
 ### Setup application
 1. Run ``taskctl install``
@@ -90,9 +91,10 @@ Required PHP extensions:
 
 	- Set application canonical urls
 	```
+	API_HOST_INFO         = http://api.yii2-starter-kit.localhost
 	FRONTEND_HOST_INFO    = http://yii2-starter-kit.localhost
 	BACKEND_HOST_INFO     = http://backend.yii2-starter-kit.localhost
-	STORAGE_HOST_INFP     = http://storage.yii2-starter-kit.localhost
+	STORAGE_HOST_INFO     = http://storage.yii2-starter-kit.localhost
 	```
 
 3. Run 
@@ -104,12 +106,12 @@ npm run build
 ```
 
 ### Configure your web server
-- Copy `docker/vhost.conf` to your nginx config directory
+- Copy `docker/nginx/vhost.conf` to your nginx config directory
 - Change it to fit your environment
 
 ## Demo data
 
-## Add Random Articles Data
+### Add random articles data
 
 You can insert random article data by running the following command:
 
@@ -125,7 +127,7 @@ In docker, please run:
 docker compose exec console php console/yii app/demo-data
 ```
 
-### Demo Users
+### Default accounts
 ```
 Login: webmaster
 Password: webmaster
@@ -167,9 +169,4 @@ STORAGE_BASE_URL    = /storage/web
 ```
 
 4. Configure your web server
-Example of single domain config for nginx can be found [here](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/master/docker/nginx/vhost_single_domain.conf)
-
-## Important notes
-- There is a VirtualBox bug related to sendfile that can lead to corrupted files, if not turned-off
-Uncomment this in your nginx config if you are using Vagrant:
-```sendfile off;```
+Example of single domain config for nginx can be found [here](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/main/docker/nginx/vhost_single_domain.conf)

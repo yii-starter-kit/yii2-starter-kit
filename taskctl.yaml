@@ -35,14 +35,6 @@ tasks:
   build:env:
     command: cp .env.dist .env
   
-  heroku:compile:
-    command:
-      - cp deploy/heroku/.env .env
-      - php console/yii migrate/fresh
-      - php console/yii app/setup --interactive=0
-    env:
-      YII_ENV: heroku
-
   local:build:
     command:
       - php console/yii app/setup

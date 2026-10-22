@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   unbound `>=0.0.3@dev`, which lets `composer validate --strict` pass.
 - `axllent/mailpit` is pinned to `v1.31.6` instead of `latest`, and
   `node_modules` / `vendor` are excluded from the Docker build context.
+- The quickstart no longer passes `--ignore-platform-reqs` to
+  `composer create-project`. It was a Heroku-era workaround and hid genuine
+  platform mismatches behind a package that then failed at runtime.
 
 ### Fixed
 
@@ -49,9 +52,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   back instead of putting nginx into a restart loop.
 - The `db` service has a health check and the application containers wait for
   it, so Yii no longer boots against a MySQL server that is still starting.
+- Documentation: `docs/installation.md` pointed at `docker/vhost.conf` (the file
+  lives in `docker/nginx/`) and at `archive/master.zip`, and documented a
+  `STORAGE_HOST_INFP` env key that does not exist. The Vagrant notes and the
+  unused `com_dotnet` extension are gone, the required extension list now
+  matches what the application actually needs, and the README no longer
+  advertises the retired demo site.
 
 ### Removed
 
+- The Heroku deployment path: `Procfile`, `deploy/heroku/`, the `compile`
+  Composer script and the `heroku:compile` taskctl task. It carried a dead
+  `mailcatcher` SMTP host and `herokuapp.com` URLs, and no demo site is
+  published any more.
 - `docker/php/Dockerfile`, `docker/php/php.ini`, `docker/php/www.conf` and
   `docker/php/install-composer.sh`. The custom image was never referenced by
   `docker-compose.yml`, and everything it added (Composer, OPcache, Xdebug, gd,

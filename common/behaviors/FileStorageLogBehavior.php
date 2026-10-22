@@ -3,7 +3,6 @@
 namespace common\behaviors;
 
 use common\models\FileStorageItem;
-use League\Flysystem\File;
 use trntv\filekit\Storage;
 use Yii;
 use yii\base\Behavior;
@@ -31,14 +30,15 @@ class FileStorageLogBehavior extends Behavior
      */
     public function afterSave($event)
     {
-        $file = new File($event->filesystem, $event->path);
+        $filesystem = $event->filesystem;
+        $path = $event->path;
         $model = new FileStorageItem();
         $model->component = $this->component;
-        $model->path = $file->getPath();
+        $model->path = $path;
         $model->base_url = $this->getStorage()->baseUrl;
-        $model->size = $file->getSize();
-        $model->type = $file->getMimeType();
-        $model->name = pathinfo($file->getPath(), PATHINFO_FILENAME);
+        $model->size = $filesystem->fileSize($path);
+        $model->type = $filesystem->mimeType($path);
+        $model->name = pathinfo($path, PATHINFO_FILENAME);
         if (Yii::$app->request->getIsConsoleRequest() === false) {
             $model->upload_ip = Yii::$app->request->getUserIP();
         }

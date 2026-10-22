@@ -8,5 +8,5 @@ default-character-set = utf8mb4
 init-connect='SET NAMES utf8mb4'
 collation_server=utf8mb4_unicode_ci
 character_set_server=utf8mb4
-skip-character-set-client-handshake
-default_authentication_plugin= mysql_native_password
+# MySQL 8.4 removed skip-character-set-client-handshake and default_authentication_plugin.
+# caching_sha2_password (the 8.4 default) is supported by PHP's mysqlnd driver.

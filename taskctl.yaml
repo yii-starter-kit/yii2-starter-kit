@@ -30,7 +30,7 @@ tasks:
     command: composer install
   
   install:node:
-    command: npm install
+    command: npm ci
 
   build:env:
     command: cp .env.dist .env
@@ -50,28 +50,29 @@ tasks:
 
   docker:build:
     command:
-      - docker-compose run -T --rm app php console/yii app/setup --interactive=0
-      - docker-compose run -T --rm webpacker npm run build
+      - docker compose run -T --rm console php console/yii app/setup --interactive=0
+      - docker compose run -T --rm node npm ci
+      - docker compose run -T --rm node npm run build
 
   docker:tests:run:
     command:
-      - docker-compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-      - docker-compose exec -T app ./vendor/bin/codecept build
-      - docker-compose exec -T app php tests/bin/yii app/setup --interactive=0
-      - docker-compose exec -T app vendor/bin/codecept run
+      - docker compose exec -T db mysql -uroot -proot -e "CREATE DATABASE IF NOT EXISTS \`yii2-starter-kit-test\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+      - docker compose exec -T console ./vendor/bin/codecept build
+      - docker compose exec -T console php tests/bin/yii app/setup --interactive=0
+      - docker compose exec -T console vendor/bin/codecept run
       - echo "Done!"
   
   docker:tests:server:
     command:
-      - docker-compose exec -T app php -S localhost:8080 -t /app
+      - docker compose exec -T console php -S localhost:8080 -t /app
 
   docker:start:
     command:
-      - docker-compose up --force-recreate -d
+      - docker compose up --force-recreate -d
   
   docker:cleanup:
     command:
-      - docker-compose rm -fsv
+      - docker compose rm -fsv
 
   banner:
     command:

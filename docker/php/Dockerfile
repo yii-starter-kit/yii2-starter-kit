@@ -1,4 +1,4 @@
-FROM yiisoftware/yii2-php:8.0-fpm
+FROM yiisoftware/yii2-php:8.4-fpm-latest
 
 # Install modules
 RUN apt-get update && apt-get install -y \
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install zip intl mbstring pdo_mysql exif gd
 
-RUN pecl install -o -f xdebug-2.9.8 \
+RUN pecl install -o -f xdebug-3.5.3 \
     && rm -rf /tmp/pear
 
 COPY ./install-composer.sh /

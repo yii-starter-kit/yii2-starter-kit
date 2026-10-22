@@ -1,17 +1,17 @@
-version: "3.7"
-
 services:
   frontend:
     build: frontend
     volumes:
       # Mount source-code for development
       - ./:/app
+      - ./docker/php/php-app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
 
   backend:
     build: backend
     volumes:
       # Mount source-code for development
       - ./:/app
+      - ./docker/php/php-app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
 
   console:
     build: console
@@ -20,6 +20,7 @@ services:
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
       # Mount source-code for development
       - ./:/app
+      - ./docker/php/php-app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
     working_dir: /app
 
   storage:
@@ -27,12 +28,14 @@ services:
     volumes:
       # Mount source-code for development
       - ./:/app
+      - ./docker/php/php-app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
 
   api:
     build: api
     volumes:
       # Mount source-code for development
       - ./:/app
+      - ./docker/php/php-app.ini:/usr/local/etc/php/conf.d/zz-app.ini:ro
 
   nginx:
     image: nginx:stable-alpine
@@ -49,18 +52,18 @@ services:
       - storage
 
   node:
-    image: node:16-alpine
+    image: node:24-alpine
     volumes:
       - ./:/app
     working_dir: /app
 
-  mailcatcher:
-    image: schickling/mailcatcher:latest
+  mailpit:
+    image: axllent/mailpit:latest
     ports:
-      - 1080:1080
+      - 8025:8025
 
   db:
-    image: mysql:8
+    image: mysql:8.4
     volumes:
       - /var/lib/mysql
       - ./docker/mysql/config.cnf:/etc/mysql/conf.d/config.cnf

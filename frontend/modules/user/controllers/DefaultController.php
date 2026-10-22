@@ -4,7 +4,7 @@ namespace frontend\modules\user\controllers;
 
 use common\base\MultiModel;
 use frontend\modules\user\models\AccountForm;
-use Intervention\Image\ImageManagerStatic;
+use Intervention\Image\ImageManager;
 use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
 use Yii;
@@ -23,10 +23,10 @@ class DefaultController extends Controller
                 'class' => UploadAction::class,
                 'deleteRoute' => 'avatar-delete',
                 'on afterSave' => function ($event) {
-                    /* @var $file \League\Flysystem\File */
-                    $file = $event->file;
-                    $img = ImageManagerStatic::make($file->read())->fit(215, 215);
-                    $file->put($img->encode());
+                    $filesystem = $event->filesystem;
+                    $path = $event->path;
+                    $image = ImageManager::gd()->read($filesystem->read($path))->cover(215, 215);
+                    $filesystem->write($path, (string) $image->encode());
                 }
             ],
             'avatar-delete' => [

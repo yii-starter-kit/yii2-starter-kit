@@ -1,7 +1,8 @@
-class_name: UnitTester
-bootstrap: false
+actor: UnitTester
 modules:
     enabled:
         - Asserts
         - Yii2:
             part: [fixtures]
+            configFile: '../config/common/unit.php'
+            transaction: false

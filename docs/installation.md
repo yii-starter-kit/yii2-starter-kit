@@ -41,24 +41,24 @@ taskctl install
 or
 ```
 composer install
-npm install
+npm ci
 ```
 
 ## Docker installation
-1. Install [docker](https://docs.docker.com/engine/installation/), [docker-compose](https://docs.docker.com/compose/install/) and [composer](https://getcomposer.org/) to your system
+1. Install [Docker](https://docs.docker.com/get-docker/) (Compose v2 is included) and [composer](https://getcomposer.org/) to your system
 2. Run ``taskctl start`` or ``composer run-script docker:build``
 3. That's all - your application is accessible on [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
-*PS* Also you can use bash inside application container. To do so run `docker-compose exec app bash`
+*PS* Also you can use bash inside application container. To do so run `docker compose exec console bash`
 
 ### Docker FAQ
 1. How do I run yii console commands from outside a container?
 
-``docker-compose exec app console/yii help``
+``docker compose exec console php console/yii help``
 
-``docker-compose exec app console/yii migrate``
+``docker compose exec console php console/yii migrate``
 
-``docker-compose exec app console/yii rbac-migrate``
+``docker compose exec console php console/yii rbac-migrate``
 
 2. How to connect to the application database with my workbench, navicat etc?
 MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, password - `root`
@@ -66,7 +66,7 @@ MySQL is available on `yii2-starter-kit.localhost`, port `3306`. User - `root`, 
 ## Manual installation
 
 ### REQUIREMENTS
-The minimum requirement by this application template that your Web server supports PHP 7.
+The minimum requirement by this application template that your Web server supports PHP 8.4.
 Required PHP extensions:
 - intl
 - gd
@@ -122,7 +122,7 @@ Where `N` is the number of categories and articles to be added to the database. 
 In docker, please run:
 
 ```
-docker-compose exec app console/yii app/demo-data
+docker compose exec console php console/yii app/demo-data
 ```
 
 ### Demo Users

@@ -27,37 +27,39 @@
     "source": "https://github.com/yii2-starter-kit/yii2-starter-kit"
   },
   "require": {
-    "php": ">=7.4 || ^8.0",
+    "php": "^8.4",
     "ext-intl": "*",
     "ext-gd": "*",
-    "yiisoft/yii2": "^2.0.13",
+    "yiisoft/yii2": "^2.0.55",
     "yiisoft/yii2-swiftmailer": "^2.0.0",
-    "yiisoft/yii2-authclient": "^2.0.0",
+    "yiisoft/yii2-authclient": "^2.2.15",
     "yiisoft/yii2-bootstrap4": "^2.0",
     "yiisoft/yii2-jui": "^2.0.0",
     "yiisoft/yii2-debug": "^2.0.0",
-    "yii2-starter-kit/yii2-file-kit": "^2.1.0",
+    "yii2-starter-kit/yii2-file-kit": "^2.2",
     "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
-    "trntv/yii2-glide": "^1.2",
     "trntv/yii2-datetime-widget": "dev-master@dev",
     "trntv/cheatsheet": "^0.1@dev",
     "trntv/yii2-command-bus": "^3.0",
-    "intervention/image": "^2.1",
+    "intervention/image": "^3.0",
     "vlucas/phpdotenv": "^5.3.0",
     "almasaeed2010/adminlte": "^3.0",
     "npm-asset/font-awesome": "^5.0",
     "npm-asset/html5shiv": "^3.0",
     "npm-asset/jquery-slimscroll": "^1.3",
     "npm-asset/flot": "^3.2",
-    "symfony/process": "^4.0",
+    "symfony/process": "^7.4",
     "guzzlehttp/guzzle": "^7.4",
     "alexantr/yii2-elfinder": "^1.3",
     "yii-starter-kit/sitemaped": "^2.0",
     "yii2mod/yii2-swagger": "^1.1",
     "rmrevin/yii2-fontawesome": "^3.4",
-    "kartik-v/yii2-widgets": "^3.4"
+    "kartik-v/yii2-widgets": "^3.4",
+    "yiisoft/yii2-queue": "^2.3.8",
+    "yii-starter-kit/yii2-glide": "^2.0",
+    "studio-42/elfinder": "^2.1.70"
   },
   "require-dev": {
     "yiisoft/yii2-gii": "^2.0.0",
@@ -66,7 +68,8 @@
     "codeception/verify": "^2.2",
     "codeception/module-asserts": "^3.0",
     "codeception/module-yii2": "^1.1",
-    "codeception/module-phpbrowser": "^3.0"
+    "codeception/module-phpbrowser": "^3.0",
+    "codeception/module-filesystem": "^3.0"
   },
   "autoload-dev": {
     "psr-4": {
@@ -109,22 +112,22 @@
     "docker:build": [
       "@build:env",
       "@docker:start",
-      "docker-compose exec -T console composer run-script build:app",
-      "docker-compose run -T --rm node npm install",
-      "docker-compose run -T --rm node npm run build"
+      "docker compose exec -T console composer run-script build:app",
+      "docker compose run -T --rm node npm ci",
+      "docker compose run -T --rm node npm run build"
     ],
     "docker:start": [
-      "docker-compose up --build -d"
+      "docker compose up --build -d"
     ],
     "docker:cleanup": [
-      "docker-compose rm -fsv"
+      "docker compose rm -fsv"
     ],
     "docker:tests": [
       "@docker:start",
-      "docker-compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
-      "docker-compose exec -T console ./vendor/bin/codecept build",
-      "docker-compose exec -T console php tests/bin/yii app/setup --interactive=0",
-      "echo 'open a new terminal and run \"docker-compose exec -T console vendor/bin/codecept run\"' && docker-compose exec -T console php -S localhost:8080"
+      "docker compose exec -T db mysql -uroot -proot -e \"CREATE DATABASE IF NOT EXISTS \\`yii2-starter-kit-test\\` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci\"",
+      "docker compose exec -T console ./vendor/bin/codecept build",
+      "docker compose exec -T console php tests/bin/yii app/setup --interactive=0",
+      "echo 'open a new terminal and run \"docker compose exec -T console vendor/bin/codecept run\"' && docker compose exec -T console php -S localhost:8080"
     ]
   }
 }

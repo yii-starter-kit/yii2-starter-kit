@@ -10,7 +10,7 @@ jobs:
 
     env:
       extensions: dom, json, gd, imagick, pdo, pdo_mysql, intl, curl, xml, zip
-      key: cache-v1
+      key: cache-v2
 
     runs-on: ${{ matrix.os }}
 
@@ -20,10 +20,11 @@ jobs:
           - ubuntu-latest
 
         php:
-          - "8.0"
+          - "8.4"
+          - "8.5"
 
         mysql:
-          - "8"
+          - "8.4"
 
     services:
       mysql:
@@ -40,7 +41,7 @@ jobs:
           --health-retries=3
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
 
       - name: Setup cache environment
         id: cache-env
@@ -51,7 +52,7 @@ jobs:
           key: ${{ env.key }}
 
       - name: Cache extensions
-        uses: actions/cache@v1
+        uses: actions/cache@v6
         with:
           path: ${{ steps.cache-env.outputs.dir }}
           key: ${{ steps.cache-env.outputs.key }}
@@ -70,12 +71,12 @@ jobs:
         run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
       - name: Cache dependencies installed with composer
-        uses: actions/cache@v1
+        uses: actions/cache@v6
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
-          key: php${{ matrix.php }}-composer-${{ matrix.dependencies }}-${{ hashFiles('**/composer.json') }}
+          key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
-            php${{ matrix.php }}-composer-${{ matrix.dependencies }}-
+            php${{ matrix.php }}-composer-
       - name: Install dependencies with composer
         run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
 
@@ -97,3 +98,38 @@ jobs:
         run: |
           php -S 127.0.0.1:8080 > /dev/null 2>&1 &
           vendor/bin/codecept run --debug
+
+  assets:
+    name: Frontend assets
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: dom, json, gd, imagick, pdo, pdo_mysql, intl, curl, xml, zip
+          ini-values: date.timezone='UTC'
+          coverage: none
+
+      - name: Install runtime dependencies with composer
+        run: composer install --prefer-dist --no-interaction --no-progress --no-dev --ansi
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Build assets
+        run: npm run build

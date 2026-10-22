@@ -40,7 +40,7 @@ $config = [
         ],
 
         'glide' => [
-            'class' => trntv\glide\components\Glide::class,
+            'class' => YiiStarterKit\glide\components\Glide::class,
             'sourcePath' => '@storage/web/source',
             'cachePath' => '@storage/cache',
             'urlManager' => 'urlManagerStorage',

@@ -3,6 +3,9 @@
  * @author Eugene Terentev <eugene@terentev.net>
  */
 
+// PHP 8.4 deprecations from legacy vendor packages must not leak into test output.
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED);
+
 require __DIR__ . '/../vendor/autoload.php';
 
 // Environment

@@ -47,7 +47,25 @@ class FixtureHelper extends Module
      */
     public function _beforeSuite($settings = [])
     {
+        $this->ensureApplication();
         $this->initFixtures();
+    }
+
+    /**
+     * Fixtures are initialized before the first test runs, while the Yii2 module
+     * only creates the application before each test. Bootstrap the app here so
+     * fixture classes can resolve the `db` component.
+     */
+    protected function ensureApplication()
+    {
+        if (\Yii::$app !== null) {
+            return;
+        }
+
+        $configFile = $this->getModule('Yii2')->_getConfig('configFile');
+        if ($configFile) {
+            new \yii\web\Application(require codecept_absolute_path($configFile));
+        }
     }
 
     /**

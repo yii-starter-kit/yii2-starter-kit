@@ -1,75 +1,51 @@
 const path = require('path');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
-var config = {
+const createConfig = (app) => ({
+    entry: {
+        app: path.resolve(__dirname, `./${app}/web/js/app.js`),
+        style: path.resolve(__dirname, `./${app}/web/css/style.less`),
+    },
+    output: {
+        filename: '[name].js',
+        path: path.resolve(__dirname, `./${app}/web/bundle`),
+    },
     module: {
         rules: [
             {
                 test: /\.js$/,
-                exclude: [/node_modules/],
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: { presets: ['latest'] }
-                    }
-                ]
+                exclude: /node_modules/,
+                use: 'babel-loader',
             },
             {
                 test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'less-loader'
-                ]
-            }, {
-                test: /.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-                loader: 'url-loader?limit=100000'
-            }
-        ]
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff2?|ttf|eot)$/i,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 100000,
+                    },
+                },
+            },
+        ],
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].css",
-            allChunks: true
-        })
+            filename: '[name].css',
+        }),
     ],
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true
-            }),
-            new OptimizeCSSAssetsPlugin({})
-        ]
+            new TerserPlugin({ parallel: true }),
+            new CssMinimizerPlugin(),
+        ],
     },
-    devtool: 'source-map'
-}
-
-var frontendConfig = Object.assign({}, config, {
-    entry: {
-        app: path.resolve(__dirname, './frontend/web/js/app.js'),
-        style: path.resolve(__dirname, './frontend/web/css/style.less'),
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, './frontend/web/bundle'),
-    },
+    devtool: 'source-map',
 });
 
-var backendConfig = Object.assign({}, config, {
-    entry: {
-        app: path.resolve(__dirname, './backend/web/js/app.js'),
-        style: path.resolve(__dirname, './backend/web/css/style.less'),
-    },
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, './backend/web/bundle'),
-    },
-});
-
-module.exports = [
-    frontendConfig, backendConfig
-];
+module.exports = [createConfig('frontend'), createConfig('backend')];

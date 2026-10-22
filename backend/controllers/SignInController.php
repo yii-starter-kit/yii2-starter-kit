@@ -15,7 +15,6 @@ use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\imagine\Image;
 use yii\web\Controller;
 
 class SignInController extends Controller

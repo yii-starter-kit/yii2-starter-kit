@@ -7,10 +7,6 @@ use yii\data\ActiveDataProvider;
 use yii\rest\ActiveController;
 use yii\rest\IndexAction;
 use yii\rest\OptionsAction;
-use yii\rest\CreateAction;
-use yii\rest\UpdateAction;
-use yii\rest\DeleteAction;
-use yii\rest\Serializer;
 use yii\rest\ViewAction;
 use yii\web\HttpException;
 
@@ -25,7 +21,7 @@ use yii\web\HttpException;
  *         termsOfService="",
  *         @SWG\License(
  *             name="BSD License",
- *             url="https://raw.githubusercontent.com/yii2-starter-kit/yii2-starter-kit/master/LICENSE.md"
+ *             url="https://raw.githubusercontent.com/yii2-starter-kit/yii2-starter-kit/main/LICENSE.md"
  *         )
  *     ),
  * )

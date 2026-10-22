@@ -3,7 +3,8 @@ $config = [
     'components' => [
         'assetManager' => [
             'class' => yii\web\AssetManager::class,
-            'linkAssets' => env('LINK_ASSETS'),
+            // env() returns strings, so "false" would be truthy here.
+            'linkAssets' => filter_var(env('LINK_ASSETS', false), FILTER_VALIDATE_BOOLEAN),
             'appendTimestamp' => YII_ENV_DEV
         ]
     ],

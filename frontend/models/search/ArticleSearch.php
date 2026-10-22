@@ -6,7 +6,6 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Article;
 use common\models\ArticleCategory;
-use yii\db\Expression;
 
 /**
  * ArticleSearch represents the model behind the search form about `common\models\Article`.

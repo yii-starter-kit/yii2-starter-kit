@@ -8,7 +8,6 @@
 echo "<?php\n";
 ?>
 
-use yii\db\Schema;
 use common\rbac\Migration;
 
 class <?= $className ?> extends Migration

@@ -52,6 +52,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   back instead of putting nginx into a restart loop.
 - The `db` service has a health check and the application containers wait for
   it, so Yii no longer boots against a MySQL server that is still starting.
+- `LINK_ASSETS=false` was silently ignored: `env()` returns strings and
+  `"false"` is truthy, so asset symlinking stayed on. The flag is now parsed
+  with `filter_var(..., FILTER_VALIDATE_BOOLEAN)`.
+- `DB_CHARSET` fell back to `utf8`, MySQL's deprecated 3-byte alias, when the
+  variable was missing. The default is `utf8mb4`.
+- Removed `common/components/log/NotFoundTarget.php`. It was never registered
+  in any log config and its `export()` was never implemented.
+- Dropped unused imports across the API, backend, frontend and RBAC code,
+  including a leftover `yii\imagine\Image` from the Intervention 3 migration,
+  and fixed a `master` link in the API Swagger block.
 - Documentation: `docs/installation.md` pointed at `docker/vhost.conf` (the file
   lives in `docker/nginx/`) and at `archive/master.zip`, and documented a
   `STORAGE_HOST_INFP` env key that does not exist. The Vagrant notes and the

@@ -16,7 +16,7 @@ class ArticleCest extends ApiCest
 
     public function testArticleView(FunctionalTester $I)
     {
-        $I->amOnPage(['/v1/articles', 'slug' => 'test-article-1']);
+        $I->amOnPage('/v1/articles?slug=test-article-1');
         $I->see('Lorem ipsum');
     }
 }

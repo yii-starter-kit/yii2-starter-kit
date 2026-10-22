@@ -5,7 +5,28 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [5.0.1] - 2026-10-22
+
+### Added
+
+- `SECURITY.md`, with private vulnerability reporting enabled so a report does
+  not have to start as a public issue.
+- `.editorconfig`, and a `packageManager` pin so npm uses the version the
+  lockfile was generated with.
+- CI now runs `composer validate --strict` and `composer audit --locked`, so an
+  unbound constraint or a new advisory fails the build instead of shipping.
+
+### Changed
+
+- Patch-level dependency updates: `yiisoft/yii2-debug` 2.1.28,
+  `yiisoft/yii2-bootstrap4` 2.0.12, `yiisoft/yii2-gii` 2.2.7,
+  `vlucas/phpdotenv` 5.7.0 and `yii-starter-kit/sitemaped` 2.0.2.
+- `yiisoft/yii2-debug` moved to `require-dev`. It is only loaded when
+  `YII_DEBUG` is on, so production installs no longer ship the debugger.
+- `asofter/yii2-imperavi-redactor` is pinned to `dev-master` instead of the
+  unbound `>=0.0.3@dev`, which lets `composer validate --strict` pass.
+- `axllent/mailpit` is pinned to `v1.31.6` instead of `latest`, and
+  `node_modules` / `vendor` are excluded from the Docker build context.
 
 ### Fixed
 
@@ -19,6 +40,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `upload_max_filesize` and `post_max_size` are raised together so the
   CVE-2026-109618 invariant still holds: a request body stays below
   `memory_limit`.
+- nginx no longer refuses to start with `host not found in upstream` while a
+  PHP container is being recreated. Upstreams are resolved through Docker's
+  embedded DNS at request time, so a missing backend answers 502 until it comes
+  back instead of putting nginx into a restart loop.
+- The `db` service has a health check and the application containers wait for
+  it, so Yii no longer boots against a MySQL server that is still starting.
 
 ### Removed
 

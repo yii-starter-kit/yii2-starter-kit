@@ -45,7 +45,7 @@ jobs:
 
       - name: Setup cache environment
         id: cache-env
-        uses: shivammathur/cache-extensions@v2
+        uses: shivammathur/cache-extensions@v1
         with:
           php-version: ${{ matrix.php }}
           extensions: ${{ env.extensions }}
@@ -107,6 +107,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: dom, json, gd, imagick, pdo, pdo_mysql, intl, curl, xml, zip
+          ini-values: date.timezone='UTC'
+          coverage: none
+
+      - name: Install runtime dependencies with composer
+        run: composer install --prefer-dist --no-interaction --no-progress --no-dev --ansi
 
       - name: Setup Node
         uses: actions/setup-node@v4

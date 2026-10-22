@@ -1,0 +1,62 @@
+version: 2
+
+updates:
+  - package-ecosystem: composer
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      composer-patch:
+        update-types: ["patch"]
+      composer-minor:
+        update-types: ["minor"]
+    ignore:
+      # Majors are migrations, not bumps. See docs/upgrade-5.0.md.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      npm-patch:
+        update-types: ["patch"]
+    ignore:
+      # Babel 8 and friends need a migration, not a bump.
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      actions:
+        patterns: ["*"]
+
+  - package-ecosystem: docker
+    directories:
+      - "/"
+      - "/api"
+      - "/backend"
+      - "/console"
+      - "/frontend"
+      - "/storage"
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: build
+    groups:
+      docker-images:
+        patterns: ["*"]

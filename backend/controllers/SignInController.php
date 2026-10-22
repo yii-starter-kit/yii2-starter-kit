@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zein
- * Date: 8/2/14
- * Time: 11:20 AM
- */
 
 namespace backend\controllers;
 
@@ -15,7 +9,6 @@ use trntv\filekit\actions\DeleteAction;
 use trntv\filekit\actions\UploadAction;
 use Yii;
 use yii\filters\VerbFilter;
-use yii\imagine\Image;
 use yii\web\Controller;
 
 class SignInController extends Controller

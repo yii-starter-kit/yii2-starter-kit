@@ -35,9 +35,8 @@
     "yiisoft/yii2-authclient": "^2.2.15",
     "yiisoft/yii2-bootstrap4": "^2.0",
     "yiisoft/yii2-jui": "^2.0.0",
-    "yiisoft/yii2-debug": "^2.0.0",
     "yii2-starter-kit/yii2-file-kit": "^2.2",
-    "asofter/yii2-imperavi-redactor": ">=0.0.3@dev",
+    "asofter/yii2-imperavi-redactor": "dev-master",
     "trntv/yii2-aceeditor": "^2.0",
     "trntv/probe": "^1.0",
     "trntv/yii2-datetime-widget": "dev-master@dev",
@@ -62,6 +61,7 @@
     "studio-42/elfinder": "^2.1.70"
   },
   "require-dev": {
+    "yiisoft/yii2-debug": "^2.0.0",
     "yiisoft/yii2-gii": "^2.0.0",
     "yiisoft/yii2-faker": "^2.0.0",
     "codeception/codeception": "^5.0",
@@ -77,7 +77,7 @@
     }
   },
   "suggest": {
-    "trntv/yii2-debug-xhprof": "dev-master@dev"
+    "trntv/yii2-debug-xhprof": "Profiling panel for the Yii debug toolbar"
   },
   "config": {
     "process-timeout": 1800,
@@ -96,17 +96,11 @@
     "exclude": ["docs"]
   },
   "scripts": {
-    "compile": [
-      "cp deploy/heroku/.env .env",
-      "YII_ENV=heroku php console/yii migrate/fresh --interactive=0",
-      "php console/yii app/setup --interactive=0"
-    ],
     "build:env": [
       "cp .env.dist .env"
     ],
     "build:app": [
       "@composer install --prefer-dist -o",
-      "echo 'waiting for mysql' && sleep 10",
       "php console/yii app/setup --interactive=0"
     ],
     "docker:build": [

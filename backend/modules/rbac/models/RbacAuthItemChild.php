@@ -3,7 +3,6 @@
 namespace backend\modules\rbac\models;
 
 use Yii;
-use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "rbac_auth_item_child".

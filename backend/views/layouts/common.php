@@ -12,7 +12,6 @@ use backend\widgets\MainSidebarMenu;
 use common\models\TimelineEvent;
 use yii\bootstrap4\Alert;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Url;
 use yii\log\Logger;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Nav;

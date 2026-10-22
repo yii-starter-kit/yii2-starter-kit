@@ -5,7 +5,7 @@ pipelines:
     - task: install:php
     - task: install:node
       depends_on: install:php
-      
+
   start:
     - pipeline: install
     - task: build:env
@@ -17,7 +17,7 @@ pipelines:
       depends_on: docker:build
     - task: banner
       depends_on: docker:start
-      
+
   docker:tests:
     - task: docker:start
     - task: docker:tests:server
@@ -28,20 +28,12 @@ pipelines:
 tasks:
   install:php:
     command: composer install
-  
+
   install:node:
     command: npm ci
 
   build:env:
     command: cp .env.dist .env
-  
-  heroku:compile:
-    command:
-      - cp deploy/heroku/.env .env
-      - php console/yii migrate/fresh
-      - php console/yii app/setup --interactive=0
-    env:
-      YII_ENV: heroku
 
   local:build:
     command:
@@ -61,7 +53,7 @@ tasks:
       - docker compose exec -T console php tests/bin/yii app/setup --interactive=0
       - docker compose exec -T console vendor/bin/codecept run
       - echo "Done!"
-  
+
   docker:tests:server:
     command:
       - docker compose exec -T console php -S localhost:8080 -t /app
@@ -69,7 +61,7 @@ tasks:
   docker:start:
     command:
       - docker compose up --force-recreate -d
-  
+
   docker:cleanup:
     command:
       - docker compose rm -fsv

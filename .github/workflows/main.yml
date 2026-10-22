@@ -80,6 +80,15 @@ jobs:
       - name: Install dependencies with composer
         run: composer install --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
 
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      # Abandoned packages are reported but do not fail yet: swiftmailer and
+      # trntv/cheatsheet are scheduled for replacement. Switch to
+      # --abandoned=fail once they are gone.
+      - name: Check for security advisories
+        run: composer audit --locked --abandoned=report
+
       - name: Setup test environment
         run: |
           cp .env.dist .env

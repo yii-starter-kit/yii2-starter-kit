@@ -15,7 +15,7 @@
    <img align="center" src="https://github.blog/wp-content/uploads/2022/03/1200x630-GitHub-1.png?resize=320%2C240">
 </p>
 
-While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it, 
+While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it,
 is prohibited from using this package.
 For others - please, pray for us, share information about war crimes Russia is conducting in Ukraine, do everything you can
 to urge your governments to be on the right side of history.
@@ -33,7 +33,6 @@ Requires **PHP 8.4+**, **MySQL 8.4+** and **Node.js 24+** (asset builds).
 Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
 
 ## TABLE OF CONTENTS
-- [Demo](#demo)
 - [Features](#features)
 - [Installation](docs/installation.md)
     - [Manual installation](docs/installation.md#manual-installation)
@@ -46,16 +45,15 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Have any questions?](#have-any-questions)
 
 ## Quickstart
-1. [Install taskctl](https://getcomposer.org)
-2. [Install docker](https://docs.docker.com/install/)
-3. [Install Docker Compose](https://docs.docker.com/compose/install/)
-4. Run
+1. [Install taskctl](https://github.com/taskctl/taskctl)
+2. [Install Docker](https://docs.docker.com/get-docker/) (Compose v2 is included)
+3. Run
     ```bash
-    composer create-project yii2-starter-kit/yii2-starter-kit myproject.com --ignore-platform-reqs
+    composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
     cd myproject.com
     taskctl start
     ```
-5. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
+4. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
 ## FEATURES
 ### Admin backend
@@ -107,7 +105,7 @@ To list all available development tasks follow these steps:
 - Built-in queue component [yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue)
 - Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
 - `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
-- [Some useful shortcuts](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/master/common/helpers.php)
+- [Some useful shortcuts](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/main/common/helpers.php)
 
 ### Other
 - Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
@@ -119,13 +117,13 @@ To list all available development tasks follow these steps:
 - Sitemap generator
 - Extended IDE autocompletion
 - Test-ready
-- Docker support and Vagrant support
+- Docker support
 - Built-in [Mailpit](https://mailpit.axllent.org/)
 - [Swagger](https://swagger.io/) for API docs.
 
-## DEMO
-- Frontend: [https://yii2-starter-kit.herokuapp.com](https://yii2-starter-kit.herokuapp.com)
-- Backend: [https://yii2-starter-kit.herokuapp.com/backend](https://yii2-starter-kit.herokuapp.com/backend)
+## Default accounts
+
+The setup command seeds these accounts:
 
 `administrator` role account
 ```

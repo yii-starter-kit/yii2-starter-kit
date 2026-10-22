@@ -3,7 +3,6 @@
 use kartik\date\DatePicker;
 use yii\grid\GridView;
 use rmrevin\yii\fontawesome\FAR;
-use yii\helpers\Html;
 
 /**
  * @var $this         yii\web\View

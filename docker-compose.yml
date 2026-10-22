@@ -1,6 +1,14 @@
+# The application containers query MySQL while Yii boots, so wait until the
+# server really accepts connections instead of relying on start order.
+x-db-dependency: &db-dependency
+  depends_on:
+    db:
+      condition: service_healthy
+
 services:
   frontend:
     build: frontend
+    <<: *db-dependency
     volumes:
       # Mount source-code for development
       - ./:/app
@@ -8,6 +16,7 @@ services:
 
   backend:
     build: backend
+    <<: *db-dependency
     volumes:
       # Mount source-code for development
       - ./:/app
@@ -15,6 +24,7 @@ services:
 
   console:
     build: console
+    <<: *db-dependency
     volumes:
       # Re-use local composer cache via host-volume
       - ~/.composer-docker/cache:/root/.composer/cache:delegated
@@ -25,6 +35,7 @@ services:
 
   storage:
     build: storage
+    <<: *db-dependency
     volumes:
       # Mount source-code for development
       - ./:/app
@@ -32,6 +43,7 @@ services:
 
   api:
     build: api
+    <<: *db-dependency
     volumes:
       # Mount source-code for development
       - ./:/app
@@ -45,11 +57,16 @@ services:
       - ./:/app
       - ./docker/nginx/vhost.conf:/etc/nginx/conf.d/vhost.conf
     depends_on:
-      - api
-      - frontend
-      - backend
-      - console
-      - storage
+      api:
+        condition: service_started
+      backend:
+        condition: service_started
+      console:
+        condition: service_started
+      frontend:
+        condition: service_started
+      storage:
+        condition: service_started
 
   node:
     image: node:24-alpine
@@ -58,7 +75,7 @@ services:
     working_dir: /app
 
   mailpit:
-    image: axllent/mailpit:latest
+    image: axllent/mailpit:v1.31.6
     ports:
       - 8025:8025
 
@@ -74,6 +91,12 @@ services:
       MYSQL_DATABASE: yii2-starter-kit
       MYSQL_USER: ysk_dbu
       MYSQL_PASSWORD: ysk_pass
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
 networks:
   default:

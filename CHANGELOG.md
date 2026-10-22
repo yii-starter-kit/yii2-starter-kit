@@ -5,6 +5,81 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [5.0.1] - 2026-10-22
+
+### Added
+
+- `SECURITY.md`, with private vulnerability reporting enabled so a report does
+  not have to start as a public issue.
+- `.editorconfig`, and a `packageManager` pin so npm uses the version the
+  lockfile was generated with.
+- CI now runs `composer validate --strict` and `composer audit --locked`, so an
+  unbound constraint or a new advisory fails the build instead of shipping.
+
+### Changed
+
+- Patch-level dependency updates: `yiisoft/yii2-debug` 2.1.28,
+  `yiisoft/yii2-bootstrap4` 2.0.12, `yiisoft/yii2-gii` 2.2.7,
+  `vlucas/phpdotenv` 5.7.0 and `yii-starter-kit/sitemaped` 2.0.2.
+- `yiisoft/yii2-debug` moved to `require-dev`. It is only loaded when
+  `YII_DEBUG` is on, so production installs no longer ship the debugger.
+- `asofter/yii2-imperavi-redactor` is pinned to `dev-master` instead of the
+  unbound `>=0.0.3@dev`, which lets `composer validate --strict` pass.
+- `axllent/mailpit` is pinned to `v1.31.6` instead of `latest`, and
+  `node_modules` / `vendor` are excluded from the Docker build context.
+- The quickstart no longer passes `--ignore-platform-reqs` to
+  `composer create-project`. It was a Heroku-era workaround and hid genuine
+  platform mismatches behind a package that then failed at runtime.
+
+### Fixed
+
+- Runtime PHP settings now actually reach the containers. The old
+  `docker/php/php.ini` was only consumed by `docker/php/Dockerfile`, which
+  `docker-compose.yml` never built, so most of its values were inert. It also
+  duplicated the base image's `conf.d/base.ini`, which already sets the
+  timezone, `expose_php`, `cgi.fix_pathinfo`, the `upload_progress` mitigation
+  for CVE-2026-109619 and a tuned OPcache block.
+- Uploads are no longer capped at the image default of 60M. `memory_limit`,
+  `upload_max_filesize` and `post_max_size` are raised together so the
+  CVE-2026-109618 invariant still holds: a request body stays below
+  `memory_limit`.
+- nginx no longer caps request bodies at 32m (16m on the backend) while PHP
+  accepts 512m; the limit now matches `post_max_size`, which previously meant
+  large uploads were rejected before PHP ever saw them.
+- nginx no longer refuses to start with `host not found in upstream` while a
+  PHP container is being recreated. Upstreams are resolved through Docker's
+  embedded DNS at request time, so a missing backend answers 502 until it comes
+  back instead of putting nginx into a restart loop.
+- The `db` service has a health check and the application containers wait for
+  it, so Yii no longer boots against a MySQL server that is still starting.
+- `LINK_ASSETS=false` was silently ignored: `env()` returns strings and
+  `"false"` is truthy, so asset symlinking stayed on. The flag is now parsed
+  with `filter_var(..., FILTER_VALIDATE_BOOLEAN)`.
+- `DB_CHARSET` fell back to `utf8`, MySQL's deprecated 3-byte alias, when the
+  variable was missing. The default is `utf8mb4`.
+- Removed `common/components/log/NotFoundTarget.php`. It was never registered
+  in any log config and its `export()` was never implemented.
+- Dropped unused imports across the API, backend, frontend and RBAC code,
+  including a leftover `yii\imagine\Image` from the Intervention 3 migration,
+  and fixed a `master` link in the API Swagger block.
+- Documentation: `docs/installation.md` pointed at `docker/vhost.conf` (the file
+  lives in `docker/nginx/`) and at `archive/master.zip`, and documented a
+  `STORAGE_HOST_INFP` env key that does not exist. The Vagrant notes and the
+  unused `com_dotnet` extension are gone, the required extension list now
+  matches what the application actually needs, and the README no longer
+  advertises the retired demo site.
+
+### Removed
+
+- The Heroku deployment path: `Procfile`, `deploy/heroku/`, the `compile`
+  Composer script and the `heroku:compile` taskctl task. It carried a dead
+  `mailcatcher` SMTP host and `herokuapp.com` URLs, and no demo site is
+  published any more.
+- `docker/php/Dockerfile`, `docker/php/php.ini`, `docker/php/www.conf` and
+  `docker/php/install-composer.sh`. The custom image was never referenced by
+  `docker-compose.yml`, and everything it added (Composer, OPcache, Xdebug, gd,
+  intl, zip, pdo_mysql) already ships in `yiisoftware/yii2-php:8.4-fpm-latest`.
+
 ## [5.0.0] - 2026-10-22
 
 ### Security

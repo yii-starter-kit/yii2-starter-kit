@@ -26,7 +26,7 @@ Yii::$app->commandBus->handle($addToTimelineCommand);
 ```
 
 ## I18N
-If you want to store application messages in DB and to have ability to edit them from backend, run:
+To store application messages in the database and edit them from the backend, run:
 ```bash
 php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
 ```
@@ -186,7 +186,7 @@ Sets access rules for an application from its configuration.
 In this example the application is reachable only for authenticated users.
 
 ## Command Bus
-Read more about command bus on in [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
+Read more about the command bus in the [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus).
 
 ## Widgets configurable from backend
 ### Carousel
@@ -197,7 +197,7 @@ Read more about command bus on in [official repository](https://github.com/trntv
 ```
 
 ### DbText
-1. Create text block in backend
+1. Create a text block in the backend
 2. Use it:
 ```php
 <?php echo DbText::widget(['key' => 'key-from-backend']) ?>

@@ -18,10 +18,9 @@ Use GitHub's private reporting form instead:
 
 <https://github.com/yii-starter-kit/yii2-starter-kit/security/advisories/new>
 
-The maintainer who receives the report is Victor Gonzalez, [victor@vgr.cl](mailto:victor@vgr.cl).
-
 That opens a private advisory visible only to the maintainers, where a fix can
-be prepared and a CVE requested before anything becomes public.
+be prepared and a CVE requested before anything becomes public. The maintainer
+who receives the report is Victor Gonzalez, [victor@vgr.cl](mailto:victor@vgr.cl).
 
 Please include:
 

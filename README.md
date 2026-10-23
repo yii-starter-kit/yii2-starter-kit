@@ -158,7 +158,7 @@ Released under the BSD-3-Clause licence. See [LICENSE.md](LICENSE.md).
 This starter kit began as the work of [Yevhen Terentiev](https://github.com/trntv), who is
 Ukrainian. In March 2022, days after Russia launched its full-scale invasion, he added the note
 quoted below. The project keeps that position: the war is a crime, and staying silent about it is
-not neutrality. Companies, organizations and individuals who profit from the war, or who look
+not neutrality. Companies, organisations and individuals who profit from the war, or who look
 away while it happens, are not welcome to use this package.
 
 Everyone else is welcome here, and there are concrete ways to help:

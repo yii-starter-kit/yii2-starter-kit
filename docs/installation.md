@@ -143,8 +143,9 @@ STORAGE_HOST_INFO=http://yii2-starter-kit.localhost
 STORAGE_BASE_URL=/storage/web
 ```
 
-Restart the containers after saving (`make down` then `make up`). The applications are then
-reachable at `/`, `/backend/web` and `/storage/web` on the same host.
+Save the file. The applications read `.env` on each request, so the change takes effect without a
+restart, and they are reachable at `/`, `/backend/web` and `/storage/web` on the same host. Avoid
+reloading with `make down`, which discards the database.
 
 Then adjust the web server. `docker/nginx/vhost_single_domain.conf` shows the shape of that
 configuration, with three caveats:

@@ -46,6 +46,9 @@ editors apply it automatically.
 
 ## Your first pull request
 
+If you do not have write access to this repository, fork it first and work from your fork.
+[development-workflow.md](docs/development-workflow.md) shows the fork and `upstream` commands.
+
 1. Branch from `main`:
 
     ```bash

@@ -107,5 +107,5 @@ make down
 make up
 ```
 
-If you changed the database credentials, apply the migrations again with
+If you pointed the application at a new, empty database, create the schema with
 `php console/yii app/setup`.

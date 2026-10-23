@@ -18,8 +18,8 @@ Some endpoints require authentication. See the
 use common\commands\AddToTimelineCommand;
 
 $addToTimelineCommand = new AddToTimelineCommand([
-    'category' => 'user', 
-    'event' => 'signup', 
+    'category' => 'user',
+    'event' => 'signup',
     'data' => ['foo' => 'bar']
 ]);
 Yii::$app->commandBus->handle($addToTimelineCommand);
@@ -180,7 +180,7 @@ Sets access rules for an application from its configuration.
         ]
     ]
 ```
-In this example the application is reachable only for authenticated users. 
+In this example the application is reachable only for authenticated users.
 
 ## Command Bus
 Read more about command bus on in [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
@@ -208,7 +208,7 @@ Read more about command bus on in [official repository](https://github.com/trntv
 ```
 
 ## Widgets
-- [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor)  
+- [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor)
 - [DateTime picker](https://github.com/trntv/yii2-bootstrap-datetimepicker)
 - [Ace Editor](https://github.com/trntv/yii2-aceeditor)
 - [File upload](https://github.com/trntv/yii2-file-kit)
@@ -244,7 +244,7 @@ In view:
 ```php
 <?php echo $form->field($model->getModel('account'), 'username') ?>
 
-<?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>    
+<?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>
 ```
 
 ## Other

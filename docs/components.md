@@ -91,9 +91,12 @@ See the [queue documentation](https://github.com/yiisoft/yii2-queue/blob/master/
 driver commands and their options.
 
 ## Key-Value storage
-Key storage is a key-value storage to store different information. Application settings for example.
-Values can be stored both via api or by backend CRUD component.
-```
+
+`common\components\keyStorage\KeyStorage` stores arbitrary values as key-value pairs, which is how
+the application settings and the maintenance flag are kept. Values can be written from the code, the
+API or the backend CRUD screens.
+
+```php
 Yii::$app->keyStorage->set('articles-per-page', 20);
 Yii::$app->keyStorage->get('articles-per-page'); // 20
 ```
@@ -174,9 +177,9 @@ Sets access rules for an application from its configuration.
                 'actions'=>['error']
             ],
             [
-				'allow' => true,
-				'roles' => ['@']
-			]
+                'allow' => true,
+                'roles' => ['@']
+            ]
         ]
     ]
 ```

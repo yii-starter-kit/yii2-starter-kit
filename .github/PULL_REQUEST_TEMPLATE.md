@@ -4,9 +4,9 @@
 
 ## Type
 
-- [ ] `feat` — new behaviour
-- [ ] `fix` — bug fix
-- [ ] `docs` / `chore` / `ci` — no user-visible change
+- [ ] `feat`: new behaviour
+- [ ] `fix`: bug fix
+- [ ] `docs` / `chore` / `ci`: no user-visible change
 
 ## Checklist
 

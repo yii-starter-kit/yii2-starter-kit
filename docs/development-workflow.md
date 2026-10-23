@@ -62,7 +62,7 @@ git push -u origin chore/release-5.0.2
 gh pr create --fill
 #    ... merge it ...
 
-# 3. publish the tag — this is the release
+# 3. publish the tag: this is the release
 git switch main && git pull
 make tag                        # tags 5.0.2 and pushes it; CI creates the release
 ```
@@ -115,12 +115,12 @@ behaviour change and a release is hard to review and produces a noisy changelog.
 
 ## Commits
 
-```
+```text
 <type>(<scope>)!: <subject>
 
-<body — why, not what>
+<body: why, not what>
 
-<footer — BREAKING CHANGE: ..., Refs: #123>
+<footer: BREAKING CHANGE: ..., Refs: #123>
 ```
 
 ```bash
@@ -140,14 +140,14 @@ feat(api)!: drop the v1 response envelope
 | `chore(security)` | Security | patch |
 | `chore`, `ci`, `build`, `test`, `style` | not listed | patch |
 
-A breaking change — `!` before the colon or a `BREAKING CHANGE:` footer — is
+A breaking change, either `!` before the colon or a `BREAKING CHANGE:` footer, is
 marked **Breaking:** in the changelog and bumps the major version.
 
 Rules enforced by `commitlint.config.js`:
 
 - first line at most 100 characters, no trailing period, imperative mood;
-- scope lowercase and short — `(deps)`, `(docker/nginx)` — because it is used
-  as a filter and as a changelog prefix;
+- scope lowercase and short (`(deps)`, `(docker/nginx)`) because it is used as a
+  filter and as a changelog prefix;
 - one logical change per commit. If the subject needs an "and", split it.
 
 The `commit-msg` hook runs commitlint on every commit. `git commit --no-verify`
@@ -174,8 +174,8 @@ git tag -v 5.1.0
 git log --show-signature -1
 ```
 
-Only commits that land on `main` need a signature — a squash or merge done in the
-GitHub UI is signed by GitHub. Signing everything anyway keeps the history uniform
+Only commits that land on `main` need a signature, because a squash or merge done in
+the GitHub UI is signed by GitHub. Signing everything anyway keeps the history uniform
 and catches a broken key before merge instead of after.
 
 ## Before opening a pull request
@@ -207,7 +207,7 @@ make release VERSION=6.0.0    # or force one
 Then:
 
 1. Read the generated section. It is plain Markdown written from commit
-   subjects — merge related entries, drop noise, add the "why" when it matters.
+   subjects: merge related entries, drop noise, add the "why" when it matters.
    `make changelog` previews without writing anything.
 2. Open a pull request `chore/release-<version>` and merge it.
 3. Publish the tag from `main`:
@@ -221,7 +221,7 @@ The **tag is the release**. It is signed (`git tag -s`), so `git tag -v 5.1.0`
 verifies it locally. `.github/workflows/release.yml` then publishes the
 GitHub release from that section, and Packagist picks the tag up on its own.
 `make tag` refuses to run from another branch, on a version `CHANGELOG.md` does
-not document, or for a tag that already exists — so a mis-typed or premature tag
+not document, or for a tag that already exists, so a mis-typed or premature tag
 fails locally instead of on GitHub.
 
 ### Version numbers
@@ -244,7 +244,7 @@ release flow to cut a patch release.
 
 | Workflow | Checks |
 | --- | --- |
-| `main.yml` | PHP 8.4/8.5 against MySQL 8.4, `composer validate --strict`, `composer audit`, Codeception, `npm ci` + audit + `npm run build` |
+| `main.yml` | PHP 8.4 and 8.5 against MySQL 8.4, `composer validate --strict`, `composer audit --locked`, Codeception, `npm ci` + `npm audit --audit-level=high` + `npm run build` |
 | `commits.yml` | every commit in the pull request passes commitlint |
 | `release.yml` | on a pushed `x.y.z` tag: checks the tag matches `CHANGELOG.md`, then creates the GitHub release |
 

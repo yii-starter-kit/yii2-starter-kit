@@ -14,7 +14,7 @@ Set `shouldBeActivated` to `true` in the `user` module configuration in `fronten
 ## 3. Where do the emails go?
 
 In the Docker stack, Mailpit catches every message: http://localhost:8025. The host and port come
-from `SMTP_HOST` and `SMTP_PORT`.
+from `SMTP_HOST` and `SMTP_PORT`, documented in [configuration.md](configuration.md#mail).
 
 ## 4. How do I run console commands in Docker?
 

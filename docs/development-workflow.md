@@ -17,24 +17,41 @@ them and cut releases. Both use the same commands anyone can run locally.
 ### Contributor: one change
 
 ```bash
-git switch main && git pull
-git switch -c fix/cart-quantity
+# 1. one-time: fork the repository on GitHub, then clone your fork
+git clone https://github.com/<your-username>/yii2-starter-kit.git
+cd yii2-starter-kit
+git remote add upstream https://github.com/yii-starter-kit/yii2-starter-kit.git
+
+# 2. branch from the latest main
+git fetch upstream
+git switch -c fix/cart-quantity upstream/main
 
 git add backend/models/Cart.php
 git commit -S -m "fix(cart): keep the quantity when a line item is edited"
-git push -u origin fix/cart-quantity
 
-gh pr create --fill
+# 3. push to your fork and open the pull request against this repository
+git push -u origin fix/cart-quantity
+gh pr create --fill --repo yii-starter-kit/yii2-starter-kit
 ```
 
-Then CI lints the commit (`commits.yml`) and runs the suite (`main.yml`). The
+Most contributors do not have write access to this repository, so the fork is the normal path.
+Members of the `yii-starter-kit` organization can branch in place instead: `origin` is then the
+repository itself and `gh pr create --fill` works without `--repo`.
+
+Then CI lints the commit (`commits.yml`) and runs the suite (`main.yml`) on the pull request. The
 contributor is done; the commit message is now the changelog entry.
+
+A pull request opened from a fork runs this repository's workflows against the pull request, and
+GitHub may hold the first run of a new contributor until a maintainer approves it. No repository
+secret is involved, so the checks behave the same as for a branch pushed here.
 
 ### Maintainer: review, release, publish
 
 ```bash
 # 1. review the pull request and merge it (squash or merge commit)
 gh pr merge --squash --delete-branch
+#    --delete-branch only removes branches that live in this repository;
+#    a branch in a contributor's fork stays where it is
 
 # 2. cut the release on a branch of its own
 git switch main && git pull
@@ -65,6 +82,8 @@ flowchart LR
 
 ## One-time setup
 
+Fork the repository if you do not have write access, then run this once per clone:
+
 ```bash
 make hooks      # enable the commit-msg hook
 make up         # start the Docker stack
@@ -75,7 +94,13 @@ make up         # start the Docker stack
 
 ## Branches
 
-Branch off `main` and open a pull request back into `main`.
+Branch off the latest `main` and open a pull request back into `main`. If you work from a fork,
+fast-forward your fork first and never merge `main` into your feature branch:
+
+```bash
+git fetch upstream
+git switch main && git merge --ff-only upstream/main
+```
 
 | Prefix | Use for |
 | --- | --- |

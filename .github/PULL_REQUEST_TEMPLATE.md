@@ -10,6 +10,7 @@
 
 ## Checklist
 
+- [ ] I have read [CONTRIBUTING.md](../CONTRIBUTING.md)
 - [ ] Commits follow [Conventional Commits](../docs/development-workflow.md#commits) and each one stands on its own
 - [ ] Commits are signed (`git commit -S`, or `commit.gpgsign` enabled)
 - [ ] `make verify` passes locally

@@ -39,6 +39,11 @@ repository are in scope. Security issues in the framework and its libraries
 should be reported upstream, though a note here is welcome if this template
 needs to change its defaults or pin a fixed version.
 
+## Code of conduct
+
+Reports about how people behave in the project, rather than about the code, follow the
+[code of conduct](CODE_OF_CONDUCT.md).
+
 ## Dependency updates
 
 Dependency advisories are monitored through Dependabot

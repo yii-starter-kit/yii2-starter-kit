@@ -105,7 +105,7 @@ Yii::$app->keyStorage->get('articles-per-page'); // 20
 
 The frontend and the API register it, and it turns on when either condition holds:
 
-- `APP_MAINTENANCE=1` in `.env`;
+- `APP_MAINTENANCE=1` in `.env`, documented in [configuration.md](configuration.md#framework);
 - the `frontend.maintenance` key in KeyStorage holds the string `enabled`.
 
 This is the component as `frontend/config/web.php` declares it:

@@ -1,4 +1,4 @@
-# Development cycle
+# Development workflow
 
 How a change gets from an idea to a tagged release. Three rules carry the whole
 process:
@@ -9,12 +9,56 @@ process:
 3. **The version lives in the git tag.** Never in `composer.json` or
    `package.json`; there is no `version` field to bump.
 
+## Worked example
+
+Two roles take part: **contributors** open pull requests, **maintainers** merge
+them and cut releases. Both use the same commands anyone can run locally.
+
+### Contributor: one change
+
+```bash
+git switch main && git pull
+git switch -c fix/cart-quantity
+
+git add backend/models/Cart.php
+git commit -S -m "fix(cart): keep the quantity when a line item is edited"
+git push -u origin fix/cart-quantity
+
+gh pr create --fill
+```
+
+Then CI lints the commit (`commits.yml`) and runs the suite (`main.yml`). The
+contributor is done; the commit message is now the changelog entry.
+
+### Maintainer: review, release, publish
+
+```bash
+# 1. review the pull request and merge it (squash or merge commit)
+gh pr merge --squash --delete-branch
+
+# 2. cut the release on a branch of its own
+git switch main && git pull
+git switch -c chore/release-5.0.2
+make release                    # writes ## [5.0.2] from the commits since 5.0.1
+git diff CHANGELOG.md           # read it; edit the wording when it is thin
+git push -u origin chore/release-5.0.2
+gh pr create --fill
+#    ... merge it ...
+
+# 3. publish the tag — this is the release
+git switch main && git pull
+make tag                        # tags 5.0.2 and pushes it; CI creates the release
+```
+
+Only a maintainer decides the version, edits the changelog section and pushes the
+tag. Everything else in the cycle is open to any contributor.
+
 ```mermaid
 flowchart LR
     A[branch<br/>feat/thing] --> B[commits<br/>feat: add thing]
     B --> C[PR + CI]
     C --> D[merge to main]
-    D --> E[release PR<br/>chore/release-5.1.0]
+    D --> E[release PR<br/>chore/release-5.0.2]
     E --> F[merge]
     F --> G[make tag 5.1.0<br/>→ GitHub release]
 ```
@@ -120,10 +164,11 @@ same commands, so a green `make verify` means a green pull request in practice.
 
 ## Releasing
 
-Releases are cut from `main` — never from a feature branch.
+The release branch starts at the latest `main`, never at a feature branch.
 
 ```bash
 git switch main && git pull
+git switch -c chore/release-5.1.0
 make release                  # version from the commits, e.g. 5.1.0
 make release VERSION=6.0.0    # or force one
 ```

@@ -10,7 +10,7 @@
 
 ## Checklist
 
-- [ ] Commits follow [Conventional Commits](../docs/development.md#commits) and each one stands on its own
+- [ ] Commits follow [Conventional Commits](../docs/development-workflow.md#commits) and each one stands on its own
 - [ ] Commits are signed (the `commit-msg` hook and `make release` pass `-S`)
 - [ ] `make verify` passes locally
 - [ ] Tests cover the change, or the PR explains why they cannot

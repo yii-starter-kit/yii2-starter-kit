@@ -11,7 +11,7 @@
 ## Checklist
 
 - [ ] Commits follow [Conventional Commits](../docs/development-workflow.md#commits) and each one stands on its own
-- [ ] Commits are signed (the `commit-msg` hook and `make release` pass `-S`)
+- [ ] Commits are signed (`git commit -S`, or `commit.gpgsign` enabled)
 - [ ] `make verify` passes locally
 - [ ] Tests cover the change, or the PR explains why they cannot
 - [ ] `CHANGELOG.md` untouched unless this is the release PR

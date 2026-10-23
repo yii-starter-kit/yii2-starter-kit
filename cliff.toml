@@ -31,8 +31,11 @@ filter_unconventional = true
 protect_breaking_commits = false
 filter_commits = true
 sort_commits = "oldest"
-# Only `5.0.1`-style tags are releases; the legacy `v3.0.2` tag is ignored.
-tag_pattern = "[0-9]*"
+# Only plain `X.Y.Z` tags are releases. The anchors matter: `[0-9]*` would also
+# match `1`, `123` or `1-beta`, and since git-cliff sorts tags, one stray tag
+# would hijack `--bumped-version`. The anchored pattern also keeps the legacy
+# `v3.0.2` tag out.
+tag_pattern = '^[0-9]+\.[0-9]+\.[0-9]+$'
 # Ordered: the first match wins. `chore(security)` is checked before the
 # generic `chore` skip rule so security work is never dropped.
 commit_parsers = [

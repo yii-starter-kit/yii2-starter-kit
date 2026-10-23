@@ -34,7 +34,7 @@ the pipelines in `taskctl.yaml` do the same work.
 | Command | What it runs |
 | --- | --- |
 | `make lint` | `composer validate --strict`, `composer audit`, `npm audit` and `commitlint` over the commits since the last release |
-| `make test` | Codeception against MySQL, inside Docker |
+| `make test` | Codeception against MySQL, inside Docker. Start the acceptance server first, see [testing](docs/testing.md) |
 | `make verify` | `lint` and `test` together |
 
 Run `make verify` before you push. CI runs the same commands, so a green run locally means a green

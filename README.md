@@ -43,7 +43,9 @@ and Node dependencies inside the containers. The manual route in
     make build   # start the containers, migrate, build assets
     ```
 
-4. Open [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost).
+4. Open [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost). If your system
+   does not resolve `*.localhost`, add the four host names to `/etc/hosts` as described in
+   [the installation guide](docs/installation.md#hostnames).
 
 The same stack answers on [http://backend.yii2-starter-kit.localhost](http://backend.yii2-starter-kit.localhost)
 for the backend, on [http://api.yii2-starter-kit.localhost](http://api.yii2-starter-kit.localhost)

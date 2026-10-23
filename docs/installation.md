@@ -45,7 +45,7 @@ The stack publishes these endpoints:
 | frontend | http://yii2-starter-kit.localhost | |
 | backend | http://backend.yii2-starter-kit.localhost | |
 | api | http://api.yii2-starter-kit.localhost | Swagger UI at the root |
-| storage | http://storage.yii2-starter-kit.localhost | Glide image endpoints |
+| storage | http://storage.yii2-starter-kit.localhost | Signed Glide image URLs, served under `/cache/...` |
 | Mailpit | http://localhost:8025 | Catches every message the application sends |
 | MySQL | `127.0.0.1:3306` | Database `yii2-starter-kit`, application user `ysk_dbu` / `ysk_pass`, root user `root` / `root` |
 
@@ -53,13 +53,34 @@ Useful commands:
 
 ```bash
 make logs                             # follow the container logs
-make down                             # stop the stack
+make down                             # stop the stack, which also discards the database
+make build                            # recreate the schema and rebuild assets
 docker compose exec console bash      # shell inside the console container
 docker compose exec console php console/yii help
 ```
 
 Console commands run with `docker compose exec console php console/yii <command>`. See
 [console.md](console.md) for the full list.
+
+### Hostnames
+
+The stack answers on four `*.localhost` names. Many systems resolve them to `127.0.0.1` without
+configuration. If `getent hosts yii2-starter-kit.localhost` prints nothing, add them to
+`/etc/hosts`:
+
+```text
+127.0.0.1 yii2-starter-kit.localhost backend.yii2-starter-kit.localhost api.yii2-starter-kit.localhost storage.yii2-starter-kit.localhost
+```
+
+### Database data
+
+MySQL keeps its data in an anonymous volume mounted at `/var/lib/mysql`. `make down` removes the
+container, and the next `make up` starts MySQL on a new, empty volume, so the schema and your data
+are gone. Run `make build` to create the schema again.
+
+The old volume is not deleted, it is only left unreferenced, so repeated down and up cycles
+accumulate volumes. `docker volume prune` removes the ones no container uses, together with their
+data. This is also how you start from a clean database.
 
 ## Manual installation
 

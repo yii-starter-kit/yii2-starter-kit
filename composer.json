@@ -92,9 +92,6 @@
       "url": "https://asset-packagist.org"
     }
   ],
-  "archive": {
-    "exclude": ["docs"]
-  },
   "scripts": {
     "build:env": [
       "cp .env.dist .env"

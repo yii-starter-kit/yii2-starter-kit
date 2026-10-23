@@ -25,6 +25,6 @@
 *.gif  binary
 *.ttf  binary
 
-# Ignore all test and documentation for archive
+# Ignore repository tooling for archive. The docs ship with the package so the
+# README links keep working after `composer create-project`.
 /.gitattributes         export-ignore
-/docs                   export-ignore

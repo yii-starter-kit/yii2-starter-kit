@@ -1,0 +1,55 @@
+# git-cliff configuration — https://git-cliff.org/docs/configuration
+#
+# Turns Conventional Commits into the CHANGELOG.md sections.
+# The version comes from the git tag, never from a file: `composer.json` and
+# `package.json` intentionally carry no `version` field.
+
+[changelog]
+# Keep this header byte-for-byte identical to the preamble of CHANGELOG.md.
+# `--prepend` splits the file on it, so a drifted header puts the new release
+# section above the `# Changelog` title instead of below it.
+header = """# Changelog
+
+All notable changes to this project are documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+"""
+body = """
+{% if version %}## [{{ version | trim_start_matches(pat="v") }}] - {{ timestamp | date(format="%Y-%m-%d") }}{% else %}## [Unreleased]{% endif %}
+{% for group in ["Added", "Changed", "Removed", "Fixed", "Security"] %}{% set entries = commits | filter(attribute="group", value=group) %}{% if entries | length > 0 %}
+### {{ group }}
+
+{% for commit in entries %}- {% if commit.scope %}**{{ commit.scope }}**: {% endif %}{% if commit.breaking %}**Breaking:** {% endif %}{{ commit.message | upper_first }}
+{% endfor %}{% endif %}{% endfor %}"""
+trim = false
+footer = ""
+
+[git]
+conventional_commits = true
+filter_unconventional = true
+protect_breaking_commits = false
+filter_commits = true
+sort_commits = "oldest"
+# Only `5.0.1`-style tags are releases; the legacy `v3.0.2` tag is ignored.
+tag_pattern = "[0-9]*"
+# Ordered: the first match wins. `chore(security)` is checked before the
+# generic `chore` skip rule so security work is never dropped.
+commit_parsers = [
+  { message = "^feat", group = "Added" },
+  { message = "^fix", group = "Fixed" },
+  { message = "^perf", group = "Changed" },
+  { message = "^refactor", group = "Changed" },
+  { message = "^docs", group = "Changed" },
+  { message = "^revert", group = "Removed" },
+  { message = "^chore\\(security\\)", group = "Security" },
+  { message = "^chore", skip = true },
+  { message = "^ci", skip = true },
+  { message = "^build", skip = true },
+  { message = "^test", skip = true },
+  { message = "^style", skip = true },
+]
+
+[bump]
+features_always_bump_minor = true
+breaking_always_bump_major = true

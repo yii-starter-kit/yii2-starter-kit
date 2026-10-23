@@ -40,6 +40,7 @@ Please, consider helping project via [contributions](https://github.com/yii2-sta
 - [Components documentation](docs/components.md)
 - [Console commands](docs/console.md)
 - [Testing](docs/testing.md)
+- [Development workflow](docs/development-workflow.md)
 - [FAQ](docs/faq.md)
 - [How to contribute?](#how-to-contribute)
 - [Have any questions?](#have-any-questions)
@@ -145,6 +146,17 @@ Password: user
 
 ## How to contribute?
 You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
+
+The workflow is described in [docs/development-workflow.md](docs/development-workflow.md): branch from
+`main`, write [Conventional Commits](https://www.conventionalcommits.org), and open a
+pull request. Commits are checked by `commitlint` on commit and in CI, and the
+changelog is generated from them with `git-cliff`.
+
+```bash
+make hooks      # enable the commit-msg hook, once per clone
+make up         # start the Docker stack
+make verify     # the checks a pull request has to pass
+```
 
 ## Have any questions?
 Mail to [victor@vgr.cl](mailto:victor@vgr.cl) or [yevhen.terentiev@gmail.com](mailto:yevhen.terentiev@gmai.com)

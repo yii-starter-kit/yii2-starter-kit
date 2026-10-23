@@ -32,3 +32,9 @@ phpunit.phar
 
 # Tests
 tests/*/_support/_generated/
+
+# husky internals
+/.husky/_
+
+# AI
+/.ai

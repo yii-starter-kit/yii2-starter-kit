@@ -1,0 +1,55 @@
+name: release
+
+# A release is a tag. `make tag VERSION=x.y.z` pushes it from main, and this
+# workflow turns that tag into a GitHub release using the CHANGELOG.md section
+# `make release` wrote. The same tag is what Packagist publishes, so there is
+# exactly one release event.
+
+on:
+  push:
+    tags:
+      - '[0-9]*.[0-9]*.[0-9]*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish the release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Check the tag matches CHANGELOG.md
+        run: |
+          version="${GITHUB_REF_NAME}"
+          documented=$(grep -m1 -oE '^## \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | tr -d '#[] ')
+
+          if [ "$version" != "$documented" ]; then
+            echo "Tag $version does not match the newest CHANGELOG.md section ($documented)." >&2
+            echo "Tag the commit that carries the release changelog." >&2
+            exit 1
+          fi
+
+      - name: Extract the release notes
+        run: |
+          awk -v version="${GITHUB_REF_NAME}" '
+            $0 ~ "^## \\[" version "\\]" { found = 1; next }
+            found && /^## \[/ { exit }
+            found { print }
+          ' CHANGELOG.md | sed '/./,$!d' > "$RUNNER_TEMP/notes.md"
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${GITHUB_REF_NAME}"
+
+          if gh release view "$version" > /dev/null 2>&1; then
+            echo "Release $version already exists; nothing to do."
+            exit 0
+          fi
+
+          gh release create "$version" --title "$version" --notes-file "$RUNNER_TEMP/notes.md"

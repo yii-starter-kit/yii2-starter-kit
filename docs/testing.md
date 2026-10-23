@@ -2,6 +2,11 @@
 
 ## Automated
 ```bash
+make test
+```
+
+or
+```bash
 taskctl docker:tests
 ```
 or

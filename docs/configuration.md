@@ -6,7 +6,8 @@ files in `common/config`, `frontend/config`, `backend/config`, `api/config` and 
 
 Create the file with `make env`, which copies `.env.dist`, then edit it. `.env` is gitignored and
 must never be committed. `env()` returns `null` for a missing key unless a default is passed, and
-only two defaults exist: `YII_ENV` falls back to `prod` and `DB_CHARSET` falls back to `utf8mb4`.
+only three call sites pass one: `YII_ENV` falls back to `prod`, `DB_CHARSET` to `utf8mb4` and
+`LINK_ASSETS` to `false`.
 
 ## Framework
 
@@ -20,7 +21,7 @@ only two defaults exist: `YII_ENV` falls back to `prod` and `DB_CHARSET` falls b
 
 | Variable | Values | Effect |
 | --- | --- | --- |
-| `LINK_ASSETS` | `true`, `false` | `true` symlinks published assets instead of copying them, which is faster during development |
+| `LINK_ASSETS` | `true`, `false` | `true` symlinks published assets instead of copying them, which is faster during development. A missing value means `false`; `.env.dist` ships `true` |
 
 ## Database
 

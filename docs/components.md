@@ -1,8 +1,22 @@
+# Components
+
+The pieces this starter kit adds on top of Yii 2, with the configuration each one needs.
+
 ## API
-Starter Kit has fully configured and ready-to-use REST API module. You can access it on http://yii2-starter-kit.localhost/api/v1
-For some endpoints you should authenticate your requests with one of available methods - https://github.com/yiisoft/yii2/blob/master/docs/guide/rest-authentication.md#authentication
+
+The REST API is a separate application, served from `api.yii2-starter-kit.localhost`. Swagger UI is
+at the root of that host and the resources live under `/v1`, for example:
+
+- `GET http://api.yii2-starter-kit.localhost/v1/articles`
+- `GET http://api.yii2-starter-kit.localhost/v1/articles/{id}`
+
+Some endpoints require authentication. See the
+[Yii 2 REST authentication guide](https://github.com/yiisoft/yii2/blob/master/docs/guide/rest-authentication.md#authentication).
+
 ## Timeline (Activity)
 ```php
+use common\commands\AddToTimelineCommand;
+
 $addToTimelineCommand = new AddToTimelineCommand([
     'category' => 'user', 
     'event' => 'signup', 
@@ -13,25 +27,22 @@ Yii::$app->commandBus->handle($addToTimelineCommand);
 
 ## I18N
 If you want to store application messages in DB and to have ability to edit them from backend, run:
-```
+```bash
 php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
 ```
-it will copy all existing messages to database
 
-Then uncomment config for `DbMessageSource` in
-```php
-common/config/base.php
-```
-``common\behaviors\LocaleBehavior`` - discovers user locale from browser's predefined language or account settings
+This copies every existing message into the database. Then uncomment the `DbMessageSource` block in
+`common/config/base.php`.
+
+`common\behaviors\LocaleBehavior` detects the user locale from the browser's accepted languages or
+from the account settings.
 
 ## Queue
 
-Basic [Queueing](https://github.com/yiisoft/yii2-queue) component
-implementation a file based  queueing service.
+The queue component is [yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue) and uses the file
+driver by default, which keeps jobs in `common/runtime/queue`.
 
-Additional module [readme](https://github.com/yiisoft/yii2-queue/blob/master/README.md).
-
-Implement Queue class
+A job implements `yii\queue\JobInterface`:
 
 ```php
 class DownloadJob extends BaseObject implements \yii\queue\JobInterface
@@ -46,7 +57,7 @@ class DownloadJob extends BaseObject implements \yii\queue\JobInterface
 }
 ```
 
-Here's how to send a task into queue:
+Push a job into the queue:
 
 ```php
 Yii::$app->queue->push(new DownloadJob([
@@ -55,7 +66,7 @@ Yii::$app->queue->push(new DownloadJob([
 ]));
 ```
 
-Pushes job into queue that run after 5 min:
+Push a job that runs five minutes later:
 
 ```php
 Yii::$app->queue->delay(5 * 60)->push(new DownloadJob([
@@ -64,17 +75,20 @@ Yii::$app->queue->delay(5 * 60)->push(new DownloadJob([
 ]));
 ```
 
-Command that obtains and executes tasks in a loop until queue is empty:
+Process the queue until it is empty:
 
+```bash
+php console/yii queue/run
 ```
-php ./console/yii  queue/run
-```
-Command launches a daemon which infinitely queries the queue:
 
+Run a worker that keeps polling the queue:
+
+```bash
+php console/yii queue/listen
 ```
-php ./console/yii queue/listen
-```
-[See additional documentation](https://github.com/yiisoft/yii2-queue/blob/master/README.md) for more details about driver console commands and their options.
+
+See the [queue documentation](https://github.com/yiisoft/yii2-queue/blob/master/README.md) for the
+driver commands and their options.
 
 ## Key-Value storage
 Key storage is a key-value storage to store different information. Application settings for example.
@@ -85,25 +99,31 @@ Yii::$app->keyStorage->get('articles-per-page'); // 20
 ```
 
 ## Maintenance mode
-Starter kit has built-in component to provide a maintenance functionality. All you have to do is to configure ``maintenance``
-component in your config
-```php
-'bootstrap' => ['maintenance'],
-...
-'components' => [
-    ...
-    'maintenance' => [
-        'class' => 'common\components\maintenance\Maintenance',
-        'enabled' => Astronomy::isAFullMoonToday(),
-        'statusCode' => ''
-    ]
-    ...
-]
-```
-This component will catch all incoming requests, set proper response HTTP headers (503, "Retry After") and show a maintenance message.
-Additional configuration options can be found in a corresponding class.
 
-Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` key in KeyStorage is set to ``true`` or ``APP_MAINTENANCE`` environment variable set ot ``1``
+`common\components\maintenance\Maintenance` catches incoming requests, answers with `503` and a
+`Retry-After` header, and renders a maintenance page instead of the application.
+
+The frontend and the API register it, and it turns on when either condition holds:
+
+- `APP_MAINTENANCE=1` in `.env`;
+- the `frontend.maintenance` key in KeyStorage holds the string `enabled`.
+
+This is the component as `frontend/config/web.php` declares it:
+
+```php
+'maintenance' => [
+    'class' => common\components\maintenance\Maintenance::class,
+    'enabled' => function ($app) {
+        if (env('APP_MAINTENANCE') === '1') {
+            return true;
+        }
+        return $app->keyStorage->get('frontend.maintenance') === 'enabled';
+    },
+],
+```
+
+Add `'maintenance'` to the `bootstrap` array of each application you want to protect. The class
+accepts `statusCode` and a custom view as well.
 
 ## Useful behaviors
 ### CacheInvalidateBehavior
@@ -112,7 +132,7 @@ Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` k
  {
      return [
          [
-             'class' => `common\behaviors\CacheInvalidateBehavior`,
+             'class' => common\behaviors\CacheInvalidateBehavior::class,
              'tags' => [
                   'awesomeTag',
                    function($model){
@@ -129,8 +149,8 @@ Starter kit configured to turn on maintenance mode if ``frontend.maintenance`` k
      ];
  }
 ```
-#### GlobalAccessBehavior
-Allows to set access rules for your application in application config.
+### GlobalAccessBehavior
+Sets access rules for an application from its configuration.
 ```php
 'as globalAccess'=>[
         'class'=>'\common\behaviors\GlobalAccessBehavior',
@@ -160,14 +180,14 @@ Allows to set access rules for your application in application config.
         ]
     ]
 ```
-It will allow access to you application only for authentificated users. 
+In this example the application is reachable only for authenticated users. 
 
 ## Command Bus
 Read more about command bus on in [official repository](https://github.com/trntv/yii2-command-bus#yii2-command-bus)
 
 ## Widgets configurable from backend
 ### Carousel
-1. Create carousel in backend
+1. Create a carousel in the backend
 2. Use it:
 ```php
 <?php echo DbCarousel::widget(['key' => 'key-from-backend']) ?>
@@ -181,7 +201,7 @@ Read more about command bus on in [official repository](https://github.com/trntv
 ```
 
 ### DbMenu
-1. Create text block in backend
+1. Create a menu in the backend
 2. Use it:
 ```php
 <?php echo DbMenu::widget(['key' => 'key-from-backend']) ?>
@@ -206,7 +226,7 @@ Read more about command bus on in [official repository](https://github.com/trntv
 ```
 
 ## MultiModel
-``common\base\MultiModel`` - class for handling multiple models in one
+`common\base\MultiModel` treats several models as one.
 In controller:
 ```php
 $model = new MultiModel([
@@ -228,25 +248,25 @@ In view:
 ```
 
 ## Other
-- ``common\behaviors\LoginTimestampBehavior`` - logs user login time
+- `common\behaviors\LoginTimestampBehavior` records the last login time
 
-- ``common\validators\JsonValidator`` - validates a value to be a valid json
+- `common\validators\JsonValidator` validates that a value is valid JSON
 
-- ``common\rbac\rule\OwnModelRule`` - simple rule for RBAC to check if the current user is model owner
+- `common\rbac\rule\OwnModelRule` is an RBAC rule that checks whether the current user owns the model
 ```php
 Yii::$app->user->can('editOwnModel', ['model' => $model]);
 ```
 
-- ``common\filters\OwnModelAccessFilter`` - action filter to check if user is allowed to manage this model
+- `common\filters\OwnModelAccessFilter` is an action filter that checks whether the user may manage this model
 ```php
 public function behaviors()
     {
         return [
             'modelAccess' => [
-                'class' => OwnModelAccessFilter::className(),
+                'class' => OwnModelAccessFilter::class,
                 'only' => ['view', 'update', 'delete'],
                 'modelCreatedByAttribute' => 'created_by',
-                'modelClass' => Article::className()
+                'modelClass' => Article::class
             ],
         ];
     }

@@ -1,21 +1,57 @@
-#FAQ
+# FAQ
+
 ## 1. Where is Gii?
-Gii is available on:
+
+Gii is registered only when `YII_ENV=dev`, on the frontend and on the backend:
+
 - http://yii2-starter-kit.localhost/gii
 - http://backend.yii2-starter-kit.localhost/gii
 
 ## 2. How do I enable email activation?
-Edit ``frontend/config/web.php`` and set [[frontend\modules\user\Module::shouldBeActivated]] property to ``true``
 
-## 3. How do I access Mailpit?
-In the docker installation, Mailpit is running on [localhost:8025](http://localhost:8025)
+Set `shouldBeActivated` to `true` in the `user` module configuration in `frontend/config/web.php`.
 
-## 4. How do I open application cli when run application in docker?
-Run this command in project directory:
-```
+## 3. Where do the emails go?
+
+In the Docker stack, Mailpit catches every message: http://localhost:8025. The host and port come
+from `SMTP_HOST` and `SMTP_PORT`.
+
+## 4. How do I run console commands in Docker?
+
+```bash
 docker compose exec console php console/yii <command> [arguments]
 ```
-## 5. How do I change charset in existing database?
-```
+
+## 5. How do I change the charset of an existing database?
+
+```bash
 docker compose exec console php console/yii app/alter-charset <charset> <collation>
 ```
+
+The default is `utf8mb4` with `utf8mb4_unicode_ci`, and the command only supports MySQL.
+
+## 6. How do I reset the database?
+
+```bash
+docker compose exec console php console/yii app/truncate   # empty every table
+docker compose exec console php console/yii app/drop       # drop every table
+```
+
+Both ask for confirmation and delete data.
+
+## 7. Port 80 is already in use. What now?
+
+Change the published port of the `nginx` service in `docker-compose.yml`:
+
+```yaml
+ports:
+  - 8080:80
+```
+
+Then add the port to the `*_HOST_INFO` values in `.env` and to the hosts entries for the
+application domains.
+
+## 8. Where is the API documentation?
+
+Swagger UI is at the root of the API application, http://api.yii2-starter-kit.localhost. The
+resources live under `/v1`, for example `/v1/articles`.

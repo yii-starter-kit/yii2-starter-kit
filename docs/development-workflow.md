@@ -17,24 +17,41 @@ them and cut releases. Both use the same commands anyone can run locally.
 ### Contributor: one change
 
 ```bash
-git switch main && git pull
-git switch -c fix/cart-quantity
+# 1. one-time: fork the repository on GitHub, then clone your fork
+git clone https://github.com/<your-username>/yii2-starter-kit.git
+cd yii2-starter-kit
+git remote add upstream https://github.com/yii-starter-kit/yii2-starter-kit.git
+
+# 2. branch from the latest main
+git fetch upstream
+git switch -c fix/cart-quantity upstream/main
 
 git add backend/models/Cart.php
 git commit -S -m "fix(cart): keep the quantity when a line item is edited"
-git push -u origin fix/cart-quantity
 
-gh pr create --fill
+# 3. push to your fork and open the pull request against this repository
+git push -u origin fix/cart-quantity
+gh pr create --fill --repo yii-starter-kit/yii2-starter-kit
 ```
 
-Then CI lints the commit (`commits.yml`) and runs the suite (`main.yml`). The
+Most contributors do not have write access to this repository, so the fork is the normal path.
+Members of the `yii-starter-kit` organization can branch in place instead: `origin` is then the
+repository itself and `gh pr create --fill` works without `--repo`.
+
+Then CI lints the commit (`commits.yml`) and runs the suite (`main.yml`) on the pull request. The
 contributor is done; the commit message is now the changelog entry.
+
+A pull request opened from a fork runs this repository's workflows against the pull request, and
+GitHub may hold the first run of a new contributor until a maintainer approves it. No repository
+secret is involved, so the checks behave the same as for a branch pushed here.
 
 ### Maintainer: review, release, publish
 
 ```bash
 # 1. review the pull request and merge it (squash or merge commit)
 gh pr merge --squash --delete-branch
+#    --delete-branch only removes branches that live in this repository;
+#    a branch in a contributor's fork stays where it is
 
 # 2. cut the release on a branch of its own
 git switch main && git pull
@@ -45,7 +62,7 @@ git push -u origin chore/release-5.0.2
 gh pr create --fill
 #    ... merge it ...
 
-# 3. publish the tag — this is the release
+# 3. publish the tag: this is the release
 git switch main && git pull
 make tag                        # tags 5.0.2 and pushes it; CI creates the release
 ```
@@ -65,6 +82,8 @@ flowchart LR
 
 ## One-time setup
 
+Fork the repository if you do not have write access, then run this once per clone:
+
 ```bash
 make hooks      # enable the commit-msg hook
 make up         # start the Docker stack
@@ -75,7 +94,13 @@ make up         # start the Docker stack
 
 ## Branches
 
-Branch off `main` and open a pull request back into `main`.
+Branch off the latest `main` and open a pull request back into `main`. If you work from a fork,
+fast-forward your fork first and never merge `main` into your feature branch:
+
+```bash
+git fetch upstream
+git switch main && git merge --ff-only upstream/main
+```
 
 | Prefix | Use for |
 | --- | --- |
@@ -90,12 +115,12 @@ behaviour change and a release is hard to review and produces a noisy changelog.
 
 ## Commits
 
-```
+```text
 <type>(<scope>)!: <subject>
 
-<body — why, not what>
+<body: why, not what>
 
-<footer — BREAKING CHANGE: ..., Refs: #123>
+<footer: BREAKING CHANGE: ..., Refs: #123>
 ```
 
 ```bash
@@ -115,14 +140,14 @@ feat(api)!: drop the v1 response envelope
 | `chore(security)` | Security | patch |
 | `chore`, `ci`, `build`, `test`, `style` | not listed | patch |
 
-A breaking change — `!` before the colon or a `BREAKING CHANGE:` footer — is
+A breaking change, either `!` before the colon or a `BREAKING CHANGE:` footer, is
 marked **Breaking:** in the changelog and bumps the major version.
 
 Rules enforced by `commitlint.config.js`:
 
 - first line at most 100 characters, no trailing period, imperative mood;
-- scope lowercase and short — `(deps)`, `(docker/nginx)` — because it is used
-  as a filter and as a changelog prefix;
+- scope lowercase and short (`(deps)`, `(docker/nginx)`) because it is used as a
+  filter and as a changelog prefix;
 - one logical change per commit. If the subject needs an "and", split it.
 
 The `commit-msg` hook runs commitlint on every commit. `git commit --no-verify`
@@ -149,8 +174,8 @@ git tag -v 5.1.0
 git log --show-signature -1
 ```
 
-Only commits that land on `main` need a signature — a squash or merge done in the
-GitHub UI is signed by GitHub. Signing everything anyway keeps the history uniform
+Only commits that land on `main` need a signature, because a squash or merge done in
+the GitHub UI is signed by GitHub. Signing everything anyway keeps the history uniform
 and catches a broken key before merge instead of after.
 
 ## Before opening a pull request
@@ -182,7 +207,7 @@ make release VERSION=6.0.0    # or force one
 Then:
 
 1. Read the generated section. It is plain Markdown written from commit
-   subjects — merge related entries, drop noise, add the "why" when it matters.
+   subjects: merge related entries, drop noise, add the "why" when it matters.
    `make changelog` previews without writing anything.
 2. Open a pull request `chore/release-<version>` and merge it.
 3. Publish the tag from `main`:
@@ -196,7 +221,7 @@ The **tag is the release**. It is signed (`git tag -s`), so `git tag -v 5.1.0`
 verifies it locally. `.github/workflows/release.yml` then publishes the
 GitHub release from that section, and Packagist picks the tag up on its own.
 `make tag` refuses to run from another branch, on a version `CHANGELOG.md` does
-not document, or for a tag that already exists — so a mis-typed or premature tag
+not document, or for a tag that already exists, so a mis-typed or premature tag
 fails locally instead of on GitHub.
 
 ### Version numbers
@@ -219,7 +244,7 @@ release flow to cut a patch release.
 
 | Workflow | Checks |
 | --- | --- |
-| `main.yml` | PHP 8.4/8.5 against MySQL 8.4, `composer validate --strict`, `composer audit`, Codeception, `npm ci` + audit + `npm run build` |
+| `main.yml` | PHP 8.4 and 8.5 against MySQL 8.4, `composer validate --strict`, `composer audit --locked`, Codeception, `npm ci` + `npm audit --audit-level=high` + `npm run build` |
 | `commits.yml` | every commit in the pull request passes commitlint |
 | `release.yml` | on a pushed `x.y.z` tag: checks the tag matches `CHANGELOG.md`, then creates the GitHub release |
 

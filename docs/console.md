@@ -1,25 +1,71 @@
-# Console
-## AppController
-``php console/yii app/setup`` 
+# Console commands
 
-## ExtendedMessageController
-This controller extends default MessageController to provide some useful actions:
+The console application lives in `console/`. Run commands from the project root, and inside Docker
+prefix them with `docker compose exec console`.
 
-- Migrate messages between different message sources:
-``php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php``
+```bash
+php console/yii <command>                                 # on the host
+docker compose exec console php console/yii <command>      # in the Docker stack
+```
 
-- Replace source code language:
-``php console/yii message/replace-source-language @common/config/messages/php.php ru-RU``
-or any other locale
+Add `--interactive=0` to a command that asks for confirmation when you script it.
 
-- Remove ``Yii::t`` from source code at all
-``php console/yii message/replace-source-language @common/config/messages/php.php``
+## Application setup
 
-## RbacMigrateController
-Provides migrate functionality for RBAC.
+| Command | What it does |
+| --- | --- |
+| `app/setup` | Full setup: `set-writable`, `set-executable`, `set-keys`, then `migrate/up` and `rbac-migrate/up` |
+| `app/set-keys` | Writes random values for the `<generated_key>` placeholders in `.env` |
+| `app/set-writable` | Makes the `runtime` directories writable |
+| `app/set-executable` | Makes the `yii` entry points executable |
+| `app/demo-data [count]` | Inserts random categories and articles, `10` of each by default |
+| `app/alter-charset [charset] [collation]` | Converts every table, MySQL only |
 
-``php console/yii rbac-migrate/create init_roles``
+`app/truncate` empties every table and `app/drop` drops them. Both ask for confirmation and both
+destroy data.
 
-``php console/yii rbac-migrate/up``
+## Migrations
 
-``php console/yii rbac-migrate/down all``
+```bash
+php console/yii migrate/up              # apply database migrations
+php console/yii migrate/down 1          # revert the last migration
+php console/yii migrate/create name     # create a migration in common/migrations/db
+```
+
+## RBAC migrations
+
+RBAC migrations live in `common/migrations/rbac` and are run separately from the database
+migrations.
+
+```bash
+php console/yii rbac-migrate/up                 # apply
+php console/yii rbac-migrate/down all           # revert everything
+php console/yii rbac-migrate/create init_roles  # create a new one
+```
+
+## Messages
+
+`ExtendedMessageController` adds two actions to the framework's message command.
+
+```bash
+# copy messages from the PHP source into the database source
+php console/yii message/migrate @common/config/messages/php.php @common/config/messages/db.php
+
+# switch the language of the source strings
+php console/yii message/replace-source-language @common/config/messages/php.php ru-RU
+
+# strip Yii::t() calls from the source code
+php console/yii message/replace-source-language @common/config/messages/php.php
+```
+
+To read and write messages from the database, uncomment the `DbMessageSource` block in
+`common/config/base.php` first.
+
+## Queue
+
+The queue uses the file driver and stores jobs in `common/runtime/queue`.
+
+```bash
+php console/yii queue/run      # process the queue, then exit
+php console/yii queue/listen   # keep polling for new jobs
+```

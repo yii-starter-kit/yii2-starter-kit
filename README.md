@@ -1,173 +1,182 @@
 # Yii 2 Starter Kit
 
-<!-- BADGES/ -->
+[![Packagist Version](https://img.shields.io/packagist/v/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
+[![Packagist Downloads](https://img.shields.io/packagist/dt/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
+[![Build](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml)
 
-[![Packagist](https://img.shields.io/packagist/v/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
-[![Packagist](https://img.shields.io/packagist/dt/yii2-starter-kit/yii2-starter-kit.svg)](https://packagist.org/packages/yii2-starter-kit/yii2-starter-kit)
-[![build](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/yii-starter-kit/yii2-starter-kit/actions/workflows/main.yml)
+An application template for building advanced websites on Yii 2. It ships the parts most projects
+rebuild from scratch: authentication with RBAC, a content-managed backend, a REST API,
+internationalisation, file storage and a Docker development stack.
 
-<!-- /BADGES -->
+It is aimed at developers. The result is a starting point for your own application, not a
+finished product.
 
-# Stand with Ukraine!
+## Requirements
 
----
-<p align="center">
-   <img align="center" src="https://github.blog/wp-content/uploads/2022/03/1200x630-GitHub-1.png?resize=320%2C240">
-</p>
+| Requirement | Version | Needed for |
+| --- | --- | --- |
+| PHP | 8.4 or newer | The application. `ext-intl` and `ext-gd` are declared in `composer.json`; `pdo_mysql`, `fileinfo` and `zip` are required at runtime |
+| MySQL | 8.4 or newer | The application and the test suite |
+| Node.js | 24 or newer | Asset builds |
+| Composer | 2.x | Creating and updating the project |
+| Docker with Compose v2 | Current release | The recommended route: the containers provide PHP, Node and MySQL |
+| taskctl | Optional | An alternative to `make` |
 
-While Russia is destroying my home and my country, killing my friends and neighbors - any russian company, organization, or citizen, who do nothing about it,
-is prohibited from using this package.
-For others - please, pray for us, share information about war crimes Russia is conducting in Ukraine, do everything you can
-to urge your governments to be on the right side of history.
-Ukraine will prevail! Good triumph over evil! Русский военный корабль, иди нах#й!
-
----
-This is Yii2 start application template.
-
-It was created and developing as a fast start for building an advanced sites based on Yii2.
-
-It covers typical use cases for a new project and will help you not to waste your time doing the same work in every project
-
-## Before you start
-Requires **PHP 8.4+**, **MySQL 8.4+** and **Node.js 24+** (asset builds).
-Please, consider helping project via [contributions](https://github.com/yii2-starter-kit/yii2-starter-kit/issues) or [donations](#donations).
-
-## TABLE OF CONTENTS
-- [Features](#features)
-- [Installation](docs/installation.md)
-    - [Manual installation](docs/installation.md#manual-installation)
-    - [Docker installation](docs/installation.md#docker-installation)
-- [Components documentation](docs/components.md)
-- [Console commands](docs/console.md)
-- [Testing](docs/testing.md)
-- [Development workflow](docs/development-workflow.md)
-- [FAQ](docs/faq.md)
-- [How to contribute?](#how-to-contribute)
-- [Have any questions?](#have-any-questions)
+The Docker route needs only Docker and Composer on the host, because `make build` installs the PHP
+and Node dependencies inside the containers. The manual route in
+[docs/installation.md](docs/installation.md) needs everything in the table.
 
 ## Quickstart
-1. [Install taskctl](https://github.com/taskctl/taskctl)
-2. [Install Docker](https://docs.docker.com/get-docker/) (Compose v2 is included)
-3. Run
+
+1. Install [Docker](https://docs.docker.com/get-started/get-docker/) with Compose v2.
+2. Create the project:
+
     ```bash
     composer create-project yii2-starter-kit/yii2-starter-kit myproject.com
     cd myproject.com
-    taskctl start
     ```
-4. Go to [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost)
 
-## FEATURES
-### Admin backend
-- Beautiful and open source dashboard theme for backend [AdminLTE 3](https://adminlte.io/themes/v3/)
-- Content management components: articles, categories, static pages, editable menu, editable carousels, text blocks
-- Settings editor. Application settings form (based on KeyStorage component)
-- [File manager](https://github.com/MihailDev/yii2-elfinder)
-- Users, RBAC management
+3. Create the environment file and start the stack:
+
+    ```bash
+    make env     # write .env from .env.dist
+    make build   # start the containers, migrate, build assets
+    ```
+
+4. Open [http://yii2-starter-kit.localhost](http://yii2-starter-kit.localhost). If your system
+   does not resolve `*.localhost`, add the four host names to `/etc/hosts` as described in
+   [the installation guide](docs/installation.md#hostnames).
+
+The same stack answers on [http://backend.yii2-starter-kit.localhost](http://backend.yii2-starter-kit.localhost)
+for the backend, on [http://api.yii2-starter-kit.localhost](http://api.yii2-starter-kit.localhost)
+for the API and its Swagger UI, and on [http://localhost:8025](http://localhost:8025) for Mailpit.
+
+`make` is the maintained entry point. Run `make help` to list every target, and `make install` to
+put the Composer and npm packages on the host as well, which you need for IDE autocompletion and
+for `make test-local`. If you use another runner, the `taskctl` pipelines (`taskctl install`,
+`taskctl start`) and the Composer scripts (`composer run-script docker:build`) do the same work.
+
+## Documentation
+
+### Guides
+
+- [Installation](docs/installation.md)
+- [Configuration](docs/configuration.md)
+- [Components](docs/components.md)
+- [Console commands](docs/console.md)
+- [Testing](docs/testing.md)
+- [FAQ](docs/faq.md)
+
+### Project
+
+- [Contributing](CONTRIBUTING.md)
+- [Development workflow](docs/development-workflow.md)
+- [Changelog](CHANGELOG.md)
+- [Upgrading from 4.x](docs/upgrade-5.0.md)
+- [Security policy](SECURITY.md)
+
+## Features
+
+### Backend
+- [AdminLTE 3](https://adminlte.io/themes/v3/) dashboard theme
+- Content management: articles, categories, static pages, menus, carousels and text blocks
+- Settings editor backed by the key-value storage component
+- [File manager](https://github.com/MihailDev/yii2-elfinder) and file storage
+- Users and RBAC management
 - Events timeline
-- Logs viewer
-- System monitoring
-
-### Development tasks
-To list all available development tasks follow these steps:
-1. Install [taskctl](https://github.com/taskctl/taskctl) task runner
-2. Run ``taskctl``
-
-### I18N
-- Built-in translations:
-    - English
-    - Spanish
-    - Russian
-    - Ukrainian
-    - Chinese
-    - Vietnamese
-    - Polish
-    - Portuguese (Brazil)
-    - Indonesian (Bahasa)
-- Language switcher, built-in behavior to choose locale based on browser preferred language
-- Backend translations manager
-
-### Users
-- Sign in
-- Sign up
-- Profile editing(avatar, locale, personal data)
-- Optional activation by email
-- OAuth authorization
-- RBAC with predefined `guest`, `user`, `manager` and `administrator` roles
-- RBAC migrations support
+- Log viewer and system information
+- Translation manager
 
 ### Development
-- Ready-to-use Docker-based stack (php, nginx, mysql, Mailpit)
-- .env support
-- [Webpack](https://webpack.js.org/) build configuration
-- Key-value storage service
-- Ready to use REST API module
-- [File storage component + file upload widget](https://github.com/trntv/yii2-file-kit)
-- On-demand thumbnail creation [yii-starter-kit/yii2-glide](https://github.com/yii-starter-kit/yii2-glide)
-- Built-in queue component [yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue)
-- Command Bus with queued and async tasks support [trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus)
-- `ExtendedMessageController` with ability to replace source code language and migrate messages between message sources
-- [Some useful shortcuts](https://github.com/yii2-starter-kit/yii2-starter-kit/blob/main/common/helpers.php)
-
-### Other
-- Useful behaviors (GlobalAccessBehavior, CacheInvalidateBehavior)
-- Maintenance mode support ([more](#maintenance-mode))
-- [Aceeditor widget](https://github.com/trntv/yii2-aceeditor)
-- [Datetimepicker widget](https://github.com/trntv/yii2-bootstrap-datetimepicker),
-- [Imperavi Reactor Widget](https://github.com/asofter/yii2-imperavi-redactor),
-- [Xhprof Debug panel](https://github.com/trntv/yii2-debug-xhprof)
+- Docker stack with PHP, nginx, MySQL 8.4, Mailpit and Node
+- `.env` configuration
+- [Webpack](https://webpack.js.org/) asset build
+- REST API module with a [Swagger](https://swagger.io/) UI
+- Queue component ([yiisoft/yii2-queue](https://github.com/yiisoft/yii2-queue))
+- Command bus with queued and asynchronous tasks ([trntv/yii2-command-bus](https://github.com/trntv/yii2-command-bus))
+- Key-value storage, [file uploads](https://github.com/yii-starter-kit/yii2-file-kit) and on-demand
+  thumbnails ([yii-starter-kit/yii2-glide](https://github.com/yii-starter-kit/yii2-glide))
 - Sitemap generator
 - Extended IDE autocompletion
-- Test-ready
-- Docker support
-- Built-in [Mailpit](https://mailpit.axllent.org/)
-- [Swagger](https://swagger.io/) for API docs.
+- Codeception suites for the `api`, `backend`, `common`, `console` and `frontend` applications
+
+### Internationalisation
+- Shipped locales: `es`, `fr`, `hu`, `id`, `pl`, `pt-BR`, `ru`, `uk`, `vi` and `zh`, plus English
+- Language switcher and locale detection from the browser
+- Backend translation manager
+
+### Users
+- Sign in, sign up, and profile editing with avatar, locale and personal data
+- Optional activation by email
+- OAuth sign in
+- RBAC with the predefined `guest`, `user`, `manager` and `administrator` roles
+- RBAC migrations
+
+### Widgets and behaviours
+- [WYSIWYG Redactor widget](https://github.com/asofter/yii2-imperavi-redactor),
+  [date and time picker](https://github.com/trntv/yii2-bootstrap-datetimepicker),
+  [Ace editor](https://github.com/trntv/yii2-aceeditor) and
+  [Xhprof debug panel](https://github.com/trntv/yii2-debug-xhprof)
+- `GlobalAccessBehavior` and `CacheInvalidateBehavior`
+- Maintenance mode support ([details](docs/components.md#maintenance-mode))
 
 ## Default accounts
 
-The setup command seeds these accounts:
+The seed migration creates three accounts, one per role. The credentials and the role each one
+holds are listed in [docs/installation.md](docs/installation.md#default-accounts). Change them
+before deploying.
 
-`administrator` role account
-```
-Login: webmaster
-Password: webmaster
-```
+## Contributing
 
-`manager` role account
-```
-Login: manager
-Password: manager
-```
-
-`user` role account
-```
-Login: user
-Password: user
-```
-
-## How to contribute?
-You can contribute in any way you want. Any help appreciated, but most of all i need help with docs (^_^)
-
-The workflow is described in [docs/development-workflow.md](docs/development-workflow.md): branch from
-`main`, write [Conventional Commits](https://www.conventionalcommits.org), and open a
-pull request. Commits are checked by `commitlint` on commit and in CI, and the
-changelog is generated from them with `git-cliff`.
+Contributions of every kind are welcome, documentation included. [CONTRIBUTING.md](CONTRIBUTING.md)
+covers local setup and the checks a pull request has to pass.
+[docs/development-workflow.md](docs/development-workflow.md) explains branches,
+[Conventional Commits](https://www.conventionalcommits.org) and the release flow.
 
 ```bash
 make hooks      # enable the commit-msg hook, once per clone
 make up         # start the Docker stack
-make verify     # the checks a pull request has to pass
+make verify     # everything a pull request has to pass
 ```
 
-## Have any questions?
-Mail to [victor@vgr.cl](mailto:victor@vgr.cl) or [yevhen.terentiev@gmail.com](mailto:yevhen.terentiev@gmai.com)
+## Questions
 
-## READ MORE
-- [Yii2](https://github.com/yiisoft/yii2/tree/master/docs)
-- [Docker](https://docs.docker.com/get-started/)
+Open an [issue](https://github.com/yii-starter-kit/yii2-starter-kit/issues) or write to
+[victor@vgr.cl](mailto:victor@vgr.cl), the current maintainer.
 
+## Licence
 
-### NOTE
-This template was created mostly for developers NOT for end users.
-This is a point where you can start your application, rather than creating it from scratch.
-Good luck!
+Released under the BSD-3-Clause licence. See [LICENSE.md](LICENSE.md).
+
+## See also
+
+- [Yii 2 guide](https://github.com/yiisoft/yii2/blob/master/docs/guide/README.md)
+- [Docker documentation](https://docs.docker.com/get-started/)
+
+## Stand with Ukraine 🇺🇦
+
+This starter kit began as the work of [Yevhen Terentiev](https://github.com/trntv), who is
+Ukrainian. In March 2022, days after Russia launched its full-scale invasion, he added the note
+quoted below. The project keeps that position: the war is a crime, and staying silent about it is
+not neutrality. Companies, organisations and individuals who profit from the war, or who look
+away while it happens, are not welcome to use this package.
+
+Everyone else is welcome here, and there are concrete ways to help:
+
+- [UNITED24](https://u24.gov.ua/donate): the official Ukrainian platform for defence, medical,
+  humanitarian and rebuilding projects.
+- [Ukrainian Red Cross](https://redcross.org.ua/en/donate/): humanitarian aid for civilians
+  inside Ukraine.
+- [Razom for Ukraine](https://www.razomforukraine.org/): a US non-profit funding medical and
+  civil defence supplies, with tax-deductible donations.
+
+Sharing verified reporting about war crimes, and asking your representatives to support Ukraine,
+costs nothing and matters just as much. Thank you for taking the time.
+
+> While Russia is destroying my home and my country, killing my friends and neighbors - any
+> russian company, organization, or citizen, who do nothing about it, is prohibited from using
+> this package.
+> For others - please, pray for us, share information about war crimes Russia is conducting in
+> Ukraine, do everything you can to urge your governments to be on the right side of history.
+> Ukraine will prevail! Good triumph over evil! Русский военный корабль, иди нах#й!
 

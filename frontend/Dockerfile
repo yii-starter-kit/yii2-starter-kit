@@ -1,3 +1,3 @@
-FROM yiisoftware/yii2-php:8.4-fpm-latest
+FROM yiisoftware/yii2-php:8.5-fpm-latest
 
 WORKDIR /app

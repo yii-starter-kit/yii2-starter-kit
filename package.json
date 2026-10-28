@@ -23,7 +23,7 @@
     "less-loader": "^13.0.0",
     "mini-css-extract-plugin": "^2.10.2",
     "terser-webpack-plugin": "^5.6.1",
-    "webpack": "^5.112.0",
+    "webpack": "^5.112.2",
     "webpack-cli": "^7.2.3"
   }
 }

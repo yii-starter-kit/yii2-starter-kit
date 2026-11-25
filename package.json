@@ -10,8 +10,8 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@babel/core": "^7.29.7",
-    "@babel/preset-env": "^7.29.7",
+    "@babel/core": "^7.29.13",
+    "@babel/preset-env": "^7.29.14",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "babel-loader": "^10.1.1",
